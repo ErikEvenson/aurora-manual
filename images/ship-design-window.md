@@ -166,6 +166,30 @@ The Class Design window is where all ship classes are created in Aurora C#. Acce
 
 - **Power from engines**: Military engines generate power proportional to their size. If you need more reactor power, larger or additional engines provide it -- but watch fuel consumption.
 
+## Components Tab
+
+The Class Design window includes a **Components tab** that provides a percentage breakdown of the design by category, giving a high-level view of how tonnage and cost are distributed across the ship's systems.
+
+**Category breakdown (percentage of total hull space):**
+
+| Category | What it includes |
+|---|---|
+| Propulsion | Engines, fuel tanks |
+| Beam Weapons | Lasers, railguns, gauss cannons, plasma carronades, mesons, particle beams |
+| Essential Systems | Bridge, engineering spaces, crew quarters, life support |
+| Defense | Armor, shield generators |
+| Missiles | Missile launchers, magazines |
+| Sensors | Active sensors, passive sensors (EM/TH), fire controls |
+| Transport/Logistics | Cargo holds, troop transports, hangars, colony modules, fuel harvesting |
+
+**Cost breakdown (displayed at bottom of Components tab):**
+
+- **Class Cost** -- Total BP to build the hull and all installed components
+- **Ordnance** -- Cost of missiles and other consumable munitions loaded at commissioning
+- **Maintenance Supplies** -- Initial spare parts allocation based on engineering spaces and component complexity
+
+The Components tab is useful for quickly identifying design imbalances -- for example, a "beam cruiser" where Beam Weapons account for only 8% of tonnage may need its weapon loadout revisited, or a frigate where Defense exceeds 40% might be over-armored for its role.
+
 ## Related Sections
 
 - [Section 8.1 Design Philosophy](../8-ship-design/8.1-design-philosophy.md) -- Role-based design principles and size guidelines
