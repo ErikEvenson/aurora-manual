@@ -577,13 +577,13 @@ The relationship is roughly linear: quarter the installations means quadruple th
 
 | Decision | Recommended | Rationale |
 |----------|-------------|-----------|
-| Remove CO2 first or add O2 first | Remove CO2 first | Eliminates dangerous gas factor immediately; CO2 removal is fast |
-| Gas order: N2 vs O2 | N2 parallel, O2 after CO2 clear | N2 is safe at any quantity; O2 should not mix with dangerous gases |
-| Greenhouse strategy | Pressure-based warming | Sufficient for worlds within -20C of habitable; avoids adding gas you must later remove |
-| Ground vs space-based | Ground-based | Higher throughput per investment for multi-year projects |
-| Population during terraforming | Minimal unless mining | Reduces infrastructure investment; import population after CC drops |
-| Number of installations | 100-150 for 3-5 year timeline | Sweet spot between cost and speed; fewer = slower, more = diminishing returns on investment |
-| When to stop | CC 0.0 achieved | Do not over-terraform; redeploy to next target immediately |
+| Remove CO2 or add O2 first | Remove CO2 first | Eliminates danger immediately; fast |
+| Gas order: N2 vs O2 | N2 parallel, O2 after CO2 | N2 safe at any qty; O2 + toxics = bad |
+| Greenhouse strategy | Pressure-based warming | Good within -20C; avoids unwanted gas |
+| Ground vs space-based | Ground-based | Higher throughput for multi-year projects |
+| Pop. during terraforming | Minimal unless mining | Import pop after CC drops |
+| Number of installations | 100-150 (3-5 yr) | Cost/speed sweet spot |
+| When to stop | CC 0.0 achieved | Redeploy to next target immediately |
 
 ---
 
