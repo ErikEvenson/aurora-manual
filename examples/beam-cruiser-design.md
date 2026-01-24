@@ -17,7 +17,7 @@ Design a **10,000-ton beam cruiser** capable of:
 - **Laser Technology**: 10cm focal size available, Ultraviolet wavelength (1.0x range modifier)
 - **Fire Control**: Beam FC with tracking speed up to 5,000 km/s
 - **Engine Power Multiplier**: 5 EP/HS (base, no boost applied yet)
-- **Fuel Consumption Modifier**: 0.5 (halved consumption, larger engine)
+- **Fuel Consumption Modifier**: 1.0 (standard -- lower values improve range but increase engine size)
 - **Armor**: Duranium (strength 5 per layer)
 - **Shipyard**: Naval yard capable of 10,000 tons
 
@@ -32,34 +32,32 @@ Our cruiser is a **medium-range beam combatant**. This means:
 - We need speed to dictate engagement terms against slower opponents
 - We need enough armor to survive several volleys while trading fire
 
-**Design target speed**: ~4,000 km/s (fast enough to outrun heavy ships, close enough to catch most opponents)
+**Design target speed**: ~2,500 km/s or better (fast enough to dictate engagement terms, competitive in the "Moderate" speed class for early-game cruisers)
 
 ---
 
 ## Step 2: Engine Sizing
 
-We want 4,000 km/s from a 10,000-ton hull. Using the speed formula:
+We want at least 2,500 km/s from a 10,000-ton hull (200 HS). Let us start by checking what 4,000 km/s (a "Fast" speed) would require, then work down to what is achievable. Using the speed formula (see Section 8.3.3 and the Aurora wiki):
 
 ```
-Speed (km/s) = Total_Engine_Power / Ship_Mass (tons)
+Speed (km/s) = Total_Engine_Power * 1000 / Ship_Size (HS)
 ```
 
-Solving for required Engine Power:
+Where 1 EP is the power required to propel 1 HS (50 tons) at 1000 km/s against Trans-Newtonian drag. Equivalently, since Ship_Size (HS) = Ship_Mass (tons) / 50:
+
 ```
-Required EP = Speed x Ship_Mass
-Required EP = 4000 x 10000 / 5000
-Required EP = 8000 EP (using the practical formula: Speed = EP * 5000 / Mass)
+Speed (km/s) = Total_EP * 50,000 / Ship_Mass (tons)
 ```
 
-Wait -- let us use the correct practical formula from the manual:
+Solving for required Engine Power at our target speed:
 ```
-Speed = Total EP * 5000 / Ship_Mass (tons)
-4000 = Total EP * 5000 / 10000
-Total EP = 4000 * 10000 / 5000
-Total EP = 8000 EP
+Required EP = Speed * Ship_Size (HS) / 1000
+Required EP = 4000 * 200 / 1000
+Required EP = 800 EP
 ```
 
-**But** this assumes the final ship mass is exactly 10,000 tons. In practice, the engines themselves add mass. We need to iterate. Let us start with the engine calculation:
+**But** this assumes the final ship size is exactly 200 HS. In practice, the engines themselves add mass. We need to iterate. Let us start with the engine calculation.
 
 With Nuclear Thermal Engine at 5 EP/HS, we can apply a power boost. Let us try a **1.25x boost** (the sweet spot per Appendix D -- 25% more power with ~56% more fuel consumption):
 
@@ -67,94 +65,57 @@ With Nuclear Thermal Engine at 5 EP/HS, we can apply a power boost. Let us try a
 Boosted EP/HS = 5 x 1.25 = 6.25 EP/HS
 ```
 
-With fuel consumption modifier of 0.5, our engines are physically larger but more fuel-efficient. A 25 HS engine (the maximum starting size) produces:
+Using fuel consumption modifier of **1.0** (standard) -- lower values improve range but increase engine physical size for the same power, a poor trade-off for warships. A 25 HS engine (the maximum starting size) produces:
 ```
 Engine Power = 25 HS x 6.25 EP/HS = 156.25 EP per engine
 Engine Mass = 25 HS x 50 tons/HS = 1,250 tons per engine
 ```
 
-We need ~8,000 EP. Let us try 4 engines:
+We need 800 EP. Let us check how many engines that requires:
 ```
-4 engines x 156.25 EP = 625 EP total
-```
-
-That is far too low. The issue is that at TN start with only 5 EP/HS, engines are quite weak. Let us recalculate without the fuel consumption modifier affecting size (the fuel consumption modifier of 0.5 makes the engine larger for the same power):
-
-Actually, re-reading Section 8.3.4: "Lower fuel consumption values increase the engine's physical size for the same power output." So with fuel consumption 0.5, an engine occupies 2x the HS for the same EP output. This means:
-
-```
-Effective EP/HS (with 0.5 fuel mod) = 6.25 / 2 = 3.125 EP per HS of engine
+Engines needed = 800 / 156.25 = 5.12 engines
 ```
 
-This is extremely bulky. Let us reconsider and use a fuel consumption modifier of **1.0** (standard) with 1.25x boost instead:
+Six 25 HS engines would provide enough power but consume 7,500 tons (75% of our hull) -- far too much. Let us calculate what speed is actually achievable at a reasonable engine allocation.
 
-```
-EP/HS = 5 x 1.25 = 6.25 EP/HS (at standard fuel consumption)
-```
-
-For 4 engines at 25 HS each:
-```
-Total EP = 4 x 25 x 6.25 = 625 EP
-Engine Mass = 4 x 25 x 50 = 5,000 tons
-```
-
-Speed with just engines and remaining hull:
-```
-Speed = 625 * 5000 / 10000 = 312.5 km/s
-```
-
-This is far too slow. The problem is clear: **at TN-start technology (5 EP/HS), a 10,000-ton cruiser cannot achieve 4,000 km/s**. Let us recalculate what speed is actually achievable.
-
-**Revised speed target**: Let us determine how fast we CAN go, dedicating ~40% of tonnage to engines:
+**Revised approach**: Dedicate ~40% of tonnage to engines (a reasonable warship allocation):
 
 ```
 Engine tonnage: 4,000 tons = 80 HS total
-With 1.25x boost: EP = 80 x 5 x 1.25 = 500 EP
-Speed = 500 * 5000 / 10000 = 250 km/s
-```
-
-Still too slow. At TN start, we clearly need to adjust expectations. Let us use a **higher boost** (1.5x, accepting 305% fuel consumption):
-
-```
-EP = 80 HS x 5 x 1.5 = 600 EP
-Speed = 600 * 5000 / 10000 = 300 km/s
-```
-
-**Reality check**: At TN-start technology, 10,000-ton beam cruisers are very slow. A more realistic target with Nuclear Thermal is approximately **250-400 km/s** for a full cruiser. For our worked example, let us assume we have researched **one level up** to Nuclear Pulse Engine (8 EP/HS), which is listed as "Early" era and a natural first research target.
-
-**Revised starting assumption**: Nuclear Pulse Engine (8 EP/HS)
-
-```
-Engine tonnage budget: 3,000 tons = 60 HS
-Split into 3 engines of 20 HS each (for redundancy)
-Boost: 1.25x
-EP per engine = 20 x 8 x 1.25 = 200 EP
-Total EP = 3 x 200 = 600 EP
+Split into 4 engines of 20 HS each (for redundancy)
+With 1.25x boost: EP per engine = 20 x 6.25 = 125 EP
+Total EP = 4 x 125 = 500 EP
 Engine HTK = sqrt(20) = 4.47 per engine (good redundancy)
 ```
 
-Preliminary speed estimate (assuming ~10,000 total tons):
+Speed at 200 HS total ship size:
 ```
-Speed = 600 * 5000 / 10000 = 300 km/s
+Speed = 500 * 1000 / 200 = 2,500 km/s
 ```
 
-Hmm, still low. Let us push to **50% of tonnage in engines** (5,000 tons = 100 HS), split as 4 engines of 25 HS:
+**2,500 km/s** is solidly in the "Moderate" speed class and very competitive for a TN-start beam cruiser. This is fast enough to dictate engagement terms against heavy ships and keep pace with most early-game threats.
+
+However, 4,000 km/s (the "Fast" speed class) would require either higher tech or a much larger engine fraction. Let us check what a 50% engine allocation gives:
 
 ```
-EP per engine = 25 x 8 x 1.25 = 250 EP
-Total EP = 4 x 250 = 1000 EP
-Speed = 1000 * 5000 / 10000 = 500 km/s
+Engine tonnage: 5,000 tons = 100 HS total
+Split into 4 engines of 25 HS each
+With 1.25x boost: EP per engine = 25 x 6.25 = 156.25 EP
+Total EP = 4 x 156.25 = 625 EP
+Speed = 625 * 1000 / 200 = 3,125 km/s
 Engine HTK = sqrt(25) = 5 per engine
 ```
 
-**Final engine decision**: 4x 25 HS Nuclear Pulse Engines at 1.25x boost
+3,125 km/s is excellent, but 50% of the hull in engines leaves tight margins for weapons and armor. The 40% allocation at 2,500 km/s is the better balance for a cruiser that needs to carry weapons, armor, and sensors.
 
-- Total engine mass: 5,000 tons
-- Total EP: 1,000
-- Speed (at 10,000 tons): ~500 km/s
-- Engine HTK: 5 each (20 total -- excellent redundancy)
+**Final engine decision**: 4x 20 HS Nuclear Thermal Engines at 1.25x boost
 
-**Note**: 500 km/s is modest but workable for early-game. Fleet doctrine should pair this cruiser with escorts of similar speed.
+- Total engine mass: 4,000 tons (80 HS)
+- Total EP: 500
+- Speed (at 10,000 tons / 200 HS): 2,500 km/s
+- Engine HTK: 4.47 each (17.9 total -- good redundancy)
+
+**Note**: 2,500 km/s is a strong speed for TN-start technology. Researching Nuclear Pulse (8 EP/HS) would boost this same engine allocation to 4,000 km/s, making engine technology research a high priority.
 
 ---
 
@@ -204,14 +165,14 @@ The fire control must:
 Tracking modifier = min(1.0, FC_Tracking_Speed / Target_Speed)
 ```
 
-With FC tracking 5,000 km/s vs a target at 500 km/s (our own speed class):
+With FC tracking 5,000 km/s vs a target at 2,500 km/s (our own speed class):
 ```
-Tracking mod = min(1.0, 5000 / 500) = 1.0 (full accuracy)
+Tracking mod = min(1.0, 5000 / 2500) = 1.0 (full accuracy)
 ```
 
-Even against faster targets at 3,000 km/s:
+Even against faster targets at 4,000 km/s:
 ```
-Tracking mod = min(1.0, 5000 / 3000) = 1.0 (still full accuracy)
+Tracking mod = min(1.0, 5000 / 4000) = 1.0 (still full accuracy)
 ```
 
 Our 5,000 km/s tracking is more than adequate for this era. It would only degrade against targets faster than 5,000 km/s.
@@ -366,53 +327,32 @@ That only powers a fraction of one laser. Not worth the tonnage for such minimal
 
 ## Step 9: Fuel Tankage
 
-We want enough fuel for sustained system operations. Target: ability to traverse a solar system and engage in combat (~15-20 billion km range).
+We want enough fuel for sustained system operations. The warship guideline from Section 8.3.4 recommends 15-25% of hull tonnage devoted to fuel.
 
-Fuel consumption with 1.25x engine boost:
+Fuel consumption with 1.25x engine boost and 20 HS engines (fuel consumption modifier = sqrt(10/20) = 0.707):
 ```
 Boost penalty at 1.25x: approximately 1.56x fuel consumption
-Fuel per hour = Total_EP x Fuel_Consumption_Rate x Boost_Penalty
+Base fuel rate per EP/hour = Fuel_Consumption_Modifier x Boost_Penalty
+Base fuel rate = 0.707 x 1.56 = 1.103 litres per EP per hour
+Fuel per hour = 500 EP x 1.103 = 551.5 litres/hour (approximate)
 ```
 
-With standard fuel consumption rate (1.0) and 1.25x boost:
-```
-Fuel per hour = 1000 EP x 1.0 x 1.56 = 1,560 litres/hour (approximate)
-```
-
-For 15 billion km range:
+Range calculation at our speed of 2,500 km/s:
 ```
 Range (billion km) = Fuel_Capacity / Fuel_per_Hour x Speed x 3600 / 1,000,000,000
-15 = Fuel_Capacity / 1560 x 500 x 3600 / 1,000,000,000
-15 = Fuel_Capacity x 1,800,000 / (1560 x 1,000,000,000)
-15 = Fuel_Capacity x 0.001154
-Fuel_Capacity = 15 / 0.001154 = approximately 13,000,000 litres
 ```
 
-Standard fuel tanks hold 50,000 litres per 250 tons. So:
+Allocating **15% of hull tonnage** to fuel (1,500 tons = 30 HS):
 ```
-Fuel tanks needed = 13,000,000 / 50,000 = 260 tanks
-Tank mass = 260 x 250 = 65,000 tons
-```
-
-That is absurd -- more than 6x our ship mass. The issue: at this low speed (500 km/s), enormous fuel is needed for range. This is a fundamental limitation of early-tech beam cruisers.
-
-**Practical adjustment**: Accept shorter range (~5 billion km, enough for inner system operations):
-```
-Fuel needed for 5 billion km:
-5 = Fuel_Capacity x 0.001154
-Fuel_Capacity = approximately 4,330,000 litres
-Tank mass = 4,330,000 / 200 = approximately 21,650 tons
+Fuel capacity: 6 standard tanks x 50,000 litres = 300,000 litres
+Range = 300,000 / 551.5 x 2,500 x 3600 / 1,000,000,000
+Range = 300,000 / 551.5 x 9,000,000 / 1,000,000,000
+Range = 544.0 x 0.009 = approximately 4.9 billion km
 ```
 
-Still too much. Let us simply allocate **15-20% of hull tonnage** to fuel (the warship guideline from Section 8.3.4):
+This provides workable operational range for inner system defense. For reference, Earth-to-Jupiter distance averages about 0.8 billion km, so 4.9 billion km covers multiple round-trips within a solar system.
 
-```
-Fuel allocation: 1,500 tons = 300,000 litres (6 standard tanks)
-```
-
-This gives us limited but workable operational range for system defense. Our cruiser will need tanker support for extended deployments.
-
-**Fuel allocation**: 1,500 tons (300,000 litres)
+**Fuel allocation**: 1,500 tons (300,000 litres, ~4.9 billion km range)
 
 ---
 
@@ -453,11 +393,11 @@ The exact MSP depends on total build cost, but 5% engineering gives decent damag
 
 ## Step 11: Final Design Review
 
-### Mass Budget
+### Initial Mass Budget
 
 | Component | Mass (tons) | HS |
 |-----------|------------|-----|
-| Engines (4x 25 HS) | 5,000 | 100 |
+| Engines (4x 20 HS) | 4,000 | 80 |
 | Lasers (6x 10cm) | 900 | 18 |
 | Fire Controls (2x) | 200 | 4 |
 | Active Sensor (1x) | 250 | 5 |
@@ -466,40 +406,73 @@ The exact MSP depends on total build cost, but 5% engineering gives decent damag
 | Fuel Tanks | 1,500 | 30 |
 | Bridge | 50 | 1 |
 | Engineering | 500 | 10 |
-| **Subtotal** | **~11,900** | -- |
+| **Subtotal** | **~10,900** | -- |
 
-**Problem**: We are ~1,900 tons over budget. This is the fundamental iteration loop of ship design. Options:
+**Problem**: We are ~900 tons over budget. This is the fundamental iteration loop of ship design. Options:
 
-1. **Reduce engines** (drop to 3 engines = 3,750 tons, lose 250 EP, speed drops to ~375 km/s)
-2. **Reduce armor** (3 layers instead of 4, saves ~750 tons)
-3. **Reduce weapons** (5 lasers instead of 6, saves 150 tons)
-4. **Reduce fuel** (saves some tonnage)
+1. **Reduce armor** (3 layers instead of 4, saves ~750 tons)
+2. **Reduce weapons** (5 lasers instead of 6, saves 150 tons)
+3. **Trim fuel** (reduce to 1,000 tons, saves 500 tons but reduces range)
 
-**Revised design** -- applying option 1 + 2 + trimming fuel:
+**Revised design** -- applying option 1 (reduce armor to 3 layers):
 
 | Component | Mass (tons) | HS |
 |-----------|------------|-----|
-| Engines (3x 25 HS) | 3,750 | 75 |
+| Engines (4x 20 HS) | 4,000 | 80 |
 | Lasers (6x 10cm) | 900 | 18 |
 | Fire Controls (2x) | 200 | 4 |
 | Active Sensor (1x) | 250 | 5 |
 | Power Plant (1x 10 HS) | 500 | 10 |
 | Armor (3 layers Duranium) | ~2,250 | -- |
-| Fuel Tanks | 1,000 | 20 |
+| Fuel Tanks | 1,500 | 30 |
 | Bridge | 50 | 1 |
 | Engineering | 500 | 10 |
-| **Total** | **~9,400** | -- |
+| **Subtotal** | **~10,150** | -- |
 
-Remaining: 600 tons for crew quarters, additional sensors, or a small backup reactor.
+We are now only ~150 tons over. Trimming fuel tanks to 1,350 tons (27 HS, ~270,000 litres) brings us under budget with a small margin for crew quarters.
+
+### Final Iteration (Verified)
+
+| Component | Mass (tons) | HS |
+|-----------|------------|-----|
+| Engines (4x 20 HS) | 4,000 | 80 |
+| Lasers (6x 10cm) | 900 | 18 |
+| Fire Controls (2x) | 200 | 4 |
+| Active Sensor (1x) | 250 | 5 |
+| Power Plant (1x 10 HS) | 500 | 10 |
+| Armor (3 layers Duranium) | ~2,250 | -- |
+| Fuel Tanks | 1,350 | 27 |
+| Bridge | 50 | 1 |
+| Engineering | 500 | 10 |
+| Crew Quarters | 50 | 1 |
+| **Total** | **~10,050** | -- |
+
+Close enough to 10,000 tons (the ~50 ton excess can be absorbed by minor sizing adjustments in the ship designer). Final speed calculation with 200.5 HS effective size:
+
+```
+Speed = 500 EP * 1000 / 201 HS = 2,488 km/s (approximately 2,500 km/s)
+```
 
 ### Final Performance Characteristics
 
 ```
-Speed = 750 EP * 5000 / 10000 = 375 km/s
+Speed: 500 EP * 1000 / ~200 HS = 2,500 km/s
 Armor: 3 layers x 5 strength = 15 damage to penetrate per column
 Firepower: 60 damage per volley (6 lasers x 10 damage)
-Range: Limited system defense (~200 million km operational radius)
+Power: 60 (exactly matching weapon draw)
+Range: ~4.4 billion km (inner system defense)
+Engine redundancy: 4 engines, HTK 4.47 each (17.9 total)
 ```
+
+### Speed Upgrade Path
+
+Once Nuclear Pulse Engine (8 EP/HS) is researched, the same 80 HS engine allocation produces:
+```
+EP = 80 * 8 * 1.25 = 800 EP
+Speed = 800 * 1000 / 200 = 4,000 km/s
+```
+
+This makes engine technology research the single highest-impact upgrade path for this design.
 
 ---
 
@@ -509,7 +482,10 @@ Range: Limited system defense (~200 million km operational radius)
 At early tech, lasers deal 2.5x more damage per power unit (10 vs 4) and occupy less than half the hull space per weapon. Particle beams become competitive when armor reaches 6+ layers and single-column penetration matters. At 3-4 layers of Duranium, raw laser damage is more effective.
 
 ### Speed vs Armor Trade-Off
-We chose 3 layers (speed doctrine leaning) over 5+ layers (armor doctrine). At 375 km/s, we can disengage from slower opponents but cannot outrun fast scouts. The 3 layers stop particle beams cold and require 2 laser hits per column to penetrate -- reasonable for trading fire at medium range.
+We chose 3 layers (moderate protection) over 4+ layers (heavy armor doctrine). At 2,500 km/s, we can dictate engagement terms against most early-game opponents and outrun heavily armored battleships. The 3 layers stop particle beams cold (4 damage < 5 armor strength) and require 2 laser hits per column to penetrate -- reasonable for trading fire at medium range.
+
+### Why 40% Engine Allocation Works
+Dedicating 40% of tonnage to engines at TN-start provides 2,500 km/s -- solidly in the "Moderate" speed class. This leaves 60% of hull for weapons, armor, sensors, and support systems. Going to 50% (3,125 km/s) would require sacrificing either weapons or armor, weakening the ship's core combat role.
 
 ### Number of Weapons vs Individual Size
 Six 10cm lasers provide better sustained firepower than fewer larger weapons because:
@@ -535,7 +511,7 @@ Six 10cm lasers provide better sustained firepower than fewer larger weapons bec
 
 6. **Single Point of Failure Components**: One power plant, one fire control, or one engine means a single hit can cripple your ship. Where tonnage allows, distribute critical systems across multiple components.
 
-7. **Designing in Isolation**: If your cruiser moves at 375 km/s but your destroyers move at 600 km/s, the task group is limited to cruiser speed. Design your fleet as a system.
+7. **Designing in Isolation**: If your cruiser moves at 2,500 km/s but your destroyers move at 4,000 km/s, the task group is limited to cruiser speed. Design your fleet as a system.
 
 ---
 
