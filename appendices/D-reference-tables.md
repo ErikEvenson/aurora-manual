@@ -50,6 +50,8 @@ For installation placement and colony management, see [Section 5.1 Establishing 
 | Ground Force Construction Complex | 2,400 | 2,400 Vendarite | 1,000,000 |
 | Research Facility | 2,400 | 1,200 Duranium + 1,200 Mercassium | 1,000,000 |
 
+**Understanding Mineral Composition:** The mineral requirements for each installation reflect its functional complexity and purpose. Simple extraction installations like Mines require only Corundium (a hard, durable mineral suited to drilling equipment), while Research Facilities demand both Duranium (structural framework) and Mercassium (precision electronics and sensor components). Military-adjacent installations such as Construction Factories need Neutronium for its advanced structural properties alongside Duranium. Terraforming Installations combine Duranium (structural) with Boronide (atmospheric processing and energy systems). In general, installations requiring multiple minerals represent more sophisticated technology that draws on different material properties -- structural integrity, energy conductance, precision manufacturing, or chemical reactivity -- to fulfill their role.
+
 ### Installation Output Summary
 
 | Installation | Base Output per Unit |
@@ -66,10 +68,16 @@ For installation placement and colony management, see [Section 5.1 Establishing 
 - Mass: 50,000 tons per installation (2x standard installation size)
 - Worker requirement: 125,000 per installation
 - Base terraform rate: 0.00025 atm/year per installation (starting racial tech)
-- Rate modified by planet size: Earth Surface Area / Planet Surface Area
+- Rate modified by planet size: The effective terraforming rate scales inversely with planet surface area relative to Earth. The formula is:
+  ```
+  Effective Rate = Base Rate × (Earth Radius / Planet Radius)²
+  ```
+  Since surface area is proportional to radius squared, this simplifies to: `Effective Rate = Base Rate × (Earth Surface Area / Planet Surface Area)`. Smaller planets terraform faster because there is less atmosphere to modify; larger planets take proportionally longer. For example, a planet with twice Earth's radius would terraform at one-quarter the base rate.
 - Tech progression: 0.00032, 0.0004, 0.00048, 0.0006, 0.00075, 0.00096, 0.0012, 0.0015, 0.0019, 0.0024, 0.003, 0.00375
 
 ## D.3 Beam Weapon Quick Reference
+
+> **Note:** Values in this section reflect Aurora C# v2.6.1. Check the official changelog for updates in later versions.
 
 For combat usage and tactical considerations, see [Section 12.2 Beam Weapons](../12-combat/12.2-beam-weapons.md).
 
@@ -107,6 +115,8 @@ All beam weapons scale with two key technologies:
 Focal size (for lasers) and velocity (for railguns) affect maximum range. Higher values extend range at the cost of increased component size.
 
 ## D.4 Technology Progression Tables
+
+> **Note:** Values in this section reflect Aurora C# v2.6.1. Research costs and progression steps may differ in later versions; check the official changelog.
 
 ### Engine Technology Progression
 
