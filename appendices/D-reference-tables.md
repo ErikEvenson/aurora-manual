@@ -198,8 +198,8 @@ This section condenses the most frequently-referenced formulas from [Appendix A:
 
 | Sensor Type | Formula | Key Variable |
 |------------|---------|--------------|
-| Thermal (Passive) | Sensitivity x Target_Thermal x 10,000 km | Target engine power |
-| EM (Passive) | Sensitivity x Target_EM x 10,000 km | Target active emissions |
+| Thermal (Passive) | sqrt(Sensitivity x Target_Thermal) x 10,000 km | Target engine power |
+| EM (Passive) | sqrt(Sensitivity x Target_EM) x 10,000 km | Target active emissions |
 | Active | sqrt(Strength x Cross_Section) x 10,000 km | Target size vs resolution |
 
 **Active sensor effective range against off-resolution targets:**
@@ -239,7 +239,7 @@ Shields must be active to regenerate. Active shields generate EM signature detec
 
 | Parameter | Formula |
 |-----------|---------|
-| Speed | Total_Engine_Power / Ship_Mass (tons) |
+| Speed | Total_EP * 1000 / Ship_Size_HS (or Total_EP * 50000 / Mass_tons) |
 | Engine Power | Size (HS) x Power_per_HS x Boost_Modifier |
 | Fuel/Hour | Total_EP x Consumption_Rate x Boost_Penalty |
 | Range | Fuel_Capacity / Fuel_per_Hour x 3,600 x Speed |
@@ -254,7 +254,7 @@ Shields must be active to regenerate. Active shields generate EM signature detec
 | 1 HS | 50 tons |
 | 1 MSP (missile) | 0.25 HS = 12.5 tons |
 | 1 BP | 1 unit of production capacity |
-| Speed 1 km/s | 1 EP per ton of ship mass |
+| Speed 1 km/s | 1 EP per 1000 HS (or 0.02 EP per ton) |
 | Magazine 1 HS | 20 MSP storage capacity |
 
 ## Related Sections

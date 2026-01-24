@@ -11,18 +11,25 @@ For detailed ship design context, see [Section 8.3 Engines](../8-ship-design/8.3
 The fundamental speed formula for any vessel:
 
 ```
-Speed (km/s) = Total_Engine_Power / Ship_Mass (tons)
+Speed (km/s) = Total_Engine_Power * 1000 / Ship_Size_HS
+```
+
+Or equivalently (since 1 HS = 50 tons):
+
+```
+Speed (km/s) = Total_Engine_Power * 50000 / Ship_Mass_tons
 ```
 
 Where:
 
-- **Total_Engine_Power** = Number_of_Engines x Engine_Power_per_Unit
-- **Ship_Mass** = Hull_Size + Armor_Mass + Component_Mass + Cargo/Fuel_Mass
+- **Total_Engine_Power** = Number_of_Engines x Engine_Power_per_Unit (in EP)
+- **Ship_Size_HS** = Total ship size in Hull Spaces
+- **Ship_Mass_tons** = Ship_Size_HS x 50
 
-**Example**: A 10,000-ton ship with two engines producing 2,500 EP each:
+**Example**: A 200 HS ship (10,000 tons) with two engines producing 2,500 EP each:
 ```
-Speed = (2 x 2500) / 10000 = 0.5 km/s per EP...
-Speed = 5000 EP / 10000 tons = 500 km/s (if engines use Power x50 modifier)
+Speed = (2 x 2500) * 1000 / 200 = 25,000 km/s
+Speed = 5000 * 50000 / 10000 = 25,000 km/s (equivalent)
 ```
 
 The actual speed depends on your engine technology. Engine power is calculated as:
@@ -94,7 +101,7 @@ For detailed sensor design and usage, see [Section 11.1 Thermal and EM Signature
 ### Passive Sensor Detection (Thermal)
 
 ```
-Detection_Range (km) = Sensor_Sensitivity x Target_Thermal_Signature x 10000
+Detection_Range (km) = sqrt(Sensor_Sensitivity x Target_Thermal_Signature) x 10000
 ```
 
 Where:
@@ -110,7 +117,7 @@ Thermal_Signature = Total_Engine_Power / Thermal_Reduction_Modifier
 ### Passive Sensor Detection (EM)
 
 ```
-Detection_Range (km) = Sensor_Sensitivity x Target_EM_Signature x 10000
+Detection_Range (km) = sqrt(Sensor_Sensitivity x Target_EM_Signature) x 10000
 ```
 
 Where:
@@ -287,9 +294,11 @@ For tactical combat details, see [Section 12.1 Fire Controls](../12-combat/12.1-
 ```
 Base_Chance = (1 - Range/Max_Range) x 100%
 Tracking_Mod = min(1.0, Tracking_Speed / Target_Speed)
-ECM_Mod = max(0, 1 - (Target_ECM - FC_ECCM) x 0.1)
+ECM_Mod = max(0, 1 - (Target_ECM - FC_ECCM) x 0.1)  [see note below]
 Final_Chance = Base_Chance x Tracking_Mod x ECM_Mod
 ```
+
+**ECM/ECCM Note:** The 0.1 coefficient (10% reduction per net ECM level) is consistent with the database's integer ECM levels (0-10) and ECCM levels (0-10), but the exact coefficient is embedded in game combat logic and cannot be directly verified from the database alone. The formula structure is confirmed by community testing.
 
 **Example**: Laser at 50% of max range, tracking 5000 km/s vs target at 4000 km/s, target ECM-2 vs FC ECCM-1:
 ```
@@ -301,15 +310,21 @@ Final = 50% x 1.0 x 0.9 = 45%
 
 ### Beam Weapon Damage
 
-Damage varies by weapon type and range:
+Damage varies by weapon type and range. Most beam weapons lose damage over distance according to their damage gradient (see [Section 12.2.2](../12-combat/12.2-beam-weapons.md) for the full range bracket and gradient system):
+
+```
+Damage_at_Range = Base_Damage * (1 - Range / Max_Range)
+```
+
+This linear falloff means weapons at maximum range deal minimal damage (typically 1 point). Effective engagement range is generally 50-60% of maximum range.
 
 | Weapon Type | Damage Pattern |
 |-------------|---------------|
-| Laser | Full damage at all ranges |
-| Railgun | Damage x 3 (ignores 3 armor layers) |
-| Particle Beam | Full damage, range-limited |
-| Meson Cannon | Bypasses armor/shields entirely |
-| Plasma Carronade | Damage x 3 at close range, short max range |
+| Laser | Damage decreases with range (linear falloff) |
+| Railgun | Full damage at all ranges within max range; ignores armor layers equal to damage value |
+| Particle Beam | Full damage at all ranges within max range (damage gradient 1) |
+| Meson Cannon | Bypasses armor/shields entirely; always 1 damage |
+| Plasma Carronade | Full damage at all ranges within max range (damage gradient 1); short max range |
 | Gauss Cannon | 1 damage per shot, very high rate of fire |
 
 ### Armor Damage
