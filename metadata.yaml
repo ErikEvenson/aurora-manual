@@ -1,0 +1,24 @@
+---
+title: "Aurora 4X Manual"
+subtitle: "A Comprehensive Reference for Aurora C#"
+author: "Aurora Community"
+subject: "Aurora 4X Game Manual"
+keywords: [aurora, 4x, strategy, space, manual]
+lang: en
+toc: true
+toc-depth: 3
+numbersections: false
+documentclass: report
+geometry:
+  - margin=1in
+fontsize: 11pt
+linestretch: 1.15
+header-includes:
+  - \usepackage{fancyhdr}
+  - \pagestyle{fancy}
+  - \fancyhead[L]{Aurora 4X Manual}
+  - \fancyhead[R]{\leftmark}
+  - \fancyfoot[C]{\thepage}
+  - \usepackage{titlesec}
+  - \titleformat{\chapter}[display]{\normalfont\huge\bfseries}{Chapter \thechapter}{20pt}{\Huge}
+---
