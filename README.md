@@ -41,6 +41,7 @@ This manual is organized using a decimal numbering system. Each major section is
 See [CONTRIBUTING.md](CONTRIBUTING.md) for full guidelines on reporting inaccuracies, submitting corrections, and adding new content.
 
 **Quick links:**
+
 - [Report an inaccuracy](../../issues/new?template=inaccuracy-report.md) — wrong formulas, incorrect values, outdated mechanics
 - [Report missing content](../../issues/new?template=missing-content.md) — undocumented mechanics, edge cases, gaps
 
@@ -65,6 +66,7 @@ Content here.
 ## Community Review
 
 This manual covers Aurora C# v2.8.0. We welcome review from experienced players on:
+
 - Formula and value accuracy
 - Missing mechanics or edge cases
 - Outdated VB6 references

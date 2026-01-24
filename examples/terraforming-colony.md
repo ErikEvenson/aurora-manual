@@ -112,16 +112,19 @@ Surface Temp (K) = Base Temp (K) * Greenhouse Factor / Anti-Greenhouse Factor * 
 ```
 
 Current state:
+
 - Base Temp: 263K (-10C) determined by stellar distance
 - Current Greenhouse Factor: 1 + (0.3/10) + 0.015 = 1.045
 - Anti-Greenhouse Factor: 1.0 (no anti-greenhouse gases)
 - Surface Temp = 263 * 1.045 = 274.8K (1.8C... wait, this conflicts with our stated -10C)
 
 Let us set the base temperature so that current conditions produce -10C:
+
 - Need: Base_Temp * Greenhouse_Factor = 263K (-10C)
 - With GF = 1.045: Base_Temp = 263 / 1.045 = 251.7K (-21.3C)
 
 After terraforming to target atmosphere:
+
 - New Greenhouse Factor: 1 + (1.0/10) + 0.0003 + 0.01 = 1.1103
 - New Surface Temp = 251.7 * 1.1103 = 279.4K (6.4C) -- within habitable range!
 
@@ -225,6 +228,7 @@ Adding oxygen to an atmosphere with high CO2 is not dangerous in the explosive s
 ### Why Add N2 in Parallel
 
 Nitrogen is an inert filler gas. Adding it:
+
 - Increases total atmospheric pressure (mild greenhouse warming from the pressure term)
 - Dilutes remaining CO2 concentration (though the game uses partial pressure, not concentration)
 - Is safe at any quantity within reason
@@ -233,6 +237,7 @@ Nitrogen is an inert filler gas. Adding it:
 ### Why O2 Goes Last Among Major Gases
 
 Oxygen addition should begin only after toxic/dangerous gases are removed:
+
 - In this case, CO2 is the only dangerous gas and is removed quickly
 - O2 addition can safely start after month 3
 - If the atmosphere contained methane or hydrogen, O2 would need to wait until those are cleared (explosive combinations)
@@ -350,6 +355,7 @@ Each infrastructure unit supports one person at CC 1.0. At CC 2.0, you need 2 un
 ### Population Strategy During Terraforming
 
 **Option A: Minimal population during terraforming**
+
 - Station only essential workers (250,000 per ground-based terraforming installation)
 - 130 installations * 250,000 = 32.5 million workers needed
 - Infrastructure needed: 32,500,000 * 2.0 = 65,000,000 units
@@ -357,6 +363,7 @@ Each infrastructure unit supports one person at CC 1.0. At CC 2.0, you need 2 un
 - Disadvantage: No economic output from the colony during terraforming
 
 **Option B: Full colonization during terraforming**
+
 - Import population for mining, industry, and research alongside terraforming
 - Higher infrastructure investment but colony becomes productive immediately
 - As CC decreases, infrastructure requirements drop automatically
@@ -425,6 +432,7 @@ Surface Temp = 200 * 1.11 = 222K (-51C) -- still frozen!
 ```
 
 In this case, you WOULD need dedicated greenhouse gases:
+
 - Add CO2 up to 0.004 atm (just below danger threshold) for greenhouse warming
 - Add CH4 temporarily for stronger warming (then remove before adding O2)
 - Target a Greenhouse Factor high enough to reach 273K (0C)
@@ -469,6 +477,7 @@ Completion Checklist:
 ### Overshoot Prevention
 
 Watch for these overshoot conditions:
+
 - **O2 above 0.3 atm:** Becomes toxic. Stop O2 addition well before this point.
 - **O2 above 30% of total atmosphere:** Also triggers breathable gas penalty. At 1.0 atm total, cap O2 at 0.30 atm maximum.
 - **Temperature above 35C:** If greenhouse warming overshoots, you need to remove greenhouse gases or add anti-greenhouse gases.
@@ -488,6 +497,7 @@ A set of 130 installations represents a major investment. Do not leave them idle
 ### Maintenance Mode
 
 After achieving CC 0.0, the atmosphere is stable. No ongoing terraforming is needed to maintain conditions unless:
+
 - Volcanic activity adds gases (rare game event)
 - An asteroid impact introduces dust (anti-greenhouse cooling)
 - You deliberately modify the atmosphere for another species

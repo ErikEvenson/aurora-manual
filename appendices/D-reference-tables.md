@@ -21,6 +21,7 @@ The eleven Trans-Newtonian minerals are the foundation of all advanced construct
 | Gallicite | Engines (primary mineral for all engine types) |
 
 **Planning Notes:**
+
 - Duranium is consumed by virtually every project; prioritize accessible deposits early.
 - Gallicite becomes a bottleneck once you begin building fleets; secure multiple sources.
 - Sorium must be refined into fuel before use; raw Sorium has no direct application.
@@ -190,6 +191,7 @@ Missiles_Stored = Magazine_MSP / Missile_MSP_Size
 ```
 
 Each missile's MSP size is determined in the Missile Design window. Magazines are vulnerable to explosion if hit while loaded; consider:
+
 - Spreading magazines across multiple components
 - Using armored magazines (reduced capacity, +1 HTK)
 - Accepting the risk on smaller ships where space is at a premium

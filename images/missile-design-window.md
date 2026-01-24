@@ -82,6 +82,7 @@ The Missile Design window is where all missile ordnance is created in Aurora C#.
 **[6] MSP Allocation Panel** -- The core of missile design. Each row represents a component category with an editable MSP value and percentage of total size. The "Remaining" counter at the bottom shows unallocated MSP. All fields accept fractional values (e.g., 0.75 MSP). Adjusting any value triggers recalculation of all performance figures.
 
 **[7] Performance Summary Panel** -- Real-time calculated performance based on current MSP allocations and technology levels:
+
 - **Speed**: Missile velocity in km/s (Engine EP / Total MSP)
 - **Range**: Maximum distance before fuel exhaustion in millions of km
 - **Endurance**: Time the missile can fly before running out of fuel
@@ -95,6 +96,7 @@ The Missile Design window is where all missile ordnance is created in Aurora C#.
 - **Cost**: Build point cost per missile
 
 **[8] Engine Configuration Panel** -- Detailed engine settings:
+
 - **Engine Tech**: Dropdown selecting the missile engine technology (Nuclear Pulse, Ion, Magneto-Plasma, etc.)
 - **Engine MSP**: Amount of MSP devoted to the engine (mirrors the allocation panel value)
 - **Boost Level**: Multiplier applied to engine output -- higher boost means more speed but exponentially more fuel consumption when exceeding racial max boost
@@ -103,6 +105,7 @@ The Missile Design window is where all missile ordnance is created in Aurora C#.
 - **EP Output**: Effective engine power for this configuration
 
 **[9] Warhead Configuration Panel** -- Warhead settings:
+
 - **Type**: Standard, Laser, or Enhanced Radiation warhead
 - **Strength Tech**: Current warhead strength technology level (determines damage multiplier per MSP)
 - **Damage**: Calculated total damage (MSP * Strength)
@@ -110,6 +113,7 @@ The Missile Design window is where all missile ordnance is created in Aurora C#.
 - **Damage/Warhead**: Damage per individual warhead when using multiple warheads
 
 **[10] Sensor Configuration Panel** -- Onboard missile sensor settings:
+
 - **Type**: Active, Thermal, EM, Home-on-Jam, Geological, or None
 - **Resolution**: Target size the sensor is calibrated to detect (1 = missile-size, 100+ = ship-size)
 - **Sensor Size**: MSP allocated to the sensor (minimum 0.25 MSP for any effect)
@@ -120,6 +124,7 @@ The Missile Design window is where all missile ordnance is created in Aurora C#.
 **[11] Existing Designs List** -- Scrollable list of all saved missile designs for the selected race. Shows name, size (MSP), and speed. The currently selected/loaded design is highlighted with ">". Double-click a design to load it for modification or review.
 
 **[12] Design Controls** -- Buttons for managing missile designs:
+
 - **Save Design**: Saves the current allocation as a named missile design
 - **New Design**: Clears all allocations to start fresh
 - **Copy Design**: Duplicates the current design under a new name (useful for Mk II iterations)

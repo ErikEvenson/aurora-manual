@@ -88,6 +88,7 @@ The Class Design window is where all ship classes are created in Aurora C#. Acce
 **[12] Performance Statistics Panel** -- Automatically calculated summary of the design's key performance metrics. Updates in real-time as components are added or removed. Shows speed, range, endurance, armor layers, shields, maximum weapons range, crew quarters type, maintenance life, annual failure rate, and power balance (generated vs. consumed).
 
 **[13] Design Controls** -- Buttons for managing the design:
+
 - **Save Design**: Commits the current component list as a named class design
 - **Load Design**: Opens a previously saved design for modification
 - **Copy Design**: Duplicates the current design under a new name (useful for Mark II iterations)

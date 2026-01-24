@@ -26,6 +26,7 @@ Element Signature = (Unit Size x Unit Number) / (Fortification Level x Dominant 
 ```
 
 From orbit, you can observe:
+
 - **Thermal signatures** of ground installations and active equipment
 - **EM emissions** from active sensors (including STO weapon sensors)
 - **PDC locations** via active sensor sweeps
@@ -41,6 +42,7 @@ From orbit, you can observe:
 ### Intelligence Assessment for This Scenario
 
 Barnard's Star III has **Forest** terrain:
+
 - Fortification Modifier: 1.0
 - To-Hit Modifier: 0.5 (moderate concealment)
 
@@ -55,12 +57,14 @@ The detected signatures suggest 10-20 battalions. Given the population of 50M, t
 ### Option A: Bombard First
 
 **Advantages:**
+
 - Reduces enemy fortification levels before landing
 - May destroy defensive positions and key installations
 - Suppresses PDCs and potential STO weapons
 - Reduces casualties during the ground assault
 
 **Disadvantages:**
+
 - Destroys infrastructure you want to capture (factories, mines, shipyards)
 - Causes civilian casualties (each shot has a 1/3 chance of hitting the population)
 - May trigger diplomatic penalties with neutral factions
@@ -70,12 +74,14 @@ The detected signatures suggest 10-20 battalions. Given the population of 50M, t
 ### Option B: Land Without Bombardment
 
 **Advantages:**
+
 - Preserves colony infrastructure intact
 - No civilian casualties from orbital fire
 - No diplomatic complications
 - Faster timeline to productive colony
 
 **Disadvantages:**
+
 - Enemy retains full fortification (potentially level 6 for infantry with construction support)
 - Higher ground force casualties expected
 - PDCs remain active and may engage transports during landing
@@ -121,6 +127,7 @@ A minimum 3:1 attacker-to-defender ratio in combat power is recommended for assa
 ### Estimating Enemy Strength
 
 Assume worst case: 20 battalions of mixed composition:
+
 - 10 infantry battalions (fortified to level 6 with construction support)
 - 5 heavy vehicle battalions (fortified to level 3)
 - 3 artillery formations (in support position)
@@ -131,11 +138,13 @@ Assume worst case: 20 battalions of mixed composition:
 For a 3:1 ratio against 20 defending battalions, you need the equivalent of 60 battalions of combat power. However, several factors modify this:
 
 **Factors reducing required strength:**
+
 - Orbital bombardment support (precision fire through FFD elements)
 - Ground support fighters (if available)
 - Attacker surprise (defender has limited intelligence on your composition)
 
 **Factors increasing required strength:**
+
 - Forest terrain to-hit modifier (0.5x, halving accuracy)
 - Defender fortification (divides incoming to-hit further)
 - Attack mode forfeits all fortification bonuses for your troops
@@ -214,6 +223,7 @@ Each troop transport ship must be designed with sufficient bay capacity. Example
 ### For This Scenario
 
 Using 8 Heavy Transports (10,000 tons each = 80,000 ton capacity):
+
 - Load all formations simultaneously
 - Escort with combat fleet that has already achieved orbital superiority
 - Single-lift deployment preferred to maximize initial shock
@@ -231,6 +241,7 @@ Each FFD component enables 1 orbital bombardment ship OR 6 ground support fighte
 ```
 
 **For this assault:**
+
 - 10 FFD elements across all formations = 10 ships can provide precision support
 - Assign largest-caliber beam ships (25cm+ lasers preferred)
 - Ships fire simultaneously with artillery in the bombardment phase
@@ -250,6 +261,7 @@ Precision orbital support is far more accurate than NBG (Naval Bombardment of Gr
 ### STO Weapon Risk
 
 Ships in bombardment support orbit are vulnerable to STO weapons:
+
 - STO fire control has 25% range bonus vs ship-mounted equivalents
 - Multiple STO formations stack their defensive contribution
 - Monitor for STO contacts and be prepared to withdraw ships if losses mount
@@ -356,6 +368,7 @@ When breakthrough potential >= 30%:
 ### Expected Casualties
 
 Against a fortified defender in Forest terrain with 3:1 superiority:
+
 - **Attacker losses:** 15-30% of front-line combat elements over 10-20 combat phases
 - **Defender losses:** Progressive attrition, accelerating after fortification is reduced
 - **Timeline:** 5-15 days of combat (15-45 combat phases at 8 hours each)
@@ -377,6 +390,7 @@ Required Occupation Strength = Population x ((Determination + Militancy + Xenoph
 ### Calculating for This Scenario
 
 Assume conquered population characteristics:
+
 - Population: 50 million
 - Determination: 60 (moderate)
 - Militancy: 50 (average)
@@ -414,6 +428,7 @@ Production penalty = 50% reduction to all output
 ### Garrison Force Composition
 
 For long-term occupation, use inexpensive garrison formations:
+
 - **Garrison Infantry:** Reduced offensive capability, full defensive strength, lower cost
 - **HQ elements:** Maintain command structure
 - **Construction elements:** Build fortifications for garrison positions
@@ -450,6 +465,7 @@ Military suppression (excess occupation strength):
 ### Infrastructure Assessment
 
 After conquest, check:
+
 - **Mines:** Are they still operational? Bombardment may have destroyed some
 - **Factories:** Construction capacity for rebuilding
 - **Research labs:** Technology exploitation potential

@@ -104,6 +104,7 @@ A table listing every element type within the selected formation or template. Co
 
 ### [7] Aggregate Stats
 Summarizes the formation's total characteristics:
+
 - **Total Tonnage**: Determines transport ship capacity requirements.
 - **Total GSP**: Overall combat effectiveness rating.
 - **HQ Capacity**: Command tonnage available (should match or exceed total tonnage).

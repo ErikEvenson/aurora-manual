@@ -241,44 +241,52 @@ The Research window is the primary interface for managing your empire's technolo
 ## Tips and Shortcuts
 
 **Scientist Matching to Category Bonuses:**
+
 - The bonus multiplier ONLY applies when the scientist's field matches the technology's category. A +30% Power/Propulsion scientist researching an Energy Weapons tech receives 0% bonus -- they produce at base rate only.
 - A mediocre specialist (+15% in-field) always outperforms a brilliant generalist (+40% out-of-field) working outside their specialization. Always match fields first, then optimize for bonus magnitude.
 - Scientists with secondary fields get a reduced bonus in that secondary category. This makes them flexible options when no primary specialist is available.
 - When a new high-bonus scientist appears, immediately reassign them to their specialty field even if it means displacing an inferior scientist mid-project. Progress is never lost on reassignment.
 
 **Diminishing Returns on Multiple Labs:**
+
 - Labs up to the scientist's admin rating operate at 100% efficiency. Beyond that cap, each additional lab operates at roughly 50% efficiency.
 - A scientist with Admin Rating 10 supervising 15 labs gets: 10 labs at 100% + 5 labs at ~50% = effective output of 12.5 labs worth of RP. Those 5 excess labs would produce more total RP if assigned to another scientist's project.
 - Rule of thumb: never assign more than 150% of a scientist's admin rating in labs unless all other projects are fully staffed.
 - Check the **Effective Output** panel [9] after allocation changes to see the actual impact. If adding 5 labs only increases RP/yr by 250 (instead of the expected 500+), you are past the efficiency threshold.
 
 **Research Queue Management:**
+
 - Always maintain a queue of 2-3 technologies per scientist to prevent idle time between completions. An idle scientist with empty queue wastes lab capacity every day.
 - Queue technologies in the same category as the scientist's specialization to maintain the bonus through the entire queue.
 - For long prerequisite chains (like the engine path with 12+ levels), queue the entire chain for your Power/Propulsion specialist. They will work through it sequentially with no gaps.
 - As of v2.0, queued project ETAs include ancient construct bonuses in their calculations, giving accurate time estimates.
 
 **Focus vs. Breadth Strategy:**
+
 - **Focus** (all labs on one project): Use when a single technology unlock is urgently needed (jump drives, a critical weapon system, construction rate). Fastest time to a single breakthrough.
 - **Breadth** (3-6 parallel projects): Use during peacetime for steady advancement across multiple fields. Prevents any single area from falling dangerously behind.
 - **Hybrid** (60% to priority, 40% spread): The most common approach. Keeps priority research advancing quickly while maintaining progress elsewhere.
 
 **Research Rate Technology Priority:**
+
 - Researching improved Research Rate early is one of the highest-ROI investments. Each level increases ALL lab output permanently, accelerating everything researched afterward.
 - Example: 20 labs at 100 RP/yr = 2,000 RP/yr. After Research Rate improvement (150 RP/yr): 20 labs = 3,000 RP/yr. That 50% increase applies to every future project.
 - Similar logic applies to Construction Rate research -- but Research Rate amplifies research capacity, which in turn helps you research Construction Rate faster. Research Rate first, then Construction Rate.
 
 **Prototype Workflow for Fleet Planning:**
+
 - Use prototypes to design entire future ship classes before committing research resources. Create (FP) prototypes using "Show Next Tech," build a theoretical class design, evaluate its capabilities, then selectively research only the components you actually want.
 - This prevents wasting research on components you will never use in a class design.
 - Prototype classes display a (P) marker and cannot be tooled in shipyards until all components are fully researched.
 
 **Scientist Lifecycle Planning:**
+
 - Scientists have finite lifespans. Track ages in the Scientist List [6] and plan succession.
 - When your best specialist reaches age 60+, begin looking for a replacement in their field. If one appears, queue them on a secondary project in the same category to build their research queue.
 - A scientist's death mid-project does NOT destroy progress. But the replacement scientist may have a lower bonus, extending the remaining time significantly.
 
 **Ancient Construct Bonuses:**
+
 - If a colony hosts an ancient construct with a research bonus, build labs there specifically for that research field. The construct provides a local bonus to labs on that colony PLUS 10% of its bonus empire-wide.
 - A colony with a +50% Power/Propulsion construct should be your primary location for P&P research labs. The +50% local bonus stacks with the scientist's personal bonus.
 

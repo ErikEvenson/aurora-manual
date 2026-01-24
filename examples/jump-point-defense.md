@@ -45,6 +45,7 @@ Detection Range (km) = SQRT(Sensor_Sensitivity * Target_Cross_Section) * 10,000
 ```
 
 Where:
+
 - Sensor_Sensitivity = Size (HS) * Active_Sensor_Strength * Resolution^(1/1.5)
 - Target_Cross_Section = Target HS (for resolution-matched or larger targets)
 
@@ -81,6 +82,7 @@ EM Detection Range (km) = Sensor_Sensitivity * Target_EM_Signature * 10,000
 ```
 
 With a 5 HS EM sensor at tech level 4:
+
 - Sensor_Sensitivity = 5 * 4 = 20
 
 If the enemy raises shields (estimated strength 100, EM output = 300):
@@ -133,6 +135,7 @@ Stationing your combat fleet directly on the jump point is the single most commo
 ### Optimal Fleet Distance
 
 Station your combat fleet at a distance that provides:
+
 - Enough time to assess the threat after sensor detection
 - Distance for missiles to build separation from your fleet
 - Room to maneuver (retreat or advance) based on threat assessment
@@ -150,6 +153,7 @@ Time to Contact = Distance / Enemy Speed
 ```
 
 This gives you over 8 minutes of game time (at 5-second increments, that is 100 combat ticks) to:
+
 - Confirm hostile intent
 - Launch missiles
 - Adjust fleet positioning
@@ -166,6 +170,7 @@ More reaction time, but the enemy also has more time to assess and potentially r
 ### Recommended Position: 3-5 Million km from JP
 
 A distance of 3-5 million km provides:
+
 - 12-21 minutes of reaction time at enemy speed 4,000 km/s
 - Within your active sensor detection range (3.2M km for 10,000-ton targets)
 - Within missile engagement range (your size-6 missiles likely have 150-300M km range)
@@ -180,6 +185,7 @@ Station the fleet perpendicular to the JP-colony axis, so retreating draws the e
 ### Missile-First Doctrine (Recommended for JP Defense)
 
 At jump point defense, missile-first doctrine is superior because:
+
 - You fire at maximum range while the enemy is still organizing after transit
 - Enemy ships suffer fire delay after JP transit (they cannot immediately shoot back)
 - Missiles thin enemy numbers before beam range is reached
@@ -206,6 +212,7 @@ This means your first salvo hits the enemy approximately 4 minutes after launch 
 **Salvo Size Planning:**
 
 Against a potential force of 5-10 enemy warships with unknown PD capability:
+
 - Launch a minimum of 30 missiles per salvo (overwhelms typical PD of 10-15 kills/tick)
 - Hold second salvo ready for 60 seconds after first to follow up
 - Reserve 30% of missile capacity for subsequent waves
@@ -213,6 +220,7 @@ Against a potential force of 5-10 enemy warships with unknown PD capability:
 ### When to Switch to Beam-Only
 
 Use beam-only doctrine when:
+
 - You have expended all missiles and the enemy is still advancing
 - The enemy force is small enough that beam weapons can handle it
 - Enemy ECM is defeating your missile fire controls
@@ -244,12 +252,14 @@ This is shorter than ideal. Increase the FC size or consider using passive therm
 **AMM Intercept Calculation:**
 
 Against incoming missiles at 20,000 km/s, your AMMs at 32,000 km/s:
+
 - Speed advantage: AMMs are faster, so they CAN catch the incoming missiles
 - At 32,000 km/s with short fuel endurance, AMMs cover their engagement envelope quickly
 
 **AMM Magazine Sizing:**
 
 Carry at least 3x the expected incoming salvo size in AMMs:
+
 - Expected enemy salvo: 20-40 missiles
 - Required AMM stockpile: 60-120 per engagement
 - With size-1 AMMs, a single magazine holding 60 MSP of missiles = 60 AMMs
@@ -324,6 +334,7 @@ The ideal detection posture at a JP uses passive sensors exclusively until hosti
 ### Detecting Transit Signatures
 
 When a ship transits a jump point:
+
 - It appears at the JP location
 - If it has movement orders, it immediately produces thermal signature
 - If it activates sensors or shields, it produces EM signature
@@ -332,6 +343,7 @@ When a ship transits a jump point:
 **Worst-case detection (enemy under full EMCON, stationary after transit):**
 
 A 10,000-ton ship (200 HS) stationary with no active systems:
+
 - Idle thermal signature = 200 * 0.05 = 10
 - With your 5 HS thermal sensor (sensitivity 20):
 
@@ -391,6 +403,7 @@ Extended deployment at a JP requires fuel support:
 **Tanker Sizing:**
 
 If your combat fleet has total fuel capacity of 500,000 litres and consumes 2,000 litres/hour under power:
+
 - 250 hours of continuous maneuvering before empty
 - A single tanker with 200,000 litres provides one full top-up
 - Deploy 2 tankers for sustained operations
@@ -485,6 +498,7 @@ Missile flight time = 4,000,000 / 25,000 = 160 seconds (~2.7 minutes)
 ```
 
 Your PD layers engage during the final approach:
+
 - AMMs launch at detection range (~27,000 km): intercept window ~1 second
 - Ranged beams engage from laser range: several ticks of engagement
 - CIWS engages at 10,000 km: 10,000 / 25,000 = 0.4 seconds (essentially one tick)

@@ -90,6 +90,7 @@ The Shipyard management interface is located within the Economics window (F2), u
 **[2] Colony Selector** -- Dropdown listing all colonies with shipyard infrastructure. Selecting a colony displays its shipyards below. Only colonies with at least one shipyard complex appear in this list. Population is shown for workforce reference.
 
 **[3] Shipyard List** -- Master list of all shipyards at the selected colony. Each row shows:
+
 - **Name**: Shipyard identifier (auto-generated or user-renamed)
 - **Type**: Naval, Commercial, or Repair
 - **Capacity**: Maximum tonnage the yard can construct (determines largest ship class it can build)
@@ -100,6 +101,7 @@ The Shipyard management interface is located within the Economics window (F2), u
 The currently selected shipyard (indicated by ">") populates all detail panels below.
 
 **[4] Construction Queue** -- Shows all active and pending construction jobs for the selected shipyard, organized by slipway:
+
 - **Hull identifier**: Class name and hull number (sequential per class)
 - **Progress bar**: Visual indication of completion percentage
 - **Percentage complete**: Numeric completion value
@@ -108,6 +110,7 @@ The currently selected shipyard (indicated by ">") populates all detail panels b
 - **Empty slipways**: Shown as "(Empty - available)" indicating capacity for new orders
 
 **[5] Capacity and Expansion Panel** -- Displays current yard specifications and expansion options:
+
 - **Current Capacity**: Maximum ship size this yard can build (in tons)
 - **Slipways**: Current slipway count
 - **+1,000t Capacity** (Naval) / **+10,000t** (Commercial): Adds one increment of tonnage capacity. Shows BP cost. Each expansion is processed as a shipyard task.
@@ -116,6 +119,7 @@ The currently selected shipyard (indicated by ">") populates all detail panels b
 - **Current Task / Task Progress**: Shows any expansion task in progress and its completion status.
 
 **[6] Refit Options Panel** -- Interface for upgrading existing ships to newer designs:
+
 - **Refit From**: The current class of ships to be refitted
 - **Refit To**: The target class (must be similar enough for refit; typically a Mark II of the same class)
 - **Component Changes**: Number of components being swapped during the refit
@@ -125,12 +129,14 @@ The currently selected shipyard (indicated by ">") populates all detail panels b
 - **Begin Refit / Cancel Refit**: Start or abort the refit process
 
 **[7] Ship Class Selector** -- Lists all locked ship designs available for construction, filtered by the selected shipyard's type (Naval shows military classes, Commercial shows civilian classes):
+
 - Shows class name and tonnage
 - Classes exceeding the yard's current capacity are grayed out (cannot be built until capacity is expanded)
 - **Only show classes that fit**: Checkbox to hide classes too large for current capacity
 - The selected class determines what the "Start Construction" button builds
 
 **[8] Build Controls** -- Buttons for managing construction orders:
+
 - **Qty**: Number of ships to order in this batch
 - **Start Construction**: Begins building the selected class in the next available slipway (or queues if all slipways are occupied)
 - **Pause Build**: Suspends construction on the selected slipway (BP generation halts, resources freed)
@@ -138,6 +144,7 @@ The currently selected shipyard (indicated by ">") populates all detail panels b
 - **Scrap Ship**: Breaks down a completed ship, recovering a portion of minerals
 
 **[9] Retooling Panel** -- Controls for changing the shipyard's assigned class:
+
 - **Current Class**: The class this yard is currently tooled to build
 - **Retool To**: Dropdown of available classes to retool for
 - **Similarity**: Percentage of shared components between current and target class (higher = faster retool)
@@ -147,6 +154,7 @@ The currently selected shipyard (indicated by ">") populates all detail panels b
 - **Cancel Retool**: Aborts retooling (yard reverts to previous class assignment)
 
 **[10] Shipyard Task Queue** -- Priority-ordered list of all pending tasks for the selected yard:
+
 - Tasks execute sequentially in priority order
 - Includes builds, capacity expansions, slipway additions, and retooling
 - **Move Up / Move Down**: Reorders task priority

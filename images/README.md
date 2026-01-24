@@ -83,6 +83,7 @@ The Aurora C# developer (Steve Walmsley) has posted many UI screenshots in the o
 ### Known Screenshot URLs by Category
 
 **Ground Forces Window:**
+
 - http://www.pentarch.org/steve/Screenshots/Ground010.PNG
 - http://www.pentarch.org/steve/Screenshots/GroundRules004.PNG
 - http://www.pentarch.org/steve/Screenshots/GroundRules005.PNG
@@ -93,6 +94,7 @@ The Aurora C# developer (Steve Walmsley) has posted many UI screenshots in the o
 - http://www.pentarch.org/steve/Screenshots/GroundSupport002.PNG through GroundSupport006.PNG
 
 **Combat / Damage Reports:**
+
 - http://www.pentarch.org/steve/Screenshots/FiringSummary002.PNG
 - http://www.pentarch.org/steve/Screenshots/DamageReport003.PNG through DamageReport007.PNG
 - http://www.pentarch.org/steve/Screenshots/TargetSize.PNG
@@ -100,14 +102,17 @@ The Aurora C# developer (Steve Walmsley) has posted many UI screenshots in the o
 - http://www.pentarch.org/steve/Screenshots/DamageControl02.PNG
 
 **Fleet / Automated Assignments:**
+
 - http://www.pentarch.org/steve/Screenshots/AutomatedAssignment001.PNG through AutomatedAssignment011.PNG
 
 **Sensors and Detection:**
+
 - http://www.pentarch.org/steve/Screenshots/NewSensorModel1.PNG through NewSensorModel200.PNG
 - http://www.pentarch.org/steve/Screenshots/ELINT01.PNG
 - http://www.pentarch.org/steve/Screenshots/ELINT02.PNG
 
 **Economy / Systems:**
+
 - http://www.pentarch.org/steve/Screenshots/PopCapacity.PNG
 - http://www.pentarch.org/steve/Screenshots/FuelModelV2.PNG
 - http://www.pentarch.org/steve/Screenshots/PowerPlant01.PNG
@@ -116,6 +121,7 @@ The Aurora C# developer (Steve Walmsley) has posted many UI screenshots in the o
 - http://www.pentarch.org/steve/Screenshots/RenamedStars.PNG
 
 **Logistics:**
+
 - http://www.pentarch.org/steve/Screenshots/Logistics003.PNG through Logistics005.PNG
 - http://www.pentarch.org/steve/Screenshots/SupplyVehicle02.PNG
 

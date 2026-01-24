@@ -34,6 +34,7 @@ Before designing a missile, establish what you are shooting at and what defenses
 | Enemy AMM speed | ~20,000 km/s | Size-1 fast interceptors |
 
 **Key derived requirements:**
+
 - Missile speed must exceed 4,000 km/s (to catch the target)
 - Missile speed should ideally exceed 16,000 km/s (to degrade CIWS hit probability)
 - Missile range must cover the engagement distance
@@ -61,6 +62,7 @@ At Warhead Strength 3:
 | 4.0 | 12 | Devastating against most escorts |
 
 **Note on optimal warhead sizes:** Damage is applied in a square pattern against armor. Strengths that are perfect squares (1, 4, 9, 16, 25) produce the most efficient damage patterns. At Warhead Strength tech 3:
+
 - 3 MSP warhead = 9 damage = 3x3 square (optimal)
 - 1 MSP warhead = 3 damage = 1x3 strip (acceptable)
 
@@ -435,6 +437,7 @@ Explosion = 20 x 4.5 = 90 internal damage
 ```
 
 This will destroy most ships from the inside. Mitigation:
+
 - Spread missiles across multiple smaller magazines
 - Accept the risk on dedicated missile ships (keep them at range)
 - Research magazine explosion reduction technology
@@ -446,6 +449,7 @@ This will destroy most ships from the inside. Mitigation:
 ### Overwhelming PD Through Volume
 
 From our assumptions, the enemy has:
+
 - 1 CIWS (6 shots/tick at ~50% hit rate vs 4,000 km/s missiles = ~3 kills/tick)
 - 6 gauss cannons in PD mode (~4 kills/tick combined)
 - Total PD capacity: ~7 missiles per 5-second tick

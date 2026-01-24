@@ -300,29 +300,35 @@ The Colony window (also called the Economics window or Population window) is the
 ## Tips and Shortcuts
 
 **Production Priority Management:**
+
 - Split construction capacity across multiple items using percentage allocation rather than building sequentially. A 50/30/20 split between factories, mines, and infrastructure ensures parallel progress on all fronts.
 - Use the "Repeat" function for items you always need more of (mines, infrastructure). This prevents factories from sitting idle when a queue empties.
 - Unused capacity is displayed per production type (Construction, Ordnance, Fighters). If you see unused capacity, you have idle factories -- add queue items immediately.
 
 **Mineral Consumption Monitoring:**
+
 - Watch for negative values in the "Annual +/-" column of the Mineral Stockpile Display. Gallicite is the most common shortage mineral due to engine construction.
 - Calculate years until depletion: Stockpile / Annual Deficit = years of reserves remaining. Anything under 5 years demands immediate attention.
 - Compare mining output to construction consumption. If your queue consumes 15,000 Duranium/year but you only mine 8,000, either slow construction or find new deposits.
 
 **Multi-Colony Comparison:**
+
 - The "All Pop as Text" button exports all colony data simultaneously, useful for identifying which colony should receive new installations.
 - When deciding where to build new mines, compare accessibility ratings across colonies. A 0.8 accessibility deposit produces 4x more per mine than a 0.2 accessibility deposit.
 
 **Workforce Optimization:**
+
 - The Employment figure in the Population Demographics [8] shows how well your installations match your workforce. Aim for 90-100% employment.
 - If employment is low, you have too many people and not enough installations -- build more factories and mines.
 - If installations are understaffed (visible in reduced output on the Installation List), you need more population -- send colony ships.
 
 **Governor Bonuses:**
+
 - A governor with +25% mining bonus is equivalent to adding 25% more mines for free. Assign your best mining governors to your largest mining colonies.
 - Governor bonuses stack with sector commander bonuses (25% of their skill). Optimal placement amplifies total output significantly.
 
 **Environmental Awareness:**
+
 - Colony cost is NOT additive -- only the single worst factor applies. Fixing the dominant factor can slash colony cost dramatically even if other problems remain.
 - Before committing to terraforming, verify that greenhouse warming can reach habitable range: 3x base temperature is the maximum possible warming (Greenhouse Factor cap of 3.0).
 - Check atmospheric composition for dangerous gases before building infrastructure. Trace fluorine at 1 ppm triggers a colony cost floor of 2.0.

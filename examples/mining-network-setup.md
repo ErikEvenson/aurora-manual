@@ -5,6 +5,7 @@ This worked example walks through establishing an off-world mining colony and fr
 ## Objective
 
 Establish an off-world mining operation that:
+
 - Supplements Earth's depleting Duranium and Gallicite deposits
 - Operates autonomously via standing orders (minimal micromanagement)
 - Scales as mineral demand grows with fleet expansion
@@ -51,6 +52,7 @@ Output per mine = 1 ton/year x Accessibility
 **Decision: Prioritize the Asteroid Belt (#1) for Gallicite (0.9 accessibility) and Luna for Duranium (0.8 accessibility).**
 
 Rationale:
+
 - **Gallicite is the bottleneck** -- every engine requires it, and Earth's 0.1 accessibility deposit is nearly useless (10 mines produce only 1 ton/year)
 - Asteroid Belt has 0.9 accessibility Gallicite: 10 mines produce 9 tons/year (9x Earth's output)
 - Both Luna and the Asteroid Belt have colony cost 0.00 (no infrastructure needed)
@@ -148,6 +150,7 @@ Gallicite: 50 x 1.2 x 0.9 = 54 tons/year (improved tech)
 ## Step 4: Freighter Design
 
 We need a freighter to haul automated mines to the colony and bring minerals back to Earth. Key requirements:
+
 - Carry automated mines outbound (each mine is ~500 tons when transported as cargo)
 - Carry minerals homeward (bulk cargo)
 - Fuel range for round trips within the inner system
@@ -275,18 +278,21 @@ If mining both Gallicite and Duranium, the "Load All Minerals" order handles bot
 Mass drivers offer an alternative to freighter logistics:
 
 **Mass Driver specifications** (from Appendix D):
+
 - BP Cost: 600
 - Mineral Cost: 300 Duranium + 300 Neutronium
 - Workers Required: 50,000 per installation
 - Output: Launches mineral packets at a target body
 
 **Mass Driver advantages**:
+
 - Instantaneous transfer (minerals arrive within the 5-day processing increment)
 - No ongoing fuel costs
 - No freighter maintenance or crew requirements
 - Scales linearly (more drivers = more throughput)
 
 **Mass Driver disadvantages**:
+
 - Requires a mass driver at BOTH ends (one to send, one to catch)
 - Total cost: 2 x 600 BP = 1,200 BP + 600 Duranium + 600 Neutronium
 - Each installation needs 50,000 workers (requires population at both locations)

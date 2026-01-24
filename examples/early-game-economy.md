@@ -5,6 +5,7 @@ This worked example walks through the first 10 years of a conventional-start Aur
 ## Objective
 
 Starting from a conventional-technology Earth with no trans-newtonian (TN) knowledge, build a self-sustaining TN economy that can:
+
 - Produce ships and installations at meaningful rates
 - Generate sufficient fuel for fleet operations
 - Mine minerals faster than you consume them
@@ -148,6 +149,7 @@ Fuel_per_Refinery_per_Year = 2,000 litres (base tech)
 ```
 
 **Estimate fuel needs:**
+
 - A small survey ship (~2,000 tons) with efficient engines might consume 50-100 litres/hour at cruise speed
 - Annual consumption per ship: ~50 x 8,760 hours = 438,000 litres (at constant cruise)
 - Realistic annual consumption (including idle time): ~100,000-200,000 litres per survey ship
@@ -259,6 +261,7 @@ Typically this is year 2-3.
 ### Second Shipyard: Commercial (Year 4-5)
 
 Build a commercial shipyard (starts at 10,000 tons) for:
+
 - Freighters (move minerals from off-world mines)
 - Colony ships (establish mining colonies)
 - Fuel harvesters (if gas giant Sorium available)
@@ -322,6 +325,7 @@ Geological surveys reveal mineral deposits on every body in the system. Without 
 ### Expected Findings
 
 A typical Sol system survey reveals:
+
 - Luna: Moderate deposits, often decent accessibility
 - Mars: Variable, sometimes excellent deposits
 - Asteroid belt: Many small high-accessibility deposits
@@ -380,6 +384,7 @@ A pair of mass drivers (1,200 BP investment) provides permanent, fuel-free miner
 **Short answer:** After your first survey reveals something threatening, OR by year 8-9 regardless.
 
 **Triggers for military spending:**
+
 - Survey ship detects alien ruins (potential hostile NPR)
 - Jump point survey reveals an inhabited system
 - Unexplained sensor contacts
@@ -400,6 +405,7 @@ A pair of mass drivers (1,200 BP investment) provides permanent, fuel-free miner
 ### First Warship Recommendations
 
 **For a missile doctrine:**
+
 - 4,000-6,000 ton destroyer
 - Size 4-6 missile launchers
 - Magazines for 30+ missiles
@@ -407,6 +413,7 @@ A pair of mass drivers (1,200 BP investment) provides permanent, fuel-free miner
 - Basic point defense (2x gauss cannons)
 
 **For a beam doctrine:**
+
 - 3,000-5,000 ton escort
 - 2-4 lasers (20cm with best wavelength tech)
 - Fire control matching laser range

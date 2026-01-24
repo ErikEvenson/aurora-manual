@@ -5,6 +5,7 @@ This worked example walks through the complete design process for a 10,000-ton b
 ## Objective
 
 Design a **10,000-ton beam cruiser** capable of:
+
 - Engaging hostile warships at medium beam range (~200,000-400,000 km)
 - Sustaining combat for multiple volleys
 - Operating independently within a star system (reasonable fuel endurance)
@@ -25,6 +26,7 @@ Design a **10,000-ton beam cruiser** capable of:
 ## Step 1: Determine Role and Engagement Range
 
 Our cruiser is a **medium-range beam combatant**. This means:
+
 - We want to fight at 150,000-300,000 km (close enough for beam accuracy, far enough to maneuver)
 - We need weapons that deal meaningful damage at this range
 - We need speed to dictate engagement terms against slower opponents
@@ -146,6 +148,7 @@ Engine HTK = sqrt(25) = 5 per engine
 ```
 
 **Final engine decision**: 4x 25 HS Nuclear Pulse Engines at 1.25x boost
+
 - Total engine mass: 5,000 tons
 - Total EP: 1,000
 - Speed (at 10,000 tons): ~500 km/s
@@ -160,6 +163,7 @@ Engine HTK = sqrt(25) = 5 per engine
 At this tech level, our choices are:
 
 **10cm Laser (UV wavelength)**:
+
 - Damage: 10 per shot (focal size = damage)
 - Power required: 10
 - Range: base UV range for 10cm (approximately 160,000 km at starting tech)
@@ -167,6 +171,7 @@ At this tech level, our choices are:
 - Damage pattern: Gradient 3 (focused -- excellent armor penetration)
 
 **Particle Beam-4** (if researched):
+
 - Damage: 4 per shot
 - Power required: 10
 - Range: 200,000 km
@@ -219,6 +224,7 @@ FC_Range = FC_Size x Resolution x FC_Tech_Level x 10,000 km
 A standard beam FC provides range based on its size. We need range >= 160,000 km. With starting tech, a 2 HS beam FC should provide adequate range for our weapon envelope.
 
 **Fire control allocation**: 2x Beam Fire Controls (2 HS each = 4 HS total = 200 tons)
+
 - 3 lasers assigned per FC (provides redundancy -- if one FC is destroyed, half the weapons still fire)
 
 ---
@@ -226,6 +232,7 @@ A standard beam FC provides range based on its size. We need range >= 160,000 km
 ## Step 5: Sensor Selection
 
 Our cruiser needs to detect targets at engagement range or beyond. We need:
+
 - **Active sensor** to detect enemy ships
 - Resolution matched to expected target size
 
@@ -250,6 +257,7 @@ Sensor_Strength = 12.5
 A sensor of resolution 100 (optimized for ~5,000-ton ships) at approximately 5 HS should provide adequate detection range for our needs.
 
 **Sensor allocation**: 1x Active Sensor (5 HS = 250 tons), resolution 100
+
 - Detects 10,000-ton ships well beyond weapon range
 - Detects 5,000-ton ships at full rated range
 - Smaller targets detected at reduced range per the sqrt scaling
@@ -261,6 +269,7 @@ A sensor of resolution 100 (optimized for ~5,000-ton ships) at approximately 5 H
 With Duranium armor (strength 5 per layer), we need to decide on thickness. Our expected threats are similar-era beam weapons dealing 4-10 damage per hit.
 
 **Armor depth analysis**:
+
 - A 10-damage laser hit vs 5-strength Duranium: penetrates 2 layers per hit
 - A 4-damage particle beam: does NOT penetrate even 1 layer (4 < 5)
 - Multiple hits to same column will progressively strip armor
@@ -277,6 +286,7 @@ Armor mass: approximately 2,500-3,500 tons
 Let us estimate 3,000 tons for our calculations.
 
 **Armor allocation**: 4 layers Duranium = ~3,000 tons
+
 - Stops particle beam hits completely (4 damage < 5 strength)
 - Requires 2 laser hits to same column to penetrate (10 damage strips 2 layers)
 - Provides 20 total armor strength per column before internals exposed
@@ -293,6 +303,7 @@ Shield Strength Modifier = sqrt(10/10) = 1.0 (standard reference strength)
 ```
 
 This costs 500 tons (10 HS x 50 tons) and:
+
 - Provides an energy buffer before armor takes hits
 - Generates EM signature (Shield_Strength x 3) making us visible to passive EM sensors
 - Requires Corbomite (may be scarce early)
@@ -336,6 +347,7 @@ Explosion chance when hit = 5% + (20/2)% = 15%
 ```
 
 **Decision: 1x 10 HS Power Plant with 20% boost**
+
 - Output: 60 power (matches weapon draw exactly)
 - Mass: 500 tons
 - HTK: sqrt(10) = 3.16
@@ -433,6 +445,7 @@ MSP_Stored = floor(12.5 x [Build_Cost] x 500 / 10000)
 The exact MSP depends on total build cost, but 5% engineering gives decent damage repair capability.
 
 **Allocations**:
+
 - Bridge: 50 tons (1 HS)
 - Engineering: 500 tons (10 HS, 5% of hull)
 
@@ -500,6 +513,7 @@ We chose 3 layers (speed doctrine leaning) over 5+ layers (armor doctrine). At 3
 
 ### Number of Weapons vs Individual Size
 Six 10cm lasers provide better sustained firepower than fewer larger weapons because:
+
 - More individual shots means more chances to hit
 - If one laser is destroyed, you lose only 1/6 of firepower
 - Six weapons spread across 2 fire controls gives redundancy

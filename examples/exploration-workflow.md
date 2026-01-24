@@ -37,6 +37,7 @@ Before sending ships through an unknown jump point:
 ### What You Learn Immediately
 
 The system map populates with:
+
 - Primary star characteristics
 - All planets and major moons (positions, basic orbital data)
 - Asteroid belts (if present)
@@ -45,6 +46,7 @@ The system map populates with:
 ### Example System Discovery
 
 "Barnard's Star" system revealed:
+
 - M-class red dwarf (low luminosity, compact habitable zone)
 - 6 planets: 1 gas giant, 3 terrestrial, 1 dwarf planet, 1 ice giant
 - 2 asteroid belts
@@ -97,6 +99,7 @@ Use the "Survey All Locations" order for efficiency. The ship automatically rout
 ### Expected Results
 
 Of 22 survey locations, typically 20-40% contain jump points:
+
 - Expect 4-9 jump points discovered
 - Each connects to a different neighboring system
 - All represent both opportunities and potential threats
@@ -104,6 +107,7 @@ Of 22 survey locations, typically 20-40% contain jump points:
 ### For This Example
 
 After 59 days, Pathfinder discovers:
+
 - **6 jump points** found (out of 22 locations surveyed)
 - 16 locations empty
 - System has multiple routes for further exploration
@@ -318,6 +322,7 @@ No contacts detected. However, 6 jump points represent 6 potential threat vector
 ### When to Expand Escort Force
 
 Assign additional warships when:
+
 - Civilian traffic (freighters, colony ships) begins regular runs
 - Any jump point leads to a system with detected contacts
 - Colony value justifies the defense investment
@@ -356,6 +361,7 @@ Infrastructure: 500K units at (assume) 25,000 tons per freighter load
 ```
 
 This is slow. More freighters significantly accelerate colony establishment. Consider:
+
 - 4 freighters: 150 days to full infrastructure deployment
 - 6 freighters: 100 days
 
@@ -414,6 +420,7 @@ Ruins were detected on Planet III during geological survey. To exploit them:
 ### Team Composition
 
 Design a xenoarchaeology vehicle:
+
 - Base type: Standard Vehicle (or larger for more components)
 - Component: Xenoarchaeology equipment (100 tons, provides 0.5 xeno points per component)
 - Total element size: ~218 tons (component + vehicle base + armor)
@@ -470,6 +477,7 @@ Level 5 ruins: up to 64,000 RP technologies (game-changing)
 ```
 
 Possible discoveries:
+
 - Weapons technology (beam weapons, warheads)
 - Propulsion technology (engines, fuel efficiency)
 - Sensor technology (advanced sensors, fire control)
@@ -487,6 +495,7 @@ For 1M population to operate xeno teams:
 ```
 
 This is expensive. Consider whether the ruins justify the investment:
+
 - High-level ruins (Level 3+): Absolutely worth it
 - Low-level ruins (Level 1): May not justify the infrastructure cost unless conveniently located
 - Check if the body has minerals that also justify colonization (dual-purpose colony)
