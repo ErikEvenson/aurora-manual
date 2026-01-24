@@ -38,6 +38,14 @@ This manual is organized using a decimal numbering system. Each major section is
 
 ## Contributing
 
+See [CONTRIBUTING.md](CONTRIBUTING.md) for full guidelines on reporting inaccuracies, submitting corrections, and adding new content.
+
+**Quick links:**
+- [Report an inaccuracy](../../issues/new?template=inaccuracy-report.md) — wrong formulas, incorrect values, outdated mechanics
+- [Report missing content](../../issues/new?template=missing-content.md) — undocumented mechanics, edge cases, gaps
+
+### File Format
+
 Each section file should follow this format:
 
 ```markdown
@@ -53,3 +61,16 @@ Content here with practical examples.
 
 Content here.
 ```
+
+## Community Review
+
+This manual covers Aurora C# v2.5.0+. We welcome review from experienced players on:
+- Formula and value accuracy
+- Missing mechanics or edge cases
+- Outdated VB6 references
+- Quality of practical tips and advice
+- Common player questions not yet answered
+
+## Contributors
+
+*Contributors who improve this manual through issue reports, pull requests, or review will be acknowledged here.*
