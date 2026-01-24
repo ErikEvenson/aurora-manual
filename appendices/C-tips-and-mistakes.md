@@ -4,23 +4,23 @@
 
 ### Forgetting to Assign Research Labs
 
-One of the most common mistakes is building research labs but forgetting to assign them to a research project with a scientist. Labs produce nothing until assigned. Check the Research window regularly and ensure every lab has a project and a scientist assigned.
+One of the most common mistakes is building research labs but forgetting to assign them to a research project with a scientist (see [Section 7 Research](../7-research/7.1-technology-tree.md)). Labs produce nothing until assigned. Check the Research window regularly and ensure every lab has a project and a scientist assigned.
 
 ### Not Building Enough Fuel Infrastructure
 
-New players often run out of fuel unexpectedly. Fuel is consumed constantly by moving ships, and a single fleet action can drain your reserves. Build fuel refineries early, establish Sorium mining on accessible deposits, and consider fuel harvesters at gas giants. A good rule of thumb: have at least twice the fuel production you think you need.
+New players often run out of fuel unexpectedly. Fuel is consumed constantly by moving ships (see [Section 14 Logistics](../14-logistics/14.1-supply-chains.md)), and a single fleet action can drain your reserves. Build fuel refineries early, establish Sorium mining on accessible deposits, and consider fuel harvesters at gas giants. A good rule of thumb: have at least twice the fuel production you think you need.
 
 ### Designing Ships Without Bridges
 
-Any ship that needs to operate outside your home system requires a bridge. Forgetting this component means the ship cannot receive orders once it leaves orbit. Always include a bridge on combat and exploration vessels. The only exception is PDCs (Planetary Defense Centers) that never move.
+Any ship that needs to operate outside your home system requires a bridge (see [Section 8 Ship Design](../8-ship-design/8.1-design-overview.md)). Forgetting this component means the ship cannot receive orders once it leaves orbit. Always include a bridge on combat and exploration vessels. The only exception is PDCs (Planetary Defense Centers) that never move.
 
 ### Ignoring Maintenance
 
-Ships accumulate maintenance requirements over time. Without periodic overhaul at a maintenance facility, components begin failing randomly. Failures in combat can be catastrophic. Build maintenance facilities early and schedule regular overhauls before the maintenance clock expires.
+Ships accumulate maintenance requirements over time (see [Appendix A Formulas](../appendices/A-formulas.md) for failure rate calculations). Without periodic overhaul at a maintenance facility, components begin failing randomly. Failures in combat can be catastrophic. Build maintenance facilities early and schedule regular overhauls before the maintenance clock expires.
 
 ### Sending Unarmed Survey Ships Into Unknown Space
 
-Geological and gravitational survey vessels are typically unarmed to maximize survey speed. Sending them into unexplored systems without escort is a gamble. If they encounter hostiles, they will be destroyed with no ability to fight back. Either escort survey ships with combat vessels or accept the risk.
+Geological and gravitational survey vessels (see [Section 17 Exploration](../17-exploration/17.1-geological-survey.md)) are typically unarmed to maximize survey speed. Sending them into unexplored systems without escort is a gamble. If they encounter hostiles, they will be destroyed with no ability to fight back. Either escort survey ships with combat vessels or accept the risk.
 
 ### Not Building Enough Mines
 
@@ -28,11 +28,11 @@ New players often focus entirely on construction factories and neglect mining. W
 
 ### Forgetting Jump Drives
 
-Building a fleet and then realizing none of your ships have jump drives is a painful lesson. Either equip each combat ship with a military jump drive (instantaneous self-transit) or include a jump-capable tender in each fleet (commercial jump drive, squadron transit). Jump gates at established points eliminate this need but take time to construct.
+Building a fleet and then realizing none of your ships have jump drives (see [Section 10 Navigation](../10-navigation/10.1-jump-points.md)) is a painful lesson. Either equip each combat ship with a military jump drive (instantaneous self-transit) or include a jump-capable tender in each fleet (commercial jump drive, squadron transit). Jump gates at established points eliminate this need but take time to construct.
 
 ### Not Checking Colony Cost Before Colonizing
 
-Sending colonists to a planet with high colony cost without first shipping infrastructure results in population attrition. Always check colony cost first, and if non-zero, send infrastructure before or with your colonists.
+Sending colonists to a planet with high colony cost (see [Section 5 Colonies](../5-colonies/5.1-colonization.md)) without first shipping infrastructure results in population attrition. Always check colony cost first, and if non-zero, send infrastructure before or with your colonists.
 
 ### Building Only One Type of Ship
 
@@ -40,13 +40,13 @@ Diversity matters. An all-missile fleet runs out of ordnance. An all-beam fleet 
 
 ### Neglecting Point Defense
 
-The first time an enemy missile salvo destroys your flagship in a single volley, you learn to value point defense. Every combat fleet should include dedicated PD platforms or ensure combat ships carry CIWS and AMM launchers. Missile defense is not optional.
+The first time an enemy missile salvo destroys your flagship in a single volley, you learn to value point defense (see [Section 12 Combat](../12-combat/12.1-combat-overview.md)). Every combat fleet should include dedicated PD platforms or ensure combat ships carry CIWS and AMM launchers. Missile defense is not optional.
 
 ## C.2 Economic Tips
 
 ### Prioritize Gallicite Early
 
-Gallicite is used for engine construction and is often the first mineral to become scarce. Prioritize geological surveys to find Gallicite deposits and establish mining operations early. Running out of Gallicite halts all engine production, which halts all ship construction.
+Gallicite is used for engine construction (see [Appendix D Reference Tables](../appendices/D-reference-tables.md)) and is often the first mineral to become scarce. Prioritize geological surveys to find Gallicite deposits and establish mining operations early. Running out of Gallicite halts all engine production, which halts all ship construction.
 
 ### Use Conventional Industry Wisely
 
@@ -58,7 +58,7 @@ Manual cargo management becomes overwhelming quickly. Set up standing orders for
 
 ### Governor Selection Matters
 
-A governor with high Manufacturing skill dramatically increases factory output. A skill-25 Manufacturing governor adds 125% bonus production. Assign your best Manufacturing-skilled commanders to your primary industrial worlds.
+A governor (see [Section 16.3 Assignments](../16-commanders/16.3-assignments.md)) with high Manufacturing skill dramatically increases factory output. A skill-25 Manufacturing governor adds 125% bonus production. Assign your best Manufacturing-skilled commanders to your primary industrial worlds.
 
 ### Do Not Overbuild Shipyards
 
@@ -88,7 +88,7 @@ An ideal world with no minerals is less valuable than a harsh world with rich, a
 
 ### Design Ships for a Role
 
-Every ship should have a clear purpose: missile combatant, beam combatant, point defense escort, sensor picket, or support vessel. Ships that try to do everything do nothing well. Specialization within a fleet is superior to generalization within a hull.
+Every ship should have a clear purpose (see [Section 8 Ship Design](../8-ship-design/8.1-design-overview.md)): missile combatant, beam combatant, point defense escort, sensor picket, or support vessel. Ships that try to do everything do nothing well. Specialization within a fleet is superior to generalization within a hull.
 
 ### Sensor Pickets Save Lives
 
@@ -187,3 +187,12 @@ Check your commander roster regularly for promotions, retirements, and skill imp
 ### Backup Your Database
 
 Aurora C# stores game data in a database file. Back up this file periodically, especially before major version updates. Corruption, while rare, can end a campaign if no backup exists.
+
+## Related Sections
+
+- [Section 5 Colonies](../5-colonies/5.1-colonization.md) -- Colony management, infrastructure, and population growth
+- [Section 6 Economy and Industry](../6-economy-and-industry/6.1-minerals.md) -- Mining, production, and mineral management
+- [Section 8 Ship Design](../8-ship-design/8.1-design-overview.md) -- Ship design principles and component selection
+- [Section 12 Combat](../12-combat/12.1-combat-overview.md) -- Combat tactics, point defense, and fleet engagement
+- [Section 14 Logistics](../14-logistics/14.1-supply-chains.md) -- Fuel management, freight routes, and supply chains
+- [Section 16 Commanders](../16-commanders/16.3-assignments.md) -- Officer assignments and governor selection

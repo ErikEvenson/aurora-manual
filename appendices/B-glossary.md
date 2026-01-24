@@ -1,5 +1,7 @@
 # Appendix B: Glossary
 
+This glossary defines key terms used throughout the Aurora C# manual. Cross-references to detailed coverage are provided for major topics.
+
 | Term | Definition |
 |------|-----------|
 | Accessibility | A value from 0.1 to 1.0 indicating how easily a mineral deposit can be mined; higher values mean more output per mine |
@@ -93,3 +95,12 @@
 | Wealth | The economic currency used to fund installations, ship maintenance, and other expenses |
 | Waypoint | A designated point in space used for fleet navigation orders |
 | Xenoarchaeology | The study of alien ruins, conducted by xenoarchaeology teams to recover technologies and artifacts |
+
+## Related Sections
+
+- [Section 8 Ship Design](../8-ship-design/8.1-design-overview.md) -- Detailed coverage of ship components (HS, HTK, engines, sensors, weapons)
+- [Section 11 Sensors and Detection](../11-sensors-and-detection/11.1-sensor-types.md) -- Active sensors, passive sensors, ECM, ECCM, and cloaking
+- [Section 12 Combat](../12-combat/12.1-combat-overview.md) -- Beam weapons, missiles, armor, shields, and point defense
+- [Section 6 Economy and Industry](../6-economy-and-industry/6.1-minerals.md) -- Minerals, installations, construction, and mining
+- [Appendix A Formulas](../appendices/A-formulas.md) -- Mathematical formulas for all key game mechanics
+- [Appendix D Reference Tables](../appendices/D-reference-tables.md) -- Quick-reference data tables for minerals, weapons, and technology

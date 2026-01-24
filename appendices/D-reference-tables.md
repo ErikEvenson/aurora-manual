@@ -4,7 +4,7 @@ This appendix provides quick-reference data tables for minerals, installations, 
 
 ## D.1 Trans-Newtonian Minerals
 
-The eleven Trans-Newtonian minerals are the foundation of all advanced construction in Aurora. Each mineral has primary applications that determine where demand will be highest.
+The eleven Trans-Newtonian minerals are the foundation of all advanced construction in Aurora (see [Section 6 Economy and Industry](../6-economy-and-industry/6.1-minerals.md) for mining and exploitation). Each mineral has primary applications that determine where demand will be highest.
 
 | Mineral | Primary Uses |
 |---------|-------------|
@@ -28,6 +28,8 @@ The eleven Trans-Newtonian minerals are the foundation of all advanced construct
 - Mercassium is consumed in bulk by research labs (1,200 per lab); plan ahead for research expansion.
 
 ## D.2 Installation Specifications
+
+For installation placement and colony management, see [Section 5 Colonies](../5-colonies/5.1-colonization.md).
 
 ### Key Installation Build Costs
 
@@ -64,6 +66,8 @@ The eleven Trans-Newtonian minerals are the foundation of all advanced construct
 - Mineral cost is substantial; plan terraforming projects carefully
 
 ## D.3 Beam Weapon Quick Reference
+
+For combat usage and tactical considerations, see [Section 12 Combat](../12-combat/12.2-beam-combat.md).
 
 ### Beam Weapon Comparison Table
 
@@ -163,7 +167,7 @@ Each level multiplies the previous by 1.2x cumulatively.
 
 ## D.5 Key Design Formulas Quick Reference
 
-This section condenses the most frequently-referenced formulas from Appendix A into a single lookup table for use during ship design.
+This section condenses the most frequently-referenced formulas from [Appendix A Formulas](../appendices/A-formulas.md) into a single lookup table for use during ship design (see [Section 8 Ship Design](../8-ship-design/8.1-design-overview.md)).
 
 ### Sensor Detection Ranges
 
@@ -226,3 +230,11 @@ Shields must be active to regenerate. Active shields generate EM signature detec
 | 1 BP | 1 unit of production capacity |
 | Speed 1 km/s | 1 EP per ton of ship mass |
 | Magazine 1 HS | 20 MSP storage capacity |
+
+## Related Sections
+
+- [Section 6 Economy and Industry](../6-economy-and-industry/6.1-minerals.md) -- Mineral extraction, production chains, and installation management
+- [Section 7 Research](../7-research/7.1-technology-tree.md) -- Technology progression and research costs
+- [Section 8 Ship Design](../8-ship-design/8.1-design-overview.md) -- Using these tables for ship component selection and optimization
+- [Section 12 Combat](../12-combat/12.1-combat-overview.md) -- Weapon damage, armor penetration, and shield mechanics in practice
+- [Appendix A Formulas](../appendices/A-formulas.md) -- Full mathematical derivations behind these reference values

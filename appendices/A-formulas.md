@@ -4,6 +4,8 @@ This appendix collects the key mathematical formulas that govern Aurora C# mecha
 
 ## A.1 Movement and Speed
 
+For detailed ship design context, see [Section 8 Ship Design](../8-ship-design/8.3-engines.md).
+
 ### Ship Speed
 
 The fundamental speed formula for any vessel:
@@ -84,6 +86,8 @@ Higher agility improves hit chance against maneuvering targets and makes the mis
 
 ## A.2 Sensor Range
 
+For detailed sensor design and usage, see [Section 11 Sensors and Detection](../11-sensors-and-detection/11.1-sensor-types.md).
+
 ### Passive Sensor Detection (Thermal)
 
 ```
@@ -148,6 +152,8 @@ Effective_Signature = Actual_Signature x (1 - Cloak_Percentage/100)
 A 60% cloak reduces all signatures to 40% of their actual value, reducing detection range proportionally.
 
 ## A.3 Production
+
+For colony production management, see [Section 6 Economy and Industry](../6-economy-and-industry/6.2-installations.md).
 
 ### Construction Factory Output
 
@@ -241,6 +247,8 @@ Refinery technology progression:
 | Advanced | 8,000 |
 
 ## A.4 Combat
+
+For tactical combat details, see [Section 12 Combat](../12-combat/12.1-combat-overview.md).
 
 ### Beam Weapon To-Hit
 
@@ -360,6 +368,8 @@ Shields completely negate shock damage. Only damage applied to armor triggers th
 
 ## A.5 Population Growth
 
+For colony management and habitability, see [Section 5 Colonies](../5-colonies/5.1-colonization.md).
+
 ### Base Growth Rate
 
 ```
@@ -461,3 +471,12 @@ Police Strength = Actual Occupation Strength - Required Occupation Strength
 Reduction in Unrest = 100 x (Police Strength / Effective Population Size)
 ```
 Where Effective Population Size = ((Determination + Militancy + Xenophobia) / 300) x Population Amount
+
+## Related Sections
+
+- [Section 5 Colonies](../5-colonies/5.1-colonization.md) -- Population growth, colony cost, and habitability mechanics
+- [Section 6 Economy and Industry](../6-economy-and-industry/6.2-installations.md) -- Production, mining, and refining installations
+- [Section 8 Ship Design](../8-ship-design/8.3-engines.md) -- Engine, speed, and fuel consumption design parameters
+- [Section 11 Sensors and Detection](../11-sensors-and-detection/11.1-sensor-types.md) -- Sensor range and detection calculations
+- [Section 12 Combat](../12-combat/12.1-combat-overview.md) -- Beam weapons, missiles, armor, and shield combat mechanics
+- [Appendix D Reference Tables](../appendices/D-reference-tables.md) -- Quick-reference tables for minerals, installations, and technology
