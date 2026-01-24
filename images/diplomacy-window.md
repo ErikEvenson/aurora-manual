@@ -102,7 +102,7 @@ The Diplomacy window (also referred to as the Intelligence and Foreign Relations
 The left panel lists all alien races your civilization has detected or made contact with. Each entry shows the race name and current relationship status (Hostile, Unfriendly, Neutral, Friendly, or Allied). The status is determined by accumulated diplomatic points against defined thresholds. Minor Races are indicated with a "(Minor)" prefix. Click a race to populate all detail panels on the right.
 
 ### [2] Race Filter
-Filters the race list by relationship status and contact type. "Show Minor Races" includes the reduced-capability civilizations (v2.4+). "Show Contacted" displays races with established communication. "Show Pre-Contact" reveals detected but not-yet-communicated races (useful for planning diplomatic outreach).
+Filters the race list by relationship status and contact type. "Show Minor Races" includes the reduced-capability civilizations (v2.4.0+). "Show Contacted" displays races with established communication. "Show Pre-Contact" reveals detected but not-yet-communicated races (useful for planning diplomatic outreach).
 
 ### [3] Communication Options
 Action buttons for diplomatic interactions with the selected race:

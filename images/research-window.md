@@ -265,7 +265,7 @@ The Research window is the primary interface for managing your empire's technolo
 - Always maintain a queue of 2-3 technologies per scientist to prevent idle time between completions. An idle scientist with empty queue wastes lab capacity every day.
 - Queue technologies in the same category as the scientist's specialization to maintain the bonus through the entire queue.
 - For long prerequisite chains (like the engine path with 12+ levels), queue the entire chain for your Power/Propulsion specialist. They will work through it sequentially with no gaps.
-- As of v2.0, queued project ETAs include ancient construct bonuses in their calculations, giving accurate time estimates.
+- As of v2.0.0, queued project ETAs include ancient construct bonuses in their calculations, giving accurate time estimates.
 
 **Focus vs. Breadth Strategy:**
 

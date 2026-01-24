@@ -130,7 +130,7 @@ Stationing your combat fleet directly on the jump point is the single most commo
 2. **Beam advantage negated:** Your beam weapons have maximum accuracy at range 0, but so do the enemy's. You lose the advantage of choosing engagement range.
 3. **Missile doctrine useless:** Your missiles cannot be used effectively at 0 km -- they need flight distance to build separation from PD.
 4. **Surprise salvos:** An enemy fleet could pre-fire missiles timed to arrive at the JP simultaneously with their transit, catching your fleet between ships and missiles.
-5. **Fire delay:** Ships suffer a fire delay after jump point transit (see Section 12.4.2). But if YOUR fleet is on the JP and the enemy jumps in, the enemy has fire delay -- you do not. This is the ONE advantage of JP positioning, but it is massively outweighed by the disadvantages above.
+5. **Fire delay:** Ships suffer a fire delay after jump point transit (see [Section 12.4 Point Defense](../12-combat/12.4-point-defense.md)). But if YOUR fleet is on the JP and the enemy jumps in, the enemy has fire delay -- you do not. This is the ONE advantage of JP positioning, but it is massively outweighed by the disadvantages above.
 
 ### Optimal Fleet Distance
 

@@ -38,7 +38,7 @@ Our cruiser is a **medium-range beam combatant**. This means:
 
 ## Step 2: Engine Sizing
 
-We want at least 2,500 km/s from a 10,000-ton hull (200 HS). Let us start by checking what 4,000 km/s (a "Fast" speed) would require, then work down to what is achievable. Using the speed formula (see Section 8.3.3 and the Aurora wiki):
+We want at least 2,500 km/s from a 10,000-ton hull (200 HS). Let us start by checking what 4,000 km/s (a "Fast" speed) would require, then work down to what is achievable. Using the speed formula (see [Section 8.3 Engines](../8-ship-design/8.3-engines.md) and the Aurora wiki):
 
 ```
 Speed (km/s) = Total_Engine_Power * 1000 / Ship_Size (HS)
