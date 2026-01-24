@@ -38,6 +38,7 @@ FILES=(
     3-user-interface/3.2-system-map.md
     3-user-interface/3.3-common-controls.md
     3-user-interface/3.4-event-log.md
+    3-user-interface/3.5-galactic-map.md
     4-systems-and-bodies/4.1-star-systems.md
     4-systems-and-bodies/4.2-planets-and-moons.md
     4-systems-and-bodies/4.3-asteroids-and-comets.md
@@ -106,6 +107,7 @@ FILES=(
     18-advanced-topics/18.2-time-increments.md
     18-advanced-topics/18.3-spoiler-races.md
     18-advanced-topics/18.4-late-game-strategy.md
+    18-advanced-topics/18.5-spacemaster-mode.md
     # Appendices
     appendices/A-formulas.md
     appendices/B-glossary.md
