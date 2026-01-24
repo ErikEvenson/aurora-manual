@@ -16,14 +16,16 @@ Starting from a conventional-technology Earth with no trans-newtonian (TN) knowl
 
 | Resource | Starting Value |
 |----------|---------------|
-| Population | ~500 million |
-| Conventional Industry | ~200 factories |
+| Population | ~500 million (~200M in manufacturing sector) |
+| Conventional Industry | ~1,600 factories (8x manufacturing population) |
 | TN Technology | None (must research) |
 | Mineral Deposits | Earth standard (moderate, mixed accessibility) |
-| Research Labs | 0 (must build after TN tech) |
+| Research Labs | ~16 (1 per 12M manufacturing pop; conventional, not TN) |
 | Shipyards | 0 |
 | Fuel Reserves | 0 |
 | Scientists | 5-8 (randomized) |
+
+> **Note:** Starting values are determined by population and manufacturing ratios. See [Section 2.5.1 Starting Conditions](../2-game-setup/2.5-starting-conditions.md) for detailed starting condition mechanics. Conventional research labs ARE present at game start and can begin researching TN Technology immediately -- you do not need to build labs first.
 
 **Key constraint:** Conventional industry cannot build TN installations. You must research Trans-Newtonian Technology before ANY TN production begins. Every day spent before completing that research is a day your TN economy is not growing.
 
@@ -38,7 +40,7 @@ Starting from a conventional-technology Earth with no trans-newtonian (TN) knowl
 
 Before this research finishes, you have zero ability to build TN installations. After it completes, your conventional factories immediately gain the ability to construct TN installations (mines, research labs, construction factories, fuel refineries, etc.).
 
-**Estimated completion:** 6-12 months depending on scientist skill and starting lab count.
+**Estimated completion:** 6-12 months depending on scientist skill and starting lab count (~16 conventional labs are available from game start).
 
 ### Research Order After TN Technology
 
@@ -57,16 +59,16 @@ Before this research finishes, you have zero ability to build TN installations. 
 
 ### Research Lab Expansion Timeline
 
-You cannot build research labs until TN Technology completes. After that:
+You start with ~16 conventional research labs. These function immediately and should be assigned to TN Technology research on day one. You cannot build additional TN labs until TN Technology completes, but your starting labs provide meaningful research output from the start.
 
 | Year | Labs | RP/Year (approx) | Notes |
 |------|------|-------------------|-------|
-| 0-1 | 0 | Conventional only | Waiting for TN tech |
-| 1-2 | 5 | ~50 | First batch of TN labs |
-| 2-3 | 10 | ~100 | Second batch |
-| 3-5 | 15 | ~150 | Steady expansion |
-| 5-7 | 20 | ~200 | Good research capacity |
-| 7-10 | 25-30 | ~250-300 | Mature research base |
+| 0-1 | ~16 | ~160 (conventional) | Starting labs researching TN tech |
+| 1-2 | 20 | ~200 | First TN labs added to starting pool |
+| 2-3 | 25 | ~250 | Steady TN lab expansion |
+| 3-5 | 30 | ~300 | Good research capacity |
+| 5-7 | 35-40 | ~350-400 | Strong research base |
+| 7-10 | 40-50 | ~400-500 | Mature research base |
 
 **Lab cost:** 2,400 BP and 1,200 Duranium + 1,200 Mercassium each. This is expensive -- prioritize labs carefully against other construction needs.
 
@@ -168,9 +170,13 @@ Fuel_per_Refinery_per_Year = 40,000 litres (base tech)
 
 **Critical:** Research Improved Fuel Refinery tech (48,000 litres/year) as soon as practical. This increases output by 20% without adding refineries.
 
+### Sorium Depletion Warning
+
+> **Critical:** Earth's Sorium deposits are finite and WILL deplete over time. Monitor your Sorium reserves on the Minerals tab of the Economics window. If reserves drop below 50,000 tons, prioritize establishing alternative fuel sources immediately. Running out of Sorium with no harvesting infrastructure means your fleet is grounded.
+
 ### Alternative: Sorium Harvesting
 
-If a gas giant with accessible Sorium exists in your system, consider building a fuel harvester ship by year 4-5. A single harvester can produce more fuel than dozens of ground refineries, but requires a functioning shipyard first.
+If a gas giant with accessible Sorium exists in your system, consider building a fuel harvester ship by year 4-5. A single harvester can produce more fuel than dozens of ground refineries, but requires a functioning shipyard first. Given the Sorium depletion risk above, this should be treated as a necessity rather than an option.
 
 ---
 

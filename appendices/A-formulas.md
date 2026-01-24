@@ -510,6 +510,27 @@ For Earth-like worlds (colony cost = 0), no infrastructure is needed and populat
 | Governor bonus | 1 + (Admin_Skill x 0.05) |
 | Genetic modification tech | Increases base racial growth rate |
 
+### Agriculture & Environment Workforce
+
+A portion of the manufacturing workforce is diverted to agriculture and environmental support based on colony cost:
+
+```
+Agriculture_Workers_Percent = 5 + (5 x Colony_Cost)
+Effective_Industrial_Workers = Total_Population x 0.60 x (1 - Agriculture_Workers_Percent / 100)
+```
+
+Where:
+
+- **0.60** = Approximately 60% of total population is available as workers (remainder are children, elderly, service sector)
+- **Colony_Cost** = The colony's environmental cost factor (0.0 for Earth-like worlds)
+
+**Examples:**
+```
+CC 0.0: Industrial Workers = Pop x 0.60 x 0.95 = Pop x 0.57
+CC 2.0: Industrial Workers = Pop x 0.60 x 0.85 = Pop x 0.51
+CC 4.0: Industrial Workers = Pop x 0.60 x 0.75 = Pop x 0.45
+```
+
 ### Migration
 
 When multiple colonies exist, population can migrate between them based on:
