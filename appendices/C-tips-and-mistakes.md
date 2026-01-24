@@ -188,6 +188,21 @@ Check your commander roster regularly for promotions, retirements, and skill imp
 
 Aurora C# stores game data in a database file. Back up this file periodically, especially before major version updates. Corruption, while rare, can end a campaign if no backup exists.
 
+## C.5 Common Troubleshooting
+
+The following table covers frequently encountered issues and their resolutions. Most problems stem from missing assignments or configuration oversights rather than bugs.
+
+| Problem | Likely Cause | Solution |
+|---------|-------------|----------|
+| Ships won't move | No fuel, no orders, or wrong fleet selected | Check fuel status, verify orders queued, confirm correct fleet |
+| Factories idle but minerals available | No build queue set | Open Economics > Industry tab, set construction orders (see [Section 6.1 Minerals](../6-economy-and-industry/6.1-minerals.md)) |
+| Ships completed but can't find them | In admin command reserve pool | Check Naval Organization window for unassigned ships (see [Section 9.2 Fleet Organization](../9-fleet-management/9.2-fleet-organization.md)) |
+| Retool says no eligible classes | Tonnage mismatch with shipyard capacity | Design class within shipyard max tonnage, or expand shipyard (see [Section 8.1 Design Philosophy](../8-ship-design/8.1-design-philosophy.md)) |
+| Research isn't progressing | No scientist assigned, or labs at 0% allocation | Assign scientist in Research tab, check lab allocation (see [Section 7.1 Technology Tree](../7-research/7.1-technology-tree.md)) |
+| Decimal separator issues | System locale uses comma instead of period | Set Windows decimal separator to "." in Regional Settings |
+| Colony not receiving shipments | Not set as Destination, or beyond 4-system range | Set to Destination status; build jump gates within 4 systems (see [Section 5.1 Establishing Colonies](../5-colonies/5.1-establishing-colonies.md)) |
+| Crew training not improving | No Training command, or ship out of fuel | Assign to Training admin command with fuel reserves (see [Section 14.1 Fuel](../14-logistics/14.1-fuel.md)) |
+
 ## Related Sections
 
 - [Section 5.1 Establishing Colonies](../5-colonies/5.1-establishing-colonies.md) -- Colony management, infrastructure, and population growth
