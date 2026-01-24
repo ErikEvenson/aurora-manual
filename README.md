@@ -36,7 +36,13 @@ This manual is organized using a decimal numbering system. Each major section is
 - Steve Walmsley's forum posts (http://aurora2.pentarch.org/)
 - Aurora community wiki
 - In-game database and tooltips
-- Community guides (Reddit r/aurora4x and r/aurora, YouTube)
+- Community guides (Reddit r/aurora4x and r/aurora)
+
+### YouTube Tutorial Credits
+
+The following YouTube creators have contributed gameplay knowledge and mechanical insights used in this manual. Their tutorial content has been invaluable for documenting practical strategies and in-game mechanics:
+
+- **[Defran Strategy](https://www.youtube.com/channel/UCQEGuZWLqCs0c8vaJ0trM3A)** — Aurora 4x v2.7.1 tutorial series covering ground combat, colonization, and early-game strategy
 
 ## Contributing
 
@@ -77,4 +83,4 @@ This manual covers Aurora C# through v2.8.0. Coverage of new versions is ongoing
 
 ## Contributors
 
-*Contributors who improve this manual through issue reports, pull requests, or review will be acknowledged here.*
+- **[Defran Strategy](https://www.youtube.com/channel/UCQEGuZWLqCs0c8vaJ0trM3A)** — Gameplay mechanics and strategy insights from Aurora 4x tutorial videos
