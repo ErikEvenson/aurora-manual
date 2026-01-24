@@ -1,5 +1,7 @@
 # Example: Designing a Missile Destroyer
 
+*Added: v2026.01.24*
+
 This worked example walks through designing a 6,000-ton missile destroyer optimized for long-range anti-ship strikes. We cover launcher selection, missile design, fire control configuration, magazine sizing, and point defense -- showing the reasoning and math behind every decision.
 
 ## Objective

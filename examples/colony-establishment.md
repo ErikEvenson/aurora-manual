@@ -1,6 +1,10 @@
 # Example: Establishing a New Colony
 
+*Added: v2026.01.24*
+
 This worked example walks through the complete process of establishing a productive colony on a surveyed world -- from initial geological survey through colony ship deployment, infrastructure buildup, and trade route development. Each step includes the decision logic, numerical requirements, and timeline expectations.
+
+> **Note:** This scenario assumes a conventional start with TN technology unlocked. Mining output uses base tech (10 tons/mine/year), and construction uses base factory rates (10 BP/factory/year). Higher technology levels will increase these values proportionally.
 
 ## Objective
 
