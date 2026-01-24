@@ -319,11 +319,44 @@ CIWS (Close-In Weapon Systems) fire at range 0 (final defense), making their bas
 ### Shield Regeneration
 
 ```
-Regen_per_5sec = Shield_Points x Regen_Rate
-Total_Shield_Strength = Num_Emitters x Shield_Tech_Level
+Recharge_per_5sec = Regeneration_Tech_Level x Generator_Size_HS
+Shield_Strength = Strength_Tech x Size_HS x sqrt(Size_HS / 10)  (for generators > 1 HS)
+Shield_EM_Signature = Shield_Strength x 3
 ```
 
-Shields must recharge fully before providing maximum protection. Regeneration is continuous during combat.
+Shields begin at zero when first activated and must recharge to full strength. Regeneration is continuous during combat. The strength formula's square root scaling means larger generators provide disproportionately more shielding per HS, but recharge at the same rate per HS regardless of size.
+
+### Power Plant Output
+
+```
+Power_Output = Power_Tech x Size_HS x sqrt(Size_HS / 10)  (for generators > 1 HS)
+Boosted_Output = Power_Output x (1 + Boost_Percentage / 100)
+Explosion_Chance_When_Hit = 5% + (Boost_Percentage / 2)%  (capped at 50%)
+```
+
+Larger power plants are more space-efficient due to the same square root scaling used by shields and engines.
+
+### Engineering MSP Storage
+
+```
+MSP_Stored = floor(12.5 x Ship_Build_Cost_BP x Engineering_Tons / Total_Ship_Tons)
+```
+
+### Annual Failure Rate
+
+```
+AFR_Without_Engineering = 0.2 x Ship_Tonnage  (percent)
+AFR_With_Engineering = (0.04 / Engineering_Tonnage_Percent) x Ship_Tonnage  (percent)
+```
+
+### Shock Damage
+
+```
+Shock_Chance = Armor_Damage / Ship_Size_HS  (minimum 5% threshold; below = ignored)
+Shock_Amount = Random(0 to floor(Armor_Damage x 0.20))
+```
+
+Shields completely negate shock damage. Only damage applied to armor triggers the shock check.
 
 ## A.5 Population Growth
 
@@ -388,19 +421,43 @@ Migration_Rate = Base_Rate x Push_Factor x Pull_Factor
 
 ### Unrest and Stability
 
-Population unrest affects productivity:
+Population unrest affects productivity. Production output (factories, research, shipbuilding) is reduced by a percentage equal to the current unrest points. At 25 unrest points, all output drops by 25%.
+
 ```
-Effective_Production = Base_Production x (1 - Unrest_Penalty)
+Effective_Production = Base_Production x (1 - Unrest_Points / 100)
 ```
 
-Unrest increases from:
-- Overcrowding
-- Insufficient infrastructure on hostile worlds
-- Military losses
-- Alien contact (depending on race traits)
+**Unrest Sources and Annual Point Generation:**
 
-Unrest decreases from:
-- Adequate living conditions
-- Military victories
-- Time (natural decay)
-- Governor with high political skill
+| Source | Annual Unrest Points | Formula |
+|--------|---------------------|---------|
+| Radiation | Radiation Level / 10 | e.g., radiation 1000 = 100 points/year |
+| Overcrowding | 25 x (Missing Infrastructure / Available Infrastructure) | Baseline of 25 if no infrastructure at all |
+| Insufficient Occupation Forces | 100 x (1 - Actual Strength / Required Strength) | 100 points if no forces present |
+| Insufficient Local Defence | 25 x (1 - Total PPV / Required Protection) | Based on Population Protection Value |
+| Forced Labour Construction | +5 per camp when built | Immediate, one-time addition |
+
+**Required Occupation Strength:**
+```
+Required = Population x ((Determination + Militancy + Xenophobia) / 300) x Political Status Modifier
+```
+
+**Required Protection (PPV):**
+```
+Required = Population (millions) x (Militancy / 100) x Political Status Protection Modifier
+```
+Ships are evaluated by Population Protection Value (hull space allocated to weapons and hangar bays).
+
+**Unrest Reduction:**
+
+Natural decline (when the cause is removed):
+```
+Fall in Unrest Points = 20 x (1 - (Determination / 100))
+```
+
+Military suppression (when occupation strength exceeds requirement):
+```
+Police Strength = Actual Occupation Strength - Required Occupation Strength
+Reduction in Unrest = 100 x (Police Strength / Effective Population Size)
+```
+Where Effective Population Size = ((Determination + Militancy + Xenophobia) / 300) x Population Amount
