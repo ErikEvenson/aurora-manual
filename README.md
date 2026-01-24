@@ -12,13 +12,13 @@ This manual is organized using a decimal numbering system. Each major section is
 |---|---------|-------------|
 | 1 | [Introduction](1-introduction/) | What is Aurora, installation, first launch |
 | 2 | [Game Setup](2-game-setup/) | New game options, race creation, system generation, racial traits, starting conditions |
-| 3 | [User Interface](3-user-interface/) | Main window, system map, controls, event log |
+| 3 | [User Interface](3-user-interface/) | Main window, system map, controls, event log, galactic map |
 | 4 | [Systems and Bodies](4-systems-and-bodies/) | Stars, planets, moons, asteroids, jump points |
 | 5 | [Colonies](5-colonies/) | Establishing, population, environment, terraforming |
 | 6 | [Economy and Industry](6-economy-and-industry/) | Minerals, mining, construction, wealth, civilians |
 | 7 | [Research](7-research/) | Tech tree, scientists, facilities, categories |
-| 8 | [Ship Design](8-ship-design/) | Philosophy, hull, engines, sensors, weapons, examples |
-| 9 | [Fleet Management](9-fleet-management/) | Shipyards, construction, task groups, orders |
+| 8 | [Ship Design](8-ship-design/) | Philosophy, hull, engines, sensors, weapons, other components, examples |
+| 9 | [Fleet Management](9-fleet-management/) | Shipyards, construction, task groups, fleet organization, orders, light naval operations |
 | 10 | [Navigation](10-navigation/) | Movement, jump transit, survey, waypoints |
 | 11 | [Sensors and Detection](11-sensors-and-detection/) | Signatures, passive/active sensors, stealth |
 | 12 | [Combat](12-combat/) | Fire controls, beams, missiles, PD, EW, damage, planetary defence centres |
@@ -27,9 +27,30 @@ This manual is organized using a decimal numbering system. Each major section is
 | 15 | [Diplomacy](15-diplomacy/) | Alien races, communications, treaties, diplomacy, espionage |
 | 16 | [Commanders](16-commanders/) | Officer generation, skills, assignments |
 | 17 | [Exploration](17-exploration/) | Geo survey, grav survey, xenoarchaeology |
-| 18 | [Advanced Topics](18-advanced-topics/) | Game mechanics, time increments, spoiler races |
+| 18 | [Advanced Topics](18-advanced-topics/) | Game mechanics, time increments, spoiler races, late-game strategy, SpaceMaster mode |
 | A | [Appendices](appendices/) | Formulas, glossary, tips, reference tables |
 | E | [Examples](examples/) | Worked scenarios: ship design, mining, combat, economy |
+
+## Recommended Reading Path for New Players
+
+If you're new to Aurora 4X, this guided reading order will help you learn the game systematically:
+
+1. **Game Setup** ([2.1](2-game-setup/2.1-new-game-options.md), [2.5](2-game-setup/2.5-starting-conditions.md)) — Create your first game
+2. **User Interface** ([3.1](3-user-interface/3.1-main-window.md), [3.2](3-user-interface/3.2-system-map.md)) — Navigate the interface
+3. **Your Homeworld** ([5.1](5-colonies/5.1-establishing-colonies.md), [5.2](5-colonies/5.2-population.md)) — Understand colony basics
+4. **Economy Basics** ([6.1](6-economy-and-industry/6.1-minerals.md), [6.3](6-economy-and-industry/6.3-construction.md)) — Mining and construction
+   - *Example:* [Early Game Economy](examples/early-game-economy.md)
+5. **Research** ([7.1](7-research/7.1-technology-tree.md), [7.3](7-research/7.3-research-facilities.md)) — Start researching
+6. **First Ship Design** ([8.1](8-ship-design/8.1-design-philosophy.md), [8.3](8-ship-design/8.3-engines.md)) — Design philosophy and engines
+   - *Example:* [Missile Destroyer Design](examples/missile-destroyer-design.md)
+7. **Fleet Management** ([9.1](9-fleet-management/9.1-shipyards.md), [9.3](9-fleet-management/9.3-task-groups.md)) — Build and organize ships
+8. **Exploration** ([17.1](17-exploration/17.1-geological-survey.md), [10.2](10-navigation/10.2-jump-transit.md)) — Survey nearby systems
+   - *Example:* [Exploration Workflow](examples/exploration-workflow.md)
+9. **Navigation** ([10.1](10-navigation/10.1-movement-mechanics.md)) — Move fleets between systems
+10. **First Contact** ([15.1](15-diplomacy/15.1-alien-races.md), [12.1](12-combat/12.1-fire-controls.md)) — When you encounter hostiles
+    - *Example:* [Fleet Engagement](examples/fleet-engagement.md)
+
+After completing this path, explore sections relevant to your current gameplay challenges.
 
 ## Sources
 

@@ -94,6 +94,59 @@ Agility = Engine_MSP / Total_Missile_MSP x Agility_Tech_Modifier x 100
 
 Higher agility improves hit chance against maneuvering targets and makes the missile harder to intercept with point defense.
 
+### Tractor Beam Towing Speed
+
+When a tug tows another vessel, its speed is reduced proportionally to the mass ratio:
+
+```
+Towing_Speed = Normal_Tug_Speed × (Tug_Mass / (Tug_Mass + Towed_Mass))
+```
+
+Where:
+
+- **Normal_Tug_Speed** = The tug's speed when not towing (km/s)
+- **Tug_Mass** = The tug's tonnage
+- **Towed_Mass** = The towed vessel's tonnage
+
+**Example**: A 10,000-ton tug with normal speed 2,000 km/s towing a 90,000-ton ship:
+```
+Tug proportion = 10,000 / (10,000 + 90,000) = 0.10
+Towing speed = 2,000 × 0.10 = 200 km/s
+```
+
+Heavier tugs maintain better towing speeds. The return trip (without towed vessel) is at full tug speed.
+
+### Engine Size-Based Fuel Consumption
+
+In C# Aurora, both ship and missile engines use a unified fuel consumption formula based on engine size:
+
+```
+Fuel_Consumption_Modifier = SQRT(10 / Engine_Size_HS)
+```
+
+Where:
+
+- **Engine_Size_HS** = Engine size in Hull Spaces
+
+This creates efficiency advantages for larger engines:
+
+| Engine Size (HS) | Fuel Consumption Modifier | Effect |
+|-----------------|---------------------------|--------|
+| 1 | ~3.16 | Much less fuel-efficient |
+| 10 | 1.0 | Reference point |
+| 25 | ~0.63 | Significantly more efficient |
+| 100 | ~0.32 | Very fuel-efficient |
+
+**Example**: A 25 HS engine has fuel consumption modifier of SQRT(10/25) = 0.63, meaning it uses only 63% of the fuel per unit of power compared to a reference 10 HS engine.
+
+For missiles using boost exceeding racial maximum boost technology, an additional multiplier applies:
+
+```
+High_Boost_Modifier = (((Boost_Used - Max_Boost_Tech) / Max_Boost_Tech) × 4) + 1
+```
+
+This creates a linear multiplier from 1x to 5x for high-boost missiles.
+
 ## A.2 Sensor Range
 
 For detailed sensor design and usage, see [Section 11.1 Thermal and EM Signatures](../11-sensors-and-detection/11.1-thermal-em-signatures.md).
@@ -249,6 +302,23 @@ Retooling time when changing ship class:
 Retool_Time (days) = abs(New_Ship_Tonnage - Old_Ship_Tonnage) x Retool_Factor
 ```
 
+### Secondary Build (20% Refit Cost Rule)
+
+A shipyard can build any secondary class without retooling if the refit cost is below 20% of the primary class's total build cost:
+
+```
+Eligible_for_Secondary_Build = (Refit_Cost < 0.20 × Primary_Class_BP_Cost)
+```
+
+Where:
+
+- **Refit_Cost** = Build point cost to refit the primary class into the secondary class
+- **Primary_Class_BP_Cost** = Total build point cost of the class the shipyard is currently tooled for
+
+**Example**: A destroyer with 2,000 BP build cost can build secondary classes whose refit cost is under 400 BP (20% of 2,000). An escort variant swapping missile launchers for gauss cannons at 300 BP refit cost is eligible; a variant replacing engines and adding a jump drive at 800 BP is not.
+
+This allows shipyard flexibility when designing ship families that share expensive components (engines, reactors) while varying cheaper components (cargo holds, troop bays).
+
 ### Research Speed
 
 ```
@@ -401,6 +471,31 @@ Explosion_Damage = Sum(All_Missile_Warhead_Strengths_in_Magazine)
 
 Applied to the host ship first, excess may damage nearby vessels within blast radius.
 
+### Missile Hit Chance (Speed Ratio System)
+
+> *[v2.2.0]: Missile agility was removed. Hit chance is now based on speed ratio plus optional terminal guidance.*
+
+```
+Base_Hit_Chance = 0.1 × (Missile_Speed / Target_Speed)
+```
+
+Where:
+
+- **Missile_Speed** = The missile's designed speed (km/s)
+- **Target_Speed** = The target's current speed (km/s)
+
+**Example**: A 30,000 km/s missile against a 5,000 km/s target:
+```
+Base Hit Chance = 0.1 × (30,000 / 5,000) = 0.6 = 60%
+```
+
+**Active Terminal Guidance** (0.25 MSP component) provides an accuracy bonus from 0.25 (25%) to 0.90 (90%) based on technology level, applied as a multiplier to the base hit chance.
+
+Key implications:
+- Against stationary targets, hit chance is effectively 100% (infinite speed ratio)
+- Faster missiles are more accurate; very fast targets require proportionally faster missiles
+- Multiple warheads provide additional independent hit rolls
+
 ### Missile Point Defense
 
 For each PD weapon firing at incoming missiles:
@@ -414,6 +509,34 @@ Tracking_Mod = min(1.0, PD_Tracking / Missile_Speed)
 ```
 
 CIWS (Close-In Weapon Systems) fire at range 0 (final defense), making their base chance very high, but they must track the missile's speed.
+
+### Point Defense Accuracy (CIWS Effectiveness)
+
+The complete PD accuracy formula for CIWS and beam weapons in point defense mode:
+
+```
+Hit_Probability = Base_Tracking_Mod × Crew_Training × ECM_ECCM_Mod × CIC_Bonus × Tactical_Bonus × Gauss_Size_Mod × Range_Mod
+```
+
+Where:
+
+- **Base_Tracking_Mod** = min(1.0, FC_Tracking_Speed / Missile_Speed)
+- **Crew_Training** = Fractional modifier based on crew training level (1.0 at 100% training)
+- **ECM_ECCM_Mod** = 1 - ((Missile_FC_Jammer_Level - CIWS_ECCM_Level) × 0.2), minimum 0
+- **CIC_Bonus** = Commander's Combat Information Center skill bonus
+- **Tactical_Bonus** = Commander's Tactical skill bonus
+- **Gauss_Size_Mod** = Per-shot accuracy modifier for gauss cannons below racial standard size
+- **Range_Mod** = 1.0 within 10,000 km (Point Blank modes); decreases with distance beyond 10,000 km
+
+**Expected Kills per Tick:**
+```
+Expected_Kills = Shots_per_Tick × Hit_Probability
+```
+
+**Example**: A triple-turret gauss cannon with rate-of-fire 4 technology fires 12 shots per burst. Against missiles at 80% tracking (FC tracks faster than missile) with no ECM:
+```
+Expected kills = 12 × 0.8 = 9.6 missiles per 5-second cycle
+```
 
 ### Shield Regeneration
 
@@ -500,6 +623,24 @@ Max_Supported_Population = Infrastructure / Colony_Cost
 
 For Earth-like worlds (colony cost = 0), no infrastructure is needed and population can grow without limit.
 
+### Civilian Infrastructure Production
+
+Civilian shipping lines produce infrastructure for colonies with colony cost > 0, at no cost to the government:
+
+```
+Annual_Infrastructure = 2 × Population (in millions)
+```
+
+Where:
+
+- **Population** = The colony's population in millions
+- Only colonies with Colony Cost > 0 demand and receive this production
+- On low-gravity worlds, civilian production generates LG-Infrastructure at one-third the normal rate
+
+**Example**: A colony of 10 million on a CC 2.0 world receives approximately 20 infrastructure units per year from civilian production alone.
+
+This supplements but does not replace government construction, especially in early colonization stages when infrastructure needs are urgent.
+
 ### Growth Rate Modifiers
 
 | Condition | Modifier |
@@ -530,6 +671,37 @@ CC 0.0: Industrial Workers = Pop x 0.60 x 0.95 = Pop x 0.57
 CC 2.0: Industrial Workers = Pop x 0.60 x 0.85 = Pop x 0.51
 CC 4.0: Industrial Workers = Pop x 0.60 x 0.75 = Pop x 0.45
 ```
+
+### Required Garrison Strength
+
+The garrison strength required to maintain order on a colony is determined by:
+
+```
+Required_Garrison = Population (millions) × (Racial_Determination / 100) × (Racial_Militancy / 100)
+```
+
+Where:
+
+- **Population** = The colony's population in millions
+- **Racial_Determination** = The race's determination rating (higher = more resistant to occupation)
+- **Racial_Militancy** = The race's militancy rating (higher = more prone to armed resistance)
+
+For occupied populations, a Political Status Modifier applies:
+
+| Political Status | Modifier |
+|-----------------|----------|
+| Slave Colony | 1.5 |
+| Conquered | 1.0 |
+| Occupied | 0.75 |
+| Subjugated | 0.25 |
+| All Others | 0 |
+
+**Element Occupation Strength** (per ground unit element):
+```
+Occupation_Strength = (SQRT(Size) × Units × Morale) / 10,000
+```
+
+When occupation strength exceeds the requirement, the surplus functions as police strength that actively reduces unrest over time.
 
 ### Migration
 
@@ -590,8 +762,16 @@ Where Effective Population Size = ((Determination + Militancy + Xenophobia) / 30
 ## Related Sections
 
 - [Section 5.1 Establishing Colonies](../5-colonies/5.1-establishing-colonies.md) -- Population growth, colony cost, and habitability mechanics
+- [Section 5.2 Population](../5-colonies/5.2-population.md) -- Workforce allocation and population capacity
+- [Section 5.4 Infrastructure](../5-colonies/5.4-infrastructure.md) -- Infrastructure production and installation types
 - [Section 6.2 Mining](../6-economy-and-industry/6.2-mining.md) -- Production, mining, and refining installations
 - [Section 8.3 Engines](../8-ship-design/8.3-engines.md) -- Engine, speed, and fuel consumption design parameters
+- [Section 8.6 Other Components](../8-ship-design/8.6-other-components.md) -- Tractor beams, power plants, and engineering spaces
+- [Section 9.1 Shipyards](../9-fleet-management/9.1-shipyards.md) -- Shipyard capacity, retooling, and secondary build rules
 - [Section 11.1 Thermal and EM Signatures](../11-sensors-and-detection/11.1-thermal-em-signatures.md) -- Sensor range and detection calculations
 - [Section 12.1 Fire Controls](../12-combat/12.1-fire-controls.md) -- Beam weapons, missiles, armor, and shield combat mechanics
+- [Section 12.3 Missiles](../12-combat/12.3-missiles.md) -- Missile hit chance and speed ratio system
+- [Section 12.4 Point Defense](../12-combat/12.4-point-defense.md) -- CIWS effectiveness and PD accuracy formulas
+- [Section 13.1 Unit Types](../13-ground-forces/13.1-unit-types.md) -- Garrison strength and occupation mechanics
+- [Section 14.1 Fuel](../14-logistics/14.1-fuel.md) -- Fuel consumption and logistics
 - [Appendix D: Reference Tables](../appendices/D-reference-tables.md) -- Quick-reference tables for minerals, installations, and technology

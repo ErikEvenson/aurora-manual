@@ -196,7 +196,7 @@ The following table covers frequently encountered issues and their resolutions. 
 |---------|-------------|----------|
 | Ships won't move | No fuel, no orders, or wrong fleet selected | Check fuel status, verify orders queued, confirm correct fleet |
 | Factories idle but minerals available | No build queue set | Open Economics > Industry tab, set construction orders (see [Section 6.1 Minerals](../6-economy-and-industry/6.1-minerals.md)) |
-| Ships completed but can't find them | In admin command reserve pool | Check Naval Organization window for unassigned ships (see [Section 9.2 Fleet Organization](../9-fleet-management/9.2-fleet-organization.md)) |
+| Ships completed but can't find them | In admin command reserve pool | Check Naval Organization window for unassigned ships (see [Section 9.4 Fleet Organization](../9-fleet-management/9.4-fleet-organization.md)) |
 | Retool says no eligible classes | Tonnage mismatch with shipyard capacity | Design class within shipyard max tonnage, or expand shipyard (see [Section 8.1 Design Philosophy](../8-ship-design/8.1-design-philosophy.md)) |
 | Research isn't progressing | No scientist assigned, or labs at 0% allocation | Assign scientist in Research tab, check lab allocation (see [Section 7.1 Technology Tree](../7-research/7.1-technology-tree.md)) |
 | Decimal separator issues | System locale uses comma instead of period | Set Windows decimal separator to "." in Regional Settings |
