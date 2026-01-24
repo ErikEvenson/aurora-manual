@@ -183,16 +183,22 @@ Standard BP per factory = 10/year (increased by Construction Rate technology):
 Annual_Tons_per_Mine = Base_Production x Accessibility x Tech_Modifier
 ```
 
-Where Base_Production = 1 ton/year per mine. Mining technology progression:
+Where Base_Production = 10 tons/year per mine. Mining technology progression:
 
-| Technology Level | Production Modifier |
-|-----------------|-------------------|
-| Base | 1.0 |
-| Improved (1) | 1.2 |
-| Advanced (2) | 1.44 |
-| Expert (3) | 1.728 |
-
-Each technology level multiplies by 1.2x cumulatively.
+| Technology Level | Tons/Mine/Year | Research Cost (RP) |
+|-----------------|---------------|-------------------|
+| Base | 10 | -- |
+| 1 | 12 | 3,000 |
+| 2 | 14 | 5,000 |
+| 3 | 16 | 10,000 |
+| 4 | 20 | 20,000 |
+| 5 | 25 | 40,000 |
+| 6 | 30 | 80,000 |
+| 7 | 36 | 150,000 |
+| 8 | 42 | 300,000 |
+| 9 | 50 | 600,000 |
+| 10 | 60 | 1,250,000 |
+| 11 | 70 | 2,500,000 |
 
 ### Terraforming Rate
 
@@ -252,16 +258,25 @@ RP_per_Year = Effective_Labs x 10 x (1 + Scientist_Skill x 0.2)
 ### Fuel Refinery Output
 
 ```
-Fuel_per_Year = Num_Refineries x 2000 x Tech_Modifier (litres)
+Fuel_per_Year = Num_Refineries x Base_Output_per_Refinery (litres)
 ```
 
 Refinery technology progression:
 
-| Technology Level | Output (litres/year) |
-|-----------------|---------------------|
-| Base | 2,000 |
-| Improved | 4,000 |
-| Advanced | 8,000 |
+| Technology Level | Output (litres/year) | Research Cost (RP) |
+|-----------------|---------------------|-------------------|
+| Base | 40,000 | -- |
+| 1 | 48,000 | 3,000 |
+| 2 | 56,000 | 5,000 |
+| 3 | 64,000 | 10,000 |
+| 4 | 80,000 | 20,000 |
+| 5 | 100,000 | 40,000 |
+| 6 | 120,000 | 80,000 |
+| 7 | 144,000 | 150,000 |
+| 8 | 168,000 | 300,000 |
+| 9 | 200,000 | 600,000 |
+| 10 | 240,000 | 1,250,000 |
+| 11 | 280,000 | 2,500,000 |
 
 ## A.4 Combat
 

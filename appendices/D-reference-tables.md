@@ -54,11 +54,11 @@ For installation placement and colony management, see [Section 5.1 Establishing 
 
 | Installation | Base Output per Unit |
 |-------------|---------------------|
-| Mine | 1 ton/year per accessibility point |
-| Automated Mine | 1 ton/year per accessibility point (no workers needed) |
+| Mine | 10 tons/year per accessibility point |
+| Automated Mine | 10 tons/year per accessibility point (no workers needed) |
 | Construction Factory | 10 BP/year |
 | Ordnance Factory | 10 BP/year (missiles only) |
-| Fuel Refinery | 2,000 litres/year |
+| Fuel Refinery | 40,000 litres/year |
 | Research Lab | 10 RP/year (base, modified by scientist skill) |
 
 ### Terraforming Installation Notes
@@ -114,60 +114,81 @@ Focal size (for lasers) and velocity (for railguns) affect maximum range. Higher
 |-----------|-------------------------|-------------------|
 | 1 | 1,000 | 1,000 |
 | 2 | 1,250 | 2,000 |
-| 3 | 1,500 | 4,000 |
+| 3 | 1,600 | 4,000 |
 | 4 | 2,000 | 8,000 |
-| 5 | 2,500 | 15,000 |
-| 6 | 3,000 | 30,000 |
+| 5 | 2,500 | 16,000 |
+| 6 | 3,200 | 30,000 |
 | 7 | 4,000 | 60,000 |
-| 8 | 5,000 | 125,000 |
+| 8 | 5,000 | 120,000 |
 | 9 | 6,250 | 250,000 |
 
 ### MSP Production per Facility
 
 | Tech Level | MSP/Year | Research Cost (RP) |
 |-----------|----------|-------------------|
-| 1 | 80 | 3,000 |
-| 2 | 100 | 6,000 |
-| 3 | 125 | 12,000 |
-| 4 | 160 | 25,000 |
-| 5 | 200 | 50,000 |
-| 6 | 250 | 100,000 |
-| 7 | 300 | 200,000 |
-| 8 | 350 | 400,000 |
-| 9 | 375 | 800,000 |
-| 10 | 400 | 1,200,000 |
+| 1 (Starting) | 20 | 3,000 |
+| 2 | 24 | 5,000 |
+| 3 | 30 | 10,000 |
+| 4 | 36 | 20,000 |
+| 5 | 42 | 40,000 |
+| 6 | 50 | 80,000 |
+| 7 | 60 | 150,000 |
+| 8 | 72 | 300,000 |
+| 9 | 85 | 600,000 |
+| 10 | 100 | 1,200,000 |
 
 ### Construction Rate (BP per Factory per Year)
 
 | Tech Level | BP/Factory/Year | Research Cost (RP) |
 |-----------|----------------|-------------------|
 | Base | 10 | -- |
-| Improved (1) | 12 | 2,000 |
-| Advanced (2) | 16 | 8,000 |
-| Expert (3) | 24 | 30,000 |
-| Master (4) | 32 | 100,000 |
+| 1 | 12 | 3,000 |
+| 2 | 14 | 5,000 |
+| 3 | 16 | 10,000 |
+| 4 | 20 | 20,000 |
+| 5 | 25 | 40,000 |
+| 6 | 30 | 80,000 |
+| 7 | 36 | 150,000 |
+| 8 | 42 | 300,000 |
+| 9 | 50 | 600,000 |
+| 10 | 60 | 1,250,000 |
+| 11 | 70 | 2,500,000 |
 
-### Mining Production (Modifier per Mine)
+### Mining Production (Tons per Mine per Year)
 
-| Tech Level | Production Modifier | Research Cost (RP) |
-|-----------|-------------------|-------------------|
-| Base | 1.0 | -- |
-| Improved (1) | 1.2 | 2,000 |
-| Advanced (2) | 1.44 | 8,000 |
-| Expert (3) | 1.728 | 30,000 |
-| Master (4) | 2.074 | 100,000 |
+| Tech Level | Tons/Mine/Year | Research Cost (RP) |
+|-----------|---------------|-------------------|
+| Base | 10 | -- |
+| 1 | 12 | 3,000 |
+| 2 | 14 | 5,000 |
+| 3 | 16 | 10,000 |
+| 4 | 20 | 20,000 |
+| 5 | 25 | 40,000 |
+| 6 | 30 | 80,000 |
+| 7 | 36 | 150,000 |
+| 8 | 42 | 300,000 |
+| 9 | 50 | 600,000 |
+| 10 | 60 | 1,250,000 |
+| 11 | 70 | 2,500,000 |
 
-Each level multiplies the previous by 1.2x cumulatively.
+Output is further multiplied by the deposit's accessibility value.
 
 ### Fuel Refinery Output
 
 | Tech Level | Output (litres/year/refinery) | Research Cost (RP) |
 |-----------|------------------------------|-------------------|
-| Base | 2,000 | -- |
-| Improved (1) | 4,000 | 5,000 |
-| Advanced (2) | 8,000 | 20,000 |
-| Expert (3) | 16,000 | 80,000 |
-| Master (4) | 32,000 | 300,000 |
+| Base | 40,000 | -- |
+| 1 | 48,000 | 3,000 |
+| 2 | 56,000 | 5,000 |
+| 3 | 64,000 | 10,000 |
+| 4 | 80,000 | 20,000 |
+| 5 | 100,000 | 40,000 |
+| 6 | 120,000 | 80,000 |
+| 7 | 144,000 | 150,000 |
+| 8 | 168,000 | 300,000 |
+| 9 | 200,000 | 600,000 |
+| 10 | 240,000 | 1,250,000 |
+| 11 | 280,000 | 2,500,000 |
 
 ## D.5 Key Design Formulas Quick Reference
 

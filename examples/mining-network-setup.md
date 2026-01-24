@@ -37,24 +37,24 @@ Annual_Tons_per_Mine = Base_Production x Accessibility x Tech_Modifier
 
 At base technology (modifier 1.0), each mine produces:
 ```
-Output per mine = 1 ton/year x Accessibility
+Output per mine = 10 tons/year x Accessibility
 ```
 
 **Effective yield comparison (per mine, base tech)**:
 
 | Body | Duranium/mine/year | Gallicite/mine/year | Combined Value |
 |------|-------------------|--------------------|-|
-| Luna | 0.8 tons | 0.6 tons | High yield, zero colony cost |
-| Mars | 0.4 tons | 0.3 tons | Moderate yield, high colony cost |
-| Asteroid Belt #1 | 1.0 tons | 0.9 tons | Maximum yield, zero colony cost |
-| Ceres | 0.6 tons | 0.7 tons | Good yield, zero colony cost |
+| Luna | 8 tons | 6 tons | High yield, zero colony cost |
+| Mars | 4 tons | 3 tons | Moderate yield, high colony cost |
+| Asteroid Belt #1 | 10 tons | 9 tons | Maximum yield, zero colony cost |
+| Ceres | 6 tons | 7 tons | Good yield, zero colony cost |
 
 **Decision: Prioritize the Asteroid Belt (#1) for Gallicite (0.9 accessibility) and Luna for Duranium (0.8 accessibility).**
 
 Rationale:
 
-- **Gallicite is the bottleneck** -- every engine requires it, and Earth's 0.1 accessibility deposit is nearly useless (10 mines produce only 1 ton/year)
-- Asteroid Belt has 0.9 accessibility Gallicite: 10 mines produce 9 tons/year (9x Earth's output)
+- **Gallicite is the bottleneck** -- every engine requires it, and Earth's 0.1 accessibility deposit is nearly useless (10 mines produce only 10 tons/year)
+- Asteroid Belt has 0.9 accessibility Gallicite: 10 mines produce 90 tons/year (9x Earth's output)
 - Both Luna and the Asteroid Belt have colony cost 0.00 (no infrastructure needed)
 - Mars has high colony cost (2.50) requiring significant infrastructure investment before population can survive
 
@@ -76,7 +76,7 @@ Colony cost 0.00 means no infrastructure is required. Colonists can survive with
 | BP Cost | 120 BP | 240 BP |
 | Mineral Cost | 120 Corundium | 240 Corundium |
 | Workers Required | 50,000 per mine | 0 (unmanned) |
-| Output | 1 ton/year x accessibility | 1 ton/year x accessibility |
+| Output | 10 tons/year x accessibility | 10 tons/year x accessibility |
 | Colony needed? | Yes (population) | No (unmanned) |
 | Transport cost | Colony ship for workers | Freighter for mines |
 
@@ -117,33 +117,33 @@ With 20 automated mines on the Asteroid Belt:
 
 **Gallicite output**:
 ```
-Annual output = 20 mines x 1 ton/year x 0.9 accessibility = 18 tons/year
+Annual output = 20 mines x 10 tons/year x 0.9 accessibility = 180 tons/year
 ```
 
 **Duranium output** (from the 1.0 accessibility deposit):
 ```
-Annual output = 20 mines x 1 ton/year x 1.0 accessibility = 20 tons/year
+Annual output = 20 mines x 10 tons/year x 1.0 accessibility = 200 tons/year
 ```
 
 **Deposit lifespan**:
 ```
-Gallicite: 25,000 tons / 18 tons/year = 1,389 years (essentially permanent)
-Duranium: 8,000 tons / 20 tons/year = 400 years (very long-lasting)
+Gallicite: 25,000 tons / 180 tons/year = 139 years (very long-lasting)
+Duranium: 8,000 tons / 200 tons/year = 40 years (plan replacement source)
 ```
 
-**With Improved Mining Tech (1.2x modifier)**:
+**With Improved Mining Tech (12 tons/year)**:
 ```
-Gallicite: 20 x 1.2 x 0.9 = 21.6 tons/year
-Duranium: 20 x 1.2 x 1.0 = 24 tons/year
+Gallicite: 20 x 12 x 0.9 = 216 tons/year
+Duranium: 20 x 12 x 1.0 = 240 tons/year
 ```
 
 **Scaling to 50 mines (after economy grows)**:
 ```
-Gallicite: 50 x 1.0 x 0.9 = 45 tons/year (base tech)
-Gallicite: 50 x 1.2 x 0.9 = 54 tons/year (improved tech)
+Gallicite: 50 x 10 x 0.9 = 450 tons/year (base tech)
+Gallicite: 50 x 12 x 0.9 = 540 tons/year (improved tech)
 ```
 
-**Context**: A single Nuclear Pulse Engine (25 HS, 1,250 tons) requires approximately 1,000+ Gallicite. At 18 tons/year from 20 mines, building one engine takes ~55 years of Gallicite production. This illustrates why aggressive mining expansion is critical.
+**Context**: A single Nuclear Pulse Engine (25 HS, 1,250 tons) requires approximately 1,000+ Gallicite. At 180 tons/year from 20 mines, building one engine takes ~5.5 years of Gallicite production. This illustrates why aggressive mining expansion is critical.
 
 ---
 
@@ -408,13 +408,13 @@ For automated mining, colony size is irrelevant (no population needed). For conv
 
 1. **Not Enough Freighter Capacity**: As mines scale up, mineral stockpiles grow at the colony. If your freighter cannot keep up, minerals pile up uselessly. Monitor colony stockpiles and add freighters when they exceed 1 year of production.
 
-2. **Forgetting Fuel for Freighters**: Commercial engines are fuel-efficient but not free. Ensure your fuel refinery output supports freighter operations. At base tech, each refinery produces 2,000 litres/year -- a single freighter may consume 10,000+ litres per round trip.
+2. **Forgetting Fuel for Freighters**: Commercial engines are fuel-efficient but not free. Ensure your fuel refinery output supports freighter operations. At base tech, each refinery produces 40,000 litres/year -- a single freighter may consume 10,000+ litres per round trip.
 
 3. **Mining Low-Accessibility Deposits First**: A deposit with 0.1 accessibility requires 10x more mines for the same output as a 1.0 deposit. Always compare effective yield (quantity x accessibility) not raw quantity.
 
 4. **Not Checking Colony Cost Before Colonizing**: Mars with colony cost 2.50 requires 2.5 infrastructure per colonist. Sending 100,000 colonists needs 250,000 infrastructure -- a massive industrial investment. Start with colony cost 0.00 bodies.
 
-5. **Ignoring Depletion Timelines**: A 5,000-ton deposit at 1.0 accessibility with 50 mines depletes in 100 years at base tech (5,000 / 50 = 100). With improved tech (1.44x), that drops to 69 years. Plan replacement sources well before depletion.
+5. **Ignoring Depletion Timelines**: A 5,000-ton deposit at 1.0 accessibility with 50 mines depletes in 10 years at base tech (5,000 / (50 x 10) = 10). With improved tech (12 tons/mine), that drops to 8.3 years. Plan replacement sources well before depletion.
 
 6. **Building Only One Freighter**: A single freighter is a single point of failure. If it is destroyed, damaged, or reassigned, your entire mineral supply chain stops. Build at least 2 freighters per route for redundancy.
 

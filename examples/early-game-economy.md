@@ -145,7 +145,7 @@ Build fuel refineries once you have engine technology researched and are designi
 ### How Many Refineries
 
 ```
-Fuel_per_Refinery_per_Year = 2,000 litres (base tech)
+Fuel_per_Refinery_per_Year = 40,000 litres (base tech)
 ```
 
 **Estimate fuel needs:**
@@ -154,19 +154,19 @@ Fuel_per_Refinery_per_Year = 2,000 litres (base tech)
 - Annual consumption per ship: ~50 x 8,760 hours = 438,000 litres (at constant cruise)
 - Realistic annual consumption (including idle time): ~100,000-200,000 litres per survey ship
 
-**Target:** 10 refineries produce 20,000 litres/year at base tech. This is INSUFFICIENT for active fleet operations.
+**Target:** 10 refineries produce 400,000 litres/year at base tech. This supports moderate fleet operations.
 
 ### Recommended Fuel Refinery Expansion
 
 | Year | Refineries | Annual Output (litres) | Sufficient For |
 |------|-----------|----------------------|----------------|
-| 2 | 10 | 20,000 | Stockpiling only |
-| 3 | 25 | 50,000 | 1-2 survey ships |
-| 4 | 50 | 100,000 | Small fleet |
-| 5 | 100 | 200,000 | Moderate operations |
-| 7 | 200 | 400,000 | Full fleet operations |
+| 2 | 10 | 400,000 | Moderate operations |
+| 3 | 25 | 1,000,000 | Full fleet operations |
+| 4 | 50 | 2,000,000 | Large fleet with reserves |
+| 5 | 100 | 4,000,000 | Major naval operations |
+| 7 | 200 | 8,000,000 | Multiple theatre operations |
 
-**Critical:** Research Improved Fuel Refinery tech (4,000 litres/year) as soon as practical. This doubles your output without doubling refinery count.
+**Critical:** Research Improved Fuel Refinery tech (48,000 litres/year) as soon as practical. This increases output by 20% without adding refineries.
 
 ### Alternative: Sorium Harvesting
 
