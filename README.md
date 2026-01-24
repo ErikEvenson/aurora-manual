@@ -27,6 +27,7 @@ This manual is organized using a decimal numbering system. Each major section is
 | 17 | [Exploration](17-exploration/) | Geo survey, grav survey, xenoarchaeology |
 | 18 | [Advanced Topics](18-advanced-topics/) | Game mechanics, time increments, spoiler races |
 | A | [Appendices](appendices/) | Formulas, glossary, tips, reference tables |
+| E | [Examples](examples/) | Worked scenarios: ship design, mining, combat, economy |
 
 ## Sources
 
