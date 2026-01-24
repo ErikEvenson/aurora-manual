@@ -310,22 +310,66 @@ Final = 50% x 1.0 x 0.9 = 45%
 
 ### Beam Weapon Damage
 
-Damage varies by weapon type and range. Most beam weapons lose damage over distance according to their damage gradient (see [Section 12.2.2](../12-combat/12.2-beam-weapons.md) for the full range bracket and gradient system):
+Beam weapon damage is governed by two mechanics: **damage falloff with range** and **damage gradient** (armor column spread). See [Section 12.2.2](../12-combat/12.2-beam-weapons.md) for full tactical discussion.
+
+**Damage Falloff (Range-Dependent)**
+
+Only lasers suffer damage falloff. The formula is a linear reduction:
 
 ```
-Damage_at_Range = Base_Damage * (1 - Range / Max_Range)
+Damage_at_Range = Base_Damage × (1 - Range / Max_Range)
 ```
 
-This linear falloff means weapons at maximum range deal minimal damage (typically 1 point). Effective engagement range is generally 50-60% of maximum range.
+At point-blank (Range = 0), full damage is dealt. At max range, damage approaches the minimum (1 point). Damage steps down in discrete range increments (typically 10,000 km brackets).
 
-| Weapon Type | Damage Pattern |
-|-------------|---------------|
-| Laser | Damage decreases with range (linear falloff) |
-| Railgun | Full damage at all ranges within max range; ignores armor layers equal to damage value |
-| Particle Beam | Full damage at all ranges within max range (damage gradient 1) |
-| Meson Cannon | Bypasses armor/shields entirely; always 1 damage |
-| Plasma Carronade | Full damage at all ranges within max range (damage gradient 1); short max range |
-| Gauss Cannon | 1 damage per shot, very high rate of fire |
+Weapons with damage gradient of 1 deal full base damage at any range within their maximum envelope -- no falloff applies.
+
+**Damage Falloff by Weapon Type:**
+
+| Weapon Type | Damage Gradient | Range Falloff | Notes |
+|-------------|----------------|---------------|-------|
+| Lasers | 3-4 | Linear (formula above) | Primary weapon affected by falloff |
+| Particle Beams | 1 | None (full damage at all ranges) | Focused single-column penetration |
+| Plasma Carronades | 1 | None (full damage at all ranges) | Short max range, half-size |
+| Railguns | 1 | None (full damage at all ranges) | Multiple shots per salvo |
+| Meson Cannons | 1 | None | Always 1 damage; bypasses armor/shields |
+| Microwaves (HPM) | 1 | None (full damage at all ranges) | Targets electronics after shields down |
+| Gauss Cannons | 1 | None | 1 damage per shot, high rate of fire |
+
+**Damage Gradient (Armor Column Spread)**
+
+The gradient value determines how many adjacent armor columns receive damage per hit:
+
+```
+Damage_per_Column ≈ Total_Damage / Gradient_Value
+```
+
+- Gradient 1: All damage in 1 column (focused penetration)
+- Gradient 3: Damage spread across 3 columns (standard lasers)
+- Gradient 4: Damage spread across 4 columns (large-caliber lasers)
+
+**Combined Effect (Laser at Range):**
+
+For a laser with damage falloff AND gradient spread, both apply:
+
+```
+Per_Column_Damage = (Base_Damage × (1 - Range / Max_Range)) / Gradient_Value
+Armor_Penetration = Per_Column_Damage (must exceed armor depth to reach internals)
+```
+
+**Example:** A 20-damage laser (gradient 3) firing at 50% of max range:
+```
+Total_Damage = 20 × (1 - 0.5) = 10
+Per_Column = 10 / 3 ≈ 3.3 → each of 3 columns takes ~3 damage
+Armor_Penetration = ~3 layers per column
+```
+
+Compare with a particle beam (gradient 1) with 10 base damage at the same range:
+```
+Total_Damage = 10 (no falloff)
+Per_Column = 10 / 1 = 10
+Armor_Penetration = 10 layers in single column
+```
 
 ### Armor Damage
 
