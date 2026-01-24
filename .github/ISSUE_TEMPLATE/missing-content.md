@@ -1,33 +1,22 @@
 ---
 name: Missing Content
-about: Report undocumented mechanics, missing tips, or content gaps
-title: "[MISSING] "
-labels: missing-content, enhancement
-assignees: ''
+about: Report undocumented mechanics, edge cases, or content gaps
+title: "[Missing] "
+labels: ""
+assignees: ""
 ---
 
-## Topic/Mechanic
-<!-- What mechanic or topic should be documented? -->
+## Topic
+<!-- What mechanic or feature is missing documentation? -->
 
-
-## Suggested Section
-<!-- Where does this belong in the manual structure? e.g., "Chapter 5 - Research" -->
-
+## Expected Location
+<!-- Which section should this content appear in? -->
 
 ## Description
-<!-- Detailed explanation of the mechanic/topic that needs documenting -->
+<!-- Describe what should be documented and why it matters -->
 
+## Game Version
+<!-- Which Aurora C# version does this apply to? -->
 
-## Source/Evidence
-<!-- Forum posts, in-game testing, community knowledge, etc. -->
-
-
-## Priority
-<!-- How important is this for players? -->
-- [ ] Critical - Core mechanic that players need to understand
-- [ ] Important - Significant gameplay impact
-- [ ] Nice-to-have - Helpful but not essential
-
-## Additional context
-<!-- Related sections, prerequisite knowledge, or other relevant information -->
-
+## Additional Context
+<!-- Any other details, forum references, or examples -->

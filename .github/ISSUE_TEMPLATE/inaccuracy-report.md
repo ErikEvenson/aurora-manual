@@ -1,31 +1,22 @@
 ---
 name: Inaccuracy Report
-about: Report incorrect information, wrong formulas, or outdated mechanics
-title: "[INACCURACY] "
-labels: inaccuracy, needs-verification
-assignees: ''
+about: Report incorrect formulas, values, or outdated mechanics
+title: "[Inaccuracy] "
+labels: ""
+assignees: ""
 ---
 
-## Section Reference
-<!-- Which section contains the inaccuracy? e.g., "Section 8.3 - Engines" -->
+## Section Affected
+<!-- Which section number and file contains the error? -->
 
+## Current Content
+<!-- Quote or describe what the manual currently says -->
 
-## What is incorrect
-<!-- Describe the wrong information currently in the manual -->
+## Correct Information
+<!-- What should it say instead? Include source if possible -->
 
+## Game Version
+<!-- Which Aurora C# version did you verify against? -->
 
-## Correct information
-<!-- What should it say instead? Leave blank if unsure -->
-
-
-## Source/Evidence
-<!-- How did you verify this? In-game test, forum post, source code, etc. -->
-
-
-## Aurora C# Version
-<!-- Which version of Aurora C# did you test with? e.g., 2.1.1 -->
-
-
-## Additional context
-<!-- Screenshots, save files, forum links, or any other relevant information -->
-
+## Additional Context
+<!-- Any other details, screenshots, or references -->
