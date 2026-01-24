@@ -124,7 +124,7 @@ Displays whether the formation is currently loaded onto a transport vessel, unlo
 Accessed via the "Ground Unit Classes" tab. Design individual unit types by selecting a base type (Infantry through Ultra-Heavy Vehicle or Static Weapon), adding components to available slots, setting armor level, and selecting combat capabilities. The designer shows calculated size, hit points, GSP, and build point cost. The "Obsolete Comp" checkbox highlights classes containing components superseded by newer research (orange) or alien-origin components without research data (red).
 
 ### [10] Build Queue
-Shows all formations currently under construction or queued. Displays the template being built, the population performing construction, progress percentage, estimated completion date, and total build point cost. Build priority can be reordered. Construction draws from the population's allocated build point budget (see Section 6.3).
+Shows all formations currently under construction or queued. Displays the template being built, the population performing construction, progress percentage, estimated completion date, and total build point cost. Build priority can be reordered. Construction draws from the population's allocated build point budget (see [Section 6.3 Construction](../6-economy-and-industry/6.3-construction.md)).
 
 ## Common Workflows
 
