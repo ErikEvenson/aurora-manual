@@ -1,6 +1,8 @@
 # Example: Fleet Engagement -- The Battle of Epsilon Junction
 
-This worked example walks through a complete tactical fleet engagement between two opposing forces. We cover sensor detection, approach decisions, engagement range selection, missile and beam exchanges, damage assessment, and the critical decision of when to withdraw. All values use TN-start era technology.
+This worked example walks through a complete tactical fleet engagement between two opposing forces. We cover sensor detection, approach decisions, engagement range selection, missile and beam exchanges, damage assessment, and the critical decision of when to withdraw.
+
+> **Note:** This scenario assumes TN-start era technology (Nuclear Thermal engines at 5 EP/HS, base laser and missile tech, Duranium armor) with no ECM/ECCM, no shields, and no advanced point defense. Higher technology levels will significantly change engagement ranges, damage thresholds, and PD effectiveness. Adjust expectations accordingly for mid- or late-game fleets.
 
 ## Scenario Setup
 

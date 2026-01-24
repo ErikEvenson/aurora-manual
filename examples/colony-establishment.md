@@ -155,27 +155,7 @@ Automated Mine:
 
 **Decision: Start with automated mines, transition to manned as infrastructure grows.**
 
-Initial deployment:
-```
-20 Automated Mines on Ganymede:
-  Duranium output: 20 * 5 * 0.7 = 70 units/year
-  Neutronium output: 20 * 5 * 0.4 = 40 units/year
-  Sorium output: 20 * 5 * 0.8 = 80 units/year
-  (Each mine works all accessible deposits simultaneously)
-```
-
-Wait -- that is not quite right. Each automated mine is assigned to a specific mineral. Let us allocate:
-
-```
-Automated Mine Allocation (20 mines total):
-  Duranium: 6 mines * 5 * 0.7 = 21 tons/year
-  Sorium: 6 mines * 5 * 0.8 = 24 tons/year
-  Corbomite: 3 mines * 5 * 0.9 = 13.5 tons/year
-  Gallicite: 3 mines * 5 * 0.6 = 9 tons/year
-  Boronide: 2 mines * 5 * 0.6 = 6 tons/year
-```
-
-Actually, in C# Aurora, mines extract from ALL deposits proportionally. Each mine produces from each mineral based on accessibility. Let us recalculate:
+In C# Aurora, mines extract from ALL mineral deposits on a body simultaneously. Each mine produces from each mineral based on that mineral's accessibility. Initial deployment:
 
 ```
 Per Automated Mine (annual output per mineral):

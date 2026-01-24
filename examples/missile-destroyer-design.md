@@ -92,12 +92,14 @@ Missile speed = Engine_MSP * Engine_Power_Per_MSP * 1000 / Missile_Size
              = 4,800 km/s (estimated at starting engine tech)
 ```
 
-Missile agility (for evading point defense):
+Missile agility (for evading point defense; see Appendix A for full formula details):
 ```
-Agility = (Agility_Tech * Engine_MSP / Missile_Size) * Speed_Divisor_Modifier
-        = 32 * 0.8 / 2 * 1
+Agility = Engine_MSP / Total_Missile_MSP * Agility_Tech_Modifier * 100
+        = 0.8 / 2 * 32 * 100 / 100
         = 12.8 km/s^2
 ```
+
+Note: At base agility tech, `Agility_Tech_Modifier` corresponds to 32 km/s^2 per MSP at speed divisor 1, giving `(0.8 / 2) * 32 = 12.8`.
 
 > **Tip:** Missile speed serves double duty -- faster missiles both reach targets sooner (less time for PD to engage) and have higher agility (harder for PD to hit). Always prioritize engine allocation in missile design.
 
