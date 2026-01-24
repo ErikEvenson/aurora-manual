@@ -8,8 +8,15 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 
-VERSION=$(date +%Y.%m.%d)
+DATE=$(date +%Y.%m.%d)
 OUTPUT_DIR="releases"
+
+# Determine sequence number for today
+SEQ=1
+while [ -f "${OUTPUT_DIR}/aurora-manual-${DATE}.${SEQ}.pdf" ]; do
+    SEQ=$((SEQ + 1))
+done
+VERSION="${DATE}.${SEQ}"
 OUTPUT_FILE="${OUTPUT_DIR}/aurora-manual-${VERSION}.pdf"
 
 mkdir -p "$OUTPUT_DIR"
