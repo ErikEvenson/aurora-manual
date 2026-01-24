@@ -6,10 +6,13 @@ The Diplomacy window (also referred to as the Intelligence and Foreign Relations
 
 ```
 +==============================================================================+
+
 | Intelligence and Foreign Relations                                [_][O][X]  |
 +==============================================================================+
+
 |                                                                              |
 +------------------------------+-----------------------------------------------+
+
 |                              |                                               |
 |  [1] KNOWN RACES LIST        |  [5] RELATIONSHIP DETAILS                     |
 |                              |  +-------------------------------------------+|
@@ -58,6 +61,7 @@ The Diplomacy window (also referred to as the Intelligence and Foreign Relations
 |  +------------------------+  |                                               |
 |                              |                                               |
 +------------------------------+-----------------------------------------------+
+
 |                                                                              |
 |  [9] CONTACT HISTORY                                                         |
 |  +--------------------------------------------------------------------------+|
@@ -240,11 +244,11 @@ Shows the currently assigned diplomat commander, their Diplomacy bonus percentag
 
 ## Related Sections
 
-- [Section 2 Game Setup](../2-game-setup/2.1-new-game.md) -- Configuring NPR generation, hostility modifiers, and game options
-- [Section 11 Sensors and Detection](../11-sensors-and-detection/11.1-sensor-types.md) -- ELINT modules and sensor mechanics for intelligence gathering
-- [Section 12 Combat](../12-combat/12.1-combat-overview.md) -- Combat diplomatic penalties and engagement rules
+- [Section 2.1 New Game Options](../2-game-setup/2.1-new-game-options.md) -- Configuring NPR generation, hostility modifiers, and game options
+- [Section 11.1 Thermal and EM Signatures](../11-sensors-and-detection/11.1-thermal-em-signatures.md) -- ELINT modules and sensor mechanics for intelligence gathering
+- [Section 12.1 Fire Controls](../12-combat/12.1-fire-controls.md) -- Combat diplomatic penalties and engagement rules
 - [Section 15.1 Alien Races](../15-diplomacy/15.1-alien-races.md) -- Full diplomatic mechanics, NPR behavior, and territory rules
-- [Section 15.2 Communication](../15-diplomacy/15.2-communication.md) -- Language translation and communication mechanics
+- [Section 15.2 Communications](../15-diplomacy/15.2-communications.md) -- Language translation and communication mechanics
 - [Section 16.2 Skills and Bonuses](../16-commanders/16.2-skills-and-bonuses.md) -- Diplomacy bonus mechanics for commanders
-- [Section 17 Exploration](../17-exploration/17.1-geological-survey.md) -- Survey ships and first contact encounters
-- [Appendix A Formulas](../appendices/A-formulas.md) -- Diplomatic point calculation formulas
+- [Section 17.1 Geological Survey](../17-exploration/17.1-geological-survey.md) -- Survey ships and first contact encounters
+- [Appendix A: Formulas](../appendices/A-formulas.md) -- Diplomatic point calculation formulas

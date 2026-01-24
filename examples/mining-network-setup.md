@@ -459,10 +459,10 @@ For automated mining, colony size is irrelevant (no population needed). For conv
 
 ## Related Sections
 
-- [5.1 Establishing Colonies](../5-colonies/5.1-establishing-colonies.md) -- Colony cost, infrastructure, and colonist transport
-- [6.1 Minerals](../6-economy-and-industry/6.1-minerals.md) -- Mineral types, accessibility, and depletion mechanics
-- [6.2 Installations](../6-economy-and-industry/6.2-installations.md) -- Mine types, mass drivers, and construction costs
-- [14.1 Supply Chains](../14-logistics/14.1-supply-chains.md) -- Standing orders and automated logistics
-- [17.1 Geological Survey](../17-exploration/17.1-geological-survey.md) -- Discovering mineral deposits
+- [Section 5.1 Establishing Colonies](../5-colonies/5.1-establishing-colonies.md) -- Colony cost, infrastructure, and colonist transport
+- [Section 6.1 Minerals](../6-economy-and-industry/6.1-minerals.md) -- Mineral types, accessibility, and depletion mechanics
+- [Section 6.2 Mining](../6-economy-and-industry/6.2-mining.md) -- Mine types, mass drivers, and construction costs
+- [Section 14.1 Fuel](../14-logistics/14.1-fuel.md) -- Standing orders and automated logistics
+- [Section 17.1 Geological Survey](../17-exploration/17.1-geological-survey.md) -- Discovering mineral deposits
 - [Appendix A: Formulas](../appendices/A-formulas.md) -- Mining output, fuel consumption, and transit calculations
 - [Appendix D: Reference Tables](../appendices/D-reference-tables.md) -- Installation costs, mining tech progression, mineral reference

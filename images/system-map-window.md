@@ -8,12 +8,15 @@ The minimum resolution for Aurora C# is 1440x900. The tactical map is one of the
 
 ```
 +============================================================================+
+
 |  Tactical Map - Sol System                                            [X]  |
 +============================================================================+
+
 | [1] Toolbar                                                                |
 | [Zoom+][Zoom-][Centre][Layers][Wide] [5s][30s][2m][5m][20m][1h][3h][8h]   |
 |                                      [1d][5d][30d] [>> Advance]            |
 +========+===================================================================+
+
 | [2]    |                                                                   |
 | System |   [3] Map Viewport                                                |
 | Select |                                                                   |
@@ -43,6 +46,7 @@ The minimum resolution for Aurora C# is 1440x900. The tactical map is one of the
 |        |         Speed: 4,100 km/s  Size: ~8,000t                          |
 |        |                                                                   |
 +--------+-------------------------------------------------------------------+
+
 | [4] Layer Toggles                                                          |
 |                                                                            |
 | [x] Planet Orbits  [x] Ship Paths   [ ] Moon Orbits   [x] Jump Points     |
@@ -51,6 +55,7 @@ The minimum resolution for Aurora C# is 1440x900. The tactical map is one of the
 | [ ] Mineral Icons  [x] Fleet Labels [ ] Grav Survey   [x] Events Display  |
 |                                                                            |
 +----------------------------------+-----------------------------------------+
+
 | [5] Contact List                 | [7] Selected Object Info                |
 |                                  |                                         |
 | Type     Bearing  Range   Speed  | Object: Earth                           |
@@ -63,16 +68,19 @@ The minimum resolution for Aurora C# is 1440x900. The tactical map is one of the
 | (Diplo contact, shared data)     | Orbital Bodies: 1 (Moon)                |
 |                                  | Colonies in Orbit: Home Fleet [6 ships] |
 +----------------------------------+-----------------------------------------+
+
 | [6] Time Controls                                                          |
 |                                                                            |
 | Current Date: 14 March 2150  08:00:00        Increment: [5 days___v]       |
 | Race: Terran Federation                      [>> Advance Time]             |
 |                                                                            |
 +-----------------------------+----------------------------------------------+
+
 | [8] Coordinates Display     | [9] Scale Indicator                          |
 | Cursor: X: 142.3  Y: -87.6 | |----| = 50 Mkm                              |
 | (Millions of km from star)  | Zoom Level: Inner System                     |
 +-----------------------------+----------------------------------------------+
+
 | [10] Distance Tool: Hold Shift+Drag to measure                             |
 +============================================================================+
 ```
@@ -199,6 +207,6 @@ When selecting a system on the galactic map and opening an Economics window, the
 - [Section 3.1 Main Window](../3-user-interface/3.1-main-window.md) -- Time controls, toolbar, screen resolution, and background mode
 - [Section 3.2 System Map](../3-user-interface/3.2-system-map.md) -- Full documentation of map features, layers, and object selection
 - [Section 9.5 Orders](../9-fleet-management/9.5-orders.md) -- Movement and combat orders issuable from the map
-- [Section 10 Navigation](../10-navigation/) -- Movement mechanics, jump transit, and waypoints
-- [Section 11 Sensors and Detection](../11-sensors-and-detection/) -- Sensor ranges, contact detection, and signature types
-- [Section 12 Combat](../12-combat/) -- Tactical combat resolution on the system map
+- [Section 10.1 Movement Mechanics](../10-navigation/10.1-movement-mechanics.md) -- Movement mechanics, jump transit, and waypoints
+- [Section 11.1 Thermal and EM Signatures](../11-sensors-and-detection/11.1-thermal-em-signatures.md) -- Sensor ranges, contact detection, and signature types
+- [Section 12.1 Fire Controls](../12-combat/12.1-fire-controls.md) -- Tactical combat resolution on the system map

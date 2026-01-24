@@ -4,7 +4,7 @@ This appendix collects the key mathematical formulas that govern Aurora C# mecha
 
 ## A.1 Movement and Speed
 
-For detailed ship design context, see [Section 8 Ship Design](../8-ship-design/8.3-engines.md).
+For detailed ship design context, see [Section 8.3 Engines](../8-ship-design/8.3-engines.md).
 
 ### Ship Speed
 
@@ -89,7 +89,7 @@ Higher agility improves hit chance against maneuvering targets and makes the mis
 
 ## A.2 Sensor Range
 
-For detailed sensor design and usage, see [Section 11 Sensors and Detection](../11-sensors-and-detection/11.1-sensor-types.md).
+For detailed sensor design and usage, see [Section 11.1 Thermal and EM Signatures](../11-sensors-and-detection/11.1-thermal-em-signatures.md).
 
 ### Passive Sensor Detection (Thermal)
 
@@ -159,7 +159,7 @@ A 60% cloak reduces all signatures to 40% of their actual value, reducing detect
 
 ## A.3 Production
 
-For colony production management, see [Section 6 Economy and Industry](../6-economy-and-industry/6.2-installations.md).
+For colony production management, see [Section 6.3 Construction](../6-economy-and-industry/6.3-construction.md).
 
 ### Construction Factory Output
 
@@ -255,7 +255,7 @@ Refinery technology progression:
 
 ## A.4 Combat
 
-For tactical combat details, see [Section 12 Combat](../12-combat/12.1-combat-overview.md).
+For tactical combat details, see [Section 12.1 Fire Controls](../12-combat/12.1-fire-controls.md).
 
 ### Beam Weapon To-Hit
 
@@ -375,7 +375,7 @@ Shields completely negate shock damage. Only damage applied to armor triggers th
 
 ## A.5 Population Growth
 
-For colony management and habitability, see [Section 5 Colonies](../5-colonies/5.1-colonization.md).
+For colony management and habitability, see [Section 5.1 Establishing Colonies](../5-colonies/5.1-establishing-colonies.md).
 
 ### Base Growth Rate
 
@@ -484,9 +484,9 @@ Where Effective Population Size = ((Determination + Militancy + Xenophobia) / 30
 
 ## Related Sections
 
-- [Section 5 Colonies](../5-colonies/5.1-colonization.md) -- Population growth, colony cost, and habitability mechanics
-- [Section 6 Economy and Industry](../6-economy-and-industry/6.2-installations.md) -- Production, mining, and refining installations
-- [Section 8 Ship Design](../8-ship-design/8.3-engines.md) -- Engine, speed, and fuel consumption design parameters
-- [Section 11 Sensors and Detection](../11-sensors-and-detection/11.1-sensor-types.md) -- Sensor range and detection calculations
-- [Section 12 Combat](../12-combat/12.1-combat-overview.md) -- Beam weapons, missiles, armor, and shield combat mechanics
-- [Appendix D Reference Tables](../appendices/D-reference-tables.md) -- Quick-reference tables for minerals, installations, and technology
+- [Section 5.1 Establishing Colonies](../5-colonies/5.1-establishing-colonies.md) -- Population growth, colony cost, and habitability mechanics
+- [Section 6.2 Mining](../6-economy-and-industry/6.2-mining.md) -- Production, mining, and refining installations
+- [Section 8.3 Engines](../8-ship-design/8.3-engines.md) -- Engine, speed, and fuel consumption design parameters
+- [Section 11.1 Thermal and EM Signatures](../11-sensors-and-detection/11.1-thermal-em-signatures.md) -- Sensor range and detection calculations
+- [Section 12.1 Fire Controls](../12-combat/12.1-fire-controls.md) -- Beam weapons, missiles, armor, and shield combat mechanics
+- [Appendix D: Reference Tables](../appendices/D-reference-tables.md) -- Quick-reference tables for minerals, installations, and technology

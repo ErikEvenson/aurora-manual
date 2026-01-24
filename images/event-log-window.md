@@ -8,11 +8,14 @@ Events can also be displayed directly on the Tactical Map (controlled by the Eve
 
 ```
 +============================================================================+
+
 |  Events Window                                                        [X]  |
 +============================================================================+
+
 | [1] Date/Increment Header                                                  |
 | 14 March 2150  08:00:00  -  Increment: 5 days                             |
 +============================================================================+
+
 | [2] Filter Controls                                                        |
 |                                                                            |
 | [x] Combat/Military    [x] Exploration    [x] Research    [x] Economic     |
@@ -22,6 +25,7 @@ Events can also be displayed directly on the Tactical Map (controlled by the Eve
 |                   [x] Hostile Contacts [x] Damage Reports [ ] Promotions   |
 |                                                                            |
 +============================================================================+
+
 | [4] Event Log Entries (Main Area)                                          |
 |                                                                            |
 | +------------------------------------------------------------------------+ |
@@ -69,6 +73,7 @@ Events can also be displayed directly on the Tactical Map (controlled by the Eve
 | +------------------------------------------------------------------------+ |
 |                                                                            |
 +============================================================================+
+
 | [5] Event Detail Expansion                                                 |
 |                                                                            |
 | Selected: "Hostile contact detected in Sol system"                         |
@@ -78,6 +83,7 @@ Events can also be displayed directly on the Tactical Map (controlled by the Eve
 | Interrupt: YES (time advance halted at this event)                         |
 |                                                                            |
 +============================================================================+
+
 | [6] Colour Configuration                                                   |
 |                                                                            |
 | Event Type: [Combat/Military___v]   BG Colour: [###RED###]                 |
@@ -85,12 +91,14 @@ Events can also be displayed directly on the Tactical Map (controlled by the Eve
 | [Apply] [Reset Default]    [7] [Import Colours] [Export Colours]           |
 |                                                                            |
 +============================================================================+
+
 | [8] Auto-Scroll / Navigation Controls                                      |
 |                                                                            |
 | [x] Auto-scroll to latest    [<< Previous Increment] [Next Increment >>]  |
 | [ ] Show all races (SM only)  Events this increment: 7  |  Total: 2,341   |
 |                                                                            |
 +============================================================================+
+
 | [9] Interrupt Configuration                                                |
 |                                                                            |
 | Interrupt on: [x] Hostile Contact  [x] Damage  [x] Ship Destroyed         |
@@ -224,6 +232,6 @@ Events can also be displayed directly on the Tactical Map (controlled by the Eve
 - [Section 3.1 Main Window](../3-user-interface/3.1-main-window.md) -- Time controls, interrupt mechanics, colour import/export
 - [Section 3.2 System Map](../3-user-interface/3.2-system-map.md) -- Events displayed on the tactical map, double-click centering
 - [Section 3.4 Event Log](../3-user-interface/3.4-event-log.md) -- Full documentation of event types, filtering, and event-driven gameplay
-- [Section 11 Sensors and Detection](../11-sensors-and-detection/) -- Contact detection events and sensor mechanics
-- [Section 12 Combat](../12-combat/) -- Combat event resolution and damage reports
+- [Section 11.1 Thermal and EM Signatures](../11-sensors-and-detection/11.1-thermal-em-signatures.md) -- Contact detection events and sensor mechanics
+- [Section 12.1 Fire Controls](../12-combat/12.1-fire-controls.md) -- Combat event resolution and damage reports
 - [Section 7.1 Technology Tree](../7-research/7.1-technology-tree.md) -- Research completion events

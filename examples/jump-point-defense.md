@@ -576,5 +576,5 @@ As discussed in the Key Decisions section, gating a hostile JP removes the natur
 - [Section 12.3 Missiles](../12-combat/12.3-missiles.md) -- Missile design, combat, and AMMs
 - [Section 12.4 Point Defense](../12-combat/12.4-point-defense.md) -- CIWS, PD fire controls, and layered defense
 - [Section 14.1 Fuel](../14-logistics/14.1-fuel.md) -- Fuel logistics for extended deployments
-- [Appendix A Formulas](../appendices/A-formulas.md) -- Sensor range, combat, and movement formulas
-- [Appendix C Tips and Mistakes](../appendices/C-tips-and-mistakes.md) -- General military tips and common errors
+- [Appendix A: Formulas](../appendices/A-formulas.md) -- Sensor range, combat, and movement formulas
+- [Appendix C: Tips and Common Mistakes](../appendices/C-tips-and-mistakes.md) -- General military tips and common errors

@@ -519,5 +519,5 @@ After conquest, check:
 - [Section 13.2 Training, Logistics, and Transport](../13-ground-forces/13.2-training-and-transport.md) -- Construction, supply, transport bays
 - [Section 13.3 Ground Combat](../13-ground-forces/13.3-ground-combat.md) -- Combat resolution, terrain, fortification, orbital support
 - [Section 12.6 Damage and Armor](../12-combat/12.6-damage-and-armor.md) -- Orbital bombardment mechanics
-- [Appendix A Formulas](../appendices/A-formulas.md) -- Unrest, occupation, and production calculations
-- [Appendix C Tips and Common Mistakes](../appendices/C-tips-and-mistakes.md) -- General gameplay advice
+- [Appendix A: Formulas](../appendices/A-formulas.md) -- Unrest, occupation, and production calculations
+- [Appendix C: Tips and Common Mistakes](../appendices/C-tips-and-mistakes.md) -- General gameplay advice

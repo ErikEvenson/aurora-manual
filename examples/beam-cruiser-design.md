@@ -541,10 +541,10 @@ Six 10cm lasers provide better sustained firepower than fewer larger weapons bec
 
 ## Related Sections
 
-- [8.1 Design Overview](../8-ship-design/8.1-design-overview.md) -- Ship designer interface and workflow
-- [8.2 Hull and Armor](../8-ship-design/8.2-hull-and-armor.md) -- Armor types, layers, and weight calculations
-- [8.3 Engines](../8-ship-design/8.3-engines.md) -- Engine technology, boost, fuel consumption
-- [8.4 Sensors and Fire Control](../8-ship-design/8.4-sensors-and-fire-control.md) -- Sensor resolution and fire control matching
-- [8.5 Weapons](../8-ship-design/8.5-weapons.md) -- Laser, railgun, and particle beam specifications
+- [Section 8.1 Design Philosophy](../8-ship-design/8.1-design-philosophy.md) -- Ship designer interface and workflow
+- [Section 8.2 Hull and Armor](../8-ship-design/8.2-hull-and-armor.md) -- Armor types, layers, and weight calculations
+- [Section 8.3 Engines](../8-ship-design/8.3-engines.md) -- Engine technology, boost, fuel consumption
+- [Section 8.4 Sensors](../8-ship-design/8.4-sensors.md) -- Sensor resolution and fire control matching
+- [Section 8.5 Weapons](../8-ship-design/8.5-weapons.md) -- Laser, railgun, and particle beam specifications
 - [Appendix A: Formulas](../appendices/A-formulas.md) -- Speed, range, sensor, and combat calculations
 - [Appendix D: Reference Tables](../appendices/D-reference-tables.md) -- Beam weapon comparison and technology progression

@@ -6,11 +6,14 @@ The Missile Design window is where all missile ordnance is created in Aurora C#.
 
 ```
 +============================================================================+
+
 |  [1] Missile Design                                               [_][X]   |
 +============================================================================+
+
 |  Missile Name: [2]__Javelin ASM Mk III___________  Race: [3] Terran Fed v  |
 |  Total Size: [4] 6 MSP (15 tons, 0.20 HS)    Series: [5] Anti-Ship______  |
 +----------------------------------+-----------------------------------------+
+
 |  [6] MSP ALLOCATION              |  [7] PERFORMANCE SUMMARY                |
 |  +----------------------------+  |  +-----------------------------------+  |
 |  | COMPONENT        MSP   %   |  |  | Speed:      28,400 km/s          |  |
@@ -31,6 +34,7 @@ The Missile Design window is where all missile ordnance is created in Aurora C#.
 |  +----------------------------+  |  +-----------------------------------+  |
 |                                   |  | Engine Tech: [Nuclear Pulse    v] |  |
 +----------------------------------+  | Engine MSP:   3.00                |  |
+
 |  [9] WARHEAD CONFIGURATION        |  | Boost Level:  [__2.0x]            |  |
 |  +------------------------------+ |  | Max Boost:    2.0x (racial)       |  |
 |  | Type: [Standard         v]   | |  | Fuel Mod:     1.00x (no penalty)  |  |
@@ -41,6 +45,7 @@ The Missile Design window is where all missile ordnance is created in Aurora C#.
 |  +------------------------------+ |  [10] SENSOR CONFIGURATION              |
 |                                    |  +-----------------------------------+  |
 +------------------------------------+  | Type: [Active Sensor       v]     |  |
+
 |  [11] EXISTING DESIGNS             |  | Resolution: [__100]               |  |
 |  +------------------------------+  |  | Sensor Size: 0.50 MSP            |  |
 |  | Name            Size  Spd    |  |  | Detection vs Res 100: 42,000 km  |  |
@@ -56,6 +61,7 @@ The Missile Design window is where all missile ordnance is created in Aurora C#.
 |  |                              |  |  | [Rename]      [Show Materials]    |  |
 |  +------------------------------+  |  +-----------------------------------+  |
 +-------------------------------------+-----------------------------------------+
+
 |  [13] MATERIAL BREAKDOWN            |  [14] DESIGN NOTES                     |
 |  +--------------------------------+ |  +-----------------------------------+ |
 |  | Duranium: 1.2  Tritanium: 0.8  | |  | Fast ASM for size-6 launchers.   | |
@@ -63,6 +69,7 @@ The Missile Design window is where all missile ordnance is created in Aurora C#.
 |  | Corundium: 0.9                  | |  | Pair with Stiletto AMM escort.   | |
 |  +--------------------------------+ |  +-----------------------------------+ |
 +============================================================================+
+
 |  [15] STATUS: Design valid. Fits Size 6 launcher. Magazine capacity: 33.   |
 +============================================================================+
 ```
@@ -218,9 +225,9 @@ Understanding how missile parameters interact is critical for effective design:
 
 ## Related Sections
 
-- [8.5 Weapons](../8-ship-design/8.5-weapons.md) -- Missile launchers, box launchers, and launcher sizing
-- [8.6 Other Components](../8-ship-design/8.6-other-components.md) -- Magazines and missile fire controls
-- [12.3 Missiles](../12-combat/12.3-missiles.md) -- Detailed missile combat mechanics
-- [12.4 Point Defense](../12-combat/12.4-point-defense.md) -- How missiles are intercepted
-- [12.5 Electronic Warfare](../12-combat/12.5-electronic-warfare.md) -- ECM and ECCM interactions
-- [7.4 Tech Categories](../7-research/7.4-tech-categories.md) -- Missile engine, warhead, and sensor research
+- [Section 8.5 Weapons](../8-ship-design/8.5-weapons.md) -- Missile launchers, box launchers, and launcher sizing
+- [Section 8.6 Other Components](../8-ship-design/8.6-other-components.md) -- Magazines and missile fire controls
+- [Section 12.3 Missiles](../12-combat/12.3-missiles.md) -- Detailed missile combat mechanics
+- [Section 12.4 Point Defense](../12-combat/12.4-point-defense.md) -- How missiles are intercepted
+- [Section 12.5 Electronic Warfare](../12-combat/12.5-electronic-warfare.md) -- ECM and ECCM interactions
+- [Section 7.4 Tech Categories](../7-research/7.4-tech-categories.md) -- Missile engine, warhead, and sensor research

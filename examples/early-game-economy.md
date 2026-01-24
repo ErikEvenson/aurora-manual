@@ -593,7 +593,7 @@ Approximate total mineral consumption over 10 years of bootstrap:
 
 ## Related Sections
 
-- [Section 2.1 Game Setup](../2-getting-started/2.1-game-setup.md) -- Conventional start configuration options
+- [Section 2.1 New Game Options](../2-game-setup/2.1-new-game-options.md) -- Conventional start configuration options
 - [Section 5.1 Establishing Colonies](../5-colonies/5.1-establishing-colonies.md) -- Off-world colony mechanics
 - [Section 6.1 Minerals](../6-economy-and-industry/6.1-minerals.md) -- Mineral types, accessibility, and depletion
 - [Section 6.2 Mining](../6-economy-and-industry/6.2-mining.md) -- Mine types, automated mines, mass drivers

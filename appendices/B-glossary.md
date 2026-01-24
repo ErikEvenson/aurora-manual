@@ -98,9 +98,9 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 
 ## Related Sections
 
-- [Section 8 Ship Design](../8-ship-design/8.1-design-overview.md) -- Detailed coverage of ship components (HS, HTK, engines, sensors, weapons)
-- [Section 11 Sensors and Detection](../11-sensors-and-detection/11.1-sensor-types.md) -- Active sensors, passive sensors, ECM, ECCM, and cloaking
-- [Section 12 Combat](../12-combat/12.1-combat-overview.md) -- Beam weapons, missiles, armor, shields, and point defense
-- [Section 6 Economy and Industry](../6-economy-and-industry/6.1-minerals.md) -- Minerals, installations, construction, and mining
-- [Appendix A Formulas](../appendices/A-formulas.md) -- Mathematical formulas for all key game mechanics
-- [Appendix D Reference Tables](../appendices/D-reference-tables.md) -- Quick-reference data tables for minerals, weapons, and technology
+- [Section 8.1 Design Philosophy](../8-ship-design/8.1-design-philosophy.md) -- Detailed coverage of ship components (HS, HTK, engines, sensors, weapons)
+- [Section 11.1 Thermal and EM Signatures](../11-sensors-and-detection/11.1-thermal-em-signatures.md) -- Active sensors, passive sensors, ECM, ECCM, and cloaking
+- [Section 12.1 Fire Controls](../12-combat/12.1-fire-controls.md) -- Beam weapons, missiles, armor, shields, and point defense
+- [Section 6.1 Minerals](../6-economy-and-industry/6.1-minerals.md) -- Minerals, installations, construction, and mining
+- [Appendix A: Formulas](../appendices/A-formulas.md) -- Mathematical formulas for all key game mechanics
+- [Appendix D: Reference Tables](../appendices/D-reference-tables.md) -- Quick-reference data tables for minerals, weapons, and technology

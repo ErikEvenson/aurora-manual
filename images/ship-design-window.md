@@ -6,11 +6,14 @@ The Class Design window is where all ship classes are created in Aurora C#. Acce
 
 ```
 +============================================================================+
+
 |  [1] Class Design Window                                          [_][X]   |
 +============================================================================+
+
 |  Class Name: [2]__Tribal-class Destroyer_________  Race: [3] Terran Fed v  |
 |  Hull Size: [4] 6,250 tons    Crew: [5] 142      Design Cost: [6] 892 BP  |
 +----------------------------------+-----------------------------------------+
+
 |  [7] AVAILABLE COMPONENTS        |  [8] DESIGN SUMMARY                     |
 |  +----------------------------+  |  +-----------------------------------+  |
 |  | Category: [9] All_______ v |  |  | Component          Qty  HS  Tons |  |
@@ -32,6 +35,7 @@ The Class Design window is where all ship classes are created in Aurora C#. Acce
 |  [Scroll: 47 items]              |  +-----------------------------------+  |
 |                                   |  | 20cm C3 Ultraviolet Laser         |  |
 +----------------------------------+  | Size: 4 HS (200 tons)             |  |
+
 |  [12] PERFORMANCE STATISTICS      |  | Damage: 20 at 0 km               |  |
 |  +------------------------------+ |  | Range: 240,000 km (UV)            |  |
 |  | Speed:     4,808 km/s        | |  | Rate of Fire: 10 sec              |  |
@@ -47,6 +51,7 @@ The Class Design window is where all ship classes are created in Aurora C#. Acce
 |  +------------------------------+ |  [13] DESIGN CONTROLS                   |
 |                                    |  +-----------------------------------+  |
 +------------------------------------+  | [Save Design] [Load Design]       |  |
+
 |  [14] ARMOR DISPLAY                |  | [Copy Design] [Delete Design]     |  |
 |  +------------------------------+  |  | [Lock Design] [Rename]            |  |
 |  | Layer 1: ##################  |  |  | [Obsolete]    [Show Costs]        |  |
@@ -163,11 +168,11 @@ The Class Design window is where all ship classes are created in Aurora C#. Acce
 
 ## Related Sections
 
-- [8.1 Design Philosophy](../8-ship-design/8.1-design-philosophy.md) -- Role-based design principles and size guidelines
-- [8.2 Hull and Armor](../8-ship-design/8.2-hull-and-armor.md) -- Armor mechanics and hull size considerations
-- [8.3 Engines](../8-ship-design/8.3-engines.md) -- Engine types, power, and fuel consumption
-- [8.4 Sensors](../8-ship-design/8.4-sensors.md) -- Active/passive sensors and fire controls
-- [8.5 Weapons](../8-ship-design/8.5-weapons.md) -- All weapon types and their design parameters
-- [8.6 Other Components](../8-ship-design/8.6-other-components.md) -- Fire controls, magazines, engineering spaces
-- [8.7 Design Examples](../8-ship-design/8.7-design-examples.md) -- Complete worked ship designs
-- [9.1 Shipyards](../9-fleet-management/9.1-shipyards.md) -- Building ships from completed designs
+- [Section 8.1 Design Philosophy](../8-ship-design/8.1-design-philosophy.md) -- Role-based design principles and size guidelines
+- [Section 8.2 Hull and Armor](../8-ship-design/8.2-hull-and-armor.md) -- Armor mechanics and hull size considerations
+- [Section 8.3 Engines](../8-ship-design/8.3-engines.md) -- Engine types, power, and fuel consumption
+- [Section 8.4 Sensors](../8-ship-design/8.4-sensors.md) -- Active/passive sensors and fire controls
+- [Section 8.5 Weapons](../8-ship-design/8.5-weapons.md) -- All weapon types and their design parameters
+- [Section 8.6 Other Components](../8-ship-design/8.6-other-components.md) -- Fire controls, magazines, engineering spaces
+- [Section 8.7 Design Examples](../8-ship-design/8.7-design-examples.md) -- Complete worked ship designs
+- [Section 9.1 Shipyards](../9-fleet-management/9.1-shipyards.md) -- Building ships from completed designs

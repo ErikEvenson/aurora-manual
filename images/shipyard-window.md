@@ -6,10 +6,13 @@ The Shipyard management interface is located within the Economics window (F2), u
 
 ```
 +============================================================================+
+
 |  [1] Economics - Shipyard Tab                                     [_][X]   |
 +============================================================================+
+
 |  Colony: [2] Earth_________________________ v     Population: 8.42 B       |
 +============================================================================+
+
 |  [3] SHIPYARD LIST                                                          |
 |  +------------------------------------------------------------------------+|
 |  | Name             | Type    | Capacity | Slips | Tooled Class   | Task  ||
@@ -22,6 +25,7 @@ The Shipyard management interface is located within the Economics window (F2), u
 |  | Orbital RY #1    | Repair  | 40,000 t |   2   | (Any class)    | Repair||
 |  +------------------------------------------------------------------------+|
 +============================================================================+
+
 |                                                                             |
 | +----------------------------------+  +-----------------------------------+ |
 | | [4] CONSTRUCTION QUEUE           |  | [7] SHIP CLASS SELECTOR           | |
@@ -78,6 +82,7 @@ The Shipyard management interface is located within the Economics window (F2), u
 | | +------------------------------+ |  | +-------------------------------+ | |
 | +----------------------------------+  +-----------------------------------+ |
 +============================================================================+
+
 | [11] Status: Imperial NY #1 building Tribal DD. 400 BP/yr/slip. Workers:   |
 |      2,500,000 required / 2,500,000 available. Mineral stockpile adequate. |
 +============================================================================+
@@ -236,9 +241,9 @@ The currently selected shipyard (indicated by ">") populates all detail panels b
 
 ## Related Sections
 
-- [9.1 Shipyards](../9-fleet-management/9.1-shipyards.md) -- Detailed shipyard mechanics (Naval vs Commercial, capacity formulas, workforce)
-- [9.2 Construction and Refit](../9-fleet-management/9.2-construction-and-refit.md) -- Build, refit, and scrap mechanics in depth
-- [6.1 Minerals](../6-economy-and-industry/6.1-minerals.md) -- Mineral resources consumed during construction
-- [6.3 Construction](../6-economy-and-industry/6.3-construction.md) -- Ground-based construction factories
-- [8.1 Design Philosophy](../8-ship-design/8.1-design-philosophy.md) -- Ship role design affecting yard type selection
-- [7.4 Tech Categories](../7-research/7.4-tech-categories.md) -- Shipyard Operations research (build rate improvements)
+- [Section 9.1 Shipyards](../9-fleet-management/9.1-shipyards.md) -- Detailed shipyard mechanics (Naval vs Commercial, capacity formulas, workforce)
+- [Section 9.2 Construction and Refit](../9-fleet-management/9.2-construction-and-refit.md) -- Build, refit, and scrap mechanics in depth
+- [Section 6.1 Minerals](../6-economy-and-industry/6.1-minerals.md) -- Mineral resources consumed during construction
+- [Section 6.3 Construction](../6-economy-and-industry/6.3-construction.md) -- Ground-based construction factories
+- [Section 8.1 Design Philosophy](../8-ship-design/8.1-design-philosophy.md) -- Ship role design affecting yard type selection
+- [Section 7.4 Tech Categories](../7-research/7.4-tech-categories.md) -- Shipyard Operations research (build rate improvements)

@@ -8,8 +8,10 @@ Multiple instances of the Fleet Window can be opened simultaneously (Shift+click
 
 ```
 +============================================================================+
+
 |  Naval Organization                                                   [X]  |
 +============================================================================+
+
 | [1] Fleet/TG List   | [2] Ship List (Selected Group)    | [6] Orders Tab  |
 |                     |                                    |                 |
 | v Sol Fleet         | Name        Class    Speed  Status | [Movement Ord.] |
@@ -32,6 +34,7 @@ Multiple instances of the Fleet Window can be opened simultaneously (Shift+click
 |                     | Deployment: 45/180 days            | 8. (Repeat #1)  |
 |                     |                                    |                 |
 +---------------------+------------------------------------+ [Add Order]     |
+
 | [8] Target Selector                                     | [Remove Order]  |
 |                                                         | [Move Up]       |
 | [4] Order Type: [Move To________v]  [9] Dist: 142.3Mkm | [Move Down]     |
@@ -40,6 +43,7 @@ Multiple instances of the Fleet Window can be opened simultaneously (Shift+click
 |                                                         | [x] times: [__] |
 |                                                         +-----------------+
 +-----------------------------------------------+---------+                  |
+
 | [11] Speed/Fuel Display                       | [12] Formation & Controls  |
 |                                               |                            |
 | TG Max Speed: 3,100 km/s (limited by Thunder) | [Use Max Speed]            |
@@ -48,12 +52,15 @@ Multiple instances of the Fleet Window can be opened simultaneously (Shift+click
 | Military Tonnage: 25,000t  Fleet Cost: 4,820  | [Detach Escorts]           |
 |                                               | [Recall Escorts]           |
 +-----------------------------------------------+----------------------------+
+
 | [13] Status Bar                                                            |
 | Fleet: Sol Fleet | TG: Battle Group Alpha | Ships: 6 | Cmdr: Adm. Hayes  |
 +============================================================================+
+
 | [14] Tab Bar                                                               |
 | [Movement] [Combat] [Ship Combat] [Logistics] [Misc] [Templates]          |
 +============================================================================+
+
 | [15] Logistics Reports Tab                                                 |
 | Category: [Fuel_____v]  Ships sorted by urgency:                           |
 | FF Scout........12%  |  DD Brave.......45%  |  CA Thunder.....82%          |
@@ -156,4 +163,4 @@ Multiple instances of the Fleet Window can be opened simultaneously (Shift+click
 - [Section 9.5 Orders](../9-fleet-management/9.5-orders.md) -- Complete order type reference (movement, combat, logistics, standing, escort)
 - [Section 3.1 Main Window](../3-user-interface/3.1-main-window.md) -- Toolbar access, multiple instances, time controls
 - [Section 3.2 System Map](../3-user-interface/3.2-system-map.md) -- Issuing orders from the map interface
-- [Section 14 Logistics](../14-logistics/) -- Supply chain management and fleet maintenance
+- [Section 14.1 Fuel](../14-logistics/14.1-fuel.md) -- Supply chain management and fleet maintenance

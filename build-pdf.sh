@@ -67,6 +67,7 @@ FILES=(
     9-fleet-management/9.3-task-groups.md
     9-fleet-management/9.4-fleet-organization.md
     9-fleet-management/9.5-orders.md
+    9-fleet-management/9.6-light-naval-operations.md
     10-navigation/10.1-movement-mechanics.md
     10-navigation/10.2-jump-transit.md
     10-navigation/10.3-survey-operations.md
@@ -100,6 +101,7 @@ FILES=(
     18-advanced-topics/18.1-game-mechanics.md
     18-advanced-topics/18.2-time-increments.md
     18-advanced-topics/18.3-spoiler-races.md
+    18-advanced-topics/18.4-late-game-strategy.md
     # Appendices
     appendices/A-formulas.md
     appendices/B-glossary.md

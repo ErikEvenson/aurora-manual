@@ -8,8 +8,10 @@ The Research window is the primary interface for managing your empire's technolo
 
 ```
 +==============================================================================+
+
 |  Research Window                                                       [X]   |
 +==============================================================================+
+
 |                                                                              |
 | +--------------------+ +--------------------------------------------------+ |
 | | [1] Research        | | [3] Available Technologies                      | |
@@ -40,6 +42,7 @@ The Research window is the primary interface for managing your empire's technolo
 |                         +--------------------------------------------------+ |
 |                                                                              |
 +------------------------------------------------------------------------------+
+
 |                                                                              |
 | +--------------------------------------------------------------------------+|
 | | [5] Current Research Projects                                             ||
@@ -61,6 +64,7 @@ The Research window is the primary interface for managing your empire's technolo
 | +--------------------------------------------------------------------------+|
 |                                                                              |
 +------------------------------------------------------------------------------+
+
 |                                                                              |
 | +-------------------------------+ +----------------------------------------+|
 | | [6] Scientist List            | | [8] Lab Allocation Controls           ||
@@ -95,6 +99,7 @@ The Research window is the primary interface for managing your empire's technolo
 | +-------------------------------+                                           |
 |                                                                              |
 +------------------------------------------------------------------------------+
+
 |                                                                              |
 | +--------------------------------------------------------------------------+|
 | | [11] Technology Prerequisites Display                                     ||
@@ -134,6 +139,7 @@ The Research window is the primary interface for managing your empire's technolo
 
 ```
 +----------------------------------------------------+
+
 | [14] Create Research Project / Prototype Controls   |
 | +------------------------------------------------+ |
 | | Selected Technology: Nuclear Pulse Engine       | |
@@ -294,12 +300,12 @@ The Research window is the primary interface for managing your empire's technolo
 
 ## Related Sections
 
-- [7.1 Technology Tree](../7-research/7.1-technology-tree.md) -- Complete technology structure, prerequisite chains, and cost scaling
-- [7.2 Scientists](../7-research/7.2-scientists.md) -- Scientist generation, bonuses, and lifecycle management
-- [7.3 Research Facilities](../7-research/7.3-research-facilities.md) -- Lab construction, orbital research, and output maximization
-- [7.4 Tech Categories](../7-research/7.4-tech-categories.md) -- Detailed breakdown of each research category's technology lines
-- [6.3 Construction](../6-economy-and-industry/6.3-construction.md) -- Building research labs and component development costs
-- [8.1 Design Philosophy](../8-ship-design/8.1-design-philosophy.md) -- How research unlocks ship components
-- [16.1 Officer Generation](../16-commanders/16.1-officer-generation.md) -- Scientist generation as a commander type
-- [17.3 Xenoarchaeology](../17-exploration/17.3-xenoarchaeology.md) -- Ancient constructs providing research bonuses
+- [Section 7.1 Technology Tree](../7-research/7.1-technology-tree.md) -- Complete technology structure, prerequisite chains, and cost scaling
+- [Section 7.2 Scientists](../7-research/7.2-scientists.md) -- Scientist generation, bonuses, and lifecycle management
+- [Section 7.3 Research Facilities](../7-research/7.3-research-facilities.md) -- Lab construction, orbital research, and output maximization
+- [Section 7.4 Tech Categories](../7-research/7.4-tech-categories.md) -- Detailed breakdown of each research category's technology lines
+- [Section 6.3 Construction](../6-economy-and-industry/6.3-construction.md) -- Building research labs and component development costs
+- [Section 8.1 Design Philosophy](../8-ship-design/8.1-design-philosophy.md) -- How research unlocks ship components
+- [Section 16.1 Officer Generation](../16-commanders/16.1-officer-generation.md) -- Scientist generation as a commander type
+- [Section 17.3 Xenoarchaeology](../17-exploration/17.3-xenoarchaeology.md) -- Ancient constructs providing research bonuses
 - [Appendix A: Formulas](../appendices/A-formulas.md) -- Research point calculation formulas

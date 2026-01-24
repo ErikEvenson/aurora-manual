@@ -8,8 +8,10 @@ The Colony window (also called the Economics window or Population window) is the
 
 ```
 +============================================================================+
+
 |  Economics Window                                                    [X]    |
 +============================================================================+
+
 |                                                                            |
 | [1] Colony Selector Dropdown                                               |
 | +------------------------------------------------------------------------+ |
@@ -71,6 +73,7 @@ The Colony window (also called the Economics window or Population window) is the
 
 ```
 +----------------------------------------------------+
+
 | [6] INSTALLATIONS TAB                              |
 | +------------------------------------------------+ |
 | | [11] Installation List                         | |
@@ -102,6 +105,7 @@ The Colony window (also called the Economics window or Population window) is the
 
 ```
 +----------------------------------------------------+
+
 | [6] INDUSTRY TAB                                   |
 | +------------------------------------------------+ |
 | | [12] Construction Queue                        | |
@@ -136,6 +140,7 @@ The Colony window (also called the Economics window or Population window) is the
 
 ```
 +----------------------------------------------------+
+
 | [6] MINING TAB                                     |
 | +------------------------------------------------+ |
 | | [16] Mining Output Display                     | |
@@ -169,6 +174,7 @@ The Colony window (also called the Economics window or Population window) is the
 
 ```
 +----------------------------------------------------+
+
 | [6] ENVIRONMENT TAB                                |
 | +------------------------------------------------+ |
 | | [18] Atmospheric Composition                   | |
@@ -205,6 +211,7 @@ The Colony window (also called the Economics window or Population window) is the
 
 ```
 +----------------------------------------------------+
+
 | [6] GROUND FORCES TAB                              |
 | +------------------------------------------------+ |
 | | [21] Stationed Formations                      | |
@@ -337,13 +344,13 @@ The Colony window (also called the Economics window or Population window) is the
 
 ## Related Sections
 
-- [5.1 Establishing Colonies](../5-colonies/5.1-establishing-colonies.md) -- Colony ships, initial setup, and colony cost mechanics
-- [5.2 Population](../5-colonies/5.2-population.md) -- Growth rates, capacity, labor, and employment
-- [5.3 Environment](../5-colonies/5.3-environment.md) -- Colony cost factors, habitability, and environmental hazards
-- [5.5 Terraforming](../5-colonies/5.5-terraforming.md) -- Atmospheric modification and temperature control
-- [6.1 Minerals](../6-economy-and-industry/6.1-minerals.md) -- Mineral types, accessibility, and depletion
-- [6.2 Mining](../6-economy-and-industry/6.2-mining.md) -- Mining installations and production calculations
-- [6.3 Construction](../6-economy-and-industry/6.3-construction.md) -- Build queues, factories, and shipyards
-- [6.4 Wealth and Trade](../6-economy-and-industry/6.4-wealth-and-trade.md) -- Economic output and taxation
-- [13.1 Unit Types](../13-ground-forces/13.1-unit-types.md) -- Ground force garrison mechanics
-- [16.1 Officer Generation](../16-commanders/16.1-officer-generation.md) -- Governor generation and assignment
+- [Section 5.1 Establishing Colonies](../5-colonies/5.1-establishing-colonies.md) -- Colony ships, initial setup, and colony cost mechanics
+- [Section 5.2 Population](../5-colonies/5.2-population.md) -- Growth rates, capacity, labor, and employment
+- [Section 5.3 Environment](../5-colonies/5.3-environment.md) -- Colony cost factors, habitability, and environmental hazards
+- [Section 5.5 Terraforming](../5-colonies/5.5-terraforming.md) -- Atmospheric modification and temperature control
+- [Section 6.1 Minerals](../6-economy-and-industry/6.1-minerals.md) -- Mineral types, accessibility, and depletion
+- [Section 6.2 Mining](../6-economy-and-industry/6.2-mining.md) -- Mining installations and production calculations
+- [Section 6.3 Construction](../6-economy-and-industry/6.3-construction.md) -- Build queues, factories, and shipyards
+- [Section 6.4 Wealth and Trade](../6-economy-and-industry/6.4-wealth-and-trade.md) -- Economic output and taxation
+- [Section 13.1 Unit Types](../13-ground-forces/13.1-unit-types.md) -- Ground force garrison mechanics
+- [Section 16.1 Officer Generation](../16-commanders/16.1-officer-generation.md) -- Governor generation and assignment

@@ -632,5 +632,5 @@ In C# Aurora, only the WORST single factor determines CC. If gravity contributes
 - [Section 5.5 Terraforming](../5-colonies/5.5-terraforming.md) -- Terraforming installations, rates, and gas strategies
 - [Section 6.3 Construction](../6-economy-and-industry/6.3-construction.md) -- Building terraforming installations
 - [Section 7.1 Technology Tree](../7-research/7.1-technology-tree.md) -- Terraforming technology upgrades
-- [Appendix A Formulas](../appendices/A-formulas.md) -- Terraforming rate, temperature, and colony cost formulas
-- [Appendix C Tips and Mistakes](../appendices/C-tips-and-mistakes.md) -- Colony cost checking and infrastructure tips
+- [Appendix A: Formulas](../appendices/A-formulas.md) -- Terraforming rate, temperature, and colony cost formulas
+- [Appendix C: Tips and Common Mistakes](../appendices/C-tips-and-mistakes.md) -- Colony cost checking and infrastructure tips

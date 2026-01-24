@@ -34,7 +34,7 @@ This manual is organized using a decimal numbering system. Each major section is
 - Steve Walmsley's forum posts (http://aurora2.pentarch.org/)
 - Aurora community wiki
 - In-game database and tooltips
-- Community guides (Reddit r/aurora4x, YouTube)
+- Community guides (Reddit r/aurora4x and r/aurora, YouTube)
 
 ## Contributing
 

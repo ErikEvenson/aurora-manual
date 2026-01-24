@@ -6,11 +6,14 @@ The Ground Forces window is the primary interface for designing, building, organ
 
 ```
 +==============================================================================+
+
 | Ground Forces                                                     [_][O][X]  |
 +==============================================================================+
+
 | [Ground Unit Classes] [Formation Templates] [Order of Battle] [Unit Series]  |
 |                       [Organization]        [Training]                        |
 +------------------------------+-----------------------------------------------+
+
 |                              |                                               |
 |  [1] FORMATION LIST          |  [5] FORMATION DETAIL / TEMPLATE DESIGNER     |
 |                              |                                               |
@@ -56,6 +59,7 @@ The Ground Forces window is the primary interface for designing, building, organ
 |  +------------------------+  |                                               |
 |                              |                                               |
 +------------------------------+-----------------------------------------------+
+
 |  [9] UNIT CLASS DESIGNER (Ground Unit Classes Tab)                            |
 |  +--------------------------------------------------------------------------+|
 |  | Base Type: [Infantry     v]   Armor: [4  v]   Capabilities: [x] Mountain ||
@@ -184,7 +188,7 @@ Shows all formations currently under construction or queued. Displays the templa
 
 - [Section 6.3 Construction](../6-economy-and-industry/6.3-construction.md) -- Build point allocation for formation construction
 - [Section 7.4 Tech Categories](../7-research/7.4-tech-categories.md) -- Ground combat technology research tree
-- [Section 9 Fleet Operations](../9-fleet-operations/9.1-task-forces.md) -- Transport ship orders for troop movement
+- [Section 9.3 Task Groups](../9-fleet-management/9.3-task-groups.md) -- Transport ship orders for troop movement
 - [Section 12.6 Damage and Armor](../12-combat/12.6-damage-and-armor.md) -- Ground combat mechanics
 - [Section 13.1 Unit Types](../13-ground-forces/13.1-unit-types.md) -- Detailed unit design and formation template rules
 - [Section 13.2 Training and Transport](../13-ground-forces/13.2-training-and-transport.md) -- Training grades and transport bay types

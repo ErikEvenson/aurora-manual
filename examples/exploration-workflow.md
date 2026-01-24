@@ -567,11 +567,11 @@ First xeno recovery (at 20%/year): expected ~5 years (stochastic)
 
 ## Related Sections
 
-- [Section 10.1 Jump Points](../10-navigation/10.1-jump-points.md) -- Jump point mechanics, transit, and jump gates
+- [Section 10.2 Jump Transit](../10-navigation/10.2-jump-transit.md) -- Jump point mechanics, transit, and jump gates
 - [Section 17.1 Geological Survey](../17-exploration/17.1-geological-survey.md) -- Survey sensors, mineral discovery, ground survey
 - [Section 17.2 Gravitational Survey](../17-exploration/17.2-gravitational-survey.md) -- Finding jump points, survey locations, exploration strategy
 - [Section 17.3 Xenoarchaeology](../17-exploration/17.3-xenoarchaeology.md) -- Ruins, excavation, recovered technology
-- [Section 5.1 Colonization](../5-colonies/5.1-colonization.md) -- Colony cost, infrastructure, population management
+- [Section 5.1 Establishing Colonies](../5-colonies/5.1-establishing-colonies.md) -- Colony cost, infrastructure, population management
 - [Section 4.1 Star Systems](../4-systems-and-bodies/4.1-star-systems.md) -- System composition, body types
-- [Appendix A Formulas](../appendices/A-formulas.md) -- Production, mining, and growth calculations
-- [Appendix C Tips and Common Mistakes](../appendices/C-tips-and-mistakes.md) -- General gameplay advice
+- [Appendix A: Formulas](../appendices/A-formulas.md) -- Production, mining, and growth calculations
+- [Appendix C: Tips and Common Mistakes](../appendices/C-tips-and-mistakes.md) -- General gameplay advice

@@ -18,6 +18,7 @@ header-includes:
   - \pagestyle{fancy}
   - \fancyhead[L]{Aurora 4X Manual}
   - \fancyhead[R]{\leftmark}
+  - \fancyfoot[L]{\footnotesize\date}
   - \fancyfoot[C]{\thepage}
   - \usepackage{titlesec}
   - \titleformat{\chapter}[display]{\normalfont\huge\bfseries}{Chapter \thechapter}{20pt}{\Huge}

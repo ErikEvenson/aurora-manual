@@ -4,7 +4,7 @@ This appendix provides quick-reference data tables for minerals, installations, 
 
 ## D.1 Trans-Newtonian Minerals
 
-The eleven Trans-Newtonian minerals are the foundation of all advanced construction in Aurora (see [Section 6 Economy and Industry](../6-economy-and-industry/6.1-minerals.md) for mining and exploitation). Each mineral has primary applications that determine where demand will be highest.
+The eleven Trans-Newtonian minerals are the foundation of all advanced construction in Aurora (see [Section 6.1 Minerals](../6-economy-and-industry/6.1-minerals.md) for mining and exploitation). Each mineral has primary applications that determine where demand will be highest.
 
 | Mineral | Primary Uses |
 |---------|-------------|
@@ -30,7 +30,7 @@ The eleven Trans-Newtonian minerals are the foundation of all advanced construct
 
 ## D.2 Installation Specifications
 
-For installation placement and colony management, see [Section 5 Colonies](../5-colonies/5.1-colonization.md).
+For installation placement and colony management, see [Section 5.1 Establishing Colonies](../5-colonies/5.1-establishing-colonies.md).
 
 ### Key Installation Build Costs
 
@@ -68,7 +68,7 @@ For installation placement and colony management, see [Section 5 Colonies](../5-
 
 ## D.3 Beam Weapon Quick Reference
 
-For combat usage and tactical considerations, see [Section 12 Combat](../12-combat/12.2-beam-combat.md).
+For combat usage and tactical considerations, see [Section 12.2 Beam Weapons](../12-combat/12.2-beam-weapons.md).
 
 ### Beam Weapon Comparison Table
 
@@ -168,7 +168,7 @@ Each level multiplies the previous by 1.2x cumulatively.
 
 ## D.5 Key Design Formulas Quick Reference
 
-This section condenses the most frequently-referenced formulas from [Appendix A Formulas](../appendices/A-formulas.md) into a single lookup table for use during ship design (see [Section 8 Ship Design](../8-ship-design/8.1-design-overview.md)).
+This section condenses the most frequently-referenced formulas from [Appendix A: Formulas](../appendices/A-formulas.md) into a single lookup table for use during ship design (see [Section 8.1 Design Philosophy](../8-ship-design/8.1-design-philosophy.md)).
 
 ### Sensor Detection Ranges
 
@@ -235,8 +235,8 @@ Shields must be active to regenerate. Active shields generate EM signature detec
 
 ## Related Sections
 
-- [Section 6 Economy and Industry](../6-economy-and-industry/6.1-minerals.md) -- Mineral extraction, production chains, and installation management
-- [Section 7 Research](../7-research/7.1-technology-tree.md) -- Technology progression and research costs
-- [Section 8 Ship Design](../8-ship-design/8.1-design-overview.md) -- Using these tables for ship component selection and optimization
-- [Section 12 Combat](../12-combat/12.1-combat-overview.md) -- Weapon damage, armor penetration, and shield mechanics in practice
-- [Appendix A Formulas](../appendices/A-formulas.md) -- Full mathematical derivations behind these reference values
+- [Section 6.1 Minerals](../6-economy-and-industry/6.1-minerals.md) -- Mineral extraction, production chains, and installation management
+- [Section 7.1 Technology Tree](../7-research/7.1-technology-tree.md) -- Technology progression and research costs
+- [Section 8.1 Design Philosophy](../8-ship-design/8.1-design-philosophy.md) -- Using these tables for ship component selection and optimization
+- [Section 12.1 Fire Controls](../12-combat/12.1-fire-controls.md) -- Weapon damage, armor penetration, and shield mechanics in practice
+- [Appendix A: Formulas](../appendices/A-formulas.md) -- Full mathematical derivations behind these reference values
