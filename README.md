@@ -11,7 +11,7 @@ This manual is organized using a decimal numbering system. Each major section is
 | # | Section | Description |
 |---|---------|-------------|
 | 1 | [Introduction](1-introduction/) | What is Aurora, installation, first launch |
-| 2 | [Game Setup](2-game-setup/) | New game options, race creation, system generation |
+| 2 | [Game Setup](2-game-setup/) | New game options, race creation, system generation, racial traits, starting conditions |
 | 3 | [User Interface](3-user-interface/) | Main window, system map, controls, event log |
 | 4 | [Systems and Bodies](4-systems-and-bodies/) | Stars, planets, moons, asteroids, jump points |
 | 5 | [Colonies](5-colonies/) | Establishing, population, environment, terraforming |
@@ -21,10 +21,10 @@ This manual is organized using a decimal numbering system. Each major section is
 | 9 | [Fleet Management](9-fleet-management/) | Shipyards, construction, task groups, orders |
 | 10 | [Navigation](10-navigation/) | Movement, jump transit, survey, waypoints |
 | 11 | [Sensors and Detection](11-sensors-and-detection/) | Signatures, passive/active sensors, stealth |
-| 12 | [Combat](12-combat/) | Fire controls, beams, missiles, PD, EW, damage |
+| 12 | [Combat](12-combat/) | Fire controls, beams, missiles, PD, EW, damage, planetary defence centres |
 | 13 | [Ground Forces](13-ground-forces/) | Unit types, training, transport, ground combat |
 | 14 | [Logistics](14-logistics/) | Fuel, maintenance, supply ships, habitats |
-| 15 | [Diplomacy](15-diplomacy/) | Alien races, communications, treaties |
+| 15 | [Diplomacy](15-diplomacy/) | Alien races, communications, treaties, diplomacy, espionage |
 | 16 | [Commanders](16-commanders/) | Officer generation, skills, assignments |
 | 17 | [Exploration](17-exploration/) | Geo survey, grav survey, xenoarchaeology |
 | 18 | [Advanced Topics](18-advanced-topics/) | Game mechanics, time increments, spoiler races |
