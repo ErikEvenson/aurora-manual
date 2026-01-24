@@ -136,6 +136,14 @@ FILES=(
     images/event-log-window.md
 )
 
+# Validate all source files exist
+for f in "${FILES[@]}"; do
+    if [ ! -f "$f" ]; then
+        echo "ERROR: Source file not found: $f" >&2
+        exit 1
+    fi
+done
+
 # Build PDF with pandoc + tectonic
 pandoc \
     --metadata-file=metadata.yaml \
