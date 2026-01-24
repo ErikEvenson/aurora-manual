@@ -84,9 +84,9 @@ While waiting for TN Technology to complete, your conventional factories should 
 | Financial Centers | MEDIUM | Generate wealth for ongoing operations |
 | Ground Forces | LOW | Basic planetary defense (not urgent) |
 
-**Financial Centers:** Each Financial Center generates wealth. Converting conventional factories to Financial Centers costs 10 Corbomite + 10 Uridium per factory converted, and the resulting center operates without workers. This is a solid pre-TN investment because wealth generation supports your economy throughout the game.
+**Financial Centers:** Each Financial Center generates wealth. Converting conventional factories to Financial Centers costs 20 Corbomite per factory converted, and the resulting center operates without workers. This is a solid pre-TN investment because wealth generation supports your economy throughout the game.
 
-**Infrastructure:** At only 2 BP and 1 Duranium + 1 Neutronium each, infrastructure is cheap and will be essential for any future off-world colonies. Stockpile 500-1,000 units during the conventional phase.
+**Infrastructure:** At only 2 BP and 1 Duranium + 1 Mercassium each, infrastructure is cheap and will be essential for any future off-world colonies. Stockpile 500-1,000 units during the conventional phase.
 
 ### What NOT to Build Conventionally
 
@@ -368,12 +368,12 @@ Colonize when:
 ### Mass Driver Economics
 
 ```
-Mass Driver: 600 BP, 300 Duranium + 300 Neutronium
+Mass Driver: 300 BP, 100 Duranium + 100 Neutronium + 100 Boronide
 Output: 5,000 tons/year mineral transfer
 Break-even: Replaces one freighter run per year
 ```
 
-A pair of mass drivers (1,200 BP investment) provides permanent, fuel-free mineral transport within a system. This is almost always superior to maintaining a freighter route for mineral logistics.
+A pair of mass drivers (600 BP investment) provides permanent, fuel-free mineral transport within a system. This is almost always superior to maintaining a freighter route for mineral logistics.
 
 ---
 
@@ -577,7 +577,7 @@ Approximate total mineral consumption over 10 years of bootstrap:
 
 4. **Over-investing in military before the economy sustains it:** A warship consumes resources (maintenance, fuel, crew). If your economy cannot support it, the ship degrades and becomes a liability.
 
-5. **Ignoring Financial Centers:** Wealth generation supports your economy. Converting some conventional factories to Financial Centers (10 Corbomite + 10 Uridium each) provides ongoing income.
+5. **Ignoring Financial Centers:** Wealth generation supports your economy. Converting some conventional factories to Financial Centers (20 Corbomite each) provides ongoing income.
 
 6. **No Mercassium stockpile before labs:** Each research lab costs 1,200 Mercassium. If you plan to build 20 labs, you need 24,000 Mercassium. Check your deposits and accessibility FIRST.
 

@@ -46,7 +46,7 @@ This is an important lesson. Our Mars-like world actually has CC 3.43 due to tem
   - Hydrosphere factor: 1.5 (5% water)
   - Gravity factor: 0.0 (within tolerance)
   - **Final CC: 2.0** (worst single factor: breathable gas OR dangerous gas, both at 2.0)
-- **Terraforming technology:** Base level (0.001 atm/year per installation)
+- **Terraforming technology:** Base level (0.00025 atm/year per installation)
 - **Planet size modifier:** Earth Surface Area / Planet Surface Area = 1/0.35 = 2.86x speed bonus
 
 ---
@@ -140,11 +140,11 @@ Base terraforming rate with planet size modifier:
 
 ```
 Effective Rate = Base_Rate * Planet_Size_Modifier
-               = 0.001 atm/year/installation * 2.86
-               = 0.00286 atm/year/installation
+               = 0.00025 atm/year/installation * 2.86
+               = 0.000715 atm/year/installation
 ```
 
-Each installation changes atmosphere by 0.00286 atm per year on this world (smaller than Earth, so faster terraforming).
+Each installation changes atmosphere by 0.000715 atm per year on this world (smaller than Earth, so faster terraforming).
 
 ### Installation Requirements by Phase
 
@@ -155,13 +155,13 @@ CO2 to remove: 0.015 - 0.005 = 0.010 atm (to drop below danger threshold)
                0.015 - 0.0003 = 0.0147 atm (to reach target)
 
 With 20 installations removing CO2:
-Rate = 20 * 0.00286 = 0.0572 atm/year
+Rate = 20 * 0.000715 = 0.0143 atm/year
 
-Time to clear danger threshold: 0.010 / 0.0572 = 0.175 years (~2.1 months)
-Time to reach target: 0.0147 / 0.0572 = 0.257 years (~3.1 months)
+Time to clear danger threshold: 0.010 / 0.0143 = 0.70 years (~8.4 months)
+Time to reach target: 0.0147 / 0.0143 = 1.03 years (~12.3 months)
 ```
 
-CO2 removal is fast because only a small amount needs to be removed.
+CO2 removal is relatively quick because only a small amount needs to be removed, even at the slower C# rate.
 
 **Phase 2: Add O2 (removes CC 2.0 breathable gas factor)**
 
@@ -169,10 +169,10 @@ CO2 removal is fast because only a small amount needs to be removed.
 O2 to add: 0.21 - 0.005 = 0.205 atm
 
 With 50 installations adding O2:
-Rate = 50 * 0.00286 = 0.143 atm/year
+Rate = 50 * 0.000715 = 0.03575 atm/year
 
-Time to reach breathable minimum (0.1 atm): (0.1 - 0.005) / 0.143 = 0.664 years (~8 months)
-Time to reach target (0.21 atm): 0.205 / 0.143 = 1.43 years (~17 months)
+Time to reach breathable minimum (0.1 atm): (0.1 - 0.005) / 0.03575 = 2.66 years
+Time to reach target (0.21 atm): 0.205 / 0.03575 = 5.73 years
 ```
 
 **Phase 3: Add N2 (builds atmospheric pressure for greenhouse warming)**
@@ -181,9 +181,9 @@ Time to reach target (0.21 atm): 0.205 / 0.143 = 1.43 years (~17 months)
 N2 to add: 0.78 - 0.28 = 0.50 atm
 
 With 50 installations adding N2:
-Rate = 50 * 0.00286 = 0.143 atm/year
+Rate = 50 * 0.000715 = 0.03575 atm/year
 
-Time to reach target: 0.50 / 0.143 = 3.50 years
+Time to reach target: 0.50 / 0.03575 = 13.99 years
 ```
 
 **Phase 4: Add H2O vapor (builds hydrosphere)**
@@ -192,9 +192,9 @@ Time to reach target: 0.50 / 0.143 = 3.50 years
 H2O to add: 0.01 atm (plus natural condensation builds hydrosphere)
 
 With 10 installations adding H2O:
-Rate = 10 * 0.00286 = 0.0286 atm/year
+Rate = 10 * 0.000715 = 0.00715 atm/year
 
-Time to add 0.01 atm: 0.01 / 0.0286 = 0.35 years (~4.2 months)
+Time to add 0.01 atm: 0.01 / 0.00715 = 1.40 years (~16.8 months)
 ```
 
 Note: Water vapor condenses at 0.1 atm per year, increasing Hydro Extent. As water vapor is added, some will condense into surface water, gradually raising hydrosphere percentage. Each year of active water vapor addition at equilibrium adds approximately 4% hydro extent.
@@ -239,7 +239,7 @@ Nitrogen is an inert filler gas. Adding it:
 Oxygen addition should begin only after toxic/dangerous gases are removed:
 
 - In this case, CO2 is the only dangerous gas and is removed quickly
-- O2 addition can safely start after month 3
+- O2 addition can safely start after ~year 1 (once CO2 clears danger threshold)
 - If the atmosphere contained methane or hydrogen, O2 would need to wait until those are cleared (explosive combinations)
 
 ### Temperature Interaction
@@ -270,44 +270,44 @@ The temperature CC factor disappears naturally as pressure builds. No dedicated 
 
 ### CC Progression Timeline
 
-Track how colony cost changes as terraforming proceeds:
+Track how colony cost changes as terraforming proceeds (all phases running concurrently where possible):
 
 ```
-Month 0 (Start):
+Year 0 (Start):
   Worst factor: Breathable gas = 2.0, Dangerous gas = 2.0
   CC = 2.0
 
-Month 3 (CO2 below danger threshold):
+Year 0.7 (CO2 below danger threshold):
   Dangerous gas factor eliminated (CO2 < 0.005 atm)
   Remaining worst: Breathable gas = 2.0 (O2 still below 0.1 atm)
   CC = 2.0 (unchanged -- breathable gas still dominates)
 
-Month 4-11 (O2 building, N2 building):
+Year 1-2 (O2 building, N2 building):
   O2 rising from 0.005 toward 0.1 atm
   Breathable gas factor: still 2.0 until O2 >= 0.1 atm
   CC = 2.0
 
-Month 12 (O2 reaches 0.1 atm):
+Year 2.7 (O2 reaches 0.1 atm):
   Breathable gas factor ELIMINATED
   Remaining worst: Hydrosphere = 1.5 (still at ~9% water, improved from 5%)
   CC = 1.5 (significant improvement!)
 
-Month 18 (Pressure rising, hydro improving):
+Year 5 (Pressure rising, hydro improving):
   Temperature: -5C, factor = 5/17.5 = 0.29
   Hydrosphere: ~12%, factor = (20-12)/10 = 0.8
   CC = 0.8
 
-Month 24 (Pressure at 0.6 atm, hydro at 15%):
+Year 7 (Pressure at 0.6 atm, hydro at 15%):
   Temperature: -6C, factor = 6/17.5 = 0.34
   Hydrosphere: 15%, factor = (20-15)/10 = 0.5
   CC = 0.5
 
-Month 36 (Near target atmosphere):
+Year 10 (Near target atmosphere):
   Temperature: 2C (within range), factor = 0.0
   Hydrosphere: 18%, factor = (20-18)/10 = 0.2
   CC = 0.2
 
-Month 48 (Target achieved):
+Year 14 (Target achieved):
   Temperature: 6.4C, factor = 0.0
   O2: 0.21 atm, within range, factor = 0.0
   CO2: trace, factor = 0.0
@@ -317,14 +317,14 @@ Month 48 (Target achieved):
 
 ### Key Milestones
 
-| Month | Event | CC |
-|-------|-------|-----|
+| Year | Event | CC |
+|------|-------|-----|
 | 0 | Terraforming begins | 2.0 |
-| 3 | CO2 below danger threshold | 2.0 |
-| 12 | O2 reaches breathable minimum | 1.5 |
-| 18 | Hydrosphere improving | 0.8 |
-| 36 | Temperature enters habitable range | 0.2 |
-| 48 | All factors eliminated | 0.0 |
+| 0.7 | CO2 below danger threshold | 2.0 |
+| 2.7 | O2 reaches breathable minimum | 1.5 |
+| 5 | Hydrosphere improving | 0.8 |
+| 10 | Temperature enters habitable range | 0.2 |
+| 14 | All factors eliminated | 0.0 |
 
 ---
 
@@ -367,16 +367,16 @@ Each infrastructure unit supports one person at CC 1.0. At CC 2.0, you need 2 un
 - Import population for mining, industry, and research alongside terraforming
 - Higher infrastructure investment but colony becomes productive immediately
 - As CC decreases, infrastructure requirements drop automatically
-- At CC 1.5 (month 12): 32.5M pop needs only 48.75M infrastructure (saved 16.25M!)
+- At CC 1.5 (year 2.7): 32.5M pop needs only 48.75M infrastructure (saved 16.25M!)
 
 **Recommendation:** Use Option A for pure terraforming targets. Use Option B if the world has valuable mineral deposits that justify early economic development.
 
 ### Worker Requirement Note
 
-Ground-based terraforming installations are large (125,000 tons, 5x standard installation size) and each requires 250,000 workers. This is a significant population commitment:
+Ground-based terraforming installations each require 125,000 workers:
 
 ```
-130 installations * 250,000 workers = 32.5 million population minimum
+130 installations * 125,000 workers = 16.25 million population minimum
 ```
 
 An alternative is space-based terraforming modules (ship components with no population requirement), but these cost 500 BP each and require ship construction infrastructure.
@@ -410,13 +410,13 @@ Anti-Greenhouse Factor = 1.0 (no anti-greenhouse gases present)
 | 0.85 | 1.085 | 273.1 | 0.1 | 0.00 |
 | 1.00 (target) | 1.110 | 279.4 | 6.4 | 0.00 |
 
-**Observation:** Temperature enters the habitable range (0C+) at approximately 0.85 atm total pressure. Since we are adding N2 at 0.143 atm/year, we cross this threshold at approximately:
+**Observation:** Temperature enters the habitable range (0C+) at approximately 0.85 atm total pressure. Since we are adding N2 at 0.03575 atm/year (50 installations), we cross this threshold at approximately:
 
 ```
-Time to reach 0.85 atm from 0.30 atm = (0.85 - 0.30) / 0.143 = 3.85 years (~month 46)
+Time to reach 0.85 atm from 0.30 atm = (0.85 - 0.30) / 0.03575 = 15.38 years
 ```
 
-However, the temperature CC factor is only 0.57 at best, which is never the dominant CC factor in our scenario. The atmosphere composition factors (2.0) dominate until month 12. After that, hydrosphere dominates. Temperature becomes relevant only after hydrosphere is fixed.
+However, the temperature CC factor is only 0.57 at best, which is never the dominant CC factor in our scenario. The atmosphere composition factors (2.0) dominate until year 2.7 (when O2 reaches breathable minimum). After that, hydrosphere dominates. Temperature becomes relevant only after hydrosphere is fixed.
 
 ### When You DO Need Dedicated Greenhouse Warming
 
@@ -488,7 +488,7 @@ Watch for these overshoot conditions:
 Once terraforming is complete:
 
 1. **Remove installations** from the completed world
-2. **Transport** to your next terraforming target (each installation is 125,000 tons -- you need significant freighter capacity)
+2. **Transport** to your next terraforming target (each installation is 50,000 tons -- you need significant freighter capacity)
 3. **Reassign** to the next priority gas operation at the new target
 4. **Alternative:** Convert some to space-based modules for flexibility
 
@@ -510,53 +510,66 @@ After achieving CC 0.0, the atmosphere is stable. No ongoing terraforming is nee
 
 ```
 Year 1:
-  Q1: Remove CO2 (20 inst.) + Add N2 (50 inst.) + Add H2O (10 inst.)
-      CO2 drops below 0.005 atm by end of Q1
-  Q2: Switch 20 CO2-removal inst. to O2 addition (now 70 on O2)
-      Begin O2 buildup
-  Q3: O2 approaches 0.1 atm
-  Q4: O2 passes 0.1 atm -- CC drops from 2.0 to 1.5 (hydrosphere now dominant)
+  Remove CO2 (20 inst.) + Add N2 (50 inst.) + Add O2 (50 inst.) + Add H2O (10 inst.)
+  CO2 drops below danger threshold by ~month 8
+  Switch 20 CO2-removal inst. to O2 addition (now 70 on O2)
 
-Year 2:
-  Q1-Q2: N2 and O2 continue building
-  Q3: Hydrosphere reaches 15% (CC = 0.5)
-  Q4: Pressure approaching 0.7 atm, temperature improving
+Years 2-3:
+  O2 approaching breathable minimum (0.1 atm)
+  N2 slowly building pressure
+  Hydrosphere building via H2O condensation
 
-Year 3:
-  Q1-Q2: Atmosphere nearing target composition
-  Q3: Hydrosphere reaches 19-20%
-  Q4: O2 reaches 0.21 atm target, N2 near 0.78 atm
+Year 3 (O2 reaches 0.1 atm):
+  CC drops from 2.0 to 1.5 (hydrosphere now dominant factor)
+  H2O condensation reaching ~12%
 
-Year 4:
-  Q1: Temperature crosses 0C threshold with sufficient pressure
-  Q2: Hydrosphere passes 20% -- all CC factors eliminated
-  Q2: CC = 0.0! Terraforming complete!
-  Q3-Q4: Redeploy installations to next target
+Years 4-5:
+  O2 continues toward 0.21 atm target
+  N2 continues building (still well below 0.78 target)
+  Hydrosphere approaching 15-18%
+
+Year 6 (O2 reaches target):
+  Reallocate 70 O2 installations to N2 (now 120 on N2)
+  N2 buildup accelerates dramatically
+  Hydrosphere passes 20% -- hydrosphere CC factor eliminated
+
+Years 7-10:
+  N2 building rapidly with 120 installations
+  Temperature improving as pressure increases greenhouse effect
+  Pressure approaching 0.85 atm -- temperature crosses 0C
+
+Year 10-11:
+  N2 reaches 0.78 atm target
+  All CC factors eliminated
+  CC = 0.0! Terraforming complete!
+  Redeploy installations to next target
 ```
 
-### With Improved Technology (0.002 atm/year)
+### With Improved Technology (0.00032 atm/year)
 
-At the next terraforming technology level, rates double:
+At the first researched terraforming technology level (3,000 RP):
 
 ```
-Effective Rate = 0.002 * 2.86 = 0.00572 atm/year/installation
-Total timeline: ~2 years instead of 4
+Effective Rate = 0.00032 * 2.86 = 0.000915 atm/year/installation
+Total timeline: ~8-9 years instead of 10-11
 ```
+
+At higher tech levels the improvement is more dramatic (e.g., Rate 7 at 0.0012 gives 0.00343 effective rate, reducing the project to ~3 years).
 
 ### With Fewer Installations (Budget Approach)
 
 If you can only afford 30 installations total:
 
 ```
-Phase 1 (CO2 removal, 10 inst.): 0.010 / (10 * 0.00286) = 0.35 years (4 months)
-Phase 2 (O2 addition, 15 inst.): 0.205 / (15 * 0.00286) = 4.78 years
-Phase 3 (N2 addition, 15 inst.): 0.50 / (15 * 0.00286) = 11.66 years (parallel with O2)
+Phase 1 (CO2 removal, 10 inst.): 0.010 / (10 * 0.000715) = 1.40 years
+Phase 2 (O2 addition, 15 inst.): 0.205 / (15 * 0.000715) = 19.1 years
+Phase 3 (N2 addition, 15 inst.): 0.50 / (15 * 0.000715) = 46.6 years (parallel with O2)
 Phase 4 (H2O, 5 inst.): hydrosphere takes ~7.5 years
 
-Total timeline: ~12 years
+Total timeline: ~47 years (N2 is the bottleneck)
 ```
 
-The relationship is roughly linear: half the installations means double the time.
+The relationship is roughly linear: quarter the installations means quadruple the time. This demonstrates why terraforming in C# Aurora is a multi-decade commitment with modest installation counts.
 
 ---
 
@@ -597,7 +610,7 @@ Always ship infrastructure BEFORE or WITH your colonists. Never the other way ar
 
 ### 4. Ignoring Planet Size Factor
 
-A common miscalculation is using the base 0.001 atm/year rate without the planet size modifier. Our world at 35% Earth surface area gets a 2.86x bonus -- terraforming takes 1/2.86 the time compared to an Earth-sized target. Conversely, a super-Earth at 2x surface area takes twice as long. Always factor in planet size when estimating timelines.
+A common miscalculation is using the base 0.00025 atm/year rate without the planet size modifier. Our world at 35% Earth surface area gets a 2.86x bonus -- terraforming takes 1/2.86 the time compared to an Earth-sized target. Conversely, a super-Earth at 2x surface area takes twice as long. Always factor in planet size when estimating timelines.
 
 ### 5. Overshooting O2 Levels
 

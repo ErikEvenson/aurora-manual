@@ -205,13 +205,23 @@ Where:
 - **Terraform_Rate** depends on the technology level of terraforming installations
 - **Gas_Modifier** varies by the gas being added or removed (some gases terraform faster than others)
 
-Standard terraforming rates in atm/year per installation:
+Terraforming rate technology progression (from game database):
 
-| Technology Level | Rate (atm/year) |
-|-----------------|-----------------|
-| Base | 0.001 |
-| Improved | 0.002 |
-| Advanced | 0.004 |
+| Technology Level | Rate (atm/year) | Research Cost (RP) |
+|-----------------|-----------------|-------------------|
+| Racial Starting Rate | 0.00025 | — |
+| Terraforming Rate 1 | 0.00032 | 3,000 |
+| Terraforming Rate 2 | 0.0004 | 5,000 |
+| Terraforming Rate 3 | 0.00048 | 10,000 |
+| Terraforming Rate 4 | 0.0006 | 20,000 |
+| Terraforming Rate 5 | 0.00075 | 40,000 |
+| Terraforming Rate 6 | 0.00096 | 80,000 |
+| Terraforming Rate 7 | 0.0012 | 150,000 |
+| Terraforming Rate 8 | 0.0015 | 300,000 |
+| Terraforming Rate 9 | 0.0019 | 600,000 |
+| Terraforming Rate 10 | 0.0024 | 1,200,000 |
+| Terraforming Rate 11 | 0.003 | 2,500,000 |
+| Terraforming Rate 12 | 0.00375 | 5,000,000 |
 
 ### Shipyard Build Time
 

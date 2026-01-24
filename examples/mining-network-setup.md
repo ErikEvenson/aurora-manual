@@ -74,8 +74,8 @@ Colony cost 0.00 means no infrastructure is required. Colonists can survive with
 | Factor | Conventional Mines | Automated Mines |
 |--------|-------------------|-----------------|
 | BP Cost | 120 BP | 240 BP |
-| Mineral Cost | 60 Duranium + 60 Corundium | 120 Duranium + 120 Corundium |
-| Workers Required | 50,000 per mine | 5 (crew only) |
+| Mineral Cost | 120 Corundium | 240 Corundium |
+| Workers Required | 50,000 per mine | 0 (unmanned) |
 | Output | 1 ton/year x accessibility | 1 ton/year x accessibility |
 | Colony needed? | Yes (population) | No (unmanned) |
 | Transport cost | Colony ship for workers | Freighter for mines |
@@ -93,7 +93,7 @@ For Luna (which is close and has zero colony cost), conventional mines are viabl
 Build 20 automated mines on Earth (our starting industrial base):
 ```
 Build cost: 20 x 240 BP = 4,800 BP
-Mineral cost: 20 x (120 Duranium + 120 Corundium) = 2,400 Duranium + 2,400 Corundium
+Mineral cost: 20 x 240 Corundium = 4,800 Corundium
 Build time: 4,800 BP / (Num_Factories x 10 BP/year)
 ```
 
@@ -279,9 +279,9 @@ Mass drivers offer an alternative to freighter logistics:
 
 **Mass Driver specifications** (from Appendix D):
 
-- BP Cost: 600
-- Mineral Cost: 300 Duranium + 300 Neutronium
-- Workers Required: 50,000 per installation
+- BP Cost: 300
+- Mineral Cost: 100 Duranium + 100 Neutronium + 100 Boronide
+- Workers Required: 0 (unmanned)
 - Output: Launches mineral packets at a target body
 
 **Mass Driver advantages**:

@@ -36,17 +36,19 @@ For installation placement and colony management, see [Section 5.1 Establishing 
 
 | Installation | BP Cost | Mineral Cost | Workers Required |
 |-------------|---------|--------------|-----------------|
+| Infrastructure | 2 | 1 Duranium + 1 Mercassium | 0 |
 | Maintenance Facility | 60 | 30 Duranium + 30 Neutronium | 50,000 |
-| Research Lab | 2,400 | 1,200 Duranium + 1,200 Mercassium | 1,000,000 |
-| Mine | 120 | 60 Duranium + 60 Corundium | 50,000 |
-| Automated Mine | 240 | 120 Duranium + 120 Corundium | 5 (crew only) |
-| Construction Factory | 120 | 60 Duranium + 60 Tritanium | 50,000 |
-| Ordnance Factory | 120 | 60 Duranium + 60 Tritanium | 50,000 |
-| Fuel Refinery | 120 | 60 Duranium + 60 Boronide | 50,000 |
-| Terraforming Installation | 600 | 300 Duranium + 300 Boronide | 250,000 |
-| Infrastructure | 2 | 1 Duranium + 1 Neutronium | varies |
-| Mass Driver | 600 | 300 Duranium + 300 Neutronium | 50,000 |
-| Ground Force Training Facility | 2,400 | 1,200 Duranium + 1,200 Neutronium | 500,000 |
+| Mine | 120 | 120 Corundium | 50,000 |
+| Construction Factory | 120 | 60 Duranium + 60 Neutronium | 50,000 |
+| Ordnance Factory | 120 | 120 Tritanium | 50,000 |
+| Fighter Factory | 120 | 120 Vendarite | 50,000 |
+| Fuel Refinery | 120 | 120 Boronide | 50,000 |
+| Financial Centre | 120 | 120 Corbomite | 50,000 |
+| Automated Mine | 240 | 240 Corundium | 0 |
+| Terraforming Installation | 300 | 150 Duranium + 150 Boronide | 125,000 |
+| Mass Driver | 300 | 100 Duranium + 100 Neutronium + 100 Boronide | 0 |
+| Ground Force Construction Complex | 2,400 | 2,400 Vendarite | 1,000,000 |
+| Research Facility | 2,400 | 1,200 Duranium + 1,200 Mercassium | 1,000,000 |
 
 ### Installation Output Summary
 
@@ -61,10 +63,11 @@ For installation placement and colony management, see [Section 5.1 Establishing 
 
 ### Terraforming Installation Notes
 
-- Mass: 125,000 tons per installation
-- Worker requirement: 250,000 per installation
-- Base terraform rate: 0.001 atm/year per installation
-- Mineral cost is substantial; plan terraforming projects carefully
+- Mass: 50,000 tons per installation (2x standard installation size)
+- Worker requirement: 125,000 per installation
+- Base terraform rate: 0.00025 atm/year per installation (starting racial tech)
+- Rate modified by planet size: Earth Surface Area / Planet Surface Area
+- Tech progression: 0.00032, 0.0004, 0.00048, 0.0006, 0.00075, 0.00096, 0.0012, 0.0015, 0.0019, 0.0024, 0.003, 0.00375
 
 ## D.3 Beam Weapon Quick Reference
 
