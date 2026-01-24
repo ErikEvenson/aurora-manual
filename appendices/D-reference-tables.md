@@ -108,6 +108,430 @@ Focal size (for lasers) and velocity (for railguns) affect maximum range. Higher
 
 ## D.4 Technology Progression Tables
 
+### Engine Technology Progression
+
+Engine power determines ship speed. The engine type sets base power per HS, while the power modifier controls the maximum multiplier available in the engine design window. See [Section 8.1 Design Philosophy](../8-ship-design/8.1-design-philosophy.md) for practical applications.
+
+#### Engine Types (Base Power per HS)
+
+| Tech Level | Engine Type | Power/HS | Research Cost (RP) |
+|-----------|------------|----------|-------------------|
+| Conventional | Conventional Engine | 1.0 | 500 |
+| 1 | Nuclear Radioisotope Engine | 5.0 | 1,000 |
+| 2 | Nuclear Thermal Engine | 6.4 | 2,000 |
+| 3 | Nuclear Pulse Engine | 8.0 | 4,000 |
+| 4 | Nuclear Gas-Core Engine | 10.0 | 6,000 |
+| 5 | Ion Drive | 12.5 | 10,000 |
+| 6 | Magneto-plasma Drive | 16.0 | 20,000 |
+| 7 | Magnetic Confinement Fusion Drive | 20.0 | 40,000 |
+| 8 | Inertial Confinement Fusion Drive | 25.0 | 80,000 |
+| 9 | Solid Core Anti-matter Drive | 32.0 | 150,000 |
+| 10 | Gas Core Anti-matter Drive | 40.0 | 300,000 |
+| 11 | Plasma Core Anti-matter Drive | 50.0 | 600,000 |
+| 12 | Beam Core Anti-matter Drive | 64.0 | 1,250,000 |
+| 13 | Photonic Drive | 80.0 | 2,500,000 |
+| 14 | Quantum Singularity Drive | 100.0 | 5,000,000 |
+
+#### Maximum Engine Power Modifier
+
+This technology unlocks higher power multipliers in the engine designer. Higher multipliers increase power output but also fuel consumption (roughly proportional to the square of the multiplier).
+
+| Tech Level | Max Modifier | Research Cost (RP) |
+|-----------|-------------|-------------------|
+| Base | x1 | 1 |
+| 1 | x1.25 | 500 |
+| 2 | x1.5 | 1,000 |
+| 3 | x1.75 | 2,000 |
+| 4 | x2 | 4,000 |
+| 5 | x2.5 | 8,000 |
+| 6 | x3 | 15,000 |
+
+#### Minimum Engine Power Modifier
+
+This technology unlocks lower power multipliers, allowing more fuel-efficient engines at the cost of reduced power output.
+
+| Tech Level | Min Modifier | Research Cost (RP) |
+|-----------|-------------|-------------------|
+| Base | x0.5 | 2 |
+| 1 | x0.4 | 1,000 |
+| 2 | x0.3 | 2,000 |
+| 3 | x0.25 | 4,000 |
+| 4 | x0.2 | 8,000 |
+| 5 | x0.15 | 15,000 |
+| 6 | x0.1 | 30,000 |
+
+### Fuel Consumption Technology
+
+Lower fuel consumption rates drastically extend operational range. This is one of the highest-impact research areas for fleet logistics.
+
+| Tech Level | Consumption (L/EPH) | Research Cost (RP) | Notes |
+|-----------|---------------------|-------------------|-------|
+| Base | 1.0 | 1 | Starting technology |
+| 1 | 0.9 | 1,000 | |
+| 2 | 0.8 | 2,000 | |
+| 3 | 0.7 | 4,000 | |
+| 4 | 0.6 | 8,000 | |
+| 5 | 0.5 | 15,000 | Half starting consumption |
+| 6 | 0.4 | 30,000 | |
+| 7 | 0.3 | 60,000 | |
+| 8 | 0.25 | 120,000 | |
+| 9 | 0.2 | 250,000 | One-fifth starting |
+| 10 | 0.16 | 500,000 | |
+| 11 | 0.125 | 1,000,000 | |
+| 12 | 0.1 | 2,000,000 | One-tenth starting |
+
+### Armour Technology
+
+Higher armour technology provides more protection per layer of armour, reducing the total hull space needed for equivalent protection. The strength value represents armour hit points per hull space of armour.
+
+| Tech Level | Armour Type | Strength/HS | Column Depth | Research Cost (RP) |
+|-----------|------------|------------|-------------|-------------------|
+| Conventional 1 | Conventional Steel Armour | 1 | -- | 125 |
+| Conventional 2 | Conventional Composite Armour | 2 | -- | 250 |
+| Conventional 3 | Conventional Advanced Composite | 3 | -- | 375 |
+| 1 | Duranium Armour | 4 | 1 | 500 |
+| 2 | High Density Duranium Armour | 6 | 2 | 2,500 |
+| 3 | Composite Armour | 8 | 3 | 5,000 |
+| 4 | Ceramic Composite Armour | 10 | 4 | 10,000 |
+| 5 | Laminate Composite Armour | 12 | 5 | 20,000 |
+| 6 | Compressed Carbon Armour | 15 | 6 | 40,000 |
+| 7 | Biphase Carbide Armour | 18 | 7 | 80,000 |
+| 8 | Crystalline Composite Armour | 21 | 8 | 150,000 |
+| 9 | Superdense Armour | 25 | 9 | 300,000 |
+| 10 | Bonded Superdense Armour | 30 | 10 | 600,000 |
+| 11 | Coherent Superdense Armour | 36 | 11 | 1,250,000 |
+| 12 | Collapsium Armour | 45 | 12 | 2,500,000 |
+
+**Note:** Column Depth (AdditionalInfo2) represents the maximum armour depth that technology allows. Higher-tech armour is also denser (more HP per layer), so fewer layers are needed.
+
+### Shield Technology
+
+Shields provide regenerating protection that absorbs damage before it reaches armour. Shield strength is per HS of shield generator. Active shields produce an EM signature.
+
+#### Shield Strength
+
+| Tech Level | Shield Type | Strength/HS | Research Cost (RP) |
+|-----------|------------|------------|-------------------|
+| 1 | Alpha Shields | 1.0 | 1,000 |
+| 2 | Beta Shields | 1.5 | 2,000 |
+| 3 | Gamma Shields | 2.0 | 4,000 |
+| 4 | Delta Shields | 2.5 | 8,000 |
+| 5 | Epsilon Shields | 3.0 | 15,000 |
+| 6 | Theta Shields | 4.0 | 30,000 |
+| 7 | Xi Shields | 5.0 | 60,000 |
+| 8 | Omicron Shields | 6.0 | 120,000 |
+| 9 | Sigma Shields | 8.0 | 250,000 |
+| 10 | Tau Shields | 10.0 | 500,000 |
+| 11 | Psi Shields | 12.0 | 1,000,000 |
+| 12 | Omega Shields | 15.0 | 2,000,000 |
+
+#### Shield Regeneration Rate
+
+The regeneration rate determines how much shield strength is restored per 5-second combat increment, as a percentage of total shield capacity.
+
+| Tech Level | Regen Rate | Research Cost (RP) |
+|-----------|-----------|-------------------|
+| 1 | 1.0 | 1,000 |
+| 2 | 1.5 | 2,000 |
+| 3 | 2.0 | 4,000 |
+| 4 | 2.5 | 8,000 |
+| 5 | 3.0 | 15,000 |
+| 6 | 4.0 | 30,000 |
+| 7 | 5.0 | 60,000 |
+| 8 | 6.0 | 125,000 |
+| 9 | 8.0 | 250,000 |
+| 10 | 10.0 | 500,000 |
+| 11 | 12.0 | 1,000,000 |
+| 12 | 15.0 | 2,000,000 |
+
+### Sensor Technology
+
+Sensors are critical for detection and targeting. Passive sensors (thermal and EM) detect emissions without revealing the detecting ship. Active sensors provide precise tracking but broadcast the sensor ship's location.
+
+#### Thermal Sensor Sensitivity
+
+Thermal sensors detect engine heat signatures. Higher sensitivity detects smaller or more distant thermal sources.
+
+| Tech Level | Sensitivity | Research Cost (RP) |
+|-----------|------------|-------------------|
+| 1 | 5 | 1,000 |
+| 2 | 6 | 2,000 |
+| 3 | 8 | 4,000 |
+| 4 | 11 | 8,000 |
+| 5 | 14 | 15,000 |
+| 6 | 18 | 30,000 |
+| 7 | 24 | 60,000 |
+| 8 | 32 | 120,000 |
+| 9 | 40 | 250,000 |
+| 10 | 50 | 500,000 |
+| 11 | 60 | 1,000,000 |
+| 12 | 75 | 2,000,000 |
+
+#### EM Sensor Sensitivity
+
+EM sensors detect active emissions (shields, active sensors, etc.). The progression mirrors thermal sensors exactly.
+
+| Tech Level | Sensitivity | Research Cost (RP) |
+|-----------|------------|-------------------|
+| 1 | 5 | 1,000 |
+| 2 | 6 | 2,000 |
+| 3 | 8 | 4,000 |
+| 4 | 11 | 8,000 |
+| 5 | 14 | 15,000 |
+| 6 | 18 | 30,000 |
+| 7 | 24 | 60,000 |
+| 8 | 32 | 120,000 |
+| 9 | 40 | 250,000 |
+| 10 | 50 | 500,000 |
+| 11 | 60 | 1,000,000 |
+| 12 | 75 | 2,000,000 |
+
+#### Active Gravitational Sensor Strength
+
+Active sensors detect ships based on cross-section (size). Higher strength provides longer detection range but generates a detectable EM signature.
+
+| Tech Level | Strength | Research Cost (RP) |
+|-----------|---------|-------------------|
+| Conventional | 2 | 500 |
+| 1 | 10 | 1,000 |
+| 2 | 12 | 2,000 |
+| 3 | 16 | 4,000 |
+| 4 | 21 | 8,000 |
+| 5 | 28 | 15,000 |
+| 6 | 36 | 30,000 |
+| 7 | 48 | 60,000 |
+| 8 | 60 | 125,000 |
+| 9 | 80 | 250,000 |
+| 10 | 100 | 500,000 |
+| 11 | 135 | 1,000,000 |
+| 12 | 180 | 2,000,000 |
+
+### Missile Technology
+
+Missiles are the primary standoff weapon system. Their effectiveness depends on warhead strength, launcher size, and reload rate technologies.
+
+#### Warhead Strength
+
+Warhead strength determines damage per MSP of warhead devoted to the explosive payload. Larger warheads deal proportionally more damage.
+
+| Tech Level | Warhead Type | Strength/MSP | Research Cost (RP) |
+|-----------|-------------|-------------|-------------------|
+| 1 | Gun-Type Fission | 2 | 1,000 |
+| 2 | Implosion Fission | 3 | 2,000 |
+| 3 | Levitated-Pit Implosion | 4 | 4,000 |
+| 4 | Fusion-boosted Fission | 5 | 8,000 |
+| 5 | Two-stage Thermonuclear | 6 | 15,000 |
+| 6 | Three-stage Thermonuclear | 8 | 30,000 |
+| 7 | Cobalt | 10 | 60,000 |
+| 8 | Tri-Cobalt | 12 | 125,000 |
+| 9 | Antimatter Catalysed Cobalt | 16 | 250,000 |
+| 10 | Antimatter | 20 | 500,000 |
+| 11 | Advanced Antimatter | 24 | 1,000,000 |
+| 12 | Gravatonic | 30 | 2,000,000 |
+
+#### Missile Launcher Reload Rate
+
+Higher reload rates reduce the time between missile salvos. The rate value is a multiplier applied to the base reload time.
+
+| Tech Level | Reload Rate | Research Cost (RP) |
+|-----------|------------|-------------------|
+| Base | 1 | 1 |
+| 1 | 2 | 2,000 |
+| 2 | 3 | 4,000 |
+| 3 | 4 | 8,000 |
+| 4 | 5 | 15,000 |
+| 5 | 6 | 30,000 |
+| 6 | 7 | 60,000 |
+| 7 | 8 | 125,000 |
+| 8 | 9 | 250,000 |
+| 9 | 10 | 500,000 |
+| 10 | 11 | 1,000,000 |
+| 11 | 12 | 2,000,000 |
+
+### Power Plant Technology
+
+Power plants provide the energy needed by beam weapons, shields, and active sensors. The power output value represents energy per HS of power plant.
+
+#### Power Plant Types (Power Output per HS)
+
+| Tech Level | Power Plant Type | Power/HS | Research Cost (RP) |
+|-----------|-----------------|---------|-------------------|
+| Conventional | Conventional Reactor | 0.5 | 150 |
+| 1 | Radioisotope Thermal Generator | 2.0 | 600 |
+| 2 | Pressurised Water Reactor | 2.5 | 1,200 |
+| 3 | Pebble Bed Reactor | 3.2 | 2,400 |
+| 4 | Gaseous Fission Reactor | 4.0 | 3,600 |
+| 5 | Magnetic Mirror Fusion Reactor | 5.0 | 6,000 |
+| 6 | Stellarator Fusion Reactor | 6.4 | 12,000 |
+| 7 | Tokamak Fusion Reactor | 8.0 | 24,000 |
+| 8 | Inertial Confinement Fusion Reactor | 10.0 | 45,000 |
+| 9 | Solid-core Anti-matter Power Plant | 12.8 | 90,000 |
+| 10 | Gas-core Anti-matter Power Plant | 16.0 | 180,000 |
+| 11 | Plasma-core Anti-matter Power Plant | 20.0 | 375,000 |
+| 12 | Beam Core Anti-matter Power Plant | 24.0 | 750,000 |
+| 13 | Vacuum Energy Power Plant | 32.0 | 1,500,000 |
+| 14 | Quantum Singularity Power Plant | 40.0 | 3,000,000 |
+
+#### Power Plant Boost
+
+Boosting a power plant increases output but adds an explosion risk when the component is hit in combat.
+
+| Tech Level | Boost | Explosion Risk | Research Cost (RP) |
+|-----------|-------|---------------|-------------------|
+| Base | None (x1.0) | 5% | 250 |
+| 1 | +10% (x1.1) | 7% | 500 |
+| 2 | +20% (x1.2) | 10% | 1,000 |
+| 3 | +30% (x1.3) | 15% | 2,000 |
+| 4 | +40% (x1.4) | 20% | 4,000 |
+| 5 | +60% (x1.6) | 30% | 8,000 |
+| 6 | +80% (x1.8) | 40% | 15,000 |
+| 7 | +100% (x2.0) | 50% | 30,000 |
+
+### Beam Weapon Calibre Technologies
+
+Weapon focal size determines damage, range, and hull space requirements. Larger weapons deal more damage but consume more space and power.
+
+#### Laser Focal Size
+
+| Focal Size | Damage | Research Cost (RP) |
+|-----------|--------|-------------------|
+| 10cm | 3 | 1,000 |
+| 12cm | 4 | 2,000 |
+| 15cm | 6 | 4,000 |
+| 20cm | 10 | 8,000 |
+| 25cm | 16 | 15,000 |
+| 30cm | 24 | 30,000 |
+| 35cm | 32 | 60,000 |
+| 40cm | 40 | 125,000 |
+| 50cm | 64 | 250,000 |
+| 60cm | 96 | 500,000 |
+| 70cm | 128 | 1,000,000 |
+| 80cm | 168 | 2,000,000 |
+
+**Note:** The AdditionalInfo value for lasers represents the base damage before capacitor/wavelength modifiers are applied. Actual damage in the weapon designer will vary based on selected wavelength and capacitor technology.
+
+#### Meson Focal Size
+
+Meson cannons bypass both shields and armour, dealing damage directly to internal components. The accuracy reduction (AR) percentage limits their hit chance.
+
+| Focal Size | Power Req | Accuracy Reduction | Research Cost (RP) |
+|-----------|----------|-------------------|-------------------|
+| 10cm | 3 | 40% | 1,000 |
+| 12cm | 4 | 32% | 2,000 |
+| 15cm | 6 | 25% | 4,000 |
+| 20cm | 10 | 20% | 8,000 |
+| 25cm | 16 | 16% | 15,000 |
+| 30cm | 24 | 12.5% | 30,000 |
+| 35cm | 32 | 10% | 60,000 |
+| 40cm | 40 | 8% | 125,000 |
+| 50cm | 64 | 6.4% | 250,000 |
+| 60cm | 96 | 5% | 500,000 |
+| 70cm | 128 | 4% | 1,000,000 |
+| 80cm | 168 | 3.2% | 2,000,000 |
+
+#### Microwave Focal Size
+
+Microwave weapons (HPMs) deal bonus damage against shields (3x) but only 1 damage against armour/internals. They also have a chance to destroy electronics.
+
+| Focal Size | Power Req | Research Cost (RP) |
+|-----------|----------|-------------------|
+| 10cm | 3 | 1,000 |
+| 12cm | 4 | 2,000 |
+| 15cm | 6 | 4,000 |
+| 20cm | 10 | 8,000 |
+| 25cm | 16 | 15,000 |
+| 30cm | 24 | 30,000 |
+| 35cm | 32 | 60,000 |
+| 40cm | 40 | 125,000 |
+| 50cm | 64 | 250,000 |
+| 60cm | 96 | 500,000 |
+| 70cm | 128 | 1,000,000 |
+| 80cm | 168 | 2,000,000 |
+
+#### Railgun Calibre
+
+Railguns fire multiple shots per volley, each ignoring armour layers equal to its damage value.
+
+| Calibre | Shots/Volley | Research Cost (RP) |
+|---------|-------------|-------------------|
+| 10cm | 1 | 1,000 |
+| 12cm | 2 | 2,500 |
+| 15cm | 3 | 5,000 |
+| 20cm | 4 | 7,500 |
+| 25cm | 5 | 10,000 |
+| 30cm | 7 | 20,000 |
+| 35cm | 9 | 40,000 |
+| 40cm | 12 | 60,000 |
+| 45cm | 16 | 120,000 |
+| 50cm | 20 | 240,000 |
+
+#### Railgun Launch Velocity
+
+Higher velocity extends railgun range.
+
+| Velocity (km/s) | Research Cost (RP) |
+|-----------------|-------------------|
+| 10,000 | 1,000 |
+| 20,000 | 2,500 |
+| 30,000 | 5,000 |
+| 40,000 | 7,500 |
+| 50,000 | 10,000 |
+| 60,000 | 20,000 |
+| 70,000 | 40,000 |
+| 80,000 | 120,000 |
+| 90,000 | 240,000 |
+
+#### Gauss Cannon Rate of Fire
+
+Gauss cannons are the primary point defense weapon. Higher rate of fire increases shots per increment.
+
+| Tech Level | Shots/Increment | Research Cost (RP) |
+|-----------|----------------|-------------------|
+| Base | 1 | -- |
+| 1 | 2 | 1,500 |
+| 2 | 3 | 5,000 |
+| 3 | 4 | 15,000 |
+| 4 | 5 | 45,000 |
+| 5 | 6 | 135,000 |
+| 6 | 8 | 750,000 |
+
+#### Gauss Cannon Launch Velocity
+
+Higher velocity extends gauss cannon range for point defense intercepts.
+
+| Velocity (km/s) | Research Cost (RP) |
+|-----------------|-------------------|
+| 10,000 | 500 |
+| 20,000 | 1,500 |
+| 30,000 | 5,000 |
+| 40,000 | 15,000 |
+| 50,000 | 45,000 |
+| 60,000 | 135,000 |
+
+### Capacitor Recharge Rate
+
+Capacitor technology reduces the time between beam weapon shots. Higher values allow faster sustained fire. This is one of the most impactful beam weapon technologies.
+
+| Rate | Research Cost (RP) | Rate | Research Cost (RP) |
+|------|-------------------|------|-------------------|
+| 1 | 1,000 | 7 | 45,000 |
+| 1.25 | 1,250 | 8 | 60,000 |
+| 1.5 | 1,500 | 9 | 92,500 |
+| 1.75 | 1,750 | 10 | 125,000 |
+| 2 | 2,000 | 11 | 187,500 |
+| 2.25 | 2,250 | 12 | 250,000 |
+| 2.5 | 2,500 | 13 | 312,500 |
+| 2.75 | 2,750 | 14 | 375,000 |
+| 3 | 4,000 | 15 | 437,500 |
+| 3.25 | 5,000 | 16 | 500,000 |
+| 3.5 | 6,000 | 20 | 1,000,000 |
+| 3.75 | 7,000 | 25 | 2,000,000 |
+| 4 | 8,000 | | |
+| 4.5 | 11,750 | | |
+| 5 | 15,000 | | |
+| 5.5 | 22,500 | | |
+| 6 | 30,000 | | |
+
 ### Maintenance Capacity per Facility
 
 | Tech Level | Capacity (tons/facility) | Research Cost (RP) |
