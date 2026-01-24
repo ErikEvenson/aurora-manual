@@ -1,6 +1,8 @@
 # Aurora 4X Manual
 
-A comprehensive reference and guide for Aurora C# — the space strategy game by Steve Walmsley.
+> **Work in Progress:** This manual is under active development and may contain inaccuracies. Values and formulas are being verified against the game database. Some content may be incomplete, outdated, or incorrect. If you spot an error, please [report it](../../issues/new?template=inaccuracy-report.md).
+
+A comprehensive reference and guide for Aurora C# — the space strategy game by Steve Walmsley. This manual covers Aurora C# through version 2.8.0, and coverage of new features and mechanics is ongoing.
 
 ## Structure
 
@@ -65,7 +67,7 @@ Content here.
 
 ## Community Review
 
-This manual covers Aurora C# v2.8.0. We welcome review from experienced players on:
+This manual covers Aurora C# through v2.8.0. Coverage of new versions is ongoing. We welcome review from experienced players on:
 
 - Formula and value accuracy
 - Missing mechanics or edge cases
