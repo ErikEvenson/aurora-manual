@@ -8,25 +8,25 @@ This manual is organized using a decimal numbering system. Each major section is
 
 | # | Section | Description |
 |---|---------|-------------|
-| 1 | Introduction | What is Aurora, installation, first launch |
-| 2 | Game Setup | New game options, race creation, system generation |
-| 3 | User Interface | Main window, system map, controls, event log |
-| 4 | Systems and Bodies | Stars, planets, moons, asteroids, jump points |
-| 5 | Colonies | Establishing, population, environment, terraforming |
-| 6 | Economy and Industry | Minerals, mining, construction, wealth, civilians |
-| 7 | Research | Tech tree, scientists, facilities, categories |
-| 8 | Ship Design | Philosophy, hull, engines, sensors, weapons, examples |
-| 9 | Fleet Management | Shipyards, construction, task groups, orders |
-| 10 | Navigation | Movement, jump transit, survey, waypoints |
-| 11 | Sensors and Detection | Signatures, passive/active sensors, stealth |
-| 12 | Combat | Fire controls, beams, missiles, PD, EW, damage |
-| 13 | Ground Forces | Unit types, training, transport, ground combat |
-| 14 | Logistics | Fuel, maintenance, supply ships, habitats |
-| 15 | Diplomacy | Alien races, communications, treaties |
-| 16 | Commanders | Officer generation, skills, assignments |
-| 17 | Exploration | Geo survey, grav survey, xenoarchaeology |
-| 18 | Advanced Topics | Game mechanics, time increments, spoiler races |
-| A | Appendices | Formulas, glossary, tips |
+| 1 | [Introduction](1-introduction/) | What is Aurora, installation, first launch |
+| 2 | [Game Setup](2-game-setup/) | New game options, race creation, system generation |
+| 3 | [User Interface](3-user-interface/) | Main window, system map, controls, event log |
+| 4 | [Systems and Bodies](4-systems-and-bodies/) | Stars, planets, moons, asteroids, jump points |
+| 5 | [Colonies](5-colonies/) | Establishing, population, environment, terraforming |
+| 6 | [Economy and Industry](6-economy-and-industry/) | Minerals, mining, construction, wealth, civilians |
+| 7 | [Research](7-research/) | Tech tree, scientists, facilities, categories |
+| 8 | [Ship Design](8-ship-design/) | Philosophy, hull, engines, sensors, weapons, examples |
+| 9 | [Fleet Management](9-fleet-management/) | Shipyards, construction, task groups, orders |
+| 10 | [Navigation](10-navigation/) | Movement, jump transit, survey, waypoints |
+| 11 | [Sensors and Detection](11-sensors-and-detection/) | Signatures, passive/active sensors, stealth |
+| 12 | [Combat](12-combat/) | Fire controls, beams, missiles, PD, EW, damage |
+| 13 | [Ground Forces](13-ground-forces/) | Unit types, training, transport, ground combat |
+| 14 | [Logistics](14-logistics/) | Fuel, maintenance, supply ships, habitats |
+| 15 | [Diplomacy](15-diplomacy/) | Alien races, communications, treaties |
+| 16 | [Commanders](16-commanders/) | Officer generation, skills, assignments |
+| 17 | [Exploration](17-exploration/) | Geo survey, grav survey, xenoarchaeology |
+| 18 | [Advanced Topics](18-advanced-topics/) | Game mechanics, time increments, spoiler races |
+| A | [Appendices](appendices/) | Formulas, glossary, tips |
 
 ## Sources
 
