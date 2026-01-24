@@ -32,7 +32,8 @@ FILES=(
     2-game-setup/2.1-new-game-options.md
     2-game-setup/2.2-race-creation.md
     2-game-setup/2.3-system-generation.md
-    2-game-setup/2.4-starting-conditions.md
+    2-game-setup/2.4-racial-traits.md
+    2-game-setup/2.5-starting-conditions.md
     3-user-interface/3.1-main-window.md
     3-user-interface/3.2-system-map.md
     3-user-interface/3.3-common-controls.md
@@ -82,6 +83,7 @@ FILES=(
     12-combat/12.4-point-defense.md
     12-combat/12.5-electronic-warfare.md
     12-combat/12.6-damage-and-armor.md
+    12-combat/12.7-planetary-defence-centres.md
     13-ground-forces/13.1-unit-types.md
     13-ground-forces/13.2-training-and-transport.md
     13-ground-forces/13.3-ground-combat.md
@@ -92,6 +94,8 @@ FILES=(
     15-diplomacy/15.1-alien-races.md
     15-diplomacy/15.2-communications.md
     15-diplomacy/15.3-treaties.md
+    15-diplomacy/15.4-diplomacy.md
+    15-diplomacy/15.5-espionage.md
     16-commanders/16.1-officer-generation.md
     16-commanders/16.2-skills-and-bonuses.md
     16-commanders/16.3-assignments.md
@@ -108,6 +112,9 @@ FILES=(
     appendices/C-tips-and-mistakes.md
     appendices/D-reference-tables.md
     # Worked Examples
+    examples/missile-destroyer-design.md
+    examples/colony-establishment.md
+    examples/fleet-engagement.md
     examples/beam-cruiser-design.md
     examples/missile-salvo-design.md
     examples/mining-network-setup.md
