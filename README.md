@@ -64,7 +64,7 @@ Content here.
 
 ## Community Review
 
-This manual covers Aurora C# v2.5.0+. We welcome review from experienced players on:
+This manual covers Aurora C# v2.8.0. We welcome review from experienced players on:
 - Formula and value accuracy
 - Missing mechanics or edge cases
 - Outdated VB6 references

@@ -1,6 +1,6 @@
 # Contributing to the Aurora C# Manual
 
-Welcome, and thank you for your interest in improving this community reference manual for Aurora C# (v2.5.0+). Aurora is a deeply complex game, and no single player can verify every mechanic, formula, or edge case alone. Your contributions help the entire community play with better information.
+Welcome, and thank you for your interest in improving this community reference manual for Aurora C# (v2.8.0). Aurora is a deeply complex game, and no single player can verify every mechanic, formula, or edge case alone. Your contributions help the entire community play with better information.
 
 Whether you've spotted an outdated formula, discovered an undocumented mechanic through hours of testing, or simply know a better way to explain a concept, we'd love your help.
 
@@ -56,7 +56,7 @@ To keep the manual consistent, please follow these conventions:
 
 When reviewing a PR, consider:
 
-- Are the formulas and values accurate for Aurora C# v2.5.0+?
+- Are the formulas and values accurate for Aurora C# v2.8.0?
 - Are there missing mechanics or edge cases the contribution overlooks?
 - Are there outdated VB6 references that slipped through?
 - Are the practical tips actually good advice, or could they mislead a new player?
