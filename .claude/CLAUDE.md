@@ -4,6 +4,12 @@
 
 This is a comprehensive reference manual for Aurora C# (space strategy game by Steve Walmsley). The manual is written in Markdown, organized by numbered sections, and compiled to PDF via `build-pdf.sh` using pandoc + tectonic.
 
+## Game Fundamentals
+
+- **Turn-based, not real-time:** Aurora advances time only when the player clicks an increment button (5 sec, 30 sec, 5 min, etc.). There is no "pause" — time never runs automatically.
+- **Conventional start:** Earth in 2025 with existing population, installations, and officers
+- **Space start:** Single ship, minimal resources, no established infrastructure
+
 ## YouTube Source Attribution
 
 **MANDATORY:** When extracting content from YouTube videos for manual updates:
