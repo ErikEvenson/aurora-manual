@@ -396,7 +396,7 @@ With Barnard's Star mapped and colonization underway, continue exploration throu
 4. Begin full grav+geo survey of the 2-3 most promising systems
 5. Leave hostile or uninteresting systems for later
 
-### Jump Point Safety
+### Jump point safety
 
 From Appendix C: "Never transit an unknown jump point with your only survey ship unless you are certain you can get back."
 

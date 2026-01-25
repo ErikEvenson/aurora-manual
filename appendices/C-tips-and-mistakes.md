@@ -118,7 +118,7 @@ Higher crew grade improves combat performance. Keep training cycles running duri
 
 If a battle is going poorly, retreating to resupply and return with full magazines is better than losing your fleet. Ships can be repaired; destroyed ships are gone permanently. Know when to disengage.
 
-### Jump Point Defense
+### Jump point defense
 
 If you expect an attack through a specific jump point, station your fleet at the maximum sensor range from that point. This gives you detection time and space to maneuver. Stationing directly on the jump point risks being surprised at point-blank range.
 

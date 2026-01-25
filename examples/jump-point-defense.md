@@ -122,7 +122,7 @@ Station 2-3 picket ships within 500,000 km of the jump point under EMCON (all ac
 
 ## Step 2: Fleet Positioning
 
-### Why NOT on the Jump Point
+### Why NOT on the jump point
 
 Stationing your combat fleet directly on the jump point is the single most common mistake in jump point defense. Here is why it fails:
 
@@ -321,7 +321,7 @@ Plan your PD capacity for 1.5-2x the expected maximum enemy salvo.
 
 ---
 
-## Step 5: Jump Point Monitoring with Passive Sensors
+## Step 5: Jump point monitoring with passive sensors
 
 ### Stealth Detection Strategy
 
@@ -434,7 +434,7 @@ If the jump point happens to be within 200 million km of a planet or moon:
 
 PDCs are ideal JP defenders but require a convenient body near the JP -- which is uncommon.
 
-### Jump Point Defense Station
+### Jump point defense station
 
 As an alternative to PDCs, build a large defensive station (no engines) and tow it to the JP:
 

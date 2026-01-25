@@ -192,7 +192,7 @@ Events can also be displayed directly on the Tactical Map (controlled by the Eve
 
 1. Open the **Interrupt Configuration** panel (element 9)
 2. **Essential interrupts** (always enable): Hostile Contact, Damage Reports, Ship Destroyed
-3. **Recommended interrupts**: Jump Point Discovered (exploration opportunities), Fuel Critical
+3. **Recommended interrupts**: jump point discovered (exploration opportunities), Fuel Critical
 4. **Optional interrupts**: Research Complete (assign new projects promptly), Construction Complete (commission new ships)
 5. **Avoid over-interrupting**: Every interrupt fragments time advances. In large games with many events, excessive interrupts make advancing even one day tedious
 6. Balance awareness against gameplay flow -- critical safety events always interrupt, nice-to-know events can wait until you check the log
@@ -220,7 +220,7 @@ Events can also be displayed directly on the Tactical Map (controlled by the Eve
 | Ship Destroyed (yours) | IMMEDIATE | Assess battle outcome, reinforce or retreat |
 | Fuel Critical | HIGH | Redirect to refuelling, check conditional orders |
 | Mineral Depletion (Gallicite/Sorium) | HIGH | These are engine/fuel minerals -- find alternatives |
-| Jump Point Discovered | MEDIUM | Send scouts, assess exploration priority |
+| Jump point discovered | MEDIUM | Send scouts, assess exploration priority |
 | Research Complete | MEDIUM | Reassign scientist, review new design options |
 | Deployment Exceeded | MEDIUM | Schedule overhaul rotation |
 | Construction Complete (ship) | LOW | Commission, assign to fleet, give orders |

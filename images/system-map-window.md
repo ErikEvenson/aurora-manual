@@ -108,7 +108,7 @@ Right-clicking on the tactical map produces a context menu listing all game obje
 
 - **Fleet entries**: Selecting a fleet opens the Naval Organization window with that fleet pre-selected
 - **Population entries**: Selecting a population opens the Economics window for that colony
-- **Jump Point entries**: Selecting a jump point (shown as destination system name) transitions the map to display that system
+- **Jump point entries**: Selecting a jump point (shown as destination system name) transitions the map to display that system
 
 ### Location History (Cycle Previous Locations)
 
@@ -182,7 +182,7 @@ When selecting a system on the galactic map and opening an Economics window, the
 ### Navigating Between Systems
 
 1. Use the **System Selector** dropdown (element 2) to switch between explored systems
-2. Alternatively, click a **Jump Point** on the map and select it from the right-click popup to transition to the destination system
+2. Alternatively, click a **jump point** on the map and select it from the right-click popup to transition to the destination system
 3. Use **Alt+F11 / Alt+F12** to cycle through previously-viewed locations across systems
 4. Color-coding in the system list: light green = has populated colonies, dark green = has automated installations
 

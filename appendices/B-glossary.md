@@ -45,7 +45,7 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | HS | Hull Size; 50 tons of ship mass (1 HS = 50t) |
 | HTK | Hit to Kill; damage points before component destruction |
 | Infrastructure | Supports population on planets with CC > 0 |
-| JP | Jump Point; portal between star systems |
+| JP | Jump point; portal between star systems |
 | Jump Drive | Enables JP transit; military (self) or commercial (squad) |
 | Jump Gate | Permanent JP structure; any ship can transit |
 | Laser | Versatile beam weapon with good range and damage |
