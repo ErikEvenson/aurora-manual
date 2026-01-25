@@ -247,6 +247,82 @@ Events can also be displayed directly on the Tactical Map (controlled by the Eve
 | Jump Transit Complete | Fleet exits jump point | LOW |
 | Overhaul Complete | Ship finishes maintenance cycle | LOW |
 
+## Filtering Strategies by Game Phase
+
+Different phases of gameplay benefit from different filter configurations. These presets help you focus on what matters most at each stage.
+
+### Early Game (First 10-20 Years)
+
+**Focus:** Establishing infrastructure, surveying home system, initial research
+
+**Recommended filters:**
+
+- Enable: Research, Economic, Exploration, Colony
+- Disable: Combat (no threats yet), Commander (routine), Misc
+- Sub-filters: Enable Mineral Finds, disable Ship Movements
+
+**Rationale:** Early game is about building your foundation. Research completions drive technology choices, economic events track construction progress, and exploration reveals resources. Combat events are irrelevant until you encounter other races.
+
+### Expansion Phase
+
+**Focus:** Colonizing new systems, expanding survey operations, building fleet
+
+**Recommended filters:**
+
+- Enable: Exploration, Economic, Colony, Combat (precautionary)
+- Disable: Commander (still routine), Research (check manually)
+- Sub-filters: Enable Jump Points, Mineral Finds, Fuel Warnings
+
+**Rationale:** Jump point discoveries determine expansion opportunities. Colony events track new settlement viability. Keep Combat enabled as you may encounter NPRs. Economic events show ship completions for your growing fleet.
+
+### Pre-War Buildup
+
+**Focus:** Preparing military forces, stockpiling ordnance, positioning fleets
+
+**Recommended filters:**
+
+- Enable: Economic, Combat, Diplomacy, Misc
+- Disable: Exploration (lower priority), Colony (stable)
+- Sub-filters: Enable all Combat sub-filters, Ordnance Production
+
+**Rationale:** Economic events track warship construction and ordnance stockpiles. Diplomacy events reveal enemy intentions. Combat filters prepare you for hostilities. Misc category catches deployment warnings for fleet readiness.
+
+### Active War
+
+**Focus:** Tactical engagement, damage control, fleet coordination
+
+**Recommended filters:**
+
+- Enable: Combat only
+- Disable: Everything else
+- Sub-filters: Enable all Combat sub-filters
+
+**Rationale:** During active hostilities, combat events are all that matter. Filtering out everything else lets you reconstruct battle timelines and assess damage without distraction. Check other categories only during lulls in fighting.
+
+### Post-War Recovery
+
+**Focus:** Assessing losses, repairing ships, rebuilding fleet
+
+**Recommended filters:**
+
+- Enable: Economic, Combat (aftermath), Commander, Colony
+- Disable: Exploration (paused operations)
+- Sub-filters: Enable Damage Reports, Construction Complete
+
+**Rationale:** Economic events track repairs and new construction. Combat events may continue as damaged ships succumb to earlier injuries. Commander events matter as you fill positions left by casualties. Colony events reveal any damage to population centers.
+
+### Late Game / Large Empire
+
+**Focus:** Managing complexity, preventing information overload
+
+**Recommended filters:**
+
+- Enable: Combat, Diplomacy, key Economic sub-filters
+- Disable: Routine events (most Commander, Misc)
+- Sub-filters: Aggressively filter routine notifications
+
+**Rationale:** Large empires generate thousands of events per advance. Over-filtering risks missing critical events; under-filtering creates unmanageable noise. Focus on events requiring decisions: threats, diplomatic shifts, critical resource warnings.
+
 ## Common Workflows
 
 ### Finding Combat Events

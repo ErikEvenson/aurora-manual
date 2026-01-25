@@ -244,6 +244,43 @@ The Research window is the primary interface for managing your empire's technolo
 5. To convert a prototype to a formal research project, use the "Research Proto" button in the Ship Designer -- this creates an (RP) entry in the research queue.
 6. Once all prototype components in a class are fully researched, the class becomes production-ready.
 
+### Managing Multiple Research Queues
+
+Each scientist maintains an independent research queue. Managing multiple queues across your science team requires coordination to maximize throughput and prevent bottlenecks.
+
+1. Open the Research window and review all scientists in the **Scientist List** [6].
+2. For each assigned scientist, select their project in **Current Research Projects** [5] to view their **Research Queue** [10].
+3. Audit each queue for depth: ensure every scientist has at least 2-3 queued projects. Empty queues lead to idle time when projects complete.
+4. Check for cross-queue dependencies: if Scientist A is researching a prerequisite for a technology in Scientist B's queue, ensure Scientist A's project completes first. Reorder queues or reassign projects to prevent blocking.
+5. Balance queue lengths across scientists. A senior scientist (age 60+) should have a shorter queue than a young scientist (age 30-40) to account for mortality risk.
+6. For prerequisite chains spanning multiple categories, coordinate queues: queue the prerequisite with one specialist, then queue the dependent technology with the appropriate specialist. Track the hand-off manually.
+7. Periodically review queues after major events (scientist death, new scientist arrival, strategic priority change) and rebalance as needed.
+
+### Optimal Scientist Assignment Strategy
+
+Effective scientist assignment maximizes research output by matching specialists to their fields and allocating labs proportional to admin ratings.
+
+1. List all active and planned research projects by category.
+2. For each category, identify scientists with that field as their primary or secondary specialization. Sort by bonus percentage (highest first).
+3. Assign the highest-bonus specialist to the highest-priority project in their category. A +30% specialist on a 10,000 RP project saves significant time compared to a +15% specialist.
+4. For categories with multiple projects, assign the next-best specialist to the second project. Continue until all projects have scientists.
+5. Check lab allocation: assign labs up to each scientist's admin rating. If labs remain, distribute excess to the highest-priority projects, accepting the efficiency penalty.
+6. For out-of-field assignments (no matching specialist available): prefer scientists with high admin ratings over high bonuses, since the bonus does not apply. A 0% bonus scientist with Admin 25 produces more than a 0% bonus scientist with Admin 10.
+7. When a new, superior scientist appears, immediately reassign them to their specialty even if displacing a mid-project scientist. Progress is preserved; only the completion rate changes.
+8. Avoid leaving high-bonus specialists unassigned. If their specialty has no active project, queue lower-priority research in that category rather than waste their potential.
+
+### Successor Planning When a Scientist Dies
+
+Scientists can die unexpectedly during a project. Proactive succession planning minimizes research disruption.
+
+1. **Monitor scientist ages:** In the **Scientist List** [6], note all scientists above age 55. These are high-risk for death events.
+2. **Identify backup scientists:** For each critical research area, identify a secondary scientist in the same field. If none exists, watch for new scientists during officer generation and recruit aggressively.
+3. **Maintain queue continuity:** When a scientist dies mid-project, the project does not lose progress -- it simply becomes unassigned. Open **Current Research Projects** [5], find the orphaned project, and reassign a backup scientist immediately.
+4. **Reallocate labs:** The deceased scientist's labs remain assigned to the orphaned project. After reassigning a new scientist, review the **Lab Allocation Controls** [8] to confirm labs are at or below the new scientist's admin rating.
+5. **Adjust for bonus changes:** If the replacement scientist has a lower bonus, recalculate priorities. A project that was low-priority with a +40% specialist may no longer be worth the lab investment with a +15% replacement.
+6. **Succession pipeline:** For long-term planning, identify young scientists (age 30-40) with high bonuses in each category. Queue them on secondary projects to build their research queues while primary specialists handle critical work. When the primary dies, the successor takes over with minimal disruption.
+7. **Emergency reassignment:** If no specialist is available when a scientist dies, temporarily assign a non-specialist to keep the project active. Begin searching for a proper specialist immediately. A 0% bonus is better than an unassigned project with idle labs.
+
 ---
 
 ## Tips and Shortcuts
