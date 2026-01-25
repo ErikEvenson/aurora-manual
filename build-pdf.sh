@@ -1,7 +1,7 @@
 #!/bin/bash
 # Build Aurora 4X Manual PDF
 # Uses pandoc + tectonic (LaTeX) for high-quality PDF output
-# Version format: YYYY.MM.DD based on build date
+# Version format: YYYY.MM.DD.## (zero-padded sequence per day)
 
 set -euo pipefail
 
@@ -11,12 +11,14 @@ cd "$SCRIPT_DIR"
 DATE=$(date +%Y.%m.%d)
 OUTPUT_DIR="releases"
 
-# Determine sequence number for today
+# Determine sequence number for today (zero-padded, e.g., 01, 02)
 SEQ=1
-while [ -f "${OUTPUT_DIR}/aurora-manual-${DATE}.${SEQ}.pdf" ]; do
+SEQ_PADDED=$(printf "%02d" $SEQ)
+while [ -f "${OUTPUT_DIR}/aurora-manual-${DATE}.${SEQ_PADDED}.pdf" ]; do
     SEQ=$((SEQ + 1))
+    SEQ_PADDED=$(printf "%02d" $SEQ)
 done
-VERSION="${DATE}.${SEQ}"
+VERSION="${DATE}.${SEQ_PADDED}"
 OUTPUT_FILE="${OUTPUT_DIR}/aurora-manual-${VERSION}.pdf"
 
 mkdir -p "$OUTPUT_DIR"
