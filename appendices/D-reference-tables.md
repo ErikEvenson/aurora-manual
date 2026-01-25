@@ -72,9 +72,9 @@ For installation placement and colony management, see [Section 5.1 Establishing 
 - Base terraform rate: 0.00025 atm/year per installation (starting racial tech)
 - Rate modified by planet size: The effective terraforming rate scales inversely with planet surface area relative to Earth. The formula is:
   ```
-  Effective Rate = Base Rate × (Earth Radius / Planet Radius)²
+  Effective Rate = Base Rate * (Earth Radius / Planet Radius)^2
   ```
-  Since surface area is proportional to radius squared, this simplifies to: `Effective Rate = Base Rate × (Earth Surface Area / Planet Surface Area)`. Smaller planets terraform faster because there is less atmosphere to modify; larger planets take proportionally longer. For example, a planet with twice Earth's radius would terraform at one-quarter the base rate.
+  Since surface area is proportional to radius squared, this simplifies to: `Effective Rate = Base Rate * (Earth Surface Area / Planet Surface Area)`. Smaller planets terraform faster because there is less atmosphere to modify; larger planets take proportionally longer. For example, a planet with twice Earth's radius would terraform at one-quarter the base rate.
 - Tech progression: 0.00032, 0.0004, 0.00048, 0.0006, 0.00075, 0.00096, 0.0012, 0.0015, 0.0019, 0.0024, 0.003, 0.00375
 
 ## D.3 Beam Weapon Quick Reference

@@ -4,8 +4,6 @@
 
 The Colony window (also called the Economics window or Population window) is the central hub for managing all aspects of your colonies. It provides access to population data, installations, construction queues, mineral stockpiles, environmental information, and ground forces for every colony in your empire.
 
----
-
 ## Window Layout Diagram
 
 ```
@@ -69,8 +67,6 @@ The Colony window (also called the Economics window or Population window) is the
 +============================================================================+
 ```
 
----
-
 ## Installation Tab Layout
 
 ```
@@ -100,8 +96,6 @@ The Colony window (also called the Economics window or Population window) is the
 | +------------------------------------------------+ |
 +----------------------------------------------------+
 ```
-
----
 
 ## Industry Tab Layout
 
@@ -136,8 +130,6 @@ The Colony window (also called the Economics window or Population window) is the
 +----------------------------------------------------+
 ```
 
----
-
 ## Mining Tab Layout
 
 ```
@@ -169,8 +161,6 @@ The Colony window (also called the Economics window or Population window) is the
 | +------------------------------------------------+ |
 +----------------------------------------------------+
 ```
-
----
 
 ## Environment Tab Layout
 
@@ -207,8 +197,6 @@ The Colony window (also called the Economics window or Population window) is the
 +----------------------------------------------------+
 ```
 
----
-
 ## Ground Forces Tab Layout
 
 ```
@@ -230,8 +218,6 @@ The Colony window (also called the Economics window or Population window) is the
 | +------------------------------------------------+ |
 +----------------------------------------------------+
 ```
-
----
 
 ## Numbered Element Descriptions
 
@@ -258,8 +244,6 @@ The Colony window (also called the Economics window or Population window) is the
 | 19 | Terraforming Status | Current terraforming operations: number of installations active, target gas being added/removed, rate of atmospheric change per year. Also shows the complete colony cost breakdown by factor. |
 | 20 | Status Bar | Bottom bar showing current game year, selected colony population, and total empire colony count. Provides persistent context while navigating tabs. |
 | 21 | Stationed Formations | List of ground force units garrisoning the colony. Shows formation name, combat strength, morale percentage, and readiness status. Also displays PPV (Planetary Protection Value) requirements and coverage. |
-
----
 
 ## Common Workflows
 
@@ -304,8 +288,6 @@ The Colony window (also called the Economics window or Population window) is the
 4. Check **Installation Lists** [11] to compare industrial capacity.
 5. Use the "Pop as Text" or "All Pop as Text" buttons to export colony data for side-by-side comparison.
 
----
-
 ## Tips and Shortcuts
 
 > **Tip:** Production Priority Management
@@ -341,8 +323,6 @@ The Colony window (also called the Economics window or Population window) is the
 > - Colony cost is NOT additive -- only the single worst factor applies. Fixing the dominant factor can slash colony cost dramatically even if other problems remain.
 > - Before committing to terraforming, verify that greenhouse warming can reach habitable range: 3x base temperature is the maximum possible warming (Greenhouse Factor cap of 3.0).
 > - Check atmospheric composition for dangerous gases before building infrastructure. Trace fluorine at 1 ppm triggers a colony cost floor of 2.0.
-
----
 
 ## Related Sections
 

@@ -132,7 +132,7 @@ AFR_With_Engineering = (0.04 / Engineering_Tonnage_Percent) x Ship_Tonnage  (per
 When a tug tows another vessel, its speed is reduced proportionally to the mass ratio:
 
 ```
-Towing_Speed = Normal_Tug_Speed × (Tug_Mass / (Tug_Mass + Towed_Mass))
+Towing_Speed = Normal_Tug_Speed * (Tug_Mass / (Tug_Mass + Towed_Mass))
 ```
 
 Where:
@@ -144,7 +144,7 @@ Where:
 **Example**: A 10,000-ton tug with normal speed 2,000 km/s towing a 90,000-ton ship:
 ```
 Tug proportion = 10,000 / (10,000 + 90,000) = 0.10
-Towing speed = 2,000 × 0.10 = 200 km/s
+Towing speed = 2,000 * 0.10 = 200 km/s
 ```
 
 Heavier tugs maintain better towing speeds. The return trip (without towed vessel) is at full tug speed.
@@ -181,7 +181,7 @@ Higher agility improves hit chance against maneuvering targets and makes the mis
 For missiles using boost exceeding racial maximum boost technology, an additional multiplier applies:
 
 ```
-High_Boost_Modifier = (((Boost_Used - Max_Boost_Tech) / Max_Boost_Tech) × 4) + 1
+High_Boost_Modifier = (((Boost_Used - Max_Boost_Tech) / Max_Boost_Tech) * 4) + 1
 ```
 
 This creates a linear multiplier from 1x to 5x for high-boost missiles.
@@ -295,7 +295,7 @@ Applied as a multiplier to beam weapon hit chance. See [Beam Weapon To-Hit](#bea
 **Missile FC Jammer Effect:**
 
 ```
-ECM_ECCM_Mod = 1 - ((Missile_FC_Jammer_Level - CIWS_ECCM_Level) × 0.2)
+ECM_ECCM_Mod = 1 - ((Missile_FC_Jammer_Level - CIWS_ECCM_Level) * 0.2)
 ```
 
 Minimum 0 (complete jamming). Applied to point defense accuracy against missiles. See [Point Defense Accuracy](#point-defense-accuracy-ciws-effectiveness) for the complete formula.
@@ -342,7 +342,7 @@ Beam weapon damage is governed by two mechanics: **damage falloff with range** a
 Only lasers suffer damage falloff. The formula is a linear reduction:
 
 ```
-Damage_at_Range = Base_Damage × (1 - Range / Max_Range)
+Damage_at_Range = Base_Damage * (1 - Range / Max_Range)
 ```
 
 At point-blank (Range = 0), full damage is dealt. At max range, damage approaches the minimum (1 point). Damage steps down in discrete range increments (typically 10,000 km brackets).
@@ -378,13 +378,13 @@ Damage_per_Column ≈ Total_Damage / Gradient_Value
 For a laser with damage falloff AND gradient spread, both apply:
 
 ```
-Per_Column_Damage = (Base_Damage × (1 - Range / Max_Range)) / Gradient_Value
+Per_Column_Damage = (Base_Damage * (1 - Range / Max_Range)) / Gradient_Value
 Armor_Penetration = Per_Column_Damage (must exceed armor depth to reach internals)
 ```
 
 **Example:** A 20-damage laser (gradient 3) firing at 50% of max range:
 ```
-Total_Damage = 20 × (1 - 0.5) = 10
+Total_Damage = 20 * (1 - 0.5) = 10
 Per_Column = 10 / 3 ≈ 3.3 → each of 3 columns takes ~3 damage
 Armor_Penetration = ~3 layers per column
 ```
@@ -440,7 +440,7 @@ Applied to the host ship first, excess may damage nearby vessels within blast ra
 > *[v2.2.0]: Missile agility was removed. Hit chance is now based on speed ratio plus optional terminal guidance.*
 
 ```
-Base_Hit_Chance = 0.1 × (Missile_Speed / Target_Speed)
+Base_Hit_Chance = 0.1 * (Missile_Speed / Target_Speed)
 ```
 
 Where:
@@ -450,7 +450,7 @@ Where:
 
 **Example**: A 30,000 km/s missile against a 5,000 km/s target:
 ```
-Base Hit Chance = 0.1 × (30,000 / 5,000) = 0.6 = 60%
+Base Hit Chance = 0.1 * (30,000 / 5,000) = 0.6 = 60%
 ```
 
 **Active Terminal Guidance** (0.25 MSP component) provides an accuracy bonus from 0.25 (25%) to 0.90 (90%) based on technology level, applied as a multiplier to the base hit chance.
@@ -480,14 +480,14 @@ CIWS (Close-In Weapon Systems) fire at range 0 (final defense), making their bas
 The complete PD accuracy formula for CIWS and beam weapons in point defense mode:
 
 ```
-Hit_Probability = Base_Tracking_Mod × Crew_Training × ECM_ECCM_Mod × CIC_Bonus × Tactical_Bonus × Gauss_Size_Mod × Range_Mod
+Hit_Probability = Base_Tracking_Mod * Crew_Training * ECM_ECCM_Mod * CIC_Bonus * Tactical_Bonus * Gauss_Size_Mod * Range_Mod
 ```
 
 Where:
 
 - **Base_Tracking_Mod** = min(1.0, FC_Tracking_Speed / Missile_Speed)
 - **Crew_Training** = Fractional modifier based on crew training level (1.0 at 100% training)
-- **ECM_ECCM_Mod** = 1 - ((Missile_FC_Jammer_Level - CIWS_ECCM_Level) × 0.2), minimum 0
+- **ECM_ECCM_Mod** = 1 - ((Missile_FC_Jammer_Level - CIWS_ECCM_Level) * 0.2), minimum 0
 - **CIC_Bonus** = Commander's Combat Information Center skill bonus
 - **Tactical_Bonus** = Commander's Tactical skill bonus
 - **Gauss_Size_Mod** = Per-shot accuracy modifier for gauss cannons below racial standard size
@@ -495,12 +495,12 @@ Where:
 
 **Expected Kills per Tick:**
 ```
-Expected_Kills = Shots_per_Tick × Hit_Probability
+Expected_Kills = Shots_per_Tick * Hit_Probability
 ```
 
 **Example**: A triple-turret gauss cannon with rate-of-fire 4 technology fires 12 shots per burst. Against missiles at 80% tracking (FC tracks faster than missile) with no ECM:
 ```
-Expected kills = 12 × 0.8 = 9.6 missiles per 5-second cycle
+Expected kills = 12 * 0.8 = 9.6 missiles per 5-second cycle
 ```
 
 ---
@@ -631,7 +631,7 @@ Retool_Time (days) = abs(New_Ship_Tonnage - Old_Ship_Tonnage) x Retool_Factor
 A shipyard can build any secondary class without retooling if the refit cost is below 20% of the primary class's total build cost:
 
 ```
-Eligible_for_Secondary_Build = (Refit_Cost < 0.20 × Primary_Class_BP_Cost)
+Eligible_for_Secondary_Build = (Refit_Cost < 0.20 * Primary_Class_BP_Cost)
 ```
 
 Where:
@@ -703,7 +703,7 @@ For Earth-like worlds (colony cost = 0), no infrastructure is needed and populat
 Civilian shipping lines produce infrastructure for colonies with colony cost > 0, at no cost to the government:
 
 ```
-Annual_Infrastructure = 2 × Population (in millions)
+Annual_Infrastructure = 2 * Population (in millions)
 ```
 
 Where:
@@ -761,7 +761,7 @@ Formulas for occupation, garrison requirements, and population unrest. See [Sect
 The garrison strength required to maintain order on a colony is determined by:
 
 ```
-Required_Garrison = Population (millions) × (Racial_Determination / 100) × (Racial_Militancy / 100)
+Required_Garrison = Population (millions) * (Racial_Determination / 100) * (Racial_Militancy / 100)
 ```
 
 Where:
@@ -785,7 +785,7 @@ For occupied populations, a Political Status Modifier applies:
 Per ground unit element:
 
 ```
-Occupation_Strength = (SQRT(Size) × Units × Morale) / 10,000
+Occupation_Strength = (SQRT(Size) * Units * Morale) / 10,000
 ```
 
 When occupation strength exceeds the requirement, the surplus functions as police strength that actively reduces unrest over time.
