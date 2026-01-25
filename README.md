@@ -54,7 +54,7 @@ After completing this path, explore sections relevant to your current gameplay c
 
 ## Sources
 
-- Steve Walmsley's forum posts (http://aurora2.pentarch.org/)
+- Steve Walmsley's forum posts (http://aurora2.pentarch.org/) — the official Aurora forum on pentarch.org, the authoritative primary source for Aurora mechanics and development history since 2003
 - Aurora community wiki
 - In-game database and tooltips
 - Community guides (Reddit r/aurora4x and r/aurora)

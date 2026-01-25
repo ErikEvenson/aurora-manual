@@ -78,6 +78,8 @@ images/
 
 ## Forum Screenshot Sources
 
+> **Historical Note:** The pentarch.org domain hosts the official Aurora forums and developer resources. These URLs are preserved as historical references to original Aurora development materials. The forum has been the primary community hub since Aurora's creation, and Steve Walmsley's posted screenshots document the game's evolution. If any URLs become inaccessible in the future, the Internet Archive (archive.org) may have cached copies.
+
 The Aurora C# developer (Steve Walmsley) has posted many UI screenshots in the official forum's C# Changes List thread. These are hosted at `http://www.pentarch.org/steve/Screenshots/` and can be downloaded for inclusion in this manual.
 
 ### Known Screenshot URLs by Category
@@ -127,7 +129,7 @@ The Aurora C# developer (Steve Walmsley) has posted many UI screenshots in the o
 
 ### Source Thread
 
-All screenshots originate from the [C# Aurora Changes List](http://aurora2.pentarch.org/index.php?topic=8495.0) thread on the official Aurora forum. Additional screenshots can be found by browsing through the thread pages.
+All screenshots originate from the [C# Aurora Changes List](http://aurora2.pentarch.org/index.php?topic=8495.0) thread on the official Aurora forum (pentarch.org — the official Aurora community hub since 2003). Additional screenshots can be found by browsing through the thread pages. These forum resources are historically significant primary sources for Aurora documentation.
 
 ## Fair Use Considerations
 
