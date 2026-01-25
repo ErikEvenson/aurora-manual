@@ -74,6 +74,7 @@ FILES=(
     10-navigation/10.2-jump-transit.md
     10-navigation/10.3-survey-operations.md
     10-navigation/10.4-waypoints.md
+    11-sensors-and-detection/11.0-sensor-overview.md
     11-sensors-and-detection/11.1-thermal-em-signatures.md
     11-sensors-and-detection/11.2-passive-sensors.md
     11-sensors-and-detection/11.3-active-sensors.md
