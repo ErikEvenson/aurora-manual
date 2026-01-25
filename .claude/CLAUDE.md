@@ -68,3 +68,15 @@ To get the current contributor list: `gh api repos/ErikEvenson/aurora-manual/con
 
 - Avoid Unicode symbols that don't render in LaTeX (e.g., use `<=` instead of `≤`)
 - Long tables may overflow; consider breaking into multiple tables or using shorter column content
+
+## SVG Images
+
+SVG images are supported via automatic conversion:
+
+- **Source:** Place `.svg` files in `images/tech-trees/`
+- **Generated:** Build script converts to PDF in `images/.generated/` (gitignored)
+- **Reference in markdown:** `![Caption](../images/.generated/filename.pdf)`
+- **Conversion tool:** `rsvg-convert` (must be installed)
+- **Tech tree generation:** Use Graphviz DOT format, convert with `dot -Tsvg`
+
+The build script only reconverts if the SVG is newer than the PDF.
