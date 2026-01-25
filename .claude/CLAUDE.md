@@ -35,10 +35,11 @@ This is a comprehensive reference manual for Aurora C# (space strategy game by S
 ## Build System
 
 - **Build command:** `bash build-pdf.sh`
-- **Output:** `releases/aurora-manual-YYYY.MM.DD.SEQ.pdf`
+- **PDF output:** `releases/aurora-manual-YYYY.MM.DD.SEQ.pdf` (SEQ auto-increments per build)
 - **File list:** All source files must be listed in `build-pdf.sh` FILES array
 - **Validation:** Build script validates all listed files exist before compilation
 - **Releases:** PDFs are .gitignored; attach to GitHub releases via `gh release create`
+- **Release versioning:** `vYYYY.MM.DD.##` where `##` is zero-padded (01, 02, etc.) and increments per release within a day (not per build)
 
 ## Game Database
 
