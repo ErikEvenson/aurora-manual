@@ -6,6 +6,7 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 |------|-----------|
 | Accessibility | 0.1--1.0 value for mining ease; higher = more output per mine |
 | Active Sensor | Emits energy to detect targets; reveals own position via EM |
+| AFR | Annual Failure Rate; percentage chance of component failure per year |
 | AMM | Anti-Missile Missile; small, fast interceptor missile |
 | Armor Column | Vertical armor segment; random hits require repeated column strikes |
 | ASM | Anti-Ship Missile; offensive missile vs enemy vessels |
@@ -13,9 +14,13 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | Boost | Engine modifier: more power, exponentially more fuel |
 | BP | Build Points; unit of production capacity |
 | Bridge | Required for ships operating outside home system |
+| Buoy | Deployable sensor or survey device; operates without crew |
+| CAG | Commander Air Group; officer managing carrier fighter operations |
 | CC | Colony Cost; planet hostility rating for colonization |
+| CIC | Combat Information Centre; ship component for tactical officer |
 | CIWS | Close-In Weapon System; auto-fires at incoming missiles |
 | Cloak | Reduces thermal/EM signatures by a percentage |
+| Collier | Ammunition/ordnance resupply ship for fleet operations |
 | Colony Cost | See CC |
 | Commander | Officer leading fleet/colony/sector; grants skill bonuses |
 | Commercial Engine | Larger, more fuel-efficient engine for civilian ships |
@@ -24,6 +29,7 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | Crew Grade | Crew training level; affects performance and maintenance |
 | DAC | Diplomat Assigned to Contact; affects NPR relations |
 | Damage Control | Engineering crew repairing damaged components |
+| DNR | Do Not Retain; commander suffix indicating removal on game close |
 | DP | Deployment Points; limits on automated craft |
 | ECM | Electronic Countermeasures; -10% enemy accuracy per level |
 | ECCM | Counter-ECM on fire controls; negates one ECM level each |
@@ -32,9 +38,12 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | Engine Power | Thrust in EP; divided by tonnage for speed |
 | EP | Engine Power; raw thrust output |
 | Est. Thermal Sig. | What enemies detect; from engines and thermal reduction |
+| FAC | Fast Attack Craft; legacy term for Light Naval vessels near 1,000t |
 | FC | Fire Control; directs weapons (beam or missile variants) |
 | Fire Delay | Time between beam shots; varies by type and tech |
 | Fleet | Ships under unified orders and one commander |
+| Focal Size | Laser range bracket; larger = longer range, bigger size |
+| Freighter | Cargo transport ship; typically uses commercial engines |
 | Fuel Harvester | Collects Sorium from gas giant atmospheres |
 | Fuel Refinery | Converts Sorium into usable ship fuel |
 | Gauss Cannon | 1-damage rapid-fire weapon; ideal for point defense |
@@ -42,33 +51,39 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | Governor | Colony commander; provides production/growth bonuses |
 | Grav Survey | Exploring a system to discover jump points |
 | Ground Forces | Military units for planetary assault and defense |
+| Hangar | Ship component for storing and servicing smaller craft |
 | HS | Hull Size; 50 tons of ship mass (1 HS = 50t) |
 | HTK | Hit to Kill; damage points before component destruction |
 | Infrastructure | Supports population on planets with CC > 0 |
 | JP | Jump point; portal between star systems |
 | Jump Drive | Enables JP transit; military (self) or commercial (squad) |
 | Jump Gate | Permanent JP structure; any ship can transit |
+| Lagrange Point | Gravitationally stable orbital positions; L1-L5 locations |
 | Laser | Versatile beam weapon with good range and damage |
+| Light Naval | Classification for vessels of 1,000 tons or less |
 | Magazine | Stores/feeds missiles; explodes if hit while loaded |
 | Maint. Clock | Time since overhaul; overdue = increasing failures |
 | Maint. Facility | Orbital installation that overhauls ships |
+| Mass Driver | Installation for launching minerals between system bodies |
 | Meson Cannon | Bypasses shields and armor; short range, low accuracy |
-| Focal Size | Laser range bracket; larger = longer range, bigger size |
+| MFC | Missile Fire Control; guides missiles, sets range/ECM |
 | Military Engine | Compact, powerful engine; less fuel-efficient than commercial |
 | Mineral | One of 11 TN elements (Dur, Neu, Cor, Tri, Bor, Mer, Ven, Sor, Uri, Coru, Gal) |
-| MFC | Missile Fire Control; guides missiles, sets range/ECM |
 | Missile Launcher | Fires missiles; reload time varies by size and tech |
 | MSP (maintenance) | Maintenance Supply Points; consumables for ship repairs and damage control. Context: logistics, engineering spaces, supply ships |
 | MSP (missiles) | Missile Size Points; unit of missile mass where 1 MSP = 2.5 tons. Context: missile design, launchers, magazines |
 | Multi-stage Missile | Booster stage for range + separating attack stage |
 | NPR | Non-Player Race; AI civilization with own tech/fleets |
+| Orbital Habitat | Space-based structure supporting population without a planet |
 | Ordnance | Missiles and expendable weapons carried by ships |
 | Overhaul | Resetting maintenance clock; prevents breakdowns |
 | Particle Beam | Shorter range than laser; no falloff, good penetration |
 | Passive Sensor | Detects thermal/EM without revealing own position |
 | PD | Point Defense; intercepts incoming missiles |
+| PDC | Planetary Defence Centre; ground-based weapons installation |
 | Plasma Carronade | 3x damage at short range; useless at distance |
 | Power Plant | Generates power for beam weapons |
+| PPV | Planetary Protection Value; defensive metric from weapon tonnage |
 | Precursor | Ancient spoiler race with powerful static defenses |
 | Railgun | Kinetic beam; ignores armor layers equal to damage |
 | Refueling Hub | Tankers auto-refuel fleet ships |
@@ -79,12 +94,15 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | Shield | Absorbs damage before armor; regenerates; emits EM |
 | Shipyard | Constructs/refits/repairs ships; tonnage-limited |
 | Slipway | Single construction bay; builds one ship at a time |
+| SM | Spacemaster; game mode with full control over all races/events |
 | Sorium | TN mineral refined into ship fuel |
+| Spaceport | Ground installation enabling cargo shuttle operations |
 | Spoiler Race | Pre-designed threat; no diplomacy, unique mechanics |
 | Spinal Mount | Beam built to hull size; more damage, limited arc |
 | Strikegroup | Task group sub-formation for fleet organization |
 | Survey Point | Location checked during grav survey for JPs |
 | Swarm | Spoiler race; overwhelms with numbers, regenerates |
+| Tanker | Fuel transport ship for fleet refueling operations |
 | Task Force | Higher-level unit containing multiple task groups |
 | Task Group | Basic ship organizational unit; receives all orders |
 | Terraforming | Modifying atmosphere to reduce CC; uses TF installations |
