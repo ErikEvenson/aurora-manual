@@ -108,6 +108,55 @@ Multiple instances of the Fleet Window can be opened simultaneously (Shift+click
 5. The transport will shuttle between colonies autonomously until cancelled or fuel runs low
 6. Consider adding a conditional "IF fuel < 25%: Refuel at Colony" as a safety order
 
+### Using Conditional Orders
+
+Conditional orders add IF/THEN logic to your order queue. Each order can have a condition attached -- if the condition is not met, the order is skipped and the next order is evaluated.
+
+**Adding a Conditional Order:**
+
+1. Select the task group and open the **Standing Orders** tab (element 6)
+2. Select a **Condition Type** from the dropdown (fuel level, hostile contact, damage, etc.)
+3. Set the **Threshold** value (e.g., "30%" for fuel, "200M km" for detection range)
+4. Select the **Order** to execute when the condition is met
+5. Click **[Add Conditional Order]** to insert it into the queue (element 7)
+
+**Condition Types:**
+
+| Category | Conditions |
+|----------|------------|
+| Resource | Fuel %, ordnance %, cargo capacity, maintenance supplies |
+| Contact | Hostile detected within X km, no hostiles detected, contact type |
+| Status | Ship damage %, shield %, speed reduced, deployment exceeded |
+| Location | Arrived at destination, within X km of location |
+
+**Example: Safe Survey Ship Configuration**
+
+```
+1. IF fuel < 30%: Move to Earth
+2. IF fuel < 30%: Refuel at Colony
+3. IF deployment exceeded: Refuel, Resupply and Overhaul at Colony
+4. Survey System Bodies (Standing Order)
+```
+
+**Example: Combat Patrol with Retreat**
+
+```
+1. Move to Waypoint Alpha
+2. IF hostile contact within 200M km: Move to contact
+3. IF hostile contact within 200M km: Engage at will
+4. IF fuel < 25%: Move to nearest colony
+5. IF fuel < 25%: Refuel at Colony
+6. IF shields < 50%: Move to nearest colony
+7. Move to Waypoint Beta
+8. (Repeat Orders enabled)
+```
+
+> **Tip:** Place safety conditions (low fuel, shield damage, deployment exceeded) before mission orders in the queue. Conditions are evaluated in queue order, so higher-priority conditions should come first.
+
+> **Note:** Conditional orders only trigger if the group has sensors capable of detecting the condition. A group without active sensors cannot trigger "hostile contact detected" based on its own detection.
+
+For complete conditional order mechanics, see [Section 9.5.5 Conditional Orders](../9-fleet-management/9.5-orders.md#955-conditional-orders).
+
 ### Transferring Ships Between Task Groups
 
 1. Open a **second Fleet Window** (Shift+click the toolbar button)
