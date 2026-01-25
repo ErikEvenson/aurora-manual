@@ -54,13 +54,15 @@ This is a comprehensive reference manual for Aurora C# (space strategy game by S
 - Push all commits before closing issues
 - Build PDF and create GitHub release after completing a wave
 
-## PR Contributor Attribution
+## Contributor Attribution
 
-When merging external PRs, add the contributor to three locations:
+All repo contributors must appear in three locations:
 
 1. **README.md** — Contributors section: `- **[@username](https://github.com/username)**`
 2. **1-introduction/1.1-what-is-aurora.md** — Manual Contributors list (ensures they appear in PDF)
-3. **Release notes** — Contributors section when creating the release
+3. **Release notes** — Contributors section when creating releases
+
+To get the current contributor list: `gh api repos/ErikEvenson/aurora-manual/contributors --jq '.[].login'`
 
 ## LaTeX Compatibility
 
