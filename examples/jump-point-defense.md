@@ -412,16 +412,207 @@ If your combat fleet has total fuel capacity of 500,000 litres and consumes 2,00
 
 ## Step 7: Minefield and Defensive Installation Options
 
-### Buoy Mines at the JP
+### Mine Deployment at Jump Points
 
-Missiles designed with no engine (0 km/s speed) can be deployed as stationary mines at the jump point:
+Mines in Aurora are missiles designed with no engine (0 km/s speed), creating stationary buoys that can engage targets automatically. A properly designed minefield at a hostile jump point provides a devastating first-strike capability against transiting enemies.
 
-- Design a mine as a size-6 missile with maximum warhead, no engine, onboard sensor
-- Deploy via minelayer ships that drop mines at the JP coordinates
-- Mines activate their sensors when a target transits within detection range
-- Effective as a first-strike surprise against unaware enemies
+#### Mine Design Principles
 
-**Limitation:** Mines are stationary and have limited sensor range. A cautious enemy may detect them before entering their engagement envelope.
+Mines follow standard missile design rules but with no engine allocation:
+
+```
+Mine Size = Warhead + Fuel (0) + Sensor + ECM/ECCM (optional)
+```
+
+**Example Mine Design (Size 6 MSP):**
+
+| Component | MSP | Purpose |
+|-----------|-----|---------|
+| Warhead | 4.5 | Maximum damage (4.5 * Warhead Tech damage) |
+| Active Sensor | 1.25 | Resolution 10 for ship detection |
+| ECCM | 0.25 | Counter enemy electronic warfare |
+| **Total** | **6.0** | Fits standard size-6 launcher |
+
+**Key Mine Design Considerations:**
+
+- **No Engine:** The defining characteristic -- mines remain stationary at deployment location
+- **Warhead Priority:** Without needing engine or fuel, most MSP goes to warhead damage
+- **Onboard Sensor:** Essential for autonomous target acquisition; resolution determines detection range
+- **Sensor Resolution Trade-off:** Higher resolution = longer detection range against large ships but may miss smaller targets; lower resolution = detects smaller ships but at shorter range
+
+**Mine Sensor Range Calculation:**
+
+Using the standard active sensor formula from [Appendix A: Formulas](../appendices/A-formulas.md):
+
+```
+Detection Range (km) = SQRT(Sensor_Sensitivity * Target_Cross_Section) * 10,000
+```
+
+For a 1.25 MSP sensor (approximately 0.5 HS equivalent) at resolution 10, tech level 4:
+
+```
+Sensor_Sensitivity = 0.5 * 4 * 10^(1/1.5) = 2 * 4.64 = 9.28
+```
+
+Against a 10,000-ton target (200 HS):
+
+```
+Detection Range = SQRT(9.28 * 200) * 10,000
+               = SQRT(1,856) * 10,000
+               = 43.1 * 10,000
+               = 431,000 km
+```
+
+This means the mine detects and engages a cruiser-sized target at approximately 430,000 km -- enough range to strike ships shortly after JP transit.
+
+#### Mine Layer Ship Requirements
+
+Mines are deployed by dedicated mine layer vessels. These ships carry mines in magazines and deploy them via standard missile launchers.
+
+**Mine Layer Design Components:**
+
+| Component | Purpose | Sizing Notes |
+|-----------|---------|--------------|
+| Missile Launchers | Deploy mines | Must match mine MSP size |
+| Magazines | Store mines | Calculate based on minefield density |
+| Fire Control | Target deployment location | Resolution matches mine design |
+| Engines | Transit to JP | Moderate speed sufficient |
+| Jump Drive | Reach ungated JPs | Optional if deploying via gate |
+
+**Example Mine Layer (6,000 tons):**
+
+- 4x Size-6 Launchers (deploy 4 mines per cycle)
+- Magazines: 300 MSP capacity (50 mines)
+- Missile Fire Control (resolution 10)
+- Engine: 3,000 km/s
+- Jump Drive: Self-only (for ungated frontier JPs)
+- Engineering: 8% (for extended deployments)
+
+**Mine Deployment Process:**
+
+1. Move mine layer to the target location (typically on or near the JP)
+2. Create a waypoint at the exact JP coordinates if not already defined
+3. Set fire control to target the waypoint location
+4. Issue launch orders -- mines deploy to the targeted coordinates
+5. Repeat until desired field density is achieved
+6. Mine layer withdraws to safe distance or returns for reload
+
+> **Tip:** Create multiple waypoints in a grid pattern around the JP to distribute mines across a wider area. This creates a denser engagement zone that catches ships regardless of their exact emergence point.
+
+#### Minefield Density Calculations
+
+The effectiveness of a minefield depends on having enough mines to overwhelm point defense and deliver killing blows.
+
+**Density Planning Factors:**
+
+- **Expected Enemy PD Capacity:** Estimate how many mines the enemy can intercept per tick
+- **Target Kill Requirements:** How many warhead hits to destroy expected targets
+- **Sensor Coverage Overlap:** Mines should have overlapping detection zones
+
+**Example Calculation -- Light Minefield:**
+
+Against an expected enemy cruiser (10,000 tons, estimated 15 PD kills/tick):
+
+```
+Mines needed per salvo = PD capacity + Desired leakers
+                       = 15 + 10 (to ensure damage)
+                       = 25 mines minimum
+
+For 3 engagement ticks before beam range:
+Total mines = 25 * 3 = 75 mines
+```
+
+**Example Calculation -- Heavy Minefield:**
+
+Against an expected enemy fleet (5x cruisers, combined 50 PD kills/tick):
+
+```
+Mines per salvo = 50 + 30 (significant damage)
+                = 80 mines
+
+For 3 engagement ticks:
+Total mines = 80 * 3 = 240 mines
+```
+
+**Minefield Deployment Pattern:**
+
+```
+       [Jump Point]
+           |
+    M  M   |   M  M      <- Ring 1: 500,000 km (immediate engagement)
+  M        |        M
+           |
+M    M     |     M    M  <- Ring 2: 750,000 km (follow-up engagement)
+  M        |        M
+           |
+    M  M   |   M  M      <- Ring 3: 1,000,000 km (reserve/stragglers)
+```
+
+Deploy mines in concentric rings to create multiple engagement opportunities as the enemy fleet advances.
+
+#### Mine Maintenance Considerations
+
+Deployed mines are subject to the same maintenance mechanics as missiles in magazines.
+
+**Maintenance Factors:**
+
+- **No Degradation While Deployed:** Mines do not have a maintenance clock ticking down -- they remain functional indefinitely once deployed
+- **Magazine Storage:** Mines stored in ship magazines count against the ship's ordnance capacity and are subject to magazine explosion rules if the ship is hit
+- **Production Requirements:** Mines are produced by ordnance factories using standard missile production rules -- plan production capacity accordingly
+- **Resupply Logistics:** Mine layers must return to colonies or colliers to reload magazines after deployment
+
+**Production Planning:**
+
+For a 240-mine heavy minefield:
+
+```
+Mine production time = (Mine MSP * Number) / (Ordnance Factory Output)
+```
+
+With 5 ordnance factories producing size-6 mines:
+
+```
+Total MSP = 6 * 240 = 1,440 MSP
+Production = ~50-100 MSP/year per factory (varies by tech)
+Time = 1,440 / 500 = ~3 years at 5 factories
+
+Plan minefield buildup over multiple years or increase factory allocation.
+```
+
+> **Warning:** Mines cannot be recovered once deployed. A minefield at a JP that becomes friendly (through diplomacy or conquest) represents wasted ordnance. Deploy mines only at JPs you expect to defend long-term.
+
+#### Interaction with Jump Point Stabilization
+
+The strategic value of minefields depends heavily on whether the JP is gated:
+
+**Ungated JP (Optimal for Mines):**
+
+- Enemy must use jump-drive-equipped ships only
+- Squadron transit limits enemy force size per wave
+- Mines engage each wave separately as it transits
+- Enemy cannot send dedicated minesweepers without jump capability
+
+**Gated JP (Mines Less Effective):**
+
+- Enemy can send unlimited ships through freely
+- Mass transit overwhelms mine engagement capacity
+- Enemy can lead with cheap minesweeper ships to absorb mine fire
+- Consider removing your gate before hostilities if possible
+
+> **Tip:** If you have gated a JP that becomes a hostile frontier, you CANNOT remove the gate. The strategic decision to gate or not gate must be made before hostilities begin. Leave frontier JPs ungated until the political situation is stable.
+
+**Mine Engagement Sequence vs. Transiting Fleet:**
+
+```
+T+0s:     Enemy fleet transits JP (10 ships, squadron jump)
+T+0s:     Mines within sensor range detect thermal signatures
+T+1-5s:   Mines acquire targets, launch toward nearest enemies
+T+5-10s:  Enemy experiences jump shock (reduced sensor/fire control)
+T+10-30s: First mine impacts while enemy still recovering
+T+30s+:   Surviving mines continue engagement as fleet advances
+```
+
+The jump shock window (see [Section 12.4 Point Defense](../12-combat/12.4-point-defense.md)) is critical -- enemies transiting via jump drive cannot operate point defense at full effectiveness for several seconds, giving mines an engagement window with reduced interception.
 
 ### PDC Placement (If JP is Near a Planet)
 
