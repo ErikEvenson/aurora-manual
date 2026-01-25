@@ -79,6 +79,10 @@ For installation placement and colony management, see [Section 5.1 Establishing 
 
 > **Note:** Values in this section reflect Aurora C# v2.6.1. Check the official changelog for updates in later versions.
 
+**When to use this table:** Consult this section when designing combat vessels and deciding which weapon systems to mount. The comparison table helps you evaluate trade-offs between damage output, range, power requirements, and hull space -- critical decisions that define your fleet doctrine.
+
+**Gameplay significance:** Beam weapons are your primary tools for sustained combat at various ranges. Your choice of weapon type determines whether you fight at long range (lasers, particle beams) or close range (plasma carronades), whether you can bypass enemy defenses (meson cannons), and how much power infrastructure each ship needs. The damage-per-second, range, and power cost of each weapon directly influence ship design tonnage and combat effectiveness.
+
 For combat usage and tactical considerations, see [Section 12.2 Beam Weapons](../12-combat/12.2-beam-weapons.md).
 
 ### Beam Weapon Comparison Table
@@ -118,7 +122,15 @@ Focal size (for lasers) and velocity (for railguns) affect maximum range. Higher
 
 > **Note:** Values in this section reflect Aurora C# v2.6.1. Research costs and progression steps may differ in later versions; check the official changelog.
 
+**When to use these tables:** Reference these progressions when prioritizing research projects. Each table shows the full technology chain, research point costs, and capability improvements at each tier -- essential for planning your research queue and understanding how far you are from key capability thresholds.
+
+**Gameplay significance:** Research prioritization is one of Aurora's most consequential strategic decisions. These tables reveal which technologies offer the largest capability jumps per RP spent, where diminishing returns set in, and what synergies exist between related tech lines (e.g., engine type + fuel efficiency + power modifier). Use them to identify high-value targets for your research focus.
+
 ### Engine Technology Progression
+
+**When to use:** Consult this table when planning propulsion research or designing ships that need specific speed capabilities.
+
+**Gameplay impact:** Engine technology directly determines fleet speed, which affects everything from tactical positioning in combat to transit times between systems. Higher engine tech unlocks faster ships, but the research costs escalate significantly -- knowing the power-per-HS at each tier helps you decide whether the next engine generation is worth the investment versus improving other aspects like fuel efficiency.
 
 Engine power determines ship speed. The engine type sets base power per HS, while the power modifier controls the maximum multiplier available in the engine design window. See [Section 8.1 Design Philosophy](../8-ship-design/8.1-design-philosophy.md) for practical applications.
 
@@ -172,6 +184,10 @@ This technology unlocks lower power multipliers, allowing more fuel-efficient en
 
 ### Fuel Consumption Technology
 
+**When to use:** Reference this table when your ships are running out of fuel before completing missions or when tanker logistics are becoming a bottleneck.
+
+**Gameplay impact:** Fuel efficiency is often the difference between reaching distant targets and being stranded mid-voyage. This technology line offers compounding returns: halving consumption doubles range without increasing fuel tank size. For exploration fleets and distant operations, fuel efficiency research often provides more practical benefit than raw engine speed.
+
 Lower fuel consumption rates drastically extend operational range. This is one of the highest-impact research areas for fleet logistics.
 
 | Tech Level | Consumption (L/EPH) | Research Cost (RP) | Notes |
@@ -191,6 +207,10 @@ Lower fuel consumption rates drastically extend operational range. This is one o
 | 12 | 0.1 | 2,000,000 | One-tenth starting |
 
 ### Armour Technology
+
+**When to use:** Consult this table when designing warships to determine how much protection you can achieve within a given tonnage budget.
+
+**Gameplay impact:** Armour tech determines survivability in beam combat. Higher-strength armour means your ships can mount the same protection in less hull space -- freeing tonnage for weapons, engines, or additional armour layers. The column depth value also gates how many armour layers you can add, directly affecting how long your ships survive under fire.
 
 Higher armour technology provides more protection per layer of armour, reducing the total hull space needed for equivalent protection. The strength value represents armour hit points per hull space of armour.
 
@@ -215,6 +235,10 @@ Higher armour technology provides more protection per layer of armour, reducing 
 **Note:** Column Depth (AdditionalInfo2) represents the maximum armour depth that technology allows. Higher-tech armour is also denser (more HP per layer), so fewer layers are needed.
 
 ### Shield Technology
+
+**When to use:** Reference this table when designing ships that will face sustained combat or missile salvos where regenerating protection provides tactical advantage.
+
+**Gameplay impact:** Shields regenerate during combat, making them valuable against enemies that deal steady rather than burst damage. However, active shields broadcast an EM signature, making shielded ships easier to detect. The trade-off between shield strength (damage absorbed) and regeneration rate (recovery speed) shapes whether shields serve as primary defense or a secondary buffer behind armour.
 
 Shields provide regenerating protection that absorbs damage before it reaches armour. Shield strength is per HS of shield generator. Active shields produce an EM signature.
 
@@ -255,6 +279,10 @@ The regeneration rate determines how much shield strength is restored per 5-seco
 | 12 | 15.0 | 2,000,000 |
 
 ### Sensor Technology
+
+**When to use:** Consult these tables when designing scouts, survey ships, or combat vessels that need to detect enemies before being detected themselves.
+
+**Gameplay impact:** Detection range determines who sees whom first -- a critical advantage in both tactical combat and strategic reconnaissance. Passive sensors (thermal and EM) let you observe without revealing your presence, while active sensors provide targeting data at the cost of broadcasting your location. The sensitivity/strength values directly set detection ranges via the formulas in [Section D.5](#d5-key-design-formulas-quick-reference).
 
 Sensors are critical for detection and targeting. Passive sensors (thermal and EM) detect emissions without revealing the detecting ship. Active sensors provide precise tracking but broadcast the sensor ship's location.
 
@@ -318,6 +346,10 @@ Active sensors detect ships based on cross-section (size). Higher strength provi
 
 ### Missile Technology
 
+**When to use:** Reference these tables when designing missile-armed ships, planning ordnance production, or evaluating whether to invest in missile versus beam weapon doctrines.
+
+**Gameplay impact:** Missiles enable alpha-strike tactics -- delivering massive damage in a single salvo from beyond beam weapon range. Warhead strength determines damage per missile, while reload rate affects sustained fire capability. These technologies shape whether you build glass-cannon strikers (large salvos, few reloads) or sustained-fire platforms (smaller salvos, rapid reloading).
+
 Missiles are the primary standoff weapon system. Their effectiveness depends on warhead strength, launcher size, and reload rate technologies.
 
 #### Warhead Strength
@@ -360,6 +392,10 @@ Higher reload rates reduce the time between missile salvos. The rate value is a 
 
 ### Power Plant Technology
 
+**When to use:** Consult this table when designing beam weapon ships or any vessel with significant power requirements (shields, active sensors, jump drives).
+
+**Gameplay impact:** Power plant efficiency determines how much of your ship's tonnage goes to generating energy versus using it. Higher power-per-HS means more weapons or shields in the same hull. The boost option offers a trade-off: more power now, but increased explosion risk if the reactor is hit in combat. This choice is particularly consequential for front-line warships versus support vessels.
+
 Power plants provide the energy needed by beam weapons, shields, and active sensors. The power output value represents energy per HS of power plant.
 
 #### Power Plant Types (Power Output per HS)
@@ -398,6 +434,10 @@ Boosting a power plant increases output but adds an explosion risk when the comp
 | 7 | +100% (x2.0) | 50% | 30,000 |
 
 ### Beam Weapon Calibre Technologies
+
+**When to use:** Reference these tables when deciding which weapon sizes to research and which calibres to mount on your ships.
+
+**Gameplay impact:** Larger calibres deal more damage but consume more hull space and power. The damage-to-size ratio varies by weapon type, so these tables help identify sweet spots where you get good damage per HS invested. For lasers, focal size also affects range; for railguns, calibre determines shots per volley. Matching calibre research to your hull sizes ensures you can mount appropriately-scaled weapons.
 
 Weapon focal size determines damage, range, and hull space requirements. Larger weapons deal more damage but consume more space and power.
 
@@ -520,6 +560,10 @@ Higher velocity extends gauss cannon range for point defense intercepts.
 
 ### Capacitor Recharge Rate
 
+**When to use:** Consult this table when prioritizing beam weapon research -- capacitor technology is often more cost-effective than larger calibres for increasing damage output.
+
+**Gameplay impact:** Capacitor recharge rate is a force multiplier for your entire beam weapon arsenal. Unlike calibre upgrades that benefit only one weapon type, capacitor improvements boost the fire rate of all beam weapons. A rate of 4 means your lasers fire four times as fast as baseline, effectively quadrupling sustained damage. This technology often offers the best RP-to-combat-power conversion in the game.
+
 Capacitor technology reduces the time between beam weapon shots. Higher values allow faster sustained fire. This is one of the most impactful beam weapon technologies.
 
 | Rate | Research Cost (RP) | Rate | Research Cost (RP) |
@@ -544,6 +588,10 @@ Capacitor technology reduces the time between beam weapon shots. Higher values a
 
 ### Maintenance Capacity per Facility
 
+**When to use:** Reference this table when your fleet tonnage is growing and you need to plan maintenance infrastructure expansion.
+
+**Gameplay impact:** Each maintenance facility can support a limited tonnage of ships. When your fleet exceeds available maintenance capacity, ships begin to suffer reliability degradation. Higher tech levels mean each facility supports more tonnage, reducing the number of facilities (and their associated population and mineral costs) needed to keep your fleet operational.
+
 | Tech Level | Capacity (tons/facility) | Research Cost (RP) |
 |-----------|-------------------------|-------------------|
 | 1 | 1,000 | 1,000 |
@@ -557,6 +605,10 @@ Capacitor technology reduces the time between beam weapon shots. Higher values a
 | 9 | 6,250 | 250,000 |
 
 ### MSP Production per Facility
+
+**When to use:** Consult this table when your ships are spending excessive time in overhaul or when MSP shortages are limiting fleet operations.
+
+**Gameplay impact:** Maintenance Supply Points (MSP) are consumed during overhauls and repairs. If production cannot keep pace with consumption, your ships accumulate maintenance failures. Higher production tech reduces the number of maintenance facilities needed to sustain a given fleet, freeing industrial capacity for other priorities.
 
 | Tech Level | MSP/Year | Research Cost (RP) |
 |-----------|----------|-------------------|
@@ -572,6 +624,10 @@ Capacitor technology reduces the time between beam weapon shots. Higher values a
 | 10 | 100 | 1,200,000 |
 
 ### Construction Rate (BP per Factory per Year)
+
+**When to use:** Reference this table when planning industrial expansion or when ship production is bottlenecking your fleet growth.
+
+**Gameplay impact:** Construction rate determines how quickly your factories convert minerals into ships, installations, and components. Each tech level increases output per factory, compounding your industrial capacity without requiring more factories or workers. This is a high-leverage research investment for empires focused on rapid expansion or fleet buildup.
 
 | Tech Level | BP/Factory/Year | Research Cost (RP) |
 |-----------|----------------|-------------------|
@@ -589,6 +645,10 @@ Capacitor technology reduces the time between beam weapon shots. Higher values a
 | 11 | 70 | 2,500,000 |
 
 ### Mining Production (Tons per Mine per Year)
+
+**When to use:** Consult this table when mineral stockpiles are limiting your construction or when you're deciding whether to build more mines versus researching better mining technology.
+
+**Gameplay impact:** Mining production directly controls your mineral income. Higher tech means each mine extracts more from the same deposit, extending the life of your mineral reserves and reducing the number of mines (and mining infrastructure) needed to sustain your economy. This compounds especially well with high-accessibility deposits.
 
 | Tech Level | Tons/Mine/Year | Research Cost (RP) |
 |-----------|---------------|-------------------|
@@ -609,6 +669,10 @@ Output is further multiplied by the deposit's accessibility value.
 
 ### Fuel Refinery Output
 
+**When to use:** Reference this table when fuel production is not keeping pace with fleet consumption or when you're planning fuel logistics for distant operations.
+
+**Gameplay impact:** Fuel is the lifeblood of space operations -- without it, ships cannot move. Higher refinery output means fewer refineries needed to sustain your fleet, reducing the worker and Boronide investment in fuel infrastructure. For empires with active exploration or military campaigns, fuel production tech often pays for itself quickly.
+
 | Tech Level | Output (litres/year/refinery) | Research Cost (RP) |
 |-----------|------------------------------|-------------------|
 | Base | 40,000 | -- |
@@ -625,6 +689,10 @@ Output is further multiplied by the deposit's accessibility value.
 | 11 | 280,000 | 2,500,000 |
 
 ## D.5 Key Design Formulas Quick Reference
+
+**When to use this section:** Keep this open during ship design. These formulas let you calculate detection ranges, magazine requirements, engine performance, and unit conversions without leaving the design screen or hunting through multiple appendices.
+
+**Gameplay significance:** Understanding these formulas transforms ship design from trial-and-error into informed engineering. You can predict whether a sensor will detect a target at a given range, calculate how many missiles your magazines will hold, and optimize engine-to-fuel ratios before committing to a design. This is essential knowledge for min-maxing ship performance within tonnage constraints.
 
 This section condenses the most frequently-referenced formulas from [Appendix A: Formulas](../appendices/A-formulas.md) into a single lookup table for use during ship design (see [Section 8.1 Design Philosophy](../8-ship-design/8.1-design-philosophy.md)).
 
