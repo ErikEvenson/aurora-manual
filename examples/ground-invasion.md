@@ -513,11 +513,415 @@ After conquest, check:
 
 ---
 
+## Advanced Tactics
+
+The preceding sections cover the fundamentals of planetary invasion. This section addresses more sophisticated scenarios requiring multi-formation coordination, integrated orbital assets, PDC assault techniques, and sustained logistics for extended campaigns.
+
+---
+
+### Multi-Formation Coordination
+
+Large-scale invasions require coordination across multiple formations operating with different field positions and tactical roles. Effective command hierarchy and timing are essential.
+
+#### Echelon Structure
+
+Organize your invasion force into a command hierarchy before deployment:
+
+```
+Division HQ (125,000 ton capacity)
+├── 1st Brigade HQ (25,000 ton capacity)
+│   ├── 1st Infantry Battalion (attack)
+│   ├── 2nd Infantry Battalion (attack)
+│   └── 3rd Infantry Battalion (defence)
+├── 2nd Brigade HQ (25,000 ton capacity)
+│   ├── 1st Armored Battalion (attack)
+│   ├── 2nd Armored Battalion (attack)
+│   └── Combat Engineer Battalion (defence)
+└── Support Brigade HQ
+    ├── Artillery Battalion (support position)
+    ├── Logistics Battalion (rear echelon)
+    └── AA Battalion (rear echelon)
+```
+
+**Why hierarchical organization matters:**
+
+- Commander bonuses cascade down the hierarchy (100% direct, 25% superior)
+- Logistics elements at brigade level supply all subordinate formations
+- HQ capacity determines effective bonus application
+- Formations under the same brigade share supply pools
+
+#### Phased Assault Tactics
+
+**Phase 1 -- Establish Beachhead (Days 1-7):**
+
+| Formation Type | Field Position | Role |
+|---------------|---------------|------|
+| Infantry battalions | Front Line Attack | Engage immediately while unfortified |
+| Armored battalions | Front Line Attack | Breakthrough attempts |
+| Artillery | Support | Begin bombardment suppression |
+| Engineers/Logistics | Rear Echelon | Build supply base |
+
+**Phase 2 -- Consolidate and Attrit (Days 7-21):**
+
+| Formation Type | Field Position | Role |
+|---------------|---------------|------|
+| 2/3 Infantry | Front Line Defence | Begin fortification |
+| 1/3 Infantry | Front Line Attack | Maintain pressure |
+| Armored | Rotate attack/defence | Rest for breakthrough |
+| Artillery | Support | Counter-battery fire |
+
+**Phase 3 -- Breakthrough and Exploitation (Day 21+):**
+
+| Formation Type | Field Position | Role |
+|---------------|---------------|------|
+| Infantry | Front Line Defence | Hold captured ground |
+| Armored | Front Line Attack | Exploit breakthroughs |
+| Artillery | Support | Suppress reinforcements |
+| Engineers | Defence | Fortify captured positions |
+
+> **Tip:** Newly landed formations have zero fortification. Set them to attack mode immediately -- the defensive bonus of front-line defence is wasted until fortification accumulates. After 7-10 days, transition defensive formations to front-line defence to begin building their fortification levels.
+
+#### Commander Bonus Stacking
+
+Maximize combat effectiveness through proper commander assignment:
+
+```
+Division Commander (20% GCO, 15% GCD)
+└── Brigade Commander (15% GCO, 10% GCD, 10% GCM)
+    └── Battalion Commander (10% GCO, 10% GCA)
+
+Effective bonuses at battalion level:
+  GCO: 10% (direct) + 3.75% (brigade) + 5% (division) = 18.75%
+  GCD: 0% (direct) + 2.5% (brigade) + 3.75% (division) = 6.25%
+  GCM: 0% (direct) + 2.5% (brigade) = 2.5%
+  GCA: 10% (direct) = 10%
+```
+
+**Commander assignment priorities:**
+
+1. **Division/Brigade HQ:** High GCO, GCD, and GCM (offensive bonuses cascade)
+2. **Artillery formations:** High GCA (artillery accuracy)
+3. **Armored formations:** High GCM (breakthrough probability)
+4. **Garrison formations:** High OCC (occupation strength)
+
+---
+
+### Orbital Bombardment Integration
+
+Effective integration of orbital assets with ground forces dramatically increases combat effectiveness but requires careful coordination to avoid friendly fire and manage ship vulnerability.
+
+#### FFD Capacity Planning
+
+Forward Fire Direction elements are the bottleneck for orbital support:
+
+| FFD Elements | Ships Supported | Fighters Supported |
+|-------------|-----------------|-------------------|
+| 5 | 5 ships | 30 fighters |
+| 10 | 10 ships | 60 fighters |
+| 20 | 20 ships | 120 fighters |
+
+**FFD distribution strategy:**
+
+- Spread FFD elements across multiple formations (if one formation is destroyed, you retain FFD capability)
+- Front-line formations need FFD to call in precision strikes on their targets
+- Mark FFD infantry with the "Avoid Combat" flag to protect this critical capability
+- Plan for FFD attrition: losing all FFD silences your orbital support
+
+#### Ship Selection for Orbital Support
+
+Not all ships are equally suited for orbital bombardment support:
+
+| Ship Type | Ground Damage | Recommendation |
+|-----------|---------------|----------------|
+| 25cm+ Lasers | 80+ (devastating) | Excellent -- prioritize these |
+| Heavy Particle Beams | 70+ | Excellent -- no damage falloff |
+| 15cm Lasers | ~45 | Good secondary |
+| Railguns | Lower | Better for suppression volume |
+| Carriers (fighters) | Varies | Good if fighters have bombardment pods |
+
+**Ground damage conversion:**
+
+```
+Ground Damage = 20 x sqrt(Point Blank Ship-to-Ship Damage)
+```
+
+Example calculations:
+
+| Weapon | PB Damage | Ground Damage | Ground AP |
+|--------|-----------|---------------|-----------|
+| 25cm UV Laser | 16 | 80 | 40 |
+| 30cm Particle Beam | 20 | 89 | 45 |
+| Heavy Laser (12") | 36 | 120 | 60 |
+
+#### Orbital Support vs. NBG Bombardment
+
+Two distinct orbital fire modes exist:
+
+| Mode | Accuracy | Collateral | Best Use |
+|------|----------|------------|----------|
+| **Orbital Bombardment Support** | Full ground combat accuracy | None | Coordinated attacks with ground forces |
+| **Naval Bombardment (NBG)** | 1/3 base accuracy | 1/3 chance to hit population | Softening before landing |
+
+**When to use each:**
+
+- **Pre-landing softening:** NBG to reduce fortification levels (accept collateral damage)
+- **Active ground combat:** Orbital Bombardment Support for precision (requires FFD)
+- **PDC suppression:** NBG with missiles (100% base accuracy for warheads)
+
+#### STO Weapon Countermeasures
+
+Surface-to-Orbit weapons threaten ships in bombardment orbit:
+
+**Threat assessment:**
+
+- STO fire controls have 25% range bonus vs. ship equivalents
+- STO weapons only reveal themselves after firing (then flagged as "STO Ground Forces" contact)
+- Multiple STO formations stack defensive contribution
+
+**Mitigation strategies:**
+
+1. **Identify STOs first:** Conduct initial NBG pass with expendable ships to draw STO fire
+2. **Prioritize STO suppression:** Once identified, allocate missile salvos specifically against STO contacts
+3. **Rotate bombardment ships:** Cycle damaged ships out of bombardment orbit
+4. **Shield optimization:** Heavy shields buy time against STO attrition
+5. **Speed matters:** Faster ships are harder for STO to track -- consider using fast destroyers for bombardment support over slow battleships
+
+> **Warning:** Ships in orbital bombardment support are stationary targets for STO weapons. If intelligence indicates significant STO presence, suppress or destroy STOs before committing high-value warships to prolonged bombardment duty.
+
+---
+
+### PDC Assault Strategies
+
+Planetary Defence Centres require specialized tactics due to their isolation mechanics and formidable firepower.
+
+#### PDC Defense Rules
+
+Understanding how PDCs fight is essential for planning assaults:
+
+1. **Isolated garrisons:** Only troops inside the specific PDC being attacked defend it -- other PDCs cannot reinforce
+2. **No reinforcement:** Once assault begins, the garrison fights with whoever was present at attack start
+3. **No magazine reload:** PDCs under ground attack cannot reload from planetary stockpiles
+4. **Offensive sorties:** Troops in OTHER PDCs can emerge to fight offensively (losing their PDC protection)
+
+#### Divide and Conquer Tactics
+
+The isolation mechanic enables sequential reduction:
+
+**Step 1: Isolate a single PDC**
+
+Land your main force away from PDC concentrations. Advance toward one PDC while leaving screening forces to pin troops in other PDCs.
+
+**Step 2: Mass overwhelming force**
+
+Concentrate 5:1 or greater force superiority against the targeted PDC. The isolated garrison cannot receive help.
+
+**Step 3: Starve ammunition**
+
+Sustained ground assault prevents magazine reloads. Even if the garrison holds, the PDC's anti-ship weapons eventually run dry -- valuable for follow-on naval operations.
+
+**Step 4: Exploit defensive sorties**
+
+When defenders emerge from other PDCs to attack your screening forces, they forfeit their PDC's protective fortification. Destroy them in the open with concentrated fire and orbital support.
+
+**Step 5: Repeat**
+
+Move to the next PDC. Each successive PDC has fewer potential reinforcements as you eliminate sortie forces.
+
+#### PDC Suppression Before Landing
+
+Never land troops in active PDC weapon range without suppression:
+
+**Pre-landing bombardment sequence:**
+
+1. **Identify PDC locations** via active sensor sweep from orbit
+2. **Missile bombardment first** (100% base accuracy vs. fortified targets)
+3. **Allocate significant salvos:** A PDC at fortification 6 has ~0.56% per-shot hit chance from energy weapons; missiles are far more effective
+4. **Monitor shield status:** Initial salvos deplete PDC shields; subsequent salvos cause structural damage
+5. **Confirm suppression:** PDC weapons should cease firing before transport approach
+6. **Land distant from PDCs:** Even suppressed PDCs may retain some capability -- land outside their remaining weapon range
+
+**Bombardment formula reference:**
+
+```
+Energy NBG To-Hit = (Base 20% / 3) x (Terrain Modifier) / (Fortification x Terrain Fortification Modifier)
+```
+
+For a PDC in Forest terrain at fortification 6:
+```
+To-Hit = 6.67% x 0.5 / (6 x 1.0) = 0.56% per shot
+```
+
+This demonstrates why missiles (100% base accuracy) are vastly preferred for PDC suppression.
+
+#### Ground Assault on PDCs
+
+Once you've landed and softened the PDC via bombardment:
+
+| Tactic | Effectiveness | Risk |
+|--------|---------------|------|
+| **Conventional assault** | Slow but steady attrition | Moderate casualties from PDC garrison |
+| **Siege warfare** | Very slow; starve ammunition | Minimal casualties; PDC remains combat-capable longer |
+| **Combined arms mass assault** | Fastest resolution | Highest casualties but quickest PDC neutralization |
+
+**Recommended approach:**
+
+1. Position artillery in support to bombard the PDC garrison
+2. Mass armored formations for breakthrough attempts
+3. Use orbital bombardment support through FFD coordination
+4. Accept casualties to achieve rapid reduction -- prolonged sieges allow other PDCs to sortie
+5. After capture, use the PDC's position as your own fortified base
+
+---
+
+### Supply Line Management for Extended Campaigns
+
+Multi-phase invasions lasting weeks or months require sophisticated logistics planning beyond the initial assault supply.
+
+#### Supply Consumption Rates
+
+Calculate total GSP requirements for campaign duration:
+
+```
+Total GSP = (GSP per 10 rounds) x (Expected combat rounds / 10) x (Number of combat formations)
+```
+
+**Example for a 30-day campaign (90 combat phases):**
+
+| Formation Type | GSP/10 rounds | Formations | Total GSP |
+|---------------|---------------|------------|-----------|
+| Infantry Battalion | 2,700 | 6 | 145,800 |
+| Armored Battalion | 8,500 | 3 | 229,500 |
+| Artillery Battalion | 5,000 | 2 | 90,000 |
+| **Total** | | | **465,300 GSP** |
+
+**Logistics vehicle requirements:**
+
+- Standard Logistics Module: 500 GSP each
+- Required modules: 465,300 / 500 = 931 logistics vehicles
+
+This represents a significant logistics tail requiring dedicated transport capacity.
+
+#### Logistics Formation Design
+
+Design dedicated logistics battalions for sustained campaigns:
+
+**Logistics Battalion Template (example):**
+
+| Element | Quantity | Module | GSP Capacity |
+|---------|----------|--------|--------------|
+| Logistics Vehicle (Light) | 200 | Standard (500 GSP) | 100,000 GSP |
+| Logistics Infantry | 100 | Small (100 GSP) | 10,000 GSP |
+| HQ Element | 1 | - | Command |
+| **Total Capacity** | | | **110,000 GSP** |
+
+**Logistics battalion placement:**
+
+- Position at brigade HQ level (not individual combat battalions)
+- Keeps logistics in rear echelon protected from frontline attrition
+- Brigade-level logistics supplies all subordinate formations through hierarchy
+- Vehicle-based logistics can supply other formations; infantry logistics cannot
+
+#### Resupply Operations
+
+For campaigns exceeding initial supply:
+
+**Resupply convoy planning:**
+
+1. **Calculate deficit:** Total required GSP minus initial supply
+2. **Design supply transports:** Freighters loaded with logistics formations
+3. **Time convoy arrivals:** Schedule resupply before combat formations exhaust supply
+4. **Establish supply points:** Land logistics formations at rear-echelon positions
+
+**Supply chain security:**
+
+- Maintain orbital superiority throughout the campaign
+- Enemy raiders targeting supply convoys can starve your offensive
+- Consider armed escorts for supply transports
+- Stockpile excess logistics formations at the beachhead
+
+#### Combat Efficiency and GCL Bonus
+
+Commanders with Ground Combat Logistics (GCL) bonus reduce supply consumption:
+
+```
+Effective GSP consumption = Base GSP x (1 - GCL bonus percentage)
+```
+
+A commander with 20% GCL reduces a formation's supply draw by 20%, effectively extending your logistics by 25%.
+
+**Logistics optimization priorities:**
+
+1. Assign high-GCL commanders to heavy formations (armored battalions consume the most GSP)
+2. Position efficient formations on the front line
+3. Rotate high-consumption formations to reserve when supply runs low
+4. Accept reduced effectiveness (25% fire rate) rather than total supply exhaustion in emergencies
+
+> **Tip:** Formations at 25% effectiveness due to supply exhaustion cannot assume front-line attack positions. If all your attack-capable formations run out of supply simultaneously, your offensive stalls. Always maintain a supply reserve and rotate formations to prevent simultaneous exhaustion.
+
+---
+
+### Extended Campaign Example: Fortress World
+
+This scenario demonstrates advanced tactics against a heavily defended colony.
+
+**Situation:**
+
+- Target: Enemy fortress world with 200M population
+- Defenses: 4 PDCs, estimated 40+ battalions, significant STO capability
+- Terrain: Mountain (2.0 fortification modifier, 0.5 to-hit modifier)
+- Your forces: 2 divisions (8 brigades), fleet superiority achieved
+
+**Phase 1: PDC Suppression (Week 1)**
+
+1. Conduct NBG missile bombardment on all 4 PDCs simultaneously
+2. Allocate 500+ missiles per PDC; expect 60-70% to penetrate PD
+3. Accept STO losses to bombardment ships (rotate damaged ships)
+4. Continue until PDC shields depleted and weapons silenced
+
+**Phase 2: Contested Landing (Week 1-2)**
+
+1. Land 1st Division away from PDC positions in mountain valleys
+2. Expect combat drop casualties of 10-15% against AA defenses
+3. Immediately engage to prevent defender concentration
+4. Establish FFD coordination with orbiting bombardment ships
+
+**Phase 3: Sequential PDC Reduction (Weeks 2-4)**
+
+1. Mass 2 brigades against PDC Alpha while 2 brigades screen
+2. Heavy artillery bombardment from support positions
+3. Armored breakthrough attempts to penetrate PDC perimeter
+4. Once Alpha falls, advance to PDC Beta with accumulated forces
+
+**Phase 4: Main Force Engagement (Weeks 4-8)**
+
+1. With 2 PDCs eliminated, land 2nd Division as reinforcement
+2. Engage main enemy field army with superior numbers
+3. Use captured PDC positions as fortified logistics bases
+4. Exploit breakthrough with armored divisions when morale breaks
+
+**Phase 5: Mopping Up and Occupation (Weeks 8-12)**
+
+1. Reduce remaining PDCs with concentrated force
+2. Hunt down scattered enemy formations
+3. Transition combat formations to occupation duty
+4. Land garrison divisions for long-term control
+
+**Logistics requirements for this campaign:**
+
+- Initial assault supply: 400,000 GSP (2 divisions)
+- 8-week sustainment: 1,200,000 additional GSP
+- Resupply convoys: 3 convoys of 400,000 GSP each
+- Reserve: 200,000 GSP emergency stockpile
+- **Total logistics vehicles:** ~3,600 standard modules
+
+---
+
 ## Related Sections
 
 - [Section 13.1 Unit Types and Formation Design](../13-ground-forces/13.1-unit-types.md) -- Ground unit class design, formation templates
 - [Section 13.2 Training, Logistics, and Transport](../13-ground-forces/13.2-training-and-transport.md) -- Construction, supply, transport bays
 - [Section 13.3 Ground Combat](../13-ground-forces/13.3-ground-combat.md) -- Combat resolution, terrain, fortification, orbital support
 - [Section 12.6 Damage and Armor](../12-combat/12.6-damage-and-armor.md) -- Orbital bombardment mechanics
+- [Section 12.7 Planetary Defence Centres](../12-combat/12.7-planetary-defence-centres.md) -- PDC design and countering enemy PDCs
 - [Appendix A: Formulas](../appendices/A-formulas.md) -- Unrest, occupation, and production calculations
 - [Appendix C: Tips and Common Mistakes](../appendices/C-tips-and-mistakes.md) -- General gameplay advice
