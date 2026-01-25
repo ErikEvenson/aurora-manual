@@ -191,6 +191,47 @@ The fundamental trade-off: more engine MSP = faster missile but less room for fu
 6. No ECM needed (AMMs are not targeted by enemy PD)
 7. Consider **Multiple Warheads [9]** to counter enemy decoys (v2.2.0+)
 
+### Configuring Multiple Warheads (v2.2.0+)
+
+*Added: v2026.01.25*
+
+Multiple warheads split a missile's total warhead strength across separate independent attacks. This is particularly effective for AMMs targeting decoy-equipped missiles, or for improving hit probability against maneuvering targets.
+
+1. Set **Warhead MSP [6]** to your desired allocation -- this determines total warhead strength
+2. In the **Warhead Configuration Panel [9]**, set the **Type** dropdown to "Standard" (laser warheads do not support multiple warheads)
+3. Verify **Damage [9]** shows your total warhead strength (MSP * Strength Tech level)
+4. Adjust **Warhead Count [9]** to the number of independent warheads (default is 1)
+5. Check **Damage/Warhead [9]** -- this shows the damage each individual warhead deals
+
+> **Note:** Each additional warhead beyond the first requires 0.1 MSP of space and costs 0.1 Tritanium. A missile with 5 warheads needs 0.4 MSP more than a single-warhead design with equivalent strength.
+
+**Damage Calculation:**
+
+| Total Strength | Warhead Count | Damage per Warhead |
+|----------------|---------------|-------------------|
+| 6.0 | 1 | 6.0 |
+| 6.0 | 2 | 3.0 |
+| 6.0 | 3 | 2.0 |
+| 1.2 | 3 | 0.4 |
+
+**Trade-offs -- Single vs. Multiple Warheads:**
+
+- **Single warhead:** Maximum damage per hit, ideal for penetrating heavy armor
+- **Multiple warheads:** Multiple hit chances per missile, effective against decoys and maneuvering targets
+- **MSP cost:** Additional warheads consume 0.1 MSP each, reducing space for engine, fuel, or sensors
+- **Fractional damage:** Warheads with strength < 1.0 have reduced effect against armor and internals (see [Section 12.3 Missiles](../12-combat/12.3-missiles.md) for fractional warhead mechanics)
+
+**AMM Anti-Decoy Strategy:**
+
+When targeting missiles equipped with decoys, each warhead independently rolls to hit the missile or a decoy:
+
+1. Design an AMM with warhead strength 1.2 and 3 warheads (0.4 damage each)
+2. Each warhead attacks independently with probability weighted by decoy count
+3. Any warhead hitting a decoy removes it; any hitting the missile destroys it
+4. Multiple warheads dramatically improve kill probability against decoy-protected missiles
+
+> **Warning:** Fractional warheads (strength < 1.0) against missiles follow special rules -- see [Section 12.3 Missiles](../12-combat/12.3-missiles.md). Ensure each warhead has at least 1.0 strength for guaranteed kills, or accept probabilistic destruction.
+
 ## Key Relationships
 
 > **Note:** Understanding how missile parameters interact is critical for effective design:
