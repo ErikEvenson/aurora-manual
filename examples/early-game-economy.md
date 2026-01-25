@@ -37,18 +37,18 @@ Starting from a conventional-technology Earth with no trans-newtonian (TN) knowl
 
 ### First Research Project: Trans-Newtonian Technology
 
-**Cost:** ~2,000 RP (varies slightly)
+**Cost:** 5,000 RP
 **Priority:** ABSOLUTE FIRST. Nothing else matters until this completes.
 
 Before this research finishes, you have zero ability to build TN installations. After it completes, your conventional factories immediately gain the ability to construct TN installations (mines, research labs, construction factories, fuel refineries, etc.).
 
-**Estimated completion:** 6-12 months depending on scientist skill and starting lab count (~16 conventional labs are available from game start).
+**Estimated completion:** 2-3 years depending on scientist skill and starting lab count (~16 conventional labs are available from game start).
 
 ### Research Order After TN Technology
 
 | Priority | Technology | Category | Cost (RP) | Reasoning |
 |----------|-----------|----------|-----------|-----------|
-| 1st | Trans-Newtonian Technology | Construction | ~2,000 | Unlocks everything |
+| 1st | Trans-Newtonian Technology | Construction | 5,000 | Unlocks everything |
 | 2nd | Construction Rate (Improved) | Construction | 2,000 | 12 BP/factory (20% boost to ALL production) |
 | 3rd | Nuclear Thermal Engine | Power/Propulsion | ~2,000 | First TN engine -- enables ship design |
 | 4th | Mining Production (Improved) | Construction | 2,000 | 1.2x mine output |
