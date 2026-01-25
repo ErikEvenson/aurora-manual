@@ -49,7 +49,7 @@ To keep the manual consistent, please follow these conventions:
   - `Engine Modifier` - multiplier from engine technology level
 
 - **Practical examples after abstract descriptions** - If you explain how a formula works, follow it with a concrete scenario showing real numbers.
-- **Cross-reference related sections** using relative markdown links (e.g., `[see Missile Design](./08-missiles.md#8.2.1)`).
+- **Cross-reference related sections** using relative markdown links (e.g., `[see Missile Launchers](8-ship-design/8.5-weapons.md#853-missile-launchers)`).
 - **No VB6-specific content** - This manual covers Aurora C# only. If a mechanic worked differently in VB6, that's historical trivia, not reference material.
 
 ## What Reviewers Should Check
