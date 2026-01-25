@@ -1,5 +1,7 @@
 # Appendix D: Reference Tables
 
+*Added: v2026.01.24*
+
 This appendix provides quick-reference data tables for minerals, installations, weapons, and technology progressions. Use these tables during ship design and colony planning to quickly look up costs, outputs, and key statistics.
 
 ## D.1 Trans-Newtonian Minerals

@@ -1,5 +1,7 @@
 # Appendix B: Glossary
 
+*Added: v2026.01.23*
+
 This glossary defines key terms used throughout the Aurora C# manual. Cross-references to detailed coverage are provided for major topics.
 
 | Term | Definition |

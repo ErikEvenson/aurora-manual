@@ -1,5 +1,7 @@
 # Example: Designing Your First Beam Cruiser
 
+*Added: v2026.01.24*
+
 This worked example walks through the complete design process for a 10,000-ton beam cruiser optimized for medium-range engagement. We will make every decision step by step, showing the math behind each choice and explaining the trade-offs involved.
 
 ## Objective

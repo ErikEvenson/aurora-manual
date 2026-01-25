@@ -1,5 +1,7 @@
 # Appendix C: Tips and Common Mistakes
 
+*Added: v2026.01.23*
+
 ## C.1 New Player Mistakes
 
 ### Forgetting to Assign Research Labs

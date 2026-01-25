@@ -1,5 +1,7 @@
 # Example: Planning a Ground Invasion
 
+*Added: v2026.01.24*
+
 This worked example walks through the process of planning, executing, and consolidating a ground invasion of an enemy colony. It demonstrates force composition calculations, transport logistics, orbital support coordination, and post-conquest occupation requirements.
 
 ## Starting Conditions

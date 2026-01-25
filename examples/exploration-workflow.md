@@ -1,5 +1,7 @@
 # Example: Exploration Workflow
 
+*Added: v2026.01.24*
+
 This worked example walks through the systematic exploration of a newly discovered star system, from initial jump point transit through colonization assessment. It demonstrates gravitational survey, geological survey, xenoarchaeology, and the decision-making process for evaluating colonization candidates.
 
 ## Starting Conditions

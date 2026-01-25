@@ -1,5 +1,7 @@
 # Example: Designing a Missile Salvo
 
+*Added: v2026.01.24*
+
 This worked example walks through the complete process of designing an effective anti-ship missile (ASM), matching it with appropriate launchers and fire controls, and planning salvo composition to overwhelm enemy point defense.
 
 ## Objective

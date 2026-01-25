@@ -1,5 +1,7 @@
 # Appendix A: Formulas
 
+*Added: v2026.01.23*
+
 This appendix collects the key mathematical formulas that govern Aurora C# mechanics. Understanding these calculations helps with ship design optimization, fleet planning, and economic development.
 
 **Organization:** Formulas are grouped by game phase—ship design, detection, combat, economy, and population—with related formulas kept together for easy reference.

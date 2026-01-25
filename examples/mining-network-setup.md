@@ -1,5 +1,7 @@
 # Example: Setting Up a Mining Network
 
+*Added: v2026.01.24*
+
 This worked example walks through establishing an off-world mining colony and freight network to supplement your homeworld's depleting mineral supplies. We cover site selection, colony establishment, mine deployment, freighter design, and logistics configuration -- with calculated numbers at each step.
 
 ## Objective

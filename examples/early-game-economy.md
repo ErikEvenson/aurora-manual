@@ -1,5 +1,7 @@
 # Example: Early Game Economic Bootstrap
 
+*Added: v2026.01.24*
+
 This worked example walks through the first 10 years of a conventional-start Aurora C# game, showing how to transition from pre-TN industry to a functioning trans-newtonian economy capable of supporting fleet expansion and interstellar exploration.
 
 ## Objective
