@@ -103,7 +103,7 @@ Events can also be displayed directly on the Tactical Map (controlled by the Eve
 |                                                                            |
 | Interrupt on: [x] Hostile Contact  [x] Damage  [x] Ship Destroyed         |
 |               [ ] Research Complete  [ ] Construction Complete              |
-|               [ ] Fleet Arrival     [x] Jump Point Discovered              |
+|               [ ] Fleet Arrival     [x] Jump point discovered              |
 |                                                                            |
 +============================================================================+
 ```
@@ -119,7 +119,7 @@ Events can also be displayed directly on the Tactical Map (controlled by the Eve
 | 5 | **Event Detail Expansion** | When an event is selected (clicked), this panel shows expanded information: the system where the event occurred, precise coordinates, detection details, the ship or installation involved, and whether the event triggered a time interrupt. Double-clicking an event centers the tactical map on the event location. |
 | 6 | **Colour Configuration** | Per-event-type colour settings. Select an event type from the dropdown, then choose background and text colours. Custom colours persist across game sessions and apply to both the Events Window and the tactical map events display. |
 | 7 | **Import/Export Colours** | Buttons to save and load colour configuration files (CSV format containing Event ID, Background Colour, and Text Colour). Enables sharing colour schemes across races and games. Partial imports only update referenced event types, leaving others unchanged. |
-| 8 | **Auto-Scroll / Navigation** | Auto-scroll toggle keeps the display scrolled to the latest events. Navigation buttons step through events by increment (Previous/Next Increment shows events from the prior or next time advance). Counter shows events in current increment and total event count. SM mode option shows events for all player races. |
+| 8 | **Auto-Scroll / Navigation** | Auto-scroll toggle keeps the display scrolled to the latest events. Navigation buttons step through events by increment (Previous/Next Increment shows events from the prior or next time advance). Counter shows events in current increment and total event count. SpaceMaster mode option shows events for all player races. |
 | 9 | **Interrupt Configuration** | Checkboxes controlling which event types halt time advancement automatically. Critical events (Hostile Contact, Damage, Ship Destroyed) are typically always enabled. Optional interrupts (Research Complete, Construction Complete, Fleet Arrival) balance awareness against fragmented time advances. |
 
 ## Event Categories Reference

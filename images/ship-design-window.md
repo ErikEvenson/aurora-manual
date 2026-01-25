@@ -72,7 +72,7 @@ The Class Design window is where all ship classes are created in Aurora C#. Acce
 
 **[2] Class Name Field** -- Editable text field for naming your ship class. Descriptive names (e.g., "Tribal-class Destroyer") help identify designs quickly across fleet management windows. Names can be changed at any time before locking the design.
 
-**[3] Race Selector** -- Dropdown to select which race's technology pool to draw components from. In single-player, this is typically your own race. In SM mode, any race's components are available.
+**[3] Race Selector** -- Dropdown to select which race's technology pool to draw components from. In single-player, this is typically your own race. In SpaceMaster mode, any race's components are available.
 
 **[4] Hull Size Display** -- Shows the total tonnage of the current design in tons. Updates dynamically as components are added or removed. This value determines whether the design fits within your shipyard's capacity.
 
