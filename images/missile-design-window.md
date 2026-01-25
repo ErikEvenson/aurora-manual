@@ -193,17 +193,17 @@ The fundamental trade-off: more engine MSP = faster missile but less room for fu
 
 ## Key Relationships
 
-Understanding how missile parameters interact is critical for effective design:
-
-- **Engine MSP vs. Speed**: Speed = Engine EP / Total MSP. More engine = proportionally faster.
-- **Fuel MSP vs. Range**: Range depends on fuel amount divided by (consumption rate * speed). Faster missiles consume fuel faster, requiring more fuel MSP for equivalent range.
-- **Boost Level vs. Fuel Consumption**: Exceeding racial max boost applies a linear fuel penalty from 1x to 5x. A 4x boost with 2x max tech means 5x fuel consumption.
-- **Warhead MSP vs. Damage**: Damage = Warhead MSP * Warhead Strength tech. Higher tech multiplies all warhead investments.
-- **Sensor Size vs. Detection Range**: Detection scales with square root of (sensor sensitivity * target cross section). Doubling sensor MSP does not double detection range.
-- **ECM vs. Survivability**: Each ECM level = 10% harder to hit. But 0.25 MSP is a fixed cost regardless of level -- make sure your ECM tech is worth the investment.
-- **Decoys vs. PD**: Each decoy absorbs hits probabilistically. Multiple decoys dramatically reduce PD effectiveness but cost 0.50 MSP each.
-- **Total Size vs. Magazine Capacity**: Larger missiles store fewer per magazine. A 12 MSP missile takes 4x the magazine space of a 3 MSP missile.
-- **Launcher Match**: The missile must fit your launcher. Designing a 7 MSP missile when you only have size-6 launchers means you need to redesign or build new launchers.
+> **Note:** Understanding how missile parameters interact is critical for effective design:
+>
+> - **Engine MSP vs. Speed**: Speed = Engine EP / Total MSP. More engine = proportionally faster.
+> - **Fuel MSP vs. Range**: Range depends on fuel amount divided by (consumption rate * speed). Faster missiles consume fuel faster, requiring more fuel MSP for equivalent range.
+> - **Boost Level vs. Fuel Consumption**: Exceeding racial max boost applies a linear fuel penalty from 1x to 5x. A 4x boost with 2x max tech means 5x fuel consumption.
+> - **Warhead MSP vs. Damage**: Damage = Warhead MSP * Warhead Strength tech. Higher tech multiplies all warhead investments.
+> - **Sensor Size vs. Detection Range**: Detection scales with square root of (sensor sensitivity * target cross section). Doubling sensor MSP does not double detection range.
+> - **ECM vs. Survivability**: Each ECM level = 10% harder to hit. But 0.25 MSP is a fixed cost regardless of level -- make sure your ECM tech is worth the investment.
+> - **Decoys vs. PD**: Each decoy absorbs hits probabilistically. Multiple decoys dramatically reduce PD effectiveness but cost 0.50 MSP each.
+> - **Total Size vs. Magazine Capacity**: Larger missiles store fewer per magazine. A 12 MSP missile takes 4x the magazine space of a 3 MSP missile.
+> - **Launcher Match**: The missile must fit your launcher. Designing a 7 MSP missile when you only have size-6 launchers means you need to redesign or build new launchers.
 
 ## Tips and Shortcuts
 
