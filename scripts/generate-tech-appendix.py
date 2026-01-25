@@ -81,7 +81,7 @@ def main():
         print()
         print(f"*{tech_count} technologies*")
         print()
-        print(f"![{category}](../images/.generated/{filename}.pdf)")
+        print(f"![{category}](images/.generated/{filename}.pdf)")
         print()
 
 if __name__ == '__main__':
