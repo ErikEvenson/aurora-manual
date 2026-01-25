@@ -107,3 +107,4 @@ This manual covers Aurora C# through v2.8.0. Coverage of new versions is ongoing
 
 - **[Defran Strategy](https://www.youtube.com/channel/UCQEGuZWLqCs0c8vaJ0trM3A)** — Gameplay mechanics and strategy insights from Aurora 4x tutorial videos
 - **[MO Chad](https://www.youtube.com/channel/UCC_GG3BqJqdf9tEoZfxJ1kw)** — Installation and beginner onboarding insights from Complete Beginner's Guide series
+- **[@ManzoorAhmedShaikh](https://github.com/ManzoorAhmedShaikh)**
