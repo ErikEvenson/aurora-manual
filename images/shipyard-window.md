@@ -1,5 +1,7 @@
 # Shipyard Window Layout
 
+*Added: v2026.01.25*
+
 The Shipyard management interface is located within the Economics window (F2), under the Shipyard tab. This is where you manage all construction, expansion, retooling, and refit operations for your empire's shipyards. Each colony with shipyard complexes displays its yards here alongside their current tasks, capacity, assigned classes, and construction queues.
 
 ## Window Layout

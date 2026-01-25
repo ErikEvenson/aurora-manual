@@ -1,5 +1,7 @@
 # Ship Design Window Layout
 
+*Added: v2026.01.25*
+
 The Class Design window is where all ship classes are created in Aurora C#. Accessed via the menu bar or keyboard shortcut, this window combines component selection, performance calculation, and design management into a single interface. Every ship in your fleet begins here as a collection of researched components arranged to fulfill a specific tactical role.
 
 ## Window Layout

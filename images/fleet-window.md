@@ -1,5 +1,7 @@
 # Fleet/Task Group Window Layout
 
+*Added: v2026.01.25*
+
 The Fleet Window (also called the Naval Organization window, accessed via F12 or the toolbar) is the primary interface for managing task groups, issuing movement and combat orders, and monitoring fleet status. This window is one of the most frequently used interfaces in Aurora C# and most players keep it open at all times alongside the System Map and Economics windows.
 
 Multiple instances of the Fleet Window can be opened simultaneously (Shift+click the toolbar button) to facilitate ship transfers between fleets via drag-and-drop.

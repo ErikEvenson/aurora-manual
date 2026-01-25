@@ -1,5 +1,7 @@
 # Event Log Window Layout
 
+*Added: v2026.01.25*
+
 The Event Log (also called the Events Window) is Aurora C#'s primary communication channel to the player. Since the game processes events in batches during time advances rather than in real-time, the Event Log records everything significant that occurred during each increment. Learning to read, filter, and respond to events is a core gameplay skill. The event-check loop (advance time, check events, respond, repeat) is the fundamental rhythm of Aurora gameplay.
 
 Events can also be displayed directly on the Tactical Map (controlled by the Events checkbox in the map layer toggles), using the same colour coding as the Events Window. Double-clicking any event centers the map on the event's location.
@@ -124,16 +126,126 @@ Events can also be displayed directly on the Tactical Map (controlled by the Eve
 
 ## Event Categories Reference
 
-| Category | Colour (Default) | Key Events |
-|----------|-------------------|------------|
-| **Combat/Military** | Red background, white text | Hostile contact, weapons fire, ship destroyed, missile launch/impact, shield/armor damage, crew casualties |
-| **Exploration** | Green background, black text | Jump point discovered, new system explored, geological survey complete, minerals found |
-| **Research** | Blue background, white text | Research complete, breakthrough, new technology available, project initiation |
-| **Economic** | Cyan background, black text | Construction complete, shipyard task complete, mineral depletion, fuel warnings, industrial project start |
-| **Colony** | Dark green background, white text | Colony established, terraforming progress, infrastructure alerts, unrest/stability |
-| **Commander** | Gray background, black text | Promotion, retirement/death, new commander available, assignment changes |
-| **Diplomacy** | Purple background, white text | First contact, diplomatic status change, treaty offers, espionage results |
-| **Misc/System** | Default/no highlight | Deployment time exceeded, fighter construction, movement completion |
+### Combat/Military Events
+
+**Default colours:** Red background, white text
+
+**Triggers:** Any sensor contact with an unknown or hostile entity, weapons fire by any party, damage to ships or installations, missile launches and impacts, crew casualties.
+
+| Event Type | Trigger Condition | Priority |
+|------------|-------------------|----------|
+| Hostile Contact | Unknown thermal/EM/active signature detected | CRITICAL |
+| Weapons Fire | Any ship fires beam or kinetic weapon | CRITICAL |
+| Missile Launch | Missile salvo launched by any party | CRITICAL |
+| Missile Impact | Missiles reach terminal phase | CRITICAL |
+| Shield/Armor Damage | Weapons strike penetrates point defense | HIGH |
+| Ship Destroyed | Hull strength reaches zero | CRITICAL |
+| Crew Casualties | Combat or accident causes crew deaths | HIGH |
+| Target Lost | Contact signature drops below detection threshold | MEDIUM |
+
+### Exploration Events
+
+**Default colours:** Green background, black text
+
+**Triggers:** Survey ships completing geological or gravitational surveys, ships transiting unexplored jump points, first entry into new systems.
+
+| Event Type | Trigger Condition | Priority |
+|------------|-------------------|----------|
+| Jump Point Discovered | Gravitational survey detects new JP | HIGH |
+| System Explored | First ship enters unexplored system | MEDIUM |
+| Geological Survey Complete | Survey ship finishes body scan | MEDIUM |
+| Minerals Found | Geo survey reveals mineral deposits | MEDIUM |
+| Lagrange Point Surveyed | Grav survey completes LP scan | LOW |
+| Comet Surveyed | Survey ship scans comet body | LOW |
+
+### Research Events
+
+**Default colours:** Blue background, white text
+
+**Triggers:** Scientists completing research projects, breakthroughs occurring, new technologies becoming available.
+
+| Event Type | Trigger Condition | Priority |
+|------------|-------------------|----------|
+| Research Complete | Project reaches 100% completion | MEDIUM |
+| Research Breakthrough | Random bonus progress occurs | LOW |
+| New Technology Available | Prerequisite tech unlocks new option | LOW |
+| Scientist Idle | Research completes with no queued project | MEDIUM |
+
+### Economic Events
+
+**Default colours:** Cyan background, black text
+
+**Triggers:** Industrial production completing, shipyard tasks finishing, resource thresholds reached, mining operations status changes.
+
+| Event Type | Trigger Condition | Priority |
+|------------|-------------------|----------|
+| Construction Complete | Shipyard finishes vessel | MEDIUM |
+| Shipyard Task Complete | Refit/repair/expansion finishes | LOW |
+| Mineral Depletion | Deposit exhausted or below threshold | HIGH |
+| Fuel Warning | Sorium reserves below configured threshold | HIGH |
+| Fuel Critical | Sorium reserves below emergency threshold | CRITICAL |
+| Industrial Project Start | Factory/mine begins new task | LOW |
+| Ordnance Production Complete | Missile/munition batch finished | LOW |
+
+### Colony Events
+
+**Default colours:** Dark green background, white text
+
+**Triggers:** Population changes, terraforming milestones, infrastructure status, colony stability shifts.
+
+| Event Type | Trigger Condition | Priority |
+|------------|-------------------|----------|
+| Colony Established | First colonists arrive at new body | MEDIUM |
+| Terraforming Progress | Atmosphere parameter changes | LOW |
+| Infrastructure Alert | Infrastructure insufficient for population | HIGH |
+| Population Growth | Colony reaches growth milestone | LOW |
+| Unrest/Stability | Colony stability drops below threshold | HIGH |
+| Radiation Hazard | Colony lacks adequate radiation protection | HIGH |
+
+### Commander Events
+
+**Default colours:** Gray background, black text
+
+**Triggers:** Officer experience thresholds, age-related events, academy graduations, assignment changes.
+
+| Event Type | Trigger Condition | Priority |
+|------------|-------------------|----------|
+| Promotion | Officer reaches experience threshold | LOW |
+| New Commander Available | Academy graduates new officer | LOW |
+| Retirement | Officer reaches retirement age | LOW |
+| Commander Death | Officer dies (age, combat, accident) | MEDIUM |
+| Assignment Change | Officer reassigned between postings | LOW |
+| Skill Improvement | Officer gains experience in specialty | LOW |
+
+### Diplomacy Events
+
+**Default colours:** Purple background, white text
+
+**Triggers:** First contact scenarios, diplomatic status changes, treaty interactions, espionage operations.
+
+| Event Type | Trigger Condition | Priority |
+|------------|-------------------|----------|
+| First Contact | Ships encounter unknown alien race | CRITICAL |
+| Diplomatic Status Change | Relations shift (war, peace, alliance) | HIGH |
+| Treaty Offer | Foreign power proposes agreement | HIGH |
+| Treaty Signed | Diplomatic agreement finalized | MEDIUM |
+| Espionage Results | Intelligence operation completes | MEDIUM |
+| Communication Received | Message from alien power | MEDIUM |
+
+### Miscellaneous/System Events
+
+**Default colours:** No highlight (default background)
+
+**Triggers:** Various operational thresholds, maintenance requirements, routine operations completing.
+
+| Event Type | Trigger Condition | Priority |
+|------------|-------------------|----------|
+| Deployment Time Exceeded | Ship exceeds maintenance interval | MEDIUM |
+| Fighter Construction Complete | Fighter factory completes batch | LOW |
+| Movement Complete | Task group reaches waypoint | LOW |
+| Conditional Order Triggered | Automated order condition met | LOW |
+| Jump Transit Complete | Fleet exits jump point | LOW |
+| Overhaul Complete | Ship finishes maintenance cycle | LOW |
 
 ## Common Workflows
 

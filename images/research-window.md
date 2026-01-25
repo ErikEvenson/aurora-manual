@@ -1,5 +1,7 @@
 # Research Window Layout
 
+*Added: v2026.01.25*
+
 The Research window is the primary interface for managing your empire's technological development. It provides access to all research categories, available technologies, scientist assignments, lab allocations, and project progress tracking. Effective use of this window is essential for directing your empire's long-term strategic direction.
 
 ---

@@ -1,5 +1,7 @@
 # Diplomacy Window Layout
 
+*Added: v2026.01.25*
+
 The Diplomacy window (also referred to as the Intelligence and Foreign Relations window) is the primary interface for managing inter-racial relationships, treaties, intelligence gathering, and diplomatic engagement. It consolidates information about known alien races, their disposition toward you, active treaties, contact history, and intelligence summaries. Access it from the main toolbar.
 
 ## Window Layout

@@ -1,5 +1,7 @@
 # Ground Forces Window Layout
 
+*Added: v2026.01.25*
+
 The Ground Forces window is the primary interface for designing, building, organizing, and managing all ground combat formations. It combines formation template design, unit class creation, training oversight, and transport management into a single multi-tabbed interface. Access it from the main toolbar or via the F12 shortcut.
 
 ## Window Layout

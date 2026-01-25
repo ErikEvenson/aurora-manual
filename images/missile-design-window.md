@@ -1,5 +1,7 @@
 # Missile Design Window Layout
 
+*Added: v2026.01.25*
+
 The Missile Design window is where all missile ordnance is created in Aurora C#. Missiles are measured in Missile Size Points (MSP), where each MSP equals 2.5 tons. The window allows you to allocate MSP across engine, warhead, fuel, agility, sensors, ECM, and other components, with performance calculations updating in real-time as you adjust allocations.
 
 ## Window Layout

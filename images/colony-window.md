@@ -1,5 +1,7 @@
 # Colony/Population Window Layout
 
+*Added: v2026.01.25*
+
 The Colony window (also called the Economics window or Population window) is the central hub for managing all aspects of your colonies. It provides access to population data, installations, construction queues, mineral stockpiles, environmental information, and ground forces for every colony in your empire.
 
 ---

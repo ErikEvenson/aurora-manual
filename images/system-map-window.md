@@ -1,5 +1,7 @@
 # Tactical/System Map Window Layout
 
+*Added: v2026.01.25*
+
 The System Map (also called the Tactical Map) is Aurora C#'s primary visual representation of a star system. It displays orbital bodies, fleets, contacts, jump points, and sensor overlays in real-time relative positions. The tactical map is the sole window limited to a single instance -- all other windows can be opened multiple times. The map is also the main game window; the "Keep Tactical in Background" option prevents it from obscuring other windows when toolbar buttons are clicked.
 
 The minimum resolution for Aurora C# is 1440x900. The tactical map is one of the few resizable windows and can be expanded to fill the entire screen for maximum strategic overview.
