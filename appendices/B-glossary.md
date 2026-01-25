@@ -58,7 +58,8 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | Mineral | One of 11 TN elements (Dur, Neu, Cor, Tri, Bor, Mer, Ven, Sor, Uri, Coru, Gal) |
 | MFC | Missile Fire Control; guides missiles, sets range/ECM |
 | Missile Launcher | Fires missiles; reload time varies by size and tech |
-| MSP | Maintenance Supply Points; consumables for repairs |
+| MSP (maintenance) | Maintenance Supply Points; consumables for ship repairs and damage control. Context: logistics, engineering spaces, supply ships |
+| MSP (missiles) | Missile Size Points; unit of missile mass where 1 MSP = 2.5 tons. Context: missile design, launchers, magazines |
 | Multi-stage Missile | Booster stage for range + separating attack stage |
 | NPR | Non-Player Race; AI civilization with own tech/fleets |
 | Ordnance | Missiles and expendable weapons carried by ships |
