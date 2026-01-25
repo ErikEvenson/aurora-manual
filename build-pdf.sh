@@ -23,25 +23,6 @@ OUTPUT_FILE="${OUTPUT_DIR}/aurora-manual-${VERSION}.pdf"
 
 mkdir -p "$OUTPUT_DIR"
 
-# Convert SVG images to PDF for LaTeX compatibility
-SVG_DIR="images/tech-trees"
-GEN_DIR="images/.generated"
-if [ -d "$SVG_DIR" ] && ls "$SVG_DIR"/*.svg >/dev/null 2>&1; then
-    mkdir -p "$GEN_DIR"
-    for svg in "$SVG_DIR"/*.svg; do
-        [ -f "$svg" ] || continue
-        basename="${svg##*/}"
-        pdf="$GEN_DIR/${basename%.svg}.pdf"
-        if [ ! -f "$pdf" ] || [ "$svg" -nt "$pdf" ]; then
-            echo "Converting: $basename -> PDF"
-            rsvg-convert -f pdf -o "$pdf" "$svg"
-        fi
-    done
-fi
-
-# Create temp directory for processed markdown files
-TEMP_DIR=$(mktemp -d)
-trap "rm -rf $TEMP_DIR" EXIT
 
 echo "Building Aurora 4X Manual v${VERSION}..."
 
@@ -136,7 +117,6 @@ FILES=(
     appendices/B-glossary.md
     appendices/C-tips-and-mistakes.md
     appendices/D-reference-tables.md
-    appendices/E-tech-trees.md
     # Worked Examples
     examples/missile-destroyer-design.md
     examples/colony-establishment.md
@@ -170,16 +150,6 @@ for f in "${FILES[@]}"; do
     fi
 done
 
-# Process markdown files: convert SVG references to PDF for LaTeX
-# (Markdown references SVGs for GitHub viewing, but LaTeX needs PDFs)
-PROCESSED_FILES=()
-for f in "${FILES[@]}"; do
-    processed="$TEMP_DIR/$(basename "$f")"
-    # Convert SVG references to PDF references for LaTeX compatibility
-    sed 's|images/tech-trees/\([^)]*\)\.svg|images/.generated/\1.pdf|g' "$f" > "$processed"
-    PROCESSED_FILES+=("$processed")
-done
-
 # Build PDF with pandoc + tectonic
 pandoc \
     --metadata-file=metadata.yaml \
@@ -192,7 +162,7 @@ pandoc \
     -V linkcolor=blue \
     -V urlcolor=blue \
     -o "$OUTPUT_FILE" \
-    "${PROCESSED_FILES[@]}"
+    "${FILES[@]}"
 
 echo "Built: ${OUTPUT_FILE}"
 echo "Size: $(du -h "$OUTPUT_FILE" | cut -f1)"
