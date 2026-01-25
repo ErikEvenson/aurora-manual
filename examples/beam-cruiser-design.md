@@ -327,7 +327,7 @@ That only powers a fraction of one laser. Not worth the tonnage for such minimal
 
 ## Step 9: Fuel Tankage
 
-We want enough fuel for sustained system operations. The warship guideline from Section 8.3.4 recommends 15-25% of hull tonnage devoted to fuel.
+We want enough fuel for sustained system operations. The warship guideline from Section 8.3.5 recommends 15-25% of hull tonnage devoted to fuel.
 
 Fuel consumption with 1.25x engine boost and 20 HS engines (fuel consumption modifier = sqrt(10/20) = 0.707):
 ```
