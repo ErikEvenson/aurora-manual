@@ -49,21 +49,32 @@ def format_cost(cost):
     return str(cost)
 
 def generate_dot(category, techs, all_techs):
-    """Generate DOT file content for a tech category."""
+    """Generate DOT file content for a tech category.
+
+    Returns tuple of (dot_content, external_prereqs_list).
+    External prerequisites are NOT shown as nodes - they're returned for text listing.
+    """
+    tech_count = len(techs)
+    # Use horizontal layout for small trees (<=6 techs), vertical for larger
+    rankdir = 'LR' if tech_count <= 6 else 'TB'
+
     lines = [
         'digraph TechTree {',
-        '    rankdir=TB;',
-        '    node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=9];',
-        '    edge [arrowsize=0.6];',
+        f'    rankdir={rankdir};',
+        '    node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=10];',
+        '    edge [arrowsize=0.7];',
         f'    label="{category}";',
         '    labelloc="t";',
-        '    fontsize=12;',
+        '    fontsize=14;',
         '    fontname="Helvetica-Bold";',
+        '    nodesep=0.3;',
+        '    ranksep=0.4;',
         '',
     ]
 
-    # Track external prerequisites
-    external_prereqs = set()
+    # Track external prerequisites (for text output, not as nodes)
+    external_prereqs = []
+    tech_ids = {t[0] for t in techs}
 
     # Define nodes
     for tech in techs:
@@ -73,51 +84,31 @@ def generate_dot(category, techs, all_techs):
         label = f"{name}\\n{format_cost(cost)} RP"
         lines.append(f'    {node_id} [label="{label}", fillcolor="{color}"];')
 
-        # Check for external prerequisites
-        if prereq1 and prereq1 not in [t[0] for t in techs]:
-            external_prereqs.add(prereq1)
-        if prereq2 and prereq2 not in [t[0] for t in techs]:
-            external_prereqs.add(prereq2)
+        # Track external prerequisites for text listing
+        if prereq1 and prereq1 not in tech_ids and prereq1 in all_techs:
+            external_prereqs.append((name, all_techs[prereq1]))
+        if prereq2 and prereq2 not in tech_ids and prereq2 in all_techs:
+            external_prereqs.append((name, all_techs[prereq2]))
 
-    # Add external prerequisite nodes
-    if external_prereqs:
-        lines.append('')
-        lines.append('    // External prerequisites')
-        for ext_id in external_prereqs:
-            if ext_id in all_techs:
-                ext_name = all_techs[ext_id]
-                node_id = f"ext_{sanitize_name(ext_name)}"
-                lines.append(f'    {node_id} [label="{ext_name}", fillcolor="{COLORS["external"]}", style="rounded,filled,dashed"];')
-
-    # Define edges
+    # Define edges (only internal prerequisites - no external nodes)
     lines.append('')
-    lines.append('    // Prerequisites')
+    lines.append('    // Prerequisites (internal only)')
     for tech in techs:
         tech_id, name, prereq1, prereq2, cost = tech
         node_id = sanitize_name(name)
 
-        if prereq1:
-            if prereq1 in [t[0] for t in techs]:
-                prereq_name = next(t[1] for t in techs if t[0] == prereq1)
-                prereq_node = sanitize_name(prereq_name)
-            elif prereq1 in all_techs:
-                prereq_node = f"ext_{sanitize_name(all_techs[prereq1])}"
-            else:
-                continue
+        if prereq1 and prereq1 in tech_ids:
+            prereq_name = next(t[1] for t in techs if t[0] == prereq1)
+            prereq_node = sanitize_name(prereq_name)
             lines.append(f'    {prereq_node} -> {node_id};')
 
-        if prereq2:
-            if prereq2 in [t[0] for t in techs]:
-                prereq_name = next(t[1] for t in techs if t[0] == prereq2)
-                prereq_node = sanitize_name(prereq_name)
-            elif prereq2 in all_techs:
-                prereq_node = f"ext_{sanitize_name(all_techs[prereq2])}"
-            else:
-                continue
+        if prereq2 and prereq2 in tech_ids:
+            prereq_name = next(t[1] for t in techs if t[0] == prereq2)
+            prereq_node = sanitize_name(prereq_name)
             lines.append(f'    {prereq_node} -> {node_id};')
 
     lines.append('}')
-    return '\n'.join(lines)
+    return '\n'.join(lines), external_prereqs
 
 def main():
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -141,6 +132,9 @@ def main():
     """)
     categories = [row[0] for row in cursor.fetchall()]
 
+    # Also write external prereqs data for the appendix generator
+    prereqs_data = {}
+
     generated = 0
     for category in categories:
         # Get techs for this category
@@ -156,12 +150,16 @@ def main():
         if not techs:
             continue
 
-        # Generate DOT
-        dot_content = generate_dot(category, techs, all_techs)
+        # Generate DOT (now returns external prereqs too)
+        dot_content, external_prereqs = generate_dot(category, techs, all_techs)
 
         # Create safe filename
         safe_name = re.sub(r'[^a-zA-Z0-9\-]', '-', category.lower())
         safe_name = re.sub(r'-+', '-', safe_name).strip('-')
+
+        # Store external prereqs for this category
+        if external_prereqs:
+            prereqs_data[safe_name] = external_prereqs
 
         dot_path = f"/tmp/{safe_name}.dot"
         svg_path = OUTPUT_DIR / f"{safe_name}.svg"
@@ -177,6 +175,13 @@ def main():
             print(f"Generated: {safe_name}.svg ({len(techs)} techs)")
         except subprocess.CalledProcessError as e:
             print(f"Error generating {safe_name}: {e}")
+
+    # Write external prerequisites data as JSON for appendix generator
+    import json
+    prereqs_file = OUTPUT_DIR / "external-prereqs.json"
+    with open(prereqs_file, 'w') as f:
+        json.dump(prereqs_data, f, indent=2)
+    print(f"Wrote external prerequisites to {prereqs_file}")
 
     conn.close()
     print(f"\nTotal: {generated} tech tree SVGs generated in {OUTPUT_DIR}")

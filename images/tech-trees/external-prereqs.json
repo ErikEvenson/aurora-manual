@@ -1,0 +1,750 @@
+{
+  "active-jammer": [
+    [
+      "Sensor Jammer 1",
+      "Electronic Warfare"
+    ]
+  ],
+  "active-sensor-strength": [
+    [
+      "Active Grav Sensor Strength 10",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "active-terminal-guidance": [
+    [
+      "Active Terminal Guidance +15%",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "armour": [
+    [
+      "Duranium Armour",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "asteroid-mining-module": [
+    [
+      "Orbital Mining Module",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "base-gravity": [
+    [
+      "Genome Sequence: Base Gravity -15%",
+      "Genome Sequence Research"
+    ],
+    [
+      "Genome Sequence: Base Gravity +10%",
+      "Genome Sequence Research"
+    ]
+  ],
+  "base-oxygen-level": [
+    [
+      "Genome Sequence: Base Oxygen Level +20%",
+      "Genome Sequence Research"
+    ],
+    [
+      "Genome Sequence: Base Oxygen Level -10%",
+      "Genome Sequence Research"
+    ]
+  ],
+  "base-temperature": [
+    [
+      "Genome Sequence: Base Temperature -8C",
+      "Genome Sequence Research"
+    ],
+    [
+      "Genome Sequence: Base Temperature +8C",
+      "Genome Sequence Research"
+    ]
+  ],
+  "capacitor-recharge-rate": [
+    [
+      "Capacitor Recharge Rate 2",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "cargo-shuttle-capability": [
+    [
+      "Trans-Newtonian Cargo Shuttles",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "carronade-calibre": [
+    [
+      "20cm Carronade",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "cloaking-efficiency": [
+    [
+      "Cloaking Efficiency 3",
+      "Cloaking Theory"
+    ]
+  ],
+  "cloaking-sensor-reduction": [
+    [
+      "Cloak Sensor Reduction 75%",
+      "Cloaking Theory"
+    ]
+  ],
+  "cloaking-theory": [
+    [
+      "Cloaking Theory",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "colonization-cost-reduction": [
+    [
+      "Colonization Cost Reduction 5%",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "commercial-damage-control": [
+    [
+      "Commercial Damage Control",
+      "Damage Control"
+    ]
+  ],
+  "commercial-hangar": [
+    [
+      "Commercial Hangar Deck",
+      "Hangar Deck - Small"
+    ]
+  ],
+  "commercial-magazine": [
+    [
+      "Commercial Magazine - Capacity 100",
+      "Magazine Feed System Efficiency - 75%"
+    ]
+  ],
+  "cryogenic-transport": [
+    [
+      "Cryogenic Transport",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "damage-control": [
+    [
+      "Damage Control",
+      "Bridge"
+    ],
+    [
+      "Damage Control",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "decontamination-equipment": [
+    [
+      "Decontamination Equipment",
+      "Light Vehicle Armour - ARM 2"
+    ]
+  ],
+  "eccm": [
+    [
+      "Electronic Counter-countermeasures - 1",
+      "Electronic Warfare"
+    ]
+  ],
+  "elint": [
+    [
+      "Electronic Intelligence and Analysis Module - Strength 5",
+      "EM Sensor Sensitivity 5"
+    ],
+    [
+      "Electronic Intelligence and Analysis Module - Strength 6",
+      "EM Sensor Sensitivity 6"
+    ],
+    [
+      "Electronic Intelligence and Analysis Module - Strength 8",
+      "EM Sensor Sensitivity 8"
+    ],
+    [
+      "Electronic Intelligence and Analysis Module - Strength 11",
+      "EM Sensor Sensitivity 11"
+    ],
+    [
+      "Electronic Intelligence and Analysis Module - Strength 14",
+      "EM Sensor Sensitivity 14"
+    ]
+  ],
+  "em-sensor-sensitivity": [
+    [
+      "EM Sensor Sensitivity 6",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "electronic-warfare": [
+    [
+      "Electronic Warfare",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "energy-weapon-mount": [
+    [
+      "Spinal Mount",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "engine-technology": [
+    [
+      "Nuclear Radioisotope Engine",
+      "Radioisotope Thermal Generator "
+    ],
+    [
+      "Nuclear Thermal Engine",
+      "Pressurised Water Reactor"
+    ],
+    [
+      "Nuclear Pulse Engine",
+      "Pebble Bed Reactor"
+    ],
+    [
+      "Nuclear Gas-Core Engine",
+      "Gaseous Fission Reactor"
+    ],
+    [
+      "Ion Drive",
+      "Magnetic Mirror Fusion Reactor"
+    ],
+    [
+      "Magneto-plasma Drive",
+      "Stellarator Fusion Reactor"
+    ],
+    [
+      "Magnetic Confinement Fusion Drive",
+      "Tokamak Fusion Reactor"
+    ],
+    [
+      "Inertial Confinement Fusion Drive",
+      "Inertial Confinement Fusion Reactor"
+    ],
+    [
+      "Solid Core Anti-matter Drive",
+      "Solid-core Anti-matter Power Plant"
+    ],
+    [
+      "Gas Core Anti-matter Drive",
+      "Gas-core Anti-matter Power Plant"
+    ],
+    [
+      "Plasma Core Anti-matter Drive",
+      "Plasma-core Anti-matter Power Plant"
+    ],
+    [
+      "Beam Core Anti-matter Drive",
+      "Beam Core Anti-matter Power Plant"
+    ],
+    [
+      "Photonic Drive",
+      "Vacuum Energy Power Plant"
+    ],
+    [
+      "Quantum Singularity Drive",
+      "Quantum Singularity Power Plant"
+    ]
+  ],
+  "enhanced-radiation-warhead": [
+    [
+      "Enhanced Radiation Warhead (50% Yield, 2x Rad)",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "fighter-pod-capability": [
+    [
+      "Fighter Bombardment Pod",
+      "Fighter Pod Bay"
+    ],
+    [
+      "Fighter Autocannon Pod",
+      "Fighter Pod Bay"
+    ],
+    [
+      "Fighter Air-to-Air Pod",
+      "Fighter Pod Bay"
+    ]
+  ],
+  "fire-control-distance-rating": [
+    [
+      "Fire Control Range 20,000 km",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "fire-control-jammer": [
+    [
+      "Fire Control Jammer 1",
+      "Electronic Warfare"
+    ]
+  ],
+  "fire-control-speed-rating": [
+    [
+      "Fire Control Speed Rating 2000 km/s",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "fuel-consumption": [
+    [
+      "Fuel Consumption: 0.9 Litres per Engine Power Hour",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "gauss-cannon-rate-of-fire": [
+    [
+      "Gauss Cannon Rate of Fire 2",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "gauss-cannon-velocity": [
+    [
+      "Gauss Cannon Launch Velocity 10,000",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "genetic-enhancements": [
+    [
+      "Infantry Basic Genetic Enhancement",
+      "Genome Sequence Research"
+    ]
+  ],
+  "geo-survey-sensors": [
+    [
+      "Geological Survey Sensors",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "grav-survey-sensors": [
+    [
+      "Gravitational Survey Sensors",
+      "Jump Point Theory"
+    ]
+  ],
+  "ground-construction": [
+    [
+      "Construction Equipment",
+      "Light Vehicle Armour - ARM 2"
+    ]
+  ],
+  "ground-geological-survey": [
+    [
+      "Geosurvey Equipment",
+      "Light Vehicle Armour - ARM 2"
+    ]
+  ],
+  "ground-unit-capability": [
+    [
+      "Boarding Combat Capability",
+      "Powered Infantry Armour - ARM 1.5"
+    ]
+  ],
+  "ground-xenoarchaeological-survey": [
+    [
+      "Xenoarchaeology Equipment",
+      "Light Vehicle Armour - ARM 2"
+    ]
+  ],
+  "hardening": [
+    [
+      "Electronic Hardening Level 1",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "improved-construction-rate": [
+    [
+      "Construction Rate 12 BP",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "improved-fighter-production": [
+    [
+      "Fighter Production Rate 12 BP",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "improved-fuel-production": [
+    [
+      "Fuel Production 48,000 Litres",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "improved-mining-production": [
+    [
+      "Mining Production 12 tons",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "improved-ordnance-production": [
+    [
+      "Ordnance Production 12 BP",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "improved-planetary-sensor-strength": [
+    [
+      "Planetary Sensor Strength 300",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "improved-research-rate": [
+    [
+      "Research Rate 240 RP",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "improved-shipbuilding-rate": [
+    [
+      "Shipbuilding Rate 560 BP",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "infantry-armour-type": [
+    [
+      "Powered Infantry Armour - ARM 1.5",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "jump-drive-efficiency": [
+    [
+      "Base Jump Drive Efficiency 4",
+      "Jump Point Theory"
+    ]
+  ],
+  "jump-gate-construction-module": [
+    [
+      "Jump Point Stabilisation Module 180",
+      "Jump Point Theory"
+    ]
+  ],
+  "jump-point-theory": [
+    [
+      "Jump Point Theory",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "laser-focal-size": [
+    [
+      "12cm Laser Focal Size",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "laser-warhead-damage-efficiency": [
+    [
+      "Laser Warhead Damage Efficiency 20%",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "laser-wavelength": [
+    [
+      "Visible Light Laser",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "magazine-ejection-system": [
+    [
+      "Magazine Neutralization System - 70% Chance",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "magazine-feed-system-efficiency": [
+    [
+      "Magazine Feed System Efficiency - 75%",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "maintenance-module": [
+    [
+      "Maintenance Module",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "maintenance-storage": [
+    [
+      "Maintenance Storage",
+      "Trans-Newtonian Technology"
+    ],
+    [
+      "Large Maintenance Storage",
+      "Trans-Newtonian Technology"
+    ],
+    [
+      "Small Maintenance Storage",
+      "Trans-Newtonian Technology"
+    ],
+    [
+      "Tiny Maintenance Storage",
+      "Trans-Newtonian Technology"
+    ],
+    [
+      "Fighter Maintenance Storage",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "max-engine-thrust-modifier": [
+    [
+      "Maximum Engine Power Modifier x1.25",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "max-jump-squadron-size": [
+    [
+      "Max Jump Squadron Size - 3 (Cost x 1.0)",
+      "Jump Point Theory"
+    ]
+  ],
+  "max-squadron-jump-radius": [
+    [
+      "Max Squadron Jump Radius - 50k (Cost x 1.0)",
+      "Jump Point Theory"
+    ]
+  ],
+  "max-tracking-time-bonus": [
+    [
+      "Max Tracking Time for Bonus vs Missiles: 0 Seconds",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "maximum-orbital-mining-diameter": [
+    [
+      "Maximum Orbital Mining Diameter 100 km",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "maximum-particle-beam-range": [
+    [
+      "Particle Beam Range 100,000 km",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "maximum-shield-generator-size": [
+    [
+      "Maximum Shield Generator Size - 12",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "meson-focal-size": [
+    [
+      "10cm Meson Focal Size (40% AR)",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "meson-focusing": [
+    [
+      "Meson Focusing Technology 1",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "microwave-focal-size": [
+    [
+      "10cm Microwave Focal Size",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "microwave-focusing": [
+    [
+      "Microwave Focusing Technology 1",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "minimum-cloak-size": [
+    [
+      "Minimum Cloak Size 25",
+      "Cloaking Theory"
+    ]
+  ],
+  "missile-jammer": [
+    [
+      "Missile Jammer 1",
+      "Electronic Warfare"
+    ]
+  ],
+  "missile-launcher-reload-rate": [
+    [
+      "Missile Launcher Reload Rate 2",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "missile-warhead-strength": [
+    [
+      "Implosion Fission Warhead: Strength: 3 x MSP",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "ordnance-transfer-hub": [
+    [
+      "Ordnance Transfer Hub",
+      "Ordnance Transfer System: 40 MSP per Hour"
+    ]
+  ],
+  "particle-beam-strength": [
+    [
+      "Particle Beam Strength 3",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "particle-lance": [
+    [
+      "Particle Lance",
+      "Particle Beam Range 200,000 km"
+    ],
+    [
+      "Particle Lance",
+      "Particle Beam Strength 6"
+    ]
+  ],
+  "passenger-accomodation": [
+    [
+      "Passenger Accomodation",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "power-plant-technology": [
+    [
+      "Radioisotope Thermal Generator ",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "power-vs-efficiency": [
+    [
+      "Power Plant Boost 10%, Explosion 7%",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "railgun-type": [
+    [
+      "12cm Railgun",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "railgun-velocity": [
+    [
+      "Railgun Launch Velocity 20,000",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "reduced-size-lasers": [
+    [
+      "Reduced-size Laser 0.75 Size / 4x Recharge",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "reduced-size-launchers": [
+    [
+      "Reduced-size Launcher 0.75 Size / 2.4x Reload",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "sts-tractor-beam": [
+    [
+      "Ship to Ship Tractor Beam",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "salvage-module": [
+    [
+      "Salvage Module 500",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "shield-regeneration-rate": [
+    [
+      "Shield Regeneration Rate 1",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "shield-type": [
+    [
+      "Alpha Shields",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "shipyard-operations": [
+    [
+      "Shipyard Operations: 5% Time/Cost Saving",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "sorium-harvester": [
+    [
+      "Sorium Harvester",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "temperature-range": [
+    [
+      "Genome Sequence: Temperature Range +3 degrees",
+      "Genome Sequence Research"
+    ]
+  ],
+  "terraforming-module": [
+    [
+      "Terraforming Module",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "terraforming-rate": [
+    [
+      "Terraforming Rate 0.00032 atm",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "thermal-reduction": [
+    [
+      "Thermal Reduction: Signature 75% Normal",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "thermal-sensor-sensitivity": [
+    [
+      "Thermal Sensor Sensitivity 6",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "troop-transport-boarding-equipped": [
+    [
+      "Troop Transport Boarding Bay - Standard",
+      "Troop Transport Bay - Standard"
+    ]
+  ],
+  "troop-transport-bay": [
+    [
+      "Troop Transport Bay - Conventional",
+      "Trans-Newtonian Technology"
+    ],
+    [
+      "Troop Transport Bay - Standard",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "troop-transport-bay-drop-ship-equipped": [
+    [
+      "Troop Transport Drop Bay - Standard",
+      "Troop Transport Bay - Standard"
+    ]
+  ],
+  "turret-rotation-gear": [
+    [
+      "Turret Tracking Speed (10% Gear) 2000 km/s",
+      "Trans-Newtonian Technology"
+    ]
+  ],
+  "underway-replenishment": [
+    [
+      "Underway Replenishment 20% Rate",
+      "Refuelling System: 20,000 LPH"
+    ]
+  ],
+  "vehicle-armour-type": [
+    [
+      "Heavy Vehicle Armour - ARM 6",
+      "Ground Unit Base Type - Heavy Vehicle"
+    ],
+    [
+      "Super-Heavy Vehicle Armour - ARM 9",
+      "Ground Unit Base Type - Super-Heavy Vehicle"
+    ],
+    [
+      "Ultra-Heavy Vehicle Armour - ARM 12",
+      "Ground Unit Base Type - Ultra-Heavy Vehicle"
+    ]
+  ]
+}

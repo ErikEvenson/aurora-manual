@@ -2,13 +2,19 @@
 """
 Generate the tech trees appendix markdown file.
 Usage: python3 generate-tech-appendix.py > appendices/E-tech-trees.md
+
+SVG files are referenced for GitHub viewing. The build script converts
+these to PDF references for LaTeX compatibility.
 """
 
 import sqlite3
 import os
 import re
+import json
+from pathlib import Path
 
 DB_PATH = os.path.expanduser("~/Downloads/Aurora271Full/AuroraDB.db")
+PREREQS_FILE = Path(__file__).parent.parent / "images" / "tech-trees" / "external-prereqs.json"
 
 FIELD_NAMES = {
     1: 'Power and Propulsion',
@@ -29,6 +35,12 @@ def safe_filename(category):
 def main():
     conn = sqlite3.connect(DB_PATH)
     cursor = conn.cursor()
+
+    # Load external prerequisites data if available
+    prereqs_data = {}
+    if PREREQS_FILE.exists():
+        with open(PREREQS_FILE) as f:
+            prereqs_data = json.load(f)
 
     # Get categories organized by field
     cursor.execute("""
@@ -61,7 +73,8 @@ def main():
     print("| Yellow | 10K-100K RP | Mid Game |")
     print("| Purple | 100K-1M RP | Late Game |")
     print("| Pink | 1M+ RP | Endgame |")
-    print("| Gray (dashed) | — | External Prerequisite |")
+    print()
+    print("External prerequisites (technologies from other categories) are listed below each diagram.")
     print()
 
     current_field = None
@@ -81,8 +94,18 @@ def main():
         print()
         print(f"*{tech_count} technologies*")
         print()
-        print(f"![{category}](images/.generated/{filename}.pdf)")
+        # Reference SVG for GitHub viewing (build script converts to PDF for LaTeX)
+        print(f"![{category}](images/tech-trees/{filename}.svg)")
         print()
+
+        # List external prerequisites as text if any
+        if filename in prereqs_data:
+            prereqs = prereqs_data[filename]
+            # Group by tech that needs the prereq
+            print("> **External Prerequisites:**")
+            for tech_name, prereq_name in prereqs:
+                print(f"> - {tech_name} requires *{prereq_name}*")
+            print()
 
 if __name__ == '__main__':
     main()
