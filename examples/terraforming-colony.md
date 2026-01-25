@@ -1,6 +1,60 @@
 # Example: Terraforming a Colony
 
+*Added: v2026.01.25*
+
 This worked example walks through reducing a colony's cost from CC 2.0 to CC 0.0 through systematic terraforming. Each step includes timeline calculations, installation requirements, and the decision logic behind gas selection order.
+
+## Quick Reference: Atmospheric Values
+
+Before diving into the worked example, here are the key numerical values you need for terraforming calculations.
+
+### Breathable Atmosphere Targets (Human Baseline)
+
+| Gas | Minimum | Target | Maximum | Notes |
+|-----|---------|--------|---------|-------|
+| Oxygen (O2) | 0.10 atm | 0.21 atm | 0.30 atm | Also max 30% of total atmosphere |
+| Nitrogen (N2) | -- | 0.78 atm | 3.00 atm | Primary filler gas; safe at any reasonable level |
+| Total Pressure | 0.70 atm | 1.00 atm | 1.50 atm | Species tolerance range |
+| Temperature | 0C | 15-20C | 35C | Human habitable range |
+| Hydrosphere | 20% | 50-70% | 75% | Above 75% reduces land area |
+
+### Dangerous Gas Thresholds (Must Be Below)
+
+| Gas | Danger Threshold | CC Penalty | Removal Priority |
+|-----|------------------|------------|------------------|
+| Chlorine (Cl2) | 0.000001 atm (1 ppm) | +3.0 | Highest |
+| Nitrogen Oxides (NO/NO2) | 0.000005 atm (5 ppm) | +2.0 | Very High |
+| Ammonia (NH3) | 0.00005 atm (50 ppm) | +2.0 | High |
+| Methane (CH4) | 0.0005 atm (500 ppm) | +2.0 | High |
+| Carbon Dioxide (CO2) | 0.005 atm (5,000 ppm) | +2.0 | Medium |
+
+### Terraforming Installation Rates
+
+| Technology Level | Research Cost | Rate (atm/year/inst) |
+|------------------|---------------|----------------------|
+| Starting (Racial) | -- | 0.00025 |
+| Level 1 | 3,000 RP | 0.00032 |
+| Level 2 | 6,000 RP | 0.00040 |
+| Level 3 | 12,000 RP | 0.00050 |
+| Level 4 | 24,000 RP | 0.00065 |
+| Level 5 | 48,000 RP | 0.00080 |
+| Level 6 | 96,000 RP | 0.00100 |
+| Level 7 | 192,000 RP | 0.00120 |
+
+> **Note:** Actual rate is multiplied by the planet size factor: Earth Surface Area / Planet Surface Area. Smaller worlds terraform faster.
+
+### Installation Requirements by Project Scale
+
+| Gas Change Needed | Installations (Base Tech) | Timeline (0.35 Earth SA) |
+|-------------------|---------------------------|--------------------------|
+| 0.01 atm | 10-20 | 0.5-1.0 years |
+| 0.05 atm | 20-30 | 2.3-3.5 years |
+| 0.10 atm | 30-50 | 2.8-4.7 years |
+| 0.20 atm | 50-70 | 4.0-5.6 years |
+| 0.50 atm | 70-100 | 7.0-10.0 years |
+| 1.00 atm | 100-150 | 9.3-14.0 years |
+
+---
 
 ## Objective
 
