@@ -159,7 +159,7 @@ Total gas to REMOVE: 0.0147 atm
 
 ### Temperature Calculation
 
-Using the surface temperature formula from Section 5.5:
+Using the surface temperature formula from [Section 5.5 Terraforming](../5-colonies/5.5-terraforming.md):
 
 ```
 Surface Temp (K) = Base Temp (K) * Greenhouse Factor / Anti-Greenhouse Factor * Albedo

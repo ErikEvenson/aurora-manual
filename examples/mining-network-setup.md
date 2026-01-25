@@ -185,7 +185,7 @@ Since commercial engines have 10x the HS, they effectively produce:
 Power = (300 / 10) x 8 = 240 EP (equivalent to a 30 HS military engine)
 ```
 
-Actually, re-reading Section 8.3.1: "A commercial engine that costs the same as a 1 HS military engine occupies 10 HS -- providing the same total power output."
+Actually, re-reading [Section 8.3.1 Engine Technology](../8-ship-design/8.3-engines.md#831-engine-technology): "A commercial engine that costs the same as a 1 HS military engine occupies 10 HS -- providing the same total power output."
 
 So a 300 HS commercial engine produces the same EP as a 30 HS military engine:
 ```

@@ -237,11 +237,11 @@ With Duranium armor (strength 5 per layer), we need to decide on thickness. Our 
 - A 4-damage particle beam: does NOT penetrate even 1 layer (4 < 5)
 - Multiple hits to same column will progressively strip armor
 
-Per the guidelines in Section 8.2.3, 4-5 layers is "moderate protection, good for cruiser-weight combatants."
+Per the guidelines in [Section 8.2.3 Armor Thickness](../8-ship-design/8.2-hull-and-armor.md#823-armor-thickness), 4-5 layers is "moderate protection, good for cruiser-weight combatants."
 
 **Decision: 4 layers of Duranium armor**
 
-Armor weight for a 10,000-ton ship at 4 layers (approximate from Section 8.2.3):
+Armor weight for a 10,000-ton ship at 4 layers (approximate from [Section 8.2.3 Armor Thickness](../8-ship-design/8.2-hull-and-armor.md#823-armor-thickness)):
 ```
 Armor mass: approximately 2,500-3,500 tons
 ```
@@ -329,7 +329,7 @@ That only powers a fraction of one laser. Not worth the tonnage for such minimal
 
 ## Step 9: Fuel Tankage
 
-We want enough fuel for sustained system operations. The warship guideline from Section 8.3.5 recommends 15-25% of hull tonnage devoted to fuel.
+We want enough fuel for sustained system operations. The warship guideline from [Section 8.3.5 Fuel Consumption](../8-ship-design/8.3-engines.md#835-fuel-consumption) recommends 15-25% of hull tonnage devoted to fuel.
 
 Fuel consumption with 1.25x engine boost and 20 HS engines (fuel consumption modifier = sqrt(10/20) = 0.707):
 ```
