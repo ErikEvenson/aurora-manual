@@ -18,7 +18,7 @@ Before committing forces, gather what information you can from orbit.
 
 ### What You Can Detect
 
-Ground forces are treated as size-1 for detection purposes (Section 13.3.5). Their formation signature is calculated as:
+Ground forces are treated as size-1 for detection purposes ([Section 13.3.5 Ground Forces Detection](../13-ground-forces/13.3-ground-combat.md#1335-ground-forces-detection)). Their formation signature is calculated as:
 
 ```
 Formation Signature = (Total Formation Signature) / 100
