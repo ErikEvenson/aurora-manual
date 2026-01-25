@@ -132,6 +132,7 @@ FILES=(
     appendices/B-glossary.md
     appendices/C-tips-and-mistakes.md
     appendices/D-reference-tables.md
+    appendices/E-tech-trees.md
     # Worked Examples
     examples/missile-destroyer-design.md
     examples/colony-establishment.md
