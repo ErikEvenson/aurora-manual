@@ -182,14 +182,6 @@ Missile_Endurance (seconds) = Missile_Fuel / Missile_Fuel_Consumption
 Missile_Range (km) = Missile_Speed x Missile_Endurance
 ```
 
-### Missile Agility (MSP-based)
-
-```
-Agility = Engine_MSP / Total_Missile_MSP x Agility_Tech_Modifier x 100
-```
-
-Higher agility improves hit chance against maneuvering targets and makes the missile harder to intercept with point defense.
-
 ### High-Boost Missile Penalty
 
 For missiles using boost exceeding racial maximum boost technology, an additional multiplier applies:
@@ -243,15 +235,7 @@ Ships with no active emissions (shields off, active sensors off) have EM signatu
 
 ### Active Sensor Detection
 
-**Simplified form** (approximation):
-
-```
-Detection_Range (km) = sqrt(Sensor_Strength x Target_Cross_Section) x 250000
-```
-
-Where Sensor\_Strength = Sensor\_Size (HS) x Resolution x Active\_Tech\_Level, and Target\_Cross\_Section = Ship\_Size (tons) / 50.
-
-**Full formula** (used by the game) \hyperlink{ref-A-16}{[A-16]}:
+The game uses the following formula to calculate active sensor detection range \hyperlink{ref-A-16}{[A-16]}:
 
 ```
 Detection_Range (km) = sqrt((Active_Strength x HS x EM_Sensitivity x Resolution^(2/3)) / PI) x 1000000
@@ -264,6 +248,8 @@ Where:
 - **EM\_Sensitivity** = EM Sensor Sensitivity technology level (starts at 5)
 - **Resolution** = Sensor resolution setting (in HS)
 - **PI** = 3.14159...
+
+> **Note:** Some community resources use a simplified approximation: `sqrt(Sensor_Strength x Target_Cross_Section) x 250,000 km`, where Sensor\_Strength = Size x Resolution x Active\_Tech. This approximation omits the EM Sensitivity factor and uses a different constant (250,000 vs 1,000,000), so it does **not** produce the same results as the full formula. The full formula above is verified against the game database and should be used for accurate calculations.
 
 A sensor designed for resolution-100 detects 5000-ton ships at full range. Smaller ships are detected at reduced range:
 
@@ -316,7 +302,7 @@ Effective_Sensor_Range = Base_Range x (1 - (Target_SJ_Level - Sensor_ECCM_Level)
 
 Where:
 
-- Minimum effective range is 10% of base range (0.1 floor)
+- Minimum effective range is 0 (complete sensor denial at 10+ net advantage) \hyperlink{ref-A-17}{[A-17]}
 - If ECCM >= SJ, no reduction applies
 
 **Fire Control Jammer Effect (ECM):**
@@ -933,3 +919,5 @@ Where Effective Population Size = ((Determination + Militancy + Xenophobia) / 30
 \hypertarget{ref-A-15}{[A-15]} AuroraWiki, "Research" -- Each lab assigned to a project contributes diminishing RP: first lab at 100%, second at 50%, third at 25%, etc. Scientist bonus percentage is applied as a multiplier and quadrupled in specialization field. [aurorawiki.pentarch.org](http://aurorawiki.pentarch.org/index.php?title=Research)
 
 \hypertarget{ref-A-16}{[A-16]} Aurora C# game database (AuroraDB.db v2.7.1) -- Full active sensor range formula verified against multiple FCT\_ShipDesignComponents entries: Range = sqrt((Active\_Strength x HS x EM\_Sensitivity x Resolution^(2/3)) / PI) x 1,000,000 km. Tested against 10 sensor components with varied sizes (0.1-17 HS) and resolutions (1-121 HS), all matching MaxSensorRange within rounding error. FCT\_TechSystem TechTypeID=20 (Active Grav Sensor Strength): 10-180; TechTypeID=125 (EM Sensor Sensitivity): 5-75.
+
+\hypertarget{ref-A-17}{[A-17]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem: Sensor Jammer levels 1-10 (AdditionalInfo=1.0 through 10.0, AdditionalInfo2=1.1 through 2.0). ECCM levels 0-10 (matching structure). At maximum net advantage (SJ-10 vs ECCM-0), the subtractive formula yields 1 - 10 x 0.1 = 0, confirming complete sensor denial is possible with no floor.
