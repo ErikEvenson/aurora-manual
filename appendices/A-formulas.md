@@ -53,10 +53,10 @@ Where:
 
 ### Engine Size-Based Fuel Consumption
 
-In C# Aurora, both ship and missile engines use a unified fuel consumption formula based on engine size:
+In C# Aurora, engine fuel efficiency improves linearly with engine size. Fuel consumption is reduced by 1% for every HS of engine size \hyperlink{ref-1}{[1]}:
 
 ```
-Fuel_Consumption_Modifier = SQRT(10 / Engine_Size_HS)
+Fuel_Consumption_Modifier = 1 - (Engine_Size_HS * 0.01)
 ```
 
 Where:
@@ -67,12 +67,12 @@ This creates efficiency advantages for larger engines:
 
 | Engine Size (HS) | Fuel Consumption Modifier | Effect |
 |-----------------|---------------------------|--------|
-| 1 | ~3.16 | Much less fuel-efficient |
-| 10 | 1.0 | Reference point |
-| 25 | ~0.63 | Significantly more efficient |
-| 100 | ~0.32 | Very fuel-efficient |
+| 1 | 0.99 | Minimal efficiency gain |
+| 10 | 0.90 | 10% more fuel-efficient |
+| 25 | 0.75 | 25% more fuel-efficient |
+| 50 | 0.50 | 50% more fuel-efficient |
 
-**Example**: A 25 HS engine has fuel consumption modifier of SQRT(10/25) = 0.63, meaning it uses only 63% of the fuel per unit of power compared to a reference 10 HS engine.
+**Example**: A 25 HS engine has fuel consumption modifier of 0.75, meaning it uses only 75% of the fuel per unit of power compared to a 1 HS engine.
 
 ### Fuel Consumption Rate
 
@@ -83,7 +83,7 @@ Fuel_per_Hour = Total_Engine_Power x Fuel_Consumption_Rate x Boost_Penalty
 Where:
 
 - **Fuel_Consumption_Rate** is determined by fuel consumption technology (base 1.0, reduced by research)
-- **Boost_Penalty** is exponential: 1x boost = 1.0, 1.5x boost = ~2.25, 2x boost = ~4.0, 3x boost = ~9.0
+- **Boost_Penalty** = (4 ^ Boost_Modifier) / 4, where Boost_Modifier is the decimal value (e.g., 0.5 for 50% boost, 1.0 for 100% boost) \hyperlink{ref-2}{[2]}
 
 ### Range Calculation
 
@@ -203,8 +203,10 @@ Thermal_Signature = Total_Engine_Power / Thermal_Reduction_Modifier
 ### Passive Sensor Detection (Thermal)
 
 ```
-Detection_Range (km) = sqrt(Sensor_Sensitivity x Target_Thermal_Signature) x 10000
+Detection_Range (km) = sqrt(Sensor_Sensitivity x Target_Thermal_Signature) x 250000
 ```
+
+\hyperlink{ref-3}{[3]}
 
 Where:
 
@@ -214,8 +216,10 @@ Where:
 ### Passive Sensor Detection (EM)
 
 ```
-Detection_Range (km) = sqrt(Sensor_Sensitivity x Target_EM_Signature) x 10000
+Detection_Range (km) = sqrt(Sensor_Sensitivity x Target_EM_Signature) x 250000
 ```
+
+\hyperlink{ref-3}{[3]}
 
 Where:
 
@@ -226,8 +230,10 @@ Ships with no active emissions (shields off, active sensors off) have EM signatu
 ### Active Sensor Detection
 
 ```
-Detection_Range (km) = sqrt(Sensor_Strength x Target_Cross_Section) x 10000
+Detection_Range (km) = sqrt(Sensor_Strength x Target_Cross_Section) x 250000
 ```
+
+\hyperlink{ref-3}{[3]}
 
 Where:
 
@@ -248,8 +254,10 @@ Effective_Range = 100M x sqrt(20/100) = 100M x 0.447 = 44.7M km
 ### Missile Fire Control Range
 
 ```
-FC_Range (km) = FC_Size x Resolution x FC_Tech_Level x 10000
+FC_Range (km) = FC_Size x Resolution x FC_Tech_Level x 250000
 ```
+
+\hyperlink{ref-3}{[3]}
 
 The fire control range limits the maximum engagement distance for missiles. Missiles beyond their fire control's range lose guidance.
 
@@ -453,7 +461,7 @@ Where:
 Base Hit Chance = 0.1 * (30,000 / 5,000) = 0.6 = 60%
 ```
 
-**Active Terminal Guidance** (0.25 MSP component) provides an accuracy bonus from 0.25 (25%) to 0.90 (90%) based on technology level, applied as a multiplier to the base hit chance.
+**Active Terminal Guidance** (0.25 MSP component) provides an accuracy bonus from +15% to +60% based on technology level, applied as an additive bonus to the base hit chance \hyperlink{ref-4}{[4]}.
 
 Key implications:
 
@@ -515,15 +523,22 @@ Formulas for economic output and industrial production. For colony production ma
 Annual_BP = Num_Factories x BP_per_Factory x (1 + Governor_Manufacturing x 0.05)
 ```
 
-Standard BP per factory = 10/year (increased by Construction Rate technology):
+Standard BP per factory = 10/year (increased by Construction Rate technology) \hyperlink{ref-5}{[5]}:
 
-| Technology Level | BP per Factory |
-|-----------------|----------------|
-| Base | 10 |
-| Improved (1) | 12 |
-| Advanced (2) | 16 |
-| Expert (3) | 24 |
-| Master (4) | 32 |
+| Technology Level | BP per Factory | Research Cost (RP) |
+|-----------------|----------------|-------------------|
+| Base | 10 | -- |
+| 1 | 12 | 3,000 |
+| 2 | 14 | 5,000 |
+| 3 | 16 | 10,000 |
+| 4 | 20 | 20,000 |
+| 5 | 25 | 40,000 |
+| 6 | 30 | 80,000 |
+| 7 | 36 | 150,000 |
+| 8 | 42 | 300,000 |
+| 9 | 50 | 600,000 |
+| 10 | 60 | 1,250,000 |
+| 11 | 70 | 2,500,000 |
 
 ### Mineral Mining Output
 
