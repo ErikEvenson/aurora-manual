@@ -243,22 +243,35 @@ Ships with no active emissions (shields off, active sensors off) have EM signatu
 
 ### Active Sensor Detection
 
+**Simplified form** (approximation):
+
 ```
 Detection_Range (km) = sqrt(Sensor_Strength x Target_Cross_Section) x 250000
 ```
 
-\hyperlink{ref-A-12}{[A-12]}
+Where Sensor\_Strength = Sensor\_Size (HS) x Resolution x Active\_Tech\_Level, and Target\_Cross\_Section = Ship\_Size (tons) / 50.
+
+**Full formula** (used by the game) \hyperlink{ref-A-16}{[A-16]}:
+
+```
+Detection_Range (km) = sqrt((Active_Strength x HS x EM_Sensitivity x Resolution^(2/3)) / PI) x 1000000
+```
 
 Where:
 
-- **Sensor_Strength** = Sensor_Size (HS) x Resolution x Active_Tech_Level
-- **Target_Cross_Section** = Ship_Size (tons) / 50 (for the sensor's resolution)
+- **Active\_Strength** = Active Grav Sensor Strength technology level (starts at 10)
+- **HS** = Sensor size in hull spaces
+- **EM\_Sensitivity** = EM Sensor Sensitivity technology level (starts at 5)
+- **Resolution** = Sensor resolution setting (in HS)
+- **PI** = 3.14159...
 
 A sensor designed for resolution-100 detects 5000-ton ships at full range. Smaller ships are detected at reduced range:
 
 ```
 Effective_Range = Base_Range x sqrt(Actual_Ship_HS / Sensor_Resolution)
 ```
+
+\hyperlink{ref-A-12}{[A-12]}
 
 **Example**: A sensor with 100M km range at resolution-100 detecting a resolution-20 ship:
 ```
@@ -918,3 +931,5 @@ Where Effective Population Size = ((Determination + Militancy + Xenophobia) / 30
 \hypertarget{ref-A-14}{[A-14]} Aurora C# game database (AuroraDB.db v2.7.1) -- DIM\_PlanetaryInstallation table confirms base Construction Factory ConstructionValue=1.0. Combined with FCT\_TechSystem construction rate techs, base output = 10 BP/year.
 
 \hypertarget{ref-A-15}{[A-15]} AuroraWiki, "Research" -- Each lab assigned to a project contributes diminishing RP: first lab at 100%, second at 50%, third at 25%, etc. Scientist bonus percentage is applied as a multiplier and quadrupled in specialization field. [aurorawiki.pentarch.org](http://aurorawiki.pentarch.org/index.php?title=Research)
+
+\hypertarget{ref-A-16}{[A-16]} Aurora C# game database (AuroraDB.db v2.7.1) -- Full active sensor range formula verified against multiple FCT\_ShipDesignComponents entries: Range = sqrt((Active\_Strength x HS x EM\_Sensitivity x Resolution^(2/3)) / PI) x 1,000,000 km. Tested against 10 sensor components with varied sizes (0.1-17 HS) and resolutions (1-121 HS), all matching MaxSensorRange within rounding error. FCT\_TechSystem TechTypeID=20 (Active Grav Sensor Strength): 10-180; TechTypeID=125 (EM Sensor Sensitivity): 5-75.
