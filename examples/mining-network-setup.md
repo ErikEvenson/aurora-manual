@@ -37,7 +37,7 @@ When comparing mining sites, **effective annual yield per mine** is the key metr
 Annual_Tons_per_Mine = Base_Production x Accessibility x Tech_Modifier
 ```
 
-At base technology (modifier 1.0), each mine produces:
+At base technology (modifier 1.0), each mine produces \hyperlink{ref-ex-mining-1}{[1]}:
 ```
 Output per mine = 10 tons/year x Accessibility
 ```
@@ -297,8 +297,7 @@ Mass drivers offer an alternative to freighter logistics:
 
 - Requires a mass driver at BOTH ends (one to send, one to catch)
 - Total cost: 2 x 600 BP = 1,200 BP + 600 Duranium + 600 Neutronium
-- Each installation needs 50,000 workers (requires population at both locations)
-- Cannot use with automated-mine-only colonies (need population for mass drivers)
+- Mass drivers require no workers \hyperlink{ref-ex-mining-2}{[2]}, but the colony needs population for any manned installations
 - Catching mass driver needs to be configured to receive
 
 ### Mass Driver vs Freighter Comparison
@@ -306,12 +305,12 @@ Mass drivers offer an alternative to freighter logistics:
 | Factor | Mass Driver | Freighter |
 |--------|------------|-----------|
 | Setup cost | 1,200 BP + minerals | Ship BP + minerals |
-| Ongoing cost | None (workers only) | Fuel |
+| Ongoing cost | None (unmanned) | Fuel |
 | Transfer speed | Instant | Months (transit time) |
-| Population needed | Yes (both ends) | No (crew only) |
+| Population needed | No (unmanned at both ends) | No (crew only) |
 | Flexibility | Fixed route only | Can reroute |
 | Scalability | Add more drivers | Add more freighters |
-| Works with auto mines? | No (needs workers) | Yes |
+| Works with auto mines? | Yes (both unmanned) | Yes |
 
 **Decision for our example**: Use freighters for the Asteroid Belt (automated mines, no population). Consider mass drivers for Luna (close to Earth, conventional mines with population already feasible).
 
@@ -595,7 +594,7 @@ For automated mining, colony size is irrelevant (no population needed). For conv
 
 4. **Not Checking Colony Cost Before Colonizing**: Mars with colony cost 2.50 requires 2.5 infrastructure per colonist. Sending 100,000 colonists needs 250,000 infrastructure -- a massive industrial investment. Start with colony cost 0.00 bodies.
 
-5. **Ignoring Depletion Timelines**: A 5,000-ton deposit at 1.0 accessibility with 50 mines depletes in 10 years at base tech (5,000 / (50 x 10) = 10). With improved tech (12 tons/mine), that drops to 8.3 years. Plan replacement sources well before depletion.
+5. **Ignoring Depletion Timelines**: A 5,000-ton deposit at 1.0 accessibility with 50 mines depletes in 10 years at base tech (5,000 / (50 x 10) = 10). With improved tech (12 tons/mine/year), that drops to 8.3 years. Plan replacement sources well before depletion.
 
 6. **Building Only One Freighter**: A single freighter is a single point of failure. If it is destroyed, damaged, or reassigned, your entire mineral supply chain stops. Build at least 2 freighters per route for redundancy.
 
@@ -611,12 +610,12 @@ For automated mining, colony size is irrelevant (no population needed). For conv
 
 | Mines | Accessibility | Tech Level | Annual Output |
 |-------|--------------|------------|---------------|
-| 10 | 0.9 | Base (1.0x) | 9 tons/year |
-| 20 | 0.9 | Base (1.0x) | 18 tons/year |
-| 50 | 0.9 | Improved (1.2x) | 54 tons/year |
-| 100 | 0.9 | Advanced (1.44x) | 129.6 tons/year |
-| 50 | 0.5 | Base (1.0x) | 25 tons/year |
-| 50 | 1.0 | Base (1.0x) | 50 tons/year |
+| 10 | 0.9 | Base (1.0x) | 90 tons/year |
+| 20 | 0.9 | Base (1.0x) | 180 tons/year |
+| 50 | 0.9 | Improved (1.2x) | 540 tons/year |
+| 100 | 0.9 | Advanced (1.44x) | 1,296 tons/year |
+| 50 | 0.5 | Base (1.0x) | 250 tons/year |
+| 50 | 1.0 | Base (1.0x) | 500 tons/year |
 
 ### Freighter Transit Times (at 32 km/s)
 
@@ -631,10 +630,18 @@ For automated mining, colony size is irrelevant (no population needed). For conv
 
 | Deposit Size | Mines | Accessibility | Tech | Annual Draw | Years to Depletion |
 |-------------|-------|--------------|------|-------------|-------------------|
-| 25,000 | 20 | 0.9 | 1.0x | 18 tons | 1,389 years |
-| 25,000 | 50 | 0.9 | 1.2x | 54 tons | 463 years |
-| 8,000 | 20 | 1.0 | 1.0x | 20 tons | 400 years |
-| 5,000 | 50 | 1.0 | 1.44x | 72 tons | 69 years |
+| 25,000 | 20 | 0.9 | 1.0x | 180 tons | 139 years |
+| 25,000 | 50 | 0.9 | 1.2x | 540 tons | 46 years |
+| 8,000 | 20 | 1.0 | 1.0x | 200 tons | 40 years |
+| 5,000 | 50 | 1.0 | 1.44x | 720 tons | 7 years |
+
+---
+
+## References
+
+\hypertarget{ref-ex-mining-1}{[1]}. Aurora C# game database (AuroraDB.db v2.7.1) -- DIM_PlanetaryInstallation PlanetaryInstallationID=7 (Mine). MiningProductionValue=1.0 (10 tons/year per mine at accessibility 1.0). PlanetaryInstallationID=12 (Automated Mine). MiningProductionValue=1.0 (same base output as manned mine).
+
+\hypertarget{ref-ex-mining-2}{[2]}. Aurora C# game database (AuroraDB.db v2.7.1) -- DIM_PlanetaryInstallation PlanetaryInstallationID=24 (Mass Driver). Workers=0.0 (unmanned installation). MassDriverValue=1.0.
 
 ---
 

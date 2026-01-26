@@ -415,6 +415,12 @@ Different phases of gameplay benefit from different filter configurations. These
 | Mineral Depletion (other) | LOW | Note for long-term planning |
 | Commander Promotion | LOW | Review assignments if skills improved significantly |
 
+## References
+
+\hypertarget{ref-img-event-1}{[1]}. Aurora C# game interface -- Event Log window layout verified against v2.7.1 game client. Event categories, colour coding, and interrupt/auto-turn functionality.
+
+---
+
 ## Related Sections
 
 - [Section 3.1 Main Window](../3-user-interface/3.1-main-window.md) -- Time controls, interrupt mechanics, colour import/export

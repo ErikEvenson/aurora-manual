@@ -72,7 +72,7 @@ You start with ~16 conventional research labs. These function immediately and sh
 | 5-7 | 35-40 | ~350-400 | Strong research base |
 | 7-10 | 40-50 | ~400-500 | Mature research base |
 
-**Lab cost:** 2,400 BP and 1,200 Duranium + 1,200 Mercassium each. This is expensive -- prioritize labs carefully against other construction needs.
+**Lab cost:** 2,400 BP and 1,200 Duranium + 1,200 Mercassium each \hyperlink{ref-ex-economy-5}{[5]}. This is expensive -- prioritize labs carefully against other construction needs.
 
 ---
 
@@ -88,7 +88,7 @@ While waiting for TN Technology to complete, your conventional factories should 
 | Financial Centers | MEDIUM | Generate wealth for ongoing operations |
 | Ground Forces | LOW | Basic planetary defense (not urgent) |
 
-**Financial Centers:** Each Financial Center generates wealth. Converting conventional factories to Financial Centers costs 20 Corbomite per factory converted, and the resulting center operates without workers. This is a solid pre-TN investment because wealth generation supports your economy throughout the game.
+**Financial Centers:** Each Financial Center generates 0.25 wealth per year and requires 50,000 workers \hyperlink{ref-ex-economy-1}{[1]}. Converting conventional factories to Financial Centers costs 20 BP and 20 Corbomite per conversion \hyperlink{ref-ex-economy-2}{[2]}. This is a solid pre-TN investment because wealth generation supports your economy throughout the game.
 
 **Infrastructure:** At only 2 BP and 1 Duranium + 1 Mercassium each, infrastructure is cheap and will be essential for any future off-world colonies. Stockpile 500-1,000 units during the conventional phase.
 
@@ -151,6 +151,7 @@ Build fuel refineries once you have engine technology researched and are designi
 ```
 Fuel_per_Refinery_per_Year = 40,000 litres (base tech)
 ```
+\hyperlink{ref-ex-economy-4}{[4]}
 
 **Estimate fuel needs:**
 
@@ -186,7 +187,7 @@ If a gas giant with accessible Sorium exists in your system, consider building a
 
 ### Initial Mine Count
 
-Each mine produces 10 tons/year per mineral deposit (at accessibility 1.0). Earth typically has 11 mineral types, each with varying accessibility.
+Each mine produces 10 tons/year per mineral deposit (at accessibility 1.0) \hyperlink{ref-ex-economy-3}{[3]}. Earth typically has 11 mineral types, each with varying accessibility.
 
 **Target mineral production rate by year 5:** 500+ tons/year of each critical mineral.
 
@@ -585,7 +586,7 @@ Approximate total mineral consumption over 10 years of bootstrap:
 
 4. **Over-investing in military before the economy sustains it:** A warship consumes resources (maintenance, fuel, crew). If your economy cannot support it, the ship degrades and becomes a liability.
 
-5. **Ignoring Financial Centers:** Wealth generation supports your economy. Converting some conventional factories to Financial Centers (20 Corbomite each) provides ongoing income.
+5. **Ignoring Financial Centers:** Wealth generation supports your economy. Converting some conventional factories to Financial Centers (20 BP and 20 Corbomite each) provides ongoing income.
 
 6. **No Mercassium stockpile before labs:** Each research lab costs 1,200 Mercassium. If you plan to build 20 labs, you need 24,000 Mercassium. Check your deposits and accessibility FIRST.
 
@@ -596,6 +597,20 @@ Approximate total mineral consumption over 10 years of bootstrap:
 9. **Not surveying aggressively enough:** Every year without survey data is a year you cannot make informed colonization decisions. Launch survey ships as soon as technically possible.
 
 10. **Stockpiling minerals instead of investing them:** Minerals sitting in warehouses produce nothing. Invest in factories, labs, and mines that generate returns. The only exception is maintaining a Gallicite reserve for emergency ship construction.
+
+---
+
+## References
+
+\hypertarget{ref-ex-economy-1}{[1]}. Aurora C# game database (AuroraDB.db v2.7.1) -- DIM_PlanetaryInstallation PlanetaryInstallationID=25 (Financial Centre). FinancialProductionValue=0.25 (0.25 wealth/year). Workers=0.05 (50,000 workers per centre).
+
+\hypertarget{ref-ex-economy-2}{[2]}. Aurora C# game database (AuroraDB.db v2.7.1) -- DIM_PlanetaryInstallation PlanetaryInstallationID=50 (Convert CI to Financial Centre). Cost=20 BP, Corbomite=20.
+
+\hypertarget{ref-ex-economy-3}{[3]}. Aurora C# game database (AuroraDB.db v2.7.1) -- DIM_PlanetaryInstallation PlanetaryInstallationID=7 (Mine). MiningProductionValue=1.0 (10 tons/year per mine at accessibility 1.0).
+
+\hypertarget{ref-ex-economy-4}{[4]}. Aurora C# game database (AuroraDB.db v2.7.1) -- DIM_PlanetaryInstallation PlanetaryInstallationID=3 (Fuel Refinery). RefineryProductionValue=1.0 (40,000 litres/year at base tech).
+
+\hypertarget{ref-ex-economy-5}{[5]}. Aurora C# game database (AuroraDB.db v2.7.1) -- DIM_PlanetaryInstallation PlanetaryInstallationID=8 (Research Facility). Cost=2400 BP, Duranium=1200, Mercassium=1200. ResearchValue=1.0.
 
 ---
 

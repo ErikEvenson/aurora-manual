@@ -65,31 +65,31 @@ Find all jump points in the system. Each jump point is a potential route to furt
 
 ### Survey Mechanics
 
-Each gravitational survey location requires survey points to investigate:
+Each gravitational survey location requires survey points to investigate. Survey sensors generate points per hour \hyperlink{ref-ex-explore-1}{[1]}:
 
 ```
-Survey Time per Location = Points Required / (Sensor Survey Points per Day)
+Survey Time per Location = Points Required / (Sensor Survey Points per Hour)
 ```
 
-Pathfinder has 2x grav survey sensors. Assume each generates 30 survey points/day:
+Pathfinder has 2x Improved grav survey sensors, each generating 2 survey points/hour \hyperlink{ref-ex-explore-1}{[1]}:
 ```
-Total generation: 60 points/day
+Total generation: 4 points/hour (96 points/day)
 Average location requirement: ~100-200 points
-Time per location: 100/60 = 1.7 days to 200/60 = 3.3 days
+Time per location: 100/4 = 25 hours to 200/4 = 50 hours (1-2 days)
 ```
 
 ### Time Estimate for Full System
 
 With 22 survey locations:
 ```
-Survey time (locations only): 22 x 2.5 days average = 55 days of active surveying
+Survey time (locations only): 22 x 1.5 days average = 33 days of active surveying
 Transit time between locations: varies by distance and ship speed
 
 Assuming average transit of 50M km between locations at 3000 km/s:
   Transit per location: 50,000,000 / 3000 / 3600 = ~4.6 hours = 0.19 days
   Total transit: 22 x 0.19 = ~4.2 days
 
-Total gravitational survey estimate: ~59 days (2 months)
+Total gravitational survey estimate: ~37 days (~1.2 months)
 ```
 
 ### Survey Strategy
@@ -203,12 +203,14 @@ Moon IVa Mercassium: 600,000 x 0.9 = 540,000 effective tons
 Check colony cost for each terrestrial body:
 
 ```
-Colony Cost = Sum(Environmental Penalties)
+Colony Cost = Max(Environmental Penalties)
   - Temperature deviation from ideal
   - Atmospheric pressure deviation
   - Hostile gas presence
   - Gravity deviation
 ```
+
+> **Note:** In C# Aurora, Colony Cost equals the single worst (maximum) environmental factor, not the sum of all factors. Only the highest penalty applies.
 
 | Body | Temperature | Atmosphere | Gravity | Colony Cost | Verdict |
 |------|------------|-----------|---------|-------------|---------|
@@ -244,8 +246,8 @@ A body is worth colonizing when:
 Expected annual mineral output > Cost of colony infrastructure + transport investment
 
 Annual output per mine = Base_Production x Accessibility x Tech_Modifier
-  For Planet II Duranium at 0.7 access: 1.0 x 0.7 = 0.7 tons/mine/year
-  With 50 mines: 35 tons/year of Duranium
+  For Planet II Duranium at 0.7 access: 10 x 0.7 = 7.0 tons/mine/year
+  With 50 mines: 350 tons/year of Duranium
 
 Compare to: cost of infrastructure (if CC > 0), population transport, mine transport
 ```
@@ -564,6 +566,14 @@ First xeno recovery (at 20%/year): expected ~5 years (stochastic)
 9. **Abandoning ruins prematurely.** Xenoarchaeology is stochastic. You might go 3 years without a find, then discover a game-changing technology. Patience pays dividends.
 
 10. **Not establishing fuel infrastructure.** If the system has a gas giant with Sorium, deploy fuel harvesters. Local fuel production eliminates dependency on fuel shipments from home.
+
+---
+
+## References
+
+\hypertarget{ref-ex-explore-1}{[1]}. Aurora C# game database (AuroraDB.db v2.7.1) -- Survey sensors generate survey points per hour (not per day). Verified against in-game sensor output display and Appendix A survey formulas.
+
+\hypertarget{ref-ex-explore-2}{[2]}. Aurora C# game database (AuroraDB.db v2.7.1) -- Colony cost uses the single worst (maximum) environmental factor, not the sum of all factors. See Section 5.3 Environment for the complete CC calculation.
 
 ---
 

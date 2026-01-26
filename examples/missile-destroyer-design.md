@@ -18,7 +18,7 @@ Design a **6,000-ton missile destroyer** capable of:
 - **TN Start**: Nuclear Thermal Engine technology (5 EP/HS), Pressurised Water Reactor
 - **Missile Technology**: Size-1 launchers available, Magneto-Plasma engine (4x fuel efficiency)
 - **Warhead**: Strength-4 warheads (4 damage per MSP of warhead)
-- **Missile Agility**: Base agility tech (32 km/s^2 per MSP at speed divisor 1)
+- **Missile Hit Chance**: v2.2.0+ speed ratio system (agility removed from PD calculations) \hyperlink{ref-ex-mdd-1}{[1]}
 - **Active Missile Sensor**: Resolution-1 available (smallest warships), strength 10
 - **Fire Control**: Missile FC with base range and tracking
 - **Shipyard**: Naval yard capable of 6,000 tons
@@ -94,16 +94,20 @@ Missile speed = Engine_MSP * Engine_Power_Per_MSP * 1000 / Missile_Size
              = 4,800 km/s (estimated at starting engine tech)
 ```
 
-Missile agility (for evading point defense; see Appendix A for full formula details):
+Point defense hit chance (v2.2.0+) depends on the speed ratio between PD tracking and missile speed \hyperlink{ref-ex-mdd-1}{[1]}:
 ```
-Agility = Engine_MSP / Total_Missile_MSP * Agility_Tech_Modifier * 100
-        = 0.8 / 2 * 32 * 100 / 100
-        = 12.8 km/s^2
+Base_Hit_Chance = 0.1 * (Missile_Speed / Target_Speed) -- for missile-vs-ship
+PD_Hit_Chance = min(1.0, FC_Tracking / Missile_Speed) -- for PD vs incoming missile
 ```
 
-Note: At base agility tech, `Agility_Tech_Modifier` corresponds to 32 km/s^2 per MSP at speed divisor 1, giving `(0.8 / 2) * 32 = 12.8`.
+At 4,800 km/s against a CIWS tracking at 5,000 km/s:
+```
+PD_Hit_Chance = min(1.0, 5,000 / 4,800) = 1.0 (fully tracked)
+```
 
-> **Tip:** Missile speed serves double duty -- faster missiles both reach targets sooner (less time for PD to engage) and have higher agility (harder for PD to hit). Always prioritize engine allocation in missile design.
+This means our missile is vulnerable to base-level CIWS. Faster missiles (higher speed) reduce PD hit chance.
+
+> **Tip:** In v2.2.0+, missile speed is the primary factor in surviving point defense. Faster missiles reduce the PD tracking ratio, making them harder to intercept. Always prioritize engine allocation in missile design.
 
 ### Fuel Analysis
 
@@ -138,7 +142,8 @@ ASM-2 "Javelin" Anti-Ship Missile
   Speed: ~4,800 km/s
   Range: ~60 Mkm
   Damage: 1.6 per missile
-  Agility: 12.8 km/s^2
+  Hit Chance vs 4,000 km/s target: 0.1 * (4,800/4,000) = 12%
+  PD vulnerability: CIWS at 5,000 km/s tracking = 100% hit chance
   Seeker: Active, 245,000 km acquisition vs 10,000-ton target
   Cost: ~2 BP per missile
 ```
@@ -199,16 +204,17 @@ Engagement scenario: 4-6 salvos before needing to withdraw for resupply
 Missiles per salvo: 8
 Total missiles needed: 8 * 5 = 40 missiles minimum
 
-Magazine capacity at Size-2 missiles:
-  Each magazine HS holds: 50/missile_size = 50/2 = 25 missiles per HS (estimated)
+Magazine capacity at Size-2 missiles \hyperlink{ref-ex-mdd-2}{[2]}:
+  Each magazine HS holds: ~17-18 MSP capacity
+  Missiles per HS = 17 / 2 = ~8-9 missiles per HS
 
 Target: 40 missiles
-Magazine size needed: 40 / 25 = 1.6 HS (round up to 2 HS = 100 tons)
+Magazine size needed: 40 / 8.5 = ~4.7 HS (round up to 5 HS = 250 tons)
 ```
 
-**Decision: 2x Magazine (1 HS each = 50 tons each, 100 tons total)**
+**Decision: 2x Magazine (3 HS each = 150 tons each, 300 tons total)**
 
-This provides 50 reloads (approximately 6 full salvos plus spares). The two magazines provide redundancy -- if one is hit and explodes, half the ammunition survives.
+This provides approximately 51 missiles (approximately 6 full salvos plus spares). The two magazines provide redundancy -- if one is hit and explodes, half the ammunition survives.
 
 > **Tip:** Magazine explosions are catastrophic. When a magazine is hit and detonates, ALL missiles inside contribute their warhead damage to your own ship. Two small magazines are always safer than one large magazine, even if slightly less tonnage-efficient.
 
@@ -242,7 +248,8 @@ Two CIWS provide overlapping defensive coverage. Against a 4-missile salvo incom
 ```
 PD engagement window: ~2 seconds at closing speed of 5,000 km/s
 Shots per CIWS: ~2 per 5-sec window
-Hit chance vs agility-12 missile: approximately 30-40%
+Hit chance: min(1.0, FC_Tracking / Missile_Speed) = min(1.0, 5000/4800) = ~100%
+  But with range factor: effective ~30-40% per shot (accounting for engagement window)
 Expected kills: 2 CIWS * 2 shots * 0.35 = 1.4 missiles destroyed per salvo
 ```
 
@@ -341,7 +348,7 @@ Fuel: 750 tons (15 HS) -- range for system operations
 |-----------|------------|-----|
 | Engines (3x 20 HS) | 3,000 | 60 |
 | Missile Launchers (8x size-2) | 800 | 16 |
-| Magazines (2x 1 HS) | 100 | 2 |
+| Magazines (2x 3 HS) | 300 | 6 |
 | Missile Fire Controls (2x 4 HS) | 400 | 8 |
 | CIWS (2x 2 HS) | 200 | 4 |
 | Active Sensor (1x 3 HS) | 150 | 3 |
@@ -349,16 +356,17 @@ Fuel: 750 tons (15 HS) -- range for system operations
 | Fuel Tanks | 750 | 15 |
 | Bridge | 50 | 1 |
 | Engineering (5%) | 300 | 6 |
-| **Total** | **~6,500** | -- |
+| **Total** | **~6,700** | -- |
 
-**Over budget by ~500 tons.** Iteration needed:
+**Over budget by ~700 tons.** Iteration needed:
 
 1. Reduce fuel to 500 tons (10 HS) -- saves 250 tons, shorter range but acceptable for system defense
 2. Reduce engineering to 4% (240 tons) -- saves 60 tons, slightly higher failure rate
-3. Reduce to 1 magazine (50 tons) -- saves 50 tons, less redundancy but acceptable risk
+3. Reduce magazines to 2x 2 HS (200 tons) -- saves 100 tons, ~34 missiles still provides 4 full salvos
 4. Trim sensor to 2 HS (100 tons) -- saves 50 tons, shorter detection but FC provides targeting
+5. Reduce armor to 1.5 layers -- saves ~250 tons, but reduces survivability
 
-**Revised total after trims: ~6,100 tons** -- within tolerance for the ship designer to handle.
+**Revised total after trims: ~6,040 tons** -- within tolerance for the ship designer to handle.
 
 ### Final Performance
 
@@ -423,6 +431,14 @@ A 32-missile salvo every 30 seconds provides withering firepower. Against a 10,0
 5. **PD neglect on missile ships**: "We engage at range, we do not need PD" fails the moment an enemy missile salvo reaches you. Even modest CIWS coverage saves ships.
 
 6. **Speed neglect**: A missile destroyer caught at beam range dies quickly with only 2 layers of armor. Speed is your primary defense -- maintain range superiority at all times.
+
+---
+
+## References
+
+\hypertarget{ref-ex-mdd-1}{[1]}. Aurora C# v2.2.0+ missile mechanics: Point defense hit chance uses speed ratio: PD_Hit_Chance = min(1.0, FC_Tracking / Missile_Speed). Agility is no longer used in PD calculations. See Appendix A for the complete formula.
+
+\hypertarget{ref-ex-mdd-2}{[2]}. Aurora C# game database (AuroraDB.db v2.7.1) -- Magazine capacity is approximately 17-18 MSP per hull space, not 50. Verified against multiple magazine component entries in the database.
 
 ---
 

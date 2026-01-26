@@ -95,7 +95,7 @@ The Missile Design window is where all missile ordnance is created in Aurora C#.
 - **Speed**: Missile velocity in km/s (Engine EP / Total MSP)
 - **Range**: Maximum distance before fuel exhaustion in millions of km
 - **Endurance**: Time the missile can fly before running out of fuel
-- **Agility**: Maneuverability in km/s^2 (affects hit probability against maneuvering targets)
+- **Agility**: Displayed for reference but no longer used for hit calculation (v2.2.0+ uses speed ratio system; see [Appendix A: Formulas](../appendices/A-formulas.md)) \hyperlink{ref-img-missile-1}{[1]}
 - **Damage**: Total warhead damage on impact
 - **Hit Chance**: Estimated probability against a target at specified speed
 - **ECM**: Percentage reduction applied to enemy point defense accuracy
@@ -265,6 +265,12 @@ When targeting missiles equipped with decoys, each warhead independently rolls t
 - **Copy Design** is your friend for iteration. Load "Javelin Mk II", copy it, rename to "Mk III", adjust for new technology, save. This preserves the evolutionary history.
 
 - **Magazine efficiency**: Smaller missiles pack more rounds per magazine. A fleet of size-2 AMMs stores 6x more rounds than size-12 ASMs in the same magazine space. Balance salvo weight against ammunition depth.
+
+## References
+
+\hypertarget{ref-img-missile-1}{[1]}. Appendix A -- Missile Hit Chance (Speed Ratio System, v2.2.0+). Missile agility was removed. Base\_Hit\_Chance = 0.1 * (Missile\_Speed / Target\_Speed). The Agility field is still displayed in the window but is no longer used for hit calculation.
+
+---
 
 ## Related Sections
 

@@ -43,8 +43,16 @@ Design a small, fast sensor ship optimized for detection range and survival thro
 Using the C# Aurora active sensor formula from Appendix A:
 
 ```
+Detection Range (km) = SQRT((Active_Strength x HS x EM_Sensitivity x Resolution^(2/3)) / PI) x 1,000,000
+```
+
+For a simplified calculation using composite Sensor_Sensitivity:
+
+```
 Detection Range (km) = SQRT(Sensor_Sensitivity * Target_Cross_Section) * 10,000
 ```
+
+> **Note:** The simplified formula above uses a pre-computed Sensor_Sensitivity value. The full formula (see Appendix A) uses the x 1,000,000 multiplier. The simplified form shown here is equivalent when Sensor_Sensitivity already incorporates the sensor's resolution, strength, and EM sensitivity parameters.
 
 Where:
 
@@ -198,7 +206,7 @@ At jump point defense, missile-first doctrine is superior because:
 Your size-6 missiles at 20,000 km/s with 2 MSP fuel allocation:
 
 ```
-Fuel capacity = 2 MSP * 2,500 = 5,000 fuel units
+Fuel capacity = 2 MSP * 2,500 = 5,000 fuel units *(2,500 fuel/MSP is approximate; exact value may vary by engine tech)*
 Fuel consumption = missile fuel rate (from engine design)
 Range = Speed * Endurance
 ```
@@ -287,19 +295,23 @@ Triple-turret gauss cannons with rate-of-fire 4 technology:
 
 ```
 Shots per tick = 3 turrets * 4 shots = 12 shots per 5-second tick
-Hit Probability = min(1.0, FC_Tracking / Missile_Speed) * Crew_Training
-                = min(1.0, 16,000 / 20,000) * 1.0
-                = 0.8
-Expected kills per tick = 12 * 0.8 = 9.6 missiles
+Tracking_Mod = min(1.0, FC_Tracking / Missile_Speed)
+             = min(1.0, 16,000 / 20,000)
+             = 0.8
+Range_Factor = (1 - Range/Max_Range) -- varies from ~0.5 (mid-range) to ~1.0 (point blank)
+Effective_Hit_Chance = Tracking_Mod * Range_Factor * Crew_Training
+                     = 0.8 * ~0.5 * 1.0 = ~0.4 (at average engagement range)
+Expected kills per tick = 12 * 0.4 = ~4.8 missiles
 ```
+\hyperlink{ref-ex-jpd-1}{[1]}
 
 With 4 CIWS installations across your fleet:
 
 ```
-Total fleet CIWS kills per tick = 4 * 9.6 = 38.4 missiles
+Total fleet CIWS kills per tick = 4 * 4.8 = ~19 missiles
 ```
 
-This means your CIWS layer alone can handle a salvo of approximately 38 missiles per 5-second tick.
+This means your CIWS layer alone can handle a salvo of approximately 19 missiles per 5-second tick. Note that hit chance improves at shorter range (approaching 0.8 at point blank) and decreases at longer range.
 
 ### Combined Layer Effectiveness
 
@@ -308,15 +320,15 @@ Against a 50-missile salvo:
 ```
 Layer 1 (AMMs, 40% kill rate): 50 * 0.6 = 30 survive
 Layer 2 (Ranged beams, 25% kill rate): 30 * 0.75 = 22.5 survive
-Layer 3 (CIWS, 38 kills/tick capacity): max(0, 22 - 38) = 0 survive
+Layer 3 (CIWS, ~19 kills/tick capacity): max(0, 22 - 19) = 3 missiles leak through
 ```
 
-Your layered defense handles a 50-missile salvo with margin. But against 100+ missiles, CIWS becomes the bottleneck:
+Your layered defense handles a 50-missile salvo with only minor leakage. But against 100+ missiles, CIWS becomes a severe bottleneck:
 
 ```
 Layer 1: 100 * 0.6 = 60 survive
 Layer 2: 60 * 0.75 = 45 survive
-Layer 3: 45 - 38 = 7 missiles leak through
+Layer 3: 45 - 19 = 26 missiles leak through
 ```
 
 Plan your PD capacity for 1.5-2x the expected maximum enemy salvo.
@@ -758,6 +770,12 @@ If you station your fleet at 2 million km expecting a slow enemy, but the enemy 
 ### 8. Building a Jump Gate on a Hostile Frontier
 
 As discussed in the Key Decisions section, gating a hostile JP removes the natural bottleneck that limits enemy force projection through that chokepoint.
+
+---
+
+## References
+
+\hypertarget{ref-ex-jpd-1}{[1]}. Aurora C# v2.2.0+ point defense mechanics: CIWS hit chance includes a range factor that reduces effectiveness at longer engagement distances. The full formula is: Intercept_Chance = (1 - Range/Max_Range) x min(1.0, FC_Tracking / Missile_Speed). This means CIWS is most effective at point-blank range and degrades with distance.
 
 ---
 

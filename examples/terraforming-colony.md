@@ -272,7 +272,7 @@ Phase 3 (Months 4-21):  Add O2            [50 installations]  (starts after CO2 
 Phase 4 (Months 1-48):  Add H2O           [10 installations]  (runs parallel)
 
 Total installations needed: 130 (peak, during parallel operations)
-Total timeline: ~4 years to CC 0.0
+Total timeline: ~10-11 years to CC 0.0 (see detailed Timeline Summary below)
 ```
 
 ### Why Remove CO2 Before Adding O2
@@ -410,9 +410,9 @@ Each infrastructure unit supports one person at CC 1.0. At CC 2.0, you need 2 un
 
 **Option A: Minimal population during terraforming**
 
-- Station only essential workers (250,000 per ground-based terraforming installation)
-- 130 installations * 250,000 = 32.5 million workers needed
-- Infrastructure needed: 32,500,000 * 2.0 = 65,000,000 units
+- Station only essential workers (125,000 per ground-based terraforming installation) \hyperlink{ref-ex-terraform-1}{[1]}
+- 130 installations * 125,000 = 16.25 million workers needed
+- Infrastructure needed: 16,250,000 * 2.0 = 32,500,000 units
 - Advantage: Less infrastructure investment
 - Disadvantage: No economic output from the colony during terraforming
 
@@ -689,6 +689,12 @@ In C# Aurora, only the WORST single factor determines CC. If gravity contributes
 ### 8. Leaving Installations Idle After Completion
 
 130 terraforming installations represent significant construction investment. Once CC reaches 0.0, redeploy them immediately. Each year they sit idle on a completed world is a year they could be working on your next colony target.
+
+---
+
+## References
+
+\hypertarget{ref-ex-terraform-1}{[1]}. Aurora C# game database (AuroraDB.db v2.7.1) -- DIM_PlanetaryInstallation PlanetaryInstallationID=6 (Terraforming Installation). Workers=0.125 (125,000 workers per installation).
 
 ---
 

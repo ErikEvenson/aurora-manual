@@ -199,25 +199,21 @@ Our cruiser needs to detect targets at engagement range or beyond. We need:
 - **Active sensor** to detect enemy ships
 - Resolution matched to expected target size
 
-From the active sensor formula:
+From the active sensor formula \hyperlink{ref-ex-beam-1}{[1]}:
 ```
-Detection_Range = sqrt(Sensor_Strength x Target_Cross_Section) x 10,000 km
-```
-
-Where:
-```
-Target_Cross_Section = Target_Tonnage / 50
+Detection_Range (km) = sqrt((Active_Strength x HS x EM_Sensitivity x Resolution^(2/3)) / PI) x 1,000,000
 ```
 
-For detecting a 10,000-ton ship (200 HS cross-section) at 500,000 km (beyond weapon range for early warning):
+For a resolution-100 sensor at 5 HS with Active_Strength=10, EM_Sensitivity=5:
 ```
-500,000 = sqrt(Sensor_Strength x 200) x 10,000
-50 = sqrt(Sensor_Strength x 200)
-2500 = Sensor_Strength x 200
-Sensor_Strength = 12.5
+= sqrt((10 x 5 x 5 x 100^(2/3)) / 3.14159) x 1,000,000
+= sqrt((250 x 21.54) / 3.14159) x 1,000,000
+= sqrt(1,714) x 1,000,000
+= 41.4 x 1,000,000
+= 41,400,000 km (~41M km)
 ```
 
-A sensor of resolution 100 (optimized for ~5,000-ton ships) at approximately 5 HS should provide adequate detection range for our needs.
+This detects a 5,000-ton ship (matching resolution 100) at approximately 41 million km -- well beyond any beam engagement range. A 10,000-ton ship would be detected at even greater range due to the cross-section scaling.
 
 **Sensor allocation**: 1x Active Sensor (5 HS = 250 tons), resolution 100
 
@@ -514,6 +510,12 @@ Six 10cm lasers provide better sustained firepower than fewer larger weapons bec
 6. **Single Point of Failure Components**: One power plant, one fire control, or one engine means a single hit can cripple your ship. Where tonnage allows, distribute critical systems across multiple components.
 
 7. **Designing in Isolation**: If your cruiser moves at 2,500 km/s but your destroyers move at 4,000 km/s, the task group is limited to cruiser speed. Design your fleet as a system.
+
+---
+
+## References
+
+\hypertarget{ref-ex-beam-1}{[1]}. Aurora C# active sensor formula from Appendix A: Detection_Range (km) = sqrt((Active_Strength x HS x EM_Sensitivity x Resolution^(2/3)) / PI) x 1,000,000. The x 1,000,000 multiplier produces detection ranges in the tens of millions of km for standard military sensors.
 
 ---
 

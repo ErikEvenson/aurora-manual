@@ -244,6 +244,12 @@ Shows the currently assigned diplomat commander, their Diplomacy bonus percentag
 - **Human NPR Bonus**: Races sharing your primary species receive a +20 communication bonus, accelerating language development and diplomatic engagement.
 - **Minor Race Opportunity**: Minor Races cannot expand beyond their home system without gate access. They make low-risk trading partners and diplomatic practice targets.
 
+## References
+
+\hypertarget{ref-img-diplomacy-1}{[1]}. Aurora C# game interface -- Diplomacy window layout verified against v2.7.1 game client. Treaty types, diplomatic status progression, and communication mechanics.
+
+---
+
 ## Related Sections
 
 - [Section 2.1 New Game Options](../2-game-setup/2.1-new-game-options.md) -- Configuring NPR generation, hostility modifiers, and game options

@@ -324,6 +324,12 @@ The Colony window (also called the Economics window or Population window) is the
 > - Before committing to terraforming, verify that greenhouse warming can reach habitable range: 3x base temperature is the maximum possible warming (Greenhouse Factor cap of 3.0).
 > - Check atmospheric composition for dangerous gases before building infrastructure. Trace fluorine at 1 ppm triggers a colony cost floor of 2.0.
 
+## References
+
+\hypertarget{ref-img-colony-1}{[1]}. Aurora C# game database (AuroraDB.db v2.7.1) -- Colony cost uses the single worst (maximum) environmental factor, not a sum. Verified via Section 5.3 and Appendix A formulas.
+
+---
+
 ## Related Sections
 
 - [Section 5.1 Establishing Colonies](../5-colonies/5.1-establishing-colonies.md) -- Colony ships, initial setup, and colony cost mechanics

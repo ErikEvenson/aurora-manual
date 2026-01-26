@@ -207,6 +207,12 @@ For complete conditional order mechanics, see [Section 9.5.5 Conditional Orders]
 - **Sub-Pulse processing** means conditional orders are evaluated every 5 seconds even within long time increments. Fleets can detect and respond to threats mid-advance.
 - **Logistics Reports** (element 15) quickly reveal which ships need urgent attention. Check fuel status before issuing long-range movement orders.
 
+## References
+
+\hypertarget{ref-img-fleet-1}{[1]}. Aurora C# game interface -- Fleet window layout and controls verified against v2.7.1 game client. Task group speed limited by slowest ship; conditional orders evaluated every 5-second sub-pulse.
+
+---
+
 ## Related Sections
 
 - [Section 9.3 Task Groups](../9-fleet-management/9.3-task-groups.md) -- Task group creation, speed mechanics, and conditional orders

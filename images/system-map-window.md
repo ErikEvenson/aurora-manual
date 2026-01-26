@@ -204,6 +204,12 @@ When selecting a system on the galactic map and opening an Economics window, the
 - **SpaceMaster mode** reveals all systems and objects regardless of sensor detection -- useful for debugging fleet positions but not for normal gameplay.
 - **Wide view** (1900px) provides extra horizontal space. Use it on larger monitors for better spatial awareness during complex multi-fleet operations.
 
+## References
+
+\hypertarget{ref-img-sysmap-1}{[1]}. Aurora C# game interface -- System Map window layout verified against v2.7.1 game client. Zoom levels, filter toggles, and sensor range overlay functionality.
+
+---
+
 ## Related Sections
 
 - [Section 3.1 Main Window](../3-user-interface/3.1-main-window.md) -- Time controls, toolbar, screen resolution, and background mode

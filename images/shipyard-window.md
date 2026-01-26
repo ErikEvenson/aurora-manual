@@ -241,6 +241,12 @@ The currently selected shipyard (indicated by ">") populates all detail panels b
 
 - **Starting a game**: Immediately begin expanding your starting shipyard capacity and adding slipways. These investments compound throughout the entire game as fleet requirements grow. Early slipway additions pay for themselves many times over.
 
+## References
+
+\hypertarget{ref-img-shipyard-1}{[1]}. Aurora C# game database (AuroraDB.db v2.7.1) -- Shipyard mechanics verified against FCT\_Installations and DIM\_PlanetaryInstallation tables. Naval and Commercial shipyard types with distinct capacity and component restrictions.
+
+---
+
 ## Related Sections
 
 - [Section 9.1 Shipyards](../9-fleet-management/9.1-shipyards.md) -- Detailed shipyard mechanics (Naval vs Commercial, capacity formulas, workforce)

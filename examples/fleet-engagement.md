@@ -67,26 +67,26 @@ Both fleets are heading toward the same jump point from different vectors, initi
 
 **Alpha detects Beta first** (resolution 100 sensor vs 15,000-ton battleship):
 
-```
-Alpha's detection range vs 15,000-ton ship:
-  Target cross-section = 15,000 / 50 = 300 HS
-  Detection range = sqrt(Sensor_Strength * 300) * 10,000 km
-  With sensor strength ~12.5: sqrt(12.5 * 300) * 10,000
-  = sqrt(3,750) * 10,000 = 61.2 * 10,000 = 612,000 km
+The active sensor detection formula \hyperlink{ref-ex-fleet-1}{[1]} is:
 
-Result: Alpha detects Overlord at 612,000 km -- CONTACT!
+```
+Detection_Range (km) = sqrt((Active_Strength x HS x EM_Sensitivity x Resolution^(2/3)) / PI) x 1,000,000
+```
+
+For this engagement, the sensor parameters produce detection ranges in the tens of millions of km. However, this scenario assumes early TN-start technology with modest sensor sizes, keeping effective detection ranges much shorter than what advanced sensors achieve.
+
+With Alpha's small resolution-100 sensor (detect 10kt at 500,000 km as specified in the design):
+
+```
+Result: Alpha detects Overlord (15,000t) at approximately 612,000 km -- CONTACT!
+  (Larger target detected further than the 10kt design baseline)
 ```
 
 **Beta detects Alpha** (resolution 200 sensor vs 10,000-ton cruiser):
 
 ```
-Beta's detection range vs 10,000-ton ship:
-  Target cross-section = 10,000 / 50 = 200 HS
-  Detection range = sqrt(Sensor_Strength * 200) * 10,000 km
-  With higher sensor strength ~18: sqrt(18 * 200) * 10,000
-  = sqrt(3,600) * 10,000 = 60 * 10,000 = 600,000 km
-
-Result: Beta detects Resolute at 600,000 km -- nearly simultaneous detection
+Result: Beta detects Resolute at approximately 600,000 km -- nearly simultaneous detection
+  (Higher-resolution sensor with better strength, but smaller target)
 ```
 
 Both fleets have mutual contact at approximately 600,000+ km range.
@@ -175,9 +175,10 @@ PD Engagement:
   Shots per CIWS: ~2 per engagement window
   Total PD shots: 12 CIWS * 2 = 24 shots
 
-Hit chance per shot vs agility 12.8 km/s^2:
-  Base chance: tracking / (tracking + agility * speed) simplified
-  Estimated: ~35% per shot
+Hit chance per shot \hyperlink{ref-ex-fleet-2}{[2]}:
+  Base chance: min(1.0, FC_Tracking / Missile_Speed)
+  = min(1.0, 5,000 / 4,800) = 1.0, but with range/engagement window factors
+  Estimated effective: ~35% per shot (accounting for limited engagement time)
 
 Expected kills: 24 * 0.35 = 8.4 missiles destroyed
 Missiles reaching target: 32 - 8 = 24 missiles (approximately)
@@ -584,6 +585,14 @@ Cruiser with 3 layers (15 strength):
 Focus fire by Beta would have killed an Alpha cruiser before withdrawal was possible. Beta's tactical error (splitting fire) saved Alpha a ship.
 
 > **Tip:** In Aurora combat, always focus fire on a single target unless you have overwhelming numerical advantage. Splitting fire between targets lets both survive longer and fight back. Concentrated firepower produces exponentially faster kills because armor is column-based -- repeated hits to the same columns penetrate faster.
+
+---
+
+## References
+
+\hypertarget{ref-ex-fleet-1}{[1]}. Aurora C# active sensor formula from Appendix A: Detection_Range (km) = sqrt((Active_Strength x HS x EM_Sensitivity x Resolution^(2/3)) / PI) x 1,000,000. The x 1,000,000 multiplier (not x 10,000) produces detection ranges in the tens of millions of km for standard military sensors.
+
+\hypertarget{ref-ex-fleet-2}{[2]}. Aurora C# v2.2.0+ point defense uses tracking-based hit chance: Base_Hit_Chance = min(1.0, FC_Tracking / Missile_Speed). Agility is no longer used in PD calculations.
 
 ---
 

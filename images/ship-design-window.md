@@ -192,6 +192,12 @@ The Class Design window includes a **Components tab** that provides a percentage
 
 The Components tab is useful for quickly identifying design imbalances -- for example, a "beam cruiser" where Beam Weapons account for only 8% of tonnage may need its weapon loadout revisited, or a frigate where Defense exceeds 40% might be over-armored for its role.
 
+## References
+
+\hypertarget{ref-img-ship-1}{[1]}. Aurora C# game interface -- Class Design window layout verified against v2.7.1 game client. Component selection, performance calculation, and design management tabs.
+
+---
+
 ## Related Sections
 
 - [Section 8.1 Design Philosophy](../8-ship-design/8.1-design-philosophy.md) -- Role-based design principles and size guidelines

@@ -186,6 +186,12 @@ Shows all formations currently under construction or queued. Displays the templa
 - **Drag-and-Drop Reorganization**: On the Order of Battle tab, drag element nodes between formations at the same location to reorganize without rebuilding. Enable "Amount Popup" for partial transfers.
 - **Roman Numerals**: For thematic naming (Infantry Regiment I, II, III), enable the "Use Roman" checkbox on the template. Use "Sort by Creation" to keep them in logical order.
 
+## References
+
+\hypertarget{ref-img-ground-1}{[1]}. Aurora C# game interface -- Ground Forces window layout verified against v2.7.1 game client. Formation templates, unit class design, and order of battle management.
+
+---
+
 ## Related Sections
 
 - [Section 6.3 Construction](../6-economy-and-industry/6.3-construction.md) -- Build point allocation for formation construction

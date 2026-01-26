@@ -337,6 +337,12 @@ Scientists can die unexpectedly during a project. Proactive succession planning 
 
 ---
 
+## References
+
+\hypertarget{ref-img-research-1}{[1]}. Aurora C# game database (AuroraDB.db v2.7.1) -- DIM\_PlanetaryInstallation PlanetaryInstallationID=8 (Research Facility). ResearchValue=1.0 (200 RP/year base). Cost=2,400 BP. Workers=1.0 (1,000,000 per lab).
+
+---
+
 ## Related Sections
 
 - [Section 7.1 Technology Tree](../7-research/7.1-technology-tree.md) -- Complete technology structure, prerequisite chains, and cost scaling

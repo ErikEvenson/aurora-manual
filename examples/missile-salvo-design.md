@@ -15,7 +15,7 @@ Design an effective anti-ship missile system including the missile itself, launc
 | Warhead Strength Tech | 3 |
 | Missile Engine MSP | 0.5 (per MSP of engine) |
 | Fuel Consumption Tech | 0.3 |
-| Agility Tech | 32 |
+| PD Hit Chance | v2.2.0+ speed ratio system (see Appendix A) |
 | Available Missile Sizes | 1-6 MSP |
 | Missile Fire Control Range Tech | Level 2 |
 
@@ -94,30 +94,29 @@ Engine_Power = Engine_MSP x 10
 Missile_Speed = (Engine_MSP x 10) / Total_Missile_MSP
 ```
 
-### Agility Formula
+### Point Defense Survivability (v2.2.0+)
+
+\hyperlink{ref-ex-salvo-1}{[1]}
+
+In v2.2.0+, point defense hit chance depends on the speed ratio between PD tracking and missile speed:
 
 ```
-Agility (km/s^2) = (Engine_MSP / Total_Missile_MSP) x Agility_Tech x 100
+PD_Hit_Chance = min(1.0, FC_Tracking / Missile_Speed)
 ```
 
-With Agility Tech 32:
+Faster missiles are harder for PD to intercept. There is no separate agility stat used in PD calculations.
 
-```
-Agility = (Engine_MSP / Total_MSP) x 32 x 100
-Agility = (Engine_MSP / Total_MSP) x 3200
-```
+### Speed and PD Vulnerability at Various Engine Allocations
 
-### Speed and Agility at Various Engine Allocations
+For a **Size 4 missile** with varying engine MSP (against CIWS tracking at 16,000 km/s):
 
-For a **Size 4 missile** with varying engine MSP:
-
-| Engine MSP | Speed (km/s) | Agility (km/s^2) | Remaining MSP |
-|------------|-------------|-------------------|---------------|
-| 1.0 | 2,500 | 800 | 3.0 |
-| 1.5 | 3,750 | 1,200 | 2.5 |
-| 2.0 | 5,000 | 1,600 | 2.0 |
-| 2.5 | 6,250 | 2,000 | 1.5 |
-| 3.0 | 7,500 | 2,400 | 1.0 |
+| Engine MSP | Speed (km/s) | PD Hit Chance | Remaining MSP |
+|------------|-------------|---------------|---------------|
+| 1.0 | 2,500 | 100% | 3.0 |
+| 1.5 | 3,750 | 100% | 2.5 |
+| 2.0 | 5,000 | 100% | 2.0 |
+| 2.5 | 6,250 | 100% | 1.5 |
+| 3.0 | 7,500 | 100% | 1.0 |
 
 ---
 
@@ -191,8 +190,8 @@ Range = 6,000 x 125,000 = 750 million km
 | Speed | 6,000 km/s | Excellent -- exceeds most PD tracking |
 | Range | 750M km | Moderate -- sufficient for most engagements |
 | Damage | 1.5 | Poor -- needs many hits to kill |
-| Agility | 1,920 | Good -- hard to intercept |
-| Magazine density | 10 per HS of magazine | High |
+| PD vulnerability | 16k tracking: 100% hit | Vulnerable to advanced PD |
+| Magazine density | ~8 per HS of magazine | High |
 
 **Verdict:** Best used in massive salvos (40+) to overwhelm PD. Low individual damage means you need volume. The speed advantage makes each missile very likely to leak through CIWS.
 
@@ -233,9 +232,9 @@ Range = 4,000 x 1,125,000 = 4,500 million km
 | Speed | 4,000 km/s | Adequate -- matches target speed |
 | Range | 4,500M km | Excellent -- true standoff |
 | Damage | 4.5 | Good -- penetrates moderate armor |
-| Agility | 1,280 | Adequate |
+| PD vulnerability | 16k tracking: 100% hit | Speed too low to evade PD |
 | ECM | Level 1 | -10% PD accuracy |
-| Magazine density | 4 per HS of magazine | Moderate |
+| Magazine density | ~3 per HS of magazine | Moderate |
 
 **Verdict:** The all-rounder. Sufficient damage to threaten escorts, enough speed to catch most targets, ECM to slightly degrade PD. Best in salvos of 20-30.
 
@@ -395,17 +394,18 @@ If hull space is constrained, reduced-size launchers trade reload speed for comp
 ### Magazine Capacity
 
 ```
-Magazine_Size (MSP) = Magazine_HS x 20 MSP_per_HS
+Magazine_Size (MSP) = Magazine_HS x ~17-18 MSP_per_HS
 Missiles_Stored = Magazine_MSP / Missile_MSP
 ```
+\hyperlink{ref-ex-salvo-2}{[2]}
 
-For a standard 5 HS magazine (100 MSP capacity):
+For a standard 5 HS magazine (~87 MSP capacity):
 
 | Missile | Size (MSP) | Per Magazine | Per 2 Magazines |
 |---------|-----------|-------------|-----------------|
-| Sprint (A) | 2 | 50 | 100 |
-| Standoff (B) | 5 | 20 | 40 |
-| Multi-Stage (C) | 6 | 16 | 32 |
+| Sprint (A) | 2 | 43 | 86 |
+| Standoff (B) | 5 | 17 | 34 |
+| Multi-Stage (C) | 6 | 14 | 28 |
 
 ### Salvo Size Planning
 
@@ -505,7 +505,7 @@ Mix 20 decoys with 12 Standoff missiles. PD must engage every contact (it cannot
 
 1. **Missile range exceeds FC range (no onboard sensor):** The missile loses guidance and goes ballistic. Always check that your MFC range covers the missile's maximum engagement distance, OR equip missiles with onboard active sensors.
 
-2. **Agility too low:** Low-agility missiles are easy prey for AMMs and CIWS. Ensure engine allocation provides at least 1,000 km/s^2 agility against enemies with competent PD.
+2. **Speed too low for PD evasion:** In v2.2.0+, PD hit chance is based on the speed ratio (FC_Tracking / Missile_Speed). If your missile speed is below the enemy's tracking speed, PD has 100% base hit chance. Faster missiles are harder to intercept.
 
 3. **Ignoring reload time:** Your first salvo is impressive, but if reload takes 100+ seconds and the enemy is closing, you may only get one shot. Size launchers and magazines for the engagement duration.
 
@@ -521,10 +521,18 @@ Mix 20 decoys with 12 Standoff missiles. PD must engage every contact (it cannot
 
 ---
 
+## References
+
+\hypertarget{ref-ex-salvo-1}{[1]}. Aurora C# v2.2.0+ missile mechanics: Point defense hit chance uses speed ratio: PD_Hit_Chance = min(1.0, FC_Tracking / Missile_Speed). Agility is no longer used in PD calculations. See Appendix A for the complete formula.
+
+\hypertarget{ref-ex-salvo-2}{[2]}. Aurora C# game database (AuroraDB.db v2.7.1) -- Magazine capacity is approximately 17-18 MSP per hull space. Verified against multiple magazine component entries in the database.
+
+---
+
 ## Related Sections
 
 - [Section 8.5 Weapons](../8-ship-design/8.5-weapons.md) -- Missile launcher types, box launchers, reduced-size options
 - [Section 12.3 Missiles](../12-combat/12.3-missiles.md) -- Missile design parameters, ECM, decoys, multi-stage separation
 - [Section 12.4 Point Defense](../12-combat/12.4-point-defense.md) -- Understanding what your missiles face (CIWS, AMMs, layered defense)
-- [Appendix A: Formulas](../appendices/A-formulas.md) -- Missile speed, agility, range, and fire control range calculations
+- [Appendix A: Formulas](../appendices/A-formulas.md) -- Missile speed, range, and fire control range calculations
 - [Appendix D: Reference Tables](../appendices/D-reference-tables.md) -- Magazine capacity, launcher sizes, unit conversions

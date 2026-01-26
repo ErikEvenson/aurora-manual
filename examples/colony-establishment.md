@@ -140,22 +140,25 @@ With in-system transit this short, multiple runs are very feasible.
 
 ### Automated Mines vs Manned Mines
 
-For a CC 9.14 world, manned mines require massive infrastructure support per worker. Automated mines require no population but produce less per unit:
+For a CC 9.14 world, manned mines require massive infrastructure support per worker. Automated mines require no population and produce the same base output \hyperlink{ref-ex-colony-1}{[1]}:
 
 ```
 Manned Mine:
   Output: 10 units/year per mine (at accessibility 1.0)
   Workers: 50,000 per mine
   Infrastructure: 50,000 * 9.14 = 457,000 per mine
-  Advantage: Higher output, uses population (renewable resource)
+  Advantage: Uses population (renewable resource)
 
 Automated Mine:
-  Output: 5 units/year per mine (at accessibility 1.0, half of manned)
+  Output: 10 units/year per mine (at accessibility 1.0, same as manned)
   Workers: 0
   Infrastructure: 0
+  Cost: 240 BP (double a manned mine's 120 BP)
   Advantage: No population/infrastructure overhead
-  Disadvantage: Each is 50,000 tons to transport, lower output
+  Disadvantage: Each is 50,000 tons to transport, double the build cost
 ```
+
+\hyperlink{ref-ex-colony-1}{[1]}
 
 **Decision: Start with automated mines, transition to manned as infrastructure grows.**
 
@@ -163,18 +166,18 @@ In C# Aurora, mines extract from ALL mineral deposits on a body simultaneously. 
 
 ```
 Per Automated Mine (annual output per mineral):
-  Production = 5 * Accessibility
-  Duranium: 5 * 0.7 = 3.5 tons/year
-  Sorium: 5 * 0.8 = 4.0 tons/year
-  Corbomite: 5 * 0.9 = 4.5 tons/year
-  Gallicite: 5 * 0.6 = 3.0 tons/year
+  Production = 10 * Accessibility
+  Duranium: 10 * 0.7 = 7.0 tons/year
+  Sorium: 10 * 0.8 = 8.0 tons/year
+  Corbomite: 10 * 0.9 = 9.0 tons/year
+  Gallicite: 10 * 0.6 = 6.0 tons/year
   ...etc for all minerals present
 
 20 Automated Mines Total Annual Output:
-  Duranium: 20 * 3.5 = 70 tons/year
-  Sorium: 20 * 4.0 = 80 tons/year
-  Corbomite: 20 * 4.5 = 90 tons/year
-  Gallicite: 20 * 3.0 = 60 tons/year
+  Duranium: 20 * 7.0 = 140 tons/year
+  Sorium: 20 * 8.0 = 160 tons/year
+  Corbomite: 20 * 9.0 = 180 tons/year
+  Gallicite: 20 * 6.0 = 120 tons/year
 ```
 
 > **Tip:** Mines in C# Aurora extract from ALL mineral deposits on a body simultaneously. You do not assign mines to specific minerals. Output per mine per mineral is simply (mine output) * (mineral accessibility). High-accessibility deposits produce more from every mine.
@@ -275,29 +278,29 @@ With 4 colony ships: ~1.25 years
 
 ### Why Local Fuel Matters
 
-Ganymede's high Sorium accessibility (0.8) makes it an ideal fuel depot:
+Ganymede's high Sorium accessibility (0.8) makes it an ideal fuel depot \hyperlink{ref-ex-colony-2}{[2]}:
 
 ```
 Fuel Refinery:
   Input: 1 Sorium per refinery per year
-  Output: 20,000 litres of fuel per refinery per year
+  Output: 40,000 litres of fuel per refinery per year
   Workers: 50,000 per refinery
 
 With 20 fuel refineries:
   Sorium consumed: 20 tons/year
-  Fuel produced: 400,000 litres/year
+  Fuel produced: 800,000 litres/year
   Workers: 1,000,000
 ```
 
 At 80 tons/year Sorium production from 20 automated mines, we have abundant raw material. The refineries consume only 20 tons/year, leaving 60 tons/year surplus for stockpiling or export.
 
-400,000 litres of fuel per year supports:
+800,000 litres of fuel per year supports:
 ```
 A 10,000-ton cruiser at 2,500 km/s consumes ~552 litres/hour at full power
   Annual consumption at 50% duty cycle: 552 * 4,380 = 2,417,760 litres
-  Our 20 refineries support: 400,000 / 2,417,760 = 0.17 cruisers continuously
+  Our 20 refineries support: 800,000 / 2,417,760 = 0.33 cruisers continuously
 
-This is inadequate for fleet support -- scale to 100+ refineries for a fleet depot
+This is still inadequate for fleet support -- scale to 100+ refineries for a fleet depot
 ```
 
 ### Fuel Depot Scaling
@@ -306,7 +309,7 @@ This is inadequate for fleet support -- scale to 100+ refineries for a fleet dep
 Target: Support a 6-ship destroyer flotilla
   Per destroyer: ~300 litres/hour * 4,380 hours = 1,314,000 litres/year
   6 destroyers: 7,884,000 litres/year
-  Refineries needed: 7,884,000 / 20,000 = 395 refineries
+  Refineries needed: 7,884,000 / 40,000 = 198 refineries
 
 This requires Phase 4 industrial capacity (50M+ population)
 ```
@@ -409,6 +412,14 @@ Estimated timeline to fleet base: Year 15-20
 6. **Not building a spaceport**: Civilian trade requires spaceports on both endpoints. Without a spaceport, no civilian shipping will service your colony regardless of supply/demand conditions.
 
 7. **Ignoring maintenance**: Ships and installations suffer failures without maintenance facilities. A remote colony without maintenance support will see increasing equipment breakdowns over time.
+
+---
+
+## References
+
+\hypertarget{ref-ex-colony-1}{[1]}. Aurora C# game database (AuroraDB.db v2.7.1) -- DIM_PlanetaryInstallation PlanetaryInstallationID=7 (Mine). MiningProductionValue=1.0 (10 tons/year per mine at accessibility 1.0). PlanetaryInstallationID=12 (Automated Mine). MiningProductionValue=1.0 (same base output as manned mine). Workers: Mine=0.05 (50,000), Automated Mine=0.0.
+
+\hypertarget{ref-ex-colony-2}{[2]}. Aurora C# game database (AuroraDB.db v2.7.1) -- DIM_PlanetaryInstallation PlanetaryInstallationID=3 (Fuel Refinery). RefineryProductionValue=1.0 (40,000 litres/year at base tech). Workers=0.05 (50,000).
 
 ---
 

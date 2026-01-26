@@ -119,17 +119,17 @@ FILES=(
     appendices/C-tips-and-mistakes.md
     appendices/D-reference-tables.md
     # Worked Examples
-    examples/missile-destroyer-design.md
-    examples/colony-establishment.md
-    examples/fleet-engagement.md
-    examples/beam-cruiser-design.md
-    examples/missile-salvo-design.md
-    examples/mining-network-setup.md
     examples/early-game-economy.md
     examples/exploration-workflow.md
+    examples/colony-establishment.md
+    examples/mining-network-setup.md
+    examples/terraforming-colony.md
+    examples/beam-cruiser-design.md
+    examples/missile-destroyer-design.md
+    examples/missile-salvo-design.md
+    examples/fleet-engagement.md
     examples/jump-point-defense.md
     examples/ground-invasion.md
-    examples/terraforming-colony.md
     # UI Window References
     images/ship-design-window.md
     images/missile-design-window.md

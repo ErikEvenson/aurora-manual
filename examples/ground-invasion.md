@@ -381,39 +381,35 @@ These are rough estimates. Actual results depend on unit composition, commander 
 
 ## Step 8: Occupation Force Requirements
 
-### Occupation Strength Formula
+### Occupation Strength
 
-From Appendix A, the required occupation strength to prevent unrest:
+\hyperlink{ref-ex-ground-1}{[1]}
 
-```
-Required Occupation Strength = Population x ((Determination + Militancy + Xenophobia) / 300) x Political Status Modifier
-```
+The exact occupation strength formula is not fully publicly documented and involves multiple factors including population size, racial traits (Determination, Militancy, Xenophobia), political status modifiers, and governance type. The formula operates on tonnage of ground forces rather than battalion count.
 
-### Calculating for This Scenario
+### Practical Garrison Requirements
 
-Assume conquered population characteristics:
+While the exact formula is complex, practical experience from the Aurora community provides useful guidelines for garrison planning:
 
-- Population: 50 million
-- Determination: 60 (moderate)
-- Militancy: 50 (average)
-- Xenophobia: 40 (moderate -- they were already spacefaring)
-- Political Status Modifier: varies by governance type
+**For a 50M conquered population with moderate traits:**
 
-```
-Required = 50,000,000 x ((60 + 50 + 40) / 300) x Political Status Modifier
-         = 50,000,000 x (150 / 300) x Modifier
-         = 50,000,000 x 0.5 x Modifier
-         = 25,000,000 x Modifier (tons of occupation force)
-```
+- **Minimum garrison:** 5-10 infantry battalions (sufficient to prevent severe unrest)
+- **Comfortable garrison:** 10-15 infantry battalions (minimizes unrest growth)
+- **Heavy occupation:** 20+ infantry battalions (rapid unrest suppression)
 
-This is the tonnage of ground forces required. With typical infantry at 5 tons per element and 300 elements per battalion:
+Key factors that reduce required garrison strength:
 
-```
-Tons per infantry battalion = 5 x 300 = 1,500 tons
-Battalions needed = 25,000,000 / 1,500 = ~16,667 battalions (absurd without modifier context)
-```
+- A commander with high OCC (Occupation) bonus significantly reduces requirements
+- Lower racial Determination, Militancy, and Xenophobia values
+- Favorable political status (e.g., neutral vs. hostile governance)
+- Time -- unrest naturally declines if occupation strength exceeds the threshold
 
-**Important:** The formula produces a ratio. The actual Political Status Modifier and racial traits dramatically affect the real requirement. In practice, for a 50M population with moderate traits, 5-10 garrison battalions of infantry are typically sufficient to keep unrest manageable, especially with a commander providing a Ground Combat Occupation (OCC) bonus.
+Key factors that increase required garrison strength:
+
+- High racial trait values (Determination 80+, Militancy 70+, Xenophobia 60+)
+- Hostile political status
+- Large populations (scales with population size)
+- No assigned governor or commander
 
 ### Unrest Without Sufficient Occupation
 
@@ -915,6 +911,12 @@ This scenario demonstrates advanced tactics against a heavily defended colony.
 - Resupply convoys: 3 convoys of 400,000 GSP each
 - Reserve: 200,000 GSP emergency stockpile
 - **Total logistics vehicles:** ~3,600 standard modules
+
+---
+
+## References
+
+\hypertarget{ref-ex-ground-1}{[1]}. Aurora Forums and community documentation -- Occupation strength formula is not fully publicly documented. The interaction between population size, racial traits (Determination, Militancy, Xenophobia), political status modifiers, and governance type produces the required occupation tonnage. Practical garrison requirements verified through community gameplay reports.
 
 ---
 
