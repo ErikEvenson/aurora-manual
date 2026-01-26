@@ -36,7 +36,7 @@ The eleven Trans-Newtonian minerals are the foundation of all advanced construct
 
 For installation placement and colony management, see [Section 5.1 Establishing Colonies](../5-colonies/5.1-establishing-colonies.md).
 
-### Key Installation Build Costs
+### D.2.1 Key Installation Build Costs
 
 \hyperlink{ref-D-4}{[D-4]}
 
@@ -58,7 +58,7 @@ For installation placement and colony management, see [Section 5.1 Establishing 
 
 **Understanding Mineral Composition:** The mineral requirements for each installation reflect its functional complexity and purpose. Simple extraction installations like Mines require only Corundium (a hard, durable mineral suited to drilling equipment), while Research Facilities demand both Duranium (structural framework) and Mercassium (precision electronics and sensor components). Military-adjacent installations such as Construction Factories need Neutronium for its advanced structural properties alongside Duranium. Terraforming Installations combine Duranium (structural) with Boronide (atmospheric processing and energy systems). In general, installations requiring multiple minerals represent more sophisticated technology that draws on different material properties -- structural integrity, energy conductance, precision manufacturing, or chemical reactivity -- to fulfill their role.
 
-### Installation Output Summary
+### D.2.2 Installation Output Summary
 
 \hyperlink{ref-D-5}{[D-5]}
 
@@ -71,7 +71,7 @@ For installation placement and colony management, see [Section 5.1 Establishing 
 | Fuel Refinery | 40,000 litres/year |
 | Research Lab | 200 RP/year (base racial rate, modified by scientist bonus and Research Rate tech) |
 
-### Terraforming Installation Notes
+### D.2.3 Terraforming Installation Notes
 
 \hyperlink{ref-D-6}{[D-6]}
 
@@ -93,7 +93,7 @@ For installation placement and colony management, see [Section 5.1 Establishing 
 
 For combat usage and tactical considerations, see [Section 12.2 Beam Weapons](../12-combat/12.2-beam-weapons.md).
 
-### Beam Weapon Comparison Table
+### D.3.1 Beam Weapon Comparison Table
 
 | Weapon | Example Config | Damage | ROF | Range | Size (HS) | Power | Cost (BP) | Key Mineral |
 |--------|---------------|--------|-----|-------|-----------|-------|-----------|-------------|
@@ -106,7 +106,7 @@ For combat usage and tactical considerations, see [Section 12.2 Beam Weapons](..
 | HPM | R20/C5 | 1 (3+) | 10s | 200K km | 6 | 10 | 126 | Corundium |
 | CIWS | CIWS-160 | 1 | 6/5s | 10K km | 7.4 | 0 | 34 | Vendarite |
 
-### Weapon Notes
+### D.3.2 Weapon Notes
 
 - **Meson Cannon** (*): Bypasses both shields and armor entirely; damage is applied directly to internal components. Low damage per hit but extremely difficult to defend against.
 - **Railgun** (4x4): Fires 4 shots per volley, each dealing 4 damage. Each shot ignores armor layers equal to its damage value.
@@ -117,7 +117,7 @@ For combat usage and tactical considerations, see [Section 12.2 Beam Weapons](..
 - **Laser**: The most flexible beam weapon; scales well with focal size and capacitor technology.
 - **Particle Beam**: No damage falloff at any range within maximum; good against heavily armored targets.
 
-### Beam Weapon Scaling
+### D.3.3 Beam Weapon Scaling
 
 All beam weapons scale with two key technologies:
 
@@ -132,7 +132,7 @@ Focal size (for lasers) and velocity (for railguns) affect maximum range. Higher
 
 **Gameplay significance:** Research prioritization is one of Aurora's most consequential strategic decisions. These tables reveal which technologies offer the largest capability jumps per RP spent, where diminishing returns set in, and what synergies exist between related tech lines (e.g., engine type + fuel efficiency + power modifier). Use them to identify high-value targets for your research focus.
 
-### Engine Technology Progression
+### D.4.1 Engine Technology Progression
 
 **When to use:** Consult this table when planning propulsion research or designing ships that need specific speed capabilities.
 
@@ -140,7 +140,7 @@ Focal size (for lasers) and velocity (for railguns) affect maximum range. Higher
 
 Engine power determines ship speed. The engine type sets base power per HS, while the power modifier controls the maximum multiplier available in the engine design window. See [Section 8.1 Design Philosophy](../8-ship-design/8.1-design-philosophy.md) for practical applications.
 
-#### Engine Types (Base Power per HS)
+#### D.4.1.1 Engine Types (Base Power per HS)
 
 \hyperlink{ref-D-7}{[D-7]}
 
@@ -162,7 +162,7 @@ Engine power determines ship speed. The engine type sets base power per HS, whil
 | 13 | Photonic Drive | 80.0 | 2,500,000 |
 | 14 | Quantum Singularity Drive | 100.0 | 5,000,000 |
 
-#### Maximum Engine Power Modifier
+#### D.4.1.2 Maximum Engine Power Modifier
 
 \hyperlink{ref-D-8}{[D-8]}
 
@@ -178,7 +178,7 @@ This technology unlocks higher power multipliers in the engine designer. Higher 
 | 5 | x2.5 | 8,000 |
 | 6 | x3 | 15,000 |
 
-#### Minimum Engine Power Modifier
+#### D.4.1.3 Minimum Engine Power Modifier
 
 \hyperlink{ref-D-9}{[D-9]}
 
@@ -194,7 +194,7 @@ This technology unlocks lower power multipliers, allowing more fuel-efficient en
 | 5 | x0.15 | 15,000 |
 | 6 | x0.1 | 30,000 |
 
-### Fuel Consumption Technology
+### D.4.2 Fuel Consumption Technology
 
 **When to use:** Reference this table when your ships are running out of fuel before completing missions or when tanker logistics are becoming a bottleneck.
 
@@ -220,7 +220,7 @@ Lower fuel consumption rates drastically extend operational range. This is one o
 | 11 | 0.125 | 1,000,000 | |
 | 12 | 0.1 | 2,000,000 | One-tenth starting |
 
-### Armour Technology
+### D.4.3 Armour Technology
 
 **When to use:** Consult this table when designing warships to determine how much protection you can achieve within a given tonnage budget.
 
@@ -250,7 +250,7 @@ Higher armour technology provides more protection per layer of armour, reducing 
 
 **Note:** Column Depth (AdditionalInfo2) represents the maximum armour depth that technology allows. Higher-tech armour is also denser (more HP per layer), so fewer layers are needed.
 
-### Shield Technology
+### D.4.4 Shield Technology
 
 **When to use:** Reference this table when designing ships that will face sustained combat or missile salvos where regenerating protection provides tactical advantage.
 
@@ -258,7 +258,7 @@ Higher armour technology provides more protection per layer of armour, reducing 
 
 Shields provide regenerating protection that absorbs damage before it reaches armour. Shield strength is per HS of shield generator. Active shields produce an EM signature.
 
-#### Shield Strength
+#### D.4.4.1 Shield Strength
 
 \hyperlink{ref-D-12}{[D-12]}
 
@@ -277,7 +277,7 @@ Shields provide regenerating protection that absorbs damage before it reaches ar
 | 11 | Psi Shields | 12.0 | 1,000,000 |
 | 12 | Omega Shields | 15.0 | 2,000,000 |
 
-#### Shield Regeneration Rate
+#### D.4.4.2 Shield Regeneration Rate
 
 \hyperlink{ref-D-13}{[D-13]}
 
@@ -298,7 +298,7 @@ The regeneration rate determines how much shield strength is restored per 5-seco
 | 11 | 12.0 | 1,000,000 |
 | 12 | 15.0 | 2,000,000 |
 
-### Sensor Technology
+### D.4.5 Sensor Technology
 
 **When to use:** Consult these tables when designing scouts, survey ships, or combat vessels that need to detect enemies before being detected themselves.
 
@@ -306,7 +306,7 @@ The regeneration rate determines how much shield strength is restored per 5-seco
 
 Sensors are critical for detection and targeting. Passive sensors (thermal and EM) detect emissions without revealing the detecting ship. Active sensors provide precise tracking but broadcast the sensor ship's location.
 
-#### Thermal Sensor Sensitivity
+#### D.4.5.1 Thermal Sensor Sensitivity
 
 \hyperlink{ref-D-14}{[D-14]}
 
@@ -327,7 +327,7 @@ Thermal sensors detect engine heat signatures. Higher sensitivity detects smalle
 | 11 | 60 | 1,000,000 |
 | 12 | 75 | 2,000,000 |
 
-#### EM Sensor Sensitivity
+#### D.4.5.2 EM Sensor Sensitivity
 
 \hyperlink{ref-D-15}{[D-15]}
 
@@ -348,7 +348,7 @@ EM sensors detect active emissions (shields, active sensors, etc.). The progress
 | 11 | 60 | 1,000,000 |
 | 12 | 75 | 2,000,000 |
 
-#### Active Gravitational Sensor Strength
+#### D.4.5.3 Active Gravitational Sensor Strength
 
 \hyperlink{ref-D-16}{[D-16]}
 
@@ -370,7 +370,7 @@ Active sensors detect ships based on cross-section (size). Higher strength provi
 | 11 | 135 | 1,000,000 |
 | 12 | 180 | 2,000,000 |
 
-### Missile Technology
+### D.4.6 Missile Technology
 
 **When to use:** Reference these tables when designing missile-armed ships, planning ordnance production, or evaluating whether to invest in missile versus beam weapon doctrines.
 
@@ -378,7 +378,7 @@ Active sensors detect ships based on cross-section (size). Higher strength provi
 
 Missiles are the primary standoff weapon system. Their effectiveness depends on warhead strength, launcher size, and reload rate technologies.
 
-#### Warhead Strength
+#### D.4.6.1 Warhead Strength
 
 \hyperlink{ref-D-17}{[D-17]}
 
@@ -399,7 +399,7 @@ Warhead strength determines damage per MSP of warhead devoted to the explosive p
 | 11 | Advanced Antimatter | 24 | 1,000,000 |
 | 12 | Gravatonic | 30 | 2,000,000 |
 
-#### Missile Launcher Reload Rate
+#### D.4.6.2 Missile Launcher Reload Rate
 
 \hyperlink{ref-D-18}{[D-18]}
 
@@ -420,7 +420,7 @@ Higher reload rates reduce the time between missile salvos. The rate value is a 
 | 10 | 11 | 1,000,000 |
 | 11 | 12 | 2,000,000 |
 
-### Power Plant Technology
+### D.4.7 Power Plant Technology
 
 **When to use:** Consult this table when designing beam weapon ships or any vessel with significant power requirements (shields, active sensors, jump drives).
 
@@ -428,7 +428,7 @@ Higher reload rates reduce the time between missile salvos. The rate value is a 
 
 Power plants provide the energy needed by beam weapons, shields, and active sensors. The power output value represents energy per HS of power plant.
 
-#### Power Plant Types (Power Output per HS)
+#### D.4.7.1 Power Plant Types (Power Output per HS)
 
 \hyperlink{ref-D-19}{[D-19]}
 
@@ -450,7 +450,7 @@ Power plants provide the energy needed by beam weapons, shields, and active sens
 | 13 | Vacuum Energy Power Plant | 32.0 | 1,500,000 |
 | 14 | Quantum Singularity Power Plant | 40.0 | 3,000,000 |
 
-#### Power Plant Boost
+#### D.4.7.2 Power Plant Boost
 
 \hyperlink{ref-D-20}{[D-20]}
 
@@ -467,7 +467,7 @@ Boosting a power plant increases output but adds an explosion risk when the comp
 | 6 | +80% (x1.8) | 40% | 15,000 |
 | 7 | +100% (x2.0) | 50% | 30,000 |
 
-### Beam Weapon Calibre Technologies
+### D.4.8 Beam Weapon Calibre Technologies
 
 **When to use:** Reference these tables when deciding which weapon sizes to research and which calibres to mount on your ships.
 
@@ -475,7 +475,7 @@ Boosting a power plant increases output but adds an explosion risk when the comp
 
 Weapon focal size determines damage, range, and hull space requirements. Larger weapons deal more damage but consume more space and power.
 
-#### Laser Focal Size
+#### D.4.8.1 Laser Focal Size
 
 \hyperlink{ref-D-21}{[D-21]}
 
@@ -496,7 +496,7 @@ Weapon focal size determines damage, range, and hull space requirements. Larger 
 
 **Note:** The AdditionalInfo value for lasers represents the base damage before capacitor/wavelength modifiers are applied. Actual damage in the weapon designer will vary based on selected wavelength and capacitor technology.
 
-#### Meson Focal Size
+#### D.4.8.2 Meson Focal Size
 
 \hyperlink{ref-D-22}{[D-22]}
 
@@ -517,7 +517,7 @@ Meson cannons bypass both shields and armour, dealing damage directly to interna
 | 70cm | 128 | 4% | 1,000,000 |
 | 80cm | 168 | 3.2% | 2,000,000 |
 
-#### Microwave Focal Size
+#### D.4.8.3 Microwave Focal Size
 
 \hyperlink{ref-D-23}{[D-23]}
 
@@ -538,7 +538,7 @@ Microwave weapons (HPMs) deal bonus damage against shields (3x) but only 1 damag
 | 70cm | 128 | 1,000,000 |
 | 80cm | 168 | 2,000,000 |
 
-#### Railgun Calibre
+#### D.4.8.4 Railgun Calibre
 
 \hyperlink{ref-D-24}{[D-24]}
 
@@ -557,7 +557,7 @@ Railguns fire multiple shots per volley, each ignoring armour layers equal to it
 | 45cm | 16 | 120,000 |
 | 50cm | 20 | 240,000 |
 
-#### Railgun Launch Velocity
+#### D.4.8.5 Railgun Launch Velocity
 
 \hyperlink{ref-D-25}{[D-25]}
 
@@ -575,7 +575,7 @@ Higher velocity extends railgun range.
 | 80,000 | 120,000 |
 | 90,000 | 240,000 |
 
-#### Gauss Cannon Rate of Fire
+#### D.4.8.6 Gauss Cannon Rate of Fire
 
 \hyperlink{ref-D-26}{[D-26]}
 
@@ -591,7 +591,7 @@ Gauss cannons are the primary point defense weapon. Higher rate of fire increase
 | 5 | 6 | 135,000 |
 | 6 | 8 | 750,000 |
 
-#### Gauss Cannon Launch Velocity
+#### D.4.8.7 Gauss Cannon Launch Velocity
 
 \hyperlink{ref-D-27}{[D-27]}
 
@@ -606,7 +606,7 @@ Higher velocity extends gauss cannon range for point defense intercepts.
 | 50,000 | 45,000 |
 | 60,000 | 135,000 |
 
-### Capacitor Recharge Rate
+### D.4.9 Capacitor Recharge Rate
 
 **When to use:** Consult this table when prioritizing beam weapon research -- capacitor technology is often more cost-effective than larger calibres for increasing damage output.
 
@@ -636,7 +636,7 @@ Capacitor technology reduces the time between beam weapon shots. Higher values a
 | 5.5 | 22,500 | | |
 | 6 | 30,000 | | |
 
-### Maintenance Capacity per Facility
+### D.4.10 Maintenance Capacity per Facility
 
 **When to use:** Reference this table when your fleet tonnage is growing and you need to plan maintenance infrastructure expansion.
 
@@ -656,7 +656,7 @@ Capacitor technology reduces the time between beam weapon shots. Higher values a
 | 8 | 5,000 | 120,000 |
 | 9 | 6,250 | 250,000 |
 
-### MSP Production per Facility
+### D.4.11 MSP Production per Facility
 
 **When to use:** Consult this table when your ships are spending excessive time in overhaul or when MSP shortages are limiting fleet operations.
 
@@ -677,7 +677,7 @@ Capacitor technology reduces the time between beam weapon shots. Higher values a
 | 9 | 85 | 600,000 |
 | 10 | 100 | 1,200,000 |
 
-### Construction Rate (BP per Factory per Year)
+### D.4.12 Construction Rate (BP per Factory per Year)
 
 **When to use:** Reference this table when planning industrial expansion or when ship production is bottlenecking your fleet growth.
 
@@ -700,7 +700,7 @@ Capacitor technology reduces the time between beam weapon shots. Higher values a
 | 10 | 60 | 1,250,000 |
 | 11 | 70 | 2,500,000 |
 
-### Mining Production (Tons per Mine per Year)
+### D.4.13 Mining Production (Tons per Mine per Year)
 
 **When to use:** Consult this table when mineral stockpiles are limiting your construction or when you're deciding whether to build more mines versus researching better mining technology.
 
@@ -725,7 +725,7 @@ Capacitor technology reduces the time between beam weapon shots. Higher values a
 
 Output is further multiplied by the deposit's accessibility value.
 
-### Fuel Refinery Output
+### D.4.14 Fuel Refinery Output
 
 **When to use:** Reference this table when fuel production is not keeping pace with fleet consumption or when you're planning fuel logistics for distant operations.
 
@@ -756,7 +756,7 @@ Output is further multiplied by the deposit's accessibility value.
 
 This section condenses the most frequently-referenced formulas from [Appendix A: Formulas](../appendices/A-formulas.md) into a single lookup table for use during ship design (see [Section 8.1 Design Philosophy](../8-ship-design/8.1-design-philosophy.md)).
 
-### Sensor Detection Ranges
+### D.5.1 Sensor Detection Ranges
 
 | Sensor Type | Formula | Key Variable |
 |------------|---------|--------------|
@@ -771,7 +771,7 @@ This section condenses the most frequently-referenced formulas from [Appendix A:
 Effective_Range = Base_Range x sqrt(Target_HS / Sensor_Resolution)
 ```
 
-### Magazine Capacity
+### D.5.2 Magazine Capacity
 
 ```
 Magazine_Size (MSP) = Component_HS x 20 MSP per HS
@@ -786,7 +786,7 @@ Each missile's MSP size is determined in the Missile Design window. Magazines ar
 - Using armored magazines (reduced capacity, +1 HTK)
 - Accepting the risk on smaller ships where space is at a premium
 
-### Shield Types
+### D.5.3 Shield Types
 
 | Shield Type | Strength/Emitter | Fuel Consumption | EM Signature |
 |------------|-----------------|-----------------|-------------|
@@ -801,7 +801,7 @@ Regen_per_5s = Total_Shield_Strength x Regen_Rate_Tech
 
 Shields must be active to regenerate. Active shields generate EM signature detectable by passive sensors.
 
-### Engine Calculations
+### D.5.4 Engine Calculations
 
 | Parameter | Formula |
 |-----------|---------|
@@ -813,7 +813,7 @@ Shields must be active to regenerate. Active shields generate EM signature detec
 
 **Practical design tip:** A 1.25x boost provides 25% more power with a moderate fuel consumption increase -- often the best efficiency trade-off for military vessels. The exact fuel penalty depends on the boost formula: (4\^Boost\_Modifier)/4, where the x1.25 penalty factor is approximately 1.41x the x1.0 baseline.
 
-### Quick Conversion Reference
+### D.5.5 Quick Conversion Reference
 
 | Unit | Equivalence |
 |------|------------|

@@ -12,7 +12,7 @@ This appendix collects the key mathematical formulas that govern Aurora C# mecha
 
 Formulas used during ship design to calculate performance characteristics. For detailed ship design context, see [Section 8.3 Engines](../8-ship-design/8.3-engines.md).
 
-### Ship Speed
+### A.1.1 Ship Speed
 
 The fundamental speed formula for any vessel \hyperlink{ref-A-1}{[A-1]}:
 
@@ -38,7 +38,7 @@ Speed = (2 x 2500) * 1000 / 200 = 25,000 km/s
 Speed = 5000 * 50000 / 10000 = 25,000 km/s (equivalent)
 ```
 
-### Engine Power
+### A.1.2 Engine Power
 
 The actual speed depends on your engine technology. Engine power is calculated as:
 
@@ -51,7 +51,7 @@ Where \hyperlink{ref-A-3}{[A-3]}:
 - **Power_per_HS** is determined by engine technology research (starts at 5 with Nuclear Radioisotope Engine, increases with tech up to 100)
 - **Boost_Modifier** ranges from 0.5x to 3.0x (higher boost = more power but reduced fuel efficiency)
 
-### Engine Size-Based Fuel Consumption
+### A.1.3 Engine Size-Based Fuel Consumption
 
 In C# Aurora, engine fuel efficiency improves linearly with engine size. Fuel consumption is reduced by 1% for every HS of engine size \hyperlink{ref-A-10}{[A-10]}:
 
@@ -74,7 +74,7 @@ This creates efficiency advantages for larger engines:
 
 **Example**: A 25 HS engine has fuel consumption modifier of 0.75, meaning it uses only 75% of the fuel per unit of power compared to a 1 HS engine.
 
-### Fuel Consumption Rate
+### A.1.4 Fuel Consumption Rate
 
 ```
 Fuel_per_Hour = Total_Engine_Power x Fuel_Consumption_Rate x Boost_Penalty
@@ -85,7 +85,7 @@ Where:
 - **Fuel_Consumption_Rate** is determined by fuel consumption technology (base 1.0, reduced by research)
 - **Boost_Penalty** = (4 ^ Boost_Modifier) / 4, where Boost_Modifier is the decimal value (e.g., 0.5 for 50% boost, 1.0 for 100% boost) \hyperlink{ref-A-11}{[A-11]}
 
-### Range Calculation
+### A.1.5 Range Calculation
 
 ```
 Range (km) = Fuel_Capacity / Fuel_per_Hour x 3600 x Speed
@@ -96,7 +96,7 @@ Or equivalently:
 Range (billion km) = Fuel_Capacity / (Fuel_per_Hour x 1000000)
 ```
 
-### Shield Strength and Regeneration
+### A.1.6 Shield Strength and Regeneration
 
 ```
 Shield_Strength = Strength_Tech x Size_HS x sqrt(Size_HS / 10)  (for generators > 1 HS)
@@ -108,7 +108,7 @@ Shield_EM_Signature = Shield_Strength x 3
 
 Shields begin at zero when first activated and must recharge to full strength. Regeneration is continuous during combat. The strength formula's square root scaling means larger generators provide disproportionately more shielding per HS, but recharge at the same rate per HS regardless of size.
 
-### Power Plant Output
+### A.1.7 Power Plant Output
 
 ```
 Power_Output = Power_Tech x Size_HS x sqrt(Size_HS / 10)  (for generators > 1 HS)
@@ -130,7 +130,7 @@ Explosion chance when hit is set per boost technology level (not a simple formul
 
 Larger power plants are more space-efficient due to the same square root scaling used by shields and engines.
 
-### Engineering Spaces
+### A.1.8 Engineering Spaces
 
 ```
 MSP_Stored = floor(12.5 x Ship_Build_Cost_BP x Engineering_Tons / Total_Ship_Tons)
@@ -141,7 +141,7 @@ AFR_Without_Engineering = 0.2 x Ship_Tonnage  (percent)
 AFR_With_Engineering = (0.04 / Engineering_Tonnage_Percent) x Ship_Tonnage  (percent)
 ```
 
-### Tractor Beam Towing Speed
+### A.1.9 Tractor Beam Towing Speed
 
 When a tug tows another vessel, its speed is reduced proportionally to the mass ratio:
 
@@ -169,7 +169,7 @@ Heavier tugs maintain better towing speeds. The return trip (without towed vesse
 
 Formulas for missile performance calculations. See [Section 12.3 Missiles](../12-combat/12.3-missiles.md) for tactical context.
 
-### Missile Speed
+### A.2.1 Missile Speed
 
 ```
 Missile_Speed (km/s) = Missile_Engine_Power / Missile_Mass
@@ -182,7 +182,7 @@ Missile_Endurance (seconds) = Missile_Fuel / Missile_Fuel_Consumption
 Missile_Range (km) = Missile_Speed x Missile_Endurance
 ```
 
-### High-Boost Missile Penalty
+### A.2.2 High-Boost Missile Penalty
 
 For missiles using boost exceeding racial maximum boost technology, an additional multiplier applies:
 
@@ -198,7 +198,7 @@ This creates a linear multiplier from 1x to 5x for high-boost missiles.
 
 Formulas governing sensor detection and electronic warfare. For detailed sensor design and usage, see [Section 11.1 Thermal and EM Signatures](../11-sensors-and-detection/11.1-thermal-em-signatures.md).
 
-### Thermal Signature
+### A.3.1 Thermal Signature
 
 A ship's thermal signature is primarily determined by its engines:
 
@@ -206,7 +206,7 @@ A ship's thermal signature is primarily determined by its engines:
 Thermal_Signature = Total_Engine_Power / Thermal_Reduction_Modifier
 ```
 
-### Passive Sensor Detection (Thermal)
+### A.3.2 Passive Sensor Detection (Thermal)
 
 ```
 Detection_Range (km) = sqrt(Sensor_Sensitivity x Target_Thermal_Signature) x 250000
@@ -219,7 +219,7 @@ Where:
 - **Sensor_Sensitivity** = Sensor_Size (HS) x Sensitivity_Tech_Level
 - **Target_Thermal_Signature** = Total_Engine_Power / Thermal_Reduction_Tech
 
-### Passive Sensor Detection (EM)
+### A.3.3 Passive Sensor Detection (EM)
 
 ```
 Detection_Range (km) = sqrt(Sensor_Sensitivity x Target_EM_Signature) x 250000
@@ -233,7 +233,7 @@ Where:
 
 Ships with no active emissions (shields off, active sensors off) have EM signature of 0 and are invisible to EM sensors.
 
-### Active Sensor Detection
+### A.3.4 Active Sensor Detection
 
 The game uses the following formula to calculate active sensor detection range \hyperlink{ref-A-16}{[A-16]}:
 
@@ -264,7 +264,7 @@ Effective_Range = Base_Range x sqrt(Actual_Ship_HS / Sensor_Resolution)
 Effective_Range = 100M x sqrt(20/100) = 100M x 0.447 = 44.7M km
 ```
 
-### Missile Fire Control Range
+### A.3.5 Missile Fire Control Range
 
 ```
 FC_Range (km) = FC_Size x Resolution x FC_Tech_Level x 250000
@@ -274,7 +274,7 @@ FC_Range (km) = FC_Size x Resolution x FC_Tech_Level x 250000
 
 The fire control range limits the maximum engagement distance for missiles. Missiles beyond their fire control's range lose guidance.
 
-### Cloaking Effect on Detection
+### A.3.6 Cloaking Effect on Detection
 
 ```
 Effective_Signature = Actual_Signature x (1 - Cloak_Percentage/100)
@@ -282,7 +282,7 @@ Effective_Signature = Actual_Signature x (1 - Cloak_Percentage/100)
 
 A 60% cloak reduces all signatures to 40% of their actual value, reducing detection range proportionally.
 
-### Electronic Warfare Systems
+### A.3.7 Electronic Warfare Systems
 
 Aurora features three distinct electronic warfare systems, each affecting different combat phases:
 
@@ -327,7 +327,7 @@ Minimum 0 (complete jamming). Applied to point defense accuracy against missiles
 
 Formulas governing weapons, damage, and defensive systems. For tactical combat details, see [Section 12.1 Fire Controls](../12-combat/12.1-fire-controls.md).
 
-### Time to Destination
+### A.4.1 Time to Destination
 
 ```
 Time (seconds) = Distance (km) / Speed (km/s)
@@ -335,7 +335,7 @@ Time (seconds) = Distance (km) / Speed (km/s)
 
 For jump point transits, add the transit time (typically instantaneous for military jump drives, or 5 minutes for commercial jump drives including squadron transit).
 
-### Beam Weapon To-Hit
+### A.4.2 Beam Weapon To-Hit
 
 ```
 Base_Chance = (1 - Range/Max_Range) x 100%
@@ -354,7 +354,7 @@ ECM = max(0, 1 - (2-1) x 0.1) = 0.9
 Final = 50% x 1.0 x 0.9 = 45%
 ```
 
-### Beam Weapon Damage
+### A.4.3 Beam Weapon Damage
 
 Beam weapon damage is governed by two mechanics: **damage falloff with range** and **damage gradient** (armor column spread). See [Section 12.2.2](../12-combat/12.2-beam-weapons.md) for full tactical discussion.
 
@@ -417,7 +417,7 @@ Per_Column = 10 / 1 = 10
 Armor_Penetration = 10 layers in single column
 ```
 
-### Armor Damage
+### A.4.4 Armor Damage
 
 ```
 Armor_Columns = Ship_Width (proportional to tonnage)
@@ -430,7 +430,7 @@ Armor column count scales with ship size:
 Num_Columns = Ship_Tonnage / Column_Factor
 ```
 
-### Internal Damage
+### A.4.5 Internal Damage
 
 When armor at a column is breached:
 ```
@@ -439,7 +439,7 @@ Damage_to_Component = 1 HTK per hit
 Component_Destroyed when Current_HTK = 0
 ```
 
-### Shock Damage
+### A.4.6 Shock Damage
 
 ```
 Shock_Chance = Armor_Damage / Ship_Size_HS  (minimum 5% threshold; below = ignored)
@@ -448,7 +448,7 @@ Shock_Amount = Random(0 to floor(Armor_Damage x 0.20))
 
 Shields completely negate shock damage. Only damage applied to armor triggers the shock check.
 
-### Magazine Explosion
+### A.4.7 Magazine Explosion
 
 ```
 Explosion_Damage = Sum(All_Missile_Warhead_Strengths_in_Magazine)
@@ -456,7 +456,7 @@ Explosion_Damage = Sum(All_Missile_Warhead_Strengths_in_Magazine)
 
 Applied to the host ship first, excess may damage nearby vessels within blast radius.
 
-### Missile Hit Chance (Speed Ratio System)
+### A.4.8 Missile Hit Chance (Speed Ratio System)
 
 > *[v2.2.0]: Missile agility was removed. Hit chance is now based on speed ratio plus optional terminal guidance.*
 
@@ -482,7 +482,7 @@ Key implications:
 - Faster missiles are more accurate; very fast targets require proportionally faster missiles
 - Multiple warheads provide additional independent hit rolls
 
-### Missile Point Defense
+### A.4.9 Missile Point Defense
 
 For each PD weapon firing at incoming missiles:
 ```
@@ -496,7 +496,7 @@ Tracking_Mod = min(1.0, PD_Tracking / Missile_Speed)
 
 CIWS (Close-In Weapon Systems) fire at range 0 (final defense), making their base chance very high, but they must track the missile's speed.
 
-### Point Defense Accuracy (CIWS Effectiveness)
+### A.4.10 Point Defense Accuracy (CIWS Effectiveness)
 
 The complete PD accuracy formula for CIWS and beam weapons in point defense mode:
 
@@ -530,7 +530,7 @@ Expected kills = 12 * 0.8 = 9.6 missiles per 5-second cycle
 
 Formulas for economic output and industrial production. For colony production management, see [Section 6.3 Construction](../6-economy-and-industry/6.3-construction.md).
 
-### Construction Factory Output
+### A.5.1 Construction Factory Output
 
 ```
 Annual_BP = Num_Factories x BP_per_Factory x (1 + Governor_Manufacturing x 0.05)
@@ -553,7 +553,7 @@ Standard BP per factory = 10/year (increased by Construction Rate technology) \h
 | 10 | 60 | 1,250,000 |
 | 11 | 70 | 2,500,000 |
 
-### Mineral Mining Output
+### A.5.2 Mineral Mining Output
 
 ```
 Annual_Tons_per_Mine = Base_Production x Accessibility x Tech_Modifier
@@ -576,7 +576,7 @@ Where Base_Production = 10 tons/year per mine \hyperlink{ref-A-7}{[A-7]}. Mining
 | 10 | 60 | 1,250,000 |
 | 11 | 70 | 2,500,000 |
 
-### Fuel Refinery Output
+### A.5.3 Fuel Refinery Output
 
 ```
 Fuel_per_Year = Num_Refineries x Base_Output_per_Refinery (litres)
@@ -599,7 +599,7 @@ Base refinery output is 40,000 litres/year \hyperlink{ref-A-8}{[A-8]}. Refinery 
 | 10 | 240,000 | 1,250,000 |
 | 11 | 280,000 | 2,500,000 |
 
-### Research Speed
+### A.5.4 Research Speed
 
 ```
 Days_to_Complete = Research_Cost / (Daily_RP_Output)
@@ -614,7 +614,7 @@ RP_per_Year = Effective_Labs x RP_per_Lab x (1 + Scientist_Bonus / 100)
 
 Where Scientist\_Bonus is the percentage shown in the commander's profile. This bonus is quadrupled when the scientist works in their specialization field.
 
-### Terraforming Rate
+### A.5.5 Terraforming Rate
 
 ```
 Atm_Change_per_Year = Num_Installations x Terraform_Rate x Gas_Modifier
@@ -643,7 +643,7 @@ Terraforming rate technology progression \hyperlink{ref-A-9}{[A-9]}:
 | Terraforming Rate 11 | 0.003 | 2,500,000 |
 | Terraforming Rate 12 | 0.00375 | 5,000,000 |
 
-### Shipyard Build Time
+### A.5.6 Shipyard Build Time
 
 ```
 Build_Time (days) = Ship_BP_Cost / (Shipyard_Capacity / 365) / Num_Slipways
@@ -656,7 +656,7 @@ Retooling time when changing ship class:
 Retool_Time (days) = abs(New_Ship_Tonnage - Old_Ship_Tonnage) x Retool_Factor
 ```
 
-### Secondary Build (20% Refit Cost Rule)
+### A.5.7 Secondary Build (20% Refit Cost Rule)
 
 A shipyard can build any secondary class without retooling if the refit cost is below 20% of the primary class's total build cost:
 
@@ -679,7 +679,7 @@ This allows shipyard flexibility when designing ship families that share expensi
 
 Formulas for population growth, habitability, and colony management. For colony management and habitability, see [Section 5.1 Establishing Colonies](../5-colonies/5.1-establishing-colonies.md).
 
-### Base Growth Rate
+### A.6.1 Base Growth Rate
 
 ```
 Annual_Growth = Population x Growth_Rate x Habitability_Modifier x Infrastructure_Modifier
@@ -691,7 +691,7 @@ Where:
 - **Habitability_Modifier** = Planet's colony cost modifier (1.0 for ideal, reduced for hostile environments)
 - **Infrastructure_Modifier** = min(1.0, Infrastructure_Units / Required_Infrastructure)
 
-### Growth Rate Modifiers
+### A.6.2 Growth Rate Modifiers
 
 | Condition | Modifier |
 |-----------|----------|
@@ -701,7 +701,7 @@ Where:
 | Governor bonus | 1 + (Admin_Skill x 0.05) |
 | Genetic modification tech | Increases base racial growth rate |
 
-### Colony Cost and Habitability
+### A.6.3 Colony Cost and Habitability
 
 ```
 Colony_Cost = Sum(Environmental_Penalties)
@@ -720,7 +720,7 @@ Required_Infrastructure = Population x Colony_Cost
 
 Without sufficient infrastructure on a hostile world, excess population suffers attrition.
 
-### Population Capacity
+### A.6.4 Population Capacity
 
 ```
 Max_Supported_Population = Infrastructure / Colony_Cost
@@ -728,7 +728,7 @@ Max_Supported_Population = Infrastructure / Colony_Cost
 
 For Earth-like worlds (colony cost = 0), no infrastructure is needed and population can grow without limit.
 
-### Civilian Infrastructure Production
+### A.6.5 Civilian Infrastructure Production
 
 Civilian shipping lines produce infrastructure for colonies with colony cost > 0, at no cost to the government:
 
@@ -746,7 +746,7 @@ Where:
 
 This supplements but does not replace government construction, especially in early colonization stages when infrastructure needs are urgent.
 
-### Agriculture & Environment Workforce
+### A.6.6 Agriculture & Environment Workforce
 
 A portion of the manufacturing workforce is diverted to agriculture and environmental support based on colony cost:
 
@@ -767,7 +767,7 @@ CC 2.0: Industrial Workers = Pop x 0.60 x 0.85 = Pop x 0.51
 CC 4.0: Industrial Workers = Pop x 0.60 x 0.75 = Pop x 0.45
 ```
 
-### Migration
+### A.6.7 Migration
 
 When multiple colonies exist, population can migrate between them based on:
 
@@ -786,7 +786,7 @@ Migration_Rate = Base_Rate x Push_Factor x Pull_Factor
 
 Formulas for occupation, garrison requirements, and population unrest. See [Section 13.1 Unit Types](../13-ground-forces/13.1-unit-types.md) for ground force details.
 
-### Required Garrison Strength
+### A.7.1 Required Garrison Strength
 
 The garrison strength required to maintain order on a colony is determined by:
 
@@ -810,7 +810,7 @@ For occupied populations, a Political Status Modifier applies:
 | Subjugated | 0.25 |
 | All Others | 0 |
 
-### Element Occupation Strength
+### A.7.2 Element Occupation Strength
 
 Per ground unit element:
 
@@ -820,7 +820,7 @@ Occupation_Strength = (SQRT(Size) * Units * Morale) / 10,000
 
 When occupation strength exceeds the requirement, the surplus functions as police strength that actively reduces unrest over time.
 
-### Unrest and Stability
+### A.7.3 Unrest and Stability
 
 Population unrest affects productivity. Production output (factories, research, shipbuilding) is reduced by a percentage equal to the current unrest points. At 25 unrest points, all output drops by 25%.
 
@@ -850,7 +850,7 @@ Required = Population (millions) x (Militancy / 100) x Political Status Protecti
 
 Ships are evaluated by Population Protection Value (hull space allocated to weapons and hangar bays).
 
-### Unrest Reduction
+### A.7.4 Unrest Reduction
 
 Natural decline (when the cause is removed):
 ```
