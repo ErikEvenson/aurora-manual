@@ -82,6 +82,7 @@ FILES=(
     11-sensors-and-detection/11.2-passive-sensors.md
     11-sensors-and-detection/11.3-active-sensors.md
     11-sensors-and-detection/11.4-stealth.md
+    12-combat/12.0-combat-overview.md
     12-combat/12.1-fire-controls.md
     12-combat/12.2-beam-weapons.md
     12-combat/12.3-missiles.md
