@@ -100,7 +100,7 @@ FILES=(
     15-diplomacy/15.2-communications.md
     15-diplomacy/15.3-treaties.md
     15-diplomacy/15.4-diplomacy.md
-    15-diplomacy/15.5-espionage.md
+    15-diplomacy/15.5-intelligence-gathering.md
     16-commanders/16.1-officer-generation.md
     16-commanders/16.2-skills-and-bonuses.md
     16-commanders/16.3-assignments.md
