@@ -52,7 +52,7 @@ Gallicite is used for engine construction (see [Appendix D: Reference Tables](..
 
 ### Use Conventional Industry Wisely
 
-Conventional Industry does not require TN minerals and can produce infrastructure, ground forces, and some basic installations. Keep your Conventional Industry active producing infrastructure while your TN factories handle advanced projects. This is essentially free production capacity.
+Conventional Industry does not require TN minerals and can produce infrastructure, ground forces, and some basic installations \hyperlink{ref-C-3}{[C-3]}. Keep your Conventional Industry active producing infrastructure while your TN factories handle advanced projects. This is essentially free production capacity.
 
 ### Automate Freight Routes
 
@@ -60,7 +60,7 @@ Manual cargo management becomes overwhelming quickly. Set up standing orders for
 
 ### Governor Selection Matters
 
-A governor (see [Section 16.3 Assignments](../16-commanders/16.3-assignments.md)) with high Manufacturing skill dramatically increases factory output. A skill-25 Manufacturing governor adds 125% bonus production. Assign your best Manufacturing-skilled commanders to your primary industrial worlds.
+A governor (see [Section 16.3 Assignments](../16-commanders/16.3-assignments.md)) with high Manufacturing skill dramatically increases factory output. A skill-25 Manufacturing governor adds 125% bonus production \hyperlink{ref-C-1}{[C-1]}. Assign your best Manufacturing-skilled commanders to your primary industrial worlds.
 
 ### Do Not Overbuild Shipyards
 
@@ -72,7 +72,7 @@ Check your mineral consumption rates against production rates regularly. If you 
 
 ### Research Lab Concentration vs Distribution
 
-Concentrating many labs on one project gives diminishing returns (each additional lab beyond the first contributes 50% less). Spreading labs across multiple projects advances your technology on a broader front. The optimal strategy depends on your immediate needs.
+Concentrating many labs on one project gives diminishing returns (each additional lab beyond the first contributes 50% less) \hyperlink{ref-C-2}{[C-2]}. Spreading labs across multiple projects advances your technology on a broader front. The optimal strategy depends on your immediate needs.
 
 ### Financial Centers for Wealth
 
@@ -130,7 +130,7 @@ Consider mixing large anti-ship missiles with faster, smaller decoys in the same
 
 ### ECM Is Cost-Effective
 
-A few levels of ECM on your combat ships dramatically reduces incoming beam accuracy. The tonnage cost is small relative to the survivability improvement. Even ECM-1 or ECM-2 forces the enemy to close range for effective fire.
+A few levels of ECM on your combat ships dramatically reduces incoming beam accuracy \hyperlink{ref-C-4}{[C-4]}. The tonnage cost is small relative to the survivability improvement. Even ECM-1 or ECM-2 forces the enemy to close range for effective fire.
 
 ### Repair Ships Are Essential
 
@@ -202,7 +202,7 @@ The following table covers frequently encountered issues and their resolutions. 
 | Retool says no eligible classes | Tonnage mismatch with shipyard capacity | Design class within shipyard max tonnage, or expand shipyard (see [Section 8.1 Design Philosophy](../8-ship-design/8.1-design-philosophy.md)) |
 | Research isn't progressing | No scientist assigned, or labs at 0% allocation | Assign scientist in Research tab, check lab allocation (see [Section 7.1 Technology Tree](../7-research/7.1-technology-tree.md)) |
 | Decimal separator issues | System locale uses comma instead of period | Set Windows decimal separator to "." in Regional Settings |
-| Colony not receiving shipments | Not set as Destination, or beyond 4-system range | Set to Destination status; build jump gates within 4 systems (see [Section 5.1 Establishing Colonies](../5-colonies/5.1-establishing-colonies.md)) |
+| Colony not receiving shipments | Not set as Destination, or beyond civilian shipping range | Set to Destination status; build jump gates to extend range *(unverified: exact range limit varies)* (see [Section 5.1 Establishing Colonies](../5-colonies/5.1-establishing-colonies.md)) |
 | Crew training not improving | No Training command, or ship out of fuel | Assign to Training admin command with fuel reserves (see [Section 14.1 Fuel](../14-logistics/14.1-fuel.md)) |
 
 ## Related Sections
@@ -213,3 +213,15 @@ The following table covers frequently encountered issues and their resolutions. 
 - [Section 12.1 Fire Controls](../12-combat/12.1-fire-controls.md) -- Combat tactics, point defense, and fleet engagement
 - [Section 14.1 Fuel](../14-logistics/14.1-fuel.md) -- Fuel management, freight routes, and supply chains
 - [Section 16.3 Assignments](../16-commanders/16.3-assignments.md) -- Officer assignments and governor selection
+
+---
+
+## References
+
+\hypertarget{ref-C-1}{[C-1]} Governor manufacturing bonus formula: Annual\_BP = Num\_Factories x BP\_per\_Factory x (1 + Governor\_Manufacturing x 0.05). At skill 25: 1 + (25 x 0.05) = 1 + 1.25 = 2.25, which is a 125% bonus. See Appendix A formula \hyperlink{ref-A-6}{[A-6]}.
+
+\hypertarget{ref-C-2}{[C-2]} Research diminishing returns formula: Effective\_Labs = Lab\_1 + Lab\_2 x 0.5 + Lab\_3 x 0.25 + Lab\_4 x 0.125 + ... Each additional lab contributes 50% of the previous lab's effectiveness. See Appendix A Section A.5 Research Speed.
+
+\hypertarget{ref-C-3}{[C-3]} Aurora C# game database (AuroraDB.db v2.7.1) -- DIM\_PlanetaryInstallation: Conventional Industry (ID=38) has ConstructionValue=0.1, MiningProductionValue=0.15, OrdnanceProductionValue=0.05, FinancialProductionValue=0.025. It operates at one-tenth TN factory output and uses conventional (non-TN) minerals.
+
+\hypertarget{ref-C-4}{[C-4]} AuroraWiki, "ECM" -- Each ECM level reduces enemy beam fire control accuracy by 10%. Fire Control Jammer (TechTypeID=194) and Sensor Jammer (TechTypeID=82) provide separate ECM functions. [aurorawiki.pentarch.org](http://aurorawiki.pentarch.org/index.php?title=ECM)
