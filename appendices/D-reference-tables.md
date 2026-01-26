@@ -15,12 +15,14 @@ The eleven Trans-Newtonian minerals are the foundation of all advanced construct
 | Corbomite | Shields, stealth systems, electronic warfare |
 | Tritanium | Missile technologies, ordnance factories |
 | Boronide | Power systems, capacitors, terraforming |
-| Mercassium | Research labs, sensors |
-| Vendarite | Gauss cannons, CIWS |
+| Mercassium | Research labs, infrastructure, crew quarters |
+| Vendarite | Gauss cannons, CIWS, ground forces |
 | Sorium | Fuel (after refining), fuel harvesters |
 | Uridium | Sensors, fire control systems |
 | Corundium | Energy weapons, mining installations |
 | Gallicite | Engines (primary mineral for all engine types) |
+
+\hyperlink{ref-D-2}{[D-2]}
 
 **Planning Notes:**
 
@@ -28,13 +30,13 @@ The eleven Trans-Newtonian minerals are the foundation of all advanced construct
 - Gallicite becomes a bottleneck once you begin building fleets; secure multiple sources.
 - Sorium must be refined into fuel before use; raw Sorium has no direct application.
 - Corundium demand scales with the number of energy weapon platforms in your navy.
-- Mercassium is consumed in bulk by research labs (1,200 per lab); plan ahead for research expansion.
+- Mercassium is consumed in bulk by research labs (1,200 per lab) \hyperlink{ref-D-3}{[D-3]}; plan ahead for research expansion.
 
 ## D.2 Installation Specifications
 
 For installation placement and colony management, see [Section 5.1 Establishing Colonies](../5-colonies/5.1-establishing-colonies.md).
 
-### Key Installation Build Costs
+### Key Installation Build Costs \hyperlink{ref-D-4}{[D-4]}
 
 | Installation | BP Cost | Mineral Cost | Workers Required |
 |-------------|---------|--------------|-----------------|
@@ -54,7 +56,7 @@ For installation placement and colony management, see [Section 5.1 Establishing 
 
 **Understanding Mineral Composition:** The mineral requirements for each installation reflect its functional complexity and purpose. Simple extraction installations like Mines require only Corundium (a hard, durable mineral suited to drilling equipment), while Research Facilities demand both Duranium (structural framework) and Mercassium (precision electronics and sensor components). Military-adjacent installations such as Construction Factories need Neutronium for its advanced structural properties alongside Duranium. Terraforming Installations combine Duranium (structural) with Boronide (atmospheric processing and energy systems). In general, installations requiring multiple minerals represent more sophisticated technology that draws on different material properties -- structural integrity, energy conductance, precision manufacturing, or chemical reactivity -- to fulfill their role.
 
-### Installation Output Summary
+### Installation Output Summary \hyperlink{ref-D-5}{[D-5]}
 
 | Installation | Base Output per Unit |
 |-------------|---------------------|
@@ -65,7 +67,7 @@ For installation placement and colony management, see [Section 5.1 Establishing 
 | Fuel Refinery | 40,000 litres/year |
 | Research Lab | 10 RP/year (base, modified by scientist skill) |
 
-### Terraforming Installation Notes
+### Terraforming Installation Notes \hyperlink{ref-D-6}{[D-6]}
 
 - Mass: 50,000 tons per installation (2x standard installation size)
 - Worker requirement: 125,000 per installation
@@ -78,8 +80,6 @@ For installation placement and colony management, see [Section 5.1 Establishing 
 - Tech progression: 0.00032, 0.0004, 0.00048, 0.0006, 0.00075, 0.00096, 0.0012, 0.0015, 0.0019, 0.0024, 0.003, 0.00375
 
 ## D.3 Beam Weapon Quick Reference
-
-> **Note:** Values in this section reflect Aurora C# v2.6.1. Check the official changelog for updates in later versions.
 
 **When to use this table:** Consult this section when designing combat vessels and deciding which weapon systems to mount. The comparison table helps you evaluate trade-offs between damage output, range, power requirements, and hull space -- critical decisions that define your fleet doctrine.
 
@@ -122,8 +122,6 @@ Focal size (for lasers) and velocity (for railguns) affect maximum range. Higher
 
 ## D.4 Technology Progression Tables
 
-> **Note:** Values in this section reflect Aurora C# v2.6.1. Research costs and progression steps may differ in later versions; check the official changelog.
-
 **When to use these tables:** Reference these progressions when prioritizing research projects. Each table shows the full technology chain, research point costs, and capability improvements at each tier -- essential for planning your research queue and understanding how far you are from key capability thresholds.
 
 **Gameplay significance:** Research prioritization is one of Aurora's most consequential strategic decisions. These tables reveal which technologies offer the largest capability jumps per RP spent, where diminishing returns set in, and what synergies exist between related tech lines (e.g., engine type + fuel efficiency + power modifier). Use them to identify high-value targets for your research focus.
@@ -136,7 +134,7 @@ Focal size (for lasers) and velocity (for railguns) affect maximum range. Higher
 
 Engine power determines ship speed. The engine type sets base power per HS, while the power modifier controls the maximum multiplier available in the engine design window. See [Section 8.1 Design Philosophy](../8-ship-design/8.1-design-philosophy.md) for practical applications.
 
-#### Engine Types (Base Power per HS)
+#### Engine Types (Base Power per HS) \hyperlink{ref-D-7}{[D-7]}
 
 | Tech Level | Engine Type | Power/HS | Research Cost (RP) |
 |-----------|------------|----------|-------------------|
@@ -156,7 +154,7 @@ Engine power determines ship speed. The engine type sets base power per HS, whil
 | 13 | Photonic Drive | 80.0 | 2,500,000 |
 | 14 | Quantum Singularity Drive | 100.0 | 5,000,000 |
 
-#### Maximum Engine Power Modifier
+#### Maximum Engine Power Modifier \hyperlink{ref-D-8}{[D-8]}
 
 This technology unlocks higher power multipliers in the engine designer. Higher multipliers increase power output but also fuel consumption (roughly proportional to the square of the multiplier).
 
@@ -170,7 +168,7 @@ This technology unlocks higher power multipliers in the engine designer. Higher 
 | 5 | x2.5 | 8,000 |
 | 6 | x3 | 15,000 |
 
-#### Minimum Engine Power Modifier
+#### Minimum Engine Power Modifier \hyperlink{ref-D-9}{[D-9]}
 
 This technology unlocks lower power multipliers, allowing more fuel-efficient engines at the cost of reduced power output.
 
@@ -191,6 +189,8 @@ This technology unlocks lower power multipliers, allowing more fuel-efficient en
 **Gameplay impact:** Fuel efficiency is often the difference between reaching distant targets and being stranded mid-voyage. This technology line offers compounding returns: halving consumption doubles range without increasing fuel tank size. For exploration fleets and distant operations, fuel efficiency research often provides more practical benefit than raw engine speed.
 
 Lower fuel consumption rates drastically extend operational range. This is one of the highest-impact research areas for fleet logistics.
+
+\hyperlink{ref-D-10}{[D-10]}
 
 | Tech Level | Consumption (L/EPH) | Research Cost (RP) | Notes |
 |-----------|---------------------|-------------------|-------|
@@ -215,6 +215,8 @@ Lower fuel consumption rates drastically extend operational range. This is one o
 **Gameplay impact:** Armour tech determines survivability in beam combat. Higher-strength armour means your ships can mount the same protection in less hull space -- freeing tonnage for weapons, engines, or additional armour layers. The column depth value also gates how many armour layers you can add, directly affecting how long your ships survive under fire.
 
 Higher armour technology provides more protection per layer of armour, reducing the total hull space needed for equivalent protection. The strength value represents armour hit points per hull space of armour.
+
+\hyperlink{ref-D-11}{[D-11]}
 
 | Tech Level | Armour Type | Strength/HS | Column Depth | Research Cost (RP) |
 |-----------|------------|------------|-------------|-------------------|
@@ -244,7 +246,7 @@ Higher armour technology provides more protection per layer of armour, reducing 
 
 Shields provide regenerating protection that absorbs damage before it reaches armour. Shield strength is per HS of shield generator. Active shields produce an EM signature.
 
-#### Shield Strength
+#### Shield Strength \hyperlink{ref-D-12}{[D-12]}
 
 | Tech Level | Shield Type | Strength/HS | Research Cost (RP) |
 |-----------|------------|------------|-------------------|
@@ -261,7 +263,7 @@ Shields provide regenerating protection that absorbs damage before it reaches ar
 | 11 | Psi Shields | 12.0 | 1,000,000 |
 | 12 | Omega Shields | 15.0 | 2,000,000 |
 
-#### Shield Regeneration Rate
+#### Shield Regeneration Rate \hyperlink{ref-D-13}{[D-13]}
 
 The regeneration rate determines how much shield strength is restored per 5-second combat increment, as a percentage of total shield capacity.
 
@@ -288,7 +290,7 @@ The regeneration rate determines how much shield strength is restored per 5-seco
 
 Sensors are critical for detection and targeting. Passive sensors (thermal and EM) detect emissions without revealing the detecting ship. Active sensors provide precise tracking but broadcast the sensor ship's location.
 
-#### Thermal Sensor Sensitivity
+#### Thermal Sensor Sensitivity \hyperlink{ref-D-14}{[D-14]}
 
 Thermal sensors detect engine heat signatures. Higher sensitivity detects smaller or more distant thermal sources.
 
@@ -307,7 +309,7 @@ Thermal sensors detect engine heat signatures. Higher sensitivity detects smalle
 | 11 | 60 | 1,000,000 |
 | 12 | 75 | 2,000,000 |
 
-#### EM Sensor Sensitivity
+#### EM Sensor Sensitivity \hyperlink{ref-D-15}{[D-15]}
 
 EM sensors detect active emissions (shields, active sensors, etc.). The progression mirrors thermal sensors exactly.
 
@@ -326,7 +328,7 @@ EM sensors detect active emissions (shields, active sensors, etc.). The progress
 | 11 | 60 | 1,000,000 |
 | 12 | 75 | 2,000,000 |
 
-#### Active Gravitational Sensor Strength
+#### Active Gravitational Sensor Strength \hyperlink{ref-D-16}{[D-16]}
 
 Active sensors detect ships based on cross-section (size). Higher strength provides longer detection range but generates a detectable EM signature.
 
@@ -354,7 +356,7 @@ Active sensors detect ships based on cross-section (size). Higher strength provi
 
 Missiles are the primary standoff weapon system. Their effectiveness depends on warhead strength, launcher size, and reload rate technologies.
 
-#### Warhead Strength
+#### Warhead Strength \hyperlink{ref-D-17}{[D-17]}
 
 Warhead strength determines damage per MSP of warhead devoted to the explosive payload. Larger warheads deal proportionally more damage.
 
@@ -373,7 +375,7 @@ Warhead strength determines damage per MSP of warhead devoted to the explosive p
 | 11 | Advanced Antimatter | 24 | 1,000,000 |
 | 12 | Gravatonic | 30 | 2,000,000 |
 
-#### Missile Launcher Reload Rate
+#### Missile Launcher Reload Rate \hyperlink{ref-D-18}{[D-18]}
 
 Higher reload rates reduce the time between missile salvos. The rate value is a multiplier applied to the base reload time.
 
@@ -400,7 +402,7 @@ Higher reload rates reduce the time between missile salvos. The rate value is a 
 
 Power plants provide the energy needed by beam weapons, shields, and active sensors. The power output value represents energy per HS of power plant.
 
-#### Power Plant Types (Power Output per HS)
+#### Power Plant Types (Power Output per HS) \hyperlink{ref-D-19}{[D-19]}
 
 | Tech Level | Power Plant Type | Power/HS | Research Cost (RP) |
 |-----------|-----------------|---------|-------------------|
@@ -420,7 +422,7 @@ Power plants provide the energy needed by beam weapons, shields, and active sens
 | 13 | Vacuum Energy Power Plant | 32.0 | 1,500,000 |
 | 14 | Quantum Singularity Power Plant | 40.0 | 3,000,000 |
 
-#### Power Plant Boost
+#### Power Plant Boost \hyperlink{ref-D-20}{[D-20]}
 
 Boosting a power plant increases output but adds an explosion risk when the component is hit in combat.
 
@@ -443,7 +445,7 @@ Boosting a power plant increases output but adds an explosion risk when the comp
 
 Weapon focal size determines damage, range, and hull space requirements. Larger weapons deal more damage but consume more space and power.
 
-#### Laser Focal Size
+#### Laser Focal Size \hyperlink{ref-D-21}{[D-21]}
 
 | Focal Size | Damage | Research Cost (RP) |
 |-----------|--------|-------------------|
@@ -462,7 +464,7 @@ Weapon focal size determines damage, range, and hull space requirements. Larger 
 
 **Note:** The AdditionalInfo value for lasers represents the base damage before capacitor/wavelength modifiers are applied. Actual damage in the weapon designer will vary based on selected wavelength and capacitor technology.
 
-#### Meson Focal Size
+#### Meson Focal Size \hyperlink{ref-D-22}{[D-22]}
 
 Meson cannons bypass both shields and armour, dealing damage directly to internal components. The accuracy reduction (AR) percentage limits their hit chance.
 
@@ -481,7 +483,7 @@ Meson cannons bypass both shields and armour, dealing damage directly to interna
 | 70cm | 128 | 4% | 1,000,000 |
 | 80cm | 168 | 3.2% | 2,000,000 |
 
-#### Microwave Focal Size
+#### Microwave Focal Size \hyperlink{ref-D-23}{[D-23]}
 
 Microwave weapons (HPMs) deal bonus damage against shields (3x) but only 1 damage against armour/internals. They also have a chance to destroy electronics.
 
@@ -500,7 +502,7 @@ Microwave weapons (HPMs) deal bonus damage against shields (3x) but only 1 damag
 | 70cm | 128 | 1,000,000 |
 | 80cm | 168 | 2,000,000 |
 
-#### Railgun Calibre
+#### Railgun Calibre \hyperlink{ref-D-24}{[D-24]}
 
 Railguns fire multiple shots per volley, each ignoring armour layers equal to its damage value.
 
@@ -517,7 +519,7 @@ Railguns fire multiple shots per volley, each ignoring armour layers equal to it
 | 45cm | 16 | 120,000 |
 | 50cm | 20 | 240,000 |
 
-#### Railgun Launch Velocity
+#### Railgun Launch Velocity \hyperlink{ref-D-25}{[D-25]}
 
 Higher velocity extends railgun range.
 
@@ -533,7 +535,7 @@ Higher velocity extends railgun range.
 | 80,000 | 120,000 |
 | 90,000 | 240,000 |
 
-#### Gauss Cannon Rate of Fire
+#### Gauss Cannon Rate of Fire \hyperlink{ref-D-26}{[D-26]}
 
 Gauss cannons are the primary point defense weapon. Higher rate of fire increases shots per increment.
 
@@ -547,7 +549,7 @@ Gauss cannons are the primary point defense weapon. Higher rate of fire increase
 | 5 | 6 | 135,000 |
 | 6 | 8 | 750,000 |
 
-#### Gauss Cannon Launch Velocity
+#### Gauss Cannon Launch Velocity \hyperlink{ref-D-27}{[D-27]}
 
 Higher velocity extends gauss cannon range for point defense intercepts.
 
@@ -567,6 +569,8 @@ Higher velocity extends gauss cannon range for point defense intercepts.
 **Gameplay impact:** Capacitor recharge rate is a force multiplier for your entire beam weapon arsenal. Unlike calibre upgrades that benefit only one weapon type, capacitor improvements boost the fire rate of all beam weapons. A rate of 4 means your lasers fire four times as fast as baseline, effectively quadrupling sustained damage. This technology often offers the best RP-to-combat-power conversion in the game.
 
 Capacitor technology reduces the time between beam weapon shots. Higher values allow faster sustained fire. This is one of the most impactful beam weapon technologies.
+
+\hyperlink{ref-D-28}{[D-28]}
 
 | Rate | Research Cost (RP) | Rate | Research Cost (RP) |
 |------|-------------------|------|-------------------|
@@ -594,6 +598,8 @@ Capacitor technology reduces the time between beam weapon shots. Higher values a
 
 **Gameplay impact:** Each maintenance facility can support a limited tonnage of ships. When your fleet exceeds available maintenance capacity, ships begin to suffer reliability degradation. Higher tech levels mean each facility supports more tonnage, reducing the number of facilities (and their associated population and mineral costs) needed to keep your fleet operational.
 
+\hyperlink{ref-D-29}{[D-29]}
+
 | Tech Level | Capacity (tons/facility) | Research Cost (RP) |
 |-----------|-------------------------|-------------------|
 | 1 | 1,000 | 1,000 |
@@ -611,6 +617,8 @@ Capacitor technology reduces the time between beam weapon shots. Higher values a
 **When to use:** Consult this table when your ships are spending excessive time in overhaul or when MSP shortages are limiting fleet operations.
 
 **Gameplay impact:** Maintenance Supply Points (MSP) are consumed during overhauls and repairs. If production cannot keep pace with consumption, your ships accumulate maintenance failures. Higher production tech reduces the number of maintenance facilities needed to sustain a given fleet, freeing industrial capacity for other priorities.
+
+\hyperlink{ref-D-30}{[D-30]}
 
 | Tech Level | MSP/Year | Research Cost (RP) |
 |-----------|----------|-------------------|
@@ -630,6 +638,8 @@ Capacitor technology reduces the time between beam weapon shots. Higher values a
 **When to use:** Reference this table when planning industrial expansion or when ship production is bottlenecking your fleet growth.
 
 **Gameplay impact:** Construction rate determines how quickly your factories convert minerals into ships, installations, and components. Each tech level increases output per factory, compounding your industrial capacity without requiring more factories or workers. This is a high-leverage research investment for empires focused on rapid expansion or fleet buildup.
+
+\hyperlink{ref-D-31}{[D-31]}
 
 | Tech Level | BP/Factory/Year | Research Cost (RP) |
 |-----------|----------------|-------------------|
@@ -651,6 +661,8 @@ Capacitor technology reduces the time between beam weapon shots. Higher values a
 **When to use:** Consult this table when mineral stockpiles are limiting your construction or when you're deciding whether to build more mines versus researching better mining technology.
 
 **Gameplay impact:** Mining production directly controls your mineral income. Higher tech means each mine extracts more from the same deposit, extending the life of your mineral reserves and reducing the number of mines (and mining infrastructure) needed to sustain your economy. This compounds especially well with high-accessibility deposits.
+
+\hyperlink{ref-D-32}{[D-32]}
 
 | Tech Level | Tons/Mine/Year | Research Cost (RP) |
 |-----------|---------------|-------------------|
@@ -674,6 +686,8 @@ Output is further multiplied by the deposit's accessibility value.
 **When to use:** Reference this table when fuel production is not keeping pace with fleet consumption or when you're planning fuel logistics for distant operations.
 
 **Gameplay impact:** Fuel is the lifeblood of space operations -- without it, ships cannot move. Higher refinery output means fewer refineries needed to sustain your fleet, reducing the worker and Boronide investment in fuel infrastructure. For empires with active exploration or military campaigns, fuel production tech often pays for itself quickly.
+
+\hyperlink{ref-D-33}{[D-33]}
 
 | Tech Level | Output (litres/year/refinery) | Research Cost (RP) |
 |-----------|------------------------------|-------------------|
@@ -702,9 +716,11 @@ This section condenses the most frequently-referenced formulas from [Appendix A:
 
 | Sensor Type | Formula | Key Variable |
 |------------|---------|--------------|
-| Thermal (Passive) | sqrt(Sensitivity x Target_Thermal) x 10,000 km | Target engine power |
-| EM (Passive) | sqrt(Sensitivity x Target_EM) x 10,000 km | Target active emissions |
-| Active | sqrt(Strength x Cross_Section) x 10,000 km | Target size vs resolution |
+| Thermal (Passive) | sqrt(Sensitivity x Target\_Thermal) x 250,000 km | Target engine power |
+| EM (Passive) | sqrt(Sensitivity x Target\_EM) x 250,000 km | Target active emissions |
+| Active | sqrt(Strength x Cross\_Section) x 250,000 km | Target size vs resolution |
+
+\hyperlink{ref-D-1}{[D-1]}
 
 **Active sensor effective range against off-resolution targets:**
 ```
@@ -717,6 +733,8 @@ Effective_Range = Base_Range x sqrt(Target_HS / Sensor_Resolution)
 Magazine_Size (MSP) = Component_HS x 20 MSP per HS
 Missiles_Stored = Magazine_MSP / Missile_MSP_Size
 ```
+
+\hyperlink{ref-D-34}{[D-34]}
 
 Each missile's MSP size is determined in the Missile Design window. Magazines are vulnerable to explosion if hit while loaded; consider:
 
@@ -749,7 +767,7 @@ Shields must be active to regenerate. Active shields generate EM signature detec
 | Range | Fuel_Capacity / Fuel_per_Hour x 3,600 x Speed |
 | Boost Penalty | Approximately Boost^2 (1.5x = 2.25, 2x = 4, 3x = 9) |
 
-**Practical design tip:** A 1.25x boost provides 25% more power with only ~56% more fuel consumption -- often the best efficiency trade-off for military vessels.
+**Practical design tip:** A 1.25x boost provides 25% more power with a moderate fuel consumption increase -- often the best efficiency trade-off for military vessels. The exact fuel penalty depends on the boost formula: (4\^Boost\_Modifier)/4, where the x1.25 penalty factor is approximately 1.41x the x1.0 baseline.
 
 ### Quick Conversion Reference
 
@@ -761,6 +779,8 @@ Shields must be active to regenerate. Active shields generate EM signature detec
 | Speed 1 km/s | 1 EP per 1000 HS (or 0.02 EP per ton) |
 | Magazine 1 HS | 20 MSP storage capacity |
 
+\hyperlink{ref-D-35}{[D-35]}
+
 ## Related Sections
 
 - [Section 6.1 Minerals](../6-economy-and-industry/6.1-minerals.md) -- Mineral extraction, production chains, and installation management
@@ -768,3 +788,77 @@ Shields must be active to regenerate. Active shields generate EM signature detec
 - [Section 8.1 Design Philosophy](../8-ship-design/8.1-design-philosophy.md) -- Using these tables for ship component selection and optimization
 - [Section 12.1 Fire Controls](../12-combat/12.1-fire-controls.md) -- Weapon damage, armor penetration, and shield mechanics in practice
 - [Appendix A: Formulas](../appendices/A-formulas.md) -- Full mathematical derivations behind these reference values
+
+---
+
+## References
+
+\hypertarget{ref-D-1}{[D-1]} Aurora Wiki, "Thermal Sensor" -- C# passive sensor formula: range = sqrt(Sensitivity x Signature) x 250,000 km. Corrected from erroneous 10,000 km multiplier (which was the VB6 formula). [aurorawiki2.pentarch.org](https://aurorawiki2.pentarch.org/index.php?title=Thermal_Sensor)
+
+\hypertarget{ref-D-2}{[D-2]} Aurora C# game database (AuroraDB.db v2.7.1) -- DIM\_PlanetaryInstallation mineral columns (Duranium through Gallicite) cross-referenced with FCT\_ShipDesignComponents mineral requirements for ship components.
+
+\hypertarget{ref-D-3}{[D-3]} Aurora C# game database (AuroraDB.db v2.7.1) -- DIM\_PlanetaryInstallation: Research Facility requires Mercassium=1200.0 and Duranium=1200.0.
+
+\hypertarget{ref-D-4}{[D-4]} Aurora C# game database (AuroraDB.db v2.7.1) -- DIM\_PlanetaryInstallation table: Cost, mineral columns (Duranium through Gallicite), and Workers columns for all 13 installation types verified.
+
+\hypertarget{ref-D-5}{[D-5]} Aurora C# game database (AuroraDB.db v2.7.1) -- DIM\_PlanetaryInstallation: ConstructionValue, MiningProductionValue, RefineryProductionValue, and ResearchValue columns confirm base output values.
+
+\hypertarget{ref-D-6}{[D-6]} Aurora C# game database (AuroraDB.db v2.7.1) -- DIM\_PlanetaryInstallation: Terraforming Installation CargoPoints=50000 (mass in tons), Workers=0.125 (125,000), TerraformValue=1.0.
+
+\hypertarget{ref-D-7}{[D-7]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=40 (Engine Technology): 15 engine types from Conventional (1.0/HS, 500 RP) through Quantum Singularity (100.0/HS, 5,000,000 RP). All names, power/HS, and RP costs verified.
+
+\hypertarget{ref-D-8}{[D-8]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=130 (Max Engine Power Modifier): 7 levels from x1 (1 RP) through x3 (15,000 RP). All values verified.
+
+\hypertarget{ref-D-9}{[D-9]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=198 (Min Engine Power Modifier): 7 levels from x0.5 (2 RP) through x0.1 (30,000 RP). All values verified.
+
+\hypertarget{ref-D-10}{[D-10]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=65 (Fuel Consumption): 13 levels from 1.0 L/EPH (1 RP) through 0.1 L/EPH (2,000,000 RP). All values verified.
+
+\hypertarget{ref-D-11}{[D-11]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=84 (Armour): 16 types from Structural Shell (0/HS) through Collapsium (45/HS, depth 12, 2,500,000 RP). AdditionalInfo=strength, AdditionalInfo2=column depth.
+
+\hypertarget{ref-D-12}{[D-12]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=16 (Shield Type): 12 types from Alpha (1.0/HS, 1,000 RP) through Omega (15.0/HS, 2,000,000 RP). All values verified.
+
+\hypertarget{ref-D-13}{[D-13]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=14 (Shield Regeneration Rate): 12 levels from 1.0 (1,000 RP) through 15.0 (2,000,000 RP). All values verified.
+
+\hypertarget{ref-D-14}{[D-14]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=19 (Thermal Sensor Sensitivity): 12 levels from 5 (1,000 RP) through 75 (2,000,000 RP). All values verified.
+
+\hypertarget{ref-D-15}{[D-15]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=125 (EM Sensor Sensitivity): 12 levels identical to thermal sensors. All values verified.
+
+\hypertarget{ref-D-16}{[D-16]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=20 (Active Sensor Strength): 13 levels from Conventional 2 (500 RP) through 180 (2,000,000 RP). All values verified.
+
+\hypertarget{ref-D-17}{[D-17]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=12 (Missile Warhead Strength): 12 types from Gun-Type Fission 2/MSP (1,000 RP) through Gravatonic 30/MSP (2,000,000 RP). All values verified.
+
+\hypertarget{ref-D-18}{[D-18]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=13 (Missile Launcher Reload Rate): 12 levels from Rate 1 (1 RP) through Rate 12 (2,000,000 RP). All values verified.
+
+\hypertarget{ref-D-19}{[D-19]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=41 (Power Plant Technology): 15 types from Conventional Reactor (0.5/HS, 150 RP) through Quantum Singularity (40.0/HS, 3,000,000 RP). All values verified.
+
+\hypertarget{ref-D-20}{[D-20]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=42 (Power vs Efficiency): 8 levels. AdditionalInfo=boost multiplier, AdditionalInfo2=explosion percentage. All values verified.
+
+\hypertarget{ref-D-21}{[D-21]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=15 (Laser Focal Size): 12 sizes from 10cm (1,000 RP) through 80cm (2,000,000 RP). Damage values derived from focal size power scaling.
+
+\hypertarget{ref-D-22}{[D-22]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=72 (Meson Focal Size): 12 sizes. AdditionalInfo=power requirement, AdditionalInfo2=focal size, AdditionalInfo4=accuracy reduction fraction. All values verified.
+
+\hypertarget{ref-D-23}{[D-23]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=136 (Microwave Focal Size): 12 sizes from 10cm (1,000 RP) through 80cm (2,000,000 RP). Power requirements match laser focal sizes.
+
+\hypertarget{ref-D-24}{[D-24]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=76 (Railgun Type): 10 calibres from 10cm/1 shot (1,000 RP) through 50cm/20 shots (240,000 RP). All values verified.
+
+\hypertarget{ref-D-25}{[D-25]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=77 (Railgun Velocity): 9 levels from 10,000 km/s (1,000 RP) through 90,000 km/s (240,000 RP). All values verified.
+
+\hypertarget{ref-D-26}{[D-26]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=141 (Gauss Cannon Rate of Fire): 6 levels from ROF 2 (1,500 RP) through ROF 8 (750,000 RP). Base ROF 1 is starting tech (no research cost in DB).
+
+\hypertarget{ref-D-27}{[D-27]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=144 (Gauss Cannon Velocity): 6 levels from 10,000 km/s (500 RP) through 60,000 km/s (135,000 RP). All values verified.
+
+\hypertarget{ref-D-28}{[D-28]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=1 (Capacitor Recharge Rate): 29 levels from Rate 1 (1,000 RP) through Rate 25 (2,000,000 RP). All values verified.
+
+\hypertarget{ref-D-29}{[D-29]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=210 (Maintenance Capacity Per Facility): 9 levels from 1,000 tons (1,000 RP) through 6,250 tons (250,000 RP). All values verified.
+
+\hypertarget{ref-D-30}{[D-30]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=209 (MSP Production Rate): 10 levels from 20 MSP/year (3,000 RP) through 100 MSP/year (1,200,000 RP). All values verified.
+
+\hypertarget{ref-D-31}{[D-31]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=25 (Improved Construction Rate): 11 levels from 12 BP (3,000 RP) through 70 BP (2,500,000 RP). Duplicates Appendix A table; see \hyperlink{ref-A-6}{[A-6]}.
+
+\hypertarget{ref-D-32}{[D-32]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=26 (Improved Mining Production): 11 levels from 12 tons (3,000 RP) through 70 tons (2,500,000 RP). Duplicates Appendix A table; see \hyperlink{ref-A-7}{[A-7]}.
+
+\hypertarget{ref-D-33}{[D-33]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=32 (Improved Fuel Production): 11 levels from 48,000 litres (3,000 RP) through 280,000 litres (2,500,000 RP). Duplicates Appendix A table; see \hyperlink{ref-A-8}{[A-8]}.
+
+\hypertarget{ref-D-34}{[D-34]} Aurora C# game database (AuroraDB.db v2.7.1) -- Magazine capacity of 20 MSP per HS is a core game constant confirmed by ship designer component specifications.
+
+\hypertarget{ref-D-35}{[D-35]} Aurora C# game database (AuroraDB.db v2.7.1) -- Core unit conversions: 1 HS = 50 tons; 1 MSP (missile) = 0.25 HS = 12.5 tons; Speed = EP x 1000 / HS.
