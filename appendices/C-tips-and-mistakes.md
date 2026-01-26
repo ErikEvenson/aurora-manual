@@ -10,7 +10,7 @@ One of the most common mistakes is building research labs but forgetting to assi
 
 ### Not Building Enough Fuel Infrastructure
 
-New players often run out of fuel unexpectedly. Fuel is consumed constantly by moving ships (see [Section 14.1 Fuel](../14-logistics/14.1-fuel.md)), and a single fleet action can drain your reserves. Build fuel refineries early, establish Sorium mining on accessible deposits, and consider fuel harvesters at gas giants. A good rule of thumb: have at least twice the fuel production you think you need.
+New players often run out of fuel unexpectedly. Fuel is consumed constantly by moving ships (see [Section 14.1 Fuel](../14-logistics/14.1-fuel.md)), and a single fleet action can drain your reserves. Build fuel refineries early, establish Sorium mining on accessible deposits, and consider fuel harvesters at gas giants. A good rule of thumb: have at least twice the fuel production you think you need. *(Community gameplay advice)*
 
 ### Designing Ships Without Bridges
 
@@ -26,7 +26,7 @@ Geological and gravitational survey vessels (see [Section 17.1 Geological Survey
 
 ### Not Building Enough Mines
 
-New players often focus entirely on construction factories and neglect mining. Without minerals, factories have nothing to build. A healthy ratio is approximately 2-3 mines for every construction factory, depending on local mineral accessibility.
+New players often focus entirely on construction factories and neglect mining. Without minerals, factories have nothing to build. A healthy ratio is approximately 2-3 mines for every construction factory, depending on local mineral accessibility. *(Community gameplay advice)*
 
 ### Forgetting Jump Drives
 
@@ -202,7 +202,7 @@ The following table covers frequently encountered issues and their resolutions. 
 | Retool says no eligible classes | Tonnage mismatch with shipyard capacity | Design class within shipyard max tonnage, or expand shipyard (see [Section 8.1 Design Philosophy](../8-ship-design/8.1-design-philosophy.md)) |
 | Research isn't progressing | No scientist assigned, or labs at 0% allocation | Assign scientist in Research tab, check lab allocation (see [Section 7.1 Technology Tree](../7-research/7.1-technology-tree.md)) |
 | Decimal separator issues | System locale uses comma instead of period | Set Windows decimal separator to "." in Regional Settings |
-| Colony not receiving shipments | Not set as Destination, or beyond civilian shipping range | Set to Destination status; build jump gates to extend range *(unverified: exact range limit varies)* (see [Section 5.1 Establishing Colonies](../5-colonies/5.1-establishing-colonies.md)) |
+| Colony not receiving shipments | Not set as Destination, or beyond civilian shipping range | Set to Destination status; build jump gates to extend range \hyperlink{ref-C-5}{[C-5]} (see [Section 5.1 Establishing Colonies](../5-colonies/5.1-establishing-colonies.md)) |
 | Crew training not improving | No Training command, or ship out of fuel | Assign to Training admin command with fuel reserves (see [Section 14.1 Fuel](../14-logistics/14.1-fuel.md)) |
 
 ## Related Sections
@@ -225,3 +225,5 @@ The following table covers frequently encountered issues and their resolutions. 
 \hypertarget{ref-C-3}{[C-3]} Aurora C# game database (AuroraDB.db v2.7.1) -- DIM\_PlanetaryInstallation: Conventional Industry (ID=38) has ConstructionValue=0.1, MiningProductionValue=0.15, OrdnanceProductionValue=0.05, FinancialProductionValue=0.025. It operates at one-tenth TN factory output and uses conventional (non-TN) minerals.
 
 \hypertarget{ref-C-4}{[C-4]} AuroraWiki, "ECM" -- Each ECM level reduces enemy beam fire control accuracy by 10%. Fire Control Jammer (TechTypeID=194) and Sensor Jammer (TechTypeID=82) provide separate ECM functions. [aurorawiki.pentarch.org](http://aurorawiki.pentarch.org/index.php?title=ECM)
+
+\hypertarget{ref-C-5}{[C-5]} Civilian shipping range limit: Section 6.5 Civilian Economy documents a four-system maximum range for civilian deliveries, sourced from developer changelog. This limit is not directly encoded in AuroraDB.db and remains changelog-sourced. Build jump gates to keep colonies within four-system reach of population centres.
