@@ -36,7 +36,9 @@ The eleven Trans-Newtonian minerals are the foundation of all advanced construct
 
 For installation placement and colony management, see [Section 5.1 Establishing Colonies](../5-colonies/5.1-establishing-colonies.md).
 
-### Key Installation Build Costs \hyperlink{ref-D-4}{[D-4]}
+### Key Installation Build Costs
+
+\hyperlink{ref-D-4}{[D-4]}
 
 | Installation | BP Cost | Mineral Cost | Workers Required |
 |-------------|---------|--------------|-----------------|
@@ -56,7 +58,9 @@ For installation placement and colony management, see [Section 5.1 Establishing 
 
 **Understanding Mineral Composition:** The mineral requirements for each installation reflect its functional complexity and purpose. Simple extraction installations like Mines require only Corundium (a hard, durable mineral suited to drilling equipment), while Research Facilities demand both Duranium (structural framework) and Mercassium (precision electronics and sensor components). Military-adjacent installations such as Construction Factories need Neutronium for its advanced structural properties alongside Duranium. Terraforming Installations combine Duranium (structural) with Boronide (atmospheric processing and energy systems). In general, installations requiring multiple minerals represent more sophisticated technology that draws on different material properties -- structural integrity, energy conductance, precision manufacturing, or chemical reactivity -- to fulfill their role.
 
-### Installation Output Summary \hyperlink{ref-D-5}{[D-5]}
+### Installation Output Summary
+
+\hyperlink{ref-D-5}{[D-5]}
 
 | Installation | Base Output per Unit |
 |-------------|---------------------|
@@ -67,7 +71,9 @@ For installation placement and colony management, see [Section 5.1 Establishing 
 | Fuel Refinery | 40,000 litres/year |
 | Research Lab | 10 RP/year (base, modified by scientist skill) |
 
-### Terraforming Installation Notes \hyperlink{ref-D-6}{[D-6]}
+### Terraforming Installation Notes
+
+\hyperlink{ref-D-6}{[D-6]}
 
 - Mass: 50,000 tons per installation (2x standard installation size)
 - Worker requirement: 125,000 per installation
@@ -134,7 +140,9 @@ Focal size (for lasers) and velocity (for railguns) affect maximum range. Higher
 
 Engine power determines ship speed. The engine type sets base power per HS, while the power modifier controls the maximum multiplier available in the engine design window. See [Section 8.1 Design Philosophy](../8-ship-design/8.1-design-philosophy.md) for practical applications.
 
-#### Engine Types (Base Power per HS) \hyperlink{ref-D-7}{[D-7]}
+#### Engine Types (Base Power per HS)
+
+\hyperlink{ref-D-7}{[D-7]}
 
 | Tech Level | Engine Type | Power/HS | Research Cost (RP) |
 |-----------|------------|----------|-------------------|
@@ -154,7 +162,9 @@ Engine power determines ship speed. The engine type sets base power per HS, whil
 | 13 | Photonic Drive | 80.0 | 2,500,000 |
 | 14 | Quantum Singularity Drive | 100.0 | 5,000,000 |
 
-#### Maximum Engine Power Modifier \hyperlink{ref-D-8}{[D-8]}
+#### Maximum Engine Power Modifier
+
+\hyperlink{ref-D-8}{[D-8]}
 
 This technology unlocks higher power multipliers in the engine designer. Higher multipliers increase power output but also fuel consumption (roughly proportional to the square of the multiplier).
 
@@ -168,7 +178,9 @@ This technology unlocks higher power multipliers in the engine designer. Higher 
 | 5 | x2.5 | 8,000 |
 | 6 | x3 | 15,000 |
 
-#### Minimum Engine Power Modifier \hyperlink{ref-D-9}{[D-9]}
+#### Minimum Engine Power Modifier
+
+\hyperlink{ref-D-9}{[D-9]}
 
 This technology unlocks lower power multipliers, allowing more fuel-efficient engines at the cost of reduced power output.
 
@@ -246,7 +258,9 @@ Higher armour technology provides more protection per layer of armour, reducing 
 
 Shields provide regenerating protection that absorbs damage before it reaches armour. Shield strength is per HS of shield generator. Active shields produce an EM signature.
 
-#### Shield Strength \hyperlink{ref-D-12}{[D-12]}
+#### Shield Strength
+
+\hyperlink{ref-D-12}{[D-12]}
 
 | Tech Level | Shield Type | Strength/HS | Research Cost (RP) |
 |-----------|------------|------------|-------------------|
@@ -263,7 +277,9 @@ Shields provide regenerating protection that absorbs damage before it reaches ar
 | 11 | Psi Shields | 12.0 | 1,000,000 |
 | 12 | Omega Shields | 15.0 | 2,000,000 |
 
-#### Shield Regeneration Rate \hyperlink{ref-D-13}{[D-13]}
+#### Shield Regeneration Rate
+
+\hyperlink{ref-D-13}{[D-13]}
 
 The regeneration rate determines how much shield strength is restored per 5-second combat increment, as a percentage of total shield capacity.
 
@@ -290,7 +306,9 @@ The regeneration rate determines how much shield strength is restored per 5-seco
 
 Sensors are critical for detection and targeting. Passive sensors (thermal and EM) detect emissions without revealing the detecting ship. Active sensors provide precise tracking but broadcast the sensor ship's location.
 
-#### Thermal Sensor Sensitivity \hyperlink{ref-D-14}{[D-14]}
+#### Thermal Sensor Sensitivity
+
+\hyperlink{ref-D-14}{[D-14]}
 
 Thermal sensors detect engine heat signatures. Higher sensitivity detects smaller or more distant thermal sources.
 
@@ -309,7 +327,9 @@ Thermal sensors detect engine heat signatures. Higher sensitivity detects smalle
 | 11 | 60 | 1,000,000 |
 | 12 | 75 | 2,000,000 |
 
-#### EM Sensor Sensitivity \hyperlink{ref-D-15}{[D-15]}
+#### EM Sensor Sensitivity
+
+\hyperlink{ref-D-15}{[D-15]}
 
 EM sensors detect active emissions (shields, active sensors, etc.). The progression mirrors thermal sensors exactly.
 
@@ -328,7 +348,9 @@ EM sensors detect active emissions (shields, active sensors, etc.). The progress
 | 11 | 60 | 1,000,000 |
 | 12 | 75 | 2,000,000 |
 
-#### Active Gravitational Sensor Strength \hyperlink{ref-D-16}{[D-16]}
+#### Active Gravitational Sensor Strength
+
+\hyperlink{ref-D-16}{[D-16]}
 
 Active sensors detect ships based on cross-section (size). Higher strength provides longer detection range but generates a detectable EM signature.
 
@@ -356,7 +378,9 @@ Active sensors detect ships based on cross-section (size). Higher strength provi
 
 Missiles are the primary standoff weapon system. Their effectiveness depends on warhead strength, launcher size, and reload rate technologies.
 
-#### Warhead Strength \hyperlink{ref-D-17}{[D-17]}
+#### Warhead Strength
+
+\hyperlink{ref-D-17}{[D-17]}
 
 Warhead strength determines damage per MSP of warhead devoted to the explosive payload. Larger warheads deal proportionally more damage.
 
@@ -375,7 +399,9 @@ Warhead strength determines damage per MSP of warhead devoted to the explosive p
 | 11 | Advanced Antimatter | 24 | 1,000,000 |
 | 12 | Gravatonic | 30 | 2,000,000 |
 
-#### Missile Launcher Reload Rate \hyperlink{ref-D-18}{[D-18]}
+#### Missile Launcher Reload Rate
+
+\hyperlink{ref-D-18}{[D-18]}
 
 Higher reload rates reduce the time between missile salvos. The rate value is a multiplier applied to the base reload time.
 
@@ -402,7 +428,9 @@ Higher reload rates reduce the time between missile salvos. The rate value is a 
 
 Power plants provide the energy needed by beam weapons, shields, and active sensors. The power output value represents energy per HS of power plant.
 
-#### Power Plant Types (Power Output per HS) \hyperlink{ref-D-19}{[D-19]}
+#### Power Plant Types (Power Output per HS)
+
+\hyperlink{ref-D-19}{[D-19]}
 
 | Tech Level | Power Plant Type | Power/HS | Research Cost (RP) |
 |-----------|-----------------|---------|-------------------|
@@ -422,7 +450,9 @@ Power plants provide the energy needed by beam weapons, shields, and active sens
 | 13 | Vacuum Energy Power Plant | 32.0 | 1,500,000 |
 | 14 | Quantum Singularity Power Plant | 40.0 | 3,000,000 |
 
-#### Power Plant Boost \hyperlink{ref-D-20}{[D-20]}
+#### Power Plant Boost
+
+\hyperlink{ref-D-20}{[D-20]}
 
 Boosting a power plant increases output but adds an explosion risk when the component is hit in combat.
 
@@ -445,7 +475,9 @@ Boosting a power plant increases output but adds an explosion risk when the comp
 
 Weapon focal size determines damage, range, and hull space requirements. Larger weapons deal more damage but consume more space and power.
 
-#### Laser Focal Size \hyperlink{ref-D-21}{[D-21]}
+#### Laser Focal Size
+
+\hyperlink{ref-D-21}{[D-21]}
 
 | Focal Size | Damage | Research Cost (RP) |
 |-----------|--------|-------------------|
@@ -464,7 +496,9 @@ Weapon focal size determines damage, range, and hull space requirements. Larger 
 
 **Note:** The AdditionalInfo value for lasers represents the base damage before capacitor/wavelength modifiers are applied. Actual damage in the weapon designer will vary based on selected wavelength and capacitor technology.
 
-#### Meson Focal Size \hyperlink{ref-D-22}{[D-22]}
+#### Meson Focal Size
+
+\hyperlink{ref-D-22}{[D-22]}
 
 Meson cannons bypass both shields and armour, dealing damage directly to internal components. The accuracy reduction (AR) percentage limits their hit chance.
 
@@ -483,7 +517,9 @@ Meson cannons bypass both shields and armour, dealing damage directly to interna
 | 70cm | 128 | 4% | 1,000,000 |
 | 80cm | 168 | 3.2% | 2,000,000 |
 
-#### Microwave Focal Size \hyperlink{ref-D-23}{[D-23]}
+#### Microwave Focal Size
+
+\hyperlink{ref-D-23}{[D-23]}
 
 Microwave weapons (HPMs) deal bonus damage against shields (3x) but only 1 damage against armour/internals. They also have a chance to destroy electronics.
 
@@ -502,7 +538,9 @@ Microwave weapons (HPMs) deal bonus damage against shields (3x) but only 1 damag
 | 70cm | 128 | 1,000,000 |
 | 80cm | 168 | 2,000,000 |
 
-#### Railgun Calibre \hyperlink{ref-D-24}{[D-24]}
+#### Railgun Calibre
+
+\hyperlink{ref-D-24}{[D-24]}
 
 Railguns fire multiple shots per volley, each ignoring armour layers equal to its damage value.
 
@@ -519,7 +557,9 @@ Railguns fire multiple shots per volley, each ignoring armour layers equal to it
 | 45cm | 16 | 120,000 |
 | 50cm | 20 | 240,000 |
 
-#### Railgun Launch Velocity \hyperlink{ref-D-25}{[D-25]}
+#### Railgun Launch Velocity
+
+\hyperlink{ref-D-25}{[D-25]}
 
 Higher velocity extends railgun range.
 
@@ -535,7 +575,9 @@ Higher velocity extends railgun range.
 | 80,000 | 120,000 |
 | 90,000 | 240,000 |
 
-#### Gauss Cannon Rate of Fire \hyperlink{ref-D-26}{[D-26]}
+#### Gauss Cannon Rate of Fire
+
+\hyperlink{ref-D-26}{[D-26]}
 
 Gauss cannons are the primary point defense weapon. Higher rate of fire increases shots per increment.
 
@@ -549,7 +591,9 @@ Gauss cannons are the primary point defense weapon. Higher rate of fire increase
 | 5 | 6 | 135,000 |
 | 6 | 8 | 750,000 |
 
-#### Gauss Cannon Launch Velocity \hyperlink{ref-D-27}{[D-27]}
+#### Gauss Cannon Launch Velocity
+
+\hyperlink{ref-D-27}{[D-27]}
 
 Higher velocity extends gauss cannon range for point defense intercepts.
 
