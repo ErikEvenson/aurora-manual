@@ -69,7 +69,7 @@ For installation placement and colony management, see [Section 5.1 Establishing 
 | Construction Factory | 10 BP/year |
 | Ordnance Factory | 10 BP/year (missiles only) |
 | Fuel Refinery | 40,000 litres/year |
-| Research Lab | 10 RP/year (base, modified by scientist skill) |
+| Research Lab | 200 RP/year (base racial rate, modified by scientist bonus and Research Rate tech) |
 
 ### Terraforming Installation Notes
 
@@ -845,7 +845,7 @@ Shields must be active to regenerate. Active shields generate EM signature detec
 
 \hypertarget{ref-D-4}{[D-4]} Aurora C# game database (AuroraDB.db v2.7.1) -- DIM\_PlanetaryInstallation table: Cost, mineral columns (Duranium through Gallicite), and Workers columns for all 13 installation types verified.
 
-\hypertarget{ref-D-5}{[D-5]} Aurora C# game database (AuroraDB.db v2.7.1) -- DIM\_PlanetaryInstallation: ConstructionValue, MiningProductionValue, RefineryProductionValue, and ResearchValue columns confirm base output values.
+\hypertarget{ref-D-5}{[D-5]} Aurora C# game database (AuroraDB.db v2.7.1) -- DIM\_PlanetaryInstallation: ConstructionValue, MiningProductionValue, RefineryProductionValue columns confirm base output values. ResearchValue=1.0 is a multiplier on the racial research rate (FCT\_Race.Research=200), yielding 200 RP/year per lab at base. First researchable upgrade: Research Rate 240 RP (TechTypeID=29, 5,000 RP cost).
 
 \hypertarget{ref-D-6}{[D-6]} Aurora C# game database (AuroraDB.db v2.7.1) -- DIM\_PlanetaryInstallation: Terraforming Installation CargoPoints=50000 (mass in tons), Workers=0.125 (125,000), TerraformValue=1.0.
 
