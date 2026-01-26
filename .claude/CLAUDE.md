@@ -32,6 +32,35 @@ This is a comprehensive reference manual for Aurora C# (space strategy game by S
 - **Callouts:** Use `> **Tip:**`, `> **Note:**`, `> **Warning:**` blockquote format
 - **Tables:** Ensure blank lines before and after tables for pandoc compatibility
 
+## Inline References (MANDATORY for all new content)
+
+Every factual claim (numeric values, game mechanics, formulas, component specs) MUST include an inline reference verified against an authoritative source.
+
+**Inline citation format:** `\hyperlink{ref-X.Y-N}{[N]}` where X.Y is the section number and N is sequential within that section.
+
+**Reference definition format** (in a `## References` section at the bottom of each file):
+```
+\hypertarget{ref-X.Y-N}{[N]}. Aurora C# game database (AuroraDB.db v2.7.1) — [table_name] [field/details verified]
+```
+
+**Rules:**
+- Use section-specific prefixes (`ref-8.3-`, `ref-14.1-`) to avoid PDF link ID collisions
+- NEVER place `\hyperlink` references inside markdown headings — this causes TeX stack overflow. Place them on the line after the heading instead.
+- Verify claims against `~/Downloads/Aurora271Full/AuroraDB.db` (SQLite) first; fall back to Aurora Forums / AuroraWiki
+- Claims that cannot be verified against any authoritative source must be marked with `*(unverified)*` inline
+- For forum-sourced references: `\hypertarget{ref-X.Y-N}{[N]}. Aurora Forums — [topic URL] — [description]`
+- Keep reference numbers sequential within each file
+- Each markdown file maintains its own References section
+
+**Example:**
+```markdown
+Fuel Refineries cost 120 BP and require 120 Boronide per installation \hyperlink{ref-14.1-2}{[2]}
+
+## References
+
+\hypertarget{ref-14.1-2}{[2]}. Aurora C# game database (AuroraDB.db v2.7.1) — DIM_PlanetaryInstallation PlanetaryInstallationID=3 (Fuel Refinery). Cost=120 BP, Boronide=120.
+```
+
 ## Build System
 
 - **Build command:** `bash build-pdf.sh`
@@ -39,7 +68,7 @@ This is a comprehensive reference manual for Aurora C# (space strategy game by S
 - **File list:** All source files must be listed in `build-pdf.sh` FILES array
 - **Validation:** Build script validates all listed files exist before compilation
 - **Releases:** PDFs are .gitignored; attach to GitHub releases via `gh release create`
-- **Release versioning:** `vYYYY.MM.DD.##` — must match the PDF filename (e.g., PDF `aurora-manual-2026.01.25.21.pdf` → release `v2026.01.25.21`)
+- **Release versioning:** `vYYYY.MM.DD.##` where `##` is zero-padded (01, 02, etc.) and increments per release within a day (not per build)
 
 ## Game Database
 
