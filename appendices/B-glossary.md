@@ -26,7 +26,7 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | Colony Cost | See CC |
 | Commander | Officer leading fleet/colony/sector; grants skill bonuses |
 | Commercial Engine | Larger, more fuel-efficient engine for civilian ships |
-| Conventional Industry | Pre-TN industry; 1/10th TN factory output |
+| Conventional Industry | Pre-TN industry; 1/10th TN factory output \hyperlink{ref-B-5}{[B-5]} |
 | Conventional Start | Start without TN tech; must research it first |
 | Crew Grade | Crew training level; affects performance and maintenance |
 | DAC | Diplomat Assigned to Contact; affects NPR relations |
@@ -48,7 +48,7 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | Freighter | Cargo transport ship; typically uses commercial engines |
 | Fuel Harvester | Collects Sorium from gas giant atmospheres |
 | Fuel Refinery | Converts Sorium into usable ship fuel |
-| Gauss Cannon | 1-damage rapid-fire weapon; ideal for point defense |
+| Gauss Cannon | 1-damage rapid-fire weapon; ideal for point defense \hyperlink{ref-B-6}{[B-6]} |
 | Geosurvey | Scanning a body to discover mineral deposits |
 | Governor | Colony commander; provides production/growth bonuses |
 | Grav Survey | Exploring a system to discover jump points |
@@ -67,13 +67,13 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | Maint. Clock | Time since overhaul; overdue = increasing failures |
 | Maint. Facility | Orbital installation that overhauls ships |
 | Mass Driver | Installation for launching minerals between system bodies |
-| Meson Cannon | Bypasses shields and armor; short range, low accuracy |
+| Meson Cannon | Bypasses shields and armor; short range, low accuracy \hyperlink{ref-B-7}{[B-7]} |
 | MFC | Missile Fire Control; guides missiles, sets range/ECM |
 | Military Engine | Compact, powerful engine; less fuel-efficient than commercial |
 | Mineral | One of 11 TN elements (Dur, Neu, Cor, Tri, Bor, Mer, Ven, Sor, Uri, Coru, Gal) |
 | Missile Launcher | Fires missiles; reload time varies by size and tech |
 | MSP (maintenance) | Maintenance Supply Points; consumables for ship repairs and damage control. Context: logistics, engineering spaces, supply ships |
-| MSP (missiles) | Missile Size Points; unit of missile mass where 1 MSP = 2.5 tons. Context: missile design, launchers, magazines |
+| MSP (missiles) | Missile Size Points; unit of missile mass where 1 MSP = 2.5 tons \hyperlink{ref-B-8}{[B-8]}. Context: missile design, launchers, magazines |
 | Multi-stage Missile | Booster stage for range + separating attack stage |
 | NPR | Non-Player Race; AI civilization with own tech/fleets |
 | Orbital Habitat | Space-based structure supporting population without a planet |
@@ -87,7 +87,7 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | Power Plant | Generates power for beam weapons |
 | PPV | Planetary Protection Value; defensive metric from weapon tonnage |
 | Precursor | Ancient spoiler race with powerful static defenses |
-| Railgun | Kinetic beam; ignores armor layers equal to damage |
+| Railgun | Kinetic beam; full damage at all ranges, single-column penetration \hyperlink{ref-B-9}{[B-9]} |
 | Refueling Hub | Tankers auto-refuel fleet ships |
 | Resolution | Sensor target-size optimization; FC range factor |
 | RP | Research Points; from labs and scientists |
@@ -112,7 +112,7 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | TN | Trans-Newtonian; advanced physics enabling interstellar civ |
 | TN Start | Start with basic TN tech already researched |
 | Tracking Speed | Max target speed for accurate engagement |
-| Turret | Increases beam tracking; larger size *(unverified: specific multipliers vary by turret type)* |
+| Turret | Increases beam tracking via turret gear tech; multi-weapon turrets reduce crew and gear size \hyperlink{ref-B-10}{[B-10]} |
 | Wealth | Economic currency for installations and maintenance |
 | Waypoint | Designated navigation point in space |
 | Xenoarchaeology | Study of alien ruins to recover tech and artifacts |
@@ -137,3 +137,15 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 \hypertarget{ref-B-3}{[B-3]} Aurora C# game database (AuroraDB.db v2.7.1) -- 1 HS = 50 tons is a core game constant used in all ship design calculations.
 
 \hypertarget{ref-B-4}{[B-4]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=78 (Carronade Calibre): 11 calibres from 15cm (2,000 RP) through 100cm (2,000,000 RP). Carronades deal damage proportional to calibre at short range.
+
+\hypertarget{ref-B-5}{[B-5]} Aurora C# game database (AuroraDB.db v2.7.1) -- DIM\_PlanetaryInstallation: Conventional Industry (ID=38) ConstructionValue=0.1; Construction Factory (ID=5) ConstructionValue=1.0. Ratio is exactly 1/10th.
+
+\hypertarget{ref-B-6}{[B-6]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_ShipDesignComponents: All Gauss Cannon variants (ComponentTypeID with Name LIKE 'Gauss%') show DamageOutput=1. Confirmed 1 damage per shot across all calibres and velocities.
+
+\hypertarget{ref-B-7}{[B-7]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_ShipDesignComponents: Meson Cannon variants show IgnoreShields=1 (bypasses shields). Armor bypass is the core meson mechanic; hits damage internal components directly, subject to Meson Armor Retardation technology. See Section 12.6 Damage and Armor for full mechanics.
+
+\hypertarget{ref-B-8}{[B-8]} Cross-reference: Section 12.3 Missiles confirms 1 MSP = 2.5 tons, with maximum missile size of 200 MSP (500 tons). Consistent across Sections 8.5.4 and 8.6.
+
+\hypertarget{ref-B-9}{[B-9]} Cross-reference: Section 12.2 Beam Weapons confirms railguns deal full damage at all ranges (no falloff) with Gradient 1 (single-column armor penetration). See Section 12.6 Damage and Armor table: "Standard penetration, does not reduce with range."
+
+\hypertarget{ref-B-10}{[B-10]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=75 (Turret Rotation Gear): 12 tracking speed levels from 1,250 km/s through 25,000 km/s. Section 8.5.7 confirms multi-weapon turret benefits: Twin turrets provide 20% crew reduction and 10% gear size reduction; Quad turrets provide 40% crew reduction and 20% gear size reduction.
