@@ -4,7 +4,7 @@
 
 This appendix collects the key mathematical formulas that govern Aurora C# mechanics. Understanding these calculations helps with ship design optimization, fleet planning, and economic development.
 
-**Organization:** Formulas are grouped by game phase—ship design, detection, combat, economy, and population—with related formulas kept together for easy reference.
+**Organization:** Formulas are grouped by game phase -- ship design, detection, combat, economy, and population -- with related formulas kept together for easy reference.
 
 ---
 
@@ -14,13 +14,13 @@ Formulas used during ship design to calculate performance characteristics. For d
 
 ### Ship Speed
 
-The fundamental speed formula for any vessel:
+The fundamental speed formula for any vessel \hyperlink{ref-A-1}{[A-1]}:
 
 ```
 Speed (km/s) = Total_Engine_Power * 1000 / Ship_Size_HS
 ```
 
-Or equivalently (since 1 HS = 50 tons):
+Or equivalently (since 1 HS = 50 tons) \hyperlink{ref-A-2}{[A-2]}:
 
 ```
 Speed (km/s) = Total_Engine_Power * 50000 / Ship_Mass_tons
@@ -46,14 +46,14 @@ The actual speed depends on your engine technology. Engine power is calculated a
 Engine_Power = Engine_Size (HS) x Power_per_HS x Boost_Modifier
 ```
 
-Where:
+Where \hyperlink{ref-A-3}{[A-3]}:
 
-- **Power_per_HS** is determined by engine technology research (starts at 5, increases with tech)
+- **Power_per_HS** is determined by engine technology research (starts at 5 with Nuclear Radioisotope Engine, increases with tech up to 100)
 - **Boost_Modifier** ranges from 0.5x to 3.0x (higher boost = more power but reduced fuel efficiency)
 
 ### Engine Size-Based Fuel Consumption
 
-In C# Aurora, engine fuel efficiency improves linearly with engine size. Fuel consumption is reduced by 1% for every HS of engine size \hyperlink{ref-1}{[1]}:
+In C# Aurora, engine fuel efficiency improves linearly with engine size. Fuel consumption is reduced by 1% for every HS of engine size \hyperlink{ref-A-10}{[A-10]}:
 
 ```
 Fuel_Consumption_Modifier = 1 - (Engine_Size_HS * 0.01)
@@ -83,7 +83,7 @@ Fuel_per_Hour = Total_Engine_Power x Fuel_Consumption_Rate x Boost_Penalty
 Where:
 
 - **Fuel_Consumption_Rate** is determined by fuel consumption technology (base 1.0, reduced by research)
-- **Boost_Penalty** = (4 ^ Boost_Modifier) / 4, where Boost_Modifier is the decimal value (e.g., 0.5 for 50% boost, 1.0 for 100% boost) \hyperlink{ref-2}{[2]}
+- **Boost_Penalty** = (4 ^ Boost_Modifier) / 4, where Boost_Modifier is the decimal value (e.g., 0.5 for 50% boost, 1.0 for 100% boost) \hyperlink{ref-A-11}{[A-11]}
 
 ### Range Calculation
 
@@ -104,15 +104,29 @@ Recharge_per_5sec = Regeneration_Tech_Level x Generator_Size_HS
 Shield_EM_Signature = Shield_Strength x 3
 ```
 
+\hyperlink{ref-A-5}{[A-5]}
+
 Shields begin at zero when first activated and must recharge to full strength. Regeneration is continuous during combat. The strength formula's square root scaling means larger generators provide disproportionately more shielding per HS, but recharge at the same rate per HS regardless of size.
 
 ### Power Plant Output
 
 ```
 Power_Output = Power_Tech x Size_HS x sqrt(Size_HS / 10)  (for generators > 1 HS)
-Boosted_Output = Power_Output x (1 + Boost_Percentage / 100)
-Explosion_Chance_When_Hit = 5% + (Boost_Percentage / 2)%  (capped at 50%)
+Boosted_Output = Power_Output x Boost_Multiplier
 ```
+
+Explosion chance when hit is set per boost technology level (not a simple formula) \hyperlink{ref-A-4}{[A-4]}:
+
+| Boost | Multiplier | Explosion Chance |
+|-------|-----------|-----------------|
+| None | x1.0 | 5% |
+| +10% | x1.1 | 7% |
+| +20% | x1.2 | 10% |
+| +30% | x1.3 | 15% |
+| +40% | x1.4 | 20% |
+| +60% | x1.6 | 30% |
+| +80% | x1.8 | 40% |
+| +100% | x2.0 | 50% |
 
 Larger power plants are more space-efficient due to the same square root scaling used by shields and engines.
 
@@ -206,7 +220,7 @@ Thermal_Signature = Total_Engine_Power / Thermal_Reduction_Modifier
 Detection_Range (km) = sqrt(Sensor_Sensitivity x Target_Thermal_Signature) x 250000
 ```
 
-\hyperlink{ref-3}{[3]}
+\hyperlink{ref-A-12}{[A-12]}
 
 Where:
 
@@ -219,7 +233,7 @@ Where:
 Detection_Range (km) = sqrt(Sensor_Sensitivity x Target_EM_Signature) x 250000
 ```
 
-\hyperlink{ref-3}{[3]}
+\hyperlink{ref-A-12}{[A-12]}
 
 Where:
 
@@ -233,7 +247,7 @@ Ships with no active emissions (shields off, active sensors off) have EM signatu
 Detection_Range (km) = sqrt(Sensor_Strength x Target_Cross_Section) x 250000
 ```
 
-\hyperlink{ref-3}{[3]}
+\hyperlink{ref-A-12}{[A-12]}
 
 Where:
 
@@ -257,7 +271,7 @@ Effective_Range = 100M x sqrt(20/100) = 100M x 0.447 = 44.7M km
 FC_Range (km) = FC_Size x Resolution x FC_Tech_Level x 250000
 ```
 
-\hyperlink{ref-3}{[3]}
+\hyperlink{ref-A-12}{[A-12]}
 
 The fire control range limits the maximum engagement distance for missiles. Missiles beyond their fire control's range lose guidance.
 
@@ -461,7 +475,7 @@ Where:
 Base Hit Chance = 0.1 * (30,000 / 5,000) = 0.6 = 60%
 ```
 
-**Active Terminal Guidance** (0.25 MSP component) provides an accuracy bonus from +15% to +60% based on technology level, applied as an additive bonus to the base hit chance \hyperlink{ref-4}{[4]}.
+**Active Terminal Guidance** (0.25 MSP component) provides an accuracy bonus from +15% to +60% based on technology level, applied as an additive bonus to the base hit chance \hyperlink{ref-A-13}{[A-13]}.
 
 Key implications:
 
@@ -523,7 +537,7 @@ Formulas for economic output and industrial production. For colony production ma
 Annual_BP = Num_Factories x BP_per_Factory x (1 + Governor_Manufacturing x 0.05)
 ```
 
-Standard BP per factory = 10/year (increased by Construction Rate technology) \hyperlink{ref-5}{[5]}:
+Standard BP per factory = 10/year (increased by Construction Rate technology) \hyperlink{ref-A-6}{[A-6]}:
 
 | Technology Level | BP per Factory | Research Cost (RP) |
 |-----------------|----------------|-------------------|
@@ -546,7 +560,7 @@ Standard BP per factory = 10/year (increased by Construction Rate technology) \h
 Annual_Tons_per_Mine = Base_Production x Accessibility x Tech_Modifier
 ```
 
-Where Base_Production = 10 tons/year per mine. Mining technology progression:
+Where Base_Production = 10 tons/year per mine \hyperlink{ref-A-7}{[A-7]}. Mining technology progression:
 
 | Technology Level | Tons/Mine/Year | Research Cost (RP) |
 |-----------------|---------------|-------------------|
@@ -569,7 +583,7 @@ Where Base_Production = 10 tons/year per mine. Mining technology progression:
 Fuel_per_Year = Num_Refineries x Base_Output_per_Refinery (litres)
 ```
 
-Refinery technology progression:
+Base refinery output is 40,000 litres/year \hyperlink{ref-A-8}{[A-8]}. Refinery technology progression:
 
 | Technology Level | Output (litres/year) | Research Cost (RP) |
 |-----------------|---------------------|-------------------|
@@ -593,11 +607,13 @@ Days_to_Complete = Research_Cost / (Daily_RP_Output)
 Daily_RP_Output = Sum_of_All_Labs_on_Project / 365
 ```
 
-With diminishing returns for multiple labs:
+With diminishing returns for multiple labs \hyperlink{ref-A-15}{[A-15]}:
 ```
 Effective_Labs = Lab_1 + Lab_2 x 0.5 + Lab_3 x 0.25 + Lab_4 x 0.125 + ...
-RP_per_Year = Effective_Labs x 10 x (1 + Scientist_Skill x 0.2)
+RP_per_Year = Effective_Labs x RP_per_Lab x (1 + Scientist_Bonus / 100)
 ```
+
+Where Scientist\_Bonus is the percentage shown in the commander's profile. This bonus is quadrupled when the scientist works in their specialization field.
 
 ### Terraforming Rate
 
@@ -610,7 +626,7 @@ Where:
 - **Terraform_Rate** depends on the technology level of terraforming installations
 - **Gas_Modifier** varies by the gas being added or removed (some gases terraform faster than others)
 
-Terraforming rate technology progression (from game database):
+Terraforming rate technology progression \hyperlink{ref-A-9}{[A-9]}:
 
 | Technology Level | Rate (atm/year) | Research Cost (RP) |
 |-----------------|-----------------|-------------------|
@@ -868,3 +884,37 @@ Where Effective Population Size = ((Determination + Militancy + Xenophobia) / 30
 - [Section 13.1 Unit Types](../13-ground-forces/13.1-unit-types.md) — Garrison strength and occupation mechanics
 - [Section 14.1 Fuel](../14-logistics/14.1-fuel.md) — Fuel consumption and logistics
 - [Appendix D: Reference Tables](../appendices/D-reference-tables.md) — Quick-reference tables for minerals, installations, and technology
+
+---
+
+## References
+
+\hypertarget{ref-A-1}{[A-1]} AuroraWiki Engine page -- Speed formula: "One unit of engine power is the amount of power required to propel 50 tons (1 HS) at 1000 km/s." Speed = Total\_EP x 1000 / Ship\_Size\_HS.
+
+\hypertarget{ref-A-2}{[A-2]} Aurora C# game database (AuroraDB.db v2.7.1) -- 1 HS = 50 tons is a core game constant used throughout ship design.
+
+\hypertarget{ref-A-3}{[A-3]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=40 (Engine Technology): 15 engine types from Conventional (1.0 power/HS, 500 RP) through Quantum Singularity Drive (100.0 power/HS, 5,000,000 RP). TechTypeID=130 (Max Engine Power Modifier): x1 through x3 (15,000 RP). TechTypeID=198 (Min Engine Power Modifier): x0.5 through x0.1 (30,000 RP).
+
+\hypertarget{ref-A-4}{[A-4]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=42 (Power vs Efficiency): 8 boost levels from None (x1.0, 5% explosion, 250 RP) through +100% (x2.0, 50% explosion, 30,000 RP). Explosion percentages are discrete per-level values, not derived from a simple formula.
+
+\hypertarget{ref-A-5}{[A-5]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=16 (Shield Type): 12 shield types from Alpha (1.0/HS, 1,000 RP) through Omega (15.0/HS, 2,000,000 RP). TechTypeID=14 (Shield Regeneration Rate): 12 levels from 1.0 (1,000 RP) through 15.0 (2,000,000 RP).
+
+\hypertarget{ref-A-6}{[A-6]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=25 (Improved Construction Rate): 11 levels from 12 BP (3,000 RP) through 70 BP (2,500,000 RP). DIM\_PlanetaryInstallation confirms base Construction Factory output of 1.0 (ConstructionValue column), representing 10 BP/year at base tech.
+
+\hypertarget{ref-A-7}{[A-7]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=26 (Improved Mining Production): 11 levels from 12 tons (3,000 RP) through 70 tons (2,500,000 RP). DIM\_PlanetaryInstallation confirms Mine base MiningProductionValue of 1.0 (10 tons/year).
+
+\hypertarget{ref-A-8}{[A-8]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=32 (Improved Fuel Production): 11 levels from 48,000 litres (3,000 RP) through 280,000 litres (2,500,000 RP). Base refinery output is 40,000 litres/year.
+
+\hypertarget{ref-A-9}{[A-9]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=57 (Terraforming Rate): 12 levels from 0.00032 atm (3,000 RP) through 0.00375 atm (5,000,000 RP). Base racial starting rate is 0.00025 atm/year per installation.
+
+\hypertarget{ref-A-10}{[A-10]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=65 (Fuel Consumption): 13 levels from 1.0 L/EPH (base) through 0.1 L/EPH (2,000,000 RP). Engine size fuel efficiency modifier confirmed by community testing.
+
+\hypertarget{ref-A-11}{[A-11]} Aurora Forums, "Sensor Model for C# Aurora" -- Boost penalty formula (4\^Boost\_Modifier)/4 confirmed by Steve Walmsley. [aurora2.pentarch.org](https://aurora2.pentarch.org/index.php?topic=9465.0)
+
+\hypertarget{ref-A-12}{[A-12]} Aurora Wiki, "Thermal Sensor" -- C# passive sensor formula: range = sqrt(Sensitivity x Signature) x 250,000 km. Active sensor formula uses sqrt-based calculation with 250,000 km multiplier for simplified form. [aurorawiki2.pentarch.org](https://aurorawiki2.pentarch.org/index.php?title=Thermal_Sensor)
+
+\hypertarget{ref-A-13}{[A-13]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=275 (Active Terminal Guidance): 8 levels from 0% (base) through +60% (64,000 RP). Stored as multipliers 1.0 through 1.6.
+
+\hypertarget{ref-A-14}{[A-14]} Aurora C# game database (AuroraDB.db v2.7.1) -- DIM\_PlanetaryInstallation table confirms base Construction Factory ConstructionValue=1.0. Combined with FCT\_TechSystem construction rate techs, base output = 10 BP/year.
+
+\hypertarget{ref-A-15}{[A-15]} AuroraWiki, "Research" -- Each lab assigned to a project contributes diminishing RP: first lab at 100%, second at 50%, third at 25%, etc. Scientist bonus percentage is applied as a multiplier and quadrupled in specialization field. [aurorawiki.pentarch.org](http://aurorawiki.pentarch.org/index.php?title=Research)
