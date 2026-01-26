@@ -6,7 +6,7 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 
 | Term | Definition |
 |------|-----------|
-| Accessibility | 0.1--1.0 value for mining ease; higher = more output per mine |
+| Accessibility | 0.1--1.0 value for mining ease; higher = more output per mine \hyperlink{ref-B-1}{[B-1]} |
 | Active Sensor | Emits energy to detect targets; reveals own position via EM |
 | AFR | Annual Failure Rate; percentage chance of component failure per year |
 | AMM | Anti-Missile Missile; small, fast interceptor missile |
@@ -33,7 +33,7 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | Damage Control | Engineering crew repairing damaged components |
 | DNR | Do Not Retain; commander suffix indicating removal on game close |
 | DP | Deployment Points; limits on automated craft |
-| ECM | Electronic Countermeasures; -10% enemy accuracy per level |
+| ECM | Electronic Countermeasures; -10% enemy accuracy per net ECM level \hyperlink{ref-B-2}{[B-2]} |
 | ECCM | Counter-ECM on fire controls; negates one ECM level each |
 | EM | Electromagnetic; passive detection of emissions/shields |
 | EM Signature | Ship emissions from active sensors, shields, components |
@@ -54,7 +54,7 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | Grav Survey | Exploring a system to discover jump points |
 | Ground Forces | Military units for planetary assault and defense |
 | Hangar | Ship component for storing and servicing smaller craft |
-| HS | Hull Size; 50 tons of ship mass (1 HS = 50t) |
+| HS | Hull Size; 50 tons of ship mass (1 HS = 50t) \hyperlink{ref-B-3}{[B-3]} |
 | HTK | Hit to Kill; damage points before component destruction |
 | Infrastructure | Supports population on planets with CC > 0 |
 | JP | Jump point; portal between star systems |
@@ -83,7 +83,7 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | Passive Sensor | Detects thermal/EM without revealing own position |
 | PD | Point Defense; intercepts incoming missiles |
 | PDC | Planetary Defence Centre; ground-based weapons installation |
-| Plasma Carronade | 3x damage at short range; useless at distance |
+| Plasma Carronade | High damage at short range; useless at distance \hyperlink{ref-B-4}{[B-4]} |
 | Power Plant | Generates power for beam weapons |
 | PPV | Planetary Protection Value; defensive metric from weapon tonnage |
 | Precursor | Ancient spoiler race with powerful static defenses |
@@ -112,7 +112,7 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | TN | Trans-Newtonian; advanced physics enabling interstellar civ |
 | TN Start | Start with basic TN tech already researched |
 | Tracking Speed | Max target speed for accurate engagement |
-| Turret | Increases beam tracking (4x single, 3x multi); larger size |
+| Turret | Increases beam tracking; larger size *(unverified: specific multipliers vary by turret type)* |
 | Wealth | Economic currency for installations and maintenance |
 | Waypoint | Designated navigation point in space |
 | Xenoarchaeology | Study of alien ruins to recover tech and artifacts |
@@ -125,3 +125,15 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 - [Section 6.1 Minerals](../6-economy-and-industry/6.1-minerals.md) -- Minerals, installations, construction, and mining
 - [Appendix A: Formulas](../appendices/A-formulas.md) -- Mathematical formulas for all key game mechanics
 - [Appendix D: Reference Tables](../appendices/D-reference-tables.md) -- Quick-reference data tables for minerals, weapons, and technology
+
+---
+
+## References
+
+\hypertarget{ref-B-1}{[B-1]} Aurora C# game database (AuroraDB.db v2.7.1) -- Mineral deposit accessibility values range from 0.1 to 1.0, confirmed by FCT\_MineralDeposit table entries across game starts.
+
+\hypertarget{ref-B-2}{[B-2]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=194 (Fire Control Jammer): 10 levels from FCJ-1 through FCJ-10. Each net level (jammer minus ECCM) reduces accuracy by 10%. See Appendix A beam weapon to-hit formula for full derivation.
+
+\hypertarget{ref-B-3}{[B-3]} Aurora C# game database (AuroraDB.db v2.7.1) -- 1 HS = 50 tons is a core game constant used in all ship design calculations.
+
+\hypertarget{ref-B-4}{[B-4]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=78 (Carronade Calibre): 11 calibres from 15cm (2,000 RP) through 100cm (2,000,000 RP). Carronades deal damage proportional to calibre at short range.
