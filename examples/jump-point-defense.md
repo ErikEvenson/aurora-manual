@@ -430,7 +430,7 @@ If your combat fleet has total fuel capacity of 500,000 litres and consumes 2,00
 
 Mines in Aurora are missiles designed with no engine (0 km/s speed), creating stationary buoys that can engage targets automatically. A properly designed minefield at a hostile jump point provides a devastating first-strike capability against transiting enemies.
 
-#### Mine Design Principles
+#### 1. Mine Design Principles
 
 Mines follow standard missile design rules but with no engine allocation:
 
@@ -479,7 +479,7 @@ Detection Range = SQRT(9.28 * 200) * 10,000
 
 This means the mine detects and engages a cruiser-sized target at approximately 430,000 km -- enough range to strike ships shortly after JP transit.
 
-#### Mine Layer Ship Requirements
+#### 2. Mine Layer Ship Requirements
 
 Mines are deployed by dedicated mine layer vessels. These ships carry mines in magazines and deploy them via standard missile launchers.
 
@@ -513,7 +513,7 @@ Mines are deployed by dedicated mine layer vessels. These ships carry mines in m
 
 > **Tip:** Create multiple waypoints in a grid pattern around the JP to distribute mines across a wider area. This creates a denser engagement zone that catches ships regardless of their exact emergence point.
 
-#### Minefield Density Calculations
+#### 3. Minefield Density Calculations
 
 The effectiveness of a minefield depends on having enough mines to overwhelm point defense and deliver killing blows.
 
@@ -564,7 +564,7 @@ M    M     |     M    M  <- Ring 2: 750,000 km (follow-up engagement)
 
 Deploy mines in concentric rings to create multiple engagement opportunities as the enemy fleet advances.
 
-#### Mine Maintenance Considerations
+#### 4. Mine Maintenance Considerations
 
 Deployed mines are subject to the same maintenance mechanics as missiles in magazines.
 
@@ -595,7 +595,7 @@ Plan minefield buildup over multiple years or increase factory allocation.
 
 > **Warning:** Mines cannot be recovered once deployed. A minefield at a JP that becomes friendly (through diplomacy or conquest) represents wasted ordnance. Deploy mines only at JPs you expect to defend long-term.
 
-#### Interaction with Jump Point Stabilization
+#### 5. Interaction with Jump Point Stabilization
 
 The strategic value of minefields depends heavily on whether the JP is gated:
 

@@ -521,7 +521,7 @@ The preceding sections cover the fundamentals of planetary invasion. This sectio
 
 Large-scale invasions require coordination across multiple formations operating with different field positions and tactical roles. Effective command hierarchy and timing are essential.
 
-#### Echelon Structure
+#### 1. Echelon Structure
 
 Organize your invasion force into a command hierarchy before deployment:
 
@@ -548,7 +548,7 @@ Division HQ (125,000 ton capacity)
 - HQ capacity determines effective bonus application
 - Formations under the same brigade share supply pools
 
-#### Phased Assault Tactics
+#### 2. Phased Assault Tactics
 
 **Phase 1 -- Establish Beachhead (Days 1-7):**
 
@@ -579,7 +579,7 @@ Division HQ (125,000 ton capacity)
 
 > **Tip:** Newly landed formations have zero fortification. Set them to attack mode immediately -- the defensive bonus of front-line defence is wasted until fortification accumulates. After 7-10 days, transition defensive formations to front-line defence to begin building their fortification levels.
 
-#### Commander Bonus Stacking
+#### 3. Commander Bonus Stacking
 
 Maximize combat effectiveness through proper commander assignment:
 
@@ -608,7 +608,7 @@ Effective bonuses at battalion level:
 
 Effective integration of orbital assets with ground forces dramatically increases combat effectiveness but requires careful coordination to avoid friendly fire and manage ship vulnerability.
 
-#### FFD Capacity Planning
+#### 1. FFD Capacity Planning
 
 Forward Fire Direction elements are the bottleneck for orbital support:
 
@@ -625,7 +625,7 @@ Forward Fire Direction elements are the bottleneck for orbital support:
 - Mark FFD infantry with the "Avoid Combat" flag to protect this critical capability
 - Plan for FFD attrition: losing all FFD silences your orbital support
 
-#### Ship Selection for Orbital Support
+#### 2. Ship Selection for Orbital Support
 
 Not all ships are equally suited for orbital bombardment support:
 
@@ -651,7 +651,7 @@ Example calculations:
 | 30cm Particle Beam | 20 | 89 | 45 |
 | Heavy Laser (12") | 36 | 120 | 60 |
 
-#### Orbital Support vs. NBG Bombardment
+#### 3. Orbital Support vs. NBG Bombardment
 
 Two distinct orbital fire modes exist:
 
@@ -666,7 +666,7 @@ Two distinct orbital fire modes exist:
 - **Active ground combat:** Orbital Bombardment Support for precision (requires FFD)
 - **PDC suppression:** NBG with missiles (100% base accuracy for warheads)
 
-#### STO Weapon Countermeasures
+#### 4. STO Weapon Countermeasures
 
 Surface-to-Orbit weapons threaten ships in bombardment orbit:
 
@@ -692,7 +692,7 @@ Surface-to-Orbit weapons threaten ships in bombardment orbit:
 
 Planetary Defence Centres require specialized tactics due to their isolation mechanics and formidable firepower.
 
-#### PDC Defense Rules
+#### 1. PDC Defense Rules
 
 Understanding how PDCs fight is essential for planning assaults:
 
@@ -701,7 +701,7 @@ Understanding how PDCs fight is essential for planning assaults:
 3. **No magazine reload:** PDCs under ground attack cannot reload from planetary stockpiles
 4. **Offensive sorties:** Troops in OTHER PDCs can emerge to fight offensively (losing their PDC protection)
 
-#### Divide and Conquer Tactics
+#### 2. Divide and Conquer Tactics
 
 The isolation mechanic enables sequential reduction:
 
@@ -725,7 +725,7 @@ When defenders emerge from other PDCs to attack your screening forces, they forf
 
 Move to the next PDC. Each successive PDC has fewer potential reinforcements as you eliminate sortie forces.
 
-#### PDC Suppression Before Landing
+#### 3. PDC Suppression Before Landing
 
 Never land troops in active PDC weapon range without suppression:
 
@@ -751,7 +751,7 @@ To-Hit = 6.67% x 0.5 / (6 x 1.0) = 0.56% per shot
 
 This demonstrates why missiles (100% base accuracy) are vastly preferred for PDC suppression.
 
-#### Ground Assault on PDCs
+#### 4. Ground Assault on PDCs
 
 Once you've landed and softened the PDC via bombardment:
 
@@ -775,7 +775,7 @@ Once you've landed and softened the PDC via bombardment:
 
 Multi-phase invasions lasting weeks or months require sophisticated logistics planning beyond the initial assault supply.
 
-#### Supply Consumption Rates
+#### 1. Supply Consumption Rates
 
 Calculate total GSP requirements for campaign duration:
 
@@ -799,7 +799,7 @@ Total GSP = (GSP per 10 rounds) x (Expected combat rounds / 10) x (Number of com
 
 This represents a significant logistics tail requiring dedicated transport capacity.
 
-#### Logistics Formation Design
+#### 2. Logistics Formation Design
 
 Design dedicated logistics battalions for sustained campaigns:
 
@@ -819,7 +819,7 @@ Design dedicated logistics battalions for sustained campaigns:
 - Brigade-level logistics supplies all subordinate formations through hierarchy
 - Vehicle-based logistics can supply other formations; infantry logistics cannot
 
-#### Resupply Operations
+#### 3. Resupply Operations
 
 For campaigns exceeding initial supply:
 
@@ -837,7 +837,7 @@ For campaigns exceeding initial supply:
 - Consider armed escorts for supply transports
 - Stockpile excess logistics formations at the beachhead
 
-#### Combat Efficiency and GCL Bonus
+#### 4. Combat Efficiency and GCL Bonus
 
 Commanders with Ground Combat Logistics (GCL) bonus reduce supply consumption:
 
