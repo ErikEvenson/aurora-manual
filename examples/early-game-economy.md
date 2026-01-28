@@ -78,6 +78,10 @@ Conventional start provides 1 Military Academy, producing 10 officers per year. 
 
 **Recommendation:** Assign a Naval Officer commandant if you plan to expand your fleet aggressively. Assign a Scientist commandant if you want to accelerate research capacity. The choice depends on your strategic priorities. \hyperlink{ref-ex-economy-7}{[7]}
 
+**Academy Quality Setting:**
+
+The Race window's Academies tab has a quality vs quantity setting (1-5). The default is 1 (maximum quantity). This is appropriate for early game when you need to fill ship commands quickly. Once your officer corps is established, consider increasing to 3-5 to produce fewer but higher-quality officers.
+
 ---
 
 ## Step 1: Research Priorities (Years 0-3)
