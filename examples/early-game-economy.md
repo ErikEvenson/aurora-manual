@@ -100,6 +100,80 @@ While waiting for TN Technology to complete, your conventional factories should 
 
 ---
 
+## Step 2.5: CI-to-TN Conversions (Years 1-3)
+
+*Added: v2026.01.28*
+
+Once Trans-Newtonian Technology completes, a powerful option unlocks: converting Conventional Industry (CI) directly into TN installations. This is **six times cheaper** than building new and should be your first action after TN tech completes. \hyperlink{ref-ex-economy-6}{[6]}
+
+### Conversion Economics
+
+| Method | BP Cost | Result |
+|--------|---------|--------|
+| Build new TN installation | 120 BP | 1 installation |
+| Convert CI to TN installation | 20 BP | 1 installation |
+
+**Savings:** 100 BP per installation (83% discount). With ~1,600 CI units at game start, converting even 200 of them saves 20,000 BP compared to building new.
+
+### Available Conversions
+
+After TN Technology research, the Industry tab shows these conversion options:
+
+| Target Installation | Conversion Cost | Minerals Required |
+|---------------------|-----------------|-------------------|
+| Construction Factory | 20 BP | 10 Duranium, 10 Neutronium |
+| Mine | 20 BP | 20 Corundium |
+| Fuel Refinery | 20 BP | 20 Boronide |
+| Ordnance Factory | 20 BP | 20 Tritanium |
+| Fighter Factory | 20 BP | 20 Vendarite |
+| Financial Centre | 20 BP | 20 Corbomite |
+
+### Recommended Conversion Priority
+
+**Priority 1: Construction Factories (50-100 conversions)**
+
+Construction factories compound -- each one helps build more installations faster. Converting 100 CI to construction factories costs only 2,000 BP and 1,000 each of Duranium and Neutronium. Building them new would cost 12,000 BP.
+
+**Priority 2: Mines (50-100 conversions)**
+
+Mines generate the mineral income that funds everything else. Converting 100 CI to mines costs 2,000 BP and 2,000 Corundium. Check your Corundium stockpile first.
+
+**Priority 3: Fuel Refineries (25-50 conversions)**
+
+You need fuel before ships can operate. Converting 50 CI to refineries costs 1,000 BP and 1,000 Boronide.
+
+### Mineral Bottleneck Warning
+
+> **Warning:** Conversions consume minerals from your starting stockpile. Before mass-converting, check that you have sufficient reserves:
+> - Corundium for mines (20 per conversion)
+> - Neutronium for construction factories (10 per conversion)
+> - Boronide for fuel refineries (20 per conversion)
+>
+> If a mineral is scarce, prioritize building mines first (via conversion or new construction) to increase income.
+
+### How Much CI to Retain
+
+CI is immobile -- it cannot be transported off Earth. However, retaining some CI provides flexibility:
+
+- **Financial Centers:** Converting CI to Financial Centers (20 BP + 20 Corbomite) generates ongoing wealth
+- **Infrastructure:** CI can build infrastructure cheaply during the transition
+- **Buffer:** Retained CI provides backup production capacity
+
+**Recommendation:** Convert 200-300 CI to TN installations immediately, retain 1,000+ for Financial Center conversions and infrastructure production over time.
+
+### Conversion Timeline
+
+| When | Action | BP Cost | Result |
+|------|--------|---------|--------|
+| TN Tech completes | Convert 100 CI → Construction Factories | 2,000 | Instant 100 factories |
+| +1 month | Convert 100 CI → Mines | 2,000 | Instant 100 mines |
+| +2 months | Convert 50 CI → Fuel Refineries | 1,000 | Instant 50 refineries |
+| Year 2-3 | Convert remaining CI → Financial Centers | Variable | Ongoing wealth |
+
+**Total immediate conversion cost:** ~5,000 BP for 250 TN installations. Building these new would cost 30,000 BP -- a savings of 25,000 BP that accelerates your economy by 1-2 years.
+
+---
+
 ## Step 3: First TN Construction Factories (Years 1-3)
 
 Once TN Technology completes, immediately begin building Construction Factories.
@@ -611,6 +685,8 @@ Approximate total mineral consumption over 10 years of bootstrap:
 \hypertarget{ref-ex-economy-4}{[4]}. Aurora C# game database (AuroraDB.db v2.7.1) -- DIM_PlanetaryInstallation PlanetaryInstallationID=3 (Fuel Refinery). RefineryProductionValue=1.0 (40,000 litres/year at base tech).
 
 \hypertarget{ref-ex-economy-5}{[5]}. Aurora C# game database (AuroraDB.db v2.7.1) -- DIM_PlanetaryInstallation PlanetaryInstallationID=8 (Research Facility). Cost=2400 BP, Duranium=1200, Mercassium=1200. ResearchValue=1.0.
+
+\hypertarget{ref-ex-economy-6}{[6]}. Aurora C# game database (AuroraDB.db v2.7.1) -- DIM_PlanetaryInstallation CI conversion entries (IDs 27, 28, 30, 36, 37, 50). All conversions cost 20 BP. Target installations cost 120 BP each, making conversion 1/6 the cost of building new. See [Section 6.3 Construction](../6-economy-and-industry/6.3-construction.md) for full conversion table.
 
 ---
 
