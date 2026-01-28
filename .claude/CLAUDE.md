@@ -63,27 +63,28 @@ Fuel Refineries cost 120 BP and require 120 Boronide per installation \hyperlink
 
 ## Build System
 
-- **Build command:** `bash build-pdf.sh`
-- **PDF output:** `releases/aurora-manual-YYYY.MM.DD.SEQ.pdf` (SEQ auto-increments per build)
+- **Build command:** `bash build-pdf.sh` (auto-increment) or `bash build-pdf.sh VERSION` (explicit)
+- **PDF output:** `releases/aurora-manual-VERSION.pdf`
 - **File list:** All source files must be listed in `build-pdf.sh` FILES array
 - **Validation:** Build script validates all listed files exist before compilation
 - **Releases:** PDFs are .gitignored; attach to GitHub releases via `gh release create`
 - **Release versioning:** `vYYYY.MM.DD.##` where `##` is zero-padded (01, 02, etc.) and increments per release within a day
 
-**IMPORTANT: Release version and PDF filename MUST match.**
+**IMPORTANT: Release version, PDF filename, AND PDF internal version MUST all match.**
 
-The build script auto-increments based on existing files, but releases use a separate sequence. Before creating a release:
+When creating a release:
 
 1. Check the next release number: `gh release list --limit 1`
-2. Build the PDF: `bash build-pdf.sh`
-3. Rename the PDF to match the release version:
+2. Build the PDF with explicit version:
    ```bash
-   mv releases/aurora-manual-2026.01.28.XX.pdf releases/aurora-manual-2026.01.28.07.pdf
+   bash build-pdf.sh 2026.01.28.07
    ```
-4. Create the release with matching version:
+3. Create the release with matching version:
    ```bash
    gh release create v2026.01.28.07 releases/aurora-manual-2026.01.28.07.pdf --title "..."
    ```
+
+For development/testing builds, use `bash build-pdf.sh` without arguments (auto-increments).
 
 ## Game Database
 
