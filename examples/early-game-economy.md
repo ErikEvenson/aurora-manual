@@ -101,12 +101,13 @@ Before this research finishes, you have zero ability to build TN installations. 
 |----------|-----------|----------|-----------|-----------|
 | 1st | Trans-Newtonian Technology | Construction | 5,000 | Unlocks everything |
 | 2nd | Construction Rate (Improved) | Construction | 2,000 | 12 BP/factory (20% boost to ALL production) |
-| 3rd | Nuclear Thermal Engine | Power/Propulsion | ~2,000 | First TN engine -- enables ship design |
-| 4th | Mining Production (Improved) | Construction | 2,000 | 1.2x mine output |
-| 5th | Pressurised Water Reactor | Power/Propulsion | ~2,000 | Powers ship systems |
-| 6th | Active Sensor Strength | Sensors/FC | ~2,000 | Enables survey sensor design |
-| 7th | Geological Survey Sensor | Sensors/FC | ~1,000 | For survey ships |
-| 8th | Gravitational Survey Sensor | Sensors/FC | ~1,000 | For jump point detection |
+| 3rd | Radioisotope Thermal Generator | Power/Propulsion | ~1,000 | Prerequisite for Nuclear Thermal Engine |
+| 4th | Nuclear Thermal Engine | Power/Propulsion | ~2,000 | First TN engine -- enables ship design |
+| 5th | Mining Production (Improved) | Construction | 2,000 | 1.2x mine output |
+| 6th | Pressurised Water Reactor | Power/Propulsion | ~2,000 | Powers ship systems |
+| 7th | Active Sensor Strength | Sensors/FC | ~2,000 | Enables survey sensor design |
+| 8th | Geological Survey Sensor | Sensors/FC | ~1,000 | For survey ships |
+| 9th | Gravitational Survey Sensor | Sensors/FC | ~1,000 | For jump point detection |
 
 **Rationale:** Construction Rate first because it compounds -- every factory you build afterward is 20% more productive. Engines and reactors next because you need ships. Mining production improves mineral income. Sensors enable survey vessels.
 
