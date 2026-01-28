@@ -216,14 +216,13 @@ CI is immobile -- it cannot be transported off Earth. However, retaining some CI
 | Construction Factories | 200 | 4,000 | 2,000 Du + 2,000 Ne | Compounds all future production |
 | Mines | 200 | 4,000 | 4,000 Cor | Mineral income funds everything |
 | Fuel Refineries | 100 | 2,000 | 2,000 Bor | Fuel for fleet operations |
-| Research Labs | 50 | 1,000 | 500 Du + 500 Me | Accelerate tech progression |
 | Financial Centers | 500 | 10,000 | 10,000 Cb | 125 wealth/year ongoing income |
-| **Retained as CI** | 550 | -- | -- | Buffer for future conversions |
-| **Total** | 1,600 | 21,000 | -- | -- |
+| **Retained as CI** | 600 | -- | -- | Buffer for future conversions |
+| **Total** | 1,600 | 20,000 | -- | -- |
 
-**Mineral Key:** Du=Duranium, Ne=Neutronium, Cor=Corundium, Bor=Boronide, Me=Mercassium, Cb=Corbomite
+**Mineral Key:** Du=Duranium, Ne=Neutronium, Cor=Corundium, Bor=Boronide, Cb=Corbomite
 
-> **Note:** This allocation assumes adequate mineral stockpiles. Adjust based on your actual reserves -- if Corbomite is scarce, convert fewer Financial Centers and more production installations.
+> **Note:** Research Labs cannot be converted from CI -- they must be built new (2,400 BP each). This allocation assumes adequate mineral stockpiles. Adjust based on your actual reserves -- if Corbomite is scarce, convert fewer Financial Centers and more production installations.
 
 ### Conversion Timeline
 
@@ -232,10 +231,9 @@ CI is immobile -- it cannot be transported off Earth. However, retaining some CI
 | TN Tech completes | Convert 200 CI → Construction Factories | 4,000 | Instant 200 factories |
 | +1 month | Convert 200 CI → Mines | 4,000 | Instant 200 mines |
 | +2 months | Convert 100 CI → Fuel Refineries | 2,000 | Instant 100 refineries |
-| +3 months | Convert 50 CI → Research Labs | 1,000 | Instant 50 labs |
 | Year 2-3 | Convert 500 CI → Financial Centers | 10,000 | 125 wealth/year |
 
-**Total conversion cost:** 21,000 BP for 1,050 TN installations. Building these new would cost 126,000 BP -- a savings of 105,000 BP.
+**Total conversion cost:** 20,000 BP for 1,000 TN installations. Building these new would cost 120,000 BP -- a savings of 100,000 BP.
 
 ---
 
