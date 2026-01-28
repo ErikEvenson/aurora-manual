@@ -99,6 +99,31 @@ For development/testing builds, use `bash build-pdf.sh` without arguments (auto-
 - Push all commits before closing issues
 - Build PDF and create GitHub release after completing a wave
 
+## README Maintenance
+
+**Keep README.md synchronized with project state.** Check and update when:
+
+1. **Game version changes** — Update the version number in both locations:
+   - Line 5: "This manual covers Aurora C# vX.Y.Z"
+   - Community Review section: "This manual covers Aurora C# vX.Y.Z"
+   - Must match the database version cited in references (currently v2.7.1)
+
+2. **Section structure changes** — Update the Structure table if:
+   - New chapters are added
+   - Chapter descriptions change significantly
+   - Sections are renamed or reorganized
+
+3. **Build system changes** — Update the "Building the PDF" section if:
+   - New dependencies are added
+   - Build commands change
+   - New build options are added
+
+4. **New contributors** — Add to Contributors section (see Contributor Attribution below)
+
+5. **New YouTube sources** — Add to YouTube Tutorial Credits (see YouTube Source Attribution above)
+
+**Version consistency rule:** The README version, database references throughout the manual, and the Game Database section in this file must all reference the same Aurora version.
+
 ## Contributor Attribution
 
 All repo contributors must appear in three locations:
