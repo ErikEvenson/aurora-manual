@@ -136,15 +136,11 @@ While waiting for TN Technology to complete, your conventional factories should 
 
 | Installation | Quantity | BP Cost | Reasoning |
 |-------------|----------|---------|-----------|
-| Infrastructure | 1,000 | 2,000 | Essential for off-world colonies |
-| Financial Centers | 50 | 1,000 (conversions) | Generate 12.5 wealth/year |
-| Ground Forces | 5-10 battalions | ~500 | Basic planetary defense |
+| Infrastructure | 1,000-2,000 | 2,000-4,000 | Essential for off-world colonies |
 
-**Infrastructure:** At only 2 BP and 1 Duranium + 1 Mercassium each, infrastructure is cheap and essential for any future off-world colonies. Building 1,000 units costs only 2,000 BP and provides enough for several early colonies.
+**Infrastructure:** At only 2 BP and 1 Duranium + 1 Mercassium each, infrastructure is the only useful item you can build conventionally. Stockpile 1,000-2,000 units -- this provides enough for several early colonies and keeps your conventional factories productive while waiting for TN tech.
 
-**Financial Centers:** Each Financial Center generates 0.25 wealth per year and requires 50,000 workers \hyperlink{ref-ex-economy-1}{[1]}. Converting CI to Financial Centers costs 20 BP and 20 Corbomite per conversion \hyperlink{ref-ex-economy-2}{[2]}. Converting 50 CI provides 12.5 wealth/year -- a meaningful income stream. Total cost: 1,000 BP + 1,000 Corbomite.
-
-**Ground Forces:** A small garrison of 5-10 infantry battalions provides basic defense against early-game events. Don't over-invest -- economy takes priority.
+> **Note:** Ground Forces and Financial Center conversions require TN Technology research. See [Step 2.5](#step-25-ci-to-tn-conversions-years-1-3) for post-TN priorities.
 
 ### What NOT to Build Conventionally
 
@@ -565,8 +561,8 @@ A pair of mass drivers (600 BP investment) provides permanent, fuel-free mineral
 
 ```
 Research: Trans-Newtonian Technology (PRIORITY 1)
-Build: Infrastructure x500 (conventional), Financial Centers x10
-Economy: Conventional factories idle or building infrastructure
+Build: Infrastructure x1,000-2,000 (only conventional option)
+Economy: Conventional factories building infrastructure
 Minerals: Untouched Earth deposits
 ```
 
