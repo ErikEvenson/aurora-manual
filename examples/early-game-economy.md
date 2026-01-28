@@ -33,6 +33,52 @@ Starting from a conventional-technology Earth with no trans-newtonian (TN) knowl
 
 ---
 
+## Step 0: Day-One Officer Assignments
+
+*Added: v2026.01.28*
+
+Before advancing time, make two critical administrative assignments that provide compounding benefits throughout the game.
+
+### Assign a Homeworld Governor
+
+Your homeworld governor is arguably your most important early-game assignment. With all industry concentrated on Earth, even a modest Production bonus translates into significantly faster construction.
+
+**How to assign:**
+1. Open the Commander window
+2. Find an officer with a high **Production** bonus (20%+ is excellent, 10%+ is acceptable)
+3. Assign them to the colony governor position for Earth
+
+**Effect:** A governor with 25% Production bonus means your factories effectively produce 25% more BP. Over 10 years, this compounds into thousands of extra BP worth of construction.
+
+> **Tip:** If no officer has a strong Production bonus, consider assigning one with Mining bonus instead -- mineral income also compounds. You can reassign later when better candidates emerge.
+
+### Assign an Academy Commandant
+
+Conventional start provides 1 Military Academy, producing 10 officers per year. Assigning a commandant improves the quality and type of graduates.
+
+**How to assign:**
+1. Open the Economics window, Governor & Miscellaneous tab
+2. The Academy Commandant slot appears beneath the governor information
+3. Assign a qualified officer (see eligibility below)
+
+**Commandant effects:**
+- Officers matching the commandant's type are more likely to be generated (25-50% chance depending on type)
+- If the commandant has bonuses of 20%+ or training ratings of 150+, graduates get double rolls and keep the better result
+- Scientist commandants give 25% chance for matching research specialization
+
+**Eligibility by commandant type:**
+
+| Commandant Type | Chance Same-Type Graduate |
+|-----------------|---------------------------|
+| Naval Officer | 50% |
+| Ground Force Officer | 50% |
+| Scientist | 25% (plus specialization match) |
+| Administrator | 25% |
+
+**Recommendation:** Assign a Naval Officer commandant if you plan to expand your fleet aggressively. Assign a Scientist commandant if you want to accelerate research capacity. The choice depends on your strategic priorities. \hyperlink{ref-ex-economy-7}{[7]}
+
+---
+
 ## Step 1: Research Priorities (Years 0-3)
 
 ### First Research Project: Trans-Newtonian Technology
@@ -688,6 +734,8 @@ Approximate total mineral consumption over 10 years of bootstrap:
 
 \hypertarget{ref-ex-economy-6}{[6]}. Aurora C# game database (AuroraDB.db v2.7.1) -- DIM_PlanetaryInstallation CI conversion entries (IDs 27, 28, 30, 36, 37, 50). All conversions cost 20 BP. Target installations cost 120 BP each, making conversion 1/6 the cost of building new. See [Section 6.3 Construction](../6-economy-and-industry/6.3-construction.md) for full conversion table.
 
+\hypertarget{ref-ex-economy-7}{[7]}. See [Section 16.1.1.3 Academy Commandants](../16-commanders/16.1-officer-generation.md) for commandant eligibility, type distribution, and quality bonus mechanics. See [Section 16.3.2 Colony Governors](../16-commanders/16.3-assignments.md) for governor bonus effects.
+
 ---
 
 ## Related Sections
@@ -698,5 +746,7 @@ Approximate total mineral consumption over 10 years of bootstrap:
 - [Section 6.2 Mining](../6-economy-and-industry/6.2-mining.md) -- Mine types, automated mines, mass drivers
 - [Section 7.1 Technology Tree](../7-research/7.1-technology-tree.md) -- Research priorities and prerequisite chains
 - [Section 9.1 Shipyards](../9-fleet-management/9.1-shipyards.md) -- Naval vs commercial yards, capacity expansion
+- [Section 16.1 Officer Generation](../16-commanders/16.1-officer-generation.md) -- Academy commandants and officer production
+- [Section 16.3 Assignments](../16-commanders/16.3-assignments.md) -- Colony governors and administrative bonuses
 - [Appendix A: Formulas](../appendices/A-formulas.md) -- Production, mining, and research calculations
 - [Appendix D: Reference Tables](../appendices/D-reference-tables.md) -- Installation costs, tech progression tables
