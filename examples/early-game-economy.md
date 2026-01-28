@@ -23,7 +23,7 @@ Starting from a conventional-technology Earth with no trans-newtonian (TN) knowl
 | TN Technology | None (must research) |
 | Mineral Deposits | Earth standard (moderate, mixed accessibility) |
 | Research Labs | ~16 (1 per 12M manufacturing pop; conventional, not TN) |
-| Shipyards | 0 |
+| Shipyards | 1 Naval, 1 Commercial |
 | Fuel Reserves | 0 |
 | Scientists | 5-8 (randomized) |
 
@@ -353,31 +353,26 @@ Annual_Production_per_Mineral = Num_Mines x 10 x Accessibility
 
 ---
 
-## Step 6: First Shipyard (Years 2-4)
+## Step 6: Shipyard Utilization (Years 2-4)
 
-### When to Build
+Conventional start provides one Naval and one Commercial shipyard. These are ready to use once you research propulsion technology.
 
-Build your first shipyard when:
-1. You have engine technology researched
-2. You have reactor technology researched
-3. You have sensor technology for survey instruments
+### When to Start Building Ships
+
+Begin ship construction when:
+1. You have engine technology researched (Nuclear Thermal Engine)
+2. You have reactor technology researched (Pressurised Water Reactor)
+3. You have survey sensor technology researched
 4. You have sufficient mineral stockpiles to construct a ship
 
 Typically this is year 2-3.
 
-### What Size and Type
+### Expanding the Starting Shipyards
 
-**First shipyard: Naval, 1,000 tons, 1 slipway**
-
-| Parameter | Value | Reasoning |
-|-----------|-------|-----------|
-| Type | Naval | Survey ships need military-grade sensors |
-| Capacity | 1,000 tons | Sufficient for small survey vessels |
-| Slipways | 1 | Add more later as needed |
-
-**Cost to build:** Moderate BP investment plus Duranium and Neutronium.
-
-**Immediately after construction:** Begin adding a second slipway and expanding to 2,000 tons capacity.
+Check your starting shipyard capacities. If the Naval shipyard is too small for your survey ship design:
+1. Add slipways to increase parallel construction
+2. Expand capacity to match your ship tonnage
+3. Retool for your specific ship class
 
 ### First Ship Class: Geological Survey Vessel
 
@@ -394,9 +389,9 @@ Typically this is year 2-3.
 
 **Design philosophy:** Small, cheap, and fast enough to survey the inner system within 2-3 years. You do not need weapons on survey ships (yet).
 
-### Second Shipyard: Commercial (Year 4-5)
+### Commercial Shipyard Uses (Year 4-5)
 
-Build a commercial shipyard (starts at 10,000 tons) for:
+Use the starting Commercial shipyard for:
 
 - Freighters (move minerals from off-world mines)
 - Colony ships (establish mining colonies)
@@ -587,7 +582,7 @@ Build: More factories x30, Mines x50, Fuel Refineries x25, Labs x5
 Economy: 50+ TN factories, exponential growth phase
 Minerals: ~1,000-1,500 t/year critical minerals
 Fuel: Stockpiling begins (~50,000 litres accumulated)
-Shipyard: First naval shipyard under construction
+Shipyard: Expanding naval shipyard for survey ships
 ```
 
 ### Year 3-4: First Ships
@@ -719,7 +714,7 @@ Approximate total mineral consumption over 10 years of bootstrap:
 
 7. **Building one giant ship instead of multiple small ones:** A single 10,000-ton cruiser takes years to build at early shipyard rates. Three 3,000-ton escorts complete faster and provide more tactical flexibility.
 
-8. **Neglecting the commercial shipyard:** You need freighters and colony ships for expansion. A commercial yard (10,000-ton starting capacity) should come online by year 4-5.
+8. **Neglecting the commercial shipyard:** You start with a commercial shipyard -- use it! You need freighters and colony ships for expansion. Expand capacity and start building by year 4-5.
 
 9. **Not surveying aggressively enough:** Every year without survey data is a year you cannot make informed colonization decisions. Launch survey ships as soon as technically possible.
 
