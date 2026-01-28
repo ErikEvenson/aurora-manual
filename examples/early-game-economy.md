@@ -133,15 +133,17 @@ While waiting for TN Technology to complete, your conventional factories should 
 
 ### Recommended Conventional-Era Builds
 
-| Installation | Priority | Reasoning |
-|-------------|----------|-----------|
-| Infrastructure | HIGH | Always needed for off-world colonies later |
-| Financial Centers | MEDIUM | Generate wealth for ongoing operations |
-| Ground Forces | LOW | Basic planetary defense (not urgent) |
+| Installation | Quantity | BP Cost | Reasoning |
+|-------------|----------|---------|-----------|
+| Infrastructure | 1,000 | 2,000 | Essential for off-world colonies |
+| Financial Centers | 50 | 1,000 (conversions) | Generate 12.5 wealth/year |
+| Ground Forces | 5-10 battalions | ~500 | Basic planetary defense |
 
-**Financial Centers:** Each Financial Center generates 0.25 wealth per year and requires 50,000 workers \hyperlink{ref-ex-economy-1}{[1]}. Converting conventional factories to Financial Centers costs 20 BP and 20 Corbomite per conversion \hyperlink{ref-ex-economy-2}{[2]}. This is a solid pre-TN investment because wealth generation supports your economy throughout the game.
+**Infrastructure:** At only 2 BP and 1 Duranium + 1 Mercassium each, infrastructure is cheap and essential for any future off-world colonies. Building 1,000 units costs only 2,000 BP and provides enough for several early colonies.
 
-**Infrastructure:** At only 2 BP and 1 Duranium + 1 Mercassium each, infrastructure is cheap and will be essential for any future off-world colonies. Stockpile 500-1,000 units during the conventional phase.
+**Financial Centers:** Each Financial Center generates 0.25 wealth per year and requires 50,000 workers \hyperlink{ref-ex-economy-1}{[1]}. Converting CI to Financial Centers costs 20 BP and 20 Corbomite per conversion \hyperlink{ref-ex-economy-2}{[2]}. Converting 50 CI provides 12.5 wealth/year -- a meaningful income stream. Total cost: 1,000 BP + 1,000 Corbomite.
+
+**Ground Forces:** A small garrison of 5-10 infantry battalions provides basic defense against early-game events. Don't over-invest -- economy takes priority.
 
 ### What NOT to Build Conventionally
 
