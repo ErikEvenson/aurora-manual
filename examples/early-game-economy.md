@@ -201,14 +201,6 @@ You need fuel before ships can operate. Converting 50 CI to refineries costs 1,0
 >
 > If a mineral is scarce, prioritize building mines first (via conversion or new construction) to increase income.
 
-### How Much CI to Retain
-
-CI is immobile -- it cannot be transported off Earth. However, retaining some CI provides flexibility:
-
-- **Financial Centers:** Converting CI to Financial Centers (20 BP + 20 Corbomite) generates ongoing wealth
-- **Infrastructure:** CI can build infrastructure cheaply during the transition
-- **Buffer:** Retained CI provides backup production capacity
-
 ### Recommended CI Allocation (1,600 Total)
 
 | Target | Quantity | BP Cost | Minerals | Reasoning |
@@ -216,13 +208,12 @@ CI is immobile -- it cannot be transported off Earth. However, retaining some CI
 | Construction Factories | 200 | 4,000 | 2,000 Du + 2,000 Ne | Compounds all future production |
 | Mines | 200 | 4,000 | 4,000 Cor | Mineral income funds everything |
 | Fuel Refineries | 100 | 2,000 | 2,000 Bor | Fuel for fleet operations |
-| Financial Centers | 500 | 10,000 | 10,000 Cb | 125 wealth/year ongoing income |
-| **Retained as CI** | 600 | -- | -- | Buffer for future conversions |
-| **Total** | 1,600 | 20,000 | -- | -- |
+| Financial Centers | 1,100 | 22,000 | 22,000 Cb | 275 wealth/year ongoing income |
+| **Total** | 1,600 | 32,000 | -- | -- |
 
 **Mineral Key:** Du=Duranium, Ne=Neutronium, Cor=Corundium, Bor=Boronide, Cb=Corbomite
 
-> **Note:** Research Labs cannot be converted from CI -- they must be built new (2,400 BP each). This allocation assumes adequate mineral stockpiles. Adjust based on your actual reserves -- if Corbomite is scarce, convert fewer Financial Centers and more production installations.
+> **Note:** Research Labs cannot be converted from CI -- they must be built new (2,400 BP each). This allocation assumes adequate mineral stockpiles. If Corbomite is scarce, convert fewer Financial Centers and more Mines or Fuel Refineries instead.
 
 ### Conversion Timeline
 
@@ -231,9 +222,9 @@ CI is immobile -- it cannot be transported off Earth. However, retaining some CI
 | TN Tech completes | Convert 200 CI → Construction Factories | 4,000 | Instant 200 factories |
 | +1 month | Convert 200 CI → Mines | 4,000 | Instant 200 mines |
 | +2 months | Convert 100 CI → Fuel Refineries | 2,000 | Instant 100 refineries |
-| Year 2-3 | Convert 500 CI → Financial Centers | 10,000 | 125 wealth/year |
+| Year 2-3 | Convert 1,100 CI → Financial Centers | 22,000 | 275 wealth/year |
 
-**Total conversion cost:** 20,000 BP for 1,000 TN installations. Building these new would cost 120,000 BP -- a savings of 100,000 BP.
+**Total conversion cost:** 32,000 BP for 1,600 TN installations. Building these new would cost 192,000 BP -- a savings of 160,000 BP.
 
 ---
 
