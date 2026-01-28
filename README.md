@@ -58,13 +58,7 @@ After completing this path, explore sections relevant to your current gameplay c
 - Aurora community wiki
 - In-game database and tooltips
 - Community guides (Reddit r/aurora4x and r/aurora)
-
-### YouTube Tutorial Credits
-
-The following YouTube creators have contributed gameplay knowledge and mechanical insights used in this manual. Their tutorial content has been invaluable for documenting practical strategies and in-game mechanics:
-
-- **[Defran Strategy](https://www.youtube.com/channel/UCQEGuZWLqCs0c8vaJ0trM3A)** — Aurora 4x v2.7.1 tutorial series covering ground combat, colonization, and early-game strategy
-- **[MO Chad](https://www.youtube.com/channel/UCC_GG3BqJqdf9tEoZfxJ1kw)** — Complete Beginner's Guide 2025 series covering installation, setup, and early-game fundamentals
+- YouTube tutorials — specific credits appear in manual references where content was sourced
 
 ## Contributing
 
@@ -121,5 +115,3 @@ This manual covers Aurora C# v2.7.1. Coverage of new versions is ongoing. We wel
 
 - **[@ErikEvenson](https://github.com/ErikEvenson)**
 - **[@ManzoorAhmedShaikh](https://github.com/ManzoorAhmedShaikh)**
-- **[Defran Strategy](https://www.youtube.com/channel/UCQEGuZWLqCs0c8vaJ0trM3A)** — Gameplay mechanics and strategy insights from Aurora 4x tutorial videos
-- **[MO Chad](https://www.youtube.com/channel/UCC_GG3BqJqdf9tEoZfxJ1kw)** — Installation and beginner onboarding insights from Complete Beginner's Guide series

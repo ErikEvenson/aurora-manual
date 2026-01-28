@@ -18,11 +18,14 @@ This is a comprehensive reference manual for Aurora C# (space strategy game by S
    - The video title and URL in the issue body under "## Source"
    - A comment on the issue crediting the creator: `**Source Credit:** [Creator Name](channel_url) — description`
 
-2. **README Credits:** After creating YouTube-sourced issues, update `README.md`:
-   - Add the creator to the "YouTube Tutorial Credits" subsection under Sources (if not already listed)
-   - Add the creator to the "Contributors" section (if not already listed)
+2. **Manual References:** Credit YouTube sources in the References section of the relevant manual file (not in README). Example:
+   ```
+   \hypertarget{ref-X.Y-N}{[N]}. [Creator Name] YouTube — "[Video Title]" — [specific detail verified]
+   ```
 
 3. **Identifying Creators:** Use `yt-dlp --print channel --print channel_url <URL>` to get the official channel name and URL.
+
+**Note:** Specific YouTube channel names should NOT appear in README.md — only in manual references where content was sourced.
 
 ## Content Standards
 
@@ -119,8 +122,6 @@ For development/testing builds, use `bash build-pdf.sh` without arguments (auto-
    - New build options are added
 
 4. **New contributors** — Add to Contributors section (see Contributor Attribution below)
-
-5. **New YouTube sources** — Add to YouTube Tutorial Credits (see YouTube Source Attribution above)
 
 **Version consistency rule:** The README version, database references throughout the manual, and the Game Database section in this file must all reference the same Aurora version.
 
