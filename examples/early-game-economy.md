@@ -18,7 +18,7 @@ Starting from a conventional-technology Earth with no trans-newtonian (TN) knowl
 
 | Resource | Starting Value |
 |----------|---------------|
-| Population | ~500 million (~200M in manufacturing sector) |
+| Population | ~1,000 million (~400M in manufacturing sector) |
 | Conventional Industry | ~1,600 factories (8x manufacturing population) |
 | TN Technology | None (must research) |
 | Mineral Deposits | Earth standard (moderate, mixed accessibility) |
