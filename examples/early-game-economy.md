@@ -44,9 +44,10 @@ Before advancing time, make two critical administrative assignments that provide
 Your homeworld governor is arguably your most important early-game assignment. With all industry concentrated on Earth, even a modest Production bonus translates into significantly faster construction.
 
 **How to assign:**
-1. Open the Commander window
-2. Find an officer with a high **Production** bonus (20%+ is excellent, 10%+ is acceptable)
-3. Assign them to the colony governor position for Earth
+1. Open the Commanders window (F3)
+2. Select **Administrators** in the commander type list (left panel)
+3. Find an administrator with a high **Production** bonus (20%+ is excellent, 10%+ is acceptable)
+4. Assign them as colony governor for Earth
 
 **Effect:** A governor with 25% Production bonus means your factories effectively produce 25% more BP. Over 10 years, this compounds into thousands of extra BP worth of construction.
 
