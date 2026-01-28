@@ -209,18 +209,33 @@ CI is immobile -- it cannot be transported off Earth. However, retaining some CI
 - **Infrastructure:** CI can build infrastructure cheaply during the transition
 - **Buffer:** Retained CI provides backup production capacity
 
-**Recommendation:** Convert 200-300 CI to TN installations immediately, retain 1,000+ for Financial Center conversions and infrastructure production over time.
+### Recommended CI Allocation (1,600 Total)
+
+| Target | Quantity | BP Cost | Minerals | Reasoning |
+|--------|----------|---------|----------|-----------|
+| Construction Factories | 200 | 4,000 | 2,000 Du + 2,000 Ne | Compounds all future production |
+| Mines | 200 | 4,000 | 4,000 Cor | Mineral income funds everything |
+| Fuel Refineries | 100 | 2,000 | 2,000 Bor | Fuel for fleet operations |
+| Research Labs | 50 | 1,000 | 500 Du + 500 Me | Accelerate tech progression |
+| Financial Centers | 500 | 10,000 | 10,000 Cb | 125 wealth/year ongoing income |
+| **Retained as CI** | 550 | -- | -- | Buffer for future conversions |
+| **Total** | 1,600 | 21,000 | -- | -- |
+
+**Mineral Key:** Du=Duranium, Ne=Neutronium, Cor=Corundium, Bor=Boronide, Me=Mercassium, Cb=Corbomite
+
+> **Note:** This allocation assumes adequate mineral stockpiles. Adjust based on your actual reserves -- if Corbomite is scarce, convert fewer Financial Centers and more production installations.
 
 ### Conversion Timeline
 
 | When | Action | BP Cost | Result |
 |------|--------|---------|--------|
-| TN Tech completes | Convert 100 CI → Construction Factories | 2,000 | Instant 100 factories |
-| +1 month | Convert 100 CI → Mines | 2,000 | Instant 100 mines |
-| +2 months | Convert 50 CI → Fuel Refineries | 1,000 | Instant 50 refineries |
-| Year 2-3 | Convert remaining CI → Financial Centers | Variable | Ongoing wealth |
+| TN Tech completes | Convert 200 CI → Construction Factories | 4,000 | Instant 200 factories |
+| +1 month | Convert 200 CI → Mines | 4,000 | Instant 200 mines |
+| +2 months | Convert 100 CI → Fuel Refineries | 2,000 | Instant 100 refineries |
+| +3 months | Convert 50 CI → Research Labs | 1,000 | Instant 50 labs |
+| Year 2-3 | Convert 500 CI → Financial Centers | 10,000 | 125 wealth/year |
 
-**Total immediate conversion cost:** ~5,000 BP for 250 TN installations. Building these new would cost 30,000 BP -- a savings of 25,000 BP that accelerates your economy by 1-2 years.
+**Total conversion cost:** 21,000 BP for 1,050 TN installations. Building these new would cost 126,000 BP -- a savings of 105,000 BP.
 
 ---
 
