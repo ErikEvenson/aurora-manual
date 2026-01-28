@@ -2,7 +2,7 @@
 
 > **Note:** This manual is under active development and may contain inaccuracies. Values and formulas are being verified against the game database. Some content may be incomplete, outdated, or incorrect. If you spot an error, please [report it](../../issues/new?template=inaccuracy-report.md).
 
-A comprehensive reference and guide for Aurora C# — the space strategy game by Steve Walmsley. This manual covers Aurora C# through v2.8.0, and coverage of new features and mechanics is ongoing.
+A comprehensive reference and guide for Aurora C# — the space strategy game by Steve Walmsley. This manual covers Aurora C# v2.7.1, and coverage of new features and mechanics is ongoing.
 
 ## Structure
 
@@ -93,9 +93,23 @@ Content here with practical examples.
 Content here.
 ```
 
+## Building the PDF
+
+Requires: `pandoc`, `tectonic` (LaTeX), `rsvg-convert`
+
+```bash
+# Development build (auto-increment version)
+bash build-pdf.sh
+
+# Release build (explicit version)
+bash build-pdf.sh 2026.01.28.07
+```
+
+Output: `releases/aurora-manual-VERSION.pdf`
+
 ## Community Review
 
-This manual covers Aurora C# through v2.8.0. Coverage of new versions is ongoing. We welcome review from experienced players on:
+This manual covers Aurora C# v2.7.1. Coverage of new versions is ongoing. We welcome review from experienced players on:
 
 - Formula and value accuracy
 - Missing mechanics or edge cases
