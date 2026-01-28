@@ -205,10 +205,10 @@ You need fuel before ships can operate. Converting 50 CI to refineries costs 1,0
 
 | Target | Quantity | BP Cost | Minerals | Reasoning |
 |--------|----------|---------|----------|-----------|
-| Construction Factories | 200 | 4,000 | 2,000 Du + 2,000 Ne | Compounds all future production |
+| Construction Factories | 800 | 16,000 | 8,000 Du + 8,000 Ne | Compounds all future production |
 | Mines | 200 | 4,000 | 4,000 Cor | Mineral income funds everything |
 | Fuel Refineries | 100 | 2,000 | 2,000 Bor | Fuel for fleet operations |
-| Financial Centers | 1,100 | 22,000 | 22,000 Cb | 275 wealth/year ongoing income |
+| Financial Centers | 500 | 10,000 | 10,000 Cb | 125 wealth/year ongoing income |
 | **Total** | 1,600 | 32,000 | -- | -- |
 
 **Mineral Key:** Du=Duranium, Ne=Neutronium, Cor=Corundium, Bor=Boronide, Cb=Corbomite
@@ -219,10 +219,10 @@ You need fuel before ships can operate. Converting 50 CI to refineries costs 1,0
 
 | When | Action | BP Cost | Result |
 |------|--------|---------|--------|
-| TN Tech completes | Convert 200 CI → Construction Factories | 4,000 | Instant 200 factories |
+| TN Tech completes | Convert 800 CI → Construction Factories | 16,000 | Instant 800 factories |
 | +1 month | Convert 200 CI → Mines | 4,000 | Instant 200 mines |
 | +2 months | Convert 100 CI → Fuel Refineries | 2,000 | Instant 100 refineries |
-| Year 2-3 | Convert 1,100 CI → Financial Centers | 22,000 | 275 wealth/year |
+| Year 2-3 | Convert 500 CI → Financial Centers | 10,000 | 125 wealth/year |
 
 **Total conversion cost:** 32,000 BP for 1,600 TN installations. Building these new would cost 192,000 BP -- a savings of 160,000 BP.
 
