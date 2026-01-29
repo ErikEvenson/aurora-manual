@@ -130,7 +130,7 @@ Comprehensive profile of the selected race's characteristics:
 
 - **Status and Points**: Current relationship tier and exact diplomatic point value.
 - **Personality Attributes**: Xenophobia (distrust of aliens), Militancy (willingness to use force), Determination (stubbornness), Diplomacy (negotiation willingness), and Trade (economic cooperation interest).
-- **Government Type**: May affect diplomatic tendencies and internal policies *(unverified — #763 -- government types were removed from player race creation in C#)*.
+- **Government Type**: Affects diplomatic tendencies through behavioral modifiers (Xenophobia, Diplomacy, Militancy, etc.) and influences starting installations and ground force composition. Government types are available during race creation for player races and randomly assigned to NPRs. See [Section 2.2.7 Government Type](../2-game-setup/2.2-race-creation.md#227-government-type) for the complete list and effects \hyperlink{ref-img-diplomacy-2}{[2]}.
 - **Expansion Drive**: How actively the NPR colonizes and builds fleets.
 - **Language Progress**: Percentage of the alien language translated; full translation eliminates the 80% ELINT/interrogation penalty.
 
@@ -247,6 +247,8 @@ Shows the currently assigned diplomat commander, their Diplomacy bonus percentag
 ## References
 
 \hypertarget{ref-img-diplomacy-1}{[1]}. Aurora C# game interface -- Diplomacy window layout verified against v2.7.1 game client. Treaty types, diplomatic status progression, and communication mechanics.
+
+\hypertarget{ref-img-diplomacy-2}{[2]}. Aurora C# game database (AuroraDB.db v2.7.1) -- GovType table contains 38 government types with behavioral modifiers (XenophobiaMod, DiplomacyMod, MilitancyMod, ExpansionismMod, DeterminationMod, TradeMod). FCT_Race.GovTypeID links races to government types. Player races default to GovTypeID=1 ("Player Race") but can select any government type.
 
 ---
 
