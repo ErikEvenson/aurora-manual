@@ -1,3 +1,9 @@
+---
+title: "Example: Establishing a New Colony"
+parent: "Examples"
+nav_order: 99
+---
+
 # Example: Establishing a New Colony
 
 *Added: v2026.01.24*

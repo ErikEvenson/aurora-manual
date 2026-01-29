@@ -1,3 +1,9 @@
+---
+title: "Example: Designing a Missile Salvo"
+parent: "Examples"
+nav_order: 99
+---
+
 # Example: Designing a Missile Salvo
 
 *Added: v2026.01.24*

@@ -1,3 +1,9 @@
+---
+title: "Appendix B: Glossary"
+parent: "Appendices"
+nav_order: 2
+---
+
 # Appendix B: Glossary
 
 *Added: v2026.01.23*

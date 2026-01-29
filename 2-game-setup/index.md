@@ -1,3 +1,10 @@
+---
+title: "2. Game Setup"
+nav_order: 2
+has_children: true
+permalink: /2-game-setup/
+---
+
 # 2. Game Setup
 
 - [2.1 New Game Options](2.1-new-game-options.md)

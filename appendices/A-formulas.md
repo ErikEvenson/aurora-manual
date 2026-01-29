@@ -1,3 +1,9 @@
+---
+title: "Appendix A: Formulas"
+parent: "Appendices"
+nav_order: 1
+---
+
 # Appendix A: Formulas
 
 *Added: v2026.01.23*

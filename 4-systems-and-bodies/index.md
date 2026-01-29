@@ -1,3 +1,10 @@
+---
+title: "4. Systems and Bodies"
+nav_order: 4
+has_children: true
+permalink: /4-systems-and-bodies/
+---
+
 # 4. Systems and Bodies
 
 - [4.1 Stars](4.1-stars.md)

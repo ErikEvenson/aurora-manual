@@ -1,3 +1,9 @@
+---
+title: "Example: Planning a Ground Invasion"
+parent: "Examples"
+nav_order: 99
+---
+
 # Example: Planning a Ground Invasion
 
 *Added: v2026.01.24*

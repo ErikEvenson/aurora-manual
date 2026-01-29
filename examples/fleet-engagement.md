@@ -1,3 +1,9 @@
+---
+title: "Example: Fleet Engagement -- The Battle of Epsilon Junction"
+parent: "Examples"
+nav_order: 99
+---
+
 # Example: Fleet Engagement -- The Battle of Epsilon Junction
 
 *Added: v2026.01.24*

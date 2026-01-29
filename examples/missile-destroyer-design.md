@@ -1,3 +1,9 @@
+---
+title: "Example: Designing a Missile Destroyer"
+parent: "Examples"
+nav_order: 99
+---
+
 # Example: Designing a Missile Destroyer
 
 *Added: v2026.01.24*

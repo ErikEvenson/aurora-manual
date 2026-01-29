@@ -1,3 +1,8 @@
+---
+title: Home
+nav_order: 0
+---
+
 # Aurora 4X Manual (Unofficial)
 
 [![Latest Release](https://img.shields.io/github/v/release/ErikEvenson/aurora-manual?label=PDF%20Download)](https://github.com/ErikEvenson/aurora-manual/releases/latest)

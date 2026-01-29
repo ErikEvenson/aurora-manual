@@ -1,3 +1,10 @@
+---
+title: "12. Combat"
+nav_order: 12
+has_children: true
+permalink: /12-combat/
+---
+
 # 12. Combat
 
 - [12.1 Fire Controls](12.1-fire-controls.md)

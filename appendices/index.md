@@ -1,3 +1,10 @@
+---
+title: "Appendices"
+nav_order: 19
+has_children: true
+permalink: /appendices/
+---
+
 # Appendices
 
 - [A.1 Formulas](a.1-formulas.md)

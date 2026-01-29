@@ -1,3 +1,9 @@
+---
+title: "Appendix C: Tips and Common Mistakes"
+parent: "Appendices"
+nav_order: 3
+---
+
 # Appendix C: Tips and Common Mistakes
 
 *Added: v2026.01.23*

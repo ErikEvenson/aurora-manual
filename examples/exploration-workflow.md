@@ -1,3 +1,9 @@
+---
+title: "Example: Exploration Workflow"
+parent: "Examples"
+nav_order: 99
+---
+
 # Example: Exploration Workflow
 
 *Added: v2026.01.24*

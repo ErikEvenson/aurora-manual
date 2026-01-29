@@ -1,3 +1,9 @@
+---
+title: "Example: Defending a Jump Point"
+parent: "Examples"
+nav_order: 99
+---
+
 # Example: Defending a Jump Point
 
 *Added: v2026.01.24*

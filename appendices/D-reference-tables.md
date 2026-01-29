@@ -1,3 +1,9 @@
+---
+title: "Appendix D: Reference Tables"
+parent: "Appendices"
+nav_order: 4
+---
+
 # Appendix D: Reference Tables
 
 *Added: v2026.01.24*

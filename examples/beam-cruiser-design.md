@@ -1,3 +1,9 @@
+---
+title: "Example: Designing Your First Beam Cruiser"
+parent: "Examples"
+nav_order: 99
+---
+
 # Example: Designing Your First Beam Cruiser
 
 *Added: v2026.01.24*

@@ -1,3 +1,10 @@
+---
+title: "3. User Interface"
+nav_order: 3
+has_children: true
+permalink: /3-user-interface/
+---
+
 # 3. User Interface
 
 - [3.1 Main Window](3.1-main-window.md)

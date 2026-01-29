@@ -1,3 +1,9 @@
+---
+title: "Example: Early Game Economic Bootstrap"
+parent: "Examples"
+nav_order: 99
+---
+
 # Example: Early Game Economic Bootstrap
 
 *Added: v2026.01.24*

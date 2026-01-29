@@ -1,3 +1,9 @@
+---
+title: "Example: Setting Up a Mining Network"
+parent: "Examples"
+nav_order: 99
+---
+
 # Example: Setting Up a Mining Network
 
 *Added: v2026.01.24*

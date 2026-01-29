@@ -1,3 +1,9 @@
+---
+title: "Example: Terraforming a Colony"
+parent: "Examples"
+nav_order: 99
+---
+
 # Example: Terraforming a Colony
 
 *Added: v2026.01.25*

@@ -1,3 +1,10 @@
+---
+title: "5. Colonies"
+nav_order: 5
+has_children: true
+permalink: /5-colonies/
+---
+
 # 5. Colonies
 
 - [5.1 Establishing Colonies](5.1-establishing-colonies.md)
