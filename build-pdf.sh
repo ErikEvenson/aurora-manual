@@ -166,6 +166,9 @@ done
 pandoc \
     --metadata-file=metadata.yaml \
     --metadata="date:v${VERSION}" \
+    --metadata="title:Aurora 4X Manual" \
+    --metadata="subtitle:A Comprehensive Reference for Aurora C# (through v2.8.0)" \
+    --metadata="author:Aurora Community" \
     --pdf-engine=tectonic \
     --top-level-division=chapter \
     --table-of-contents \

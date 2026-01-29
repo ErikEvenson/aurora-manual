@@ -3,6 +3,7 @@ title: "Aurora 4X Manual"
 subtitle: "A Comprehensive Reference for Aurora C# (through v2.8.0)"
 abstract: "This manual is a work in progress. Values and formulas are being verified against the game database and some content may be inaccurate or incomplete. Coverage of new versions is ongoing."
 author: "Aurora Community"
+titlepage: true
 subject: "Aurora 4X Game Manual"
 keywords: [aurora, 4x, strategy, space, manual]
 lang: en
