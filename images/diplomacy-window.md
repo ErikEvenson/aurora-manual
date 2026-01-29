@@ -130,7 +130,7 @@ Comprehensive profile of the selected race's characteristics:
 
 - **Status and Points**: Current relationship tier and exact diplomatic point value.
 - **Personality Attributes**: Xenophobia (distrust of aliens), Militancy (willingness to use force), Determination (stubbornness), Diplomacy (negotiation willingness), and Trade (economic cooperation interest).
-- **Government Type**: May affect diplomatic tendencies and internal policies *(unverified -- government types were removed from player race creation in C#)*.
+- **Government Type**: May affect diplomatic tendencies and internal policies *(unverified — #763 -- government types were removed from player race creation in C#)*.
 - **Expansion Drive**: How actively the NPR colonizes and builds fleets.
 - **Language Progress**: Percentage of the alien language translated; full translation eliminates the 80% ELINT/interrogation penalty.
 
