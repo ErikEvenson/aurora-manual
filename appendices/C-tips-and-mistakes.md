@@ -116,7 +116,7 @@ Ship armor is distributed in columns. Adding more armor layers (depth) to each c
 
 ### C.3.6 AMM Doctrine
 
-Anti-Missile Missiles should be small and fast with the highest possible agility. A size-1 AMM with maximum engine allocation intercepts reliably and you can carry hundreds in a single magazine. Quantity beats quality for point defense missiles.
+Anti-Missile Missiles should be small and fast. A size-1 AMM with maximum engine allocation intercepts reliably and you can carry hundreds in a single magazine. Speed is the key stat — faster AMMs have higher intercept chance against incoming missiles (v2.2.0+ speed ratio system). Quantity beats quality for point defense missiles.
 
 ### C.3.7 Do Not Neglect Training
 
