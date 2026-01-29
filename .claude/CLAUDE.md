@@ -234,18 +234,54 @@ images/screenshots/
 
 ### Screenshot Issues
 
-Screenshot requests use the `screenshot` label. Issue body includes:
+Screenshot requests use the `screenshot` label. Issue body **MUST** include:
 - Target filename and path
 - Description of what to capture
 - Annotation suggestions
 - **Navigation instructions** — how to reach this view in-game (menu path, keyboard shortcuts, required game state)
-
-**Navigation instruction examples:**
-- "Game Setup > Create New Game > click 'Game Details' tab"
-- "F2 (Economics window) > Environment tab > select a colony with terraforming"
-- "Requires: active game with at least one fleet. F3 (Fleet window) > select fleet > Orders tab"
-- "Right-click system body in System Map > select 'Geological Survey'"
 - Capture notes
+
+**Screenshot issue template:**
+```markdown
+## Screenshot Request
+
+**Section:** X.Y Section Name
+**File:** `images/screenshots/[chapter]/[filename].png`
+
+### Description
+Capture the [Window Name] showing:
+- [Feature 1]
+- [Feature 2]
+
+### Navigation Instructions
+
+**Menu path:** Windows menu > [Window Name]
+**Keyboard shortcut:** [F-key]
+
+**Prerequisites:** [Required game state, e.g., "Active game with at least one fleet"]
+
+**Steps:**
+1. [Step to reach the view]
+2. [Step to configure the view]
+3. [Step to show relevant content]
+
+### Annotation Suggestions
+Label:
+1. [UI element]
+2. [UI element]
+
+### Capture Notes
+- [Specific requirements]
+```
+
+**Common Aurora keyboard shortcuts:**
+- F2: Population and Production
+- F3: Naval Organization (Fleets)
+- F4: Manage Shipyards
+- F5: Research
+- F6: Class Design
+- F7: Ground Forces
+- F9: System Map
 
 ### Uploading Screenshots for Annotation
 
