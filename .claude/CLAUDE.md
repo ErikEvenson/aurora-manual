@@ -241,6 +241,19 @@ Screenshot requests use the `screenshot` label. Issue body **MUST** include:
 - **Navigation instructions** — how to reach this view in-game (menu path, keyboard shortcuts, required game state)
 - Capture notes
 
+**When creating a screenshot issue, ALSO add a placeholder in the manual:**
+
+Insert a blockquote placeholder after the section heading (after the `*Added:*` line if present):
+
+```markdown
+> **[Screenshot Pending — #NNN]** Brief description of what the screenshot will show.
+```
+
+This placeholder:
+- Signals to readers that visual content is planned
+- Links to the tracking issue for contributors
+- Gets replaced with the actual image when the screenshot is added
+
 **Screenshot issue template:**
 ```markdown
 ## Screenshot Request
