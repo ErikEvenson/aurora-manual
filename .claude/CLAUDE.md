@@ -240,6 +240,30 @@ Screenshot requests use the `screenshot` label. Issue body includes:
 - Annotation suggestions
 - Capture notes
 
+### Uploading Screenshots for Annotation
+
+When uploading a screenshot to an issue for annotation, include:
+
+1. **Full base screenshot** - the complete image to annotate
+
+2. **EITHER cropped regions OR rough markup:**
+   - **Option A - Cropped regions:** Upload separate crops of each UI element to highlight, labeled like "Crop 1: Time controls area"
+   - **Option B - Rough markup:** Mark up the full screenshot with rough boxes/circles (even in Preview.app) showing areas to highlight
+
+3. **Labels for each annotation:** List what each highlighted area should be called in the legend
+
+**Example comment format:**
+```
+Base screenshot attached.
+
+Annotations needed:
+1. [crop or markup] - "Title Bar"
+2. [crop or markup] - "Toolbar"
+3. [crop or markup] - "Time Controls"
+```
+
+This eliminates coordinate guessing and reduces annotation iterations from 4-5 to 1-2.
+
 ### Incorporating Screenshots from Issues
 
 When a user uploads a screenshot to an issue:
