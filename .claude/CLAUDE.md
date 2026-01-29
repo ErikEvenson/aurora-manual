@@ -238,6 +238,13 @@ Screenshot requests use the `screenshot` label. Issue body includes:
 - Target filename and path
 - Description of what to capture
 - Annotation suggestions
+- **Navigation instructions** — how to reach this view in-game (menu path, keyboard shortcuts, required game state)
+
+**Navigation instruction examples:**
+- "Game Setup > Create New Game > click 'Game Details' tab"
+- "F2 (Economics window) > Environment tab > select a colony with terraforming"
+- "Requires: active game with at least one fleet. F3 (Fleet window) > select fleet > Orders tab"
+- "Right-click system body in System Map > select 'Geological Survey'"
 - Capture notes
 
 ### Uploading Screenshots for Annotation
