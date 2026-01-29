@@ -37,6 +37,8 @@ echo "Building Aurora 4X Manual v${VERSION}..."
 
 # Define file order
 FILES=(
+    # Preface
+    preface.md
     # Main chapters
     1-introduction/1.1-what-is-aurora.md
     1-introduction/1.2-installation.md
