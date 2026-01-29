@@ -109,13 +109,17 @@ For development/testing builds, use `bash build-pdf.sh` without arguments (auto-
 ### When Adding Unverified Content
 
 When adding content that cannot be verified against authoritative sources:
-1. Mark the claim with `*(unverified)*` or `*(unverified -- context)*` inline
+1. Mark the claim with `*(unverified — #NNN)*` inline, where NNN is the tracking issue number
 2. Create a GitHub issue to track verification using label `unverified`
 3. Issue title format: `Verify: [Section] [Brief description of claim]`
 4. Issue body must include:
    - The exact unverified claim text
    - File path and line number
    - Suggested verification sources (database table, forum topic, changelog)
+
+**Inline format examples:**
+- `*(unverified — #728)*` — simple unverified claim
+- `*(unverified — #728 -- version-specific change)*` — with context
 
 ### When Finding Existing Unverified Claims
 
