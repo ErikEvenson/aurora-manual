@@ -318,15 +318,24 @@ When a user uploads a screenshot to an issue:
 - **Legend:** Dark background bar at bottom with callout explanations
 - **Font:** System Helvetica or similar sans-serif
 
-### Quality Verification Checklist
+### Quality Verification Checklist (MANDATORY)
 
-Before committing a screenshot, verify:
-- [ ] Figure header displays correct section number and description
-- [ ] Annotation boxes correctly highlight the intended UI elements
-- [ ] Callout numbers (1, 2, 3) are visible and not obscured
-- [ ] Legend text matches the callout descriptions
-- [ ] Image is not blurry or distorted
-- [ ] All text is legible at normal viewing size
+**ALWAYS perform this quality review BEFORE committing any annotated screenshot.**
+
+1. **View the full annotated image** using the `Read` tool
+2. **Create verification crops** of each annotated area and view them
+3. **Check against this list:**
+   - [ ] Figure header displays correct section number and description
+   - [ ] Annotation boxes correctly highlight the intended UI elements
+   - [ ] Callout numbers are visible, not obscured, and WITHIN image boundaries
+   - [ ] Legend text matches the callout descriptions
+   - [ ] Image is not blurry or distorted
+   - [ ] All text is legible at normal viewing size
+
+**Common issues to catch:**
+- Callout circles positioned outside image boundaries (negative coordinates)
+- Boxes not aligned with actual UI elements (Y positions especially)
+- Legend text too small or cut off
 
 ### Identifying Correct UI Element Positions
 
