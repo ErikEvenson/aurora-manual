@@ -4,6 +4,15 @@
 
 This is a comprehensive reference manual for Aurora C# (space strategy game by Steve Walmsley). The manual is written in Markdown, organized by numbered sections, and compiled to PDF via `build-pdf.sh` using pandoc + tectonic.
 
+## Answering Game Mechanics Questions
+
+When answering questions about Aurora mechanics using manual content:
+
+1. **Always indicate if the answer depends on unverified claims** — If the relevant manual section contains `*(unverified)*` markers, explicitly state this in the response
+2. **Cite the specific manual section** — Reference the section number and file (e.g., "Section 12.2.2.3 in `12-combat/12.2-beam-weapons.md`")
+3. **Distinguish verified vs unverified** — Verified claims have `\hyperlink{ref-X.Y-N}{[N]}` references; unverified claims have `*(unverified)*` markers
+4. **Recommend authoritative sources for unverified claims** — Aurora Forums, in-game testing, or database queries
+
 ## Game Fundamentals
 
 - **Turn-based, not real-time:** Aurora advances time only when the player clicks an increment button (5 sec, 30 sec, 5 min, etc.). There is no "pause" — time never runs automatically.
