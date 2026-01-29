@@ -330,31 +330,46 @@ Before committing a screenshot, verify:
 
 ### Identifying Correct UI Element Positions
 
-Do NOT guess coordinates. Examine the actual image to find element positions:
+Do NOT guess coordinates. Use systematic grid analysis to find element positions:
 
-1. **Crop regions for examination:**
-   ```python
-   from PIL import Image
-   img = Image.open('/tmp/screenshot.png')
+**Step 1: Find X positions using vertical strips**
+```python
+from PIL import Image
+img = Image.open('/tmp/screenshot.png')
 
-   # Crop a region to examine (x1, y1, x2, y2)
-   region = img.crop((400, 40, 700, 200))
-   region.save('/tmp/region_check.png')
-   ```
+# Create vertical strips (400px wide) across the image
+for x_start in range(0, img.width, 400):
+    strip = img.crop((x_start, 100, x_start + 400, 200))
+    strip.save(f'/tmp/x_strip_{x_start}.png')
+```
 
-2. **View cropped region** with Read tool to identify text labels
+**Step 2: Find Y positions using horizontal strips**
+```python
+# Once X range is known (e.g., x=408-780 for NPR), find Y position
+for y_start in range(0, 400, 50):
+    strip = img.crop((408, y_start, 780, y_start + 50))
+    strip.save(f'/tmp/y_strip_{y_start}_{y_start+50}.png')
+```
 
-3. **Iterate** - crop different areas until you find the exact UI element
+**Step 3: Refine with narrow strips**
+```python
+# Narrow down to exact Y range (e.g., found text around y=150)
+for y_start in [140, 150, 160]:
+    strip = img.crop((408, y_start, 780, y_start + 30))
+    strip.save(f'/tmp/precise_y_{y_start}.png')
+```
 
-4. **Record actual coordinates** based on where text/controls appear
+**Step 4: View strips** with Read tool to identify text labels
+
+**Step 5: Record actual coordinates** based on where text/controls appear
 
 Example workflow:
-- Looking for "Known Star Systems" checkbox
-- Crop middle area: see "NPR Generation" text → wrong area
-- Crop center-right area: see "Known Star Systems" → correct area at x=950-1150
-- Use these actual coordinates for annotation box
+- Looking for "NPR Generation Chance" - need both X and Y
+- Vertical strips: find text appears in x=400-800 range
+- Horizontal strips in that X range: find text at y=140-175
+- Final box coordinates: (408, 140, 780, 175)
 
-**Never assume coordinates based on UI layout descriptions.** Always visually verify by examining cropped regions of the actual screenshot.
+**Never assume coordinates based on UI layout descriptions.** Always visually verify using systematic grid analysis of the actual screenshot.
 
 ### Markdown Reference
 
