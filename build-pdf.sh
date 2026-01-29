@@ -168,6 +168,7 @@ pandoc \
     --top-level-division=chapter \
     --table-of-contents \
     --toc-depth=3 \
+    --resource-path=.:images:images/screenshots:images/.generated \
     -V colorlinks=true \
     -V linkcolor=blue \
     -V urlcolor=blue \
