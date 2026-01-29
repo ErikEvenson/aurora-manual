@@ -14,7 +14,7 @@ aux_links:
 aux_links_new_tab: true
 
 # Footer
-footer_content: "Aurora 4X Manual - Community documentation for Aurora C# (game by Steve Walmsley)"
+footer_content: "Aurora 4X Manual - Unofficial community documentation for Aurora C# (game by Steve Walmsley)"
 
 # Enable search
 search_enabled: true
