@@ -1,8 +1,13 @@
 # Aurora 4X Manual (Unofficial)
 
+[![Latest Release](https://img.shields.io/github/v/release/ErikEvenson/aurora-manual?label=PDF%20Download)](https://github.com/ErikEvenson/aurora-manual/releases/latest)
+[![GitHub Discussions](https://img.shields.io/github/discussions/ErikEvenson/aurora-manual)](https://github.com/ErikEvenson/aurora-manual/discussions)
+
 > **Note:** This is an unofficial community manual, not affiliated with or endorsed by Steve Walmsley. It is under active development and may contain inaccuracies. Values and formulas are being verified against the game database. Some content may be incomplete, outdated, or incorrect. If you spot an error, please [report it](../../issues/new?template=inaccuracy-report.md).
 
-A comprehensive reference and guide for Aurora C# — the space strategy game by Steve Walmsley. This manual covers Aurora C# v2.7.1, and coverage of new features and mechanics is ongoing.
+A comprehensive reference manual, beginner's guide, and tutorial resource for Aurora C# — the complex 4X space strategy game by Steve Walmsley. Whether you're learning how to play Aurora 4X for the first time or looking up advanced mechanics, this manual covers Aurora C# v2.7.1 with ongoing coverage of new features.
+
+**[Download the latest PDF](https://github.com/ErikEvenson/aurora-manual/releases/latest)** — printable, offline-ready reference
 
 ## Structure
 
@@ -31,9 +36,9 @@ This manual is organized using a decimal numbering system. Each major section is
 | A | [Appendices](appendices/) | Formulas, glossary, tips, reference tables |
 | E | [Examples](examples/) | Worked scenarios: ship design, mining, combat, economy |
 
-## Recommended Reading Path for New Players
+## How to Play Aurora 4X — Beginner's Guide
 
-If you're new to Aurora 4X, this guided reading order will help you learn the game systematically:
+New to Aurora 4X? This step-by-step tutorial path will teach you the game from scratch. Follow this reading order to learn Aurora's core mechanics systematically:
 
 1. **Game Setup** ([2.1](2-game-setup/2.1-new-game-options.md), [2.5](2-game-setup/2.5-starting-conditions.md)) — Create your first game
 2. **User Interface** ([3.1](3-user-interface/3.1-main-window.md), [3.2](3-user-interface/3.2-system-map.md)) — Navigate the interface
@@ -51,6 +56,21 @@ If you're new to Aurora 4X, this guided reading order will help you learn the ga
     - *Example:* [Fleet Engagement](examples/fleet-engagement.md)
 
 After completing this path, explore sections relevant to your current gameplay challenges.
+
+## What This Manual Covers
+
+This Aurora 4X guide provides detailed documentation on:
+
+- **Getting started** — Installation, game setup, creating your first empire
+- **Ship design** — Hull types, engines, sensors, weapons, armor, and component optimization
+- **Fleet management** — Task groups, standing orders, fleet organization, naval commands
+- **Combat mechanics** — Fire controls, beam weapons, missiles, point defense, electronic warfare
+- **Colony management** — Population, infrastructure, terraforming, governors
+- **Economy** — Mining, construction, research, wealth generation
+- **Exploration** — Geological surveys, gravitational surveys, jump point mechanics
+- **Ground combat** — Unit types, formations, invasions, planetary defense
+- **Diplomacy** — First contact, treaties, espionage, alien races
+- **Formulas and tables** — Verified game mechanics from the Aurora database
 
 ## Sources
 
