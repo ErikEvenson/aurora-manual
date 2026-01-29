@@ -60,7 +60,7 @@ Rationale:
 With 2 MSP of missile space, we must allocate between four components:
 
 1. **Warhead** -- damage on impact
-2. **Engine** -- speed (affects both time-to-target and defensive agility)
+2. **Engine** -- speed (affects time-to-target and hit chance via speed ratio; see Step 4)
 3. **Fuel** -- range at the given speed
 4. **Seeker** -- terminal guidance (active sensor to acquire target)
 
@@ -68,7 +68,7 @@ With 2 MSP of missile space, we must allocate between four components:
 
 ```
 Warhead:  0.4 MSP  -- Damage = 0.4 * 4 (warhead tech) = 1.6 damage per missile
-Engine:   0.8 MSP  -- Speed and agility
+Engine:   0.8 MSP  -- Speed (determines hit chance in v2.2.0+)
 Fuel:     0.5 MSP  -- Range
 Seeker:   0.3 MSP  -- Terminal guidance sensor
 ------

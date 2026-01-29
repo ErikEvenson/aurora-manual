@@ -78,7 +78,7 @@ At Warhead Strength 3:
 
 ## Step 3: Engine Allocation
 
-Missile speed and agility both depend on engine allocation.
+Missile speed depends on engine allocation. *(In v2.2.0+, agility is display-only; hit chance uses the speed ratio system — see PD Survivability section below.)*
 
 ### Speed Formula
 
