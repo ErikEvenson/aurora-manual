@@ -1,3 +1,8 @@
+---
+title: Preface
+nav_order: 0.5
+---
+
 # Preface
 
 This manual is written primarily for new and intermediate Aurora players. If you're encountering Aurora for the first time, or still finding your footing after a few games, you'll find detailed explanations of mechanics, worked examples, and practical guidance that should accelerate your learning considerably.
