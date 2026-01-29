@@ -216,3 +216,96 @@ SVG images are supported via automatic conversion:
 - **Tech tree generation:** Use Graphviz DOT format, convert with `dot -Tsvg`
 
 The build script only reconverts if the SVG is newer than the PDF.
+
+## Screenshots
+
+Screenshots are stored in `images/screenshots/` with subdirectories mirroring chapter structure.
+
+### Directory Structure
+
+```
+images/screenshots/
+  2-game-setup/
+    2.1-new-game-options.png
+  3-user-interface/
+    3.1-main-window-overview.png
+  ...
+```
+
+### Screenshot Issues
+
+Screenshot requests use the `screenshot` label. Issue body includes:
+- Target filename and path
+- Description of what to capture
+- Annotation suggestions
+- Capture notes
+
+### Incorporating Screenshots from Issues
+
+When a user uploads a screenshot to an issue:
+
+1. **Fetch the image URL:**
+   ```bash
+   gh api repos/ErikEvenson/aurora-manual/issues/NNN/comments --jq '.[].body'
+   ```
+
+2. **Download the image:**
+   ```bash
+   curl -sL "[image_url]" -o /tmp/screenshot-base.png
+   ```
+
+3. **Add annotations with Python/Pillow:**
+   ```python
+   from PIL import Image, ImageDraw, ImageFont
+
+   img = Image.open('/tmp/screenshot-base.png')
+   draw = ImageDraw.Draw(img)
+   font = ImageFont.truetype('/System/Library/Fonts/Helvetica.ttc', 32)
+
+   # Draw box
+   draw.rectangle((x1, y1, x2, y2), outline='#FF0000', width=3)
+
+   # Draw numbered circle
+   draw.ellipse([cx-18, cy-18, cx+18, cy+18], fill='#FF0000')
+   draw.text((cx-8, cy-12), "1", fill='white', font=font)
+
+   # Add legend bar at bottom
+   draw.rectangle([10, 930, 700, 985], fill='#000033', outline='#FF0000')
+   draw.text((20, 940), "1 - Label", fill='white', font=font_small)
+
+   img.save('/tmp/screenshot-annotated.png')
+   ```
+
+4. **Copy to proper location:**
+   ```bash
+   cp /tmp/screenshot-annotated.png images/screenshots/[chapter]/[section]-[name].png
+   ```
+
+5. **Add to manual section:**
+   ```markdown
+   ![Description](../images/screenshots/[chapter]/[section]-[name].png)
+
+   **Key areas:** 1 - First area, 2 - Second area, 3 - Third area
+   ```
+
+6. **Commit with issue closure:**
+   ```bash
+   git add -A && git commit -m "Add screenshot for Section X.Y
+
+   Closes #NNN"
+   ```
+
+### Annotation Guidelines
+
+- **Box color:** Red (#FF0000), 3px stroke
+- **Callout circles:** Red fill, 18px radius, white number
+- **Legend:** Dark background bar at bottom with callout explanations
+- **Font:** System Helvetica or similar sans-serif
+
+### Markdown Reference
+
+```markdown
+![New Game Options Window](../images/screenshots/2-game-setup/2.1-new-game-options.png)
+```
+
+Both PDF (pandoc) and web (Jekyll) handle PNG images natively.
