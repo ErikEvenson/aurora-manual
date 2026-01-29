@@ -328,6 +328,34 @@ Before committing a screenshot, verify:
 - [ ] Image is not blurry or distorted
 - [ ] All text is legible at normal viewing size
 
+### Identifying Correct UI Element Positions
+
+Do NOT guess coordinates. Examine the actual image to find element positions:
+
+1. **Crop regions for examination:**
+   ```python
+   from PIL import Image
+   img = Image.open('/tmp/screenshot.png')
+
+   # Crop a region to examine (x1, y1, x2, y2)
+   region = img.crop((400, 40, 700, 200))
+   region.save('/tmp/region_check.png')
+   ```
+
+2. **View cropped region** with Read tool to identify text labels
+
+3. **Iterate** - crop different areas until you find the exact UI element
+
+4. **Record actual coordinates** based on where text/controls appear
+
+Example workflow:
+- Looking for "Known Star Systems" checkbox
+- Crop middle area: see "NPR Generation" text → wrong area
+- Crop center-right area: see "Known Star Systems" → correct area at x=950-1150
+- Use these actual coordinates for annotation box
+
+**Never assume coordinates based on UI layout descriptions.** Always visually verify by examining cropped regions of the actual screenshot.
+
 ### Markdown Reference
 
 ```markdown
