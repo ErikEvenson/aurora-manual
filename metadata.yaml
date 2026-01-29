@@ -20,8 +20,9 @@ header-includes:
   - \pagestyle{fancy}
   - \fancyhead[L]{Aurora 4X Manual}
   - \fancyhead[R]{\leftmark}
-  - \fancyfoot[L]{\footnotesize\date}
+  - \fancyfoot[L]{\footnotesize Unofficial community documentation for Aurora C\# (game by Steve Walmsley)}
   - \fancyfoot[C]{\thepage}
+  - \fancyfoot[R]{\footnotesize\date}
   - \usepackage{titlesec}
   - \titleformat{\chapter}[display]{\normalfont\huge\bfseries}{Chapter \thechapter}{20pt}{\Huge}
 ---

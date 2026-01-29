@@ -15,6 +15,7 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | Accessibility | 0.1--1.0 value for mining ease; higher = more output per mine \hyperlink{ref-B-1}{[B-1]} |
 | Active Sensor | Emits energy to detect targets; reveals own position via EM |
 | AFR | Annual Failure Rate; percentage chance of component failure per year |
+| AM | Automated Mine (context: mining) or Anti-matter (context: engines/weapons) \hyperlink{ref-B-11}{[B-11]} |
 | AMM | Anti-Missile Missile; small, fast interceptor missile |
 | Armor Column | Vertical armor segment; random hits require repeated column strikes |
 | ASM | Anti-Ship Missile; offensive missile vs enemy vessels |
@@ -24,6 +25,7 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | Bridge | Required for ships operating outside home system |
 | Buoy | Deployable sensor or survey device; operates without crew |
 | CAG | Commander Air Group; officer managing carrier fighter operations |
+| CF | Construction Factory; TN installation producing 1 BP/year \hyperlink{ref-B-11}{[B-11]} |
 | CC | Colony Cost; planet hostility rating for colonization |
 | CIC | Combat Information Centre; ship component for tactical officer |
 | CIWS | Close-In Weapon System; auto-fires at incoming missiles |
@@ -55,13 +57,18 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | Fuel Harvester | Collects Sorium from gas giant atmospheres |
 | Fuel Refinery | Converts Sorium into usable ship fuel |
 | Gauss Cannon | 1-damage rapid-fire weapon; ideal for point defense \hyperlink{ref-B-6}{[B-6]} |
+| GB | Gunboat; alternate term for Fast Attack Craft (FAC) \hyperlink{ref-B-11}{[B-11]} |
+| GB Engine | High-powered engine variant with 2x output but 10x fuel consumption \hyperlink{ref-B-11}{[B-11]} |
+| GC | Gauss Cannon \hyperlink{ref-B-11}{[B-11]} |
+| GFTF | Ground Forces Training Facility; trains ground units \hyperlink{ref-B-11}{[B-11]} |
 | Geosurvey | Scanning a body to discover mineral deposits |
 | Governor | Colony commander; provides production/growth bonuses |
 | Grav Survey | Exploring a system to discover jump points |
 | Ground Forces | Military units for planetary assault and defense |
 | Hangar | Ship component for storing and servicing smaller craft |
 | HS | Hull Size; 50 tons of ship mass (1 HS = 50t) \hyperlink{ref-B-3}{[B-3]} |
-| HTK | Hit to Kill; damage points before component destruction |
+| HTK | Hits to Kill; damage points before component destruction \hyperlink{ref-B-11}{[B-11]} |
+| IFR | Incremental Failure Rate; component reliability metric \hyperlink{ref-B-11}{[B-11]} |
 | Infrastructure | Supports population on planets with CC > 0 |
 | JP | Jump point; portal between star systems |
 | Jump Drive | Enables JP transit; military (self) or commercial (squad) |
@@ -85,6 +92,7 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | Orbital Habitat | Space-based structure supporting population without a planet |
 | Ordnance | Missiles and expendable weapons carried by ships |
 | Overhaul | Resetting maintenance clock; prevents breakdowns |
+| OWP | Orbital Weapons Platform; stationary armed station \hyperlink{ref-B-11}{[B-11]} |
 | Particle Beam | Shorter range than laser; no falloff, good penetration |
 | Passive Sensor | Detects thermal/EM without revealing own position |
 | PD | Point Defense; intercepts incoming missiles |
@@ -96,7 +104,8 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | Railgun | Kinetic beam; full damage at all ranges, single-column penetration \hyperlink{ref-B-9}{[B-9]} |
 | Refueling Hub | Tankers auto-refuel fleet ships |
 | Resolution | Sensor target-size optimization; FC range factor |
-| RP | Research Points; from labs and scientists |
+| ROF | Rate of Fire; how quickly a weapon can fire \hyperlink{ref-B-11}{[B-11]} |
+| RP | Research Points; from labs and scientists \hyperlink{ref-B-11}{[B-11]} |
 | Ruins | Alien sites; explored for tech bonuses and resources |
 | Sector | Colony grouping under sector commander; bonus production |
 | Shield | Absorbs damage before armor; regenerates; emits EM |
@@ -110,9 +119,11 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | Strikegroup | Task group sub-formation for fleet organization |
 | Survey Point | Location checked during grav survey for JPs |
 | Swarm | Spoiler race; overwhelms with numbers, regenerates |
+| SY | Shipyard \hyperlink{ref-B-11}{[B-11]} |
 | Tanker | Fuel transport ship for fleet refueling operations |
 | Task Force | Higher-level unit containing multiple task groups |
 | Task Group | Basic ship organizational unit; receives all orders |
+| TCS | Target Cross-Section; ship size for sensor/FC calculations \hyperlink{ref-B-11}{[B-11]} |
 | Terraforming | Modifying atmosphere to reduce CC; uses TF installations |
 | Thermal Signature | Ship heat profile from engines; detected by thermal sensors |
 | TN | Trans-Newtonian; advanced physics enabling interstellar civ |
@@ -155,3 +166,5 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 \hypertarget{ref-B-9}{[B-9]} Cross-reference: Section 12.2 Beam Weapons confirms railguns deal full damage at all ranges (no falloff) with Gradient 1 (single-column armor penetration). See Section 12.6 Damage and Armor table: "Standard penetration, does not reduce with range."
 
 \hypertarget{ref-B-10}{[B-10]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=75 (Turret Rotation Gear): 12 tracking speed levels from 1,250 km/s through 25,000 km/s. Section 8.5.7 confirms multi-weapon turret benefits: Twin turrets provide 20% crew reduction and 10% gear size reduction; Quad turrets provide 40% crew reduction and 20% gear size reduction.
+
+\hypertarget{ref-B-11}{[B-11]} Aurora Forums -- Official glossary compiled by Steve Walmsley (https://aurora2.pentarch.org/index.php?topic=1863.0). Abbreviations verified against developer-compiled list.
