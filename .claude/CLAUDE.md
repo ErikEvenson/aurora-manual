@@ -102,6 +102,44 @@ For development/testing builds, use `bash build-pdf.sh` without arguments (auto-
 - Push all commits before closing issues
 - Build PDF and create GitHub release after completing a wave
 
+## Unverified Claims Tracking
+
+**MANDATORY:** All unverified claims must be tracked via GitHub issues.
+
+### When Adding Unverified Content
+
+When adding content that cannot be verified against authoritative sources:
+1. Mark the claim with `*(unverified)*` or `*(unverified -- context)*` inline
+2. Create a GitHub issue to track verification using label `unverified`
+3. Issue title format: `Verify: [Section] [Brief description of claim]`
+4. Issue body must include:
+   - The exact unverified claim text
+   - File path and line number
+   - Suggested verification sources (database table, forum topic, changelog)
+
+### When Finding Existing Unverified Claims
+
+When discovering unverified claims without tracking issues:
+1. Search existing issues to avoid duplicates
+2. Create verification issues for any untracked claims
+3. Group multiple claims from the same file into a single issue
+
+### When Verifying Claims
+
+When a claim is verified against an authoritative source:
+1. Remove the `*(unverified)*` marker from the text
+2. Add a numbered reference with the verification source
+3. Close the tracking issue with a commit reference
+4. Comment format: `Verified in commit [hash]. Source: [reference details]`
+
+### Verification Priority
+
+Prioritize verification of:
+1. Formulas and numeric values (directly affect gameplay calculations)
+2. Core mechanics (combat, movement, construction)
+3. Version-specific changes (may be outdated)
+4. UI/UX claims (easily testable in-game)
+
 ## README Maintenance
 
 **Keep README.md synchronized with project state.** Check and update when:
