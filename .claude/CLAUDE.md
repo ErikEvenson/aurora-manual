@@ -259,11 +259,21 @@ When a user uploads a screenshot to an issue:
    from PIL import Image, ImageDraw, ImageFont
 
    img = Image.open('/tmp/screenshot-base.png')
-   draw = ImageDraw.Draw(img)
-   font = ImageFont.truetype('/System/Library/Fonts/Helvetica.ttc', 32)
 
-   # Draw box
-   draw.rectangle((x1, y1, x2, y2), outline='#FF0000', width=3)
+   # Add figure header (expand canvas)
+   header_height = 40
+   new_img = Image.new('RGB', (img.width, img.height + header_height), '#000033')
+   new_img.paste(img, (0, header_height))
+   draw = ImageDraw.Draw(new_img)
+
+   font = ImageFont.truetype('/System/Library/Fonts/Helvetica.ttc', 32)
+   font_header = ImageFont.truetype('/System/Library/Fonts/Helvetica.ttc', 24)
+
+   # Draw figure header
+   draw.text((15, 8), "Figure X.Y: Description", fill='white', font=font_header)
+
+   # Draw box (adjust Y coordinates by +header_height)
+   draw.rectangle((x1, y1 + header_height, x2, y2 + header_height), outline='#FF0000', width=3)
 
    # Draw numbered circle
    draw.ellipse([cx-18, cy-18, cx+18, cy+18], fill='#FF0000')
@@ -273,22 +283,27 @@ When a user uploads a screenshot to an issue:
    draw.rectangle([10, 930, 700, 985], fill='#000033', outline='#FF0000')
    draw.text((20, 940), "1 - Label", fill='white', font=font_small)
 
-   img.save('/tmp/screenshot-annotated.png')
+   new_img.save('/tmp/screenshot-annotated.png')
    ```
 
-4. **Copy to proper location:**
+4. **Verify quality and accuracy:**
+   - View the annotated image using `Read` tool
+   - Confirm boxes highlight the correct UI elements
+   - Verify callout numbers are visible and properly positioned
+   - Check figure header text is correct
+   - If annotations are misaligned, adjust coordinates and regenerate
+
+6. **Copy to proper location:**
    ```bash
    cp /tmp/screenshot-annotated.png images/screenshots/[chapter]/[section]-[name].png
    ```
 
-5. **Add to manual section:**
+7. **Add to manual section:**
    ```markdown
-   ![Description](../images/screenshots/[chapter]/[section]-[name].png)
-
-   **Key areas:** 1 - First area, 2 - Second area, 3 - Third area
+   ![Figure X.Y: Description](../images/screenshots/[chapter]/[section]-[name].png)
    ```
 
-6. **Commit with issue closure:**
+8. **Commit with issue closure:**
    ```bash
    git add -A && git commit -m "Add screenshot for Section X.Y
 
@@ -297,10 +312,21 @@ When a user uploads a screenshot to an issue:
 
 ### Annotation Guidelines
 
+- **Figure header:** "Figure X.Y: Description" at top, white text on dark background (#000033)
 - **Box color:** Red (#FF0000), 3px stroke
 - **Callout circles:** Red fill, 18px radius, white number
 - **Legend:** Dark background bar at bottom with callout explanations
 - **Font:** System Helvetica or similar sans-serif
+
+### Quality Verification Checklist
+
+Before committing a screenshot, verify:
+- [ ] Figure header displays correct section number and description
+- [ ] Annotation boxes correctly highlight the intended UI elements
+- [ ] Callout numbers (1, 2, 3) are visible and not obscured
+- [ ] Legend text matches the callout descriptions
+- [ ] Image is not blurry or distorted
+- [ ] All text is legible at normal viewing size
 
 ### Markdown Reference
 
