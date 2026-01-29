@@ -224,6 +224,6 @@ The following table covers frequently encountered issues and their resolutions. 
 
 \hypertarget{ref-C-3}{[C-3]} Aurora C# game database (AuroraDB.db v2.7.1) -- DIM\_PlanetaryInstallation: Conventional Industry (ID=38) has ConstructionValue=0.1, MiningProductionValue=0.15, OrdnanceProductionValue=0.05, FinancialProductionValue=0.025. It operates at one-tenth TN factory output and uses conventional (non-TN) minerals.
 
-\hypertarget{ref-C-4}{[C-4]} AuroraWiki, "ECM" -- Each ECM level reduces enemy beam fire control accuracy by 10%. Fire Control Jammer (TechTypeID=194) and Sensor Jammer (TechTypeID=82) provide separate ECM functions. [aurorawiki.pentarch.org](http://aurorawiki.pentarch.org/index.php?title=ECM)
+\hypertarget{ref-C-4}{[C-4]} AuroraWiki, "ECM" -- Each ECM level reduces enemy beam fire control accuracy by 10%. Fire Control Jammer (TechTypeID=194) and Sensor Jammer (TechTypeID=82) provide separate ECM functions. [aurorawiki2.pentarch.org](http://aurorawiki2.pentarch.org/index.php?title=ECM)
 
 \hypertarget{ref-C-5}{[C-5]} Civilian shipping range limit: Section 6.5 Civilian Economy documents a four-system maximum range for civilian deliveries, sourced from developer changelog. This limit is not directly encoded in AuroraDB.db and remains changelog-sourced. Build jump gates to keep colonies within four-system reach of population centres.

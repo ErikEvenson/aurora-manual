@@ -916,7 +916,7 @@ Where Effective Population Size = ((Determination + Militancy + Xenophobia) / 30
 
 \hypertarget{ref-A-14}{[A-14]} Aurora C# game database (AuroraDB.db v2.7.1) -- DIM\_PlanetaryInstallation table confirms base Construction Factory ConstructionValue=1.0. Combined with FCT\_TechSystem construction rate techs, base output = 10 BP/year.
 
-\hypertarget{ref-A-15}{[A-15]} AuroraWiki, "Research" -- Each lab assigned to a project contributes diminishing RP: first lab at 100%, second at 50%, third at 25%, etc. Scientist bonus percentage is applied as a multiplier and quadrupled in specialization field. [aurorawiki.pentarch.org](http://aurorawiki.pentarch.org/index.php?title=Research)
+\hypertarget{ref-A-15}{[A-15]} AuroraWiki, "Research" -- Each lab assigned to a project contributes diminishing RP: first lab at 100%, second at 50%, third at 25%, etc. Scientist bonus percentage is applied as a multiplier and quadrupled in specialization field. [aurorawiki2.pentarch.org](http://aurorawiki2.pentarch.org/index.php?title=Research)
 
 \hypertarget{ref-A-16}{[A-16]} Aurora C# game database (AuroraDB.db v2.7.1) -- Full active sensor range formula verified against multiple FCT\_ShipDesignComponents entries: Range = sqrt((Active\_Strength x HS x EM\_Sensitivity x Resolution^(2/3)) / PI) x 1,000,000 km. Tested against 10 sensor components with varied sizes (0.1-17 HS) and resolutions (1-121 HS), all matching MaxSensorRange within rounding error. FCT\_TechSystem TechTypeID=20 (Active Grav Sensor Strength): 10-180; TechTypeID=125 (EM Sensor Sensitivity): 5-75.
 
