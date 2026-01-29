@@ -6,662 +6,662 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/1-introduction/1.1-what-is-aurora.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/1-introduction/1.1-what-is-aurora.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/1-introduction/1.2-installation.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/1-introduction/1.2-installation.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/1-introduction/1.3-first-launch.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/1-introduction/1.3-first-launch.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/1-introduction/index.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/1-introduction/index.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/10-navigation/10.1-movement-mechanics.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/10-navigation/10.1-movement-mechanics.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/10-navigation/10.2-jump-transit.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/10-navigation/10.2-jump-transit.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/10-navigation/10.3-survey-operations.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/10-navigation/10.3-survey-operations.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/10-navigation/10.4-waypoints.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/10-navigation/10.4-waypoints.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/10-navigation/index.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/10-navigation/index.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/11-sensors-and-detection/11.0-sensor-overview.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/11-sensors-and-detection/11.0-sensor-overview.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/11-sensors-and-detection/11.1-thermal-em-signatures.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/11-sensors-and-detection/11.1-thermal-em-signatures.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/11-sensors-and-detection/11.2-passive-sensors.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/11-sensors-and-detection/11.2-passive-sensors.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/11-sensors-and-detection/11.3-active-sensors.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/11-sensors-and-detection/11.3-active-sensors.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/11-sensors-and-detection/11.4-stealth.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/11-sensors-and-detection/11.4-stealth.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/11-sensors-and-detection/index.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/11-sensors-and-detection/index.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/12-combat/12.0-combat-overview.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/12-combat/12.0-combat-overview.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/12-combat/12.1-fire-controls.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/12-combat/12.1-fire-controls.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/12-combat/12.2-beam-weapons.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/12-combat/12.2-beam-weapons.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/12-combat/12.3-missiles.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/12-combat/12.3-missiles.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/12-combat/12.4-point-defense.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/12-combat/12.4-point-defense.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/12-combat/12.5-electronic-warfare.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/12-combat/12.5-electronic-warfare.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/12-combat/12.6-damage-and-armor.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/12-combat/12.6-damage-and-armor.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/12-combat/12.7-planetary-defence-centres.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/12-combat/12.7-planetary-defence-centres.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/12-combat/index.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/12-combat/index.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/13-ground-forces/13.1-unit-types.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/13-ground-forces/13.1-unit-types.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/13-ground-forces/13.2-training-and-transport.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/13-ground-forces/13.2-training-and-transport.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/13-ground-forces/13.3-ground-combat.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/13-ground-forces/13.3-ground-combat.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/13-ground-forces/index.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/13-ground-forces/index.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/14-logistics/14.1-fuel.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/14-logistics/14.1-fuel.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/14-logistics/14.2-maintenance.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/14-logistics/14.2-maintenance.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/14-logistics/14.3-supply-ships.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/14-logistics/14.3-supply-ships.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/14-logistics/14.4-orbital-habitats.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/14-logistics/14.4-orbital-habitats.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/14-logistics/index.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/14-logistics/index.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/15-diplomacy/15.1-alien-races.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/15-diplomacy/15.1-alien-races.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/15-diplomacy/15.2-communications.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/15-diplomacy/15.2-communications.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/15-diplomacy/15.3-treaties.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/15-diplomacy/15.3-treaties.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/15-diplomacy/15.4-diplomacy.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/15-diplomacy/15.4-diplomacy.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/15-diplomacy/15.5-intelligence-gathering.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/15-diplomacy/15.5-intelligence-gathering.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/15-diplomacy/index.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/15-diplomacy/index.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/16-commanders/16.1-officer-generation.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/16-commanders/16.1-officer-generation.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/16-commanders/16.2-skills-and-bonuses.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/16-commanders/16.2-skills-and-bonuses.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/16-commanders/16.3-assignments.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/16-commanders/16.3-assignments.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/16-commanders/index.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/16-commanders/index.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/17-exploration/17.1-geological-survey.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/17-exploration/17.1-geological-survey.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/17-exploration/17.2-gravitational-survey.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/17-exploration/17.2-gravitational-survey.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/17-exploration/17.3-xenoarchaeology.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/17-exploration/17.3-xenoarchaeology.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/17-exploration/index.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/17-exploration/index.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/18-advanced-topics/18.1-game-mechanics.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/18-advanced-topics/18.1-game-mechanics.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/18-advanced-topics/18.2-time-increments.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/18-advanced-topics/18.2-time-increments.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/18-advanced-topics/18.3-spoiler-races.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/18-advanced-topics/18.3-spoiler-races.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/18-advanced-topics/18.4-late-game-strategy.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/18-advanced-topics/18.4-late-game-strategy.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/18-advanced-topics/18.5-spacemaster-mode.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/18-advanced-topics/18.5-spacemaster-mode.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/18-advanced-topics/index.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/18-advanced-topics/index.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/2-game-setup/2.1-new-game-options.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/2-game-setup/2.1-new-game-options.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/2-game-setup/2.2-race-creation.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/2-game-setup/2.2-race-creation.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/2-game-setup/2.3-system-generation.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/2-game-setup/2.3-system-generation.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/2-game-setup/2.4-racial-traits.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/2-game-setup/2.4-racial-traits.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/2-game-setup/2.5-starting-conditions.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/2-game-setup/2.5-starting-conditions.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/2-game-setup/index.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/2-game-setup/index.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/3-user-interface/3.1-main-window.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/3-user-interface/3.1-main-window.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/3-user-interface/3.2-system-map.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/3-user-interface/3.2-system-map.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/3-user-interface/3.3-common-controls.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/3-user-interface/3.3-common-controls.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/3-user-interface/3.4-event-log.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/3-user-interface/3.4-event-log.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/3-user-interface/3.5-galactic-map.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/3-user-interface/3.5-galactic-map.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/3-user-interface/index.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/3-user-interface/index.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/4-systems-and-bodies/4.1-star-systems.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/4-systems-and-bodies/4.1-star-systems.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/4-systems-and-bodies/4.2-planets-and-moons.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/4-systems-and-bodies/4.2-planets-and-moons.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/4-systems-and-bodies/4.3-asteroids-and-comets.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/4-systems-and-bodies/4.3-asteroids-and-comets.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/4-systems-and-bodies/4.4-jump-points.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/4-systems-and-bodies/4.4-jump-points.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/4-systems-and-bodies/index.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/4-systems-and-bodies/index.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/5-colonies/5.1-establishing-colonies.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/5-colonies/5.1-establishing-colonies.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/5-colonies/5.2-population.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/5-colonies/5.2-population.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/5-colonies/5.3-environment.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/5-colonies/5.3-environment.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/5-colonies/5.4-infrastructure.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/5-colonies/5.4-infrastructure.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/5-colonies/5.5-terraforming.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/5-colonies/5.5-terraforming.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/5-colonies/index.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/5-colonies/index.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/6-economy-and-industry/6.1-minerals.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/6-economy-and-industry/6.1-minerals.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/6-economy-and-industry/6.2-mining.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/6-economy-and-industry/6.2-mining.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/6-economy-and-industry/6.3-construction.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/6-economy-and-industry/6.3-construction.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/6-economy-and-industry/6.4-wealth-and-trade.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/6-economy-and-industry/6.4-wealth-and-trade.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/6-economy-and-industry/6.5-civilian-economy.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/6-economy-and-industry/6.5-civilian-economy.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/6-economy-and-industry/index.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/6-economy-and-industry/index.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/7-research/7.1-technology-tree.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/7-research/7.1-technology-tree.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/7-research/7.2-scientists.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/7-research/7.2-scientists.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/7-research/7.3-research-facilities.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/7-research/7.3-research-facilities.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/7-research/7.4-tech-categories.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/7-research/7.4-tech-categories.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/7-research/index.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/7-research/index.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/8-ship-design/8.1-design-philosophy.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/8-ship-design/8.1-design-philosophy.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/8-ship-design/8.2-hull-and-armor.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/8-ship-design/8.2-hull-and-armor.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/8-ship-design/8.3-engines.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/8-ship-design/8.3-engines.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/8-ship-design/8.4-sensors.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/8-ship-design/8.4-sensors.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/8-ship-design/8.5-weapons.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/8-ship-design/8.5-weapons.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/8-ship-design/8.6-other-components.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/8-ship-design/8.6-other-components.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/8-ship-design/8.7-design-examples.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/8-ship-design/8.7-design-examples.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/8-ship-design/index.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/8-ship-design/index.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/9-fleet-management/9.1-shipyards.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/9-fleet-management/9.1-shipyards.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/9-fleet-management/9.2-construction-and-refit.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/9-fleet-management/9.2-construction-and-refit.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/9-fleet-management/9.3-task-groups.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/9-fleet-management/9.3-task-groups.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/9-fleet-management/9.4-fleet-organization.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/9-fleet-management/9.4-fleet-organization.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/9-fleet-management/9.5-orders.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/9-fleet-management/9.5-orders.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/9-fleet-management/9.6-light-naval-operations.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/9-fleet-management/9.6-light-naval-operations.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/9-fleet-management/index.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/9-fleet-management/index.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/appendices/A-formulas.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/appendices/A-formulas.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/appendices/B-glossary.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/appendices/B-glossary.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/appendices/C-tips-and-mistakes.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/appendices/C-tips-and-mistakes.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/appendices/D-reference-tables.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/appendices/D-reference-tables.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/appendices/index.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/appendices/index.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/CHANGELOG.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/CHANGELOG.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/CONTRIBUTING.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/CONTRIBUTING.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/examples/beam-cruiser-design.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/examples/beam-cruiser-design.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/examples/colony-establishment.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/examples/colony-establishment.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/examples/early-game-economy.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/examples/early-game-economy.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/examples/exploration-workflow.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/examples/exploration-workflow.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/examples/fleet-engagement.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/examples/fleet-engagement.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/examples/ground-invasion.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/examples/ground-invasion.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/examples/index.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/examples/index.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/examples/jump-point-defense.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/examples/jump-point-defense.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/examples/mining-network-setup.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/examples/mining-network-setup.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/examples/missile-destroyer-design.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/examples/missile-destroyer-design.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/examples/missile-salvo-design.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/examples/missile-salvo-design.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/examples/terraforming-colony.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/examples/terraforming-colony.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/images/colony-window.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/images/colony-window.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/images/diplomacy-window.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/images/diplomacy-window.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/images/event-log-window.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/images/event-log-window.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/images/fleet-window.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/images/fleet-window.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/images/ground-forces-window.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/images/ground-forces-window.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/images/missile-design-window.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/images/missile-design-window.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/images/README.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/images/README.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/images/research-window.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/images/research-window.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/images/ship-design-window.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/images/ship-design-window.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/images/shipyard-window.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/images/shipyard-window.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://erikevenson.github.io/aurora-manual/images/system-map-window.md</loc>
+    <loc>https://erikevenson.github.io/aurora-manual/images/system-map-window.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

@@ -20,9 +20,9 @@ When preparing answers suitable for posting to Aurora Forums or Discord:
 - **Tone:** Respectful and "light" — helpful without being condescending
 - **Structure:** Lead with the direct answer, then explain the mechanics
 - **References:** Cite the original source (AuroraWiki, database, forum post)
-- **Links:** Include specific section anchors to GitHub Pages manual, e.g.:
+- **Links:** Include specific section anchors to GitHub Pages manual. Use `.html` extension (not `.md`) for formatted pages:
   ```
-  https://erikevenson.github.io/aurora-manual/12-combat/12.2-beam-weapons.md#12223-damage-gradient-armor-column-spread
+  https://erikevenson.github.io/aurora-manual/12-combat/12.2-beam-weapons.html#12223-damage-gradient-armor-column-spread
   ```
 - **Verification status:** Clearly note if claims come from community sources (AuroraWiki) vs authoritative sources (game database, Steve Walmsley posts)
 - **Unverified claims:** Explicitly state when something is unverified and recommend verification methods
