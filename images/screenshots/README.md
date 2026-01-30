@@ -38,7 +38,7 @@ images/screenshots/
 
 ## Version Compatibility
 
-Screenshots should be captured from Aurora C# v2.7.1 or later. If UI changes significantly between versions, note the version in the PR description.
+Screenshots should be captured from Aurora C# v2.8.0 or later. If UI changes significantly between versions, note the version in the PR description.
 
 ## Markdown Reference
 

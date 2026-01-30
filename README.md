@@ -5,16 +5,20 @@ nav_order: 0
 
 # Aurora 4X Manual (Unofficial)
 
+*Updated: v2026.01.29*
+
 [![Latest Release](https://img.shields.io/github/v/release/ErikEvenson/aurora-manual?label=PDF%20Download)](https://github.com/ErikEvenson/aurora-manual/releases/latest)
 [![GitHub Discussions](https://img.shields.io/github/discussions/ErikEvenson/aurora-manual)](https://github.com/ErikEvenson/aurora-manual/discussions)
 
 > **Note:** This is an unofficial community manual, not affiliated with or endorsed by Steve Walmsley. It is under active development and may contain inaccuracies. Values and formulas are being verified against the game database. Some content may be incomplete, outdated, or incorrect. If you spot an error, please [report it](../../issues/new?template=inaccuracy-report.md).
 
-A comprehensive reference manual, beginner's guide, and tutorial resource for Aurora C# — the complex 4X space strategy game by Steve Walmsley. Whether you're learning how to play Aurora 4X for the first time or looking up advanced mechanics, this manual covers Aurora C# v2.7.1 with ongoing coverage of new features.
+A comprehensive reference manual, beginner's guide, and tutorial resource for Aurora C# — the complex 4X space strategy game by Steve Walmsley. Whether you're learning how to play Aurora 4X for the first time or looking up advanced mechanics, this manual covers Aurora C# through v2.8.0 with ongoing coverage of new features.
 
 **[Download the latest PDF](https://github.com/ErikEvenson/aurora-manual/releases/latest)** — printable, offline-ready reference
 
 ## Preface
+
+*Updated: v2026.01.29*
 
 This manual is written for new and intermediate Aurora players. If you're learning Aurora for the first time or still finding your footing, you'll find explanations of core mechanics, worked examples like designing your first missile cruiser or planning a colonial mining network, and practical guidance that should accelerate your learning considerably.
 
@@ -29,6 +33,8 @@ We make no claim to mastery. The contributors to this manual are themselves stil
 If you find an error, please open an issue at [github.com/ErikEvenson/aurora-manual](https://github.com/ErikEvenson/aurora-manual). A correction from someone who knows takes minutes. Discovering the same error through play takes hours. Waiting for perfection takes forever.
 
 ## Structure
+
+*Updated: v2026.01.24*
 
 This manual is organized using a decimal numbering system. Each major section is a directory containing subsection files. Sub-subsections (e.g., 8.2.1) are headings within files.
 
@@ -57,6 +63,8 @@ This manual is organized using a decimal numbering system. Each major section is
 
 ## How to Play Aurora 4X — Beginner's Guide
 
+*Updated: v2026.01.28*
+
 New to Aurora 4X? This step-by-step tutorial path will teach you the game from scratch. Follow this reading order to learn Aurora's core mechanics systematically:
 
 1. **Game Setup** ([2.1](2-game-setup/2.1-new-game-options.md), [2.5](2-game-setup/2.5-starting-conditions.md)) — Create your first game
@@ -78,6 +86,8 @@ After completing this path, explore sections relevant to your current gameplay c
 
 ## What This Manual Covers
 
+*Updated: v2026.01.28*
+
 This Aurora 4X guide provides detailed documentation on:
 
 - **Getting started** — Installation, game setup, creating your first empire
@@ -93,6 +103,8 @@ This Aurora 4X guide provides detailed documentation on:
 
 ## Sources
 
+*Updated: v2026.01.28*
+
 - Steve Walmsley's forum posts (http://aurora2.pentarch.org/) — the official Aurora forum on pentarch.org, the authoritative primary source for Aurora mechanics and development history since 2003
 - Aurora community wiki
 - In-game database and tooltips
@@ -100,6 +112,8 @@ This Aurora 4X guide provides detailed documentation on:
 - YouTube tutorials — specific credits appear in manual references where content was sourced
 
 ## Contributing
+
+*Updated: v2026.01.24*
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for full guidelines on reporting inaccuracies, submitting corrections, and adding new content.
 
@@ -115,26 +129,40 @@ Each section file should follow this format:
 ```markdown
 # X.Y Section Title
 
+*Updated: v2026.01.28*
+
 Brief overview of what this section covers.
 
 ## X.Y.1 First Sub-topic
 
+*Updated: v2026.01.23*
+
 Content here with practical examples.
 
 ## X.Y.2 Second Sub-topic
+
+*Updated: v2026.01.24*
 
 Content here.
 ```
 
 ## Building the PDF
 
+*Updated: v2026.01.28*
+
 Requires: `pandoc`, `tectonic` (LaTeX), `rsvg-convert`
 
 ```bash
 # Development build (auto-increment version)
+
+*Updated: v2026.01.28*
+
 bash build-pdf.sh
 
 # Release build (explicit version)
+
+*Updated: v2026.01.28*
+
 bash build-pdf.sh 2026.01.28.07
 ```
 
@@ -142,7 +170,9 @@ Output: `releases/aurora-manual-VERSION.pdf`
 
 ## Community Review
 
-This manual covers Aurora C# v2.7.1. Coverage of new versions is ongoing. We welcome review from experienced players on:
+*Updated: v2026.01.28*
+
+This manual covers Aurora C# through v2.8.0. Coverage of new versions is ongoing. We welcome review from experienced players on:
 
 - Formula and value accuracy
 - Missing mechanics or edge cases
@@ -151,6 +181,8 @@ This manual covers Aurora C# v2.7.1. Coverage of new versions is ongoing. We wel
 - Common player questions not yet answered
 
 ## Contributors
+
+*Updated: v2026.01.25*
 
 - **[@ErikEvenson](https://github.com/ErikEvenson)**
 - **[@ManzoorAhmedShaikh](https://github.com/ManzoorAhmedShaikh)**
