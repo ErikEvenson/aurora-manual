@@ -6,18 +6,20 @@ nav_order: 99
 
 # Example: Designing a Missile Salvo
 
-*Updated: v2026.01.29*
+*Updated: v2026.01.30*
 
 This worked example walks through the complete process of designing an effective anti-ship missile (ASM), matching it with appropriate launchers and fire controls, and planning salvo composition to overwhelm enemy point defense.
 
 ## Objective
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 Design an effective anti-ship missile system including the missile itself, launcher, fire control, and magazine configuration. We will produce three distinct missile designs optimized for different engagement profiles, then discuss how to combine them into a coherent offensive doctrine.
 
 ## Starting Conditions
 
-*Updated: v2026.01.26*
+*Updated: v2026.01.30*
+
 | Parameter | Value |
 |-----------|-------|
 | Warhead Strength Tech | 3 |
@@ -31,7 +33,8 @@ Design an effective anti-ship missile system including the missile itself, launc
 
 ## Step 1: Define Engagement Parameters
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 Before designing a missile, establish what you are shooting at and what defenses it carries.
 
 **Assumptions for this example:**
@@ -55,7 +58,8 @@ Before designing a missile, establish what you are shooting at and what defenses
 
 ## Step 2: Warhead Sizing
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 Warhead damage is calculated as:
 
 ```
@@ -82,7 +86,8 @@ At Warhead Strength 3:
 
 ## Step 3: Engine Allocation
 
-*Updated: v2026.01.29*
+*Updated: v2026.01.30*
+
 Missile speed depends on engine allocation. *(In v2.2.0+, agility is display-only; hit chance uses the speed ratio system — see PD Survivability section below.)*
 
 ### Speed Formula
@@ -133,7 +138,8 @@ For a **Size 4 missile** with varying engine MSP (against CIWS tracking at 16,00
 
 ## Step 4: Fuel Allocation
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 ### Fuel Capacity
 
 Each MSP of fuel stores 2,500 units of fuel.
@@ -170,7 +176,8 @@ Range = 5,000 x 1,497,006 = 7.49 billion km = 7,485 million km
 
 ## Step 5: Example Design A -- "Sprint Missile"
 
-*Updated: v2026.01.26*
+*Updated: v2026.01.30*
+
 **Design Philosophy:** Small, fast, short-range. Designed to be nearly impossible for CIWS to track. Fired from close escorts or ambush positions.
 
 **Size:** 2 MSP
@@ -212,7 +219,8 @@ Range = 6,000 x 125,000 = 750 million km
 
 ## Step 6: Example Design B -- "Standoff Missile"
 
-*Updated: v2026.01.26*
+*Updated: v2026.01.30*
+
 **Design Philosophy:** Balanced design with meaningful warhead, respectable speed, and sufficient range for standoff engagement. The workhorse ASM.
 
 **Size:** 5 MSP
@@ -258,7 +266,8 @@ Range = 4,000 x 1,125,000 = 4,500 million km
 
 ## Step 7: Example Design C -- "Multi-Stage Missile"
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 **Design Philosophy:** A booster stage carries an attack missile to extended range, then separates. The attack stage sprints to the target at extreme speed. This overcomes the speed-vs-range trade-off.
 
 ### Booster Stage (Outer Missile)
@@ -325,7 +334,8 @@ Warhead_Damage = 1.0 x 3 = 3
 
 ## Step 8: Fire Control Matching
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 The missile fire control (MFC) must cover the missile's maximum engagement range and have resolution appropriate to the target size.
 
 ### Fire Control Range Formula
@@ -368,7 +378,8 @@ Higher resolution = longer range against larger targets. For general-purpose use
 
 ## Step 9: Launcher Sizing
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 ### Launcher-to-Missile Matching
 
 The launcher size must equal or exceed the missile size. Using exact-size launchers is most efficient.
@@ -408,7 +419,8 @@ If hull space is constrained, reduced-size launchers trade reload speed for comp
 
 ## Step 10: Magazine Logistics
 
-*Updated: v2026.01.26*
+*Updated: v2026.01.30*
+
 ### Magazine Capacity
 
 ```
@@ -466,7 +478,8 @@ This will destroy most ships from the inside. Mitigation:
 
 ## Step 11: Salvo Composition
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 ### Overwhelming PD Through Volume
 
 From our assumptions, the enemy has:
@@ -509,7 +522,8 @@ Mix 20 decoys with 12 Standoff missiles. PD must engage every contact (it cannot
 
 ## Key Decisions Summary
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 | Decision | Trade-off | Recommendation |
 |----------|-----------|----------------|
 | Speed vs. Warhead | Fast missiles leak PD but deal less damage | Prioritize speed if enemy PD is strong |
@@ -524,6 +538,7 @@ Mix 20 decoys with 12 Standoff missiles. PD must engage every contact (it cannot
 ## Common Mistakes
 
 *Updated: v2026.01.26*
+
 1. **Missile range exceeds FC range (no onboard sensor):** The missile loses guidance and goes ballistic. Always check that your MFC range covers the missile's maximum engagement distance, OR equip missiles with onboard active sensors.
 
 2. **Speed too low for PD evasion:** In v2.2.0+, PD hit chance is based on the speed ratio (FC_Tracking / Missile_Speed). If your missile speed is below the enemy's tracking speed, PD has 100% base hit chance. Faster missiles are harder to intercept.

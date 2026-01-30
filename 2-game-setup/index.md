@@ -7,4 +7,5 @@ permalink: /2-game-setup/
 
 # 2. Game Setup
 
-*Updated: v2026.01.28*
+*Updated: v2026.01.30*
+

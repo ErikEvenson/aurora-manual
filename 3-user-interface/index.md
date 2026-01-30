@@ -7,4 +7,5 @@ permalink: /3-user-interface/
 
 # 3. User Interface
 
-*Updated: v2026.01.28*
+*Updated: v2026.01.30*
+

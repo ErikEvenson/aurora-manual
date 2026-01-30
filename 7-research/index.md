@@ -7,4 +7,5 @@ permalink: /7-research/
 
 # 7. Research
 
-*Updated: v2026.01.28*
+*Updated: v2026.01.30*
+

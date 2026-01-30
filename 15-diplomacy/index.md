@@ -7,4 +7,5 @@ permalink: /15-diplomacy/
 
 # 15. Diplomacy
 
-*Updated: v2026.01.28*
+*Updated: v2026.01.30*
+

@@ -7,4 +7,5 @@ permalink: /14-logistics/
 
 # 14. Logistics
 
-*Updated: v2026.01.28*
+*Updated: v2026.01.30*
+

@@ -6,11 +6,12 @@ nav_order: 3
 
 # Appendix C: Tips and Common Mistakes
 
-*Updated: v2026.01.29*
+*Updated: v2026.01.30*
 
 ## C.1 New Player Mistakes
 
-*Updated: v2026.01.26*
+*Updated: v2026.01.30*
+
 ### C.1.1 Forgetting to Assign Research Labs
 
 One of the most common mistakes is building research labs but forgetting to assign them to a research project with a scientist (see [Section 7.1 Technology Tree](../7-research/7.1-technology-tree.md)). Labs produce nothing until assigned. Check the Research window regularly and ensure every lab has a project and a scientist assigned.
@@ -53,7 +54,8 @@ The first time an enemy missile salvo destroys your flagship in a single volley,
 
 ## C.2 Economic Tips
 
-*Updated: v2026.01.26*
+*Updated: v2026.01.30*
+
 ### C.2.1 Prioritize Gallicite Early
 
 Gallicite is used for engine construction (see [Appendix D: Reference Tables](../appendices/D-reference-tables.md)) and is often the first mineral to become scarce. Prioritize geological surveys to find Gallicite deposits and establish mining operations early. Running out of Gallicite halts all engine production, which halts all ship construction.
@@ -96,7 +98,8 @@ An ideal world with no minerals is less valuable than a harsh world with rich, a
 
 ## C.3 Military Tips
 
-*Updated: v2026.01.29*
+*Updated: v2026.01.30*
+
 ### C.3.1 Design Ships for a Role
 
 Every ship should have a clear purpose (see [Section 8.1 Design Philosophy](../8-ship-design/8.1-design-philosophy.md)): missile combatant, beam combatant, point defense escort, sensor picket, or support vessel. Ships that try to do everything do nothing well. Specialization within a fleet is superior to generalization within a hull.
@@ -151,7 +154,8 @@ A comprehensive defense plan includes: long-range sensor detection, missile enga
 
 ## C.4 Quality of Life
 
-*Updated: v2026.01.26*
+*Updated: v2026.01.30*
+
 ### C.4.1 Use the Notepad
 
 Aurora C# includes an in-game notepad. Use it to track your strategic plans, mineral bottlenecks, ship class designations, and fleet assignments. The game generates enormous amounts of data; having a personal reference prevents losing track.
@@ -203,6 +207,7 @@ Aurora C# stores game data in a database file. Back up this file periodically, e
 ## C.5 Common Troubleshooting
 
 *Updated: v2026.01.29*
+
 The following table covers frequently encountered issues and their resolutions. Most problems stem from missing assignments or configuration oversights rather than bugs.
 
 | Problem | Likely Cause | Solution |

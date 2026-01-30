@@ -6,7 +6,7 @@ nav_order: 99
 
 # Example: Establishing a New Colony
 
-*Updated: v2026.01.26*
+*Updated: v2026.01.30*
 
 This worked example walks through the complete process of establishing a productive colony on a surveyed world -- from initial geological survey through colony ship deployment, infrastructure buildup, and trade route development. Each step includes the decision logic, numerical requirements, and timeline expectations.
 
@@ -14,12 +14,14 @@ This worked example walks through the complete process of establishing a product
 
 ## Objective
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 Establish a **self-sustaining mining and industrial colony** on a mineral-rich moon in a neighboring star system, growing it from initial landing to a productive 50-million-population world over approximately 20 years of game time.
 
 ## Starting Conditions
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 - **Home system**: Sol, Earth population 800 million, 20 automated mines on Mars
 - **Target**: Ganymede (Jupiter system) -- previously surveyed, confirmed mineral deposits
 - **Jump capability**: Jump drive technology available, 1 jump point from Sol to Alpha Centauri (but Ganymede is in-system, no jump needed)
@@ -31,7 +33,8 @@ Establish a **self-sustaining mining and industrial colony** on a mineral-rich m
 
 ## Step 1: Survey and Site Selection
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 ### Geological Survey Results (Previously Completed)
 
 Before colonizing, a geological survey ship must have surveyed the target body. Our survey of Ganymede returned:
@@ -86,7 +89,8 @@ This is a HIGH colony cost world. Every colonist requires 9.14 units of infrastr
 
 ## Step 2: Initial Colony Ship Deployment
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 ### Preparing the Colony Fleet
 
 Before launching colony ships, we need to pre-position infrastructure:
@@ -148,7 +152,8 @@ With in-system transit this short, multiple runs are very feasible.
 
 ## Step 3: Mining Operations Setup
 
-*Updated: v2026.01.26*
+*Updated: v2026.01.30*
+
 ### Automated Mines vs Manned Mines
 
 For a CC 9.14 world, manned mines require massive infrastructure support per worker. Automated mines require no population and produce the same base output \hyperlink{ref-ex-colony-1}{[1]}:
@@ -197,7 +202,8 @@ Per Automated Mine (annual output per mineral):
 
 ## Step 4: Industrial Buildup
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 ### Construction Factory Deployment
 
 Once basic mining is running, deploy construction factories to build on-site:
@@ -237,7 +243,8 @@ At CC 9.14, the infrastructure overhead for manned facilities is enormous. The c
 
 ## Step 5: Growing the Colony
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 ### Population Growth Phases
 
 ```
@@ -289,7 +296,8 @@ With 4 colony ships: ~1.25 years
 
 ## Step 6: Fuel Production
 
-*Updated: v2026.01.26*
+*Updated: v2026.01.30*
+
 ### Why Local Fuel Matters
 
 Ganymede's high Sorium accessibility (0.8) makes it an ideal fuel depot \hyperlink{ref-ex-colony-2}{[2]}:
@@ -332,7 +340,8 @@ This requires Phase 4 industrial capacity (50M+ population)
 
 ## Step 7: Trade Route Development
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 ### Setting Up Civilian Trade
 
 Once a colony reaches 10+ million population with mineral stockpiles, civilian shipping lines begin operating automatically:
@@ -383,7 +392,8 @@ Military freighter route (standing order):
 
 ## Step 8: Long-Term Colony Viability
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 ### Self-Sufficiency Checklist
 
 A colony is self-sufficient when it can:
@@ -416,6 +426,7 @@ Estimated timeline to fleet base: Year 15-20
 ## Common Mistakes
 
 *Updated: v2026.01.26*
+
 1. **Sending colonists before infrastructure**: At CC 9.14, every colonist needs 9+ infrastructure units. Sending population without pre-positioned infrastructure causes attrition (deaths). Always ship infrastructure first.
 
 2. **Ignoring colony cost in planning**: A CC 1.0 world needs 1 infrastructure per person. A CC 9.14 world needs 9.14x that investment. Factor CC into ALL logistics calculations.

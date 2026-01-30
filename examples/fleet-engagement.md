@@ -6,7 +6,7 @@ nav_order: 99
 
 # Example: Fleet Engagement -- The Battle of Epsilon Junction
 
-*Updated: v2026.01.26*
+*Updated: v2026.01.30*
 
 This worked example walks through a complete tactical fleet engagement between two opposing forces. We cover sensor detection, approach decisions, engagement range selection, missile and beam exchanges, damage assessment, and the critical decision of when to withdraw.
 
@@ -14,7 +14,8 @@ This worked example walks through a complete tactical fleet engagement between t
 
 ## Scenario Setup
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 Two hostile fleets encounter each other near a jump point in the Epsilon Eridani system. Neither side expected the other, and first contact occurs at long sensor range.
 
 ### Task Force Alpha (Player Fleet)
@@ -68,7 +69,8 @@ Total Fleet:
 
 ## Phase 1: Detection
 
-*Updated: v2026.01.26*
+*Updated: v2026.01.30*
+
 ### Sensor Contact
 
 Both fleets are heading toward the same jump point from different vectors, initial separation 800,000 km.
@@ -105,7 +107,8 @@ Both fleets have mutual contact at approximately 600,000+ km range.
 
 ## Phase 2: Approach Decision
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 ### Alpha's Options
 
 At 800,000 km separation, Alpha's commander must decide:
@@ -160,7 +163,8 @@ Beta is too slow to escape. Alpha will eventually catch them.
 
 ## Phase 3: Opening Missile Salvo
 
-*Updated: v2026.01.26*
+*Updated: v2026.01.30*
+
 ### Alpha Launches at 500,000 km
 
 At 500,000 km range (still well outside beam range), Alpha's 4 destroyers fire their first salvo:
@@ -222,7 +226,8 @@ Result: MINOR ARMOR DAMAGE -- scattered surface hits, no penetration
 
 ## Phase 4: Beam Engagement
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 ### Closing to Laser Range
 
 Both fleets continue closing. At 200,000 km, Alpha's cruiser lasers enter effective range.
@@ -296,7 +301,8 @@ Same analysis as above: 6 columns stripped to ~0.6 layers
 
 ## Phase 5: Continued Exchange (Volleys 2-4)
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 ### Volley 2 (5-Second Increment Later)
 
 Both sides continue firing. Alpha launches second missile salvo while beam weapons cycle.
@@ -373,7 +379,8 @@ Volley 4 (range ~140,000 km, accuracy ~65%):
 
 ## Phase 6: Damage Assessment (After 4 Volleys, ~20 Seconds of Combat)
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 ### Task Force Alpha Status
 
 ```
@@ -419,7 +426,8 @@ CL-8000 "Sentinel" x3:
 
 ## Phase 7: The Withdrawal Decision
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 ### Alpha's Assessment
 
 After 4 volleys (~20 seconds of beam combat), Alpha's commander evaluates:
@@ -486,7 +494,8 @@ Beta's options:
 
 ## Phase 8: Disengagement
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 ### Destroyer Missile Harassment (Salvos 4-7)
 
 ```
@@ -537,7 +546,8 @@ STRATEGIC RESULT: DRAW (tactical slight advantage to Alpha)
 
 ## Lessons From This Engagement
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 ### 1. Speed Dictates Engagement Terms
 
 Alpha's 2,500 km/s (initially) vs Beta's 1,800 km/s meant Alpha could choose when and where to fight. After Cruiser 2 was damaged, the speed advantage narrowed dangerously. Protect your engines.
@@ -567,6 +577,7 @@ The destroyers' speed advantage let them cover the cruiser withdrawal while cont
 ## Alternative Outcomes
 
 *Updated: v2026.01.26*
+
 ### What If Alpha Had Focused Missiles on Light Cruisers?
 
 ```

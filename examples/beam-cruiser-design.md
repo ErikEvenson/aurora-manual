@@ -6,13 +6,14 @@ nav_order: 99
 
 # Example: Designing Your First Beam Cruiser
 
-*Updated: v2026.01.26*
+*Updated: v2026.01.30*
 
 This worked example walks through the complete design process for a 10,000-ton beam cruiser optimized for medium-range engagement. We will make every decision step by step, showing the math behind each choice and explaining the trade-offs involved.
 
 ## Objective
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 Design a **10,000-ton beam cruiser** capable of:
 
 - Engaging hostile warships at medium beam range (~200,000-400,000 km)
@@ -22,7 +23,8 @@ Design a **10,000-ton beam cruiser** capable of:
 
 ## Starting Conditions
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 - **TN Start**: Nuclear Thermal Engine technology (5 EP/HS), Pressurised Water Reactor
 - **Laser Technology**: 10cm focal size available, Ultraviolet wavelength (1.0x range modifier)
 - **Fire Control**: Beam FC with tracking speed up to 5,000 km/s
@@ -35,7 +37,8 @@ Design a **10,000-ton beam cruiser** capable of:
 
 ## Step 1: Determine Role and Engagement Range
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 Our cruiser is a **medium-range beam combatant**. This means:
 
 - We want to fight at 150,000-300,000 km (close enough for beam accuracy, far enough to maneuver)
@@ -49,7 +52,8 @@ Our cruiser is a **medium-range beam combatant**. This means:
 
 ## Step 2: Engine Sizing
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 We want at least 2,500 km/s from a 10,000-ton hull (200 HS). Let us start by checking what 4,000 km/s (a "Fast" speed) would require, then work down to what is achievable. Using the speed formula (see [Section 8.3 Engines](../8-ship-design/8.3-engines.md) and the Aurora wiki):
 
 ```
@@ -133,7 +137,8 @@ Engine HTK = sqrt(25) = 5 per engine
 
 ## Step 3: Weapon Selection -- Laser vs Particle Beam
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 At this tech level, our choices are:
 
 **10cm Laser (UV wavelength)**:
@@ -170,7 +175,8 @@ Total damage per volley: 6 x 10 = 60 damage
 
 ## Step 4: Fire Control Matching
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 The fire control must:
 1. **Track at or above target speed** -- if our FC tracks at 5,000 km/s, it has full accuracy against targets moving up to 5,000 km/s
 2. **Have sufficient range** to cover our weapon envelope
@@ -206,7 +212,8 @@ A standard beam FC provides range based on its size. We need range >= 160,000 km
 
 ## Step 5: Sensor Selection
 
-*Updated: v2026.01.26*
+*Updated: v2026.01.30*
+
 Our cruiser needs to detect targets at engagement range or beyond. We need:
 
 - **Active sensor** to detect enemy ships
@@ -238,7 +245,8 @@ This detects a 5,000-ton ship (matching resolution 100) at approximately 41 mill
 
 ## Step 6: Armor Selection
 
-*Updated: v2026.01.25*
+*Updated: v2026.01.30*
+
 With Duranium armor (strength 5 per layer), we need to decide on thickness. Our expected threats are similar-era beam weapons dealing 4-10 damage per hit.
 
 **Armor depth analysis**:
@@ -268,7 +276,8 @@ Let us estimate 3,000 tons for our calculations.
 
 ## Step 7: Shield Consideration
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 **Trade-off analysis**:
 
 A 10 HS shield generator (the starting maximum size) provides:
@@ -296,7 +305,8 @@ This costs 500 tons (10 HS x 50 tons) and:
 
 ## Step 8: Power Plant Sizing
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 Our 6 lasers each draw 10 power = 60 total power required.
 
 Using Power Plant output formula:
@@ -341,7 +351,8 @@ That only powers a fraction of one laser. Not worth the tonnage for such minimal
 
 ## Step 9: Fuel Tankage
 
-*Updated: v2026.01.25*
+*Updated: v2026.01.30*
+
 We want enough fuel for sustained system operations. The warship guideline from [Section 8.3.5 Fuel Consumption](../8-ship-design/8.3-engines.md#835-fuel-consumption) recommends 15-25% of hull tonnage devoted to fuel.
 
 Fuel consumption with 1.25x engine boost and 20 HS engines (fuel consumption modifier = sqrt(10/20) = 0.707):
@@ -373,7 +384,8 @@ This provides workable operational range for inner system defense. For reference
 
 ## Step 10: Bridge, Engineering Spaces, MSP Storage
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 **Bridge**: Mandatory on all ships. 1 HS = 50 tons.
 
 **Engineering spaces**: Critical for maintenance and damage control. Per the Annual Failure Rate formula:
@@ -409,7 +421,8 @@ The exact MSP depends on total build cost, but 5% engineering gives decent damag
 
 ## Step 11: Final Design Review
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 ### Initial Mass Budget
 
 | Component | Mass (tons) | HS |
@@ -495,7 +508,8 @@ This makes engine technology research the single highest-impact upgrade path for
 
 ## Key Decisions Explained
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 ### Why Laser Over Particle Beam?
 At early tech, lasers deal 2.5x more damage per power unit (10 vs 4) and occupy less than half the hull space per weapon. Particle beams become competitive when armor reaches 6+ layers and single-column penetration matters. At 3-4 layers of Duranium, raw laser damage is more effective.
 
@@ -518,6 +532,7 @@ Six 10cm lasers provide better sustained firepower than fewer larger weapons bec
 ## Common Mistakes
 
 *Updated: v2026.01.26*
+
 1. **Forgetting Power Plants**: Without a reactor, beam weapons cannot fire. Every laser, railgun, and particle beam requires power. Always calculate total power draw before finalizing weapons.
 
 2. **Undersizing Fire Control Tracking**: If your FC tracks at 3,000 km/s but the target moves at 5,000 km/s, your hit chance is reduced to 60%. Always match or exceed expected target speeds.

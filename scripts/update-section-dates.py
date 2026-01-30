@@ -195,10 +195,21 @@ def update_file(filepath: Path, dry_run: bool = False) -> tuple[int, int]:
         new_date_line = f'*Updated: v{date}*\n'
 
         if section['has_date_line']:
-            # Replace existing date line
-            old_line = lines[section['date_line_idx']]
-            if old_line.strip() != new_date_line.strip():
-                updates.append((section['date_line_idx'], 'replace', new_date_line))
+            # Replace existing date line - ensure blank line after
+            date_idx = section['date_line_idx']
+            old_line = lines[date_idx]
+
+            # Check if there's a blank line after the date line
+            next_idx = date_idx + 1
+            has_blank_after = (next_idx < len(lines) and
+                               lines[next_idx].strip() == '')
+
+            if old_line.strip() != new_date_line.strip() or not has_blank_after:
+                if has_blank_after:
+                    updates.append((date_idx, 'replace', new_date_line))
+                else:
+                    # Add blank line after date
+                    updates.append((date_idx, 'replace', new_date_line + '\n'))
         else:
             # Insert new date line after heading
             insert_idx = section['heading_line'] + 1
@@ -209,10 +220,10 @@ def update_file(filepath: Path, dry_run: bool = False) -> tuple[int, int]:
 
             if has_blank_after:
                 # Replace the blank line with: blank + date + blank
-                updates.append((insert_idx, 'replace', f'\n{new_date_line}'))
+                updates.append((insert_idx, 'replace', f'\n{new_date_line}\n'))
             else:
                 # Insert: blank + date + blank before content
-                updates.append((insert_idx, 'insert', f'\n{new_date_line}'))
+                updates.append((insert_idx, 'insert', f'\n{new_date_line}\n'))
 
     if not updates:
         return len(sections), 0

@@ -6,13 +6,14 @@ nav_order: 99
 
 # Example: Planning a Ground Invasion
 
-*Updated: v2026.01.26*
+*Updated: v2026.01.30*
 
 This worked example walks through the process of planning, executing, and consolidating a ground invasion of an enemy colony. It demonstrates force composition calculations, transport logistics, orbital support coordination, and post-conquest occupation requirements.
 
 ## Starting Conditions
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 - **Target:** Enemy colony on Barnard's Star III, estimated population 50 million
 - **Enemy Ground Forces:** Unknown composition, estimated 10-20 battalions based on thermal/EM signatures detected from orbit
 - **Enemy Orbital Defenses:** 2 Planetary Defense Centers (PDCs) detected via active sensor sweep
@@ -23,7 +24,8 @@ This worked example walks through the process of planning, executing, and consol
 
 ## Step 1: Intelligence Gathering
 
-*Updated: v2026.01.25*
+*Updated: v2026.01.30*
+
 Before committing forces, gather what information you can from orbit.
 
 ### What You Can Detect
@@ -64,7 +66,8 @@ The detected signatures suggest 10-20 battalions. Given the population of 50M, t
 
 ## Step 2: Orbital Bombardment Decision
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 ### Option A: Bombard First
 
 **Advantages:**
@@ -131,7 +134,8 @@ Against a PDC at fortification level 6: effective to-hit = 6.67% x 0.5 / 6 = 0.5
 
 ## Step 3: Force Composition Planning
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 ### The 3:1 Rule
 
 A minimum 3:1 attacker-to-defender ratio in combat power is recommended for assaulting fortified positions. In Forest terrain with fortification, the effective ratio needed may be higher.
@@ -213,7 +217,8 @@ For 30 additional rounds (beyond inherent):
 
 ## Step 4: Transport Requirements
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 ### Calculating Fleet Transport Capacity
 
 Assume total force tonnage: 75,000 tons (midpoint of our estimate).
@@ -245,7 +250,8 @@ Using 8 Heavy Transports (10,000 tons each = 80,000 ton capacity):
 
 ## Step 5: Orbital Support During Ground Assault
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 ### Precision Orbital Bombardment Support
 
 Ships assigned to "Provide Orbital Bombardment Support" fire once per ground combat phase with FFD-directed accuracy:
@@ -284,7 +290,8 @@ Ships in bombardment support orbit are vulnerable to STO weapons:
 
 ## Step 6: Landing Sequence
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 ### Where to Land
 
 - **Away from PDCs:** Do not land directly on detected PDC positions. PDCs have STO capability and will engage transports
@@ -326,7 +333,8 @@ Self-Fortification time: 30 days (all unit types)
 
 ## Step 7: Ground Combat Phases
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 ### Combat Resolution (per 8-hour phase)
 
 Each phase follows this sequence:
@@ -395,7 +403,8 @@ These are rough estimates. Actual results depend on unit composition, commander 
 
 ## Step 8: Occupation Force Requirements
 
-*Updated: v2026.01.26*
+*Updated: v2026.01.30*
+
 ### Occupation Strength
 
 \hyperlink{ref-ex-ground-1}{[1]}
@@ -451,7 +460,8 @@ For long-term occupation, use inexpensive garrison formations:
 
 ## Step 9: Post-Conquest Management
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 ### Immediate Actions (First 30 Days)
 
 1. **Deploy garrison formations** to the planet surface
@@ -497,7 +507,8 @@ After conquest, check:
 
 ## Key Decisions Summary
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 | Decision | Conservative Choice | Aggressive Choice | Recommendation |
 |----------|-------------------|-------------------|----------------|
 | Bombard first? | Targeted only (PDCs) | General bombardment | Targeted -- preserve infrastructure |
@@ -510,7 +521,8 @@ After conquest, check:
 
 ## Common Mistakes
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 1. **Insufficient transport capacity.** Calculate total tonnage carefully. Running short means multiple lifts, giving the defender time to react.
 
 2. **Landing directly on PDCs.** PDCs have STO capability and will shred transports. Suppress them first with missile bombardment.
@@ -532,6 +544,7 @@ After conquest, check:
 ## Advanced Tactics
 
 *Updated: v2026.01.26*
+
 The preceding sections cover the fundamentals of planetary invasion. This section addresses more sophisticated scenarios requiring multi-formation coordination, integrated orbital assets, PDC assault techniques, and sustained logistics for extended campaigns.
 
 ---

@@ -6,13 +6,14 @@ nav_order: 99
 
 # Example: Terraforming a Colony
 
-*Updated: v2026.01.26*
+*Updated: v2026.01.30*
 
 This worked example walks through reducing a colony's cost from CC 2.0 to CC 0.0 through systematic terraforming. Each step includes timeline calculations, installation requirements, and the decision logic behind gas selection order.
 
 ## Quick Reference: Atmospheric Values
 
-*Updated: v2026.01.25*
+*Updated: v2026.01.30*
+
 Before diving into the worked example, here are the key numerical values you need for terraforming calculations.
 
 ### Breathable Atmosphere Targets (Human Baseline)
@@ -65,12 +66,14 @@ Before diving into the worked example, here are the key numerical values you nee
 
 ## Objective
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 Transform a Mars-like colony world from Colony Cost 2.0 to Colony Cost 0.0 (fully habitable) through atmospheric terraforming, making it suitable for unassisted human habitation.
 
 ## Starting Conditions
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 - **World type:** Mars-like rocky planet
 - **Planet size:** 0.53 Earth masses, surface area approximately 28% of Earth
 - **Surface gravity:** 0.38g (below species minimum -- contributes CC 1.0 from gravity, but this is separate from atmospheric terraforming and cannot be changed)
@@ -116,7 +119,8 @@ This is an important lesson. Our Mars-like world actually has CC 3.43 due to tem
 
 ## Step 1: Analyze Atmosphere
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 ### Current State Assessment
 
 ```
@@ -146,7 +150,8 @@ Colony Cost Factors:
 
 ## Step 2: Calculate Target Atmosphere
 
-*Updated: v2026.01.25*
+*Updated: v2026.01.30*
+
 ### Ideal Final Atmosphere
 
 For zero colony cost from atmospheric factors, target:
@@ -199,7 +204,8 @@ The increased atmospheric pressure and trace greenhouse gases naturally warm the
 
 ## Step 3: Deploy Terraforming Installations
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 ### Rate Calculation
 
 Base terraforming rate with planet size modifier:
@@ -271,7 +277,8 @@ To raise hydrosphere from 5% to 20%: need +15%, which requires approximately 3.7
 
 ## Step 4: Gas Selection Strategy
 
-*Updated: v2026.01.26*
+*Updated: v2026.01.30*
+
 ### Why This Order Matters
 
 The order of gas manipulation is critical. Getting it wrong can increase colony cost instead of decreasing it.
@@ -335,7 +342,8 @@ The temperature CC factor disappears naturally as pressure builds. No dedicated 
 
 ## Step 5: Monitor Colony Cost Reduction
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 ### CC Progression Timeline
 
 Track how colony cost changes as terraforming proceeds (all phases running concurrently where possible):
@@ -398,7 +406,8 @@ Year 14 (Target achieved):
 
 ## Step 6: Infrastructure Requirements
 
-*Updated: v2026.01.26*
+*Updated: v2026.01.30*
+
 ### Supporting Population During Terraforming
 
 While CC > 0, the colony requires infrastructure to support population:
@@ -454,7 +463,8 @@ An alternative is space-based terraforming modules (ship components with no popu
 
 ## Step 7: Temperature Management
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 ### Greenhouse Effect Calculations
 
 Our world benefits from a natural warming effect as atmospheric pressure increases. Here is the detailed progression:
@@ -530,7 +540,8 @@ A 400K world with Anti-GH Factor 1.5 becomes 400/1.5 = 267K (-6C). This is one a
 
 ## Step 8: Completion Criteria
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 ### When to Stop Terraforming
 
 Terraforming is complete when all atmospheric CC factors reach 0.0:
@@ -577,7 +588,8 @@ After achieving CC 0.0, the atmosphere is stable. No ongoing terraforming is nee
 
 ## Timeline Summary
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 ### Complete Terraforming Schedule (130 Installations, Base Technology)
 
 ```
@@ -647,7 +659,8 @@ The relationship is roughly linear: quarter the installations means quadruple th
 
 ## Key Decisions
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
+
 | Decision | Recommended | Rationale |
 |----------|-------------|-----------|
 | Remove CO2 or add O2 first | Remove CO2 first | Eliminates danger immediately; fast |
@@ -663,6 +676,7 @@ The relationship is roughly linear: quarter the installations means quadruple th
 ## Common Mistakes
 
 *Updated: v2026.01.26*
+
 ### 1. Adding the Wrong Gas First
 
 Adding O2 before removing toxic gases can create dangerous combinations. On a world with methane above 500 ppm, adding O2 creates a flammable atmosphere. Always remove toxics first, then add breathable gases.

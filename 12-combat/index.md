@@ -7,4 +7,5 @@ permalink: /12-combat/
 
 # 12. Combat
 
-*Updated: v2026.01.28*
+*Updated: v2026.01.30*
+
