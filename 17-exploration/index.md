@@ -6,3 +6,6 @@ permalink: /17-exploration/
 ---
 
 # 17. Exploration
+
+*Updated: v2026.01.28*
+

@@ -39,11 +39,11 @@ def get_manual_files():
     # Directories containing manual content
     content_dirs = [
         '1-introduction', '2-game-setup', '3-user-interface',
-        '4-systems-and-bodies', '5-populations', '6-economy-and-industry',
+        '4-systems-and-bodies', '5-colonies', '6-economy-and-industry',
         '7-research', '8-ship-design', '9-fleet-management',
         '10-navigation', '11-sensors-and-detection', '12-combat',
         '13-ground-forces', '14-logistics', '15-diplomacy',
-        '16-commanders', '17-alien-encounters', '18-advanced-topics',
+        '16-commanders', '17-exploration', '18-advanced-topics',
         'appendices', 'examples'
     ]
 

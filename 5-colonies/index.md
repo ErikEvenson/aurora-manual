@@ -6,3 +6,6 @@ permalink: /5-colonies/
 ---
 
 # 5. Colonies
+
+*Updated: v2026.01.28*
+
