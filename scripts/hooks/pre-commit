@@ -1,0 +1,30 @@
+#!/bin/bash
+#
+# Pre-commit hook: Update section dates from git history
+#
+# This hook runs update-section-dates.py on any staged markdown files
+# to ensure "*Updated:*" dates reflect the current commit.
+
+# Get the repo root
+REPO_ROOT="$(git rev-parse --show-toplevel)"
+
+# Find staged .md files (excluding deleted files)
+STAGED_MD=$(git diff --cached --name-only --diff-filter=ACM | grep '\.md$' || true)
+
+if [ -z "$STAGED_MD" ]; then
+    # No markdown files staged, skip
+    exit 0
+fi
+
+# Run the update script on staged files only
+echo "Updating section dates..."
+python3 "$REPO_ROOT/scripts/update-section-dates.py" $STAGED_MD
+
+# Re-stage the updated files
+for file in $STAGED_MD; do
+    if [ -f "$REPO_ROOT/$file" ]; then
+        git add "$REPO_ROOT/$file"
+    fi
+done
+
+exit 0
