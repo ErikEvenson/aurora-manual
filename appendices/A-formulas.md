@@ -802,7 +802,7 @@ Migration_Rate = Base_Rate x Push_Factor x Pull_Factor
 
 ## A.7 Garrison and Unrest Formulas
 
-*Updated: v2026.01.29*
+*Updated: v2026.01.30*
 
 Formulas for occupation, garrison requirements, and population unrest. See [Section 13.1 Unit Types](../13-ground-forces/13.1-unit-types.md) for ground force details.
 
@@ -868,7 +868,9 @@ Required = Population x ((Determination + Militancy + Xenophobia) / 300) x Polit
 Required = Population (millions) x (Militancy / 100) x Political Status Protection Modifier
 ```
 
-Ships are evaluated by Population Protection Value (hull space allocated to weapons and hangar bays).
+**Population Threshold:** PPV requirements only apply to colonies with **10 million or more population**. Smaller colonies do not generate unrest from insufficient local defence. *(unverified — [#874](https://github.com/ErikEvenson/aurora-manual/issues/874) -- threshold from community sources, needs authoritative confirmation)*
+
+Ships are evaluated by Population Protection Value (hull space allocated to weapons and hangar bays). PPV is calculated system-wide — a single armed ship or PDC provides protection for all colonies in the system.
 
 ### A.7.4 Unrest Reduction
 
