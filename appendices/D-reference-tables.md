@@ -6,12 +6,13 @@ nav_order: 4
 
 # Appendix D: Reference Tables
 
-*Added: v2026.01.24*
+*Updated: v2026.01.26*
 
 This appendix provides quick-reference data tables for minerals, installations, weapons, and technology progressions. Use these tables during ship design and colony planning to quickly look up costs, outputs, and key statistics.
 
 ## D.1 Trans-Newtonian Minerals
 
+*Updated: v2026.01.25*
 The eleven Trans-Newtonian minerals are the foundation of all advanced construction in Aurora (see [Section 6.1 Minerals](../6-economy-and-industry/6.1-minerals.md) for mining and exploitation). Each mineral has primary applications that determine where demand will be highest.
 
 | Mineral | Primary Uses |
@@ -40,6 +41,7 @@ The eleven Trans-Newtonian minerals are the foundation of all advanced construct
 
 ## D.2 Installation Specifications
 
+*Updated: v2026.01.26*
 For installation placement and colony management, see [Section 5.1 Establishing Colonies](../5-colonies/5.1-establishing-colonies.md).
 
 ### D.2.1 Key Installation Build Costs
@@ -93,6 +95,7 @@ For installation placement and colony management, see [Section 5.1 Establishing 
 
 ## D.3 Beam Weapon Quick Reference
 
+*Updated: v2026.01.26*
 **When to use this table:** Consult this section when designing combat vessels and deciding which weapon systems to mount. The comparison table helps you evaluate trade-offs between damage output, range, power requirements, and hull space -- critical decisions that define your fleet doctrine.
 
 **Gameplay significance:** Beam weapons are your primary tools for sustained combat at various ranges. Your choice of weapon type determines whether you fight at long range (lasers, particle beams) or close range (plasma carronades), whether you can bypass enemy defenses (meson cannons), and how much power infrastructure each ship needs. The damage-per-second, range, and power cost of each weapon directly influence ship design tonnage and combat effectiveness.
@@ -134,6 +137,7 @@ Focal size (for lasers) and velocity (for railguns) affect maximum range. Higher
 
 ## D.4 Technology Progression Tables
 
+*Updated: v2026.01.26*
 **When to use these tables:** Reference these progressions when prioritizing research projects. Each table shows the full technology chain, research point costs, and capability improvements at each tier -- essential for planning your research queue and understanding how far you are from key capability thresholds.
 
 **Gameplay significance:** Research prioritization is one of Aurora's most consequential strategic decisions. These tables reveal which technologies offer the largest capability jumps per RP spent, where diminishing returns set in, and what synergies exist between related tech lines (e.g., engine type + fuel efficiency + power modifier). Use them to identify high-value targets for your research focus.
@@ -756,6 +760,7 @@ Output is further multiplied by the deposit's accessibility value.
 
 ## D.5 Key Design Formulas Quick Reference
 
+*Updated: v2026.01.26*
 **When to use this section:** Keep this open during ship design. These formulas let you calculate detection ranges, magazine requirements, engine performance, and unit conversions without leaving the design screen or hunting through multiple appendices.
 
 **Gameplay significance:** Understanding these formulas transforms ship design from trial-and-error into informed engineering. You can predict whether a sensor will detect a target at a given range, calculate how many missiles your magazines will hold, and optimize engine-to-fuel ratios before committing to a design. This is essential knowledge for min-maxing ship performance within tonnage constraints.

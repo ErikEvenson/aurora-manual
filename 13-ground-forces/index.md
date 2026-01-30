@@ -6,3 +6,5 @@ permalink: /13-ground-forces/
 ---
 
 # 13. Ground Forces
+
+*Updated: v2026.01.28*

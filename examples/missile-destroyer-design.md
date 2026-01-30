@@ -6,12 +6,13 @@ nav_order: 99
 
 # Example: Designing a Missile Destroyer
 
-*Added: v2026.01.24*
+*Updated: v2026.01.29*
 
 This worked example walks through designing a 6,000-ton missile destroyer optimized for long-range anti-ship strikes. We cover launcher selection, missile design, fire control configuration, magazine sizing, and point defense -- showing the reasoning and math behind every decision.
 
 ## Objective
 
+*Updated: v2026.01.24*
 Design a **6,000-ton missile destroyer** capable of:
 
 - Engaging hostile warships at long range (4,000,000+ km) with anti-ship missiles
@@ -21,6 +22,7 @@ Design a **6,000-ton missile destroyer** capable of:
 
 ## Starting Conditions
 
+*Updated: v2026.01.26*
 - **TN Start**: Nuclear Thermal Engine technology (5 EP/HS), Pressurised Water Reactor
 - **Missile Technology**: Size-1 launchers available, Magneto-Plasma engine (4x fuel efficiency)
 - **Warhead**: Strength-4 warheads (4 damage per MSP of warhead)
@@ -33,6 +35,7 @@ Design a **6,000-ton missile destroyer** capable of:
 
 ## Step 1: Missile Launcher Selection
 
+*Updated: v2026.01.24*
 The launcher size determines our missile size, which cascades into every other design decision. Key trade-offs:
 
 | Launcher Size (HS) | Missile Size (MSP) | Reload Rate | Launcher Mass |
@@ -57,6 +60,7 @@ Rationale:
 
 ## Step 2: Anti-Ship Missile Design
 
+*Updated: v2026.01.29*
 With 2 MSP of missile space, we must allocate between four components:
 
 1. **Warhead** -- damage on impact
@@ -158,6 +162,7 @@ ASM-2 "Javelin" Anti-Ship Missile
 
 ## Step 3: Fire Control Configuration
 
+*Updated: v2026.01.24*
 Missile fire controls determine how many missiles can be guided simultaneously and at what range they can be launched.
 
 ### FC Requirements
@@ -188,6 +193,7 @@ FC allocation: 2x 4 HS = 8 HS = 400 tons total
 
 ## Step 4: Launcher Count and Magazine Sizing
 
+*Updated: v2026.01.26*
 ### Launcher Count
 
 With size-2 launchers (2 HS = 100 tons each), how many can we fit?
@@ -228,6 +234,7 @@ This provides approximately 51 missiles (approximately 6 full salvos plus spares
 
 ## Step 5: Point Defense
 
+*Updated: v2026.01.26*
 A missile destroyer without point defense is vulnerable to counter-fire. We need at least basic self-defense capability.
 
 ### PD Options for a Destroyer
@@ -267,6 +274,7 @@ This is modest defense -- enough to thin out small salvos but not stop a concent
 
 ## Step 6: Engine and Speed
 
+*Updated: v2026.01.24*
 A missile destroyer needs speed to maintain range advantage and retreat if engaged by beam ships.
 
 **Target speed**: 3,500+ km/s (faster than most cruisers, able to dictate engagement range)
@@ -315,6 +323,7 @@ This is a missile destroyer doctrine: speed over armor. We engage at range and r
 
 ## Step 7: Remaining Components
 
+*Updated: v2026.01.24*
 ### Sensors
 
 A missile destroyer needs an active sensor to detect targets for fire control lock:
@@ -348,6 +357,7 @@ Fuel: 750 tons (15 HS) -- range for system operations
 
 ## Step 8: Final Design Summary
 
+*Updated: v2026.01.26*
 ### Mass Budget
 
 | Component | Mass (tons) | HS |
@@ -409,6 +419,7 @@ A 32-missile salvo every 30 seconds provides withering firepower. Against a 10,0
 
 ## Upgrade Path
 
+*Updated: v2026.01.24*
 ### Near-Term Improvements
 
 1. **Better warhead tech (Strength-6)**: Damage jumps from 1.6 to 2.4 per missile (+50%)
@@ -426,6 +437,7 @@ A 32-missile salvo every 30 seconds provides withering firepower. Against a 10,0
 
 ## Common Mistakes
 
+*Updated: v2026.01.26*
 1. **All warhead, no engine**: A missile with 1.5 MSP warhead and 0.5 MSP engine is slow, easy to intercept, and short-ranged. Balance is critical -- speed saves missiles from PD.
 
 2. **No seeker on anti-ship missiles**: Without an onboard sensor, missiles require continuous FC guidance to impact. If the firing ship loses sensor lock (ECM, destruction, range), the missiles go ballistic and miss.

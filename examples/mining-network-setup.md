@@ -6,12 +6,13 @@ nav_order: 99
 
 # Example: Setting Up a Mining Network
 
-*Added: v2026.01.24*
+*Updated: v2026.01.26*
 
 This worked example walks through establishing an off-world mining colony and freight network to supplement your homeworld's depleting mineral supplies. We cover site selection, colony establishment, mine deployment, freighter design, and logistics configuration -- with calculated numbers at each step.
 
 ## Objective
 
+*Updated: v2026.01.24*
 Establish an off-world mining operation that:
 
 - Supplements Earth's depleting Duranium and Gallicite deposits
@@ -21,6 +22,7 @@ Establish an off-world mining operation that:
 
 ## Starting Conditions
 
+*Updated: v2026.01.24*
 - **TN Start**: Trans-Newtonian technology researched, basic industry running
 - **Homeworld**: Earth, population ~500 million, mineral deposits showing depletion (Duranium accessibility 0.3, Gallicite accessibility 0.1)
 - **Survey Status**: Inner system geological survey complete
@@ -37,6 +39,7 @@ Establish an off-world mining operation that:
 
 ## Step 1: Evaluate Survey Results
 
+*Updated: v2026.01.26*
 When comparing mining sites, **effective annual yield per mine** is the key metric:
 
 ```
@@ -73,6 +76,7 @@ Rationale:
 
 ## Step 2: Colony Establishment
 
+*Updated: v2026.01.24*
 ### Check Colony Cost
 
 Colony cost 0.00 means no infrastructure is required. Colonists can survive without environmental support. This is the ideal scenario -- we simply need to transport people (for conventional mines) or deploy automated mines (no population needed).
@@ -121,6 +125,7 @@ Ship the first batch of 5 while building the next batch.
 
 ## Step 3: Calculate Mining Output
 
+*Updated: v2026.01.24*
 With 20 automated mines on the Asteroid Belt:
 
 **Gallicite output**:
@@ -157,6 +162,7 @@ Gallicite: 50 x 12 x 0.9 = 540 tons/year (improved tech)
 
 ## Step 4: Freighter Design
 
+*Updated: v2026.01.25*
 We need a freighter to haul automated mines to the colony and bring minerals back to Earth. Key requirements:
 
 - Carry automated mines outbound (each mine is ~500 tons when transported as cargo)
@@ -254,6 +260,7 @@ Commercial engines with modest consumption should provide adequate inner-system 
 
 ## Step 5: Standing Orders Configuration
 
+*Updated: v2026.01.24*
 Once the mining colony is running and the freighter is built, configure automated logistics:
 
 ### Route Configuration
@@ -283,6 +290,7 @@ If mining both Gallicite and Duranium, the "Load All Minerals" order handles bot
 
 ## Step 6: Mass Driver Option
 
+*Updated: v2026.01.26*
 Mass drivers offer an alternative to freighter logistics:
 
 **Mass Driver specifications** (from Appendix D):
@@ -324,6 +332,7 @@ Mass drivers offer an alternative to freighter logistics:
 
 ## Step 7: Scaling Up
 
+*Updated: v2026.01.24*
 As your economy grows and mineral demand increases:
 
 ### Phase 1: Initial Setup (Year 0-5)
@@ -355,6 +364,7 @@ Phase 3: 100 mines x 0.9 acc x 1.44 tech = 129.6 tons Gallicite/year
 
 ## Step 8: Multiple Colonies -- Managing Priority Routes
 
+*Updated: v2026.01.24*
 Once you have 3+ mining outposts, logistics complexity grows. Example scenario:
 
 | Colony | Primary Mineral | Output/Year | Distance from Earth |
@@ -393,6 +403,7 @@ Once you have 3+ mining outposts, logistics complexity grows. Example scenario:
 
 ## Step 9: Integrating Civilian Economy
 
+*Updated: v2026.01.25*
 Government mining and freighter operations are not your only option. The civilian economy can supplement -- or eventually replace -- much of your mining logistics. Understanding when and how to leverage civilian shipping and mining is key to efficient empire management.
 
 ### Civilian Mining Overview
@@ -572,6 +583,7 @@ For in-system operations like our Asteroid Belt example, range is not a concern.
 
 ## Key Decisions Explained
 
+*Updated: v2026.01.24*
 ### Automated vs Manned Mines
 Automated mines cost 2x but eliminate the need for population transport, infrastructure, and life support. For remote colonies with colony cost 0.00, automated mines are almost always the better choice. Reserve conventional mines for your homeworld or populated colonies where workers are already present.
 
@@ -592,6 +604,7 @@ For automated mining, colony size is irrelevant (no population needed). For conv
 
 ## Common Mistakes
 
+*Updated: v2026.01.26*
 1. **Not Enough Freighter Capacity**: As mines scale up, mineral stockpiles grow at the colony. If your freighter cannot keep up, minerals pile up uselessly. Monitor colony stockpiles and add freighters when they exceed 1 year of production.
 
 2. **Forgetting Fuel for Freighters**: Commercial engines are fuel-efficient but not free. Ensure your fuel refinery output supports freighter operations. At base tech, each refinery produces 40,000 litres/year -- a single freighter may consume 10,000+ litres per round trip.
@@ -612,6 +625,7 @@ For automated mining, colony size is irrelevant (no population needed). For conv
 
 ## Worked Numbers Summary
 
+*Updated: v2026.01.26*
 ### Mining Output at Different Scales
 
 | Mines | Accessibility | Tech Level | Annual Output |

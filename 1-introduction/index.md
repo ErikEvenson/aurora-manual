@@ -6,3 +6,5 @@ permalink: /1-introduction/
 ---
 
 # 1. Introduction
+
+*Updated: v2026.01.28*

@@ -6,16 +6,18 @@ nav_order: 99
 
 # Example: Defending a Jump Point
 
-*Added: v2026.01.24*
+*Updated: v2026.01.26*
 
 This worked example walks through establishing a comprehensive defensive position at a jump point connecting to known hostile space. Every major decision is supported by calculations drawn from the game's formulas, and common pitfalls are highlighted throughout.
 
 ## Objective
 
+*Updated: v2026.01.24*
 Establish a layered defensive position at a jump point connecting to a system occupied by a known hostile NPR. The defense must detect, engage, and destroy enemy forces transiting the jump point before they can threaten your colony 1.2 billion km away.
 
 ## Starting Conditions
 
+*Updated: v2026.01.24*
 - **Hostile contact:** Known NPR one system away, observed with military-engine ships up to 10,000 tons
 - **Jump point location:** 1.2 billion km from your colony
 - **Sensor technology:** Active Sensor Strength Level 4, EM Sensor Sensitivity Level 4
@@ -30,6 +32,7 @@ Establish a layered defensive position at a jump point connecting to a system oc
 
 ## Step 1: Sensor Picket Deployment
 
+*Updated: v2026.01.26*
 The first requirement is detecting enemy transits before their weapons reach your fleet. A dedicated sensor picket stationed near the jump point provides early warning.
 
 ### Picket Ship Design
@@ -138,6 +141,7 @@ Station 2-3 picket ships within 500,000 km of the jump point under EMCON (all ac
 
 ## Step 2: Fleet Positioning
 
+*Updated: v2026.01.25*
 ### Why NOT on the jump point
 
 Stationing your combat fleet directly on the jump point is the single most common mistake in jump point defense. Here is why it fails:
@@ -198,6 +202,7 @@ Station the fleet perpendicular to the JP-colony axis, so retreating draws the e
 
 ## Step 3: Engagement Doctrine
 
+*Updated: v2026.01.26*
 ### Missile-First Doctrine (Recommended for JP Defense)
 
 At jump point defense, missile-first doctrine is superior because:
@@ -245,6 +250,7 @@ Use beam-only doctrine when:
 
 ## Step 4: Point Defense Layers
 
+*Updated: v2026.01.26*
 ### Layer 1: AMM Screen (Long-Range Intercept)
 
 Your size-1 AMMs at 32,000 km/s with resolution-1 missile fire controls.
@@ -343,6 +349,7 @@ Plan your PD capacity for 1.5-2x the expected maximum enemy salvo.
 
 ## Step 5: Jump point monitoring with passive sensors
 
+*Updated: v2026.01.25*
 ### Stealth Detection Strategy
 
 The ideal detection posture at a JP uses passive sensors exclusively until hostiles are confirmed:
@@ -390,6 +397,7 @@ The key advantage: your fleet's position remains unknown to the enemy until you 
 
 ## Step 6: Reserve Positioning
 
+*Updated: v2026.01.24*
 ### Reinforcement Station
 
 Position reserve forces at your colony, 1.2 billion km from the JP:
@@ -432,6 +440,7 @@ If your combat fleet has total fuel capacity of 500,000 litres and consumes 2,00
 
 ## Step 7: Minefield and Defensive Installation Options
 
+*Updated: v2026.01.26*
 ### Mine Deployment at Jump Points
 
 Mines in Aurora are missiles designed with no engine (0 km/s speed), creating stationary buoys that can engage targets automatically. A properly designed minefield at a hostile jump point provides a devastating first-strike capability against transiting enemies.
@@ -660,6 +669,7 @@ As an alternative to PDCs, build a large defensive station (no engines) and tow 
 
 ## Step 8: Response Timing Calculations
 
+*Updated: v2026.01.24*
 ### Scenario: Enemy Fleet Transits at 4,000 km/s
 
 ```
@@ -720,6 +730,7 @@ This is tight. Against very fast missiles, your CIWS gets only one engagement ti
 
 ## Key Decisions Summary
 
+*Updated: v2026.01.24*
 | Decision | Recommended | Rationale |
 |----------|-------------|-----------|
 | Fleet distance from JP | 3-5 million km | Balances reaction time with engagement window |
@@ -743,6 +754,7 @@ Building a jump gate at a hostile JP is almost always wrong:
 
 ## Common Mistakes
 
+*Updated: v2026.01.26*
 ### 1. Stationing Fleet Directly on the JP
 
 As detailed in Step 2, this eliminates all your defensive advantages. You become the defender who fights at the attacker's preferred range.

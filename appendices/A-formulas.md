@@ -6,7 +6,7 @@ nav_order: 1
 
 # Appendix A: Formulas
 
-*Added: v2026.01.23*
+*Updated: v2026.01.29*
 
 This appendix collects the key mathematical formulas that govern Aurora C# mechanics. Understanding these calculations helps with ship design optimization, fleet planning, and economic development.
 
@@ -16,6 +16,7 @@ This appendix collects the key mathematical formulas that govern Aurora C# mecha
 
 ## A.1 Ship Design Formulas
 
+*Updated: v2026.01.26*
 Formulas used during ship design to calculate performance characteristics. For detailed ship design context, see [Section 8.3 Engines](../8-ship-design/8.3-engines.md).
 
 ### A.1.1 Ship Speed
@@ -173,6 +174,7 @@ Heavier tugs maintain better towing speeds. The return trip (without towed vesse
 
 ## A.2 Missile Design Formulas
 
+*Updated: v2026.01.26*
 Formulas for missile performance calculations. See [Section 12.3 Missiles](../12-combat/12.3-missiles.md) for tactical context.
 
 ### A.2.1 Missile Speed
@@ -202,6 +204,7 @@ This creates a linear multiplier from 1x to 5x for high-boost missiles.
 
 ## A.3 Detection Formulas
 
+*Updated: v2026.01.26*
 Formulas governing sensor detection and electronic warfare. For detailed sensor design and usage, see [Section 11.1 Thermal and EM Signatures](../11-sensors-and-detection/11.1-thermal-em-signatures.md).
 
 ### A.3.1 Thermal Signature
@@ -331,6 +334,7 @@ Minimum 0 (complete jamming). Applied to point defense accuracy against missiles
 
 ## A.4 Combat Formulas
 
+*Updated: v2026.01.26*
 Formulas governing weapons, damage, and defensive systems. For tactical combat details, see [Section 12.1 Fire Controls](../12-combat/12.1-fire-controls.md).
 
 ### A.4.1 Time to Destination
@@ -534,6 +538,7 @@ Expected kills = 12 * 0.8 = 9.6 missiles per 5-second cycle
 
 ## A.5 Production Formulas
 
+*Updated: v2026.01.26*
 Formulas for economic output and industrial production. For colony production management, see [Section 6.3 Construction](../6-economy-and-industry/6.3-construction.md).
 
 ### A.5.1 Construction Factory Output
@@ -683,6 +688,7 @@ This allows shipyard flexibility when designing ship families that share expensi
 
 ## A.6 Population and Colony Formulas
 
+*Updated: v2026.01.26*
 Formulas for population growth, habitability, and colony management. For colony management and habitability, see [Section 5.1 Establishing Colonies](../5-colonies/5.1-establishing-colonies.md).
 
 ### A.6.1 Base Growth Rate
@@ -790,6 +796,7 @@ Migration_Rate = Base_Rate x Push_Factor x Pull_Factor
 
 ## A.7 Garrison and Unrest Formulas
 
+*Updated: v2026.01.29*
 Formulas for occupation, garrison requirements, and population unrest. See [Section 13.1 Unit Types](../13-ground-forces/13.1-unit-types.md) for ground force details.
 
 ### A.7.1 Required Garrison Strength

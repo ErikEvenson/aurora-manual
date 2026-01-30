@@ -6,12 +6,13 @@ nav_order: 99
 
 # Example: Exploration Workflow
 
-*Added: v2026.01.24*
+*Updated: v2026.01.26*
 
 This worked example walks through the systematic exploration of a newly discovered star system, from initial jump point transit through colonization assessment. It demonstrates gravitational survey, geological survey, xenoarchaeology, and the decision-making process for evaluating colonization candidates.
 
 ## Starting Conditions
 
+*Updated: v2026.01.24*
 - **Situation:** Your gravitational survey ship has discovered a new jump point in your home system (Sol)
 - **Available Assets:**
   - 1x Gravitational Survey Ship ("GSS Pathfinder"): 4,500 tons, 2x grav survey sensors, jump drive, speed 3000 km/s
@@ -24,6 +25,7 @@ This worked example walks through the systematic exploration of a newly discover
 
 ## Step 1: Initial Transit
 
+*Updated: v2026.01.24*
 ### Pre-Transit Checklist
 
 Before sending ships through an unknown jump point:
@@ -65,6 +67,7 @@ The system map populates with:
 
 ## Step 2: Gravitational Survey
 
+*Updated: v2026.01.26*
 ### Purpose
 
 Find all jump points in the system. Each jump point is a potential route to further systems -- or a potential invasion corridor. You need to map them all.
@@ -124,6 +127,7 @@ After 59 days, Pathfinder discovers:
 
 ## Step 3: Geological Survey
 
+*Updated: v2026.01.26*
 ### Purpose
 
 Determine mineral deposits on all bodies. Without geological survey, you have zero knowledge of what resources exist.
@@ -192,6 +196,7 @@ After completing geological surveys, Prospector reports:
 
 ## Step 4: Evaluate Results
 
+*Updated: v2026.01.26*
 ### Mineral Wealth Assessment
 
 Evaluate deposits using effective yield (Quantity x Accessibility):
@@ -237,6 +242,7 @@ Colony Cost = Max(Environmental Penalties)
 
 ## Step 5: Priority Assessment
 
+*Updated: v2026.01.26*
 ### Ranking Colonization Candidates
 
 | Rank | Body | Rationale | Priority |
@@ -272,6 +278,7 @@ This is manageable. The mineral deposits justify the investment.
 
 ## Step 6: Colony Decision
 
+*Updated: v2026.01.24*
 ### Planet II -- Primary Colony
 
 **Go/No-Go Assessment:**
@@ -311,6 +318,7 @@ Since ruins were detected, deploy xenoarchaeology formations. If the body has CC
 
 ## Step 7: Route Security
 
+*Updated: v2026.01.24*
 ### Threat Assessment
 
 Before committing civilian assets, verify the system is secure:
@@ -344,6 +352,7 @@ Assign additional warships when:
 
 ## Step 8: Infrastructure Deployment
 
+*Updated: v2026.01.24*
 ### Phase 1: Initial Colony (Months 1-6)
 
 ```
@@ -383,6 +392,7 @@ This is slow. More freighters significantly accelerate colony establishment. Con
 
 ## Step 9: Ongoing Exploration
 
+*Updated: v2026.01.25*
 ### Pushing the Frontier
 
 With Barnard's Star mapped and colonization underway, continue exploration through the 6 discovered jump points.
@@ -425,6 +435,7 @@ Safety check before transit:
 
 ## Step 10: Xenoarchaeology
 
+*Updated: v2026.01.24*
 ### Deploying Xenoarchaeology Teams
 
 Ruins were detected on Planet III during geological survey. To exploit them:
@@ -518,6 +529,7 @@ For this scenario, Planet III has moderate minerals (Corundium, Vendarite) plus 
 
 ## Timeline Summary
 
+*Updated: v2026.01.24*
 | Phase | Duration | Activities |
 |-------|----------|-----------|
 | **Week 1** | Days 1-7 | Initial transit, system assessment, begin grav survey |
@@ -543,6 +555,7 @@ First xeno recovery (at 20%/year): expected ~5 years (stochastic)
 
 ## Key Decisions
 
+*Updated: v2026.01.24*
 | Decision | Conservative | Aggressive | This Example |
 |----------|-------------|-----------|-------------|
 | Escort survey ships? | Always escort | Solo (faster, riskier) | Escort (unknown space) |
@@ -555,6 +568,7 @@ First xeno recovery (at 20%/year): expected ~5 years (stochastic)
 
 ## Common Mistakes
 
+*Updated: v2026.01.26*
 1. **Sending surveyors without escort into unknown space.** Survey ships are unarmed. One hostile contact means a dead ship and months of lost survey data. Escort in unknown systems.
 
 2. **Not surveying gas giants.** They are the only source of harvestable Sorium (fuel). Skipping them means missing a potential fuel source that could sustain extended operations in the system.

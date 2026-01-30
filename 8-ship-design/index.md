@@ -6,3 +6,5 @@ permalink: /8-ship-design/
 ---
 
 # 8. Ship Design
+
+*Updated: v2026.01.28*

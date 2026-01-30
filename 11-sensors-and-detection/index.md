@@ -6,3 +6,5 @@ permalink: /11-sensors-and-detection/
 ---
 
 # 11. Sensors and Detection
+
+*Updated: v2026.01.28*

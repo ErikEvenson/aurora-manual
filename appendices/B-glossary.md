@@ -6,7 +6,7 @@ nav_order: 2
 
 # Appendix B: Glossary
 
-*Added: v2026.01.23*
+*Updated: v2026.01.29*
 
 This glossary defines key terms used throughout the Aurora C# manual. Cross-references to detailed coverage are provided for major topics.
 

@@ -6,12 +6,13 @@ nav_order: 99
 
 # Example: Early Game Economic Bootstrap
 
-*Added: v2026.01.24*
+*Updated: v2026.01.28*
 
 This worked example walks through the first 10 years of a conventional-start Aurora C# game, showing how to transition from pre-TN industry to a functioning trans-newtonian economy capable of supporting fleet expansion and interstellar exploration.
 
 ## Objective
 
+*Updated: v2026.01.24*
 Starting from a conventional-technology Earth with no trans-newtonian (TN) knowledge, build a self-sustaining TN economy that can:
 
 - Produce ships and installations at meaningful rates
@@ -22,6 +23,7 @@ Starting from a conventional-technology Earth with no trans-newtonian (TN) knowl
 
 ## Starting Conditions (Conventional Start)
 
+*Updated: v2026.01.28*
 | Resource | Starting Value |
 |----------|---------------|
 | Population | ~1,000 million (~400M in manufacturing sector) |
@@ -41,7 +43,7 @@ Starting from a conventional-technology Earth with no trans-newtonian (TN) knowl
 
 ## Step 0: Day-One Officer Assignments
 
-*Added: v2026.01.28*
+*Updated: v2026.01.28*
 
 Before advancing time, make two critical administrative assignments that provide compounding benefits throughout the game.
 
@@ -92,6 +94,7 @@ The Race window's Academies tab has a quality vs quantity setting (1-5). The def
 
 ## Step 1: Research Priorities (Years 0-3)
 
+*Updated: v2026.01.28*
 ### First Research Project: Trans-Newtonian Technology
 
 **Cost:** 5,000 RP
@@ -135,6 +138,7 @@ You start with ~16 conventional research labs. These function immediately and sh
 
 ## Step 2: Conventional Industry Utilization (Years 0-2)
 
+*Updated: v2026.01.28*
 While waiting for TN Technology to complete, your conventional factories should not sit idle. Build items that remain useful after TN transition:
 
 ### Recommended Conventional-Era Builds
@@ -157,7 +161,7 @@ While waiting for TN Technology to complete, your conventional factories should 
 
 ## Step 2.5: CI-to-TN Conversions (Years 1-3)
 
-*Added: v2026.01.28*
+*Updated: v2026.01.28*
 
 Once Trans-Newtonian Technology completes, a powerful option unlocks: converting Conventional Industry (CI) directly into TN installations. This is **six times cheaper** than building new and should be your first action after TN tech completes. \hyperlink{ref-ex-economy-6}{[6]}
 
@@ -235,6 +239,7 @@ You need fuel before ships can operate. Converting 50 CI to refineries costs 1,0
 
 ## Step 3: First TN Construction Factories (Years 1-3)
 
+*Updated: v2026.01.24*
 Once TN Technology completes, immediately begin building Construction Factories.
 
 ### Growth Rate Calculation
@@ -275,6 +280,7 @@ With 200 conventional factories producing at a fraction of TN rate, plus your gr
 
 ## Step 4: Fuel Infrastructure (Years 2-4)
 
+*Updated: v2026.01.26*
 ### When to Build Refineries
 
 Build fuel refineries once you have engine technology researched and are designing your first ships. You need fuel stockpiled BEFORE ships launch.
@@ -318,6 +324,7 @@ If a gas giant with accessible Sorium exists in your system, consider building a
 
 ## Step 5: Mine Deployment (Years 1-5)
 
+*Updated: v2026.01.26*
 ### Initial Mine Count
 
 Each mine produces 10 tons/year per mineral deposit (at accessibility 1.0) \hyperlink{ref-ex-economy-3}{[3]}. Earth typically has 11 mineral types, each with varying accessibility.
@@ -361,6 +368,7 @@ Annual_Production_per_Mineral = Num_Mines x 10 x Accessibility
 
 ## Step 6: Shipyard Utilization (Years 2-4)
 
+*Updated: v2026.01.28*
 Conventional start provides one Naval and one Commercial shipyard. These are ready to use once you research propulsion technology.
 
 ### When to Start Building Ships
@@ -407,6 +415,7 @@ Use the starting Commercial shipyard for:
 
 ## Step 7: Research Lab Expansion (Years 2-7)
 
+*Updated: v2026.01.24*
 ### Balancing Labs vs. Other Priorities
 
 Research labs are expensive (2,400 BP each, 1,200 Mercassium), but research underpins everything. The key question: how fast to expand?
@@ -438,6 +447,7 @@ Target: 1 new lab per 2 months in years 5-10
 
 ## Step 8: First Survey Ships (Years 3-5)
 
+*Updated: v2026.01.24*
 ### Why Survey Early
 
 Geological surveys reveal mineral deposits on every body in the system. Without surveys, you do not know where to mine. Gravitational surveys reveal jump points to other star systems.
@@ -475,6 +485,7 @@ A typical Sol system survey reveals:
 
 ## Step 9: Expansion Phase (Years 5-8)
 
+*Updated: v2026.01.24*
 ### When to Colonize Off-World
 
 Colonize when:
@@ -516,6 +527,7 @@ A pair of mass drivers (600 BP investment) provides permanent, fuel-free mineral
 
 ## Step 10: Military Preparation (Years 7-10)
 
+*Updated: v2026.01.24*
 ### When to Start Building Combat Ships
 
 **Short answer:** After your first survey reveals something threatening, OR by year 8-9 regardless.
@@ -561,6 +573,7 @@ A pair of mass drivers (600 BP investment) provides permanent, fuel-free mineral
 
 ## Year-by-Year Timeline
 
+*Updated: v2026.01.28*
 ### Year 0-1: Foundation
 
 ```
@@ -672,6 +685,7 @@ Fleet: First combat task group operational (3-5 warships)
 
 ## Mineral Consumption Summary (10-Year Totals)
 
+*Updated: v2026.01.24*
 Approximate total mineral consumption over 10 years of bootstrap:
 
 | Mineral | Total Consumed (tons) | Primary Consumers |
@@ -694,6 +708,7 @@ Approximate total mineral consumption over 10 years of bootstrap:
 
 ## Key Decisions
 
+*Updated: v2026.01.24*
 | Decision | Economic Option | Military Option | Recommendation |
 |----------|----------------|-----------------|----------------|
 | Research order | Construction/Mining first | Weapons/Sensors first | Economic first (compounds) |
@@ -706,6 +721,7 @@ Approximate total mineral consumption over 10 years of bootstrap:
 
 ## Common Mistakes
 
+*Updated: v2026.01.28*
 1. **Researching weapons before having ships:** Weapon tech is useless without engines, reactors, and shipyards to build warships. Economic and propulsion tech first.
 
 2. **Building too few mines early:** Minerals fund everything. 50 mines on Earth is a start, not an endpoint. Target 200+ by year 5.

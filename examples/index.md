@@ -6,3 +6,5 @@ permalink: /examples/
 ---
 
 # Examples
+
+*Updated: v2026.01.28*

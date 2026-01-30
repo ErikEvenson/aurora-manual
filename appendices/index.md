@@ -6,3 +6,5 @@ permalink: /appendices/
 ---
 
 # Appendices
+
+*Updated: v2026.01.28*

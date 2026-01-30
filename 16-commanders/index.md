@@ -6,3 +6,5 @@ permalink: /16-commanders/
 ---
 
 # 16. Commanders
+
+*Updated: v2026.01.28*
