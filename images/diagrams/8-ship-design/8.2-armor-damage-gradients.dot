@@ -1,0 +1,166 @@
+// Armor Damage Gradient Patterns
+// Issue #980: 8.2.3 Armor Thickness - Damage spreading visualization
+
+digraph armor_gradients {
+    rankdir=TB;
+    bgcolor="#1a1a2e";
+    node [fontname="Helvetica", fontcolor="white", shape=none];
+    edge [style=invis];
+    splines=false;
+
+    // Title
+    title [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+        <TR><TD><FONT FACE="Helvetica Bold" POINT-SIZE="18" COLOR="white">Armor Damage Gradient Patterns</FONT></TD></TR>
+        <TR><TD><FONT FACE="Helvetica" POINT-SIZE="12" COLOR="#aaaaaa">25 damage applied to armor grid (4 layers x 9 columns)</FONT></TD></TR>
+    </TABLE>>];
+
+    // Missile pattern (Gradient 1) - widest spread: 1,2,3,4,5,4,3,2,1
+    subgraph cluster_missile {
+        label=<<FONT FACE="Helvetica Bold" POINT-SIZE="14" COLOR="#ff6b6b">Missile / Carronade (Gradient 1)</FONT>>;
+        bgcolor="#2d2d44";
+        color="#4ecdc4";
+        penwidth=2;
+
+        missile_grid [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="6">
+            <TR>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"><FONT COLOR="#666666">L4</FONT></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+                <TD BGCOLOR="#3d1a1a" WIDTH="35"><FONT COLOR="#ff6b6b">1</FONT></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+            </TR>
+            <TR>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"><FONT COLOR="#666666">L3</FONT></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+                <TD BGCOLOR="#3d1a1a" WIDTH="35"><FONT COLOR="#ff6b6b">1</FONT></TD>
+                <TD BGCOLOR="#5d2a2a" WIDTH="35"><FONT COLOR="#ff6b6b">2</FONT></TD>
+                <TD BGCOLOR="#7d3a3a" WIDTH="35"><FONT COLOR="#ff6b6b">3</FONT></TD>
+                <TD BGCOLOR="#5d2a2a" WIDTH="35"><FONT COLOR="#ff6b6b">2</FONT></TD>
+                <TD BGCOLOR="#3d1a1a" WIDTH="35"><FONT COLOR="#ff6b6b">1</FONT></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+            </TR>
+            <TR>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"><FONT COLOR="#666666">L2</FONT></TD>
+                <TD BGCOLOR="#3d1a1a" WIDTH="35"><FONT COLOR="#ff6b6b">1</FONT></TD>
+                <TD BGCOLOR="#5d2a2a" WIDTH="35"><FONT COLOR="#ff6b6b">2</FONT></TD>
+                <TD BGCOLOR="#7d3a3a" WIDTH="35"><FONT COLOR="#ff6b6b">3</FONT></TD>
+                <TD BGCOLOR="#9d4a4a" WIDTH="35"><FONT COLOR="white">4</FONT></TD>
+                <TD BGCOLOR="#7d3a3a" WIDTH="35"><FONT COLOR="#ff6b6b">3</FONT></TD>
+                <TD BGCOLOR="#5d2a2a" WIDTH="35"><FONT COLOR="#ff6b6b">2</FONT></TD>
+                <TD BGCOLOR="#3d1a1a" WIDTH="35"><FONT COLOR="#ff6b6b">1</FONT></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+            </TR>
+            <TR>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"><FONT COLOR="#666666">L1</FONT></TD>
+                <TD BGCOLOR="#3d1a1a" WIDTH="35"><FONT COLOR="#ff6b6b">1</FONT></TD>
+                <TD BGCOLOR="#5d2a2a" WIDTH="35"><FONT COLOR="#ff6b6b">2</FONT></TD>
+                <TD BGCOLOR="#7d3a3a" WIDTH="35"><FONT COLOR="#ff6b6b">3</FONT></TD>
+                <TD BGCOLOR="#bd5a5a" WIDTH="35"><FONT COLOR="white">5</FONT></TD>
+                <TD BGCOLOR="#7d3a3a" WIDTH="35"><FONT COLOR="#ff6b6b">3</FONT></TD>
+                <TD BGCOLOR="#5d2a2a" WIDTH="35"><FONT COLOR="#ff6b6b">2</FONT></TD>
+                <TD BGCOLOR="#3d1a1a" WIDTH="35"><FONT COLOR="#ff6b6b">1</FONT></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+            </TR>
+            <TR>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"><FONT COLOR="#666666">C1</FONT></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"><FONT COLOR="#666666">C2</FONT></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"><FONT COLOR="#666666">C3</FONT></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"><FONT COLOR="#4ecdc4">C4</FONT></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"><FONT COLOR="#666666">C5</FONT></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"><FONT COLOR="#666666">C6</FONT></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"><FONT COLOR="#666666">C7</FONT></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"><FONT COLOR="#666666">C8</FONT></TD>
+            </TR>
+        </TABLE>>];
+
+        missile_note [label=<<FONT FACE="Helvetica" POINT-SIZE="10" COLOR="#aaaaaa">Wide spread: 1-2-3-4-5-4-3-2-1 pyramid</FONT>>];
+    }
+
+    // Laser pattern (Gradient 3) - focused: 3,6,8,5,3
+    subgraph cluster_laser {
+        label=<<FONT FACE="Helvetica Bold" POINT-SIZE="14" COLOR="#ffe66d">Laser (Gradient 3)</FONT>>;
+        bgcolor="#2d2d44";
+        color="#4ecdc4";
+        penwidth=2;
+
+        laser_grid [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="6">
+            <TR>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"><FONT COLOR="#666666">L4</FONT></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+            </TR>
+            <TR>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"><FONT COLOR="#666666">L3</FONT></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+                <TD BGCOLOR="#5d4a1a" WIDTH="35"><FONT COLOR="#ffe66d">4</FONT></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+            </TR>
+            <TR>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"><FONT COLOR="#666666">L2</FONT></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+                <TD BGCOLOR="#5d4a1a" WIDTH="35"><FONT COLOR="#ffe66d">2</FONT></TD>
+                <TD BGCOLOR="#8d6a2a" WIDTH="35"><FONT COLOR="white">6</FONT></TD>
+                <TD BGCOLOR="#5d4a1a" WIDTH="35"><FONT COLOR="#ffe66d">2</FONT></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+            </TR>
+            <TR>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"><FONT COLOR="#666666">L1</FONT></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+                <TD BGCOLOR="#3d3a1a" WIDTH="35"><FONT COLOR="#ffe66d">3</FONT></TD>
+                <TD BGCOLOR="#7d5a2a" WIDTH="35"><FONT COLOR="#ffe66d">5</FONT></TD>
+                <TD BGCOLOR="#ad7a3a" WIDTH="35"><FONT COLOR="white">8</FONT></TD>
+                <TD BGCOLOR="#5d4a1a" WIDTH="35"><FONT COLOR="#ffe66d">4</FONT></TD>
+                <TD BGCOLOR="#3d3a1a" WIDTH="35"><FONT COLOR="#ffe66d">3</FONT></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+            </TR>
+            <TR>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"><FONT COLOR="#666666">C1</FONT></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"><FONT COLOR="#666666">C2</FONT></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"><FONT COLOR="#666666">C3</FONT></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"><FONT COLOR="#4ecdc4">C4</FONT></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"><FONT COLOR="#666666">C5</FONT></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"><FONT COLOR="#666666">C6</FONT></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"><FONT COLOR="#666666">C7</FONT></TD>
+                <TD BGCOLOR="#2d2d44" WIDTH="35"><FONT COLOR="#666666">C8</FONT></TD>
+            </TR>
+        </TABLE>>];
+
+        laser_note [label=<<FONT FACE="Helvetica" POINT-SIZE="10" COLOR="#aaaaaa">Focused: 3-5-8-4-3 cluster, deeper penetration</FONT>>];
+    }
+
+    // Legend
+    legend [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="4">
+        <TR><TD><FONT FACE="Helvetica Bold" POINT-SIZE="12" COLOR="white">Damage Interpretation</FONT></TD></TR>
+        <TR><TD ALIGN="LEFT"><FONT FACE="Helvetica" POINT-SIZE="10" COLOR="#aaaaaa">Numbers show damage applied to each armor cell</FONT></TD></TR>
+        <TR><TD ALIGN="LEFT"><FONT FACE="Helvetica" POINT-SIZE="10" COLOR="#aaaaaa">Darker red/yellow = more damage in that cell</FONT></TD></TR>
+        <TR><TD ALIGN="LEFT"><FONT FACE="Helvetica" POINT-SIZE="10" COLOR="#4ecdc4">Impact column (C4) highlighted in cyan</FONT></TD></TR>
+        <TR><TD ALIGN="LEFT"><FONT FACE="Helvetica" POINT-SIZE="10" COLOR="#aaaaaa">L1-L4 = Armor layers (L1 = outermost)</FONT></TD></TR>
+    </TABLE>>];
+
+    // Layout
+    title -> missile_grid [style=invis];
+    missile_grid -> laser_grid [style=invis];
+    laser_grid -> legend [style=invis];
+}

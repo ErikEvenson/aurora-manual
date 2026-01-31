@@ -1,0 +1,111 @@
+// Meson Armor Retardation Visualization
+// Issue #982: 8.5.5 Meson Armor Retardation mechanics
+
+digraph meson_retardation {
+    rankdir=TB;
+    bgcolor="#1a1a2e";
+    node [fontname="Helvetica", fontcolor="white", style=filled];
+    edge [fontname="Helvetica", fontcolor="white", color="#4ecdc4"];
+
+    // Title
+    title [shape=none, label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+        <TR><TD><FONT FACE="Helvetica Bold" POINT-SIZE="18" COLOR="white">Meson Armor Retardation</FONT></TD></TR>
+        <TR><TD><FONT FACE="Helvetica" POINT-SIZE="12" COLOR="#aaaaaa">Each layer has independent chance to stop meson</FONT></TD></TR>
+    </TABLE>>];
+
+    // Armor cross-section with penetration probabilities
+    subgraph cluster_armor {
+        label=<<FONT FACE="Helvetica Bold" POINT-SIZE="12" COLOR="white">4-Layer Armor Cross-Section</FONT>>;
+        bgcolor="#2d2d44";
+        color="#4ecdc4";
+        penwidth=2;
+
+        armor_section [shape=none, label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="8">
+            <TR>
+                <TD COLSPAN="3" BGCOLOR="#1a1a2e"><FONT COLOR="#aaaaaa" POINT-SIZE="10">Incoming Meson</FONT></TD>
+            </TR>
+            <TR>
+                <TD COLSPAN="3" BGCOLOR="#1a1a2e"><FONT COLOR="#4ecdc4" POINT-SIZE="16">|</FONT></TD>
+            </TR>
+            <TR>
+                <TD COLSPAN="3" BGCOLOR="#1a1a2e"><FONT COLOR="#4ecdc4" POINT-SIZE="16">v</FONT></TD>
+            </TR>
+            <TR>
+                <TD BGCOLOR="#3d5a3a" WIDTH="60"><FONT COLOR="white" POINT-SIZE="11">Layer 4</FONT></TD>
+                <TD BGCOLOR="#3d5a3a" WIDTH="100"><FONT COLOR="#95d5b2" POINT-SIZE="10">AR% chance<BR/>to stop here</FONT></TD>
+                <TD BGCOLOR="#3d5a3a" WIDTH="80"><FONT COLOR="#ffe66d" POINT-SIZE="10">1 dmg if<BR/>stopped</FONT></TD>
+            </TR>
+            <TR>
+                <TD BGCOLOR="#4d6a4a" WIDTH="60"><FONT COLOR="white" POINT-SIZE="11">Layer 3</FONT></TD>
+                <TD BGCOLOR="#4d6a4a" WIDTH="100"><FONT COLOR="#95d5b2" POINT-SIZE="10">AR% chance<BR/>to stop here</FONT></TD>
+                <TD BGCOLOR="#4d6a4a" WIDTH="80"><FONT COLOR="#ffe66d" POINT-SIZE="10">1 dmg if<BR/>stopped</FONT></TD>
+            </TR>
+            <TR>
+                <TD BGCOLOR="#5d7a5a" WIDTH="60"><FONT COLOR="white" POINT-SIZE="11">Layer 2</FONT></TD>
+                <TD BGCOLOR="#5d7a5a" WIDTH="100"><FONT COLOR="#95d5b2" POINT-SIZE="10">AR% chance<BR/>to stop here</FONT></TD>
+                <TD BGCOLOR="#5d7a5a" WIDTH="80"><FONT COLOR="#ffe66d" POINT-SIZE="10">1 dmg if<BR/>stopped</FONT></TD>
+            </TR>
+            <TR>
+                <TD BGCOLOR="#6d8a6a" WIDTH="60"><FONT COLOR="white" POINT-SIZE="11">Layer 1</FONT></TD>
+                <TD BGCOLOR="#6d8a6a" WIDTH="100"><FONT COLOR="#95d5b2" POINT-SIZE="10">AR% chance<BR/>to stop here</FONT></TD>
+                <TD BGCOLOR="#6d8a6a" WIDTH="80"><FONT COLOR="#ffe66d" POINT-SIZE="10">1 dmg if<BR/>stopped</FONT></TD>
+            </TR>
+            <TR>
+                <TD COLSPAN="3" BGCOLOR="#1a1a2e"><FONT COLOR="#4ecdc4" POINT-SIZE="16">v</FONT></TD>
+            </TR>
+            <TR>
+                <TD COLSPAN="3" BGCOLOR="#5d2a2a"><FONT COLOR="#ff6b6b" POINT-SIZE="11">INTERNALS<BR/>(if penetrates all layers)</FONT></TD>
+            </TR>
+        </TABLE>>];
+    }
+
+    // Comparison table: 10cm vs 30cm meson
+    subgraph cluster_comparison {
+        label=<<FONT FACE="Helvetica Bold" POINT-SIZE="12" COLOR="white">Penetration Probability (4 Layers)</FONT>>;
+        bgcolor="#2d2d44";
+        color="#4ecdc4";
+        penwidth=2;
+
+        comparison [shape=none, label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="6">
+            <TR>
+                <TD BGCOLOR="#3d3d5a"><FONT COLOR="white" POINT-SIZE="11">Meson Size</FONT></TD>
+                <TD BGCOLOR="#3d3d5a"><FONT COLOR="white" POINT-SIZE="11">AR per Layer</FONT></TD>
+                <TD BGCOLOR="#3d3d5a"><FONT COLOR="white" POINT-SIZE="11">Pass Rate</FONT></TD>
+                <TD BGCOLOR="#3d3d5a"><FONT COLOR="white" POINT-SIZE="11">Penetration</FONT></TD>
+            </TR>
+            <TR>
+                <TD BGCOLOR="#2d2d44"><FONT COLOR="#ff6b6b" POINT-SIZE="11">10cm</FONT></TD>
+                <TD BGCOLOR="#2d2d44"><FONT COLOR="white" POINT-SIZE="11">40%</FONT></TD>
+                <TD BGCOLOR="#2d2d44"><FONT COLOR="white" POINT-SIZE="11">60%</FONT></TD>
+                <TD BGCOLOR="#5d2a2a"><FONT COLOR="#ff6b6b" POINT-SIZE="11">13%</FONT></TD>
+            </TR>
+            <TR>
+                <TD BGCOLOR="#2d2d44"><FONT COLOR="#ffe66d" POINT-SIZE="11">20cm</FONT></TD>
+                <TD BGCOLOR="#2d2d44"><FONT COLOR="white" POINT-SIZE="11">20%</FONT></TD>
+                <TD BGCOLOR="#2d2d44"><FONT COLOR="white" POINT-SIZE="11">80%</FONT></TD>
+                <TD BGCOLOR="#5d4a1a"><FONT COLOR="#ffe66d" POINT-SIZE="11">41%</FONT></TD>
+            </TR>
+            <TR>
+                <TD BGCOLOR="#2d2d44"><FONT COLOR="#95d5b2" POINT-SIZE="11">30cm</FONT></TD>
+                <TD BGCOLOR="#2d2d44"><FONT COLOR="white" POINT-SIZE="11">12.5%</FONT></TD>
+                <TD BGCOLOR="#2d2d44"><FONT COLOR="white" POINT-SIZE="11">87.5%</FONT></TD>
+                <TD BGCOLOR="#3d5a3a"><FONT COLOR="#95d5b2" POINT-SIZE="11">59%</FONT></TD>
+            </TR>
+        </TABLE>>];
+    }
+
+    // Formula and notes
+    notes [shape=none, label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="4" BGCOLOR="#2d2d44">
+        <TR><TD><FONT FACE="Helvetica Bold" POINT-SIZE="12" COLOR="white">Key Mechanics</FONT></TD></TR>
+        <TR><TD ALIGN="LEFT"><FONT COLOR="#4ecdc4" POINT-SIZE="10">Penetration = (1 - AR%)^layers</FONT></TD></TR>
+        <TR><TD ALIGN="LEFT"><FONT COLOR="white" POINT-SIZE="10">Larger mesons = lower AR = harder to stop</FONT></TD></TR>
+        <TR><TD ALIGN="LEFT"><FONT COLOR="white" POINT-SIZE="10">More layers = more stop chances</FONT></TD></TR>
+        <TR><TD ALIGN="LEFT"><FONT COLOR="#ffe66d" POINT-SIZE="10">If stopped: 1 damage to armor at hit location</FONT></TD></TR>
+        <TR><TD ALIGN="LEFT"><FONT COLOR="#ff6b6b" POINT-SIZE="10">If penetrates: full damage to internals</FONT></TD></TR>
+    </TABLE>>];
+
+    // Layout
+    title -> armor_section [style=invis];
+    armor_section -> comparison [style=invis];
+    comparison -> notes [style=invis];
+}

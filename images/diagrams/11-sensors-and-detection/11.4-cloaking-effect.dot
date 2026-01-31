@@ -1,0 +1,192 @@
+digraph CloakingEffect {
+    // Graph settings
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    label="Cloaking Effect on Detection Range"
+    labelloc=t
+    fontsize=16
+    rankdir=TB
+    nodesep=0.3
+    ranksep=0.4
+    pad=0.5
+
+    // Default node style
+    node [
+        fontname="Helvetica"
+        fontsize=10
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled"
+        shape=box
+    ]
+
+    // Default edge style
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.7
+        style=invis
+    ]
+
+    // Title for bar section
+    subgraph cluster_bars {
+        label=""
+        color="#1a1a2e"
+        style=invis
+
+        // Header row
+        header [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+                <TR>
+                    <TD WIDTH="80" ALIGN="LEFT"><FONT POINT-SIZE="10"><B>Cloak %</B></FONT></TD>
+                    <TD WIDTH="80" ALIGN="CENTER"><FONT POINT-SIZE="10"><B>Signature</B></FONT></TD>
+                    <TD WIDTH="80" ALIGN="CENTER"><FONT POINT-SIZE="10"><B>Range %</B></FONT></TD>
+                    <TD WIDTH="350" ALIGN="LEFT"><FONT POINT-SIZE="10"><B>Detection Range (relative to uncloaked)</B></FONT></TD>
+                </TR>
+            </TABLE>>
+            shape=none
+            fillcolor="#1a1a2e"
+        ]
+
+        // No cloak - 100% range
+        row0 [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+                <TR>
+                    <TD WIDTH="80" ALIGN="LEFT"><FONT COLOR="#888888">None</FONT></TD>
+                    <TD WIDTH="80" ALIGN="CENTER"><FONT COLOR="#888888">100%</FONT></TD>
+                    <TD WIDTH="80" ALIGN="CENTER"><FONT COLOR="#ff6b6b"><B>100%</B></FONT></TD>
+                    <TD WIDTH="350" ALIGN="LEFT" BGCOLOR="#ff6b6b">                                                                                                     </TD>
+                </TR>
+            </TABLE>>
+            shape=none
+            fillcolor="#1a1a2e"
+        ]
+
+        // 50% cloak - 71% range (sqrt 0.5)
+        row1 [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+                <TR>
+                    <TD WIDTH="80" ALIGN="LEFT"><FONT COLOR="#ffe66d">50%</FONT></TD>
+                    <TD WIDTH="80" ALIGN="CENTER"><FONT COLOR="#888888">50%</FONT></TD>
+                    <TD WIDTH="80" ALIGN="CENTER"><FONT COLOR="#ffe66d"><B>71%</B></FONT></TD>
+                    <TD WIDTH="350" ALIGN="LEFT" BGCOLOR="#ffe66d">                                                                                 </TD>
+                </TR>
+            </TABLE>>
+            shape=none
+            fillcolor="#1a1a2e"
+        ]
+
+        // 75% cloak - 50% range (sqrt 0.25)
+        row2 [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+                <TR>
+                    <TD WIDTH="80" ALIGN="LEFT"><FONT COLOR="#ffe66d">75%</FONT></TD>
+                    <TD WIDTH="80" ALIGN="CENTER"><FONT COLOR="#888888">25%</FONT></TD>
+                    <TD WIDTH="80" ALIGN="CENTER"><FONT COLOR="#ffe66d"><B>50%</B></FONT></TD>
+                    <TD WIDTH="350" ALIGN="LEFT" BGCOLOR="#ffe66d">                                                       </TD>
+                </TR>
+            </TABLE>>
+            shape=none
+            fillcolor="#1a1a2e"
+        ]
+
+        // 90% cloak - 32% range (sqrt 0.1)
+        row3 [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+                <TR>
+                    <TD WIDTH="80" ALIGN="LEFT"><FONT COLOR="#95d5b2">90%</FONT></TD>
+                    <TD WIDTH="80" ALIGN="CENTER"><FONT COLOR="#888888">10%</FONT></TD>
+                    <TD WIDTH="80" ALIGN="CENTER"><FONT COLOR="#95d5b2"><B>32%</B></FONT></TD>
+                    <TD WIDTH="350" ALIGN="LEFT" BGCOLOR="#95d5b2">                               </TD>
+                </TR>
+            </TABLE>>
+            shape=none
+            fillcolor="#1a1a2e"
+        ]
+
+        // 95% cloak - 22% range (sqrt 0.05)
+        row4 [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+                <TR>
+                    <TD WIDTH="80" ALIGN="LEFT"><FONT COLOR="#95d5b2">95%</FONT></TD>
+                    <TD WIDTH="80" ALIGN="CENTER"><FONT COLOR="#888888">5%</FONT></TD>
+                    <TD WIDTH="80" ALIGN="CENTER"><FONT COLOR="#95d5b2"><B>22%</B></FONT></TD>
+                    <TD WIDTH="350" ALIGN="LEFT" BGCOLOR="#95d5b2">                   </TD>
+                </TR>
+            </TABLE>>
+            shape=none
+            fillcolor="#1a1a2e"
+        ]
+
+        // 99% cloak - 10% range (sqrt 0.01)
+        row5 [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+                <TR>
+                    <TD WIDTH="80" ALIGN="LEFT"><FONT COLOR="#4ecdc4">99%</FONT></TD>
+                    <TD WIDTH="80" ALIGN="CENTER"><FONT COLOR="#888888">1%</FONT></TD>
+                    <TD WIDTH="80" ALIGN="CENTER"><FONT COLOR="#4ecdc4"><B>10%</B></FONT></TD>
+                    <TD WIDTH="350" ALIGN="LEFT" BGCOLOR="#4ecdc4">         </TD>
+                </TR>
+            </TABLE>>
+            shape=none
+            fillcolor="#1a1a2e"
+        ]
+
+        // 99.5% cloak - 7% range (sqrt 0.005)
+        row6 [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+                <TR>
+                    <TD WIDTH="80" ALIGN="LEFT"><FONT COLOR="#4ecdc4">99.5%</FONT></TD>
+                    <TD WIDTH="80" ALIGN="CENTER"><FONT COLOR="#888888">0.5%</FONT></TD>
+                    <TD WIDTH="80" ALIGN="CENTER"><FONT COLOR="#4ecdc4"><B>7%</B></FONT></TD>
+                    <TD WIDTH="350" ALIGN="LEFT" BGCOLOR="#4ecdc4">     </TD>
+                </TR>
+            </TABLE>>
+            shape=none
+            fillcolor="#1a1a2e"
+        ]
+
+        header -> row0
+        row0 -> row1
+        row1 -> row2
+        row2 -> row3
+        row3 -> row4
+        row4 -> row5
+        row5 -> row6
+    }
+
+    // Formula explanation
+    formula [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="3">
+            <TR><TD><FONT COLOR="#ffe66d"><B>Detection Range Formula</B></FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="10" COLOR="#888888">Range = sqrt(Sensor x Signature) x 250,000 km</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="10" COLOR="#888888">Cloaked Range = Base Range x sqrt(1 - Cloak%)</FONT></TD></TR>
+        </TABLE>>
+        shape=box
+        fillcolor="#2d2d44"
+        color="#ffe66d"
+        width=4.5
+    ]
+
+    // Notes
+    notes [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="3">
+            <TR><TD COLSPAN="2"><FONT COLOR="#4ecdc4"><B>Key Insights</B></FONT></TD></TR>
+            <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#888888">1. Square root scaling means diminishing returns</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#888888">2. 50% cloak only reduces range by 29%</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#888888">3. 90%+ cloak needed for significant tactical advantage</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#888888">4. Same effect applies to thermal and EM detection</FONT></TD></TR>
+        </TABLE>>
+        shape=note
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+        width=4.5
+    ]
+
+    row6 -> formula [style=solid arrowhead=none color="#888888"]
+    formula -> notes [style=invis]
+}

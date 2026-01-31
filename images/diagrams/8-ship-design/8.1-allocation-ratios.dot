@@ -1,0 +1,102 @@
+// Ship Role Allocation Ratios - Stacked Bar Chart Style
+// Issue #979: 8.1.9 Design Workflow and Allocation Ratios
+
+digraph allocation_ratios {
+    rankdir=LR;
+    bgcolor="#1a1a2e";
+    node [fontname="Helvetica", fontcolor="white", shape=none];
+    edge [style=invis];
+
+    // Title
+    title [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+        <TR><TD><FONT FACE="Helvetica Bold" POINT-SIZE="18" COLOR="white">Component Allocation by Ship Role</FONT></TD></TR>
+        <TR><TD><FONT FACE="Helvetica" POINT-SIZE="12" COLOR="#aaaaaa">Approximate tonnage percentages</FONT></TD></TR>
+    </TABLE>>];
+
+    // Legend
+    legend [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="4">
+        <TR>
+            <TD BGCOLOR="#4ecdc4" WIDTH="20" HEIGHT="12"></TD>
+            <TD><FONT COLOR="white"> Engines</FONT></TD>
+            <TD BGCOLOR="#ff6b6b" WIDTH="20" HEIGHT="12"></TD>
+            <TD><FONT COLOR="white"> Weapons</FONT></TD>
+            <TD BGCOLOR="#ffe66d" WIDTH="20" HEIGHT="12"></TD>
+            <TD><FONT COLOR="white"> Sensors/FC</FONT></TD>
+        </TR>
+        <TR>
+            <TD BGCOLOR="#95d5b2" WIDTH="20" HEIGHT="12"></TD>
+            <TD><FONT COLOR="white"> Armor</FONT></TD>
+            <TD BGCOLOR="#a78bfa" WIDTH="20" HEIGHT="12"></TD>
+            <TD><FONT COLOR="white"> Fuel</FONT></TD>
+            <TD BGCOLOR="#6b7280" WIDTH="20" HEIGHT="12"></TD>
+            <TD><FONT COLOR="white"> Other</FONT></TD>
+        </TR>
+    </TABLE>>];
+
+    // Ship type labels
+    labels [label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="8" CELLPADDING="4">
+        <TR><TD ALIGN="RIGHT"><FONT COLOR="white" POINT-SIZE="11">Beam Combatant</FONT></TD></TR>
+        <TR><TD ALIGN="RIGHT"><FONT COLOR="white" POINT-SIZE="11">Missile Combatant</FONT></TD></TR>
+        <TR><TD ALIGN="RIGHT"><FONT COLOR="white" POINT-SIZE="11">Survey Ship</FONT></TD></TR>
+        <TR><TD ALIGN="RIGHT"><FONT COLOR="white" POINT-SIZE="11">Carrier</FONT></TD></TR>
+        <TR><TD ALIGN="RIGHT"><FONT COLOR="white" POINT-SIZE="11">PD Escort</FONT></TD></TR>
+    </TABLE>>];
+
+    // Stacked bars represented as a table
+    // Beam: 25% eng, 20% wpn, 5% sen, 15% arm, 15% fuel, 20% other
+    // Missile: 20% eng, 30% wpn, 5% sen, 10% arm, 20% fuel, 15% other
+    // Survey: 15% eng, 0% wpn, 40% sen, 5% arm, 30% fuel, 10% other
+    // Carrier: 15% eng, 5% wpn, 5% sen, 10% arm, 15% fuel, 50% other
+    // PD: 25% eng, 25% wpn, 10% sen, 10% arm, 15% fuel, 15% other
+
+    bars [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="0">
+        <TR>
+            <TD BGCOLOR="#4ecdc4" WIDTH="50" HEIGHT="24"><FONT COLOR="#1a1a2e" POINT-SIZE="9">25%</FONT></TD>
+            <TD BGCOLOR="#ff6b6b" WIDTH="40" HEIGHT="24"><FONT COLOR="#1a1a2e" POINT-SIZE="9">20%</FONT></TD>
+            <TD BGCOLOR="#ffe66d" WIDTH="10" HEIGHT="24"><FONT COLOR="#1a1a2e" POINT-SIZE="8">5</FONT></TD>
+            <TD BGCOLOR="#95d5b2" WIDTH="30" HEIGHT="24"><FONT COLOR="#1a1a2e" POINT-SIZE="9">15%</FONT></TD>
+            <TD BGCOLOR="#a78bfa" WIDTH="30" HEIGHT="24"><FONT COLOR="#1a1a2e" POINT-SIZE="9">15%</FONT></TD>
+            <TD BGCOLOR="#6b7280" WIDTH="40" HEIGHT="24"><FONT COLOR="white" POINT-SIZE="9">20%</FONT></TD>
+        </TR>
+        <TR>
+            <TD BGCOLOR="#4ecdc4" WIDTH="40" HEIGHT="24"><FONT COLOR="#1a1a2e" POINT-SIZE="9">20%</FONT></TD>
+            <TD BGCOLOR="#ff6b6b" WIDTH="60" HEIGHT="24"><FONT COLOR="#1a1a2e" POINT-SIZE="9">30%</FONT></TD>
+            <TD BGCOLOR="#ffe66d" WIDTH="10" HEIGHT="24"><FONT COLOR="#1a1a2e" POINT-SIZE="8">5</FONT></TD>
+            <TD BGCOLOR="#95d5b2" WIDTH="20" HEIGHT="24"><FONT COLOR="#1a1a2e" POINT-SIZE="9">10%</FONT></TD>
+            <TD BGCOLOR="#a78bfa" WIDTH="40" HEIGHT="24"><FONT COLOR="#1a1a2e" POINT-SIZE="9">20%</FONT></TD>
+            <TD BGCOLOR="#6b7280" WIDTH="30" HEIGHT="24"><FONT COLOR="white" POINT-SIZE="9">15%</FONT></TD>
+        </TR>
+        <TR>
+            <TD BGCOLOR="#4ecdc4" WIDTH="30" HEIGHT="24"><FONT COLOR="#1a1a2e" POINT-SIZE="9">15%</FONT></TD>
+            <TD BGCOLOR="#2d2d44" WIDTH="0" HEIGHT="24"></TD>
+            <TD BGCOLOR="#ffe66d" WIDTH="80" HEIGHT="24"><FONT COLOR="#1a1a2e" POINT-SIZE="9">40%</FONT></TD>
+            <TD BGCOLOR="#95d5b2" WIDTH="10" HEIGHT="24"><FONT COLOR="#1a1a2e" POINT-SIZE="8">5</FONT></TD>
+            <TD BGCOLOR="#a78bfa" WIDTH="60" HEIGHT="24"><FONT COLOR="#1a1a2e" POINT-SIZE="9">30%</FONT></TD>
+            <TD BGCOLOR="#6b7280" WIDTH="20" HEIGHT="24"><FONT COLOR="white" POINT-SIZE="9">10%</FONT></TD>
+        </TR>
+        <TR>
+            <TD BGCOLOR="#4ecdc4" WIDTH="30" HEIGHT="24"><FONT COLOR="#1a1a2e" POINT-SIZE="9">15%</FONT></TD>
+            <TD BGCOLOR="#ff6b6b" WIDTH="10" HEIGHT="24"><FONT COLOR="#1a1a2e" POINT-SIZE="8">5</FONT></TD>
+            <TD BGCOLOR="#ffe66d" WIDTH="10" HEIGHT="24"><FONT COLOR="#1a1a2e" POINT-SIZE="8">5</FONT></TD>
+            <TD BGCOLOR="#95d5b2" WIDTH="20" HEIGHT="24"><FONT COLOR="#1a1a2e" POINT-SIZE="9">10%</FONT></TD>
+            <TD BGCOLOR="#a78bfa" WIDTH="30" HEIGHT="24"><FONT COLOR="#1a1a2e" POINT-SIZE="9">15%</FONT></TD>
+            <TD BGCOLOR="#6b7280" WIDTH="100" HEIGHT="24"><FONT COLOR="white" POINT-SIZE="9">50% (hangars)</FONT></TD>
+        </TR>
+        <TR>
+            <TD BGCOLOR="#4ecdc4" WIDTH="50" HEIGHT="24"><FONT COLOR="#1a1a2e" POINT-SIZE="9">25%</FONT></TD>
+            <TD BGCOLOR="#ff6b6b" WIDTH="50" HEIGHT="24"><FONT COLOR="#1a1a2e" POINT-SIZE="9">25%</FONT></TD>
+            <TD BGCOLOR="#ffe66d" WIDTH="20" HEIGHT="24"><FONT COLOR="#1a1a2e" POINT-SIZE="9">10%</FONT></TD>
+            <TD BGCOLOR="#95d5b2" WIDTH="20" HEIGHT="24"><FONT COLOR="#1a1a2e" POINT-SIZE="9">10%</FONT></TD>
+            <TD BGCOLOR="#a78bfa" WIDTH="30" HEIGHT="24"><FONT COLOR="#1a1a2e" POINT-SIZE="9">15%</FONT></TD>
+            <TD BGCOLOR="#6b7280" WIDTH="30" HEIGHT="24"><FONT COLOR="white" POINT-SIZE="9">15%</FONT></TD>
+        </TR>
+    </TABLE>>];
+
+    // Invisible edges for layout
+    title -> legend [style=invis];
+    legend -> labels [style=invis];
+    labels -> bars [style=invis];
+
+    // Same rank for labels and bars
+    {rank=same; labels; bars}
+}

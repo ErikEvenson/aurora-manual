@@ -1,0 +1,129 @@
+// Sensor-Fire Control Range Coordination
+// Issue #981: 8.4.5 Detection -> Identification -> Targeting -> Engagement flow
+
+digraph range_coordination {
+    rankdir=TB;
+    bgcolor="#1a1a2e";
+    node [fontname="Helvetica", fontcolor="white", style=filled];
+    edge [fontname="Helvetica", fontcolor="white", color="#4ecdc4"];
+    splines=ortho;
+
+    // Title
+    title [shape=none, label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+        <TR><TD><FONT FACE="Helvetica Bold" POINT-SIZE="18" COLOR="white">Detection-to-Engagement Cascade</FONT></TD></TR>
+        <TR><TD><FONT FACE="Helvetica" POINT-SIZE="12" COLOR="#aaaaaa">Sensor and Fire Control Range Coordination</FONT></TD></TR>
+    </TABLE>>];
+
+    // Flow diagram nodes
+    subgraph cluster_flow {
+        label="";
+        bgcolor="#1a1a2e";
+        color="#1a1a2e";
+
+        detect [shape=box, fillcolor="#2d2d44", color="#4ecdc4", penwidth=2,
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+                <TR><TD><FONT FACE="Helvetica Bold" POINT-SIZE="14" COLOR="#4ecdc4">1. DETECT</FONT></TD></TR>
+                <TR><TD><FONT FACE="Helvetica" POINT-SIZE="11" COLOR="white">Active Sensor</FONT></TD></TR>
+                <TR><TD><FONT FACE="Helvetica Bold" POINT-SIZE="12" COLOR="#95d5b2">180M km</FONT></TD></TR>
+            </TABLE>>];
+
+        identify [shape=box, fillcolor="#2d2d44", color="#4ecdc4", penwidth=2,
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+                <TR><TD><FONT FACE="Helvetica Bold" POINT-SIZE="14" COLOR="#4ecdc4">2. IDENTIFY</FONT></TD></TR>
+                <TR><TD><FONT FACE="Helvetica" POINT-SIZE="11" COLOR="white">Resolution Match</FONT></TD></TR>
+                <TR><TD><FONT FACE="Helvetica" POINT-SIZE="10" COLOR="#aaaaaa">Class/Type known</FONT></TD></TR>
+            </TABLE>>];
+
+        lock [shape=box, fillcolor="#2d2d44", color="#ffe66d", penwidth=2,
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+                <TR><TD><FONT FACE="Helvetica Bold" POINT-SIZE="14" COLOR="#ffe66d">3. LOCK</FONT></TD></TR>
+                <TR><TD><FONT FACE="Helvetica" POINT-SIZE="11" COLOR="white">Missile Fire Control</FONT></TD></TR>
+                <TR><TD><FONT FACE="Helvetica Bold" POINT-SIZE="12" COLOR="#95d5b2">160M km</FONT></TD></TR>
+            </TABLE>>];
+
+        engage [shape=box, fillcolor="#2d2d44", color="#ff6b6b", penwidth=2,
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+                <TR><TD><FONT FACE="Helvetica Bold" POINT-SIZE="14" COLOR="#ff6b6b">4. ENGAGE</FONT></TD></TR>
+                <TR><TD><FONT FACE="Helvetica" POINT-SIZE="11" COLOR="white">Missile Launch</FONT></TD></TR>
+                <TR><TD><FONT FACE="Helvetica Bold" POINT-SIZE="12" COLOR="#95d5b2">140M km</FONT></TD></TR>
+            </TABLE>>];
+    }
+
+    // Range envelope visualization
+    subgraph cluster_ranges {
+        label=<<FONT FACE="Helvetica Bold" POINT-SIZE="12" COLOR="white">Range Envelope</FONT>>;
+        bgcolor="#2d2d44";
+        color="#4ecdc4";
+        penwidth=2;
+
+        ranges [shape=none, label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0">
+            <TR>
+                <TD ALIGN="RIGHT" WIDTH="80"><FONT COLOR="#aaaaaa" POINT-SIZE="10">0 km</FONT></TD>
+                <TD ALIGN="LEFT" WIDTH="30"></TD>
+                <TD ALIGN="CENTER" WIDTH="280"></TD>
+                <TD ALIGN="LEFT" WIDTH="30"></TD>
+                <TD ALIGN="LEFT" WIDTH="80"><FONT COLOR="#aaaaaa" POINT-SIZE="10">200M km</FONT></TD>
+            </TR>
+            <TR>
+                <TD COLSPAN="5" HEIGHT="8"></TD>
+            </TR>
+            <TR>
+                <TD ALIGN="RIGHT"><FONT COLOR="#4ecdc4" POINT-SIZE="10">Sensor</FONT></TD>
+                <TD></TD>
+                <TD BGCOLOR="#4ecdc4" HEIGHT="16"></TD>
+                <TD></TD>
+                <TD ALIGN="LEFT"><FONT COLOR="#95d5b2" POINT-SIZE="10">180M</FONT></TD>
+            </TR>
+            <TR>
+                <TD COLSPAN="5" HEIGHT="4"></TD>
+            </TR>
+            <TR>
+                <TD ALIGN="RIGHT"><FONT COLOR="#ffe66d" POINT-SIZE="10">MFC</FONT></TD>
+                <TD></TD>
+                <TD BGCOLOR="#ffe66d" WIDTH="250" HEIGHT="16"></TD>
+                <TD></TD>
+                <TD ALIGN="LEFT"><FONT COLOR="#95d5b2" POINT-SIZE="10">160M</FONT></TD>
+            </TR>
+            <TR>
+                <TD COLSPAN="5" HEIGHT="4"></TD>
+            </TR>
+            <TR>
+                <TD ALIGN="RIGHT"><FONT COLOR="#ff6b6b" POINT-SIZE="10">Missile</FONT></TD>
+                <TD></TD>
+                <TD BGCOLOR="#ff6b6b" WIDTH="220" HEIGHT="16"></TD>
+                <TD></TD>
+                <TD ALIGN="LEFT"><FONT COLOR="#95d5b2" POINT-SIZE="10">140M</FONT></TD>
+            </TR>
+        </TABLE>>];
+    }
+
+    // Key principles
+    principles [shape=none, label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="4" BGCOLOR="#2d2d44">
+        <TR><TD COLSPAN="2"><FONT FACE="Helvetica Bold" POINT-SIZE="12" COLOR="white">Design Principles</FONT></TD></TR>
+        <TR>
+            <TD ALIGN="LEFT"><FONT COLOR="#95d5b2" POINT-SIZE="10">OK</FONT></TD>
+            <TD ALIGN="LEFT"><FONT COLOR="white" POINT-SIZE="10">Sensor &gt;= MFC &gt;= Missile range</FONT></TD>
+        </TR>
+        <TR>
+            <TD ALIGN="LEFT"><FONT COLOR="#ff6b6b" POINT-SIZE="10">BAD</FONT></TD>
+            <TD ALIGN="LEFT"><FONT COLOR="white" POINT-SIZE="10">MFC &gt; Sensor (lock targets you cannot see)</FONT></TD>
+        </TR>
+        <TR>
+            <TD ALIGN="LEFT"><FONT COLOR="#ff6b6b" POINT-SIZE="10">BAD</FONT></TD>
+            <TD ALIGN="LEFT"><FONT COLOR="white" POINT-SIZE="10">Missile &gt; MFC (missiles go ballistic)</FONT></TD>
+        </TR>
+        <TR>
+            <TD ALIGN="LEFT"><FONT COLOR="#ffe66d" POINT-SIZE="10">TIP</FONT></TD>
+            <TD ALIGN="LEFT"><FONT COLOR="white" POINT-SIZE="10">10-20% overlap between stages</FONT></TD>
+        </TR>
+    </TABLE>>];
+
+    // Edges
+    title -> detect [style=invis];
+    detect -> identify [penwidth=2, label=<<FONT POINT-SIZE="9" COLOR="#aaaaaa">contact</FONT>>];
+    identify -> lock [penwidth=2, label=<<FONT POINT-SIZE="9" COLOR="#aaaaaa">track</FONT>>];
+    lock -> engage [penwidth=2, label=<<FONT POINT-SIZE="9" COLOR="#aaaaaa">fire</FONT>>];
+
+    engage -> ranges [style=invis];
+    ranges -> principles [style=invis];
+}

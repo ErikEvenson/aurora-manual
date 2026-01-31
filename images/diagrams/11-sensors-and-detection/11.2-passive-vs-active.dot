@@ -1,0 +1,191 @@
+digraph PassiveVsActive {
+    // Graph settings
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    label="Passive vs Active Sensor Comparison"
+    labelloc=t
+    fontsize=16
+    rankdir=TB
+    nodesep=0.4
+    ranksep=0.5
+    pad=0.5
+
+    // Default node style
+    node [
+        fontname="Helvetica"
+        fontsize=10
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled"
+        shape=box
+    ]
+
+    // Default edge style
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.7
+    ]
+
+    // Passive Sensors Section
+    subgraph cluster_passive {
+        label="Passive Sensors (Thermal / EM)"
+        fontcolor="#95d5b2"
+        color="#95d5b2"
+        style=dashed
+
+        passive_formula [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+                <TR><TD><FONT COLOR="#95d5b2"><B>Detection Formula</B></FONT></TD></TR>
+                <TR><TD><FONT POINT-SIZE="11" COLOR="white">Range = sqrt(Sensor x Signature) x 250,000 km</FONT></TD></TR>
+            </TABLE>>
+            width=4.5
+            color="#95d5b2"
+        ]
+
+        passive_deps [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+                <TR><TD COLSPAN="2"><FONT COLOR="#888888"><B>Depends On</B></FONT></TD></TR>
+                <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#888888">Sensor:</FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="white">Size x Sensitivity Tech</FONT></TD></TR>
+                <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#888888">Target:</FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#ffe66d">Must be emitting</FONT></TD></TR>
+            </TABLE>>
+            width=4.5
+            color="#95d5b2"
+        ]
+
+        passive_char [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+                <TR><TD COLSPAN="2"><FONT COLOR="#95d5b2"><B>Characteristics</B></FONT></TD></TR>
+                <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#95d5b2">+</FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="white">No emissions (stays hidden)</FONT></TD></TR>
+                <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#95d5b2">+</FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="white">Often detects active sensors first</FONT></TD></TR>
+                <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#ff6b6b">-</FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="white">Cannot detect EMCON targets</FONT></TD></TR>
+                <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#ff6b6b">-</FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="white">Cannot detect stationary, silent ships</FONT></TD></TR>
+            </TABLE>>
+            width=4.5
+            color="#95d5b2"
+        ]
+
+        passive_formula -> passive_deps -> passive_char
+    }
+
+    // Active Sensors Section
+    subgraph cluster_active {
+        label="Active Sensors"
+        fontcolor="#ff6b6b"
+        color="#ff6b6b"
+        style=dashed
+
+        active_formula [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+                <TR><TD><FONT COLOR="#ff6b6b"><B>Detection Formula</B></FONT></TD></TR>
+                <TR><TD><FONT POINT-SIZE="11" COLOR="white">Range = sqrt((Str x HS x Sens x Res^0.67) / PI) x 1M km</FONT></TD></TR>
+            </TABLE>>
+            width=4.5
+            color="#ff6b6b"
+        ]
+
+        active_deps [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+                <TR><TD COLSPAN="2"><FONT COLOR="#888888"><B>Depends On</B></FONT></TD></TR>
+                <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#888888">Sensor:</FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="white">Size x Strength x Sensitivity x Resolution</FONT></TD></TR>
+                <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#888888">Target:</FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#95d5b2">Physical cross-section (tonnage)</FONT></TD></TR>
+            </TABLE>>
+            width=4.5
+            color="#ff6b6b"
+        ]
+
+        active_char [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+                <TR><TD COLSPAN="2"><FONT COLOR="#ff6b6b"><B>Characteristics</B></FONT></TD></TR>
+                <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#95d5b2">+</FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="white">Detects ANY ship (silent or moving)</FONT></TD></TR>
+                <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#95d5b2">+</FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="white">Can serve as missile fire control</FONT></TD></TR>
+                <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#ff6b6b">-</FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="white">Emits GPS (reveals your position)</FONT></TD></TR>
+                <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#ff6b6b">-</FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="white">Enemy EM sensors see you first</FONT></TD></TR>
+            </TABLE>>
+            width=4.5
+            color="#ff6b6b"
+        ]
+
+        active_formula -> active_deps -> active_char
+    }
+
+    // Range scaling comparison
+    subgraph cluster_scaling {
+        label="C# Area-Based Scaling (Key Change from VB6)"
+        fontcolor="#ffe66d"
+        color="#ffe66d"
+        style=dashed
+
+        scaling_note [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+                <TR><TD COLSPAN="2"><FONT COLOR="#ffe66d"><B>Square Root Scaling Impact</B></FONT></TD></TR>
+                <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="white">4x sensor strength</FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#888888">= 2x detection range</FONT></TD></TR>
+                <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="white">4x target signature</FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#888888">= 2x detection range</FONT></TD></TR>
+                <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="white">16x sensor strength</FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#888888">= 4x detection range</FONT></TD></TR>
+            </TABLE>>
+            width=4.5
+            color="#ffe66d"
+        ]
+
+        scaling_impact [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+                <TR><TD><FONT COLOR="#ffe66d"><B>Strategic Implications</B></FONT></TD></TR>
+                <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#888888">* Multiple small sensors = one large sensor</FONT></TD></TR>
+                <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#888888">* Extreme-range detection much harder</FONT></TD></TR>
+                <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#888888">* Scout picket lines now strategically viable</FONT></TD></TR>
+                <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#888888">* Fog of war preserved at all tech levels</FONT></TD></TR>
+            </TABLE>>
+            width=4.5
+            color="#ffe66d"
+        ]
+
+        scaling_note -> scaling_impact
+    }
+
+    // Comparison table
+    comparison [
+        label=<<TABLE BORDER="1" CELLBORDER="0" CELLSPACING="4" CELLPADDING="4" COLOR="#4ecdc4">
+            <TR>
+                <TD><B>Factor</B></TD>
+                <TD><FONT COLOR="#95d5b2"><B>Passive</B></FONT></TD>
+                <TD><FONT COLOR="#ff6b6b"><B>Active</B></FONT></TD>
+            </TR>
+            <TR>
+                <TD ALIGN="LEFT"><FONT POINT-SIZE="9">Detects silent targets</FONT></TD>
+                <TD><FONT POINT-SIZE="9" COLOR="#ff6b6b">No</FONT></TD>
+                <TD><FONT POINT-SIZE="9" COLOR="#95d5b2">Yes</FONT></TD>
+            </TR>
+            <TR>
+                <TD ALIGN="LEFT"><FONT POINT-SIZE="9">Emits signature</FONT></TD>
+                <TD><FONT POINT-SIZE="9" COLOR="#95d5b2">No</FONT></TD>
+                <TD><FONT POINT-SIZE="9" COLOR="#ff6b6b">Yes (GPS)</FONT></TD>
+            </TR>
+            <TR>
+                <TD ALIGN="LEFT"><FONT POINT-SIZE="9">Detects stationary</FONT></TD>
+                <TD><FONT POINT-SIZE="9" COLOR="#888888">Only if EM</FONT></TD>
+                <TD><FONT POINT-SIZE="9" COLOR="#95d5b2">Yes</FONT></TD>
+            </TR>
+            <TR>
+                <TD ALIGN="LEFT"><FONT POINT-SIZE="9">Fire control capable</FONT></TD>
+                <TD><FONT POINT-SIZE="9" COLOR="#ff6b6b">No</FONT></TD>
+                <TD><FONT POINT-SIZE="9" COLOR="#95d5b2">Yes</FONT></TD>
+            </TR>
+            <TR>
+                <TD ALIGN="LEFT"><FONT POINT-SIZE="9">Range vs large</FONT></TD>
+                <TD><FONT POINT-SIZE="9" COLOR="#888888">If emitting</FONT></TD>
+                <TD><FONT POINT-SIZE="9" COLOR="#95d5b2">Excellent</FONT></TD>
+            </TR>
+        </TABLE>>
+        shape=none
+        fillcolor="#1a1a2e"
+    ]
+
+    // Layout connections
+    passive_char -> scaling_note [style=solid color="#888888"]
+    active_char -> scaling_note [style=solid color="#888888"]
+    scaling_impact -> comparison [style=solid color="#888888"]
+}

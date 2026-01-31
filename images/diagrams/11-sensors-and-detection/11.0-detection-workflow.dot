@@ -1,0 +1,197 @@
+digraph DetectionWorkflow {
+    // Graph settings
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    label="Detection Workflow"
+    labelloc=t
+    fontsize=16
+    rankdir=TB
+    nodesep=0.6
+    ranksep=0.5
+    pad=0.5
+
+    // Default node style
+    node [
+        fontname="Helvetica"
+        fontsize=11
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled,rounded"
+        shape=box
+        width=2.8
+    ]
+
+    // Default edge style
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.8
+    ]
+
+    // Start node
+    start [
+        label="Detection Attempt"
+        shape=ellipse
+        width=1.5
+        fillcolor="#4ecdc4"
+        fontcolor="#1a1a2e"
+    ]
+
+    // Step 1: Target Signature Generation
+    step1 [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>Step 1: Target Generates Signatures</B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#ffe66d">Thermal: engines + idle (5% HS)</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#ffe66d">EM: active sensors, shields, ECM</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#ffe66d">Cross-section: tonnage</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Step 2: Sensor Detection
+    step2 [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>Step 2: Sensors Attempt Detection</B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Compare sensor capability vs signature</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Sensor type decision
+    sensor_type [
+        label="Sensor Type"
+        shape=diamond
+        fillcolor="#ffe66d"
+        fontcolor="#1a1a2e"
+        width=1.5
+    ]
+
+    thermal [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>Passive Thermal</B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Detects heat signature</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#95d5b2">No emissions</FONT></TD></TR>
+        </TABLE>>
+        width=2.0
+    ]
+
+    em [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>Passive EM</B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Detects EM signature</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#95d5b2">No emissions</FONT></TD></TR>
+        </TABLE>>
+        width=2.0
+    ]
+
+    active [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>Active Sensor</B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Detects cross-section</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#ff6b6b">Emits EM (GPS)</FONT></TD></TR>
+        </TABLE>>
+        width=2.0
+    ]
+
+    // Step 3: Resolution Matching
+    step3 [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>Step 3: Resolution Matching</B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Target size vs sensor resolution</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    match_check [
+        label="Target >= Resolution?"
+        shape=diamond
+        fillcolor="#ffe66d"
+        fontcolor="#1a1a2e"
+        width=2.0
+    ]
+
+    full_range [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><FONT COLOR="#95d5b2"><B>Full Detection Range</B></FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Sensor operates at rated range</FONT></TD></TR>
+        </TABLE>>
+        width=2.2
+    ]
+
+    reduced_range [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><FONT COLOR="#ff6b6b"><B>Reduced Range</B></FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Range x sqrt(size/resolution)</FONT></TD></TR>
+        </TABLE>>
+        width=2.2
+    ]
+
+    // Step 4: Classification
+    step4 [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>Step 4: Contact Classification</B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Information revealed varies by sensor type</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    passive_result [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>Passive Contact</B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Signature strength</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Approximate location</FONT></TD></TR>
+        </TABLE>>
+        width=2.0
+    ]
+
+    active_result [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>Active Contact</B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Tonnage class</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Precise location</FONT></TD></TR>
+        </TABLE>>
+        width=2.0
+    ]
+
+    // End
+    intel [
+        label="Intelligence Builds Over Time"
+        shape=ellipse
+        width=2.2
+        fillcolor="#95d5b2"
+        fontcolor="#1a1a2e"
+    ]
+
+    // Flow
+    start -> step1
+    step1 -> step2
+    step2 -> sensor_type
+
+    sensor_type -> thermal [label="Thermal"]
+    sensor_type -> em [label="EM"]
+    sensor_type -> active [label="Active"]
+
+    { rank=same; thermal; em; active }
+
+    thermal -> step3
+    em -> step3
+    active -> step3
+
+    step3 -> match_check
+
+    match_check -> full_range [label="Yes"]
+    match_check -> reduced_range [label="No"]
+
+    { rank=same; full_range; reduced_range }
+
+    full_range -> step4
+    reduced_range -> step4
+
+    step4 -> passive_result [label="Passive"]
+    step4 -> active_result [label="Active"]
+
+    { rank=same; passive_result; active_result }
+
+    passive_result -> intel
+    active_result -> intel
+}

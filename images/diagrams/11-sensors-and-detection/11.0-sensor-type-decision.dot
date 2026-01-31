@@ -1,0 +1,217 @@
+digraph SensorTypeDecision {
+    // Graph settings
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    label="Sensor Type Decision Tree"
+    labelloc=t
+    fontsize=16
+    rankdir=TB
+    nodesep=0.5
+    ranksep=0.6
+    pad=0.5
+
+    // Default node style
+    node [
+        fontname="Helvetica"
+        fontsize=11
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled,rounded"
+        shape=box
+        width=2.5
+    ]
+
+    // Default edge style
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.8
+    ]
+
+    // Root question
+    root [
+        label="What do you need to detect?"
+        shape=diamond
+        fillcolor="#ffe66d"
+        fontcolor="#1a1a2e"
+        width=2.8
+    ]
+
+    // Branch 1: Ships under power
+    q_under_power [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>Ships under power,</B></TD></TR>
+            <TR><TD><B>possibly silent (EMCON)?</B></TD></TR>
+        </TABLE>>
+        shape=diamond
+        fillcolor="#ffe66d"
+        fontcolor="#1a1a2e"
+        width=2.5
+    ]
+
+    thermal_rec [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><FONT COLOR="#4ecdc4"><B>Thermal Sensors</B></FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#95d5b2">Passive, no emissions</FONT></TD></TR>
+        </TABLE>>
+        fillcolor="#2d2d44"
+        color="#95d5b2"
+    ]
+
+    thermal_large [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>Large warships at range?</B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">High resolution (100+ HS)</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">5,000+ tons</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    thermal_small [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>Small craft or missiles?</B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Low resolution (1-6 HS)</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">50-300 tons</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Branch 2: Active sensors/shields
+    q_active_emit [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>Ships using active sensors</B></TD></TR>
+            <TR><TD><B>or shields?</B></TD></TR>
+        </TABLE>>
+        shape=diamond
+        fillcolor="#ffe66d"
+        fontcolor="#1a1a2e"
+        width=2.5
+    ]
+
+    em_rec [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><FONT COLOR="#4ecdc4"><B>EM Sensors</B></FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#95d5b2">Passive, no emissions</FONT></TD></TR>
+        </TABLE>>
+        fillcolor="#2d2d44"
+        color="#95d5b2"
+    ]
+
+    em_pickets [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>Enemy sensor pickets?</B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Match resolution to</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">expected scout size</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    em_capitals [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>Shielded capitals?</B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">High resolution for</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">maximum range</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Branch 3: Silent/stationary
+    q_silent [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>Silent, stationary</B></TD></TR>
+            <TR><TD><B>targets?</B></TD></TR>
+        </TABLE>>
+        shape=diamond
+        fillcolor="#ffe66d"
+        fontcolor="#1a1a2e"
+        width=2.5
+    ]
+
+    active_rec [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><FONT COLOR="#4ecdc4"><B>Active Sensors</B></FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#ff6b6b">Emits EM, reveals position</FONT></TD></TR>
+        </TABLE>>
+        fillcolor="#2d2d44"
+        color="#ff6b6b"
+    ]
+
+    active_stealth [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>Need to remain stealthy?</B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Accept limited detection</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">capability</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    active_combat [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>Combat or pursuit?</B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Activate active sensors,</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">accept detection</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Branch 4: Missiles/fighters
+    q_missiles [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>Missiles or fighters</B></TD></TR>
+            <TR><TD><B>specifically?</B></TD></TR>
+        </TABLE>>
+        shape=diamond
+        fillcolor="#ffe66d"
+        fontcolor="#1a1a2e"
+        width=2.5
+    ]
+
+    res1_rec [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><FONT COLOR="#4ecdc4"><B>Resolution 1-6 Sensors</B></FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Thermal, EM, or Active</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Consider dedicated missile</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">detection sensors</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Key principle box
+    principle [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><FONT COLOR="#ffe66d"><B>Key Principle</B></FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Passive sensors keep you hidden</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">but only detect emitting targets.</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Active sensors find everything</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">but announce your presence.</FONT></TD></TR>
+        </TABLE>>
+        shape=note
+        fillcolor="#2d2d44"
+        color="#ffe66d"
+        width=2.8
+    ]
+
+    // Flow
+    root -> q_under_power
+    root -> q_active_emit
+    root -> q_silent
+    root -> q_missiles
+
+    { rank=same; q_under_power; q_active_emit; q_silent; q_missiles }
+
+    q_under_power -> thermal_rec
+    thermal_rec -> thermal_large
+    thermal_rec -> thermal_small
+
+    q_active_emit -> em_rec
+    em_rec -> em_pickets
+    em_rec -> em_capitals
+
+    q_silent -> active_rec
+    active_rec -> active_stealth
+    active_rec -> active_combat
+
+    q_missiles -> res1_rec
+
+    { rank=same; thermal_rec; em_rec; active_rec; res1_rec }
+
+    // Principle positioned at bottom
+    { rank=max; principle }
+}

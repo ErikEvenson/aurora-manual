@@ -1,0 +1,176 @@
+digraph AmbushPositioning {
+    // Graph settings
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    label="Jump Point Ambush Positioning"
+    labelloc=t
+    fontsize=16
+    rankdir=TB
+    nodesep=0.4
+    ranksep=0.5
+    pad=0.5
+    splines=true
+
+    // Default node style
+    node [
+        fontname="Helvetica"
+        fontsize=10
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled"
+        shape=box
+    ]
+
+    // Default edge style
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.7
+    ]
+
+    // Jump Point
+    jp [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+            <TR><TD><FONT COLOR="#ffe66d"><B>JUMP POINT</B></FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Transit arrival zone</FONT></TD></TR>
+        </TABLE>>
+        shape=circle
+        width=1.8
+        fillcolor="#1a1a2e"
+        color="#ffe66d"
+        penwidth=3
+    ]
+
+    // Ambush Fleet
+    ambush [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+            <TR><TD><FONT COLOR="#95d5b2"><B>AMBUSH FLEET</B></FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Full EMCON, no movement</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Thermal: 5% HS (idle only)</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">EM: 0 (no emissions)</FONT></TD></TR>
+        </TABLE>>
+        shape=box
+        fillcolor="#2d2d44"
+        color="#95d5b2"
+        penwidth=2
+        width=2.8
+    ]
+
+    // Enemy transiting
+    enemy [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+            <TR><TD><FONT COLOR="#ff6b6b"><B>ENEMY TRANSIT</B></FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Arrives at jump point</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Jump shock: sensors disabled</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Standard: 121-180 sec</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Squadron: 11-30 sec</FONT></TD></TR>
+        </TABLE>>
+        shape=box
+        fillcolor="#2d2d44"
+        color="#ff6b6b"
+        penwidth=2
+        width=2.8
+    ]
+
+    // Detection ranges (conceptual)
+    // Idle thermal range
+    thermal_zone [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+            <TR><TD><FONT COLOR="#ffe66d"><B>IDLE THERMAL RANGE</B></FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Extremely short detection radius</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Example: 6,000t ship (120 HS)</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Idle signature = 6 (120 x 0.05)</FONT></TD></TR>
+        </TABLE>>
+        shape=ellipse
+        width=3.5
+        fillcolor="#1a1a2e"
+        color="#ffe66d"
+        style="dashed,filled"
+    ]
+
+    // Active sensor range
+    active_zone [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+            <TR><TD><FONT COLOR="#ff6b6b"><B>ACTIVE SENSOR RANGE</B></FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Only way to reliably detect</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">ambush fleet at meaningful range</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">(but sensors disabled during shock)</FONT></TD></TR>
+        </TABLE>>
+        shape=ellipse
+        width=3.5
+        fillcolor="#1a1a2e"
+        color="#ff6b6b"
+        style="dashed,filled"
+    ]
+
+    // Engagement sequence
+    subgraph cluster_sequence {
+        label="Engagement Sequence"
+        fontcolor="#888888"
+        color="#4ecdc4"
+        style=dashed
+
+        seq1 [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+                <TR><TD><B>1. Enemy Transits</B></TD></TR>
+                <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Arrives at JP, enters shock</FONT></TD></TR>
+            </TABLE>>
+            width=2.2
+        ]
+
+        seq2 [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+                <TR><TD><B>2. Ambush Activates</B></TD></TR>
+                <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Sensors + weapons powered</FONT></TD></TR>
+            </TABLE>>
+            width=2.2
+        ]
+
+        seq3 [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+                <TR><TD><B>3. Point-Blank Fire</B></TD></TR>
+                <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Enemy blind, cannot respond</FONT></TD></TR>
+            </TABLE>>
+            width=2.2
+        ]
+
+        seq4 [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+                <TR><TD><B>4. Cannot Retreat</B></TD></TR>
+                <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Jump shock prevents escape</FONT></TD></TR>
+            </TABLE>>
+            width=2.2
+        ]
+
+        seq1 -> seq2 -> seq3 -> seq4
+    }
+
+    // Tactical notes
+    tactics [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="3">
+            <TR><TD><FONT COLOR="#4ecdc4"><B>Tactical Advantages</B></FONT></TD></TR>
+            <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#888888">* Nearly undetectable before transit</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#888888">* Enemy sensors disabled on arrival</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#888888">* Enemy cannot retreat immediately</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#888888">* One of the strongest tactical positions</FONT></TD></TR>
+        </TABLE>>
+        shape=note
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+        width=3.0
+    ]
+
+    // Layout connections
+    ambush -> jp [label="positioned\nnear" color="#95d5b2"]
+    enemy -> jp [label="transits\nthrough" color="#ff6b6b"]
+
+    jp -> thermal_zone [style=dotted color="#ffe66d" arrowhead=none]
+    jp -> active_zone [style=dotted color="#ff6b6b" arrowhead=none]
+
+    active_zone -> seq1 [style=invis]
+    seq4 -> tactics [style=invis]
+}
