@@ -1,0 +1,99 @@
+// Refuelling Infrastructure Hierarchy
+// Section 9.5.3: Logistics Orders and Refuelling
+digraph RefuellingHierarchy {
+    bgcolor="#1a1a2e"
+    rankdir=TB
+    node [shape=box, style="filled,rounded", fillcolor="#2d2d44", fontcolor="white", fontname="Helvetica", color="#4ecdc4", penwidth=2]
+    edge [color="#4ecdc4", fontcolor="white", fontname="Helvetica", penwidth=2]
+
+    // Title
+    labelloc="t"
+    label=<<font color="white" face="Helvetica"><b>Refuelling Infrastructure Hierarchy</b></font>>
+    fontsize=18
+
+    // Colony fuel source
+    colony [label=<<table border="0" cellborder="0" cellspacing="0">
+        <tr><td><font color="#ffe66d" face="Helvetica" point-size="14"><b>Colony Fuel Stockpile</b></font></td></tr>
+        <tr><td><font color="white" face="Helvetica">Source of all refined fuel</font></td></tr>
+    </table>>, fillcolor="#2d2d44", color="#ffe66d", penwidth=3]
+
+    // Infrastructure tier
+    subgraph cluster_infrastructure {
+        label=<<font color="white" face="Helvetica"><b>Ground Infrastructure</b></font>>
+        style=dashed
+        color="#4ecdc4"
+        bgcolor="#1a1a2e"
+
+        spaceport [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><font color="#95d5b2" face="Helvetica"><b>Spaceport</b></font></td></tr>
+            <tr><td><font color="white" face="Helvetica">Cost: 3,000 BP</font></td></tr>
+            <tr><td><font color="white" face="Helvetica">Base Rate: 50,000 L/hr</font></td></tr>
+            <tr><td><font color="#ffe66d" face="Helvetica">Unlimited ships</font></td></tr>
+        </table>>, fillcolor="#2d2d44"]
+
+        refuel_station [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><font color="#95d5b2" face="Helvetica"><b>Refuelling Station</b></font></td></tr>
+            <tr><td><font color="white" face="Helvetica">Cost: 1,200 BP</font></td></tr>
+            <tr><td><font color="white" face="Helvetica">Base Rate: 50,000 L/hr</font></td></tr>
+            <tr><td><font color="#ffe66d" face="Helvetica">No workers required</font></td></tr>
+        </table>>, fillcolor="#2d2d44"]
+    }
+
+    // Space-based tier
+    subgraph cluster_space {
+        label=<<font color="white" face="Helvetica"><b>Space-Based (Ship Components)</b></font>>
+        style=dashed
+        color="#4ecdc4"
+        bgcolor="#1a1a2e"
+
+        hub [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><font color="#4ecdc4" face="Helvetica"><b>Refuelling Hub</b></font></td></tr>
+            <tr><td><font color="white" face="Helvetica">Deep space fuel depot</font></td></tr>
+            <tr><td><font color="white" face="Helvetica">Multiple sources combine</font></td></tr>
+            <tr><td><font color="#ffe66d" face="Helvetica">Single transfer rate</font></td></tr>
+        </table>>, fillcolor="#2d2d44"]
+
+        system [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><font color="#4ecdc4" face="Helvetica"><b>Refuelling System</b></font></td></tr>
+            <tr><td><font color="white" face="Helvetica">Size: 2,000 tons</font></td></tr>
+            <tr><td><font color="white" face="Helvetica">Rate: 20k-900k L/hr</font></td></tr>
+            <tr><td><font color="#ffe66d" face="Helvetica">(11 tech levels)</font></td></tr>
+        </table>>, fillcolor="#2d2d44"]
+    }
+
+    // Tanker
+    tanker [label=<<table border="0" cellborder="0" cellspacing="0">
+        <tr><td><font color="#ff6b6b" face="Helvetica"><b>Tanker Ship</b></font></td></tr>
+        <tr><td><font color="white" face="Helvetica">Mobile fuel transport</font></td></tr>
+        <tr><td><font color="white" face="Helvetica">Refuel Fleet / Sub-Fleet modes</font></td></tr>
+    </table>>, fillcolor="#2d2d44", color="#ff6b6b", penwidth=2]
+
+    // Receiving ship
+    ship [label=<<table border="0" cellborder="0" cellspacing="0">
+        <tr><td><font color="white" face="Helvetica"><b>Receiving Ship</b></font></td></tr>
+        <tr><td><font color="#95d5b2" face="Helvetica">Fuel tanks filled</font></td></tr>
+    </table>>, fillcolor="#95d5b2", fontcolor="#1a1a2e"]
+
+    // Underway tech note
+    underway [label=<<table border="0" cellborder="0" cellspacing="0">
+        <tr><td><font color="#ffe66d" face="Helvetica"><b>Underway Replenishment</b></font></td></tr>
+        <tr><td><font color="white" face="Helvetica">Tech levels: 20% - 100%</font></td></tr>
+        <tr><td><font color="white" face="Helvetica">of normal rate while moving</font></td></tr>
+    </table>>, shape=note, fillcolor="#2d2d44"]
+
+    // Edges
+    colony -> spaceport [label="  Ground\n  transfer"]
+    colony -> refuel_station [label="  Ground\n  transfer"]
+    spaceport -> ship [label="  Refuel at\n  Colony"]
+    refuel_station -> ship
+    colony -> tanker [label="  Load fuel"]
+    tanker -> hub [label="  Transfer\n  to Hub"]
+    tanker -> ship [label="  Fleet\n  refuel"]
+    hub -> ship [label="  Refuel from\n  Hub"]
+    system -> ship [style=dashed, label="  Ship-to-ship"]
+
+    // Layout
+    {rank=same; spaceport; refuel_station}
+    {rank=same; hub; system; tanker}
+    {rank=same; ship; underway}
+}

@@ -1,0 +1,205 @@
+digraph DamageResolutionGrid {
+    // Graph settings
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    label="Armor Grid: Per-Column Damage Tracking"
+    labelloc=t
+    fontsize=16
+    rankdir=TB
+    nodesep=0.3
+    ranksep=0.4
+    pad=0.5
+    splines=ortho
+
+    // Default node style
+    node [
+        fontname="Helvetica"
+        fontsize=10
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled"
+        shape=box
+        width=0.6
+        height=0.4
+    ]
+
+    // Default edge style
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.7
+    ]
+
+    // Title for the grid
+    subgraph cluster_grid {
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><FONT POINT-SIZE="12" COLOR="white"><B>Ship Armor Grid</B></FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">5 columns x 4 layers</FONT></TD></TR>
+        </TABLE>>
+        labelloc=t
+        color="#4ecdc4"
+        style="dashed"
+        bgcolor="#1a1a2e"
+        margin=20
+
+        // Column labels
+        col1_label [label="Col 1" shape=none fillcolor=none fontcolor="#888888" fontsize=9]
+        col2_label [label="Col 2" shape=none fillcolor=none fontcolor="#888888" fontsize=9]
+        col3_label [label="Col 3" shape=none fillcolor=none fontcolor="#888888" fontsize=9]
+        col4_label [label="Col 4" shape=none fillcolor=none fontcolor="#888888" fontsize=9]
+        col5_label [label="Col 5" shape=none fillcolor=none fontcolor="#888888" fontsize=9]
+
+        // Layer labels
+        layer1_label [label="Layer 1\n(outer)" shape=none fillcolor=none fontcolor="#888888" fontsize=9 width=0.8]
+        layer2_label [label="Layer 2" shape=none fillcolor=none fontcolor="#888888" fontsize=9 width=0.8]
+        layer3_label [label="Layer 3" shape=none fillcolor=none fontcolor="#888888" fontsize=9 width=0.8]
+        layer4_label [label="Layer 4\n(inner)" shape=none fillcolor=none fontcolor="#888888" fontsize=9 width=0.8]
+
+        // Armor cells - Layer 1 (outermost)
+        a11 [label="4" fillcolor="#2d2d44"]
+        a12 [label="4" fillcolor="#2d2d44"]
+        a13 [label="0" fillcolor="#ff6b6b" fontcolor="white" color="#ff6b6b"]
+        a14 [label="4" fillcolor="#2d2d44"]
+        a15 [label="4" fillcolor="#2d2d44"]
+
+        // Layer 2
+        a21 [label="4" fillcolor="#2d2d44"]
+        a22 [label="4" fillcolor="#2d2d44"]
+        a23 [label="0" fillcolor="#ff6b6b" fontcolor="white" color="#ff6b6b"]
+        a24 [label="4" fillcolor="#2d2d44"]
+        a25 [label="4" fillcolor="#2d2d44"]
+
+        // Layer 3
+        a31 [label="4" fillcolor="#2d2d44"]
+        a32 [label="4" fillcolor="#2d2d44"]
+        a33 [label="2" fillcolor="#ffe66d" fontcolor="#1a1a2e" color="#ffe66d"]
+        a34 [label="4" fillcolor="#2d2d44"]
+        a35 [label="4" fillcolor="#2d2d44"]
+
+        // Layer 4 (innermost)
+        a41 [label="4" fillcolor="#2d2d44"]
+        a42 [label="4" fillcolor="#2d2d44"]
+        a43 [label="4" fillcolor="#95d5b2" fontcolor="#1a1a2e" color="#95d5b2"]
+        a44 [label="4" fillcolor="#2d2d44"]
+        a45 [label="4" fillcolor="#2d2d44"]
+
+        // Internals row
+        int1 [label="INT" fillcolor="#1a1a2e" color="#888888" fontcolor="#888888" style="filled,dashed"]
+        int2 [label="INT" fillcolor="#1a1a2e" color="#888888" fontcolor="#888888" style="filled,dashed"]
+        int3 [label="INT" fillcolor="#1a1a2e" color="#888888" fontcolor="#888888" style="filled,dashed"]
+        int4 [label="INT" fillcolor="#1a1a2e" color="#888888" fontcolor="#888888" style="filled,dashed"]
+        int5 [label="INT" fillcolor="#1a1a2e" color="#888888" fontcolor="#888888" style="filled,dashed"]
+
+        // Alignment
+        { rank=same; col1_label; col2_label; col3_label; col4_label; col5_label }
+        { rank=same; layer1_label; a11; a12; a13; a14; a15 }
+        { rank=same; layer2_label; a21; a22; a23; a24; a25 }
+        { rank=same; layer3_label; a31; a32; a33; a34; a35 }
+        { rank=same; layer4_label; a41; a42; a43; a44; a45 }
+        { rank=same; int1; int2; int3; int4; int5 }
+
+        // Invisible edges for alignment
+        col1_label -> a11 [style=invis]
+        col2_label -> a12 [style=invis]
+        col3_label -> a13 [style=invis]
+        col4_label -> a14 [style=invis]
+        col5_label -> a15 [style=invis]
+
+        layer1_label -> layer2_label [style=invis]
+        layer2_label -> layer3_label [style=invis]
+        layer3_label -> layer4_label [style=invis]
+
+        a11 -> a21 [style=invis]
+        a12 -> a22 [style=invis]
+        a13 -> a23 [style=invis]
+        a14 -> a24 [style=invis]
+        a15 -> a25 [style=invis]
+
+        a21 -> a31 [style=invis]
+        a22 -> a32 [style=invis]
+        a23 -> a33 [style=invis]
+        a24 -> a34 [style=invis]
+        a25 -> a35 [style=invis]
+
+        a31 -> a41 [style=invis]
+        a32 -> a42 [style=invis]
+        a33 -> a43 [style=invis]
+        a34 -> a44 [style=invis]
+        a35 -> a45 [style=invis]
+
+        a41 -> int1 [style=invis]
+        a42 -> int2 [style=invis]
+        a43 -> int3 [style=invis]
+        a44 -> int4 [style=invis]
+        a45 -> int5 [style=invis]
+    }
+
+    // Incoming hit indicator
+    hit [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><FONT COLOR="#ff6b6b"><B>Incoming Hit</B></FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="white">10 damage weapon</FONT></TD></TR>
+        </TABLE>>
+        shape=ellipse
+        fillcolor="#ff6b6b"
+        color="#ff6b6b"
+        fontcolor="white"
+        width=1.4
+    ]
+
+    // Legend
+    legend [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="4">
+            <TR><TD COLSPAN="2"><B>Legend</B></TD></TR>
+            <TR><TD BGCOLOR="#ff6b6b" WIDTH="20"> </TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">Destroyed - 0 armor</FONT></TD></TR>
+            <TR><TD BGCOLOR="#ffe66d" WIDTH="20"> </TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">Damaged - partial</FONT></TD></TR>
+            <TR><TD BGCOLOR="#95d5b2" WIDTH="20"> </TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">Intact - full armor</FONT></TD></TR>
+            <TR><TD BGCOLOR="#2d2d44" WIDTH="20"> </TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">Undamaged column</FONT></TD></TR>
+        </TABLE>>
+        shape=box
+        style="filled,rounded"
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+    ]
+
+    // Damage trace explanation
+    trace [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="4">
+            <TR><TD COLSPAN="2"><B>Damage Trace - Col 3</B></TD></TR>
+            <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#ff6b6b">Layer 1:</FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">4 dmg used, 6 left</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#ff6b6b">Layer 2:</FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">4 dmg used, 2 left</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#ffe66d">Layer 3:</FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">2 dmg used, 0 left</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#95d5b2">Layer 4:</FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">No penetration</FONT></TD></TR>
+        </TABLE>>
+        shape=box
+        style="filled,rounded"
+        fillcolor="#2d2d44"
+        color="#ffe66d"
+    ]
+
+    // Key insight
+    insight [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><FONT COLOR="#4ecdc4"><B>Key Insight</B></FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9">Damage is tracked per-column.</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9">Adjacent columns stay at full strength.</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9">Focused fire on one column is more</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9">effective than spread damage.</FONT></TD></TR>
+        </TABLE>>
+        shape=note
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+        width=2.5
+    ]
+
+    // Position elements
+    { rank=source; hit }
+    { rank=sink; legend; trace; insight }
+
+    // Connection from hit to grid
+    hit -> a13 [color="#ff6b6b" style=bold penwidth=2 arrowhead=vee]
+}

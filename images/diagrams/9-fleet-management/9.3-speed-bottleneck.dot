@@ -1,0 +1,73 @@
+// Task Group Speed Bottleneck Visualization
+// Section 9.3.2: Task Group Speed
+digraph SpeedBottleneck {
+    bgcolor="#1a1a2e"
+    rankdir=LR
+    node [shape=box, style="filled,rounded", fillcolor="#2d2d44", fontcolor="white", fontname="Helvetica", color="#4ecdc4", penwidth=2]
+    edge [color="#4ecdc4", fontcolor="white", fontname="Helvetica", penwidth=2, style=invis]
+
+    // Title
+    labelloc="t"
+    label=<<font color="white" face="Helvetica"><b>Task Group Speed = Slowest Ship</b></font>>
+    fontsize=18
+
+    // Ships with individual speeds
+    subgraph cluster_ships {
+        label=<<font color="white" face="Helvetica"><b>Individual Ship Speeds</b></font>>
+        style=dashed
+        color="#4ecdc4"
+        bgcolor="#1a1a2e"
+
+        ship1 [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><font color="white" face="Helvetica"><b>Destroyer</b></font></td></tr>
+            <tr><td><font color="#95d5b2" face="Helvetica">5,000 km/s</font></td></tr>
+        </table>>, fillcolor="#2d2d44"]
+
+        ship2 [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><font color="white" face="Helvetica"><b>Cruiser</b></font></td></tr>
+            <tr><td><font color="#95d5b2" face="Helvetica">4,000 km/s</font></td></tr>
+        </table>>, fillcolor="#2d2d44"]
+
+        ship3 [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><font color="white" face="Helvetica"><b>Escort</b></font></td></tr>
+            <tr><td><font color="#95d5b2" face="Helvetica">3,500 km/s</font></td></tr>
+        </table>>, fillcolor="#2d2d44"]
+
+        ship4 [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><font color="white" face="Helvetica"><b>Freighter</b></font></td></tr>
+            <tr><td><font color="#ff6b6b" face="Helvetica">2,500 km/s</font></td></tr>
+        </table>>, fillcolor="#ff6b6b", fontcolor="#1a1a2e"]
+    }
+
+    // Bottleneck indicator
+    bottleneck [label=<<table border="0" cellborder="0" cellspacing="0">
+        <tr><td><font color="#ffe66d" face="Helvetica" point-size="24">BOTTLENECK</font></td></tr>
+        <tr><td><font color="white" face="Helvetica">Slowest ship limits</font></td></tr>
+        <tr><td><font color="white" face="Helvetica">entire task group</font></td></tr>
+    </table>>, shape=octagon, fillcolor="#2d2d44", color="#ff6b6b", penwidth=3]
+
+    // Result
+    result [label=<<table border="0" cellborder="0" cellspacing="0">
+        <tr><td><font color="white" face="Helvetica"><b>Task Group Speed</b></font></td></tr>
+        <tr><td><font color="#ff6b6b" face="Helvetica" point-size="20">2,500 km/s</font></td></tr>
+        <tr><td><font color="#ffe66d" face="Helvetica">(50% of fastest ship)</font></td></tr>
+    </table>>, fillcolor="#2d2d44", color="#ff6b6b", penwidth=3]
+
+    // Visible edges
+    edge [style=solid]
+    ship1 -> bottleneck [color="#4ecdc4"]
+    ship2 -> bottleneck [color="#4ecdc4"]
+    ship3 -> bottleneck [color="#4ecdc4"]
+    ship4 -> bottleneck [color="#ff6b6b", penwidth=4]
+    bottleneck -> result [color="#ff6b6b", penwidth=4]
+
+    // Layout hints
+    {rank=same; ship1; ship2; ship3; ship4}
+
+    // Tip box
+    tip [label=<<table border="0" cellborder="0" cellspacing="0">
+        <tr><td><font color="#ffe66d" face="Helvetica"><b>Design Tip:</b></font></td></tr>
+        <tr><td><font color="white" face="Helvetica">Form separate fast/slow</font></td></tr>
+        <tr><td><font color="white" face="Helvetica">task groups for flexibility</font></td></tr>
+    </table>>, shape=note, fillcolor="#2d2d44"]
+}

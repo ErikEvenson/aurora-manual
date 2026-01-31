@@ -1,0 +1,66 @@
+// Conditional Orders Evaluation Flowchart
+// Section 9.3.3/9.5.1: Conditional Orders, Standing Orders
+digraph ConditionalOrders {
+    bgcolor="#1a1a2e"
+    rankdir=TB
+    node [shape=box, style="filled,rounded", fillcolor="#2d2d44", fontcolor="white", fontname="Helvetica", color="#4ecdc4", penwidth=2]
+    edge [color="#4ecdc4", fontcolor="white", fontname="Helvetica", penwidth=2]
+
+    // Title
+    labelloc="t"
+    label=<<font color="white" face="Helvetica"><b>Conditional Order Evaluation Logic</b></font>>
+    fontsize=18
+
+    // Start
+    start [label="Order Queue\nEvaluation Begins", shape=ellipse, fillcolor="#95d5b2", fontcolor="#1a1a2e"]
+
+    // Condition checks (priority order)
+    cond1 [label="Condition 1:\nFuel < 20%?", shape=diamond, fillcolor="#ffe66d", fontcolor="#1a1a2e"]
+    cond2 [label="Condition 2:\nHostile Contact?", shape=diamond, fillcolor="#ffe66d", fontcolor="#1a1a2e"]
+    cond3 [label="Condition 3:\nDamage > 50%?", shape=diamond, fillcolor="#ffe66d", fontcolor="#1a1a2e"]
+
+    // Actions
+    action1 [label="Execute:\nReturn to Base\nfor Refuel", fillcolor="#ff6b6b", fontcolor="white"]
+    action2 [label="Execute:\nEngage or Evade\n(per doctrine)", fillcolor="#ff6b6b", fontcolor="white"]
+    action3 [label="Execute:\nWithdraw to\nRepair Facility", fillcolor="#ff6b6b", fontcolor="white"]
+
+    // Default path
+    queued [label="No Conditions Met:\nExecute Next\nQueued Order", fillcolor="#4ecdc4", fontcolor="#1a1a2e"]
+
+    // Standing orders check
+    standing [label="Queue Empty?\nCheck Standing\nOrders", shape=diamond, fillcolor="#ffe66d", fontcolor="#1a1a2e"]
+    standing_exec [label="Execute\nStanding Order", fillcolor="#95d5b2", fontcolor="#1a1a2e"]
+    hold [label="Hold Position", fillcolor="#2d2d44"]
+
+    // Flow
+    start -> cond1
+    cond1 -> action1 [label="Yes", fontcolor="#95d5b2"]
+    cond1 -> cond2 [label="No"]
+    cond2 -> action2 [label="Yes", fontcolor="#95d5b2"]
+    cond2 -> cond3 [label="No"]
+    cond3 -> action3 [label="Yes", fontcolor="#95d5b2"]
+    cond3 -> queued [label="No"]
+    queued -> standing
+    standing -> standing_exec [label="Yes", fontcolor="#95d5b2"]
+    standing -> hold [label="No"]
+
+    // Priority note
+    priority_note [label=<<table border="0" cellborder="0" cellspacing="0">
+        <tr><td><font color="#ffe66d" face="Helvetica"><b>Priority Rule:</b></font></td></tr>
+        <tr><td><font color="white" face="Helvetica">Conditions evaluated in order.</font></td></tr>
+        <tr><td><font color="white" face="Helvetica">First TRUE condition executes.</font></td></tr>
+        <tr><td><font color="white" face="Helvetica">Remaining conditions skipped.</font></td></tr>
+    </table>>, shape=note, fillcolor="#2d2d44"]
+
+    // Secondary note
+    secondary_note [label=<<table border="0" cellborder="0" cellspacing="0">
+        <tr><td><font color="#ff6b6b" face="Helvetica"><b>Warning:</b></font></td></tr>
+        <tr><td><font color="white" face="Helvetica">Place safety conditions</font></td></tr>
+        <tr><td><font color="white" face="Helvetica">(fuel, damage) BEFORE</font></td></tr>
+        <tr><td><font color="white" face="Helvetica">mission conditions</font></td></tr>
+    </table>>, shape=note, fillcolor="#2d2d44", color="#ff6b6b"]
+
+    // Layout
+    {rank=same; cond1; priority_note}
+    {rank=same; cond3; secondary_note}
+}

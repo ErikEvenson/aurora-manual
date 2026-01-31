@@ -1,0 +1,51 @@
+// Shipyard Type Decision Tree
+// Section 9.1.1: Naval, Commercial, Light Naval, and Repair Shipyards
+digraph ShipyardDecisionTree {
+    bgcolor="#1a1a2e"
+    rankdir=TB
+    node [shape=box, style="filled,rounded", fillcolor="#2d2d44", fontcolor="white", fontname="Helvetica", color="#4ecdc4", penwidth=2]
+    edge [color="#4ecdc4", fontcolor="white", fontname="Helvetica", penwidth=2]
+
+    // Title
+    labelloc="t"
+    label=<<font color="white" face="Helvetica"><b>Shipyard Type Decision Tree</b></font>>
+    fontsize=18
+
+    // Start node
+    start [label="Ship Design\nComplete", shape=ellipse, fillcolor="#95d5b2", fontcolor="#1a1a2e"]
+
+    // Decision nodes (diamonds)
+    military_check [label="Contains Military\nComponents?", shape=diamond, fillcolor="#ffe66d", fontcolor="#1a1a2e"]
+    size_check [label="Size <= 1,000t?", shape=diamond, fillcolor="#ffe66d", fontcolor="#1a1a2e"]
+
+    // Outcome nodes
+    naval [label="Naval Shipyard\nRequired\n\nCapacity: 1,000t+\nCost: Higher/ton", fillcolor="#ff6b6b", fontcolor="white"]
+    light_naval [label="Light Naval Shipyard\nEligible\n\nFixed: 1,000t\nNo Retooling", fillcolor="#4ecdc4", fontcolor="#1a1a2e"]
+    commercial [label="Commercial Shipyard\nEligible\n\nCapacity: 10,000t+\nCost: Lower/ton", fillcolor="#95d5b2", fontcolor="#1a1a2e"]
+
+    // Note nodes
+    note1 [label="Military Components:\n- Weapons\n- Fire Controls\n- Military Engines\n- Significant Armor", shape=note, fillcolor="#2d2d44"]
+    note2 [label="Both naval yard types\ncan build this ship", shape=note, fillcolor="#2d2d44", fontsize=10]
+
+    // Flow
+    start -> military_check
+    military_check -> size_check [label="Yes", fontcolor="#95d5b2"]
+    military_check -> commercial [label="No", fontcolor="#95d5b2"]
+    size_check -> light_naval [label="Yes", fontcolor="#95d5b2"]
+    size_check -> naval [label="No", fontcolor="#ff6b6b"]
+
+    // Note connections (invisible for positioning)
+    {rank=same; military_check; note1}
+    {rank=same; light_naval; note2}
+
+    // Subgraph for legend
+    subgraph cluster_legend {
+        label=<<font color="white" face="Helvetica"><b>Legend</b></font>>
+        style=dashed
+        color="#4ecdc4"
+        bgcolor="#1a1a2e"
+
+        leg_decision [label="Decision", shape=diamond, fillcolor="#ffe66d", fontcolor="#1a1a2e"]
+        leg_outcome [label="Outcome", shape=box, fillcolor="#2d2d44"]
+    }
+}

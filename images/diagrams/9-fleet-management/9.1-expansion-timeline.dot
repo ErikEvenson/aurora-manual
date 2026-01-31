@@ -1,0 +1,86 @@
+// Shipyard Expansion Timeline Comparison
+// Section 9.1.2: Expanding and Retooling
+digraph ExpansionTimeline {
+    bgcolor="#1a1a2e"
+    rankdir=TB
+    node [shape=box, style="filled,rounded", fillcolor="#2d2d44", fontcolor="white", fontname="Helvetica", color="#4ecdc4", penwidth=2]
+    edge [color="#4ecdc4", fontcolor="white", fontname="Helvetica", penwidth=2]
+
+    // Title
+    labelloc="t"
+    label=<<font color="white" face="Helvetica"><b>Capacity Upgrade Methods Compared</b></font>>
+    fontsize=18
+
+    // Section labels
+    quick_label [label=<<font color="#ff6b6b" face="Helvetica"><b>Quick-Button Upgrade</b><br/>("Add 5,000 tons")</font>>, shape=plaintext]
+    continual_label [label=<<font color="#95d5b2" face="Helvetica"><b>Continual Capacity Upgrade</b></font>>, shape=plaintext]
+
+    // Quick-Button timeline
+    q_start [label=<<table border="0" cellborder="0" cellspacing="0">
+        <tr><td><font color="white" face="Helvetica"><b>Start</b></font></td></tr>
+        <tr><td><font color="#ff6b6b" face="Helvetica">Capacity: 1,000t</font></td></tr>
+        <tr><td><font color="#ffe66d" face="Helvetica">Can build: 1,000t</font></td></tr>
+    </table>>, fillcolor="#2d2d44"]
+
+    q_mid [label=<<table border="0" cellborder="0" cellspacing="0">
+        <tr><td><font color="white" face="Helvetica"><b>During Upgrade</b></font></td></tr>
+        <tr><td><font color="#ff6b6b" face="Helvetica">Displayed: 1,000t</font></td></tr>
+        <tr><td><font color="#ffe66d" face="Helvetica">Can build: 1,000t</font></td></tr>
+        <tr><td><font color="gray" face="Helvetica">(No access to new capacity)</font></td></tr>
+    </table>>, fillcolor="#2d2d44", color="#ff6b6b"]
+
+    q_end [label=<<table border="0" cellborder="0" cellspacing="0">
+        <tr><td><font color="white" face="Helvetica"><b>Complete</b></font></td></tr>
+        <tr><td><font color="#95d5b2" face="Helvetica">Capacity: 6,000t</font></td></tr>
+        <tr><td><font color="#ffe66d" face="Helvetica">Can build: 6,000t</font></td></tr>
+        <tr><td><font color="#95d5b2" face="Helvetica">(All at once)</font></td></tr>
+    </table>>, fillcolor="#2d2d44", color="#95d5b2", penwidth=3]
+
+    // Continual timeline
+    c_start [label=<<table border="0" cellborder="0" cellspacing="0">
+        <tr><td><font color="white" face="Helvetica"><b>Start</b></font></td></tr>
+        <tr><td><font color="#95d5b2" face="Helvetica">Capacity: 1,000t</font></td></tr>
+        <tr><td><font color="#ffe66d" face="Helvetica">Can build: 1,000t</font></td></tr>
+    </table>>, fillcolor="#2d2d44"]
+
+    c_mid [label=<<table border="0" cellborder="0" cellspacing="0">
+        <tr><td><font color="white" face="Helvetica"><b>During Upgrade</b></font></td></tr>
+        <tr><td><font color="#95d5b2" face="Helvetica">Capacity: 3,500t</font></td></tr>
+        <tr><td><font color="#ffe66d" face="Helvetica">Can build: 3,500t</font></td></tr>
+        <tr><td><font color="#95d5b2" face="Helvetica">(Incremental access!)</font></td></tr>
+    </table>>, fillcolor="#2d2d44", color="#95d5b2"]
+
+    c_end [label=<<table border="0" cellborder="0" cellspacing="0">
+        <tr><td><font color="white" face="Helvetica"><b>Complete</b></font></td></tr>
+        <tr><td><font color="#95d5b2" face="Helvetica">Capacity: 6,000t</font></td></tr>
+        <tr><td><font color="#ffe66d" face="Helvetica">Can build: 6,000t</font></td></tr>
+    </table>>, fillcolor="#2d2d44", color="#95d5b2", penwidth=3]
+
+    // Edges for Quick-Button path
+    quick_label -> q_start [style=invis]
+    q_start -> q_mid [label="  Months 1-5  "]
+    q_mid -> q_end [label="  Month 6  "]
+
+    // Edges for Continual path
+    continual_label -> c_start [style=invis]
+    c_start -> c_mid [label="  Months 1-3  "]
+    c_mid -> c_end [label="  Months 4-6  "]
+
+    // Notes
+    note_quick [label=<<table border="0" cellborder="0" cellspacing="0">
+        <tr><td><font color="#ff6b6b" face="Helvetica"><b>Quick-Button Drawback:</b></font></td></tr>
+        <tr><td><font color="white" face="Helvetica">Cannot build ships larger</font></td></tr>
+        <tr><td><font color="white" face="Helvetica">than 1,000t until complete</font></td></tr>
+    </table>>, shape=note, fillcolor="#2d2d44"]
+
+    note_continual [label=<<table border="0" cellborder="0" cellspacing="0">
+        <tr><td><font color="#95d5b2" face="Helvetica"><b>Continual Advantage:</b></font></td></tr>
+        <tr><td><font color="white" face="Helvetica">Can build larger ships</font></td></tr>
+        <tr><td><font color="white" face="Helvetica">as capacity grows</font></td></tr>
+        <tr><td><font color="white" face="Helvetica">Can interrupt anytime</font></td></tr>
+    </table>>, shape=note, fillcolor="#2d2d44"]
+
+    // Note connections
+    q_mid -> note_quick [style=dashed, color="#ff6b6b"]
+    c_mid -> note_continual [style=dashed, color="#95d5b2"]
+}

@@ -1,0 +1,176 @@
+digraph ShieldRegenTiming {
+    // Graph settings
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    label="Shield Regeneration Timing (v2.0.0+)"
+    labelloc=t
+    fontsize=16
+    rankdir=LR
+    nodesep=0.4
+    ranksep=0.8
+    pad=0.5
+
+    // Default node style
+    node [
+        fontname="Helvetica"
+        fontsize=11
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled,rounded"
+        shape=box
+        width=2.0
+        height=0.8
+    ]
+
+    // Default edge style
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.8
+    ]
+
+    // Turn start
+    turn_start [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>Turn Start</B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Increment begins</FONT></TD></TR>
+        </TABLE>>
+        shape=ellipse
+        fillcolor="#1a1a2e"
+        color="#95d5b2"
+        width=1.5
+    ]
+
+    // Shield regeneration phase (highlighted - the key change)
+    shield_regen [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><FONT COLOR="#95d5b2"><B>Shield Regeneration</B></FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#95d5b2">Shields recover HP</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#ffe66d">NEW in v2.0.0</FONT></TD></TR>
+        </TABLE>>
+        fillcolor="#2d2d44"
+        color="#95d5b2"
+        penwidth=3
+    ]
+
+    // Movement phase
+    movement [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>Movement Phase</B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Ships execute orders</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Ranges change</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Combat phases
+    beam_combat [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>Beam Combat</B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#ff6b6b">Beams fire</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#ff6b6b">Damage shields first</FONT></TD></TR>
+        </TABLE>>
+        color="#ff6b6b"
+    ]
+
+    missile_phase [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>Missile Resolution</B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#ff6b6b">Warheads hit</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#ff6b6b">Damage shields first</FONT></TD></TR>
+        </TABLE>>
+        color="#ff6b6b"
+    ]
+
+    // Turn end
+    turn_end [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>Turn End</B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Increment complete</FONT></TD></TR>
+        </TABLE>>
+        shape=ellipse
+        fillcolor="#1a1a2e"
+        color="#95d5b2"
+        width=1.5
+    ]
+
+    // Flow
+    turn_start -> shield_regen
+    shield_regen -> movement
+    movement -> beam_combat
+    beam_combat -> missile_phase
+    missile_phase -> turn_end
+
+    // Loop back
+    turn_end -> turn_start [
+        style=dashed
+        color="#888888"
+        label="next\nincrement"
+        constraint=false
+    ]
+
+    // Version comparison box
+    subgraph cluster_comparison {
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>Version Comparison</B></TD></TR>
+        </TABLE>>
+        labelloc=t
+        color="#4ecdc4"
+        style="dashed"
+        bgcolor="#1a1a2e"
+        margin=15
+
+        v1 [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="4">
+                <TR><TD><FONT COLOR="#ff6b6b"><B>Pre-v2.0.0</B></FONT></TD></TR>
+                <TR><TD><FONT POINT-SIZE="9">Movement, Combat, then Regen</FONT></TD></TR>
+                <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Shields weaker at turn start</FONT></TD></TR>
+            </TABLE>>
+            shape=box
+            style="filled,rounded"
+            fillcolor="#2d2d44"
+            color="#ff6b6b"
+        ]
+
+        v2 [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="4">
+                <TR><TD><FONT COLOR="#95d5b2"><B>v2.0.0+</B></FONT></TD></TR>
+                <TR><TD><FONT POINT-SIZE="9">Regen, Movement, then Combat</FONT></TD></TR>
+                <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Shields recover before damage</FONT></TD></TR>
+            </TABLE>>
+            shape=box
+            style="filled,rounded"
+            fillcolor="#2d2d44"
+            color="#95d5b2"
+        ]
+
+        v1 -> v2 [style=invis]
+    }
+
+    // Tactical implication
+    tactic [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><FONT COLOR="#4ecdc4"><B>Tactical Implication</B></FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9">Ships closing range benefit from</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9">regenerated shields before taking fire.</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9">Alpha strikes are slightly less effective.</FONT></TD></TR>
+        </TABLE>>
+        shape=note
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+        width=2.8
+    ]
+
+    // Position comparison and tactic below main flow
+    { rank=same; beam_combat; v1 }
+    { rank=same; missile_phase; v2 }
+
+    // Invisible edges for positioning
+    beam_combat -> v1 [style=invis]
+    missile_phase -> v2 [style=invis]
+
+    v2 -> tactic [style=invis]
+}
