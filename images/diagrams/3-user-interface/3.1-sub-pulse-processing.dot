@@ -1,0 +1,89 @@
+// Aurora 4X Manual - Sub-Pulse Processing Flow
+// Section 3.1.12 Status Bar - Sub-Pulse Processing
+digraph G {
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    rankdir=LR
+    nodesep=0.4
+    ranksep=0.8
+
+    node [
+        fontname="Helvetica"
+        fontsize=10
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled,rounded"
+        shape=box
+    ]
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.8
+    ]
+
+    // Title area using subgraph
+    subgraph cluster_legend {
+        label="Sub-Pulse Processing Hierarchy"
+        fontname="Helvetica"
+        fontsize=14
+        fontcolor="white"
+        color="#4ecdc4"
+        style=dashed
+
+        // Time increment level
+        increment [label="Player Selects\nTime Increment\n(e.g., 30 days)" fillcolor="#3d3d5c" fontsize=11]
+
+        // Sub-pulse level
+        subpulse [label="Sub-Pulse\nProcessing\n(default 5 sec)" fillcolor="#4ecdc4" fontcolor="black" fontsize=11]
+
+        // Combat subdivision
+        combat_sub [label="Combat\nSubdivision\n(1 second)" fillcolor="#ff6b6b" fontcolor="white" fontsize=11]
+    }
+
+    // Example breakdown
+    subgraph cluster_example {
+        label="Example: 30-Day Increment"
+        fontname="Helvetica"
+        fontsize=12
+        fontcolor="white"
+        color="#888888"
+        style=dashed
+
+        day30 [label="30 Days\n= 2,592,000 sec" fillcolor="#2d2d44"]
+        pulses [label="518,400\nSub-Pulses\n(@ 5 sec each)" fillcolor="#4ecdc4" fontcolor="black"]
+
+        day30 -> pulses [label="divide by 5"]
+    }
+
+    // Combat detail
+    subgraph cluster_combat {
+        label="Combat Processing (if detected)"
+        fontname="Helvetica"
+        fontsize=12
+        fontcolor="white"
+        color="#ff6b6b"
+        style=dashed
+
+        pulse5 [label="Each 5-sec\nSub-Pulse" fillcolor="#4ecdc4" fontcolor="black"]
+        sec1 [label="1 sec" fillcolor="#ff6b6b" fontcolor="white" fontsize=9]
+        sec2 [label="1 sec" fillcolor="#ff6b6b" fontcolor="white" fontsize=9]
+        sec3 [label="1 sec" fillcolor="#ff6b6b" fontcolor="white" fontsize=9]
+        sec4 [label="1 sec" fillcolor="#ff6b6b" fontcolor="white" fontsize=9]
+        sec5 [label="1 sec" fillcolor="#ff6b6b" fontcolor="white" fontsize=9]
+
+        pulse5 -> sec1 -> sec2 -> sec3 -> sec4 -> sec5 [color="#ff6b6b"]
+    }
+
+    // Main flow
+    increment -> subpulse [label="processed in"]
+    subpulse -> combat_sub [label="combat\nsubdivided"]
+
+    // Note about why this matters
+    note [label="This ensures ships\ndon't teleport past\nenemies during\nlarge increments" shape=note fillcolor="#ffe66d" fontcolor="black" fontsize=9]
+
+    pulses -> note [style=dashed color="#888888" arrowhead=none]
+}

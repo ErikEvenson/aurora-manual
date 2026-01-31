@@ -1,0 +1,73 @@
+// Aurora 4X Manual - Time Increment Decision Tree
+// Section 3.1.12 Status Bar
+digraph G {
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    rankdir=TB
+    splines=polyline
+    nodesep=0.5
+    ranksep=0.7
+
+    node [
+        fontname="Helvetica"
+        fontsize=11
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled,rounded"
+        shape=box
+    ]
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.8
+    ]
+
+    // Start node
+    start [label="Assess\nGame State" shape=ellipse fillcolor="#3d3d5c"]
+
+    // Decision nodes
+    combat [label="Active\nCombat?" shape=diamond fillcolor="#2d2d44"]
+    hostile [label="Hostile\nContacts?" shape=diamond fillcolor="#2d2d44"]
+    transit [label="Ships in\nTransit?" shape=diamond fillcolor="#2d2d44"]
+    peaceful [label="Peacetime\nDevelopment" shape=diamond fillcolor="#2d2d44"]
+
+    // Action nodes with time increments
+    combat_5s [label="5 seconds\nPrecise targeting,\nmissile timing" fillcolor="#ff6b6b" fontcolor="white"]
+    combat_30s [label="30 seconds\nClose-range\nmaneuvering" fillcolor="#ff6b6b" fontcolor="white"]
+    combat_5m [label="5 minutes\nExtended\nengagements" fillcolor="#ffe66d" fontcolor="black"]
+
+    transit_1h [label="1-3 hours\nRoutine\nin-system ops" fillcolor="#95d5b2" fontcolor="black"]
+    transit_8h [label="8 hours\nShift-based\noperations" fillcolor="#95d5b2" fontcolor="black"]
+
+    peace_5d [label="5 days\nStandard\npeacetime" fillcolor="#4ecdc4" fontcolor="black"]
+    peace_30d [label="30 days\nLong\nconstruction" fillcolor="#4ecdc4" fontcolor="black"]
+
+    // Warning note
+    warning [label="Auto-interrupts on:\n- Research completion\n- Shipyard tasks\n- Build completion\n- Hostile contact" shape=note fillcolor="#ffe66d" fontcolor="black" fontsize=9]
+
+    // Flow
+    start -> combat
+
+    combat -> combat_5s [label="Yes - close" fontcolor="#ff6b6b"]
+    combat -> combat_30s [label="Yes - medium" fontcolor="#ff6b6b"]
+    combat -> combat_5m [label="Yes - distant" fontcolor="#ffe66d"]
+    combat -> hostile [label="No"]
+
+    hostile -> transit_1h [label="Yes\n(reduce increment)" fontcolor="#ffe66d"]
+    hostile -> transit [label="No"]
+
+    transit -> transit_1h [label="Short hops"]
+    transit -> transit_8h [label="Long journey"]
+    transit -> peaceful [label="No"]
+
+    peaceful -> peace_5d [label="Normal"]
+    peaceful -> peace_30d [label="Waiting for\nprojects"]
+
+    // Warning connection
+    peace_5d -> warning [style=dashed color="#888888" arrowhead=none]
+    peace_30d -> warning [style=dashed color="#888888" arrowhead=none]
+}

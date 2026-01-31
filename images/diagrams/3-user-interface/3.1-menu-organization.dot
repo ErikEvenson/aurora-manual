@@ -1,0 +1,114 @@
+// Aurora 4X Manual - Menu Bar Organization Diagram
+// Section 3.1.1 Menu Bar
+digraph G {
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    rankdir=TB
+    splines=ortho
+    nodesep=0.4
+    ranksep=0.6
+
+    node [
+        fontname="Helvetica"
+        fontsize=11
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled,rounded"
+        shape=box
+    ]
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.8
+    ]
+
+    // Main menu bar
+    menubar [label="Menu Bar" fillcolor="#3d3d5c" shape=box fontsize=14]
+
+    // Category nodes
+    economics [label="Economics/\nIndustry" fillcolor="#2d2d44"]
+    ships [label="Ship\nOperations" fillcolor="#2d2d44"]
+    research [label="Research" fillcolor="#2d2d44"]
+    military [label="Military" fillcolor="#2d2d44"]
+    exploration [label="Exploration" fillcolor="#2d2d44"]
+    admin [label="Administration" fillcolor="#2d2d44"]
+    game [label="Game\nManagement" fillcolor="#2d2d44"]
+
+    // Economics sub-items
+    econ_win [label="Economics\nWindow" fontsize=9]
+    mining [label="Mining" fontsize=9]
+    wealth [label="Wealth/Trade" fontsize=9]
+
+    // Ship Operations sub-items
+    ship_design [label="Ship Design" fontsize=9]
+    fleet_win [label="Fleet Window" fontsize=9]
+    class_design [label="Class Design" fontsize=9]
+
+    // Research sub-items
+    research_win [label="Research\nWindow" fontsize=9]
+
+    // Military sub-items
+    ground [label="Ground Forces" fontsize=9]
+    intel [label="Intelligence" fontsize=9]
+
+    // Exploration sub-items
+    system_view [label="System View" fontsize=9]
+    survey [label="Survey\nLocations" fontsize=9]
+
+    // Administration sub-items
+    commander [label="Commander\nWindow" fontsize=9]
+    race [label="Race/Empire\nSettings" fontsize=9]
+    diplomacy [label="Diplomacy" fontsize=9]
+
+    // Game Management sub-items
+    game_setup [label="Game Setup" fontsize=9]
+    spacemaster [label="SpaceMaster" fontsize=9]
+    medals [label="Medals/Awards" fontsize=9]
+
+    // Connections from menu bar to categories
+    menubar -> economics
+    menubar -> ships
+    menubar -> research
+    menubar -> military
+    menubar -> exploration
+    menubar -> admin
+    menubar -> game
+
+    // Economics connections
+    economics -> econ_win
+    economics -> mining
+    economics -> wealth
+
+    // Ship Operations connections
+    ships -> ship_design
+    ships -> fleet_win
+    ships -> class_design
+
+    // Research connections
+    research -> research_win
+
+    // Military connections
+    military -> ground
+    military -> intel
+
+    // Exploration connections
+    exploration -> system_view
+    exploration -> survey
+
+    // Administration connections
+    admin -> commander
+    admin -> race
+    admin -> diplomacy
+
+    // Game Management connections
+    game -> game_setup
+    game -> spacemaster
+    game -> medals
+
+    // Layout hints
+    {rank=same; economics; ships; research; military; exploration; admin; game}
+}

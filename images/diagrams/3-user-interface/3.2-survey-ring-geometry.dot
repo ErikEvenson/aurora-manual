@@ -1,0 +1,75 @@
+// Aurora 4X Manual - Survey Location Ring Geometry
+// Section 3.2.3 Survey Locations
+digraph G {
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    layout=neato
+
+    node [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled"
+        shape=circle
+        width=0.4
+        height=0.4
+    ]
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="#888888"
+        color="#4ecdc4"
+        style=dashed
+        arrowhead=none
+    ]
+
+    // Center (star)
+    star [label="Star" shape=circle fillcolor="#ffe66d" fontcolor="black" width=0.6 height=0.6 pos="0,0!"]
+
+    // Inner ring - 6 points at 2000 Mkm (radius 1.5 in graph units)
+    // 360/6 = 60 degrees apart
+    i1 [label="1" pos="1.5,0!" fillcolor="#95d5b2" fontcolor="black"]
+    i2 [label="2" pos="0.75,1.3!" fillcolor="#95d5b2" fontcolor="black"]
+    i3 [label="3" pos="-0.75,1.3!" fillcolor="#95d5b2" fontcolor="black"]
+    i4 [label="4" pos="-1.5,0!" fillcolor="#95d5b2" fontcolor="black"]
+    i5 [label="5" pos="-0.75,-1.3!" fillcolor="#95d5b2" fontcolor="black"]
+    i6 [label="6" pos="0.75,-1.3!" fillcolor="#95d5b2" fontcolor="black"]
+
+    // Middle ring - 12 points at 4000 Mkm (radius 3.0 in graph units)
+    // 360/12 = 30 degrees apart
+    m7 [label="7" pos="3,0!" fillcolor="#4ecdc4" fontcolor="black"]
+    m8 [label="8" pos="2.6,1.5!" fillcolor="#4ecdc4" fontcolor="black"]
+    m9 [label="9" pos="1.5,2.6!" fillcolor="#4ecdc4" fontcolor="black"]
+    m10 [label="10" pos="0,3!" fillcolor="#4ecdc4" fontcolor="black"]
+    m11 [label="11" pos="-1.5,2.6!" fillcolor="#4ecdc4" fontcolor="black"]
+    m12 [label="12" pos="-2.6,1.5!" fillcolor="#4ecdc4" fontcolor="black"]
+    m13 [label="13" pos="-3,0!" fillcolor="#4ecdc4" fontcolor="black"]
+    m14 [label="14" pos="-2.6,-1.5!" fillcolor="#4ecdc4" fontcolor="black"]
+    m15 [label="15" pos="-1.5,-2.6!" fillcolor="#4ecdc4" fontcolor="black"]
+    m16 [label="16" pos="0,-3!" fillcolor="#4ecdc4" fontcolor="black"]
+    m17 [label="17" pos="1.5,-2.6!" fillcolor="#4ecdc4" fontcolor="black"]
+    m18 [label="18" pos="2.6,-1.5!" fillcolor="#4ecdc4" fontcolor="black"]
+
+    // Outer ring - 12 points at 6000 Mkm (radius 4.5 in graph units)
+    o19 [label="19" pos="4.5,0!" fillcolor="#2d2d44"]
+    o20 [label="20" pos="3.9,2.25!" fillcolor="#2d2d44"]
+    o21 [label="21" pos="2.25,3.9!" fillcolor="#2d2d44"]
+    o22 [label="22" pos="0,4.5!" fillcolor="#2d2d44"]
+    o23 [label="23" pos="-2.25,3.9!" fillcolor="#2d2d44"]
+    o24 [label="24" pos="-3.9,2.25!" fillcolor="#2d2d44"]
+    o25 [label="25" pos="-4.5,0!" fillcolor="#2d2d44"]
+    o26 [label="26" pos="-3.9,-2.25!" fillcolor="#2d2d44"]
+    o27 [label="27" pos="-2.25,-3.9!" fillcolor="#2d2d44"]
+    o28 [label="28" pos="0,-4.5!" fillcolor="#2d2d44"]
+    o29 [label="29" pos="2.25,-3.9!" fillcolor="#2d2d44"]
+    o30 [label="30" pos="3.9,-2.25!" fillcolor="#2d2d44"]
+
+    // Legend nodes (positioned outside the rings)
+    legend_inner [label="Inner Ring\n2,000 Mkm\n6 points" shape=box fillcolor="#95d5b2" fontcolor="black" pos="6.5,3!"]
+    legend_middle [label="Middle Ring\n4,000 Mkm\n12 points" shape=box fillcolor="#4ecdc4" fontcolor="black" pos="6.5,1!"]
+    legend_outer [label="Outer Ring\n6,000 Mkm\n12 points" shape=box fillcolor="#2d2d44" pos="6.5,-1!"]
+    legend_total [label="Total: 30\nSurvey Points" shape=box fillcolor="#3d3d5c" pos="6.5,-3!"]
+}

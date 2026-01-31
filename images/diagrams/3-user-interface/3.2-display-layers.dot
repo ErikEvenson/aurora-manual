@@ -1,0 +1,108 @@
+// Aurora 4X Manual - System Map Display Layers
+// Section 3.2.2 Display Layers
+digraph G {
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    rankdir=TB
+    nodesep=0.3
+    ranksep=0.5
+
+    node [
+        fontname="Helvetica"
+        fontsize=10
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled,rounded"
+        shape=box
+    ]
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.7
+    ]
+
+    // Main display panel
+    display [label="Display\nSettings Panel" fillcolor="#3d3d5c" fontsize=12]
+
+    // Category headers
+    bodies [label="Orbital Bodies" fillcolor="#3d3d5c" fontsize=11]
+    orbits [label="Orbital Paths" fillcolor="#3d3d5c" fontsize=11]
+    fleets [label="Ships & Fleets" fillcolor="#3d3d5c" fontsize=11]
+    strategic [label="Strategic Elements" fillcolor="#3d3d5c" fontsize=11]
+    sensors [label="Sensor Info" fillcolor="#3d3d5c" fontsize=11]
+
+    // Orbital Bodies toggles
+    planets [label="Planets" fontsize=9]
+    moons [label="Moons" fontsize=9]
+    moon_names [label="Moon Names" fontsize=9]
+    asteroids [label="Asteroids" fontsize=9]
+    comets [label="Comets" fontsize=9]
+    comet_names [label="Comet Names\n(v2.7.0)" fontsize=9]
+    dwarfs [label="Dwarf Planets" fontsize=9]
+
+    // Orbital Paths toggles
+    planet_orbits [label="Planet Orbits" fontsize=9]
+    moon_orbits [label="Moon Orbits" fontsize=9]
+    ship_paths [label="Ship Movement\nLines" fontsize=9]
+    selected_only [label="Selected Orbit\nOnly" fontsize=9]
+
+    // Ships & Fleets toggles
+    player_fleets [label="Player Fleets" fontsize=9]
+    contacts [label="Contacts" fontsize=9]
+    civilian [label="Civilian Ships" fontsize=9]
+    fleet_names [label="Fleet Names" fontsize=9]
+
+    // Strategic Elements toggles
+    jump_points [label="Jump Points" fontsize=9]
+    survey_locs [label="Survey\nLocations" fontsize=9]
+    waypoints [label="Waypoints" fontsize=9]
+    mineral_icons [label="Mineral Icons" fontsize=9]
+    lagrange [label="Lagrange\nPoints" fontsize=9]
+
+    // Sensor Info toggles
+    sensor_range [label="Sensor Ranges" fontsize=9]
+    missiles [label="Missile Markers" fontsize=9]
+    grav_survey [label="Grav Survey\nProgress" fontsize=9]
+
+    // Connections
+    display -> bodies
+    display -> orbits
+    display -> fleets
+    display -> strategic
+    display -> sensors
+
+    bodies -> planets
+    bodies -> moons
+    bodies -> moon_names
+    bodies -> asteroids
+    bodies -> comets
+    bodies -> comet_names
+    bodies -> dwarfs
+
+    orbits -> planet_orbits
+    orbits -> moon_orbits
+    orbits -> ship_paths
+    orbits -> selected_only
+
+    fleets -> player_fleets
+    fleets -> contacts
+    fleets -> civilian
+    fleets -> fleet_names
+
+    strategic -> jump_points
+    strategic -> survey_locs
+    strategic -> waypoints
+    strategic -> mineral_icons
+    strategic -> lagrange
+
+    sensors -> sensor_range
+    sensors -> missiles
+    sensors -> grav_survey
+
+    // Layout hints
+    {rank=same; bodies; orbits; fleets; strategic; sensors}
+}
