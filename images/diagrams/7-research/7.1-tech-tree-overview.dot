@@ -1,0 +1,126 @@
+digraph TechTreeStructure {
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    rankdir=TB
+    compound=true
+    nodesep=0.6
+    ranksep=0.8
+    label="Figure 7.1.1: Aurora Research Categories and Sample Tech Chains"
+    labelloc=t
+    fontsize=14
+
+    node [
+        fontname="Helvetica"
+        fontsize=10
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled,rounded"
+        shape=box
+    ]
+
+    edge [
+        fontname="Helvetica"
+        fontsize=8
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.7
+    ]
+
+    // Research Categories (as main nodes)
+    subgraph cluster_categories {
+        label="Nine Research Categories"
+        fontcolor="#888888"
+        color="#4ecdc4"
+        style=dashed
+
+        cat1 [label="1. Power and\nPropulsion" fillcolor="#ff6b6b" fontcolor="white"]
+        cat2 [label="2. Sensors and\nControl Systems" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+        cat3 [label="3. Direct Fire\nWeapons" fillcolor="#ff6b6b" fontcolor="white"]
+        cat4 [label="4. Missiles" fillcolor="#ff6b6b" fontcolor="white"]
+        cat5 [label="5. Construction /\nProduction" fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+        cat6 [label="6. Logistics" fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+        cat7 [label="7. Defensive\nSystems" fillcolor="#4ecdc4" fontcolor="#1a1a2e"]
+        cat8 [label="8. Biology /\nGenetics" fillcolor="#9b59b6" fontcolor="white"]
+        cat9 [label="9. Ground\nCombat" fillcolor="#9b59b6" fontcolor="white"]
+    }
+
+    // Engine Tech Chain (Power and Propulsion example)
+    subgraph cluster_engines {
+        label="Engine Technology Line (Power and Propulsion)"
+        fontcolor="#888888"
+        color="#ff6b6b"
+        style=dashed
+
+        conv_eng [label="Conventional\nEngine\n500 RP" fillcolor="#2d2d44"]
+        nuc_radio [label="Nuclear\nRadioisotope\n1,000 RP" fillcolor="#2d2d44"]
+        nuc_therm [label="Nuclear\nThermal\n2,000 RP" fillcolor="#2d2d44"]
+        nuc_pulse [label="Nuclear\nPulse\n4,000 RP" fillcolor="#2d2d44"]
+        nuc_gas [label="Nuclear\nGas-Core\n6,000 RP" fillcolor="#2d2d44"]
+        ion [label="Ion Drive\n10,000 RP" fillcolor="#2d2d44"]
+        dots1 [label="..." shape=none fontcolor="#888888"]
+        quantum [label="Quantum\nSingularity\n5,000,000 RP" fillcolor="#ff6b6b" fontcolor="white"]
+    }
+
+    conv_eng -> nuc_radio -> nuc_therm -> nuc_pulse -> nuc_gas -> ion -> dots1 -> quantum [color="#ff6b6b"]
+
+    // Weapon Branching (Direct Fire Weapons example)
+    subgraph cluster_weapons {
+        label="Weapon Branching (Direct Fire Weapons)"
+        fontcolor="#888888"
+        color="#ffe66d"
+        style=dashed
+
+        base_weapon [label="Base Weapon\nTechnology" fillcolor="#2d2d44"]
+        laser_branch [label="Lasers\n(Focal Size)" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+        particle_branch [label="Particle\nBeams" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+        meson_branch [label="Mesons" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+        railgun_branch [label="Railguns" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+        plasma_branch [label="Plasma\nCarronades" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+    }
+
+    base_weapon -> laser_branch [color="#ffe66d"]
+    base_weapon -> particle_branch [color="#ffe66d"]
+    base_weapon -> meson_branch [color="#ffe66d"]
+    base_weapon -> railgun_branch [color="#ffe66d"]
+    base_weapon -> plasma_branch [color="#ffe66d"]
+
+    // Cross-Category Dependencies
+    subgraph cluster_cross {
+        label="Cross-Category Dependencies"
+        fontcolor="#888888"
+        color="#95d5b2"
+        style=dashed
+
+        tn_tech [label="Trans-Newtonian\nTechnology\n5,000 RP\n(Required by Most)" fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+        elint [label="ELINT\nModules" fillcolor="#2d2d44"]
+        em_sensor [label="EM Sensor\nSensitivity\n(Sensors)" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+        prev_elint [label="Previous\nELINT\n(Sensors)" fillcolor="#2d2d44"]
+    }
+
+    tn_tech -> cat1 [style=dashed color="#95d5b2" label="prerequisite"]
+    tn_tech -> cat2 [style=dashed color="#95d5b2"]
+    tn_tech -> cat3 [style=dashed color="#95d5b2"]
+
+    em_sensor -> elint [color="#ffe66d" label="requires"]
+    prev_elint -> elint [color="#4ecdc4" label="requires"]
+
+    // Connect categories to examples
+    cat1 -> conv_eng [style=dotted color="#888888" lhead=cluster_engines]
+    cat3 -> base_weapon [style=dotted color="#888888" lhead=cluster_weapons]
+
+    // Legend
+    subgraph cluster_legend {
+        label="Legend"
+        fontcolor="#888888"
+        color="#666666"
+        style=dashed
+
+        leg1 [label="Red: Combat-related (Weapons, Engines)" shape=none fontsize=9 fontcolor="#ff6b6b"]
+        leg2 [label="Yellow: Sensors and Fire Control" shape=none fontsize=9 fontcolor="#ffe66d"]
+        leg3 [label="Green: Economy (Construction, Logistics)" shape=none fontsize=9 fontcolor="#95d5b2"]
+        leg4 [label="Cyan: Defensive Systems" shape=none fontsize=9 fontcolor="#4ecdc4"]
+        leg5 [label="Purple: Biology and Ground Combat" shape=none fontsize=9 fontcolor="#9b59b6"]
+    }
+}

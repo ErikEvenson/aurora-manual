@@ -1,0 +1,83 @@
+digraph PrototypeStates {
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    rankdir=LR
+    nodesep=1.0
+    ranksep=1.2
+    label="Figure 7.1.2: Prototype Component State Transitions"
+    labelloc=t
+    fontsize=14
+
+    node [
+        fontname="Helvetica"
+        fontsize=11
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled,rounded"
+        shape=box
+        width=1.8
+        height=0.8
+    ]
+
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="white"
+        color="#4ecdc4"
+        arrowsize=0.8
+        penwidth=1.5
+    ]
+
+    // States
+    normal [label="Normal\n(no suffix)\n\nFully Researched\nProduction-Ready" fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+
+    current_proto [label="Current Prototype\n(P)\n\nInstantly Available\nDesign-Only" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+
+    future_proto [label="Future Prototype\n(FP)\n\nNext-Tier Tech\nNot Yet Researched" fillcolor="#ff6b6b" fontcolor="white"]
+
+    research_proto [label="Research Prototype\n(RP)\n\nFormal Research Project\nStill Usable as Prototype" fillcolor="#4ecdc4" fontcolor="#1a1a2e"]
+
+    // Entry point
+    start [label="" shape=point width=0.1 color="#4ecdc4"]
+
+    // Transitions
+    start -> future_proto [label="Show Next Tech\n+ Prototype" color="#ff6b6b"]
+    start -> current_proto [label="Prototype\n(current tech)" color="#ffe66d"]
+
+    future_proto -> current_proto [label="Research\nprerequisite\ncompletes" color="#ff6b6b" style=dashed]
+
+    current_proto -> research_proto [label="Research Proto\nbutton" color="#ffe66d"]
+
+    research_proto -> normal [label="Research\ncompletes" color="#95d5b2"]
+
+    // Usage annotations
+    subgraph cluster_usage {
+        label="Component Usage Rights"
+        fontcolor="#888888"
+        color="#666666"
+        style=dashed
+
+        usage_table [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="8" BGCOLOR="#2d2d44">
+            <TR><TD><B>State</B></TD><TD><B>Design Use</B></TD><TD><B>Production</B></TD></TR>
+            <TR><TD>Normal</TD><TD BGCOLOR="#95d5b2"><FONT COLOR="#1a1a2e">Yes</FONT></TD><TD BGCOLOR="#95d5b2"><FONT COLOR="#1a1a2e">Yes</FONT></TD></TR>
+            <TR><TD>(P) Current</TD><TD BGCOLOR="#95d5b2"><FONT COLOR="#1a1a2e">Yes</FONT></TD><TD BGCOLOR="#ff6b6b"><FONT COLOR="white">No</FONT></TD></TR>
+            <TR><TD>(FP) Future</TD><TD BGCOLOR="#95d5b2"><FONT COLOR="#1a1a2e">Yes</FONT></TD><TD BGCOLOR="#ff6b6b"><FONT COLOR="white">No</FONT></TD></TR>
+            <TR><TD>(RP) Research</TD><TD BGCOLOR="#95d5b2"><FONT COLOR="#1a1a2e">Yes</FONT></TD><TD BGCOLOR="#ff6b6b"><FONT COLOR="white">No</FONT></TD></TR>
+        </TABLE>> shape=none]
+    }
+
+    // Legend
+    subgraph cluster_legend {
+        label="Legend"
+        fontcolor="#888888"
+        color="#666666"
+        style=dashed
+
+        leg1 [label="Green: Production-ready state" shape=none fontsize=9 fontcolor="#95d5b2"]
+        leg2 [label="Yellow: Current tech prototype" shape=none fontsize=9 fontcolor="#ffe66d"]
+        leg3 [label="Red: Future/unavailable tech" shape=none fontsize=9 fontcolor="#ff6b6b"]
+        leg4 [label="Cyan: Active research" shape=none fontsize=9 fontcolor="#4ecdc4"]
+    }
+}

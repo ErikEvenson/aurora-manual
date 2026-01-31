@@ -1,0 +1,108 @@
+// Speed and Distance Scale Visualization
+// Section 10.1.1 - Shows distance = speed x time with example
+digraph SpeedDistanceScale {
+    bgcolor="#1a1a2e"
+    rankdir=LR
+    splines=ortho
+    nodesep=0.6
+    ranksep=1.0
+
+    node [
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=11
+        style="filled"
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+        penwidth=2
+    ]
+
+    edge [
+        color="#4ecdc4"
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=10
+        penwidth=2
+    ]
+
+    // Title
+    title [
+        label="Distance = Speed x Time"
+        shape=plaintext
+        fontsize=16
+        fontcolor="#ffe66d"
+    ]
+
+    // Formula box
+    formula [
+        label=<<table border="0" cellborder="0" cellspacing="4">
+            <tr><td align="left"><font color="#4ecdc4">Speed:</font></td><td align="right">4,000 km/s</td></tr>
+            <tr><td align="left"><font color="#4ecdc4">Time:</font></td><td align="right">5 days</td></tr>
+            <tr><td align="left"><font color="#4ecdc4">Seconds:</font></td><td align="right">432,000 s</td></tr>
+            <tr><td colspan="2"><font color="#ffe66d">_________________</font></td></tr>
+            <tr><td align="left"><font color="#95d5b2">Distance:</font></td><td align="right"><font color="#95d5b2">1.728 billion km</font></td></tr>
+        </table>>
+        shape=box
+        style="filled,rounded"
+    ]
+
+    // Distance scale visualization
+    subgraph cluster_scale {
+        label="Distance Scale (billions of km)"
+        fontcolor="#4ecdc4"
+        fontname="Helvetica"
+        fontsize=12
+        color="#4ecdc4"
+        style=dashed
+
+        start [label="0" shape=circle width=0.4 fixedsize=true]
+        mark1 [label="0.5" shape=circle width=0.4 fixedsize=true fillcolor="#2d2d44"]
+        mark2 [label="1.0" shape=circle width=0.4 fixedsize=true fillcolor="#2d2d44"]
+        travel [label="1.728\n(5 days)" shape=circle width=0.6 fixedsize=true fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+        mark3 [label="2.0" shape=circle width=0.4 fixedsize=true fillcolor="#2d2d44"]
+
+        start -> mark1 -> mark2 -> travel -> mark3 [style=bold]
+    }
+
+    // Reference distances
+    subgraph cluster_reference {
+        label="Reference Distances"
+        fontcolor="#4ecdc4"
+        fontname="Helvetica"
+        fontsize=12
+        color="#4ecdc4"
+        style=dashed
+
+        earth_mars [
+            label=<<table border="0" cellborder="0">
+                <tr><td><font color="#ff6b6b">Earth to Mars (avg):</font></td></tr>
+                <tr><td>225 million km</td></tr>
+            </table>>
+            shape=box
+            style="filled,rounded"
+        ]
+
+        earth_jupiter [
+            label=<<table border="0" cellborder="0">
+                <tr><td><font color="#ff6b6b">Earth to Jupiter (avg):</font></td></tr>
+                <tr><td>628 million km</td></tr>
+            </table>>
+            shape=box
+            style="filled,rounded"
+        ]
+
+        outer_system [
+            label=<<table border="0" cellborder="0">
+                <tr><td><font color="#ff6b6b">Earth to Neptune:</font></td></tr>
+                <tr><td>4.3 billion km</td></tr>
+            </table>>
+            shape=box
+            style="filled,rounded"
+        ]
+    }
+
+    // Layout
+    title -> formula [style=invis]
+    formula -> start [style=invis]
+    earth_mars -> earth_jupiter -> outer_system [style=invis]
+}

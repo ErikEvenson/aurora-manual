@@ -1,0 +1,119 @@
+// Jump Drive Efficiency Scaling
+// Section 10.2.1 - Shows efficiency modifier by hull size
+digraph JumpDriveScaling {
+    bgcolor="#1a1a2e"
+    rankdir=TB
+    splines=ortho
+    nodesep=0.5
+    ranksep=0.6
+
+    node [
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=11
+        style="filled"
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+        penwidth=2
+    ]
+
+    edge [
+        color="#4ecdc4"
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=10
+        penwidth=2
+    ]
+
+    // Formula
+    formula [
+        label=<<table border="0" cellborder="0" cellspacing="4">
+            <tr><td colspan="2"><font color="#ffe66d" point-size="14">Efficiency Modifier Formula</font></td></tr>
+            <tr><td colspan="2"><font color="white">max(1, (Hull Spaces / 20)^0.25)</font></td></tr>
+            <tr><td colspan="2"><font color="#4ecdc4" point-size="9">Larger ships get proportionally smaller drives</font></td></tr>
+        </table>>
+        shape=box
+        style="filled,rounded"
+    ]
+
+    // Scaling table
+    subgraph cluster_scale {
+        label="Efficiency by Ship Size"
+        fontcolor="#ffe66d"
+        fontname="Helvetica"
+        fontsize=12
+        color="#4ecdc4"
+        style=rounded
+
+        // Small ships
+        small [
+            label=<<table border="0" cellborder="0" cellspacing="4">
+                <tr><td colspan="3"><font color="#ff6b6b">Small Ships (penalty zone)</font></td></tr>
+                <tr><td><font color="#4ecdc4">500 tons</font></td><td>(10 HS)</td><td>Modifier: <font color="#ff6b6b">1.00</font></td></tr>
+                <tr><td><font color="#4ecdc4">1,000 tons</font></td><td>(20 HS)</td><td>Modifier: <font color="#ff6b6b">1.00</font></td></tr>
+            </table>>
+            shape=box
+            style="filled,rounded"
+        ]
+
+        // Medium ships
+        medium [
+            label=<<table border="0" cellborder="0" cellspacing="4">
+                <tr><td colspan="3"><font color="#ffe66d">Medium Ships (improving)</font></td></tr>
+                <tr><td><font color="#4ecdc4">2,500 tons</font></td><td>(50 HS)</td><td>Modifier: <font color="#ffe66d">1.26</font></td></tr>
+                <tr><td><font color="#4ecdc4">5,000 tons</font></td><td>(100 HS)</td><td>Modifier: <font color="#ffe66d">1.50</font></td></tr>
+            </table>>
+            shape=box
+            style="filled,rounded"
+        ]
+
+        // Large ships
+        large [
+            label=<<table border="0" cellborder="0" cellspacing="4">
+                <tr><td colspan="3"><font color="#95d5b2">Large Ships (best efficiency)</font></td></tr>
+                <tr><td><font color="#4ecdc4">10,000 tons</font></td><td>(200 HS)</td><td>Modifier: <font color="#95d5b2">1.78</font></td></tr>
+                <tr><td><font color="#4ecdc4">25,000 tons</font></td><td>(500 HS)</td><td>Modifier: <font color="#95d5b2">2.24</font></td></tr>
+                <tr><td><font color="#4ecdc4">50,000 tons</font></td><td>(1000 HS)</td><td>Modifier: <font color="#95d5b2">2.66</font></td></tr>
+            </table>>
+            shape=box
+            style="filled,rounded"
+        ]
+
+        small -> medium -> large [style=invis]
+    }
+
+    // Design implications
+    subgraph cluster_implications {
+        label="Design Implications"
+        fontcolor="#ffe66d"
+        fontname="Helvetica"
+        fontsize=12
+        color="#4ecdc4"
+        style=rounded
+
+        imp1 [
+            label=<<table border="0" cellborder="0">
+                <tr><td><font color="#ff6b6b">Destroyers (2,000t):</font></td></tr>
+                <tr><td>Jump drives are heavy relative to hull</td></tr>
+                <tr><td><font color="#4ecdc4">Consider: Jump tenders</font></td></tr>
+            </table>>
+            shape=box
+            style="filled,rounded"
+        ]
+
+        imp2 [
+            label=<<table border="0" cellborder="0">
+                <tr><td><font color="#95d5b2">Battleships (20,000t):</font></td></tr>
+                <tr><td>Jump drives are efficient</td></tr>
+                <tr><td><font color="#4ecdc4">Consider: Self-mounted drives</font></td></tr>
+            </table>>
+            shape=box
+            style="filled,rounded"
+        ]
+
+        imp1 -> imp2 [style=invis]
+    }
+
+    formula -> small [style=invis]
+    large -> imp1 [style=invis]
+}

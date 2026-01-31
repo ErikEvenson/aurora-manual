@@ -1,0 +1,123 @@
+// Patrol Route Visualization
+// Section 10.1.7 - Shows waypoint patrol loop with order queue
+digraph PatrolRoute {
+    bgcolor="#1a1a2e"
+    rankdir=TB
+    splines=true
+    nodesep=0.8
+    ranksep=0.8
+
+    node [
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=11
+        style="filled"
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+        penwidth=2
+    ]
+
+    edge [
+        color="#4ecdc4"
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=10
+        penwidth=2
+    ]
+
+    // Patrol Map Area
+    subgraph cluster_map {
+        label="Patrol Area"
+        fontcolor="#ffe66d"
+        fontname="Helvetica"
+        fontsize=14
+        color="#4ecdc4"
+        style=rounded
+
+        // Waypoints as map locations
+        wpA [
+            label="Waypoint A\n(Jump Point)"
+            shape=hexagon
+            fillcolor="#ff6b6b"
+            fontcolor="white"
+        ]
+
+        wpB [
+            label="Waypoint B\n(Colony)"
+            shape=hexagon
+            fillcolor="#95d5b2"
+            fontcolor="#1a1a2e"
+        ]
+
+        wpC [
+            label="Waypoint C\n(Asteroid Belt)"
+            shape=hexagon
+            fillcolor="#ffe66d"
+            fontcolor="#1a1a2e"
+        ]
+
+        // Patrol path arrows
+        wpA -> wpB [label="Leg 1" color="#4ecdc4" style=bold]
+        wpB -> wpC [label="Leg 2" color="#4ecdc4" style=bold]
+        wpC -> wpA [label="Leg 3\n(loop)" color="#ff6b6b" style="bold,dashed"]
+    }
+
+    // Order Queue
+    subgraph cluster_queue {
+        label="Order Queue (Repeat Orders Enabled)"
+        fontcolor="#ffe66d"
+        fontname="Helvetica"
+        fontsize=14
+        color="#4ecdc4"
+        style=rounded
+
+        node [shape=box style="filled,rounded"]
+
+        ord1 [
+            label="1. Move to Waypoint A"
+            fillcolor="#ff6b6b"
+            fontcolor="white"
+        ]
+
+        ord2 [
+            label="2. Move to Waypoint B"
+            fillcolor="#95d5b2"
+            fontcolor="#1a1a2e"
+        ]
+
+        ord3 [
+            label="3. Move to Waypoint C"
+            fillcolor="#ffe66d"
+            fontcolor="#1a1a2e"
+        ]
+
+        repeat [
+            label="[Repeat from Order 1]"
+            fillcolor="#2d2d44"
+            style="filled,rounded,dashed"
+            color="#ff6b6b"
+        ]
+
+        ord1 -> ord2 -> ord3 -> repeat [color="white" penwidth=1]
+        repeat -> ord1 [style=dashed color="#ff6b6b" constraint=false]
+    }
+
+    // Fleet icon
+    fleet [
+        label=<<table border="0" cellborder="0">
+            <tr><td><font point-size="16">Fleet</font></td></tr>
+            <tr><td><font point-size="9" color="#4ecdc4">Currently at A</font></td></tr>
+            <tr><td><font point-size="9" color="#4ecdc4">Speed: 4,000 km/s</font></td></tr>
+        </table>>
+        shape=box
+        style="filled,rounded"
+        fillcolor="#4ecdc4"
+        fontcolor="#1a1a2e"
+    ]
+
+    // Position fleet at waypoint A
+    fleet -> wpA [style=dotted color="white" label="Position"]
+
+    // Connect clusters
+    wpA -> ord1 [style=invis]
+}

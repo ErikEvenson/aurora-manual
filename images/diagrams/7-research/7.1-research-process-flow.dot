@@ -1,0 +1,127 @@
+digraph ResearchProcessFlow {
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    rankdir=TB
+    nodesep=0.6
+    ranksep=0.7
+    compound=true
+    label="Figure 7.1: Research Process Flow and Feedback Loop"
+    labelloc=t
+    fontsize=14
+
+    node [
+        fontname="Helvetica"
+        fontsize=10
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled,rounded"
+        shape=box
+    ]
+
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="white"
+        color="#4ecdc4"
+        arrowsize=0.7
+    ]
+
+    // Main research cycle
+    subgraph cluster_cycle {
+        label="Research Cycle"
+        fontcolor="#888888"
+        color="#4ecdc4"
+        style=dashed
+
+        available [label="Technology\nAvailable\nfor Research" fillcolor="#2d2d44"]
+        select [label="Select\nResearch\nProject" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+        assign [label="Assign\nScientist\n(Admin Rating)" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+        labs [label="Labs Generate RP\n200 RP/lab/year\n(base rate)" fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+        progress [label="Research\nProgress\n(RP accumulates)" fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+        complete [label="Research\nComplete!" fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+    }
+
+    available -> select [label="Player\nchoice"]
+    select -> assign [label="Assign to\nlab queue"]
+    assign -> labs [label="Scientist\nbonus applied"]
+    labs -> progress [label="Each\nyear"]
+    progress -> complete [label="RP >= Cost"]
+    progress -> progress [label="Continue\n(RP < Cost)" style=dashed]
+
+    // Technology unlock
+    subgraph cluster_unlock {
+        label="Technology Unlock"
+        fontcolor="#888888"
+        color="#ff6b6b"
+        style=dashed
+
+        tech_unlocked [label="Technology\nUnlocked" fillcolor="#ff6b6b" fontcolor="white"]
+        components [label="New Components\nAvailable" fillcolor="#ff6b6b" fontcolor="white"]
+        ship_designer [label="Ship Designer\nClass Design" fillcolor="#ff6b6b" fontcolor="white"]
+        production [label="Shipyard\nProduction" fillcolor="#ff6b6b" fontcolor="white"]
+    }
+
+    complete -> tech_unlocked [color="#ff6b6b"]
+    tech_unlocked -> components [color="#ff6b6b"]
+    components -> ship_designer [color="#ff6b6b"]
+    ship_designer -> production [color="#ff6b6b" label="Tool &\nBuild"]
+
+    // Unlock new research
+    tech_unlocked -> available [label="Unlocks\nprerequisites" style=dashed color="#4ecdc4"]
+
+    // Feedback loop (economy)
+    subgraph cluster_feedback {
+        label="Economic Feedback Loop"
+        fontcolor="#888888"
+        color="#9b59b6"
+        style=dashed
+
+        better_ships [label="Better Ships\n(Faster, Stronger)" fillcolor="#9b59b6" fontcolor="white"]
+        expansion [label="Empire\nExpansion" fillcolor="#9b59b6" fontcolor="white"]
+        more_pop [label="More\nPopulation" fillcolor="#9b59b6" fontcolor="white"]
+        more_labs [label="More\nResearch Labs" fillcolor="#9b59b6" fontcolor="white"]
+        more_scientists [label="More\nScientists" fillcolor="#9b59b6" fontcolor="white"]
+        faster_research [label="Faster\nResearch" fillcolor="#9b59b6" fontcolor="white"]
+    }
+
+    production -> better_ships [color="#9b59b6"]
+    better_ships -> expansion [color="#9b59b6"]
+    expansion -> more_pop [color="#9b59b6"]
+    more_pop -> more_labs [color="#9b59b6"]
+    more_pop -> more_scientists [color="#9b59b6"]
+    more_labs -> faster_research [color="#9b59b6"]
+    more_scientists -> faster_research [color="#9b59b6"]
+    faster_research -> labs [color="#9b59b6" style=bold label="Compound\ngrowth"]
+
+    // Key inputs
+    subgraph cluster_inputs {
+        label="Key Inputs"
+        fontcolor="#888888"
+        color="#666666"
+        style=dashed
+
+        input_labs [label="Research Labs\n(Ground Installation)\n1M workers each" fillcolor="#2d2d44"]
+        input_scientist [label="Scientists\n(Named Characters)\nBonus + Admin Rating" fillcolor="#2d2d44"]
+        input_minerals [label="Minerals\n(For Lab Construction)\n120 BP, 120 Duranium" fillcolor="#2d2d44"]
+    }
+
+    input_labs -> labs [style=dotted color="#888888"]
+    input_scientist -> assign [style=dotted color="#888888"]
+    input_minerals -> input_labs [style=dotted color="#888888" label="Build"]
+
+    // Legend
+    subgraph cluster_legend {
+        label="Legend"
+        fontcolor="#888888"
+        color="#666666"
+        style=dashed
+
+        leg1 [label="Yellow: Player decisions" shape=none fontsize=9 fontcolor="#ffe66d"]
+        leg2 [label="Green: Research process" shape=none fontsize=9 fontcolor="#95d5b2"]
+        leg3 [label="Red: Technology application" shape=none fontsize=9 fontcolor="#ff6b6b"]
+        leg4 [label="Purple: Economic feedback" shape=none fontsize=9 fontcolor="#9b59b6"]
+        leg5 [label="Dashed: Indirect/optional paths" shape=none fontsize=9 fontcolor="#888888"]
+    }
+}

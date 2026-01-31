@@ -1,0 +1,176 @@
+// Jump Shock Timeline
+// Section 10.2.4 - Shows standard vs squadron transit shock windows
+digraph JumpShockTimeline {
+    bgcolor="#1a1a2e"
+    rankdir=TB
+    splines=ortho
+    nodesep=0.4
+    ranksep=0.5
+
+    node [
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=11
+        style="filled"
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+        penwidth=2
+    ]
+
+    edge [
+        color="#4ecdc4"
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=10
+        penwidth=2
+    ]
+
+    // Title
+    title [
+        label=<<table border="0" cellborder="0">
+            <tr><td><font color="#ffe66d" point-size="16">Jump Shock Duration Comparison</font></td></tr>
+            <tr><td><font color="white" point-size="10">Vulnerability window after jump point transit</font></td></tr>
+        </table>>
+        shape=plaintext
+    ]
+
+    // Standard Transit Timeline
+    subgraph cluster_standard {
+        label="Standard Transit"
+        fontcolor="#ff6b6b"
+        fontname="Helvetica"
+        fontsize=14
+        color="#ff6b6b"
+        style=rounded
+
+        std_formula [
+            label=<<table border="0" cellborder="0">
+                <tr><td><font color="white">Formula: (120 + Random(1-60)) x Ship Bonus</font></td></tr>
+                <tr><td><font color="#4ecdc4" point-size="10">Base range: 121-180 seconds (2-3 minutes)</font></td></tr>
+            </table>>
+            shape=box
+            style="filled,rounded"
+        ]
+
+        std_timeline [
+            label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="8">
+                <tr>
+                    <td bgcolor="#ff6b6b" width="250"><font color="white">SHOCK (121-180s)</font></td>
+                    <td bgcolor="#95d5b2" width="100"><font color="#1a1a2e">Combat Ready</font></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><font color="white" point-size="9">0s -------- 60s -------- 120s -------- 180s --------</font></td>
+                </tr>
+            </table>>
+            shape=plaintext
+        ]
+
+        std_effects [
+            label=<<table border="0" cellborder="0">
+                <tr><td align="left"><font color="#ff6b6b">During shock:</font></td></tr>
+                <tr><td align="left">- Active sensors disabled</td></tr>
+                <tr><td align="left">- Fire controls disabled</td></tr>
+                <tr><td align="left">- Cannot jump again</td></tr>
+            </table>>
+            shape=box
+            style="filled,rounded"
+        ]
+
+        std_formula -> std_timeline -> std_effects [style=invis]
+    }
+
+    // Squadron Transit Timeline
+    subgraph cluster_squadron {
+        label="Squadron Transit"
+        fontcolor="#95d5b2"
+        fontname="Helvetica"
+        fontsize=14
+        color="#95d5b2"
+        style=rounded
+
+        sqd_formula [
+            label=<<table border="0" cellborder="0">
+                <tr><td><font color="white">Formula: (10 + Random(1-20)) x Ship Bonus</font></td></tr>
+                <tr><td><font color="#4ecdc4" point-size="10">Base range: 11-30 seconds</font></td></tr>
+            </table>>
+            shape=box
+            style="filled,rounded"
+        ]
+
+        sqd_timeline [
+            label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="8">
+                <tr>
+                    <td bgcolor="#ffe66d" width="50"><font color="#1a1a2e">SHOCK</font></td>
+                    <td bgcolor="#95d5b2" width="300"><font color="#1a1a2e">Combat Ready</font></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><font color="white" point-size="9">0s ---- 30s -------- 60s -------- 120s -------- 180s --------</font></td>
+                </tr>
+            </table>>
+            shape=plaintext
+        ]
+
+        sqd_benefit [
+            label=<<table border="0" cellborder="0">
+                <tr><td align="left"><font color="#95d5b2">Squadron advantage:</font></td></tr>
+                <tr><td align="left">- 6x shorter vulnerability window</td></tr>
+                <tr><td align="left">- Essential for assault operations</td></tr>
+                <tr><td align="left">- Coordinated fleet movement</td></tr>
+            </table>>
+            shape=box
+            style="filled,rounded"
+        ]
+
+        sqd_formula -> sqd_timeline -> sqd_benefit [style=invis]
+    }
+
+    // Ship Bonus modifier
+    subgraph cluster_bonus {
+        label="Ship Bonus Modifier"
+        fontcolor="#4ecdc4"
+        fontname="Helvetica"
+        fontsize=12
+        color="#4ecdc4"
+        style=rounded
+
+        bonus_formula [
+            label=<<table border="0" cellborder="0">
+                <tr><td><font color="white">Ship Bonus = 2 - ((1 + Crew Grade) x Morale x Overhaul)</font></td></tr>
+            </table>>
+            shape=box
+            style="filled,rounded"
+        ]
+
+        bonus_examples [
+            label=<<table border="0" cellborder="0" cellspacing="4">
+                <tr><td><font color="#ffe66d">Example Modifiers:</font></td></tr>
+                <tr><td align="left"><font color="#ff6b6b">Green crew (0% grade, 80% morale):</font> 1.20x duration</td></tr>
+                <tr><td align="left"><font color="white">Standard crew (10% grade, 100% morale):</font> 0.90x duration</td></tr>
+                <tr><td align="left"><font color="#95d5b2">Elite crew (25% grade, 100% morale):</font> 0.75x duration</td></tr>
+            </table>>
+            shape=box
+            style="filled,rounded"
+        ]
+
+        bonus_formula -> bonus_examples [style=invis]
+    }
+
+    // Tactical Summary
+    tactical [
+        label=<<table border="0" cellborder="0">
+            <tr><td><font color="#ffe66d" point-size="12">Tactical Implication</font></td></tr>
+            <tr><td><font color="white">Standard transit into defended space = 2-3 min free fire</font></td></tr>
+            <tr><td><font color="#95d5b2">Squadron transit into defended space = 11-30 sec free fire</font></td></tr>
+            <tr><td><font color="#ff6b6b">Always use squadron transit for assault operations</font></td></tr>
+        </table>>
+        shape=box
+        style="filled,rounded"
+        color="#ffe66d"
+    ]
+
+    // Layout
+    title -> std_formula [style=invis]
+    std_effects -> sqd_formula [style=invis]
+    sqd_benefit -> bonus_formula [style=invis]
+    bonus_examples -> tactical [style=invis]
+}

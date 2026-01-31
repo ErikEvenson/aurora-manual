@@ -1,0 +1,229 @@
+// Squadron Transit Constraints
+// Section 10.2.2 - Shows dual constraints for squadron transit
+digraph SquadronTransitConstraints {
+    bgcolor="#1a1a2e"
+    rankdir=TB
+    splines=ortho
+    nodesep=0.5
+    ranksep=0.6
+
+    node [
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=11
+        style="filled"
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+        penwidth=2
+    ]
+
+    edge [
+        color="#4ecdc4"
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=10
+        penwidth=2
+    ]
+
+    // Title
+    title [
+        label=<<table border="0" cellborder="0">
+            <tr><td><font color="#ffe66d" point-size="16">Squadron Transit: Dual Constraints</font></td></tr>
+            <tr><td><font color="white" point-size="10">Both constraints must be satisfied for transit</font></td></tr>
+        </table>>
+        shape=plaintext
+    ]
+
+    // Constraint 1: Ship Count
+    subgraph cluster_count {
+        label="Constraint 1: Ship Count"
+        fontcolor="#4ecdc4"
+        fontname="Helvetica"
+        fontsize=14
+        color="#4ecdc4"
+        style=rounded
+
+        count_rule [
+            label=<<table border="0" cellborder="0">
+                <tr><td><font color="white">Maximum ships per transit: 3-12</font></td></tr>
+                <tr><td><font color="#4ecdc4" point-size="10">(determined by Squadron Size technology)</font></td></tr>
+                <tr><td><font color="#ffe66d" point-size="10">Count includes the jump ship itself</font></td></tr>
+            </table>>
+            shape=box
+            style="filled,rounded"
+        ]
+    }
+
+    // Constraint 2: Tonnage
+    subgraph cluster_tonnage {
+        label="Constraint 2: Per-Ship Tonnage"
+        fontcolor="#4ecdc4"
+        fontname="Helvetica"
+        fontsize=14
+        color="#4ecdc4"
+        style=rounded
+
+        tonnage_rule [
+            label=<<table border="0" cellborder="0">
+                <tr><td><font color="white">Each ship must fit within Jump Capability</font></td></tr>
+                <tr><td><font color="#4ecdc4" point-size="10">(set during jump drive design)</font></td></tr>
+                <tr><td><font color="#ffe66d" point-size="10">No aggregate tonnage limit</font></td></tr>
+            </table>>
+            shape=box
+            style="filled,rounded"
+        ]
+    }
+
+    // Valid Example
+    subgraph cluster_valid {
+        label="VALID Squadron Composition"
+        fontcolor="#95d5b2"
+        fontname="Helvetica"
+        fontsize=12
+        color="#95d5b2"
+        style=rounded
+
+        valid_jump [
+            label=<<table border="0" cellborder="0">
+                <tr><td><font color="#ffe66d">Jump Ship</font></td></tr>
+                <tr><td>Squadron Size: 5</td></tr>
+                <tr><td>Jump Capability: 10,000t</td></tr>
+            </table>>
+            shape=box
+            style="filled,rounded"
+        ]
+
+        valid_ships [
+            label=<<table border="0" cellborder="0" cellspacing="4">
+                <tr><td colspan="3"><font color="#95d5b2">Fleet (4 ships + jump ship = 5)</font></td></tr>
+                <tr><td>Ship 1:</td><td>8,000t</td><td><font color="#95d5b2">OK</font></td></tr>
+                <tr><td>Ship 2:</td><td>6,500t</td><td><font color="#95d5b2">OK</font></td></tr>
+                <tr><td>Ship 3:</td><td>9,000t</td><td><font color="#95d5b2">OK</font></td></tr>
+                <tr><td>Ship 4:</td><td>7,500t</td><td><font color="#95d5b2">OK</font></td></tr>
+            </table>>
+            shape=box
+            style="filled,rounded"
+        ]
+
+        valid_check [
+            label=<<table border="0" cellborder="0">
+                <tr><td><font color="#95d5b2">Ship count: 5 &lt;= 5</font></td></tr>
+                <tr><td><font color="#95d5b2">All ships &lt;= 10,000t</font></td></tr>
+                <tr><td><font color="#95d5b2">TRANSIT ALLOWED</font></td></tr>
+            </table>>
+            shape=box
+            style="filled,rounded"
+            color="#95d5b2"
+        ]
+
+        valid_jump -> valid_ships -> valid_check [style=invis]
+    }
+
+    // Invalid Example 1: Too many ships
+    subgraph cluster_invalid1 {
+        label="INVALID: Too Many Ships"
+        fontcolor="#ff6b6b"
+        fontname="Helvetica"
+        fontsize=12
+        color="#ff6b6b"
+        style=rounded
+
+        inv1_jump [
+            label=<<table border="0" cellborder="0">
+                <tr><td><font color="#ffe66d">Jump Ship</font></td></tr>
+                <tr><td>Squadron Size: 3</td></tr>
+                <tr><td>Jump Capability: 10,000t</td></tr>
+            </table>>
+            shape=box
+            style="filled,rounded"
+        ]
+
+        inv1_ships [
+            label=<<table border="0" cellborder="0" cellspacing="4">
+                <tr><td colspan="3"><font color="#ff6b6b">Fleet (4 ships + jump ship = 5)</font></td></tr>
+                <tr><td>Ship 1:</td><td>5,000t</td><td><font color="#95d5b2">OK size</font></td></tr>
+                <tr><td>Ship 2:</td><td>5,000t</td><td><font color="#95d5b2">OK size</font></td></tr>
+                <tr><td>Ship 3:</td><td>5,000t</td><td><font color="#ff6b6b">OVER COUNT</font></td></tr>
+                <tr><td>Ship 4:</td><td>5,000t</td><td><font color="#ff6b6b">OVER COUNT</font></td></tr>
+            </table>>
+            shape=box
+            style="filled,rounded"
+        ]
+
+        inv1_check [
+            label=<<table border="0" cellborder="0">
+                <tr><td><font color="#ff6b6b">Ship count: 5 &gt; 3</font></td></tr>
+                <tr><td><font color="#ff6b6b">TRANSIT DENIED</font></td></tr>
+            </table>>
+            shape=box
+            style="filled,rounded"
+            color="#ff6b6b"
+        ]
+
+        inv1_jump -> inv1_ships -> inv1_check [style=invis]
+    }
+
+    // Invalid Example 2: Ship too large
+    subgraph cluster_invalid2 {
+        label="INVALID: Ship Exceeds Capability"
+        fontcolor="#ff6b6b"
+        fontname="Helvetica"
+        fontsize=12
+        color="#ff6b6b"
+        style=rounded
+
+        inv2_jump [
+            label=<<table border="0" cellborder="0">
+                <tr><td><font color="#ffe66d">Jump Ship</font></td></tr>
+                <tr><td>Squadron Size: 5</td></tr>
+                <tr><td>Jump Capability: 8,000t</td></tr>
+            </table>>
+            shape=box
+            style="filled,rounded"
+        ]
+
+        inv2_ships [
+            label=<<table border="0" cellborder="0" cellspacing="4">
+                <tr><td colspan="3"><font color="#ff6b6b">Fleet (2 ships + jump ship = 3)</font></td></tr>
+                <tr><td>Ship 1:</td><td>6,000t</td><td><font color="#95d5b2">OK</font></td></tr>
+                <tr><td>Ship 2:</td><td>12,000t</td><td><font color="#ff6b6b">TOO LARGE</font></td></tr>
+            </table>>
+            shape=box
+            style="filled,rounded"
+        ]
+
+        inv2_check [
+            label=<<table border="0" cellborder="0">
+                <tr><td><font color="#95d5b2">Ship count: 3 &lt;= 5</font></td></tr>
+                <tr><td><font color="#ff6b6b">Ship 2: 12,000t &gt; 8,000t</font></td></tr>
+                <tr><td><font color="#ff6b6b">TRANSIT DENIED</font></td></tr>
+            </table>>
+            shape=box
+            style="filled,rounded"
+            color="#ff6b6b"
+        ]
+
+        inv2_jump -> inv2_ships -> inv2_check [style=invis]
+    }
+
+    // Key Insight
+    insight [
+        label=<<table border="0" cellborder="0">
+            <tr><td><font color="#ffe66d" point-size="12">Key Insight</font></td></tr>
+            <tr><td><font color="white">Squadron transit is limited by ship COUNT and per-ship TONNAGE</font></td></tr>
+            <tr><td><font color="white">There is NO aggregate tonnage multiplier</font></td></tr>
+            <tr><td><font color="#4ecdc4">One oversize ship blocks the entire transit</font></td></tr>
+        </table>>
+        shape=box
+        style="filled,rounded"
+        color="#ffe66d"
+    ]
+
+    // Layout
+    title -> count_rule [style=invis]
+    count_rule -> tonnage_rule [style=invis]
+    tonnage_rule -> valid_jump [style=invis]
+    valid_check -> inv1_jump [style=invis]
+    inv1_check -> inv2_jump [style=invis]
+    inv2_check -> insight [style=invis]
+}
