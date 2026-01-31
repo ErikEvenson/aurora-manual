@@ -1,0 +1,109 @@
+// Survey Mechanics Timeline - How survey points accumulate and affect completion time
+// Issue #1015
+
+digraph survey_mechanics {
+    bgcolor="#1a1a2e"
+    rankdir=LR
+    nodesep=0.5
+    ranksep=0.8
+
+    // Global node styling
+    node [
+        shape=box
+        style="filled,rounded"
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+        fontcolor="white"
+        fontname="Helvetica"
+        fontsize=11
+        penwidth=2
+    ]
+
+    // Global edge styling
+    edge [
+        color="#4ecdc4"
+        fontcolor="white"
+        fontname="Helvetica"
+        fontsize=10
+        penwidth=1.5
+    ]
+
+    // Title
+    labelloc="t"
+    label=<<font face="Helvetica" color="white" point-size="16"><b>Survey Mechanics: Points to Completion</b></font>>
+
+    // Survey Target cluster
+    subgraph cluster_target {
+        label=<<font face="Helvetica" color="#95d5b2"><b>Survey Target</b></font>>
+        bgcolor="#1a1a2e"
+        color="#4ecdc4"
+        penwidth=1
+
+        asteroid [label="Asteroid\n10-50 pts" fillcolor="#2d2d44"]
+        moon [label="Moon\n50-200 pts" fillcolor="#2d2d44"]
+        planet [label="Planet\n200-400 pts" fillcolor="#2d2d44"]
+        gas_giant [label="Gas Giant\n500+ pts" fillcolor="#2d2d44"]
+    }
+
+    // Survey Generation cluster
+    subgraph cluster_generation {
+        label=<<font face="Helvetica" color="#95d5b2"><b>Survey Point Generation</b></font>>
+        bgcolor="#1a1a2e"
+        color="#4ecdc4"
+        penwidth=1
+
+        base_sensor [label="Base Sensor\n24 pts/day" fillcolor="#2d2d44"]
+        improved [label="Improved\n48 pts/day" fillcolor="#2d2d44"]
+        advanced [label="Advanced\n72 pts/day" fillcolor="#2d2d44"]
+        phased [label="Phased\n120 pts/day" fillcolor="#2d2d44"]
+    }
+
+    // Multipliers cluster
+    subgraph cluster_multipliers {
+        label=<<font face="Helvetica" color="#ffe66d"><b>Speed Multipliers</b></font>>
+        bgcolor="#1a1a2e"
+        color="#ffe66d"
+        penwidth=1
+
+        multi_sensor [label="Multiple Sensors\nAdditive" fillcolor="#3d3d54"]
+        multi_ship [label="Multiple Ships\nParallel Survey" fillcolor="#3d3d54"]
+        speed_mod [label="Game Speed Modifier\n(default 100%)" fillcolor="#3d3d54"]
+    }
+
+    // Time Calculation
+    time_calc [label="Time = Points Required\n/ Total Points Per Day" fillcolor="#2d4d3d" color="#95d5b2" shape=box]
+
+    // Completion
+    complete [label="Survey Complete!\nMinerals Revealed\nRuins Discovered" fillcolor="#2d3d4d" color="#4ecdc4"]
+
+    // Edges from targets (invisible, just for ranking)
+    {asteroid moon planet gas_giant} -> time_calc [style=invis]
+
+    // Edges from sensors to calculation
+    base_sensor -> time_calc [label="1 pt/hr"]
+    improved -> time_calc [label="2 pts/hr"]
+    advanced -> time_calc [label="3 pts/hr"]
+    phased -> time_calc [label="5 pts/hr"]
+
+    // Multipliers affect calculation
+    multi_sensor -> time_calc [style=dashed color="#ffe66d"]
+    multi_ship -> time_calc [style=dashed color="#ffe66d"]
+    speed_mod -> time_calc [style=dashed color="#ffe66d"]
+
+    // Calculation to completion
+    time_calc -> complete [label="accumulate\npoints"]
+
+    // Example timeline at bottom
+    subgraph cluster_example {
+        label=<<font face="Helvetica" color="#ff6b6b"><b>Example: 300pt Planet</b></font>>
+        bgcolor="#1a1a2e"
+        color="#ff6b6b"
+        penwidth=1
+
+        ex1 [label="1 Base Sensor\n12.5 days" fillcolor="#4d2d2d"]
+        ex2 [label="3 Base Sensors\n4.2 days" fillcolor="#4d2d2d"]
+        ex3 [label="1 Phased Sensor\n2.5 days" fillcolor="#4d2d2d"]
+    }
+
+    ex1 -> ex2 -> ex3 [style=invis]
+}

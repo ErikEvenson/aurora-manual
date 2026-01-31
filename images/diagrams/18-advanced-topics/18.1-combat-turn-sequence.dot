@@ -1,0 +1,72 @@
+// Combat Turn Sequence - 7-step combat sub-pulse sequence
+digraph CombatTurnSequence {
+    // Global styling
+    bgcolor="#1a1a2e"
+    rankdir=TB
+    splines=ortho
+    nodesep=0.6
+    ranksep=0.8
+
+    // Node defaults
+    node [
+        shape=box
+        style="filled,rounded"
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=12
+        width=2.5
+        height=0.6
+    ]
+
+    // Edge defaults
+    edge [
+        color="#4ecdc4"
+        penwidth=2
+        arrowsize=0.8
+    ]
+
+    // Title
+    title [
+        label="Combat Sub-Pulse Sequence\n(5-second intervals)"
+        shape=none
+        fillcolor="transparent"
+        fontsize=16
+        fontcolor="#ffe66d"
+    ]
+
+    // Step nodes with numbers
+    step1 [label="1. Movement Phase\nAll ships and missiles move simultaneously"]
+    step2 [label="2. Fire Control Assignment\nWeapons verify assigned targets"]
+    step3 [label="3. Point Defense Phase\nCIWS and PD weapons engage missiles\n(Final Fire mode)"]
+    step4 [label="4. Beam Weapon Fire\nBeam weapons fire at assigned targets"]
+    step5 [label="5. Missile Launch\nMissile launchers release ordnance"]
+    step6 [label="6. Missile Tracking\nActive missiles update tracking"]
+    step7 [label="7. Damage Resolution\nHits resolved, armor/shields reduced\nInternal components checked"]
+
+    // Color-code critical phases
+    step3 [fillcolor="#2d4444" color="#95d5b2"]
+    step4 [fillcolor="#442d2d" color="#ff6b6b"]
+    step5 [fillcolor="#442d2d" color="#ff6b6b"]
+    step7 [fillcolor="#44442d" color="#ffe66d"]
+
+    // Edges
+    title -> step1 [style=invis]
+    step1 -> step2
+    step2 -> step3
+    step3 -> step4
+    step4 -> step5
+    step5 -> step6
+    step6 -> step7
+
+    // Loop back indicator
+    step7 -> step1 [
+        xlabel="Next\nSub-Pulse"
+        fontcolor="#ffe66d"
+        fontname="Helvetica"
+        fontsize=10
+        style=dashed
+        constraint=false
+    ]
+}

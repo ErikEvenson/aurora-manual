@@ -1,0 +1,113 @@
+// Excavation Success Rate & Time to Artifact - How xeno points affect recovery
+// Issue #1028
+
+digraph excavation_rate {
+    bgcolor="#1a1a2e"
+    rankdir=TB
+    nodesep=0.6
+    ranksep=0.7
+
+    // Global node styling
+    node [
+        shape=box
+        style="filled,rounded"
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+        fontcolor="white"
+        fontname="Helvetica"
+        fontsize=10
+        penwidth=2
+    ]
+
+    // Global edge styling
+    edge [
+        color="#4ecdc4"
+        fontcolor="white"
+        fontname="Helvetica"
+        fontsize=9
+        penwidth=1.5
+    ]
+
+    // Title
+    labelloc="t"
+    label=<<font face="Helvetica" color="white" point-size="16"><b>Xenoarchaeology: Success Rate and Expected Time</b></font>>
+
+    // Formula explanation
+    subgraph cluster_formula {
+        label=<<font face="Helvetica" color="#95d5b2"><b>Core Formula</b></font>>
+        bgcolor="#1a1a2e"
+        color="#95d5b2"
+        penwidth=1
+
+        formula [label="Annual Success Rate = Total Xeno Points\n(e.g., 40 points = 40% per year)" fillcolor="#2d4d3d" color="#95d5b2"]
+    }
+
+    // Input factors
+    subgraph cluster_inputs {
+        label=<<font face="Helvetica" color="#4ecdc4"><b>Xenoarchaeology Points</b></font>>
+        bgcolor="#1a1a2e"
+        color="#4ecdc4"
+        penwidth=1
+
+        component [label="Each Component\n0.5 xeno points" fillcolor="#2d2d44"]
+        vehicle [label="Typical Vehicle\n1-2 components\n0.5-1.0 points" fillcolor="#2d2d44"]
+        formation [label="Formation Total\nAll vehicles combined" fillcolor="#2d2d44"]
+        multi_form [label="Multiple Formations\nPoints stack at\nsame population" fillcolor="#2d2d44"]
+    }
+
+    component -> vehicle -> formation -> multi_form [style=invis]
+
+    // Success rate examples (visual scale)
+    subgraph cluster_rates {
+        label=<<font face="Helvetica" color="#ffe66d"><b>Annual Success Probability</b></font>>
+        bgcolor="#1a1a2e"
+        color="#ffe66d"
+        penwidth=1
+
+        rate10 [label="10 pts = 10%/yr\nExp: 10 years" fillcolor="#4d2d2d" color="#ff6b6b"]
+        rate20 [label="20 pts = 20%/yr\nExp: 5 years" fillcolor="#4d3d2d" color="#ff6b6b"]
+        rate40 [label="40 pts = 40%/yr\nExp: 2.5 years" fillcolor="#3d3d2d" color="#ffe66d"]
+        rate60 [label="60 pts = 60%/yr\nExp: 1.7 years" fillcolor="#2d4d2d" color="#95d5b2"]
+        rate80 [label="80 pts = 80%/yr\nExp: 1.25 years" fillcolor="#2d4d3d" color="#95d5b2"]
+    }
+
+    rate10 -> rate20 -> rate40 -> rate60 -> rate80 [style=invis]
+
+    // Expected time calculation
+    subgraph cluster_expected {
+        label=<<font face="Helvetica" color="#ff6b6b"><b>Expected Time Between Discoveries</b></font>>
+        bgcolor="#1a1a2e"
+        color="#ff6b6b"
+        penwidth=1
+
+        exp_formula [label="Expected Time = 1 / (Annual Rate)\nNote: Actual times vary due to RNG" fillcolor="#3d2d2d"]
+    }
+
+    // Practical recommendations
+    subgraph cluster_recommend {
+        label=<<font face="Helvetica" color="white"><b>Team Size Recommendations</b></font>>
+        bgcolor="#1a1a2e"
+        color="#4ecdc4"
+        penwidth=1
+
+        small [label="Small Team (10-20 pts)\nSlow but safe\nFor low-priority sites" fillcolor="#4d2d2d"]
+        medium [label="Medium Team (20-40 pts)\nBalanced approach\nRecommended for most sites" fillcolor="#3d3d2d" color="#ffe66d"]
+        large [label="Large Team (40-80 pts)\nFast recovery\nFor high-priority ruins" fillcolor="#2d4d2d" color="#95d5b2"]
+    }
+
+    small -> medium -> large [style=invis]
+
+    // Flow connections
+    formula -> {rate10 rate20 rate40 rate60 rate80} [style=dashed]
+    multi_form -> formula
+
+    // Phase scaling note
+    subgraph cluster_phase {
+        label=<<font face="Helvetica" color="#4ecdc4"><b>Construction Phase Scaling</b></font>>
+        bgcolor="#1a1a2e"
+        color="#4ecdc4"
+        penwidth=1
+
+        phase_note [label="Actual chance per phase:\nAnnual Rate x (Phase Length / 1 Year)\n\nExample: 40% annual, 5-day phase\n= 40% x (5/365) = 0.55% per check" fillcolor="#2d2d44"]
+    }
+}

@@ -1,0 +1,97 @@
+// Jump Point Network Topology - How systems connect through jump points
+// Issue #1016
+
+digraph jump_topology {
+    bgcolor="#1a1a2e"
+    rankdir=TB
+    nodesep=1.0
+    ranksep=1.2
+
+    // Global node styling
+    node [
+        shape=circle
+        style=filled
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+        fontcolor="white"
+        fontname="Helvetica"
+        fontsize=10
+        penwidth=2
+        width=1.2
+    ]
+
+    // Global edge styling
+    edge [
+        color="#4ecdc4"
+        fontcolor="white"
+        fontname="Helvetica"
+        fontsize=9
+        penwidth=2
+        dir=both
+        arrowhead=normal
+        arrowtail=normal
+    ]
+
+    // Title
+    labelloc="t"
+    label=<<font face="Helvetica" color="white" point-size="16"><b>Jump Point Network Topology</b></font>>
+
+    // Star systems as nodes
+    sol [label="Sol\n(Home)" fillcolor="#3d4d3d" color="#95d5b2" width=1.4]
+    alpha [label="Alpha\nCentauri" fillcolor="#2d2d44"]
+    barnard [label="Barnard's\nStar" fillcolor="#2d2d44"]
+    wolf [label="Wolf 359" fillcolor="#2d2d44"]
+    sirius [label="Sirius" fillcolor="#2d2d44"]
+    epsilon [label="Epsilon\nEridani" fillcolor="#2d2d44"]
+    tau [label="Tau Ceti" fillcolor="#2d2d44"]
+    ross [label="Ross 128" fillcolor="#2d2d44"]
+    unknown1 [label="???\n(Unexplored)" fillcolor="#4d3d3d" color="#ff6b6b" style="filled,dashed"]
+    unknown2 [label="???\n(Unexplored)" fillcolor="#4d3d3d" color="#ff6b6b" style="filled,dashed"]
+
+    // Jump point connections (bidirectional)
+    sol -> alpha [label="JP-1"]
+    sol -> barnard [label="JP-2"]
+    sol -> wolf [label="JP-3"]
+    sol -> sirius [label="JP-4"]
+
+    alpha -> epsilon [label="JP-1"]
+    alpha -> tau [label="JP-2"]
+    alpha -> unknown1 [label="JP-3" style=dashed color="#ff6b6b"]
+
+    barnard -> ross [label="JP-1"]
+    barnard -> wolf [label="JP-2"]
+
+    sirius -> tau [label="JP-1"]
+    sirius -> unknown2 [label="JP-2" style=dashed color="#ff6b6b"]
+
+    epsilon -> tau [label="JP-1"]
+
+    // Legend
+    subgraph cluster_legend {
+        label=<<font face="Helvetica" color="#95d5b2"><b>Key Properties</b></font>>
+        bgcolor="#1a1a2e"
+        color="#4ecdc4"
+        penwidth=1
+
+        node [shape=box style="filled,rounded" width=2.5]
+
+        prop1 [label="Bidirectional: A<->B always" fillcolor="#2d2d44"]
+        prop2 [label="Fixed Position: Never moves" fillcolor="#2d2d44"]
+        prop3 [label="2-8 JPs per system typical" fillcolor="#2d2d44"]
+        prop4 [label="Hidden until surveyed" fillcolor="#2d2d44"]
+
+        prop1 -> prop2 -> prop3 -> prop4 [style=invis]
+    }
+
+    // Note about guaranteed path
+    subgraph cluster_note {
+        label=<<font face="Helvetica" color="#ffe66d"><b>Guaranteed Exploration (v2.1.1)</b></font>>
+        bgcolor="#1a1a2e"
+        color="#ffe66d"
+        penwidth=1
+
+        node [shape=box style="filled,rounded" width=3]
+
+        note1 [label="Last unlinked JP always generates\na system with min. 2 JPs" fillcolor="#3d3d4d"]
+    }
+}

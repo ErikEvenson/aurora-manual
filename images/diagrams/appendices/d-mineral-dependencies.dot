@@ -1,0 +1,143 @@
+// Mineral Dependencies by Installation
+digraph MineralDependencies {
+    // Global styling
+    bgcolor="#1a1a2e"
+    rankdir=LR
+    splines=true
+    nodesep=0.3
+    ranksep=1.2
+
+    // Node defaults
+    node [
+        shape=box
+        style="filled,rounded"
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=10
+    ]
+
+    // Edge defaults
+    edge [
+        fontname="Helvetica"
+        fontsize=8
+        fontcolor="white"
+    ]
+
+    // Title
+    title [
+        label="Mineral Dependencies by Installation"
+        shape=none
+        fillcolor="transparent"
+        fontsize=16
+        fontcolor="#ffe66d"
+    ]
+
+    // Minerals (left column) - color coded by usage frequency
+    subgraph cluster_minerals {
+        label="Trans-Newtonian Minerals"
+        labeljust=l
+        fontname="Helvetica"
+        fontcolor="#95d5b2"
+        fontsize=12
+        style=dashed
+        color="#4ecdc4"
+
+        // High usage (red - most critical)
+        duranium [label="Duranium" fillcolor="#442d2d" color="#ff6b6b"]
+
+        // Medium-high usage (yellow)
+        neutronium [label="Neutronium" fillcolor="#44442d" color="#ffe66d"]
+        mercassium [label="Mercassium" fillcolor="#44442d" color="#ffe66d"]
+        boronide [label="Boronide" fillcolor="#44442d" color="#ffe66d"]
+
+        // Medium usage (green)
+        corundium [label="Corundium" fillcolor="#2d442d" color="#95d5b2"]
+        vendarite [label="Vendarite" fillcolor="#2d442d" color="#95d5b2"]
+        tritanium [label="Tritanium" fillcolor="#2d442d" color="#95d5b2"]
+        corbomite [label="Corbomite" fillcolor="#2d442d" color="#95d5b2"]
+
+        // Specialized (cyan)
+        sorium [label="Sorium\n(-> Fuel)" fillcolor="#2d3d44" color="#4ecdc4"]
+        uridium [label="Uridium" fillcolor="#2d3d44" color="#4ecdc4"]
+        gallicite [label="Gallicite" fillcolor="#2d3d44" color="#4ecdc4"]
+    }
+
+    // Installations (right column)
+    subgraph cluster_installations {
+        label="Planetary Installations"
+        labeljust=l
+        fontname="Helvetica"
+        fontcolor="#95d5b2"
+        fontsize=12
+        style=dashed
+        color="#4ecdc4"
+
+        infrastructure [label="Infrastructure\n(2 BP)"]
+        maintenance [label="Maintenance Facility\n(60 BP)"]
+        mine [label="Mine\n(120 BP)"]
+        construction [label="Construction Factory\n(120 BP)"]
+        ordnance [label="Ordnance Factory\n(120 BP)"]
+        fighter [label="Fighter Factory\n(120 BP)"]
+        refinery [label="Fuel Refinery\n(120 BP)"]
+        financial [label="Financial Centre\n(120 BP)"]
+        automine [label="Automated Mine\n(240 BP)"]
+        terraform [label="Terraforming\n(300 BP)"]
+        massdriver [label="Mass Driver\n(300 BP)"]
+        gfcc [label="Ground Force Constr.\n(2,400 BP)"]
+        research [label="Research Facility\n(2,400 BP)"]
+    }
+
+    // Edges - Duranium (most connections)
+    duranium -> infrastructure [color="#ff6b6b" penwidth=2]
+    duranium -> maintenance [color="#ff6b6b" penwidth=3]
+    duranium -> construction [color="#ff6b6b" penwidth=3]
+    duranium -> terraform [color="#ff6b6b" penwidth=3]
+    duranium -> massdriver [color="#ff6b6b" penwidth=2]
+    duranium -> research [color="#ff6b6b" penwidth=4]
+
+    // Edges - Neutronium
+    neutronium -> maintenance [color="#ffe66d" penwidth=3]
+    neutronium -> construction [color="#ffe66d" penwidth=3]
+    neutronium -> massdriver [color="#ffe66d" penwidth=2]
+
+    // Edges - Mercassium
+    mercassium -> infrastructure [color="#ffe66d" penwidth=2]
+    mercassium -> research [color="#ffe66d" penwidth=4]
+
+    // Edges - Boronide
+    boronide -> refinery [color="#ffe66d" penwidth=3]
+    boronide -> terraform [color="#ffe66d" penwidth=3]
+    boronide -> massdriver [color="#ffe66d" penwidth=2]
+
+    // Edges - Corundium
+    corundium -> mine [color="#95d5b2" penwidth=3]
+    corundium -> automine [color="#95d5b2" penwidth=3]
+
+    // Edges - Vendarite
+    vendarite -> fighter [color="#95d5b2" penwidth=3]
+    vendarite -> gfcc [color="#95d5b2" penwidth=4]
+
+    // Edges - Tritanium
+    tritanium -> ordnance [color="#95d5b2" penwidth=3]
+
+    // Edges - Corbomite
+    corbomite -> financial [color="#95d5b2" penwidth=3]
+
+    // Legend
+    legend [
+        label=<<table border="0" cellborder="0" cellspacing="2">
+            <tr><td colspan="2"><b>Line Weight = Quantity</b></td></tr>
+            <tr><td bgcolor="#ff6b6b" width="20"></td><td align="left">High demand mineral</td></tr>
+            <tr><td bgcolor="#ffe66d" width="20"></td><td align="left">Medium demand</td></tr>
+            <tr><td bgcolor="#95d5b2" width="20"></td><td align="left">Specialized use</td></tr>
+            <tr><td bgcolor="#4ecdc4" width="20"></td><td align="left">Limited/Ship-only</td></tr>
+        </table>>
+        shape=none
+        fillcolor="transparent"
+    ]
+
+    // Layout hints
+    title -> duranium [style=invis]
+}

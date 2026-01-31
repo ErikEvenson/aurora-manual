@@ -1,0 +1,131 @@
+// Lagrange Points & Survey Locations - Where jump points can be found
+// Issue #1017
+
+digraph lagrange_points {
+    bgcolor="#1a1a2e"
+    rankdir=TB
+
+    // Global node styling
+    node [
+        shape=ellipse
+        style=filled
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+        fontcolor="white"
+        fontname="Helvetica"
+        fontsize=10
+        penwidth=2
+    ]
+
+    // Global edge styling
+    edge [
+        color="#4ecdc4"
+        fontcolor="white"
+        fontname="Helvetica"
+        fontsize=9
+        penwidth=1.5
+    ]
+
+    // Title
+    labelloc="t"
+    label=<<font face="Helvetica" color="white" point-size="16"><b>Survey Locations in a Star System</b></font>>
+
+    // Central star
+    star [label="Primary\nStar" shape=circle fillcolor="#ffe66d" color="#ff6b6b" fontcolor="#1a1a2e" width=1.5]
+
+    // Inner zone survey locations
+    subgraph cluster_inner {
+        label=<<font face="Helvetica" color="#ff6b6b"><b>Inner Zone</b></font>>
+        bgcolor="#2d1a1a"
+        color="#ff6b6b"
+        penwidth=1
+
+        inner1 [label="SL-1" shape=diamond fillcolor="#4d2d2d" width=0.5]
+        inner2 [label="SL-2" shape=diamond fillcolor="#4d2d2d" width=0.5]
+        inner3 [label="SL-3" shape=diamond fillcolor="#4d2d2d" width=0.5]
+        inner4 [label="SL-4" shape=diamond fillcolor="#4d2d2d" width=0.5]
+    }
+
+    // Mid zone with planets and moons
+    subgraph cluster_mid {
+        label=<<font face="Helvetica" color="#ffe66d"><b>Mid Zone</b></font>>
+        bgcolor="#2d2d1a"
+        color="#ffe66d"
+        penwidth=1
+
+        planet1 [label="Planet" shape=circle fillcolor="#3d4d3d" color="#95d5b2" width=0.8]
+        mid1 [label="SL-5" shape=diamond fillcolor="#4d4d2d" width=0.5]
+        mid2 [label="SL-6" shape=diamond fillcolor="#4d4d2d" width=0.5]
+        mid3 [label="SL-7" shape=diamond fillcolor="#4d4d2d" width=0.5]
+
+        // Planetary Lagrange points
+        planet_l4 [label="L4" shape=triangle fillcolor="#3d3d2d" width=0.4]
+        planet_l5 [label="L5" shape=triangle fillcolor="#3d3d2d" width=0.4]
+    }
+
+    // Outer zone
+    subgraph cluster_outer {
+        label=<<font face="Helvetica" color="#95d5b2"><b>Outer Zone</b></font>>
+        bgcolor="#1a2d1a"
+        color="#95d5b2"
+        penwidth=1
+
+        gas_giant [label="Gas\nGiant" shape=circle fillcolor="#2d4d4d" color="#4ecdc4" width=1.0]
+        outer1 [label="SL-8" shape=diamond fillcolor="#2d4d2d" width=0.5]
+        outer2 [label="SL-9" shape=diamond fillcolor="#2d4d2d" width=0.5]
+        outer3 [label="SL-10" shape=diamond fillcolor="#2d4d2d" width=0.5]
+
+        // Giant's moons as potential sites
+        moon1 [label="Moon" shape=circle fillcolor="#2d3d3d" width=0.4]
+    }
+
+    // Extreme outer
+    subgraph cluster_extreme {
+        label=<<font face="Helvetica" color="#4ecdc4"><b>Extreme Outer</b></font>>
+        bgcolor="#1a1a2d"
+        color="#4ecdc4"
+        penwidth=1
+
+        extreme1 [label="SL-11" shape=diamond fillcolor="#2d2d4d" width=0.5]
+        extreme2 [label="SL-12" shape=diamond fillcolor="#2d2d4d" width=0.5]
+    }
+
+    // Connections (orbital distances implied)
+    star -> {inner1 inner2 inner3 inner4} [style=dashed len=1]
+    star -> {mid1 mid2 mid3 planet1} [style=dashed len=2]
+    star -> {outer1 outer2 outer3 gas_giant} [style=dashed len=3]
+    star -> {extreme1 extreme2} [style=dashed len=4]
+
+    // Planet-Lagrange connections
+    planet1 -> planet_l4 [style=dotted color="#ffe66d" len=0.5]
+    planet1 -> planet_l5 [style=dotted color="#ffe66d" len=0.5]
+
+    // Gas giant moon
+    gas_giant -> moon1 [style=dotted color="#4ecdc4" len=0.5]
+
+    // Legend
+    subgraph cluster_legend {
+        label=<<font face="Helvetica" color="white"><b>Legend</b></font>>
+        bgcolor="#1a1a2e"
+        color="#4ecdc4"
+        penwidth=1
+
+        node [shape=box style="filled,rounded" width=2.5]
+
+        leg1 [label="<> Survey Location (SL)\nMay contain jump point" shape=diamond fillcolor="#2d2d44"]
+        leg2 [label="/\\ Planetary Lagrange Point\nCreated by large bodies" shape=triangle fillcolor="#3d3d2d"]
+        leg3 [label="~30 locations per system\n2-8 typically have jump points" shape=box fillcolor="#2d2d44"]
+    }
+
+    // Binary star note
+    subgraph cluster_binary {
+        label=<<font face="Helvetica" color="#ff6b6b"><b>Binary Systems</b></font>>
+        bgcolor="#1a1a2e"
+        color="#ff6b6b"
+        penwidth=1
+
+        node [shape=box style="filled,rounded"]
+
+        binary_note [label="Binary/multiple star systems\ncreate additional Lagrange points\nbetween stellar components" fillcolor="#3d2d2d"]
+    }
+}

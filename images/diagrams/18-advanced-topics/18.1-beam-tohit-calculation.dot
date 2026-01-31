@@ -1,0 +1,148 @@
+// Beam Weapon To-Hit Calculation Flow
+digraph BeamToHitCalculation {
+    // Global styling
+    bgcolor="#1a1a2e"
+    rankdir=TB
+    splines=ortho
+    nodesep=0.5
+    ranksep=0.7
+
+    // Node defaults
+    node [
+        shape=box
+        style="filled,rounded"
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=11
+        width=2.8
+    ]
+
+    // Edge defaults
+    edge [
+        color="#4ecdc4"
+        penwidth=2
+        arrowsize=0.8
+    ]
+
+    // Title
+    title [
+        label="Beam Weapon To-Hit Calculation"
+        shape=none
+        fillcolor="transparent"
+        fontsize=16
+        fontcolor="#ffe66d"
+    ]
+
+    // Input factors (left column)
+    range_input [
+        label="Max Range\nCurrent Range"
+        fillcolor="#2d3d44"
+        color="#95d5b2"
+    ]
+
+    speed_input [
+        label="Weapon Tracking Speed\nTarget Speed"
+        fillcolor="#2d3d44"
+        color="#95d5b2"
+    ]
+
+    ecm_input [
+        label="Target ECM Level\nFire Control ECCM Level"
+        fillcolor="#2d3d44"
+        color="#95d5b2"
+    ]
+
+    // Calculation steps (center)
+    base_calc [
+        label="Base Hit Chance =\n(Max_Range - Current_Range)\n/ Max_Range x 100"
+        fillcolor="#44442d"
+        color="#ffe66d"
+        height=0.8
+    ]
+
+    tracking_calc [
+        label="Tracking Modifier =\nmin(1.0, Weapon_Tracking\n/ Target_Speed)"
+        fillcolor="#44442d"
+        color="#ffe66d"
+        height=0.8
+    ]
+
+    ecm_calc [
+        label="ECM/ECCM Modifier =\n1 - (ECM_Level - ECCM_Level) x 0.1"
+        fillcolor="#44442d"
+        color="#ffe66d"
+        height=0.8
+    ]
+
+    // Multiplication steps
+    mult1 [
+        label="x"
+        shape=circle
+        width=0.4
+        height=0.4
+        fixedsize=true
+        fillcolor="#4ecdc4"
+        fontcolor="#1a1a2e"
+        fontsize=14
+    ]
+
+    mult2 [
+        label="x"
+        shape=circle
+        width=0.4
+        height=0.4
+        fixedsize=true
+        fillcolor="#4ecdc4"
+        fontcolor="#1a1a2e"
+        fontsize=14
+    ]
+
+    // Result
+    final [
+        label="Final Hit Chance (%)"
+        fillcolor="#442d44"
+        color="#ff6b6b"
+        fontsize=13
+    ]
+
+    // Layout and edges
+    title -> range_input [style=invis]
+
+    range_input -> base_calc
+    speed_input -> tracking_calc
+    ecm_input -> ecm_calc
+
+    base_calc -> mult1
+    tracking_calc -> mult1
+    mult1 -> mult2
+    ecm_calc -> mult2
+    mult2 -> final
+
+    // Notes
+    note1 [
+        label="At point-blank: ~100% hit\nAt max range: ~50% hit"
+        shape=note
+        fillcolor="#1a1a2e"
+        color="#4ecdc4"
+        fontsize=9
+        fontcolor="#95d5b2"
+    ]
+
+    note2 [
+        label="If target faster than\ntracking, hit chance capped"
+        shape=note
+        fillcolor="#1a1a2e"
+        color="#4ecdc4"
+        fontsize=9
+        fontcolor="#95d5b2"
+    ]
+
+    base_calc -> note1 [style=dotted color="#4ecdc4" arrowhead=none]
+    tracking_calc -> note2 [style=dotted color="#4ecdc4" arrowhead=none]
+
+    // Force ranking
+    {rank=same; range_input; speed_input; ecm_input}
+    {rank=same; base_calc; tracking_calc; ecm_calc}
+}

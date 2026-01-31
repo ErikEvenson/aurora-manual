@@ -1,0 +1,143 @@
+// Production Formula Breakdown
+digraph ProductionFormula {
+    // Global styling
+    bgcolor="#1a1a2e"
+    rankdir=LR
+    splines=ortho
+    nodesep=0.4
+    ranksep=0.6
+
+    // Node defaults
+    node [
+        shape=box
+        style="filled,rounded"
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=11
+    ]
+
+    // Edge defaults
+    edge [
+        color="#4ecdc4"
+        penwidth=2
+        arrowsize=0.8
+    ]
+
+    // Title
+    title [
+        label="Production Formulas"
+        shape=none
+        fillcolor="transparent"
+        fontsize=16
+        fontcolor="#ffe66d"
+    ]
+
+    // Construction cluster
+    subgraph cluster_construction {
+        label="Construction Rate (BP/Year)"
+        labeljust=l
+        fontname="Helvetica"
+        fontcolor="#ffe66d"
+        fontsize=12
+        style=dashed
+        color="#4ecdc4"
+
+        c_factories [label="Number of\nFactories" fillcolor="#2d3d44" color="#95d5b2"]
+        c_base [label="10 BP/Factory\n(base)" fillcolor="#2d3d44" color="#95d5b2"]
+        c_governor [label="Governor Bonus\n1 + (Prod% / 100)" fillcolor="#44442d" color="#ffe66d"]
+        c_sector [label="Sector Bonus\nGov Bonus x 0.25" fillcolor="#44442d" color="#ffe66d"]
+        c_result [label="Total BP/Year" fillcolor="#442d44" color="#ff6b6b"]
+
+        c_mult1 [label="x" shape=circle width=0.3 height=0.3 fixedsize=true fillcolor="#4ecdc4" fontcolor="#1a1a2e"]
+        c_mult2 [label="x" shape=circle width=0.3 height=0.3 fixedsize=true fillcolor="#4ecdc4" fontcolor="#1a1a2e"]
+        c_mult3 [label="x" shape=circle width=0.3 height=0.3 fixedsize=true fillcolor="#4ecdc4" fontcolor="#1a1a2e"]
+
+        c_factories -> c_mult1
+        c_base -> c_mult1
+        c_mult1 -> c_mult2
+        c_governor -> c_mult2
+        c_mult2 -> c_mult3
+        c_sector -> c_mult3
+        c_mult3 -> c_result
+    }
+
+    // Mining cluster
+    subgraph cluster_mining {
+        label="Mining Production (tons/year)"
+        labeljust=l
+        fontname="Helvetica"
+        fontcolor="#ffe66d"
+        fontsize=12
+        style=dashed
+        color="#4ecdc4"
+
+        m_mines [label="Number of\nMines" fillcolor="#2d3d44" color="#95d5b2"]
+        m_access [label="Accessibility\n(0.1 - 1.0)" fillcolor="#2d3d44" color="#95d5b2"]
+        m_tech [label="Tech Modifier\n(base 1.0)" fillcolor="#44442d" color="#ffe66d"]
+        m_result [label="Annual Output" fillcolor="#442d44" color="#ff6b6b"]
+
+        m_mult1 [label="x" shape=circle width=0.3 height=0.3 fixedsize=true fillcolor="#4ecdc4" fontcolor="#1a1a2e"]
+        m_mult2 [label="x" shape=circle width=0.3 height=0.3 fixedsize=true fillcolor="#4ecdc4" fontcolor="#1a1a2e"]
+
+        m_mines -> m_mult1
+        m_access -> m_mult1
+        m_mult1 -> m_mult2
+        m_tech -> m_mult2
+        m_mult2 -> m_result
+    }
+
+    // Fuel cluster
+    subgraph cluster_fuel {
+        label="Fuel Production (litres/year)"
+        labeljust=l
+        fontname="Helvetica"
+        fontcolor="#ffe66d"
+        fontsize=12
+        style=dashed
+        color="#4ecdc4"
+
+        f_refineries [label="Number of\nRefineries" fillcolor="#2d3d44" color="#95d5b2"]
+        f_base [label="40,000 L/Refinery\n(base)" fillcolor="#2d3d44" color="#95d5b2"]
+        f_tech [label="Tech Modifier" fillcolor="#44442d" color="#ffe66d"]
+        f_result [label="Fuel/Year" fillcolor="#442d44" color="#ff6b6b"]
+
+        f_mult1 [label="x" shape=circle width=0.3 height=0.3 fixedsize=true fillcolor="#4ecdc4" fontcolor="#1a1a2e"]
+        f_mult2 [label="x" shape=circle width=0.3 height=0.3 fixedsize=true fillcolor="#4ecdc4" fontcolor="#1a1a2e"]
+
+        f_refineries -> f_mult1
+        f_base -> f_mult1
+        f_mult1 -> f_mult2
+        f_tech -> f_mult2
+        f_mult2 -> f_result
+    }
+
+    // Research cluster
+    subgraph cluster_research {
+        label="Research Points (RP/year)"
+        labeljust=l
+        fontname="Helvetica"
+        fontcolor="#ffe66d"
+        fontsize=12
+        style=dashed
+        color="#4ecdc4"
+
+        r_labs [label="Number of\nLabs" fillcolor="#2d3d44" color="#95d5b2"]
+        r_base [label="Lab Output\n(240 RP base)" fillcolor="#2d3d44" color="#95d5b2"]
+        r_scientist [label="Scientist Bonus\n(4x if in-field)" fillcolor="#44442d" color="#ffe66d"]
+        r_result [label="RP/Year" fillcolor="#442d44" color="#ff6b6b"]
+
+        r_mult1 [label="x" shape=circle width=0.3 height=0.3 fixedsize=true fillcolor="#4ecdc4" fontcolor="#1a1a2e"]
+        r_mult2 [label="x" shape=circle width=0.3 height=0.3 fixedsize=true fillcolor="#4ecdc4" fontcolor="#1a1a2e"]
+
+        r_labs -> r_mult1
+        r_base -> r_mult1
+        r_mult1 -> r_mult2
+        r_scientist -> r_mult2
+        r_mult2 -> r_result
+    }
+
+    // Hidden title edge
+    title -> c_factories [style=invis]
+}

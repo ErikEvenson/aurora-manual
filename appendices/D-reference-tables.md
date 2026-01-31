@@ -50,6 +50,8 @@ For installation placement and colony management, see [Section 5.1 Establishing 
 
 \hyperlink{ref-D-4}{[D-4]}
 
+![Figure D.2.1: Mineral Dependencies by Installation](../images/diagrams/appendices/d-mineral-dependencies.svg)
+
 | Installation | BP Cost | Mineral Cost | Workers Required |
 |-------------|---------|--------------|-----------------|
 | Infrastructure | 2 | 1 Duranium + 1 Mercassium | 0 |

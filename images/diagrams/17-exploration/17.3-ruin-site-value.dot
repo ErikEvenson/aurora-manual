@@ -1,0 +1,127 @@
+// Xenoarchaeology Site Value Matrix - Prioritizing ruin excavation
+// Issue #1042
+
+digraph ruin_value_matrix {
+    bgcolor="#1a1a2e"
+    rankdir=TB
+    nodesep=0.5
+    ranksep=0.6
+
+    // Global node styling
+    node [
+        shape=box
+        style="filled,rounded"
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+        fontcolor="white"
+        fontname="Helvetica"
+        fontsize=10
+        penwidth=2
+    ]
+
+    // Global edge styling
+    edge [
+        color="#4ecdc4"
+        fontcolor="white"
+        fontname="Helvetica"
+        fontsize=9
+        penwidth=1.5
+    ]
+
+    // Title
+    labelloc="t"
+    label=<<font face="Helvetica" color="white" point-size="16"><b>Ruin Site Value Assessment Matrix</b></font>>
+
+    // Factor 1: Ruin Race Level
+    subgraph cluster_tech {
+        label=<<font face="Helvetica" color="#4ecdc4"><b>Factor 1: Ruin Race Level</b></font>>
+        bgcolor="#1a1a2e"
+        color="#4ecdc4"
+        penwidth=1
+
+        tl1_2 [label="TL 1-2\nMax 4,000-8,000 RP\nEarly game value" fillcolor="#4d2d2d" color="#ff6b6b"]
+        tl3_4 [label="TL 3-4\nMax 16,000-32,000 RP\nMid game value" fillcolor="#3d3d2d" color="#ffe66d"]
+        tl5_6 [label="TL 5-6\nMax 64,000-128,000 RP\nLate game value" fillcolor="#2d4d2d" color="#95d5b2"]
+    }
+
+    tl1_2 -> tl3_4 -> tl5_6 [style=invis]
+
+    // Factor 2: Installation Count
+    subgraph cluster_size {
+        label=<<font face="Helvetica" color="#4ecdc4"><b>Factor 2: Estimated Size</b></font>>
+        bgcolor="#1a1a2e"
+        color="#4ecdc4"
+        penwidth=1
+
+        small [label="Small\nFew installations\nQuick depletion" fillcolor="#4d2d2d" color="#ff6b6b"]
+        medium [label="Medium\nModerate installations\nSustained returns" fillcolor="#3d3d2d" color="#ffe66d"]
+        large [label="Large\nMany installations\nLong-term investment" fillcolor="#2d4d2d" color="#95d5b2"]
+    }
+
+    small -> medium -> large [style=invis]
+
+    // Factor 3: Location Accessibility
+    subgraph cluster_location {
+        label=<<font face="Helvetica" color="#4ecdc4"><b>Factor 3: Body Habitability</b></font>>
+        bgcolor="#1a1a2e"
+        color="#4ecdc4"
+        penwidth=1
+
+        hostile [label="Hostile Body\nRequires infrastructure\nHigh setup cost" fillcolor="#4d2d2d" color="#ff6b6b"]
+        marginal [label="Marginal Body\nSome terraforming\nModerate cost" fillcolor="#3d3d2d" color="#ffe66d"]
+        habitable [label="Habitable World\nNo infrastructure needed\nLow setup cost" fillcolor="#2d4d2d" color="#95d5b2"]
+    }
+
+    hostile -> marginal -> habitable [style=invis]
+
+    // Factor 4: Strategic Position
+    subgraph cluster_strategic {
+        label=<<font face="Helvetica" color="#4ecdc4"><b>Factor 4: Strategic Position</b></font>>
+        bgcolor="#1a1a2e"
+        color="#4ecdc4"
+        penwidth=1
+
+        contested [label="Contested Space\nFleet protection required\nHigh risk" fillcolor="#4d2d2d" color="#ff6b6b"]
+        frontier [label="Frontier\nSome exposure\nModerate risk" fillcolor="#3d3d2d" color="#ffe66d"]
+        secure [label="Secure Territory\nNo military concern\nLow risk" fillcolor="#2d4d2d" color="#95d5b2"]
+    }
+
+    contested -> frontier -> secure [style=invis]
+
+    // Decision matrix
+    subgraph cluster_decision {
+        label=<<font face="Helvetica" color="#ffe66d"><b>Priority Decision</b></font>>
+        bgcolor="#1a1a2e"
+        color="#ffe66d"
+        penwidth=1
+
+        high_priority [label="HIGH PRIORITY\nExcavate Immediately\n\nHigh TL + Large + Habitable + Secure\nor\nAny TL in Starting System" fillcolor="#2d4d2d" color="#95d5b2" shape=box]
+
+        medium_priority [label="MEDIUM PRIORITY\nPlan Expedition\n\nMid TL + Medium Size\nor\nHigh TL on Hostile Body" fillcolor="#3d3d2d" color="#ffe66d" shape=box]
+
+        low_priority [label="LOW PRIORITY\nOpportunistic Only\n\nLow TL anywhere\nor\nAny TL in Contested Space\nwithout Fleet Support" fillcolor="#4d2d2d" color="#ff6b6b" shape=box]
+    }
+
+    high_priority -> medium_priority -> low_priority [style=invis]
+
+    // Priority order recommendation
+    subgraph cluster_order {
+        label=<<font face="Helvetica" color="#95d5b2"><b>Recommended Priority Order</b></font>>
+        bgcolor="#1a1a2e"
+        color="#95d5b2"
+        penwidth=1
+
+        p1 [label="1. High TL + Habitable + Near Home" fillcolor="#2d4d2d" color="#95d5b2"]
+        p2 [label="2. Any ruins in Starting System" fillcolor="#2d4d3d" color="#95d5b2"]
+        p3 [label="3. High TL on Hostile Bodies" fillcolor="#3d3d2d" color="#ffe66d"]
+        p4 [label="4. Low TL anywhere (gap-filling)" fillcolor="#3d3d3d" color="#ffe66d"]
+        p5 [label="5. Ruins in Contested Space" fillcolor="#4d2d2d" color="#ff6b6b"]
+    }
+
+    p1 -> p2 -> p3 -> p4 -> p5
+
+    // Connections from factors to decisions
+    {tl5_6 large habitable secure} -> high_priority [style=dashed color="#95d5b2"]
+    {tl3_4 medium marginal frontier} -> medium_priority [style=dashed color="#ffe66d"]
+    {tl1_2 small hostile contested} -> low_priority [style=dashed color="#ff6b6b"]
+}
