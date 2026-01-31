@@ -1,0 +1,161 @@
+digraph TerraformingDecisionTree {
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    rankdir=TB
+    compound=true
+    nodesep=0.4
+    ranksep=0.6
+
+    node [
+        fontname="Helvetica"
+        fontsize=10
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled,rounded"
+        shape=box
+    ]
+
+    edge [
+        fontname="Helvetica"
+        fontsize=8
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.7
+    ]
+
+    // Entry point
+    start [label="New Colonizable\nWorld" shape=ellipse fillcolor="#4ecdc4" fontcolor="#1a1a2e"]
+
+    // First decision: Can it hold atmosphere?
+    can_atm [label="Gravity >= 0.1g?" shape=diamond fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+
+    // No atmosphere path
+    no_terraform [label="Cannot\nTerraform\n(no atm retention)" fillcolor="#ff6b6b" fontcolor="white"]
+    auto_only [label="Automated\nMines Only" shape=box fillcolor="#2d2d44"]
+
+    // World type classification
+    world_type [label="Identify\nWorld Type" shape=diamond fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+
+    // Cold Airless Path
+    subgraph cluster_cold_airless {
+        label="Cold & Airless (Mars-type)"
+        fontcolor="#4ecdc4"
+        color="#4ecdc4"
+        style=dashed
+
+        ca1 [label="1. Add CO2 or CH4\nfor greenhouse"]
+        ca2 [label="2. Wait for temp\nto rise"]
+        ca3 [label="3. Add N2 for\npressure"]
+        ca4 [label="4. Add O2 to\nbreathing level"]
+        ca5 [label="5. Remove CH4\nif overshot"]
+    }
+
+    // Hot Dense Path
+    subgraph cluster_hot_dense {
+        label="Hot & Dense (Venus-type)"
+        fontcolor="#ff6b6b"
+        color="#ff6b6b"
+        style=dashed
+
+        hd1 [label="1. Remove CO2\nto reduce GH"]
+        hd2 [label="2. Remove toxic\ngases"]
+        hd3 [label="3. Continue CO2\nremoval"]
+        hd4 [label="4. Very long\nprocess!"]
+        hd_alt [label="Alt: Nuclear\nbombardment\nfor dust cooling" fillcolor="#ff6b6b" fontcolor="white"]
+        hd5 [label="5. Add N2/O2\nwhen manageable"]
+    }
+
+    // Cold Toxic Path
+    subgraph cluster_cold_toxic {
+        label="Cold with Toxic Atmosphere"
+        fontcolor="#9b59b6"
+        color="#9b59b6"
+        style=dashed
+
+        ct1 [label="1. Remove toxics\n(highest CC impact)"]
+        ct2 [label="2. Add GH gases\nto warm"]
+        ct3 [label="3. Build pressure\nwith N2"]
+        ct4 [label="4. Add O2 last"]
+        ct5 [label="5. Remove temp\nGH if overshoot"]
+    }
+
+    // Ice Sheet Path
+    subgraph cluster_ice_sheet {
+        label="Cold with Ice Sheet"
+        fontcolor="#95d5b2"
+        color="#95d5b2"
+        style=dashed
+
+        is1 [label="1. Add water vapor\n(maximize hydro%)" fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+        is2 [label="2. Add Aestusium\n(safe GH gas)"]
+        is3 [label="3. Target -27C\nthreshold"]
+        is4 [label="4. Ice melts =\nAlbedo boost!"]
+        is5 [label="5. Extra warming\nfrom feedback" fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+    }
+
+    // Near Habitable Path
+    subgraph cluster_near_hab {
+        label="Near-Habitable"
+        fontcolor="#ffe66d"
+        color="#ffe66d"
+        style=dashed
+
+        nh1 [label="1. Identify specific\nissue"]
+        nh2 [label="2. Targeted fix\n(trace toxics, temp)"]
+        nh3 [label="3. Quick win!" fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+    }
+
+    // Outcomes
+    ready [label="Ready to\nColonize!" shape=ellipse fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+    impractical [label="Impractical\n(too large/extreme)" shape=ellipse fillcolor="#ff6b6b" fontcolor="white"]
+
+    // Practical check
+    practical [label="Practical\ntimeframe?" shape=diamond fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+
+    // Flow
+    start -> can_atm
+
+    can_atm -> no_terraform [label="No"]
+    can_atm -> world_type [label="Yes"]
+    no_terraform -> auto_only
+
+    // World type branches
+    world_type -> ca1 [label="Cold\nAirless"]
+    world_type -> hd1 [label="Hot\nDense"]
+    world_type -> ct1 [label="Cold\nToxic"]
+    world_type -> is1 [label="Ice\nSheet"]
+    world_type -> nh1 [label="Near-\nHabitable"]
+
+    // Cold airless sequence
+    ca1 -> ca2 -> ca3 -> ca4 -> ca5 -> practical
+
+    // Hot dense sequence
+    hd1 -> hd2 -> hd3 -> hd4
+    hd1 -> hd_alt [style=dashed label="Optional"]
+    hd_alt -> hd3
+    hd4 -> hd5 -> practical
+
+    // Cold toxic sequence
+    ct1 -> ct2 -> ct3 -> ct4 -> ct5 -> practical
+
+    // Ice sheet sequence
+    is1 -> is2 -> is3 -> is4 -> is5 -> practical
+
+    // Near habitable sequence
+    nh1 -> nh2 -> nh3 -> ready
+
+    // Practical decision
+    practical -> ready [label="Yes"]
+    practical -> impractical [label="No\n(centuries+)"]
+
+    // Notes
+    note_priority [label="Priority Order:\n1. Remove toxics\n2. Adjust temp\n3. Add breathables" shape=note fillcolor="#2d2d44" fontsize=9]
+    note_size [label="Smaller worlds\nterraform faster:\nLuna = 14x Earth" shape=note fillcolor="#2d2d44" fontsize=9]
+    note_danger [label="Add O2 LAST!\nDanger: O2 + CH4\n= explosive" shape=note fillcolor="#ff6b6b" fontcolor="white" fontsize=9]
+
+    world_type -> note_priority [style=dotted color="#666666" arrowhead=none]
+    ca1 -> note_size [style=dotted color="#666666" arrowhead=none]
+    ca4 -> note_danger [style=dotted color="#666666" arrowhead=none]
+}

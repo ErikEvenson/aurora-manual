@@ -1,0 +1,118 @@
+digraph GreenhouseFeedback {
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    rankdir=TB
+    compound=true
+    nodesep=0.6
+    ranksep=0.8
+
+    node [
+        fontname="Helvetica"
+        fontsize=11
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled,rounded"
+        shape=box
+    ]
+
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.8
+    ]
+
+    // Title
+    title [label="Surface Temperature Calculation" shape=none fontsize=14 fontcolor="#4ecdc4"]
+
+    // Main Formula Components
+    subgraph cluster_formula {
+        label="Temperature Formula"
+        fontcolor="#888888"
+        color="#4ecdc4"
+        style=dashed
+
+        base_temp [label="Base Temperature\n(from star distance\n& luminosity)"]
+        greenhouse [label="Greenhouse Factor\n= 1 + (Pressure/10)\n+ GH Gas Pressure\n(max 3.0)" fillcolor="#ff6b6b" fontcolor="white"]
+        albedo [label="Albedo Factor\n= Base Albedo\n+ (0.0015 x Hydro%)\n(max +0.15)"]
+        anti_gh [label="Anti-GH Factor\n= 1 + Anti-GH Pressure\n(max 3.0)" fillcolor="#4ecdc4" fontcolor="#1a1a2e"]
+
+        result [label="Surface Temp (K)\n= (Base x GH x Albedo)\n/ Anti-GH" shape=box fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+    }
+
+    // Greenhouse gases list
+    subgraph cluster_gh_gases {
+        label="Greenhouse Gases (+)"
+        fontcolor="#888888"
+        color="#ff6b6b"
+        style=dashed
+
+        co2 [label="CO2" fillcolor="#ff6b6b" fontcolor="white"]
+        methane [label="CH4\n(Methane)" fillcolor="#ff6b6b" fontcolor="white"]
+        aestusium [label="Aestusium\n(safe)" fillcolor="#ff6b6b" fontcolor="white"]
+        no2 [label="NO2, SO2" fillcolor="#ff6b6b" fontcolor="white"]
+    }
+
+    // Anti-greenhouse
+    subgraph cluster_anti_gases {
+        label="Anti-Greenhouse (-)"
+        fontcolor="#888888"
+        color="#4ecdc4"
+        style=dashed
+
+        frigusium [label="Frigusium\n(safe)" fillcolor="#4ecdc4" fontcolor="#1a1a2e"]
+        dust [label="Dust\n(temporary)\n= Dust/20000" fillcolor="#4ecdc4" fontcolor="#1a1a2e"]
+    }
+
+    // Ice Melt Feedback Loop
+    subgraph cluster_feedback {
+        label="Ice Melt Feedback Loop"
+        fontcolor="#ffe66d"
+        color="#ffe66d"
+        style=dashed
+
+        cold_world [label="Cold World\nwith Ice Sheet"]
+        add_heat [label="Add Greenhouse\nGases" fillcolor="#ff6b6b" fontcolor="white"]
+        threshold [label="Temp > -27C\n(246K)?" shape=diamond fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+        ice_melts [label="Ice Sheet\nMelts Event"]
+        albedo_boost [label="Albedo Increases\n+0.0015 x Hydro%"]
+        extra_warm [label="Additional\nWarming!" fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+    }
+
+    // Flow connections
+    title -> base_temp [style=invis]
+
+    base_temp -> result [label="x GH"]
+    greenhouse -> result [label="x"]
+    albedo -> result [label="x"]
+    anti_gh -> result [label="/"]
+
+    // GH gases to factor
+    co2 -> greenhouse [style=dashed color="#ff6b6b"]
+    methane -> greenhouse [style=dashed color="#ff6b6b"]
+    aestusium -> greenhouse [style=dashed color="#ff6b6b"]
+    no2 -> greenhouse [style=dashed color="#ff6b6b"]
+
+    // Anti-GH to factor
+    frigusium -> anti_gh [style=dashed color="#4ecdc4"]
+    dust -> anti_gh [style=dashed color="#4ecdc4"]
+
+    // Feedback loop
+    cold_world -> add_heat
+    add_heat -> threshold
+    threshold -> ice_melts [label="Yes" fontcolor="#95d5b2"]
+    threshold -> add_heat [label="No, keep\nheating" fontcolor="#ff6b6b" constraint=false]
+    ice_melts -> albedo_boost
+    albedo_boost -> extra_warm
+    extra_warm -> albedo [style=dashed color="#ffe66d" constraint=false label="Positive\nFeedback"]
+
+    // Notes
+    note_cap [label="Both GH and Anti-GH\nfactors capped at 3.0\n(3x or 1/3x max effect)" shape=note fillcolor="#2d2d44" fontsize=9]
+    note_water [label="Water Vapor is NOT\na greenhouse gas\nin Aurora C#" shape=note fillcolor="#ffe66d" fontcolor="#1a1a2e" fontsize=9]
+
+    greenhouse -> note_cap [style=dotted color="#666666" arrowhead=none]
+    co2 -> note_water [style=dotted color="#666666" arrowhead=none constraint=false]
+}

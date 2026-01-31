@@ -1,0 +1,132 @@
+digraph InstallationDependencies {
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    rankdir=TB
+    compound=true
+    nodesep=0.5
+    ranksep=0.7
+
+    node [
+        fontname="Helvetica"
+        fontsize=10
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled,rounded"
+        shape=box
+    ]
+
+    edge [
+        fontname="Helvetica"
+        fontsize=8
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.7
+    ]
+
+    // Resource Extraction Layer
+    subgraph cluster_extraction {
+        label="Resource Extraction"
+        fontcolor="#888888"
+        color="#ff6b6b"
+        style=dashed
+
+        mines [label="Mines\n50k workers\n120 BP" fillcolor="#ff6b6b" fontcolor="white"]
+        auto_mines [label="Automated Mines\n0 workers\n240 BP" fillcolor="#ff6b6b" fontcolor="white"]
+        fuel_ref [label="Fuel Refineries\n50k workers\n120 BP" fillcolor="#ff6b6b" fontcolor="white"]
+        harvesters [label="Fuel Harvesters\n(Ship Module)\nGas Giants only" fillcolor="#ff6b6b" fontcolor="white"]
+    }
+
+    // Manufacturing Layer
+    subgraph cluster_manufacturing {
+        label="Manufacturing"
+        fontcolor="#888888"
+        color="#4ecdc4"
+        style=dashed
+
+        const_fact [label="Construction\nFactories\n50k workers\n120 BP" fillcolor="#4ecdc4" fontcolor="#1a1a2e"]
+        ord_fact [label="Ordnance\nFactories\n50k workers\n120 BP" fillcolor="#4ecdc4" fontcolor="#1a1a2e"]
+        fighter_fact [label="Fighter\nFactories\n50k workers\n120 BP" fillcolor="#4ecdc4" fontcolor="#1a1a2e"]
+        shipyards [label="Naval\nShipyards" fillcolor="#4ecdc4" fontcolor="#1a1a2e"]
+    }
+
+    // Economy & Research Layer
+    subgraph cluster_economy {
+        label="Economy & Research"
+        fontcolor="#888888"
+        color="#95d5b2"
+        style=dashed
+
+        financial [label="Financial\nCentres\n50k workers" fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+        research [label="Research\nLabs\n1M workers\n200 RP/yr" fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+        gm_centre [label="Genetic Mod\nCentres\n250k workers" fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+    }
+
+    // Logistics Layer
+    subgraph cluster_logistics {
+        label="Logistics & Support"
+        fontcolor="#888888"
+        color="#ffe66d"
+        style=dashed
+
+        mass_driver [label="Mass Drivers\n0 workers\n300 BP" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+        spaceport [label="Spaceport\n0 workers\n3000 BP" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+        maintenance [label="Maintenance\nFacilities\n50k workers" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+        infra [label="Infrastructure\n(Colony Cost\nSupport)" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+    }
+
+    // Military Layer
+    subgraph cluster_military {
+        label="Military & Defense"
+        fontcolor="#888888"
+        color="#9b59b6"
+        style=dashed
+
+        gf_training [label="Ground Force\nTraining\n1M workers" fillcolor="#9b59b6"]
+        tracking [label="Deep Space\nTracking\nSensor 200" fillcolor="#9b59b6"]
+        terraform [label="Terraforming\n125k workers\n300 BP" fillcolor="#9b59b6"]
+    }
+
+    // Dependency arrows (what produces what)
+    mines -> const_fact [label="Minerals"]
+    mines -> ord_fact [label="Minerals"]
+    mines -> fighter_fact [label="Minerals"]
+    mines -> shipyards [label="Minerals"]
+
+    auto_mines -> mass_driver [label="Minerals\n(remote)"]
+
+    fuel_ref -> shipyards [label="Fuel" style=dashed]
+    harvesters -> fuel_ref [label="Sorium" style=dashed]
+
+    // Construction Factory outputs
+    const_fact -> mines [label="Builds" color="#95d5b2" style=bold]
+    const_fact -> fuel_ref [label="Builds" color="#95d5b2" style=bold]
+    const_fact -> infra [label="Builds" color="#95d5b2" style=bold]
+    const_fact -> terraform [label="Builds" color="#95d5b2" style=bold]
+    const_fact -> research [label="Builds" color="#95d5b2" style=bold]
+    const_fact -> gf_training [label="Builds" color="#95d5b2" style=bold]
+
+    // Shipyard relationships
+    shipyards -> harvesters [label="Builds Ships\nwith Harvesters" style=dashed]
+
+    // Logistics relationships
+    mass_driver -> mass_driver [label="Requires\npair" style=dotted]
+    spaceport -> financial [label="Enables\nCivilian Trade" style=dashed]
+
+    // Support relationships
+    maintenance -> shipyards [label="Supplies"]
+    infra -> mines [label="Population\nSupport" style=dotted]
+
+    // Legend
+    subgraph cluster_legend {
+        label="Legend"
+        fontcolor="#888888"
+        color="#666666"
+        style=dashed
+
+        leg1 [label="Solid: Direct dependency" shape=none fontsize=9]
+        leg2 [label="Dashed: Indirect/Optional" shape=none fontsize=9]
+        leg3 [label="Bold Green: Construction output" shape=none fontsize=9]
+    }
+}
