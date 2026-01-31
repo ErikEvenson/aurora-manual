@@ -1,0 +1,91 @@
+digraph AccessibilityDecay {
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    rankdir=TB
+    compound=true
+    nodesep=0.5
+    ranksep=0.6
+
+    node [
+        fontname="Helvetica"
+        fontsize=10
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled,rounded"
+        shape=box
+    ]
+
+    edge [
+        fontname="Helvetica"
+        fontsize=8
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.7
+    ]
+
+    // Title
+    title [label="Accessibility Decay Curve\n(Mining Efficiency Over Time)" shape=none fontsize=14 fontcolor="#4ecdc4"]
+
+    // Mining phases as main flow
+    subgraph cluster_phases {
+        label="Mining Phases"
+        fontcolor="#888888"
+        color="#666666"
+        style=dashed
+
+        phase1 [label="Phase 1: 0-50% Mined\n\nAccessibility: STABLE at initial value\nFull efficiency extraction\nOutput = Mines x Tech x Accessibility" fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+
+        threshold [label="50% DEPLETION THRESHOLD\n\nAccessibility begins declining" fillcolor="#ffe66d" fontcolor="#1a1a2e" shape=diamond]
+
+        phase2 [label="Phase 2: 50-100% Mined\n\nAccessibility: DECLINING toward 0.1\nReduced output per mine\nEfficiency drops significantly" fillcolor="#ff6b6b" fontcolor="white"]
+
+        exhausted [label="Deposit Exhausted\n\nAccessibility: 0.1 (minimum)\nDeposit reaches zero\nMines produce nothing" fillcolor="#2d2d44" fontcolor="#ff6b6b"]
+
+        phase1 -> threshold [label="Half mined" color="#95d5b2" penwidth=2]
+        threshold -> phase2 [label="Decline begins" color="#ffe66d" penwidth=2]
+        phase2 -> exhausted [label="Approaches zero" color="#ff6b6b" penwidth=2]
+    }
+
+    // Example calculation
+    subgraph cluster_example {
+        label="Example: 10 Mines at Base Tech (10 tons/mine/year)"
+        fontcolor="#4ecdc4"
+        color="#4ecdc4"
+        style=dashed
+
+        ex1 [label="At 25% mined\nAccessibility 1.0\n100 tons/year" fontsize=9 fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+        ex2 [label="At 75% mined\nAccessibility ~0.5\n50 tons/year" fontsize=9 fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+        ex3 [label="At 95% mined\nAccessibility ~0.1\n10 tons/year" fontsize=9 fillcolor="#ff6b6b" fontcolor="white"]
+
+        ex1 -> ex2 [label="-50%" style=dashed]
+        ex2 -> ex3 [label="-80%" style=dashed]
+    }
+
+    // Strategic implications
+    subgraph cluster_implications {
+        label="Strategic Implications"
+        fontcolor="#888888"
+        color="#666666"
+        style=dashed
+
+        imp1 [label="Early extraction is most efficient" shape=note fontsize=9]
+        imp2 [label="Survey new sites before 50% depletion" shape=note fontsize=9]
+        imp3 [label="High-accessibility deposits should be prioritized" shape=note fontsize=9]
+        imp4 [label="\"Minerals now\" > \"Minerals later\"" shape=note fontsize=9]
+    }
+
+    // Curve representation (simplified)
+    subgraph cluster_curve {
+        label="Accessibility vs Depletion"
+        fontcolor="#888888"
+        color="#666666"
+        style=dashed
+
+        curve_text [label="    0%           50%          100%\n     |-------------|-------------|\n1.0  =============|\n                  |\\   \n0.5               | \\   DECLINE\n                  |  \\  \n0.1               |   ============" shape=none fontname="Courier" fontsize=10]
+    }
+
+    // Layout
+    title -> phase1 [style=invis]
+}

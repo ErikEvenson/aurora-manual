@@ -1,0 +1,128 @@
+digraph MineralNetwork {
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    rankdir=LR
+    compound=true
+    nodesep=0.6
+    ranksep=1.2
+
+    node [
+        fontname="Helvetica"
+        fontsize=10
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled,rounded"
+        shape=box
+    ]
+
+    edge [
+        fontname="Helvetica"
+        fontsize=8
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.7
+    ]
+
+    // Minerals - Grouped by category
+    subgraph cluster_structural {
+        label="Structural"
+        fontcolor="#888888"
+        color="#ff6b6b"
+        style=dashed
+
+        duranium [label="Duranium" fillcolor="#ff6b6b" fontcolor="white"]
+        tritanium [label="Tritanium" fillcolor="#ff6b6b" fontcolor="white"]
+        neutronium [label="Neutronium" fillcolor="#ff6b6b" fontcolor="white"]
+    }
+
+    subgraph cluster_power {
+        label="Power & Propulsion"
+        fontcolor="#888888"
+        color="#ffe66d"
+        style=dashed
+
+        boronide [label="Boronide" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+        gallicite [label="Gallicite" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+        sorium [label="Sorium" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+    }
+
+    subgraph cluster_offensive {
+        label="Offensive"
+        fontcolor="#888888"
+        color="#4ecdc4"
+        style=dashed
+
+        corundium [label="Corundium" fillcolor="#4ecdc4" fontcolor="#1a1a2e"]
+        vendarite [label="Vendarite" fillcolor="#4ecdc4" fontcolor="#1a1a2e"]
+    }
+
+    subgraph cluster_defensive {
+        label="Defensive & Sensors"
+        fontcolor="#888888"
+        color="#95d5b2"
+        style=dashed
+
+        corbomite [label="Corbomite" fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+        uridium [label="Uridium" fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+        mercassium [label="Mercassium" fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+    }
+
+    // Usage categories
+    subgraph cluster_uses {
+        label="Primary Uses"
+        fontcolor="#888888"
+        color="#666666"
+        style=dashed
+
+        hulls [label="Ship Hulls\n& Armour" shape=ellipse]
+        engines [label="Engines" shape=ellipse]
+        reactors [label="Reactors &\nPower Plants" shape=ellipse]
+        weapons_beam [label="Energy\nWeapons" shape=ellipse]
+        weapons_missile [label="Missile\nSystems" shape=ellipse]
+        weapons_kinetic [label="Railguns &\nGauss" shape=ellipse]
+        sensors [label="Sensors &\nFire Control" shape=ellipse]
+        shields [label="Shields &\nDefense" shape=ellipse]
+        installations [label="Installations\n& Infrastructure" shape=ellipse]
+        ground [label="Ground\nForces" shape=ellipse]
+        fuel [label="Fuel &\nJump Drives" shape=ellipse]
+        mines [label="Mining\nOperations" shape=ellipse]
+    }
+
+    // Connections - Structural
+    duranium -> hulls [color="#ff6b6b" penwidth=2]
+    duranium -> installations [color="#ff6b6b"]
+    tritanium -> weapons_missile [color="#ff6b6b" penwidth=2]
+    neutronium -> weapons_kinetic [color="#ff6b6b" penwidth=2]
+
+    // Connections - Power & Propulsion
+    boronide -> reactors [color="#ffe66d" penwidth=2]
+    boronide -> weapons_beam [color="#ffe66d"]
+    gallicite -> engines [color="#ffe66d" penwidth=2]
+    sorium -> fuel [color="#ffe66d" penwidth=2]
+
+    // Connections - Offensive
+    corundium -> weapons_beam [color="#4ecdc4" penwidth=2]
+    corundium -> mines [color="#4ecdc4" penwidth=2]
+    vendarite -> ground [color="#4ecdc4" penwidth=2]
+    vendarite -> weapons_kinetic [color="#4ecdc4"]
+
+    // Connections - Defensive & Sensors
+    corbomite -> shields [color="#95d5b2" penwidth=2]
+    corbomite -> sensors [color="#95d5b2"]
+    uridium -> sensors [color="#95d5b2" penwidth=2]
+    mercassium -> installations [color="#95d5b2" penwidth=2]
+
+    // Legend
+    subgraph cluster_legend {
+        label="Legend"
+        fontcolor="#888888"
+        color="#666666"
+        style=dashed
+
+        leg1 [label="Thick line = Primary use" shape=none fontsize=9]
+        leg2 [label="Thin line = Secondary use" shape=none fontsize=9]
+        leg3 [label="Colors match mineral category" shape=none fontsize=9]
+    }
+}

@@ -1,0 +1,108 @@
+digraph MassDriverDynamics {
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    rankdir=LR
+    compound=true
+    nodesep=0.8
+    ranksep=1.5
+
+    node [
+        fontname="Helvetica"
+        fontsize=10
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled,rounded"
+        shape=box
+    ]
+
+    edge [
+        fontname="Helvetica"
+        fontsize=8
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.7
+    ]
+
+    // Star
+    star [label="Star" shape=circle fillcolor="#ffe66d" fontcolor="#1a1a2e" width=0.8]
+
+    // Inner System
+    subgraph cluster_inner {
+        label="Inner System\n(Hours to Days)"
+        fontcolor="#95d5b2"
+        color="#95d5b2"
+        style=dashed
+
+        homeworld [label="Homeworld\n(Receiving)\nMass Driver" fillcolor="#4ecdc4" fontcolor="#1a1a2e"]
+        moon1 [label="Moon Colony\n(Mining)\nMass Driver" fillcolor="#ff6b6b" fontcolor="white"]
+    }
+
+    // Mid System
+    subgraph cluster_mid {
+        label="Mid System\n(Days to Weeks)"
+        fontcolor="#ffe66d"
+        color="#ffe66d"
+        style=dashed
+
+        asteroid_belt [label="Asteroid\nMining Base\nMass Driver" fillcolor="#ff6b6b" fontcolor="white"]
+        mars [label="Mars Colony\n(Mining)\nMass Driver" fillcolor="#ff6b6b" fontcolor="white"]
+    }
+
+    // Outer System
+    subgraph cluster_outer {
+        label="Outer System\n(Weeks)"
+        fontcolor="#ff6b6b"
+        color="#ff6b6b"
+        style=dashed
+
+        jovian [label="Jovian Moon\n(Mining)\nMass Driver" fillcolor="#ff6b6b" fontcolor="white"]
+    }
+
+    // Packets in transit (represented as small nodes)
+    packet1 [label="[P]" shape=circle fillcolor="#95d5b2" fontcolor="#1a1a2e" width=0.3 fontsize=8]
+    packet2 [label="[P]" shape=circle fillcolor="#95d5b2" fontcolor="#1a1a2e" width=0.3 fontsize=8]
+    packet3 [label="[P]" shape=circle fillcolor="#95d5b2" fontcolor="#1a1a2e" width=0.3 fontsize=8]
+    packet4 [label="[P]" shape=circle fillcolor="#95d5b2" fontcolor="#1a1a2e" width=0.3 fontsize=8]
+    packet5 [label="[P]" shape=circle fillcolor="#95d5b2" fontcolor="#1a1a2e" width=0.3 fontsize=8]
+
+    // Connections showing packet flow
+    moon1 -> packet1 [style=dashed color="#95d5b2"]
+    packet1 -> homeworld [label="~hours" color="#95d5b2"]
+
+    asteroid_belt -> packet2 [style=dashed color="#ffe66d"]
+    packet2 -> packet3 [style=invis]
+    packet3 -> homeworld [label="~days" color="#ffe66d"]
+
+    mars -> packet4 [style=dashed color="#ffe66d"]
+    packet4 -> homeworld [label="~days" color="#ffe66d"]
+
+    jovian -> packet5 [style=dashed color="#ff6b6b"]
+    packet5 -> homeworld [label="~weeks" color="#ff6b6b"]
+
+    // Distance reference
+    subgraph cluster_speed {
+        label="Packet Speed Reference"
+        fontcolor="#888888"
+        color="#666666"
+        style=dashed
+
+        speed_full [label="Full packet:\n1,000 km/s" shape=box fontsize=9]
+        speed_half [label="Half packet:\n2,000 km/s" shape=box fontsize=9]
+        speed_quarter [label="Quarter packet:\n4,000 km/s" shape=box fontsize=9]
+
+        speed_full -> speed_half [label="2x" style=dotted]
+        speed_half -> speed_quarter [label="2x" style=dotted]
+    }
+
+    // Warning note
+    subgraph cluster_warning {
+        label="WARNING"
+        fontcolor="#ff6b6b"
+        color="#ff6b6b"
+        style=dashed
+
+        warning [label="If receiving mass driver\nis removed while packets\nare in transit:\nCATASTROPHIC IMPACT" shape=box fillcolor="#ff6b6b" fontcolor="white" fontsize=9]
+    }
+}

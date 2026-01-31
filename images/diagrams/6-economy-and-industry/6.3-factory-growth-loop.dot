@@ -1,0 +1,91 @@
+digraph FactoryGrowthLoop {
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    rankdir=TB
+    compound=true
+    nodesep=0.7
+    ranksep=0.8
+
+    node [
+        fontname="Helvetica"
+        fontsize=10
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled,rounded"
+        shape=box
+    ]
+
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.8
+        penwidth=1.5
+    ]
+
+    // Main Growth Loop
+    subgraph cluster_loop {
+        label="Exponential Growth Loop"
+        fontcolor="#95d5b2"
+        color="#95d5b2"
+        style=dashed
+
+        minerals [label="Mineral\nStockpile" fillcolor="#ff6b6b" fontcolor="white"]
+        factories [label="Construction\nFactories\n(10 BP/yr each)" fillcolor="#4ecdc4" fontcolor="#1a1a2e"]
+        bp_output [label="Build Points\nOutput" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+        new_factories [label="More\nFactories" fillcolor="#4ecdc4" fontcolor="#1a1a2e"]
+        new_mines [label="More\nMines" fillcolor="#ff6b6b" fontcolor="white"]
+        more_minerals [label="Increased\nMineral\nProduction" fillcolor="#ff6b6b" fontcolor="white"]
+
+        minerals -> factories [label="Consumed"]
+        factories -> bp_output [label="Produces"]
+        bp_output -> new_factories [label="Builds"]
+        bp_output -> new_mines [label="Builds"]
+        new_factories -> factories [label="Adds to" color="#95d5b2" style=bold]
+        new_mines -> more_minerals [label="Extracts"]
+        more_minerals -> minerals [label="Replenishes" color="#95d5b2" style=bold]
+    }
+
+    // Workforce
+    subgraph cluster_workforce {
+        label="Workforce Requirement"
+        fontcolor="#888888"
+        color="#666666"
+        style=dashed
+
+        population [label="Population\n(50k workers\nper factory)" fillcolor="#2d2d44"]
+        pop_growth [label="Population\nGrowth" fillcolor="#2d2d44"]
+
+        population -> factories [label="Staff" style=dashed]
+        pop_growth -> population [label="Expands" style=dashed]
+    }
+
+    // Constraints
+    subgraph cluster_constraints {
+        label="Growth Constraints"
+        fontcolor="#ff6b6b"
+        color="#ff6b6b"
+        style=dashed
+
+        constraint_minerals [label="Mineral\nShortage" fillcolor="#ff6b6b" fontcolor="white" shape=octagon]
+        constraint_workers [label="Worker\nShortage" fillcolor="#ff6b6b" fontcolor="white" shape=octagon]
+        constraint_bp [label="BP Capacity\nLimit" fillcolor="#ff6b6b" fontcolor="white" shape=octagon]
+
+        constraint_minerals -> bp_output [label="Pauses\nproduction" style=dashed color="#ff6b6b"]
+        constraint_workers -> factories [label="Idles\nfactories" style=dashed color="#ff6b6b"]
+        constraint_bp -> new_factories [label="Slows\nexpansion" style=dashed color="#ff6b6b"]
+    }
+
+    // Strategy note
+    subgraph cluster_strategy {
+        label="Early Game Strategy"
+        fontcolor="#95d5b2"
+        color="#95d5b2"
+        style=dashed
+
+        strategy [label="Prioritize:\n1. Convert CI to Factories\n2. Build more Factories\n3. Build Mines\n4. Then Research Labs" shape=note fillcolor="#2d2d44" fontsize=9]
+    }
+}
