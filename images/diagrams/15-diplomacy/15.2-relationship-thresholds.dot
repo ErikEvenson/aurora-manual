@@ -1,0 +1,88 @@
+// Relationship Status Thresholds
+// Horizontal scale from -100 to +100 showing five relationship statuses
+
+digraph relationship_thresholds {
+    bgcolor="#1a1a2e"
+    rankdir=LR
+    node [shape=box, style="filled,rounded", fillcolor="#2d2d44", color="#4ecdc4", fontname="Helvetica", fontcolor="white", fontsize=10]
+    edge [color="#4ecdc4", fontname="Helvetica", fontcolor="white", fontsize=9, style=invis]
+
+    // Title
+    labelloc="t"
+    label=<<font color="white" point-size="16"><b>Diplomatic Relationship Thresholds</b></font>>
+
+    // Scale nodes (invisible for spacing)
+    subgraph cluster_scale {
+        label=""
+        style=invis
+
+        // Relationship status zones
+        hostile [label=<<table border="0" cellspacing="0" cellpadding="8">
+            <tr><td bgcolor="#8b0000"><font color="white"><b>HOSTILE</b></font></td></tr>
+            <tr><td bgcolor="#4d2d2d"><font color="white">Below -100</font></td></tr>
+            <tr><td bgcolor="#4d2d2d"><font color="#ff6b6b">NPR attacks on sight<br/>No diplomacy possible<br/>No trade allowed<br/>Full intel from prisoners</font></td></tr>
+        </table>>, shape=none]
+
+        unfriendly [label=<<table border="0" cellspacing="0" cellpadding="8">
+            <tr><td bgcolor="#b22222"><font color="white"><b>UNFRIENDLY</b></font></td></tr>
+            <tr><td bgcolor="#4d3d2d"><font color="white">-100 to -25</font></td></tr>
+            <tr><td bgcolor="#4d3d2d"><font color="#ff9966">High tension<br/>Limited diplomacy<br/>No treaties<br/>2x intrusion modifier</font></td></tr>
+        </table>>, shape=none]
+
+        neutral [label=<<table border="0" cellspacing="0" cellpadding="8">
+            <tr><td bgcolor="#808080"><font color="white"><b>NEUTRAL</b></font></td></tr>
+            <tr><td bgcolor="#4d4d4d"><font color="white">-25 to +25</font></td></tr>
+            <tr><td bgcolor="#4d4d4d"><font color="#cccccc">Standard diplomacy<br/>Treaties available<br/>Normal intrusion<br/>Intel gains halved</font></td></tr>
+        </table>>, shape=none]
+
+        friendly [label=<<table border="0" cellspacing="0" cellpadding="8">
+            <tr><td bgcolor="#228b22"><font color="white"><b>FRIENDLY</b></font></td></tr>
+            <tr><td bgcolor="#2d4d3d"><font color="white">+25 to +75</font></td></tr>
+            <tr><td bgcolor="#2d4d3d"><font color="#95d5b2">Most options open<br/>Trade/Research treaties<br/>0.5x intrusion modifier<br/>Intel gains -80%</font></td></tr>
+        </table>>, shape=none]
+
+        allied [label=<<table border="0" cellspacing="0" cellpadding="8">
+            <tr><td bgcolor="#006400"><font color="white"><b>ALLIED</b></font></td></tr>
+            <tr><td bgcolor="#1d3d2d"><font color="white">Above +75</font></td></tr>
+            <tr><td bgcolor="#1d3d2d"><font color="#95d5b2">Full cooperation<br/>Shared sensors<br/>Joint defense<br/>Intel gains -90%</font></td></tr>
+        </table>>, shape=none]
+    }
+
+    // Connect in order
+    hostile -> unfriendly
+    unfriendly -> neutral
+    neutral -> friendly
+    friendly -> allied
+
+    // Threshold markers
+    subgraph cluster_thresholds {
+        label=""
+        style=invis
+        rank=same
+
+        t1 [label="-100", shape=none, fontcolor="#ff6b6b", fontsize=12]
+        t2 [label="-25", shape=none, fontcolor="#ffe66d", fontsize=12]
+        t3 [label="+25", shape=none, fontcolor="#ffe66d", fontsize=12]
+        t4 [label="+75", shape=none, fontcolor="#95d5b2", fontsize=12]
+    }
+
+    // Key actions row
+    subgraph cluster_actions {
+        label=<<font color="white"><b>Key Actions by Status</b></font>>
+        style=dashed
+        color="#4ecdc4"
+        rank=same
+
+        action_hostile [label="Declare Peace\nMilitary Action", fillcolor="#4d2d2d"]
+        action_unfriendly [label="Peace Offers\nDeter with Force", fillcolor="#4d3d2d"]
+        action_neutral [label="Propose Treaties\nBuild Communication", fillcolor="#4d4d4d"]
+        action_friendly [label="Trade Agreement\nResearch Treaty\nTransit Rights", fillcolor="#2d4d3d"]
+        action_allied [label="Military Coord\nShared Intel\nJoint Operations", fillcolor="#1d3d2d"]
+    }
+
+    hostile -> action_hostile [style=dotted, color="#666666"]
+    unfriendly -> action_unfriendly [style=dotted, color="#666666"]
+    neutral -> action_neutral [style=dotted, color="#666666"]
+    friendly -> action_friendly [style=dotted, color="#666666"]
+    allied -> action_allied [style=dotted, color="#666666"]
+}

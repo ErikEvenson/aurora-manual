@@ -1,0 +1,103 @@
+// Claim Acceptance Formula Diagram
+// Shows how Military Advantage, Demand Value, Population Factor, Accessible System Value, and Resistance combine
+
+digraph claim_acceptance {
+    bgcolor="#1a1a2e"
+    rankdir=TB
+    splines=ortho
+    node [shape=box, style="filled,rounded", fillcolor="#2d2d44", color="#4ecdc4", fontname="Helvetica", fontcolor="white", fontsize=10]
+    edge [color="#4ecdc4", fontname="Helvetica", fontcolor="white", fontsize=9]
+
+    // Title
+    labelloc="t"
+    label=<<font color="white" point-size="16"><b>Claim Acceptance Formula</b></font>>
+
+    // Main formula display
+    formula [label=<<table border="0" cellspacing="0" cellpadding="10">
+        <tr><td bgcolor="#4ecdc4"><font color="#1a1a2e" point-size="12"><b>NPR Accepts Withdrawal Demand When:</b></font></td></tr>
+        <tr><td bgcolor="#2d2d44"><font color="white" point-size="11">Military Advantage x Demand Value x Pop Factor<br/>&gt;<br/>Accessible System Value x Resistance</font></td></tr>
+    </table>>, shape=none]
+
+    // Left side components (Player factors)
+    subgraph cluster_player {
+        label=<<font color="#95d5b2"><b>Player Factors (Pressure)</b></font>>
+        style=dashed
+        color="#95d5b2"
+
+        military_adv [label="Military\nAdvantage\n(Player fleet\nstrength vs NPR)", fillcolor="#2d4d3d"]
+        demand_value [label="Demand Value\n(Demand Strength^2)\nSuggest: 1.0\nRequest: 1.41\nUrgent: 1.73\nDemand: 2.0\nThreat: 2.24", fillcolor="#2d4d3d"]
+        pop_factor [label="Population\nFactor", fillcolor="#2d4d3d"]
+    }
+
+    // Population factor calculation
+    subgraph cluster_pop {
+        label=<<font color="#ffe66d"><b>Population Factor Calculation</b></font>>
+        style=dashed
+        color="#ffe66d"
+
+        pop_calc [label="SQRT(Player EM /\nNPC EM)\nCapped by:\n4th root of\n(Player EM / 100)", fillcolor="#4d4d2d"]
+        player_em [label="Player\nPopulation\nEM Signature", fillcolor="#4d4d2d"]
+        npc_em [label="NPC\nPopulation\nEM Signature", fillcolor="#4d4d2d"]
+    }
+
+    // Right side components (NPR factors)
+    subgraph cluster_npr {
+        label=<<font color="#ff6b6b"><b>NPR Factors (Resistance)</b></font>>
+        style=dashed
+        color="#ff6b6b"
+
+        system_value [label="Accessible\nSystem Value\n(1=Neutral to\n6=Capital)", fillcolor="#4d2d2d"]
+        resistance [label="Resistance\n(Xeno + Militancy +\nDetermination)\n/ 150", fillcolor="#4d2d2d"]
+    }
+
+    // Characteristic inputs
+    subgraph cluster_traits {
+        label=<<font color="#4ecdc4"><b>NPR Characteristics</b></font>>
+        style=dashed
+        color="#4ecdc4"
+        rank=same
+
+        xenophobia [label="Xenophobia\n(1-100)"]
+        militancy [label="Militancy\n(1-100)"]
+        determination [label="Determination\n(1-100)"]
+    }
+
+    // Multiply nodes
+    mult_left [label="x", shape=circle, width=0.4, fillcolor="#4ecdc4", fontcolor="#1a1a2e"]
+    mult_right [label="x", shape=circle, width=0.4, fillcolor="#ff6b6b", fontcolor="white"]
+
+    // Comparison node
+    compare [label=">?", shape=diamond, fillcolor="#ffe66d", fontcolor="#1a1a2e", width=1]
+
+    // Outcomes
+    accept [label="NPR ACCEPTS\nWithdraws from\ncontested system", fillcolor="#2d4d3d"]
+    reject [label="NPR REJECTS\nProtection status\nresets to 'None'", fillcolor="#4d2d2d"]
+
+    // Connections - Left side
+    military_adv -> mult_left
+    demand_value -> mult_left
+    pop_factor -> mult_left
+
+    player_em -> pop_calc
+    npc_em -> pop_calc
+    pop_calc -> pop_factor
+
+    // Connections - Right side
+    xenophobia -> resistance
+    militancy -> resistance
+    determination -> resistance
+    system_value -> mult_right
+    resistance -> mult_right
+
+    // To comparison
+    mult_left -> compare [label="Pressure"]
+    mult_right -> compare [label="Stubbornness"]
+
+    // Outcomes
+    compare -> accept [label="YES", color="#95d5b2"]
+    compare -> reject [label="NO", color="#ff6b6b"]
+
+    // Formula to components
+    formula -> military_adv [style=invis]
+    formula -> system_value [style=invis]
+}

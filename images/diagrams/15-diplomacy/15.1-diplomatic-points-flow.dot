@@ -1,0 +1,88 @@
+// Diplomatic Points Flow System
+// Shows all sources of diplomatic points (positive and negative) and decay mechanics
+
+digraph diplomatic_points_flow {
+    bgcolor="#1a1a2e"
+    rankdir=TB
+    splines=ortho
+    node [shape=box, style="filled,rounded", fillcolor="#2d2d44", color="#4ecdc4", fontname="Helvetica", fontcolor="white", fontsize=11]
+    edge [color="#4ecdc4", fontname="Helvetica", fontcolor="white", fontsize=9]
+
+    // Title
+    labelloc="t"
+    label=<<font color="white" point-size="16"><b>Diplomatic Points Flow System</b></font>>
+
+    // Central node
+    subgraph cluster_center {
+        style=invis
+        diplomatic_points [label="Diplomatic\nPoints\n(-100 to +100+)", shape=ellipse, fillcolor="#4ecdc4", fontcolor="#1a1a2e", width=2]
+    }
+
+    // Positive sources cluster
+    subgraph cluster_positive {
+        label=<<font color="#95d5b2"><b>Positive Sources</b></font>>
+        style=dashed
+        color="#95d5b2"
+
+        active_diplomacy [label="Active Diplomacy\n((Bonus x 4)+1) x 100\nx (1 - Xeno/100)/yr", fillcolor="#2d4d3d"]
+        trade_treaty [label="Trade Treaty\n100 pts/yr", fillcolor="#2d4d3d"]
+        geo_treaty [label="Geo Survey Treaty\n100 pts/yr", fillcolor="#2d4d3d"]
+        grav_treaty [label="Grav Survey Treaty\n100 pts/yr", fillcolor="#2d4d3d"]
+        research_treaty [label="Research Treaty\n200 pts/yr", fillcolor="#2d4d3d"]
+        friendly_status [label="Friendly Status\n100 pts/yr", fillcolor="#2d4d3d"]
+        allied_status [label="Allied Status\n200 pts/yr", fillcolor="#2d4d3d"]
+    }
+
+    // Negative sources cluster
+    subgraph cluster_negative {
+        label=<<font color="#ff6b6b"><b>Negative Sources</b></font>>
+        style=dashed
+        color="#ff6b6b"
+
+        shield_damage [label="Shield Damage\n-0.1 per point", fillcolor="#4d2d2d"]
+        armor_damage [label="Armor Damage\n-0.25 per point", fillcolor="#4d2d2d"]
+        internal_damage [label="Internal Damage\n-1.0 per point", fillcolor="#4d2d2d"]
+        pop_damage [label="Population/Shipyard\n-1.0 per point", fillcolor="#4d2d2d"]
+        ground_combat [label="Ground Combat\n-0.01 per ton", fillcolor="#4d2d2d"]
+        diplo_ship_attack [label="Attack Diplomatic Ship\n-300 (3x multiplier)", fillcolor="#4d2d2d"]
+        intrusion [label="Territory Intrusion\nSQRT(tonnage) x threat", fillcolor="#4d2d2d"]
+    }
+
+    // Decay cluster
+    subgraph cluster_decay {
+        label=<<font color="#ffe66d"><b>Passive Decay</b></font>>
+        style=dashed
+        color="#ffe66d"
+
+        pos_decay [label="Positive Decay\nRate = Xenophobia\n(High xeno = fast decay)", fillcolor="#4d4d2d"]
+        neg_decay [label="Negative Decay\nRate = 100 - Xenophobia\n(Low xeno = fast recovery)", fillcolor="#4d4d2d"]
+    }
+
+    // Xenophobia modifier
+    xeno_modifier [label="Xenophobia\nModifier\n(1 - Xeno/100)", shape=diamond, fillcolor="#ffe66d", fontcolor="#1a1a2e"]
+
+    // Positive connections
+    active_diplomacy -> diplomatic_points [color="#95d5b2", label=" "]
+    trade_treaty -> xeno_modifier [color="#95d5b2"]
+    geo_treaty -> xeno_modifier [color="#95d5b2"]
+    grav_treaty -> xeno_modifier [color="#95d5b2"]
+    research_treaty -> xeno_modifier [color="#95d5b2"]
+    friendly_status -> xeno_modifier [color="#95d5b2"]
+    allied_status -> xeno_modifier [color="#95d5b2"]
+    xeno_modifier -> diplomatic_points [color="#95d5b2", label="modified\npoints"]
+
+    // Negative connections
+    shield_damage -> diplomatic_points [color="#ff6b6b"]
+    armor_damage -> diplomatic_points [color="#ff6b6b"]
+    internal_damage -> diplomatic_points [color="#ff6b6b"]
+    pop_damage -> diplomatic_points [color="#ff6b6b"]
+    ground_combat -> diplomatic_points [color="#ff6b6b"]
+    diplo_ship_attack -> diplomatic_points [color="#ff6b6b"]
+    intrusion -> diplomatic_points [color="#ff6b6b"]
+
+    // Decay connections
+    diplomatic_points -> pos_decay [color="#ffe66d", style=dashed, label="if > 0"]
+    diplomatic_points -> neg_decay [color="#ffe66d", style=dashed, label="if < 0"]
+    pos_decay -> diplomatic_points [color="#ffe66d", style=dashed, label="toward 0"]
+    neg_decay -> diplomatic_points [color="#ffe66d", style=dashed, label="toward 0"]
+}

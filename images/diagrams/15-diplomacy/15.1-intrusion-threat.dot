@@ -1,0 +1,100 @@
+// Territory Intrusion & Threat Calculation Flowchart
+// Step-by-step: system value detection -> threat level formula -> diplomatic penalty calculation -> warning escalation
+
+digraph intrusion_threat {
+    bgcolor="#1a1a2e"
+    rankdir=TB
+    splines=ortho
+    node [shape=box, style="filled,rounded", fillcolor="#2d2d44", color="#4ecdc4", fontname="Helvetica", fontcolor="white", fontsize=10]
+    edge [color="#4ecdc4", fontname="Helvetica", fontcolor="white", fontsize=9]
+
+    // Title
+    labelloc="t"
+    label=<<font color="white" point-size="16"><b>Territory Intrusion &amp; Threat Calculation</b></font>>
+
+    // Step 1: Detection
+    subgraph cluster_detection {
+        label=<<font color="#4ecdc4"><b>Step 1: Detection</b></font>>
+        style=dashed
+        color="#4ecdc4"
+
+        player_forces [label="Player Forces\nEnter NPR System"]
+        check_value [label="Check System\nValue Level", shape=diamond]
+
+        player_forces -> check_value
+    }
+
+    // System value outcomes
+    neutral_claimed [label="Neutral (1) or\nClaimed (2)", fillcolor="#2d4d3d"]
+    secondary [label="Secondary (3)\nBase Threat: 2.5", fillcolor="#4d4d2d"]
+    primary [label="Primary (4)\nBase Threat: 5", fillcolor="#4d4d2d"]
+    core [label="Core (5)\nBase Threat: 10", fillcolor="#4d3d2d"]
+    capital [label="Capital (6)\nBase Threat: 20", fillcolor="#4d2d2d"]
+
+    check_value -> neutral_claimed [label="value <= 2"]
+    check_value -> secondary [label="value = 3"]
+    check_value -> primary [label="value = 4"]
+    check_value -> core [label="value = 5"]
+    check_value -> capital [label="value = 6"]
+
+    no_intrusion [label="No Intrusion\nPenalty", fillcolor="#2d4d3d"]
+    neutral_claimed -> no_intrusion
+
+    // Step 2: Threat calculation
+    subgraph cluster_threat {
+        label=<<font color="#ffe66d"><b>Step 2: Threat Level Calculation</b></font>>
+        style=dashed
+        color="#ffe66d"
+
+        get_modifier [label="Get Relationship\nStatus Modifier", shape=diamond]
+
+        friendly_mod [label="Friendly\nModifier: 0.5", fillcolor="#2d4d3d"]
+        neutral_pos_mod [label="Neutral (+points)\nModifier: 1.0", fillcolor="#4d4d2d"]
+        neutral_neg_mod [label="Neutral (-points)\nModifier: 2.0", fillcolor="#4d3d2d"]
+
+        calc_threat [label="Threat Level =\nBase x Modifier x\n(Xenophobia / 100)", fillcolor="#ffe66d", fontcolor="#1a1a2e"]
+    }
+
+    secondary -> get_modifier
+    primary -> get_modifier
+    core -> get_modifier
+    capital -> get_modifier
+
+    get_modifier -> friendly_mod [label="friendly"]
+    get_modifier -> neutral_pos_mod [label="neutral+"]
+    get_modifier -> neutral_neg_mod [label="neutral-"]
+
+    friendly_mod -> calc_threat
+    neutral_pos_mod -> calc_threat
+    neutral_neg_mod -> calc_threat
+
+    // Step 3: Penalty calculation
+    subgraph cluster_penalty {
+        label=<<font color="#ff6b6b"><b>Step 3: Diplomatic Penalty</b></font>>
+        style=dashed
+        color="#ff6b6b"
+
+        calc_tonnage [label="Calculate Detected\nTonnage\n(non-military at 10%,\ndiplo ships -10,000)"]
+        calc_penalty [label="Penalty =\nSQRT(Tonnage + PopEM x 10)\nx Threat Level", fillcolor="#ff6b6b", fontcolor="white"]
+        apply_penalty [label="Apply Negative\nDiplomatic Points"]
+    }
+
+    calc_threat -> calc_tonnage
+    calc_tonnage -> calc_penalty
+    calc_penalty -> apply_penalty
+
+    // Step 4: Warning escalation
+    subgraph cluster_warning {
+        label=<<font color="#95d5b2"><b>Step 4: Warning System</b></font>>
+        style=dashed
+        color="#95d5b2"
+
+        check_hostility [label="NPR Views Player\nas Neutral/Friendly?", shape=diamond]
+        issue_warning [label="Issue Warning\n(5 escalating levels\nbased on threat)"]
+        no_warning [label="No Warning\n(already hostile)"]
+    }
+
+    apply_penalty -> check_hostility
+    check_hostility -> issue_warning [label="yes"]
+    check_hostility -> no_warning [label="no"]
+}

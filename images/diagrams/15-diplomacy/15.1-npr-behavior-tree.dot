@@ -1,0 +1,116 @@
+// NPR Behavior Decision Tree
+// Priority order: Defend Homeworld -> Protect Colonies -> Expand Territory -> Pursue Diplomacy -> Project Power
+
+digraph npr_behavior_tree {
+    bgcolor="#1a1a2e"
+    rankdir=TB
+    node [shape=box, style="filled,rounded", fillcolor="#2d2d44", color="#4ecdc4", fontname="Helvetica", fontcolor="white", fontsize=10]
+    edge [color="#4ecdc4", fontname="Helvetica", fontcolor="white", fontsize=9]
+
+    // Title
+    labelloc="t"
+    label=<<font color="white" point-size="16"><b>NPR Behavior Decision Tree</b></font>>
+
+    // NPR characteristics
+    subgraph cluster_traits {
+        label=<<font color="#ffe66d"><b>NPR Characteristics</b></font>>
+        style=dashed
+        color="#ffe66d"
+        rank=same
+
+        xenophobia [label="Xenophobia\n(1-100)\nDistrust of aliens", fillcolor="#4d2d2d"]
+        militancy [label="Militancy\n(1-100)\nWillingness to\nuse force", fillcolor="#4d3d2d"]
+        determination [label="Determination\n(1-100)\nRefusal to\nyield claims", fillcolor="#4d4d2d"]
+        diplomacy [label="Diplomacy\n(1-100)\nNegotiation\nwillingness", fillcolor="#2d4d3d"]
+        trade [label="Trade\n(1-100)\nEconomic\ncooperation", fillcolor="#2d4d4d"]
+    }
+
+    // Decision entry
+    npr_decision [label="NPR Decision\nCycle", shape=ellipse, fillcolor="#4ecdc4", fontcolor="#1a1a2e", width=1.5]
+
+    // Priority 1: Defend Homeworld
+    subgraph cluster_p1 {
+        label=<<font color="#ff6b6b"><b>Priority 1: CRITICAL</b></font>>
+        style=dashed
+        color="#ff6b6b"
+
+        check_home [label="Homeworld\nThreatened?", shape=diamond]
+        defend_home [label="DEFEND\nHOMEWORLD\n(All resources)", fillcolor="#8b0000"]
+    }
+
+    // Priority 2: Protect Colonies
+    subgraph cluster_p2 {
+        label=<<font color="#ff9966"><b>Priority 2: HIGH</b></font>>
+        style=dashed
+        color="#ff9966"
+
+        check_colonies [label="Colonies\nThreatened?", shape=diamond]
+        protect_colonies [label="PROTECT\nCOLONIES\n(Proportional\nto value)", fillcolor="#b22222"]
+    }
+
+    // Priority 3: Expand Territory
+    subgraph cluster_p3 {
+        label=<<font color="#ffe66d"><b>Priority 3: STANDARD</b></font>>
+        style=dashed
+        color="#ffe66d"
+
+        check_expand [label="Expansion\nOpportunity?", shape=diamond]
+        expand [label="EXPAND\nTERRITORY\n(Colonize,\ncontrol JPs)", fillcolor="#4d4d2d"]
+    }
+
+    // Priority 4: Diplomacy
+    subgraph cluster_p4 {
+        label=<<font color="#95d5b2"><b>Priority 4: OPTIONAL</b></font>>
+        style=dashed
+        color="#95d5b2"
+
+        check_diplo [label="High Diplomacy\n& Trade?", shape=diamond]
+        pursue_diplo [label="PURSUE\nDIPLOMACY\n(Treaties,\ncommunication)", fillcolor="#2d4d3d"]
+    }
+
+    // Priority 5: Project Power
+    subgraph cluster_p5 {
+        label=<<font color="#4ecdc4"><b>Priority 5: AGGRESSIVE</b></font>>
+        style=dashed
+        color="#4ecdc4"
+
+        check_power [label="High Militancy\n& Strength?", shape=diamond]
+        project_power [label="PROJECT\nPOWER\n(Offensive\noperations)", fillcolor="#2d2d44"]
+    }
+
+    // Idle state
+    idle [label="Maintain\nStatus Quo\n(Patrol, build)", fillcolor="#2d2d44"]
+
+    // Flow connections
+    npr_decision -> check_home
+    check_home -> defend_home [label="YES", color="#ff6b6b"]
+    check_home -> check_colonies [label="NO"]
+
+    check_colonies -> protect_colonies [label="YES", color="#ff9966"]
+    check_colonies -> check_expand [label="NO"]
+
+    check_expand -> expand [label="YES", color="#ffe66d"]
+    check_expand -> check_diplo [label="NO"]
+
+    check_diplo -> pursue_diplo [label="YES", color="#95d5b2"]
+    check_diplo -> check_power [label="NO"]
+
+    check_power -> project_power [label="YES", color="#4ecdc4"]
+    check_power -> idle [label="NO"]
+
+    // Characteristic influences (dashed)
+    xenophobia -> check_home [style=dashed, color="#666666", constraint=false]
+    militancy -> check_power [style=dashed, color="#666666", constraint=false]
+    militancy -> protect_colonies [style=dashed, color="#666666", constraint=false]
+    determination -> check_expand [style=dashed, color="#666666", constraint=false]
+    diplomacy -> check_diplo [style=dashed, color="#666666", constraint=false]
+    trade -> pursue_diplo [style=dashed, color="#666666", constraint=false]
+
+    // Return to cycle
+    defend_home -> npr_decision [style=dashed, color="#666666"]
+    protect_colonies -> npr_decision [style=dashed, color="#666666"]
+    expand -> npr_decision [style=dashed, color="#666666"]
+    pursue_diplo -> npr_decision [style=dashed, color="#666666"]
+    project_power -> npr_decision [style=dashed, color="#666666"]
+    idle -> npr_decision [style=dashed, color="#666666"]
+}
