@@ -1,0 +1,187 @@
+// Sorium Harvester Automation Flow - Section 14.1.1
+// Shows autonomous harvester cycle: harvest -> fuel full -> transfer to tanker -> return
+
+digraph G {
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    rankdir=TB
+    splines=curved
+    nodesep=0.8
+    ranksep=1.0
+
+    node [
+        fontname="Helvetica"
+        fontsize=11
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled,rounded"
+        shape=box
+    ]
+
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.8
+    ]
+
+    // Title
+    title [
+        label="Sorium Harvester Automation Cycle"
+        shape=none
+        fontsize=16
+        fontcolor="#4ecdc4"
+    ]
+
+    // Harvester States
+    subgraph cluster_harvester {
+        label="Harvester Operations"
+        labelloc=t
+        fontsize=12
+        fontcolor="#95d5b2"
+        color="#95d5b2"
+        style=dashed
+        bgcolor="#1f2f2a"
+
+        harvest [
+            label="Harvesting\n(at gas giant)"
+            fillcolor="#2d4d44"
+            color="#95d5b2"
+            shape=ellipse
+        ]
+
+        fuel_check [
+            label="Fuel Tanks\nFull?"
+            fillcolor="#4d4d2d"
+            color="#ffe66d"
+            shape=diamond
+        ]
+
+        transfer [
+            label="Transfer Fuel\nto Tanker"
+            fillcolor="#2d4d44"
+            color="#95d5b2"
+            shape=ellipse
+        ]
+
+        return_harvest [
+            label="Return to\nGas Giant"
+            fillcolor="#2d4d44"
+            color="#95d5b2"
+            shape=ellipse
+        ]
+    }
+
+    // Tanker States
+    subgraph cluster_tanker {
+        label="Tanker Operations"
+        labelloc=t
+        fontsize=12
+        fontcolor="#ff6b6b"
+        color="#ff6b6b"
+        style=dashed
+        bgcolor="#2f1f1f"
+
+        tanker_wait [
+            label="Stationed at\nGas Giant\n(receiving fuel)"
+            fillcolor="#4d2d3d"
+            color="#ff6b6b"
+            shape=ellipse
+        ]
+
+        tanker_check [
+            label="Tanker\nFull?"
+            fillcolor="#4d4d2d"
+            color="#ffe66d"
+            shape=diamond
+        ]
+
+        tanker_deliver [
+            label="Shuttle Fuel\nto Colony"
+            fillcolor="#4d2d3d"
+            color="#ff6b6b"
+            shape=ellipse
+        ]
+
+        tanker_return [
+            label="Return to\nGas Giant"
+            fillcolor="#4d2d3d"
+            color="#ff6b6b"
+            shape=ellipse
+        ]
+    }
+
+    // Colony
+    subgraph cluster_colony {
+        label="Colony"
+        labelloc=t
+        fontsize=12
+        fontcolor="#4ecdc4"
+        color="#4ecdc4"
+        style=dashed
+        bgcolor="#1f1f2f"
+
+        colony_depot [
+            label="Colony\nFuel Reserves"
+            fillcolor="#2d2d4d"
+            color="#4ecdc4"
+            shape=cylinder
+        ]
+    }
+
+    // Harvester Flow
+    harvest -> fuel_check [label="continuous\nharvesting"]
+    fuel_check -> harvest [label="No" fontcolor="#ff6b6b" color="#ff6b6b"]
+    fuel_check -> transfer [label="Yes" fontcolor="#95d5b2" color="#95d5b2"]
+    transfer -> return_harvest [label="fuel\ntransferred"]
+    return_harvest -> harvest [label="resume\nharvesting"]
+
+    // Tanker Flow
+    transfer -> tanker_wait [label="receives\nfuel" style=dashed]
+    tanker_wait -> tanker_check [label="accumulate"]
+    tanker_check -> tanker_wait [label="No" fontcolor="#ff6b6b" color="#ff6b6b"]
+    tanker_check -> tanker_deliver [label="Yes" fontcolor="#95d5b2" color="#95d5b2"]
+    tanker_deliver -> colony_depot [label="unload"]
+    colony_depot -> tanker_return [label="empty" style=dashed]
+    tanker_return -> tanker_wait [label="resume\nreceiving"]
+
+    // Standing Order Configuration
+    subgraph cluster_config {
+        label="Standing Order Configuration"
+        labelloc=t
+        fontsize=12
+        fontcolor="#888888"
+        color="#888888"
+        style=dashed
+        bgcolor="#1f1f1f"
+
+        harvester_config [
+            label="Harvester:\nCondition: When Fuel Tanks Full\nResponse: Harvester Transfer\nand Return"
+            fillcolor="#3d3d3d"
+            fontsize=10
+            shape=note
+        ]
+
+        tanker_config [
+            label="Tanker:\nCondition: When Fuel Above X%\nResponse: Refuel Colony\nand Return"
+            fillcolor="#3d3d3d"
+            fontsize=10
+            shape=note
+        ]
+    }
+
+    // Design Requirements Note
+    design_note [
+        label="DESIGN REQUIREMENTS:\n- Harvester needs Refueling System\n  component (2,000 tons)\n- Tanker checkbox must be enabled\n- Set Minimum Fuel to 0 for\n  stationary harvesters"
+        shape=note
+        fillcolor="#2d4d4d"
+        color="#95d5b2"
+        fontcolor="#95d5b2"
+        fontsize=9
+    ]
+
+    harvester_config -> design_note [style=invis]
+}

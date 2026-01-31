@@ -1,0 +1,228 @@
+// Fuel Supply Chain - Section 14.1.1
+// Shows Sorium sources -> Refineries -> Fleet consumption
+
+digraph G {
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    rankdir=LR
+    splines=ortho
+    nodesep=0.6
+    ranksep=1.2
+
+    node [
+        fontname="Helvetica"
+        fontsize=11
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled,rounded"
+        shape=box
+    ]
+
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.8
+    ]
+
+    // Title
+    title [
+        label="Fuel Supply Chain"
+        shape=none
+        fontsize=16
+        fontcolor="#4ecdc4"
+    ]
+
+    // Sorium Sources Layer
+    subgraph cluster_sources {
+        label="Sorium Sources"
+        labelloc=t
+        fontsize=12
+        fontcolor="#95d5b2"
+        color="#95d5b2"
+        style=dashed
+        bgcolor="#1f2f2a"
+
+        planetary [
+            label="Planetary\nDeposits\n(survey to find)"
+            fillcolor="#2d4d44"
+            color="#95d5b2"
+        ]
+
+        gas_giant [
+            label="Gas Giant\nAtmospheres\n(renewable)"
+            fillcolor="#2d4d44"
+            color="#95d5b2"
+        ]
+
+        asteroid [
+            label="Asteroid\nDeposits"
+            fillcolor="#2d4d44"
+            color="#95d5b2"
+        ]
+
+        comet [
+            label="Comet\nDeposits\n(high accessibility)"
+            fillcolor="#2d4d44"
+            color="#95d5b2"
+        ]
+    }
+
+    // Extraction Layer
+    subgraph cluster_extraction {
+        label="Extraction"
+        labelloc=t
+        fontsize=12
+        fontcolor="#ffe66d"
+        color="#ffe66d"
+        style=dashed
+        bgcolor="#2f2f1f"
+
+        mines [
+            label="Mining\nOperations\n(conventional)"
+            fillcolor="#4d4d2d"
+            color="#ffe66d"
+        ]
+
+        harvesters [
+            label="Sorium\nHarvesters\n(ship component)"
+            fillcolor="#4d4d2d"
+            color="#ffe66d"
+        ]
+
+        orbital_harv [
+            label="Orbital\nHarvesting\nFacility"
+            fillcolor="#4d4d2d"
+            color="#ffe66d"
+        ]
+    }
+
+    // Processing Layer
+    subgraph cluster_processing {
+        label="Processing"
+        labelloc=t
+        fontsize=12
+        fontcolor="#4ecdc4"
+        color="#4ecdc4"
+        style=dashed
+        bgcolor="#1f1f2f"
+
+        colony_stockpile [
+            label="Colony\nSorium\nStockpile"
+            fillcolor="#2d2d4d"
+            color="#4ecdc4"
+        ]
+
+        refineries [
+            label="Fuel\nRefineries\n40-280k L/year"
+            fillcolor="#2d2d4d"
+            color="#4ecdc4"
+        ]
+
+        onboard_ref [
+            label="Onboard\nRefineries\n(harvester ships)"
+            fillcolor="#2d2d4d"
+            color="#4ecdc4"
+        ]
+    }
+
+    // Distribution Layer
+    subgraph cluster_distribution {
+        label="Storage & Distribution"
+        labelloc=t
+        fontsize=12
+        fontcolor="#ff6b6b"
+        color="#ff6b6b"
+        style=dashed
+        bgcolor="#2f1f1f"
+
+        colony_fuel [
+            label="Colony\nFuel Reserves\n(unlimited)"
+            fillcolor="#4d2d3d"
+            color="#ff6b6b"
+        ]
+
+        fuel_depot [
+            label="Orbital\nFuel Depots"
+            fillcolor="#4d2d3d"
+            color="#ff6b6b"
+        ]
+
+        tankers [
+            label="Tanker\nFleet"
+            fillcolor="#4d2d3d"
+            color="#ff6b6b"
+        ]
+    }
+
+    // Consumption Layer
+    subgraph cluster_consumption {
+        label="Consumption"
+        labelloc=t
+        fontsize=12
+        fontcolor="#888888"
+        color="#888888"
+        style=dashed
+        bgcolor="#1f1f1f"
+
+        combat_fleet [
+            label="Combat\nFleets"
+            fillcolor="#3d3d3d"
+        ]
+
+        survey_fleet [
+            label="Survey\nFleets"
+            fillcolor="#3d3d3d"
+        ]
+
+        civilian [
+            label="Civilian\nShipping"
+            fillcolor="#3d3d3d"
+        ]
+    }
+
+    // Flows - Sources to Extraction
+    planetary -> mines [label="deposit"]
+    asteroid -> mines [label="deposit"]
+    comet -> mines [label="deposit"]
+    gas_giant -> harvesters [label="harvest"]
+    gas_giant -> orbital_harv [label="harvest"]
+
+    // Flows - Extraction to Processing
+    mines -> colony_stockpile [label="raw Sorium"]
+    harvesters -> colony_stockpile [label="cargo delivery" style=dashed]
+    harvesters -> onboard_ref [label="direct feed"]
+    orbital_harv -> colony_stockpile [label="raw Sorium"]
+
+    // Flows - Processing to Distribution
+    colony_stockpile -> refineries [label="Sorium"]
+    refineries -> colony_fuel [label="refined fuel"]
+    onboard_ref -> tankers [label="fuel transfer"]
+
+    // Flows - Distribution
+    colony_fuel -> tankers [label="load"]
+    colony_fuel -> fuel_depot [label="transport"]
+    tankers -> fuel_depot [label="resupply"]
+
+    // Flows - Distribution to Consumption
+    colony_fuel -> combat_fleet [label="refuel" style=dashed]
+    colony_fuel -> survey_fleet [label="refuel" style=dashed]
+    colony_fuel -> civilian [label="refuel" style=dashed]
+    fuel_depot -> combat_fleet [label="refuel" style=dashed]
+    tankers -> combat_fleet [label="underway\nreplenishment"]
+
+    // Key Insight Note
+    insight [
+        label="KEY INSIGHT:\nGas giants provide\nrenewable Sorium;\nplanet deposits\nare finite"
+        shape=note
+        fillcolor="#2d4d4d"
+        color="#95d5b2"
+        fontcolor="#95d5b2"
+        fontsize=9
+    ]
+
+    gas_giant -> insight [style=invis]
+}
