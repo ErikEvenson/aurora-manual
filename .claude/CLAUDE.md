@@ -290,8 +290,6 @@ This placeholder:
 ```markdown
 ## Screenshot Request
 
-*Updated: v2026.01.30*
-
 **Section:** X.Y Section Name
 **File:** `images/screenshots/[chapter]/[filename].png`
 
@@ -461,9 +459,6 @@ from PIL import Image
 img = Image.open('/tmp/screenshot.png')
 
 # Create vertical strips (400px wide) across the image
-
-*Updated: v2026.01.30*
-
 for x_start in range(0, img.width, 400):
     strip = img.crop((x_start, 100, x_start + 400, 200))
     strip.save(f'/tmp/x_strip_{x_start}.png')
@@ -472,9 +467,6 @@ for x_start in range(0, img.width, 400):
 **Step 2: Find Y positions using horizontal strips**
 ```python
 # Once X range is known (e.g., x=408-780 for NPR), find Y position
-
-*Updated: v2026.01.30*
-
 for y_start in range(0, 400, 50):
     strip = img.crop((408, y_start, 780, y_start + 50))
     strip.save(f'/tmp/y_strip_{y_start}_{y_start+50}.png')
@@ -483,9 +475,6 @@ for y_start in range(0, 400, 50):
 **Step 3: Refine with narrow strips**
 ```python
 # Narrow down to exact Y range (e.g., found text around y=150)
-
-*Updated: v2026.01.30*
-
 for y_start in [140, 150, 160]:
     strip = img.crop((408, y_start, 780, y_start + 30))
     strip.save(f'/tmp/precise_y_{y_start}.png')
@@ -566,87 +555,51 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # MANDATORY: Use dark background style
-
-*Updated: v2026.01.30*
-
 plt.style.use('dark_background')
 
 # Create figure with standard size
-
-*Updated: v2026.01.30*
-
 fig, ax = plt.subplots(figsize=(10, 6))
 
 # Set background color
-
-*Updated: v2026.01.30*
-
 fig.patch.set_facecolor('#1a1a2e')
 ax.set_facecolor('#1a1a2e')
 
 # Example data
-
-*Updated: v2026.01.30*
-
 x = np.linspace(0, 100, 200)
 y = np.where(x <= 33, 100, 100 - (100 * (x - 33) / 67))
 
 # Plot with standard styling
-
-*Updated: v2026.01.30*
-
 ax.plot(x, y, color='#4ecdc4', linewidth=2.5, label='Growth Rate')
 ax.fill_between(x, y, alpha=0.3, color='#4ecdc4')
 
 # Grid styling
-
-*Updated: v2026.01.30*
-
 ax.grid(True, alpha=0.3, color='#2d2d44')
 ax.set_axisbelow(True)
 
 # Labels and title
-
-*Updated: v2026.01.30*
-
 ax.set_xlabel('X Axis Label (%)', fontsize=12, color='white')
 ax.set_ylabel('Y Axis Label (%)', fontsize=12, color='white')
 ax.set_title('Chart Title', fontsize=14, fontweight='bold', color='white')
 
 # Axis ranges
-
-*Updated: v2026.01.30*
-
 ax.set_xlim(0, 100)
 ax.set_ylim(0, 110)
 
 # Tick styling
-
-*Updated: v2026.01.30*
-
 ax.tick_params(colors='white')
 
 # Key threshold markers (example)
-
-*Updated: v2026.01.30*
-
 ax.axvline(x=33, color='#888888', linestyle='--', linewidth=1.5, alpha=0.7)
 ax.annotate('Threshold', xy=(33, 50), xytext=(45, 50),
             fontsize=10, color='#888888',
             arrowprops=dict(arrowstyle='->', color='#888888'))
 
 # Legend if multiple series
-
-*Updated: v2026.01.30*
-
 ax.legend(loc='upper right', fontsize=10)
 
 plt.tight_layout()
 
 # Save with standard settings
-
-*Updated: v2026.01.30*
-
 plt.savefig('images/charts/[chapter]/[section]-[name].png',
             facecolor='#1a1a2e',
             dpi=150,

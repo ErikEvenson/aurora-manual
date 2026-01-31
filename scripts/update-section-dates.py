@@ -103,8 +103,17 @@ def find_sections(lines: list[str]) -> list[dict]:
     sections = []
     in_front_matter = False
     front_matter_count = 0
+    in_code_block = False
 
     for i, line in enumerate(lines):
+        # Track code blocks (``` markers)
+        if line.strip().startswith('```'):
+            in_code_block = not in_code_block
+            continue
+
+        if in_code_block:
+            continue
+
         # Track front matter
         if FRONT_MATTER_PATTERN.match(line):
             front_matter_count += 1
