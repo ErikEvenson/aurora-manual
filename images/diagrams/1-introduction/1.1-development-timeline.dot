@@ -1,0 +1,80 @@
+digraph DevelopmentTimeline {
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    rankdir=LR
+
+    node [
+        fontname="Helvetica"
+        fontsize=11
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled,rounded"
+        shape=box
+    ]
+
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.8
+    ]
+
+    // Era nodes
+    start [label="Aurora\nDevelopment\nBegins" shape=ellipse fillcolor="#4ecdc4" fontcolor="#1a1a2e"]
+
+    vb6_era [label="VB6 Era\n2004-2012" fillcolor="#2d2d44"]
+
+    vb6_release [label="Initial Release\n2004" fillcolor="#2d2d44"]
+    vb6_features [label="Feature\nAccumulation\n2004-2012" fillcolor="#2d2d44"]
+    vb6_end [label="VB6 Development\nCeases\n2012" fillcolor="#ff6b6b" fontcolor="white"]
+
+    csharp_era [label="C# Era\n2012-Present" fillcolor="#2d2d44"]
+
+    csharp_start [label="Ground-Up\nRewrite Begins\n2012" fillcolor="#2d2d44"]
+    csharp_dev [label="8 Years of\nDevelopment\n2012-2020" fillcolor="#2d2d44"]
+    csharp_launch [label="Public Launch\nApril 2020" fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+    csharp_current [label="Ongoing\nDevelopment\n2020-Present" fillcolor="#4ecdc4" fontcolor="#1a1a2e"]
+
+    end [label="v2.8.0+\nActive" shape=ellipse fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+
+    // VB6 technology stack
+    subgraph cluster_vb6 {
+        label="VB6 Technology Stack"
+        fontcolor="#888888"
+        color="#444444"
+        style=dashed
+
+        vb6_tech [label="Visual Basic 6\nMS Access DB" shape=note fillcolor="#2d2d44"]
+    }
+
+    // C# technology stack
+    subgraph cluster_csharp {
+        label="C# Technology Stack"
+        fontcolor="#888888"
+        color="#444444"
+        style=dashed
+
+        csharp_tech [label="C# .NET\nSQLite DB" shape=note fillcolor="#2d2d44"]
+    }
+
+    // Flow
+    start -> vb6_release [label=""]
+    vb6_release -> vb6_features [label=""]
+    vb6_features -> vb6_end [label=""]
+    vb6_end -> csharp_start [label="Platform\nLimitations"]
+    csharp_start -> csharp_dev [label=""]
+    csharp_dev -> csharp_launch [label=""]
+    csharp_launch -> csharp_current [label=""]
+    csharp_current -> end [label=""]
+
+    // Tech associations
+    vb6_tech -> vb6_era [style=dotted color="#666666"]
+    csharp_tech -> csharp_era [style=dotted color="#666666"]
+
+    // Era grouping (invisible)
+    vb6_era -> vb6_release [style=invis]
+    csharp_era -> csharp_start [style=invis]
+}

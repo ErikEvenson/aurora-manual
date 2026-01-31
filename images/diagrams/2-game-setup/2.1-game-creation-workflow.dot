@@ -1,0 +1,93 @@
+digraph GameCreationWorkflow {
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    rankdir=TB
+
+    node [
+        fontname="Helvetica"
+        fontsize=11
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled,rounded"
+        shape=box
+    ]
+
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.8
+    ]
+
+    // Start
+    start [label="New Game" shape=ellipse fillcolor="#4ecdc4" fontcolor="#1a1a2e"]
+
+    // Phase 1: Configure Game Options
+    subgraph cluster_options {
+        label="Phase 1: Game Options"
+        fontcolor="#888888"
+        color="#4ecdc4"
+        style=dashed
+
+        game_name [label="Set Game Name\n& Basic Settings"]
+        galaxy_opts [label="Configure Galaxy\nGeneration"]
+        npr_opts [label="Set NPR\nParameters"]
+        spoiler_opts [label="Configure\nSpoiler Races"]
+    }
+
+    // Phase 2: Race Creation
+    subgraph cluster_race {
+        label="Phase 2: Race Creation"
+        fontcolor="#888888"
+        color="#4ecdc4"
+        style=dashed
+
+        species [label="Define Species\nBiology"]
+        traits [label="Allocate\nTrait Points"]
+        naming [label="Set Naming\nTheme"]
+        government [label="Choose\nGovernment Type"]
+    }
+
+    // Phase 3: Starting Conditions
+    subgraph cluster_start {
+        label="Phase 3: Starting Conditions"
+        fontcolor="#888888"
+        color="#4ecdc4"
+        style=dashed
+
+        start_type [label="Select Start Type" shape=diamond fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+        conventional [label="Conventional\nStart"]
+        tn_start [label="Trans-Newtonian\nStart"]
+    }
+
+    // Final
+    begin_game [label="Begin Game" shape=ellipse fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+
+    // Flow
+    start -> game_name
+    game_name -> galaxy_opts
+    galaxy_opts -> npr_opts
+    npr_opts -> spoiler_opts
+
+    spoiler_opts -> species [label="Proceed to\nRace Creation"]
+    species -> traits
+    traits -> naming
+    naming -> government
+
+    government -> start_type [label="Choose\nStart"]
+    start_type -> conventional [label="Build from\nScratch"]
+    start_type -> tn_start [label="Ready to\nExpand"]
+
+    conventional -> begin_game
+    tn_start -> begin_game
+
+    // Notes
+    note1 [label="Modifiable\nAnytime" shape=note fillcolor="#2d2d44" fontsize=9]
+    note2 [label="Permanent\nChoices" shape=note fillcolor="#ff6b6b" fontsize=9]
+
+    npr_opts -> note1 [style=dotted color="#666666" arrowhead=none]
+    traits -> note2 [style=dotted color="#666666" arrowhead=none]
+}

@@ -1,0 +1,110 @@
+digraph FeatureScope {
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+
+    node [
+        fontname="Helvetica"
+        fontsize=11
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled,rounded"
+        shape=box
+    ]
+
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.8
+    ]
+
+    // Central node
+    aurora [
+        label="Aurora 4X\nCore Simulation"
+        shape=ellipse
+        fillcolor="#4ecdc4"
+        fontcolor="#1a1a2e"
+        fontsize=14
+        width=2
+        height=1.2
+    ]
+
+    // Eight major subsystems arranged radially
+    research [
+        label="Research &\nTechnology"
+        fillcolor="#95d5b2"
+        fontcolor="#1a1a2e"
+    ]
+
+    ship_design [
+        label="Ship\nDesign"
+        fillcolor="#95d5b2"
+        fontcolor="#1a1a2e"
+    ]
+
+    ground_forces [
+        label="Ground\nForces"
+        fillcolor="#95d5b2"
+        fontcolor="#1a1a2e"
+    ]
+
+    colonization [
+        label="Colonization"
+        fillcolor="#95d5b2"
+        fontcolor="#1a1a2e"
+    ]
+
+    exploration [
+        label="Exploration"
+        fillcolor="#95d5b2"
+        fontcolor="#1a1a2e"
+    ]
+
+    diplomacy [
+        label="Diplomacy &\nEspionage"
+        fillcolor="#95d5b2"
+        fontcolor="#1a1a2e"
+    ]
+
+    tactical_combat [
+        label="Tactical\nCombat"
+        fillcolor="#95d5b2"
+        fontcolor="#1a1a2e"
+    ]
+
+    terraforming [
+        label="Terraforming"
+        fillcolor="#95d5b2"
+        fontcolor="#1a1a2e"
+    ]
+
+    // Connect all to center
+    aurora -> research [dir=none]
+    aurora -> ship_design [dir=none]
+    aurora -> ground_forces [dir=none]
+    aurora -> colonization [dir=none]
+    aurora -> exploration [dir=none]
+    aurora -> diplomacy [dir=none]
+    aurora -> tactical_combat [dir=none]
+    aurora -> terraforming [dir=none]
+
+    // Sub-features for key systems
+    research_sub [label="Hundreds of\nTechnologies" shape=note fillcolor="#2d2d44" fontsize=9]
+    ship_sub [label="Component-Level\nEngineering" shape=note fillcolor="#2d2d44" fontsize=9]
+    combat_sub [label="Individual\nWeapon Mounts" shape=note fillcolor="#2d2d44" fontsize=9]
+    explore_sub [label="Jump Point\nNetworks" shape=note fillcolor="#2d2d44" fontsize=9]
+
+    research -> research_sub [style=dashed color="#666666" arrowsize=0.5]
+    ship_design -> ship_sub [style=dashed color="#666666" arrowsize=0.5]
+    tactical_combat -> combat_sub [style=dashed color="#666666" arrowsize=0.5]
+    exploration -> explore_sub [style=dashed color="#666666" arrowsize=0.5]
+
+    // Layout hints
+    {rank=same; research; ship_design}
+    {rank=same; ground_forces; colonization}
+    {rank=same; exploration; diplomacy}
+    {rank=same; tactical_combat; terraforming}
+}

@@ -1,0 +1,129 @@
+digraph TraitPointBuy {
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+
+    node [
+        fontname="Helvetica"
+        fontsize=11
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled,rounded"
+        shape=box
+    ]
+
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.8
+    ]
+
+    // Central pool
+    pool [
+        label="Creation Point Pool\n(Fixed Budget)"
+        shape=ellipse
+        fillcolor="#ffe66d"
+        fontcolor="#1a1a2e"
+        fontsize=12
+        width=2.5
+        height=1
+    ]
+
+    // Zero-sum principle
+    principle [
+        label="Zero-Sum System:\nPoints Spent = Points Gained"
+        shape=note
+        fillcolor="#ff6b6b"
+        fontcolor="white"
+        fontsize=10
+    ]
+
+    // Physical Traits Category
+    subgraph cluster_physical {
+        label="Physical Traits"
+        fontcolor="#888888"
+        color="#4ecdc4"
+        style=dashed
+
+        temp [label="Temperature\nRange"]
+        gravity [label="Gravity\nTolerance"]
+        atmo [label="Atmospheric\nRequirements"]
+    }
+
+    // Economic Traits Category
+    subgraph cluster_economic {
+        label="Economic Traits"
+        fontcolor="#888888"
+        color="#95d5b2"
+        style=dashed
+
+        production [label="Worker\nProduction Rate"]
+        wealth [label="Wealth\nCreation Rate"]
+        research [label="Research Rate\nModifier"]
+        growth [label="Population\nGrowth Rate"]
+    }
+
+    // Military Traits Category
+    subgraph cluster_military {
+        label="Military Traits"
+        fontcolor="#888888"
+        color="#ff6b6b"
+        style=dashed
+
+        ground [label="Ground Combat\nStrength"]
+        officers [label="Officer\nGeneration Rate"]
+    }
+
+    // Flow from pool to categories
+    pool -> temp [label="Spend"]
+    pool -> gravity [label="Spend"]
+    pool -> atmo [label="Spend"]
+
+    pool -> production [label="Spend"]
+    pool -> wealth [label="Spend"]
+    pool -> research [label="Spend"]
+    pool -> growth [label="Spend"]
+
+    pool -> ground [label="Spend"]
+    pool -> officers [label="Spend"]
+
+    // Refund arrows (back to pool)
+    temp -> pool [label="Refund" style=dashed color="#888888"]
+    production -> pool [label="Refund" style=dashed color="#888888"]
+    ground -> pool [label="Refund" style=dashed color="#888888"]
+
+    // Connect principle
+    principle -> pool [style=dotted color="#ff6b6b" arrowhead=none]
+
+    // Trade-off examples
+    tradeoff1 [
+        label="Example Trade-off:\nHigh Research (+30%)\nLow Production (-20%)"
+        shape=note
+        fillcolor="#2d2d44"
+        fontsize=9
+    ]
+
+    tradeoff2 [
+        label="Example Trade-off:\nFast Growth (+50%)\nNarrow Habitability"
+        shape=note
+        fillcolor="#2d2d44"
+        fontsize=9
+    ]
+
+    research -> tradeoff1 [style=dotted color="#666666" arrowhead=none]
+    growth -> tradeoff2 [style=dotted color="#666666" arrowhead=none]
+
+    // Specialization vs Generalization
+    strategy [
+        label="Strategic Choice:\nSpecialize or Generalize?"
+        shape=diamond
+        fillcolor="#4ecdc4"
+        fontcolor="#1a1a2e"
+        fontsize=10
+    ]
+
+    pool -> strategy [style=invis]
+}
