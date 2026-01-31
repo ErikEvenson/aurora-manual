@@ -1,0 +1,157 @@
+// Ground Combat Phase Sequence Diagram
+// Shows the resolution order for ground combat phases in Aurora C#
+
+digraph GroundCombatPhase {
+    // Graph settings
+    bgcolor="#1a1a2e";
+    rankdir=TB;
+    splines=ortho;
+    nodesep=0.6;
+    ranksep=0.8;
+
+    // Default node style
+    node [
+        fontname="Helvetica"
+        fontsize=11
+        fontcolor="white"
+        shape=box
+        style="rounded,filled"
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+        penwidth=2
+        margin="0.3,0.15"
+    ];
+
+    // Default edge style
+    edge [
+        color="#4ecdc4"
+        penwidth=2
+        arrowsize=0.8
+    ];
+
+    // Title
+    label="Ground Combat Phase Sequence (per 8-hour period)";
+    labelloc=t;
+    fontname="Helvetica Bold";
+    fontsize=16;
+    fontcolor="white";
+
+    // Phase nodes
+    trigger [
+        label="Combat Triggered\n(Hostile forces on same body)"
+        fillcolor="#3d2d44"
+        color="#ff6b6b"
+    ];
+
+    supply [
+        label="1. Supply Check\nVerify formation supply status\n(Unsupplied = 25% fire rate)"
+        fillcolor="#2d2d44"
+        color="#95d5b2"
+    ];
+
+    target [
+        label="2. Target Selection\nFront-line formations select targets\n(Weighted by formation size)"
+        fillcolor="#2d2d44"
+    ];
+
+    bombardment [
+        label="3. Bombardment Phase\nSupport elements fire\nGround support fighters fire\nOrbital bombardment ships fire"
+        fillcolor="#2d2d44"
+        color="#ff6b6b"
+    ];
+
+    direct [
+        label="4. Direct Combat Phase\nFront-line elements engage\nselected targets"
+        fillcolor="#2d2d44"
+        color="#ff6b6b"
+    ];
+
+    aa [
+        label="5. Anti-Aircraft Phase\nAA elements engage attacking\naircraft (damage applied after all)"
+        fillcolor="#2d2d44"
+        color="#ffe66d"
+    ];
+
+    casualty [
+        label="6. Casualty Assessment\nAP check -> Damage check\nDestroyed elements removed"
+        fillcolor="#2d2d44"
+    ];
+
+    morale [
+        label="7. Morale Update\nKills generate morale gains/losses\nMorale recovery calculated"
+        fillcolor="#2d2d44"
+    ];
+
+    breakthrough [
+        label="8. Breakthrough Check\nIf potential >= 30%:\nAdditional attacks (no support)"
+        fillcolor="#2d2d44"
+        color="#ffe66d"
+    ];
+
+    fortification [
+        label="9. Fortification Update\nSelf-fortification progresses\nConstruction elements work"
+        fillcolor="#2d2d44"
+        color="#95d5b2"
+    ];
+
+    next [
+        label="Next 8-Hour Period\n(Repeat until resolved)"
+        fillcolor="#3d2d44"
+        color="#4ecdc4"
+    ];
+
+    // Flow connections
+    trigger -> supply;
+    supply -> target;
+    target -> bombardment;
+    bombardment -> direct;
+    direct -> aa;
+    aa -> casualty;
+    casualty -> morale;
+    morale -> breakthrough;
+    breakthrough -> fortification;
+    fortification -> next;
+    next -> supply [style=dashed, constraint=false];
+
+    // Side notes cluster
+    subgraph cluster_notes {
+        label="Key Notes";
+        labelloc=t;
+        fontname="Helvetica Bold";
+        fontsize=12;
+        fontcolor="white";
+        bgcolor="#1a1a2e";
+        color="#4ecdc4";
+        style="dashed";
+        margin=15;
+
+        note1 [
+            label="Attack Mode:\nForfeits fortification\nDouble morale from kills"
+            shape=note
+            fillcolor="#3d2d44"
+            color="#ff6b6b"
+            fontsize=9
+        ];
+
+        note2 [
+            label="Defence Mode:\nRetains fortification\nCan only engage front-line"
+            shape=note
+            fillcolor="#3d2d44"
+            color="#95d5b2"
+            fontsize=9
+        ];
+
+        note3 [
+            label="Support Position:\nIndirect fire only\nSame timing as bombardment"
+            shape=note
+            fillcolor="#3d2d44"
+            color="#ffe66d"
+            fontsize=9
+        ];
+    }
+
+    // Position notes cluster to the right
+    {rank=same; bombardment; note1;}
+    {rank=same; fortification; note2;}
+    {rank=same; aa; note3;}
+}
