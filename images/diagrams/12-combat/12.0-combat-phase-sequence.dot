@@ -1,0 +1,134 @@
+digraph CombatPhaseSequence {
+    // Graph settings
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    label="Combat Phase Sequence (per increment)"
+    labelloc=t
+    fontsize=16
+    rankdir=TB
+    nodesep=0.6
+    ranksep=0.5
+    pad=0.5
+
+    // Default node style
+    node [
+        fontname="Helvetica"
+        fontsize=11
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled,rounded"
+        shape=box
+        width=2.8
+    ]
+
+    // Default edge style
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.8
+    ]
+
+    // Start/End nodes
+    start [
+        label="Increment Start"
+        shape=ellipse
+        width=1.5
+        fillcolor="#1a1a2e"
+        color="#95d5b2"
+    ]
+
+    // Phase nodes with descriptions
+    phase1 [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>1. Movement Phase</B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Ships execute movement orders</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#ffe66d">PB &amp; Ranged Defensive Fire engage</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    phase2 [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>2. Naval Combat (Beam)</B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Beam weapons fire at targets</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#ffe66d">Area Defence PD fires</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    phase3 [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>3. Missile Launch</B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">MFCs launch missiles at targets</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Post-launch detection check</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    phase4 [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>4. Missile Movement</B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">In-flight missiles move &amp; consume fuel</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Missiles reaching targets proceed</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    phase5 [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>5. Point Defense Resolution</B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#ffe66d">CIWS engages incoming missiles</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">(Final Defensive Fire layer)</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    phase6 [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>6. Damage Resolution</B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#ff6b6b">Beam &amp; missile hits resolved</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#ff6b6b">vs armor, shields, internals</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    end [
+        label="Increment End"
+        shape=ellipse
+        width=1.5
+        fillcolor="#1a1a2e"
+        color="#95d5b2"
+    ]
+
+    // Flow edges
+    start -> phase1
+    phase1 -> phase2
+    phase2 -> phase3
+    phase3 -> phase4
+    phase4 -> phase5
+    phase5 -> phase6
+    phase6 -> end
+
+    // Loop back annotation
+    end -> start [
+        style=dashed
+        color="#888888"
+        label="next increment"
+        constraint=false
+    ]
+
+    // Warning note
+    warning [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><FONT COLOR="#ff6b6b"><B>Warning:</B></FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Use 30 sec or less increments</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">to ensure PD engagement</FONT></TD></TR>
+        </TABLE>>
+        shape=note
+        fillcolor="#2d2d44"
+        color="#ff6b6b"
+        width=2.2
+    ]
+
+    // Position warning to the side
+    { rank=same; phase3; warning }
+    phase3 -> warning [style=invis]
+}
