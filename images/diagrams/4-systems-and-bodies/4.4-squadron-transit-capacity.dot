@@ -1,0 +1,191 @@
+digraph SquadronTransitCapacity {
+    // Graph settings
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    label="Squadron Transit Capacity Example"
+    labelloc=t
+    fontsize=16
+    rankdir=TB
+    nodesep=0.4
+    ranksep=0.6
+    pad=0.5
+
+    // Default node style
+    node [
+        fontname="Helvetica"
+        fontsize=11
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled,rounded"
+        shape=box
+    ]
+
+    // Default edge style
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.8
+    ]
+
+    // Jump Tender
+    tender [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>Jump Tender</B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="10" COLOR="#4ecdc4">8,000 tons</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#ffe66d">Squadron Capacity: 50,000t</FONT></TD></TR>
+        </TABLE>>
+        width=2.2
+        color="#ffe66d"
+    ]
+
+    // Fleet composition cluster
+    subgraph cluster_fleet {
+        label="Fleet Composition"
+        fontcolor="#888888"
+        color="#4ecdc4"
+        style=dashed
+
+        destroyers [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+                <TR><TD><B>4x Destroyers</B></TD></TR>
+                <TR><TD><FONT POINT-SIZE="10" COLOR="#4ecdc4">6,000t each = 24,000t</FONT></TD></TR>
+            </TABLE>>
+            width=2.5
+        ]
+
+        cruisers [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+                <TR><TD><B>2x Cruisers</B></TD></TR>
+                <TR><TD><FONT POINT-SIZE="10" COLOR="#4ecdc4">10,000t each = 20,000t</FONT></TD></TR>
+            </TABLE>>
+            width=2.5
+        ]
+    }
+
+    // Total calculation
+    total [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>Fleet Total: 52,000 tons</B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="10" COLOR="#ff6b6b">Exceeds 50,000t capacity by 2,000t</FONT></TD></TR>
+        </TABLE>>
+        width=3.0
+        color="#ff6b6b"
+    ]
+
+    // Transit decisions
+    decision [
+        label="Requires Multiple Trips"
+        shape=diamond
+        fillcolor="#ffe66d"
+        fontcolor="#1a1a2e"
+        width=2.2
+    ]
+
+    // Trip 1 cluster
+    subgraph cluster_trip1 {
+        label="Trip 1 (50,000t max)"
+        fontcolor="#95d5b2"
+        color="#95d5b2"
+        style=dashed
+
+        trip1_tender [
+            label="Tender (8,000t)"
+            fillcolor="#2d2d44"
+            width=1.8
+        ]
+        trip1_dd [
+            label="4x Destroyers (24,000t)"
+            fillcolor="#2d2d44"
+            width=2.0
+        ]
+        trip1_ca [
+            label="1x Cruiser (10,000t)"
+            fillcolor="#2d2d44"
+            width=2.0
+        ]
+        trip1_subtotal [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+                <TR><TD><FONT COLOR="#95d5b2">Subtotal: 42,000t</FONT></TD></TR>
+            </TABLE>>
+            shape=none
+            fillcolor="#1a1a2e"
+        ]
+    }
+
+    // Trip 2 cluster
+    subgraph cluster_trip2 {
+        label="Trip 2 (Return + Escort)"
+        fontcolor="#95d5b2"
+        color="#95d5b2"
+        style=dashed
+
+        trip2_tender [
+            label="Tender (8,000t)"
+            fillcolor="#2d2d44"
+            width=1.8
+        ]
+        trip2_ca [
+            label="1x Cruiser (10,000t)"
+            fillcolor="#2d2d44"
+            width=2.0
+        ]
+        trip2_subtotal [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+                <TR><TD><FONT COLOR="#95d5b2">Subtotal: 18,000t</FONT></TD></TR>
+            </TABLE>>
+            shape=none
+            fillcolor="#1a1a2e"
+        ]
+    }
+
+    // Complete
+    complete [
+        label="Fleet Reunited"
+        shape=ellipse
+        fillcolor="#95d5b2"
+        fontcolor="#1a1a2e"
+        width=1.8
+    ]
+
+    // Flow
+    tender -> destroyers [style=invis]
+    tender -> cruisers [style=invis]
+    destroyers -> total [style=invis]
+    cruisers -> total [style=invis]
+    total -> decision
+
+    decision -> trip1_tender
+    decision -> trip2_tender
+
+    trip1_tender -> trip1_dd [style=invis]
+    trip1_dd -> trip1_ca [style=invis]
+    trip1_ca -> trip1_subtotal [style=invis]
+
+    trip2_tender -> trip2_ca [style=invis]
+    trip2_ca -> trip2_subtotal [style=invis]
+
+    trip1_subtotal -> complete [style=invis]
+    trip2_subtotal -> complete
+
+    // Warning note
+    warning [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><FONT COLOR="#ff6b6b"><B>Warning:</B></FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Fleet is split across two systems</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">during multi-trip transits.</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">If tender is destroyed, remaining</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">ships are stranded!</FONT></TD></TR>
+        </TABLE>>
+        shape=note
+        fillcolor="#2d2d44"
+        color="#ff6b6b"
+        width=2.6
+    ]
+
+    { rank=same; decision; warning }
+    decision -> warning [style=invis]
+}

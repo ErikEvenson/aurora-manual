@@ -1,0 +1,144 @@
+digraph JumpPointDiscovery {
+    // Graph settings
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    label="Jump Point Discovery Process"
+    labelloc=t
+    fontsize=16
+    rankdir=TB
+    nodesep=0.6
+    ranksep=0.5
+    pad=0.5
+
+    // Default node style
+    node [
+        fontname="Helvetica"
+        fontsize=11
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled,rounded"
+        shape=box
+        width=2.5
+    ]
+
+    // Default edge style
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.8
+    ]
+
+    // Start node
+    start [
+        label="Begin Survey"
+        shape=ellipse
+        width=1.5
+        fillcolor="#4ecdc4"
+        fontcolor="#1a1a2e"
+    ]
+
+    // Process nodes
+    design [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>Design Survey Ship</B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Include gravitational survey sensor</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Balance speed vs sensor size</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    assign [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>Assign Survey Orders</B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Set fleet to "Gravitational Survey"</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Target system selected</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    navigate [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>Navigate to Survey Point</B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Ship travels to next point</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Points fixed at system generation</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    survey [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>Survey Point</B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Sensor scans for anomalies</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Time based on sensor strength</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Decision diamond
+    check [
+        label="JP Detected?"
+        shape=diamond
+        fillcolor="#ffe66d"
+        fontcolor="#1a1a2e"
+        width=1.8
+    ]
+
+    // Outcomes
+    revealed [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><B>Jump Point Revealed</B></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#95d5b2">Location marked on system map</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">(Not at survey point location)</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Second decision
+    more_points [
+        label="More Points?"
+        shape=diamond
+        fillcolor="#ffe66d"
+        fontcolor="#1a1a2e"
+        width=1.8
+    ]
+
+    // End states
+    complete [
+        label="Survey Complete"
+        shape=ellipse
+        width=1.5
+        fillcolor="#95d5b2"
+        fontcolor="#1a1a2e"
+    ]
+
+    // Flow
+    start -> design
+    design -> assign
+    assign -> navigate
+    navigate -> survey
+    survey -> check
+
+    check -> revealed [label="Yes" color="#95d5b2" fontcolor="#95d5b2"]
+    check -> more_points [label="No" color="#ff6b6b" fontcolor="#ff6b6b"]
+
+    revealed -> more_points
+
+    more_points -> navigate [label="Yes" color="#4ecdc4"]
+    more_points -> complete [label="No" color="#95d5b2" fontcolor="#95d5b2"]
+
+    // Warning note
+    warning [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><FONT COLOR="#ff6b6b"><B>Note:</B></FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Hidden JPs have much lower</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">detection probability - a "complete"</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">survey may miss hidden JPs</FONT></TD></TR>
+        </TABLE>>
+        shape=note
+        fillcolor="#2d2d44"
+        color="#ff6b6b"
+        width=2.4
+    ]
+
+    { rank=same; check; warning }
+    check -> warning [style=invis]
+}

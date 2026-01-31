@@ -1,0 +1,194 @@
+digraph GateStabilizationStates {
+    // Graph settings
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    label="Jump Point Stabilization States"
+    labelloc=t
+    fontsize=16
+    rankdir=TB
+    nodesep=0.5
+    ranksep=0.4
+    pad=0.5
+    splines=ortho
+
+    // Default node style
+    node [
+        fontname="Helvetica"
+        fontsize=10
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled"
+        shape=box
+    ]
+
+    // Default edge style
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.8
+    ]
+
+    // Header row
+    subgraph cluster_header {
+        label=""
+        color="#1a1a2e"
+        style=invis
+
+        header_empty [
+            label=""
+            shape=none
+            width=1.8
+        ]
+        header_nogate [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+                <TR><TD><B>Far Side: No Gate</B></TD></TR>
+            </TABLE>>
+            shape=box
+            fillcolor="#1a1a2e"
+            color="#888888"
+            width=2.8
+        ]
+        header_gate [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+                <TR><TD><B>Far Side: Gate</B></TD></TR>
+            </TABLE>>
+            shape=box
+            fillcolor="#1a1a2e"
+            color="#888888"
+            width=2.8
+        ]
+    }
+
+    // Row 1: Your Side No Gate
+    subgraph cluster_row1 {
+        label=""
+        color="#1a1a2e"
+        style=invis
+
+        row1_label [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+                <TR><TD><B>Your Side:</B></TD></TR>
+                <TR><TD><B>No Gate</B></TD></TR>
+            </TABLE>>
+            shape=box
+            fillcolor="#1a1a2e"
+            color="#888888"
+            width=1.8
+        ]
+
+        cell_nogate_nogate [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+                <TR><TD><FONT COLOR="#ff6b6b"><B>Both Directions:</B></FONT></TD></TR>
+                <TR><TD><FONT COLOR="#ff6b6b">Jump Drive Only</FONT></TD></TR>
+                <TR><TD> </TD></TR>
+                <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Most restrictive state</FONT></TD></TR>
+            </TABLE>>
+            width=2.8
+            color="#ff6b6b"
+        ]
+
+        cell_nogate_gate [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+                <TR><TD><FONT COLOR="#ff6b6b"><B>You to Far:</B></FONT></TD></TR>
+                <TR><TD><FONT COLOR="#ff6b6b">Jump Drive Only</FONT></TD></TR>
+                <TR><TD><FONT COLOR="#95d5b2"><B>Far to You:</B></FONT></TD></TR>
+                <TR><TD><FONT COLOR="#95d5b2">Any Ship</FONT></TD></TR>
+            </TABLE>>
+            width=2.8
+            color="#ffe66d"
+        ]
+    }
+
+    // Row 2: Your Side Gate
+    subgraph cluster_row2 {
+        label=""
+        color="#1a1a2e"
+        style=invis
+
+        row2_label [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+                <TR><TD><B>Your Side:</B></TD></TR>
+                <TR><TD><B>Gate</B></TD></TR>
+            </TABLE>>
+            shape=box
+            fillcolor="#1a1a2e"
+            color="#888888"
+            width=1.8
+        ]
+
+        cell_gate_nogate [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+                <TR><TD><FONT COLOR="#95d5b2"><B>You to Far:</B></FONT></TD></TR>
+                <TR><TD><FONT COLOR="#95d5b2">Any Ship</FONT></TD></TR>
+                <TR><TD><FONT COLOR="#ff6b6b"><B>Far to You:</B></FONT></TD></TR>
+                <TR><TD><FONT COLOR="#ff6b6b">Jump Drive Only</FONT></TD></TR>
+            </TABLE>>
+            width=2.8
+            color="#ffe66d"
+        ]
+
+        cell_gate_gate [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+                <TR><TD><FONT COLOR="#95d5b2"><B>Both Directions:</B></FONT></TD></TR>
+                <TR><TD><FONT COLOR="#95d5b2">Any Ship</FONT></TD></TR>
+                <TR><TD> </TD></TR>
+                <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Full civilian access</FONT></TD></TR>
+            </TABLE>>
+            width=2.8
+            color="#95d5b2"
+        ]
+    }
+
+    // Layout edges (invisible)
+    header_empty -> header_nogate -> header_gate [style=invis]
+    row1_label -> cell_nogate_nogate -> cell_nogate_gate [style=invis]
+    row2_label -> cell_gate_nogate -> cell_gate_gate [style=invis]
+
+    header_empty -> row1_label -> row2_label [style=invis]
+    header_nogate -> cell_nogate_nogate -> cell_gate_nogate [style=invis]
+    header_gate -> cell_nogate_gate -> cell_gate_gate [style=invis]
+
+    // Legend
+    subgraph cluster_legend {
+        label="Legend"
+        fontcolor="#888888"
+        color="#4ecdc4"
+        style=dashed
+
+        leg_any [
+            label="Any Ship = Gate present on departure side"
+            shape=none
+            fontcolor="#95d5b2"
+            fontsize=9
+        ]
+        leg_jd [
+            label="Jump Drive Only = No gate on departure side"
+            shape=none
+            fontcolor="#ff6b6b"
+            fontsize=9
+        ]
+    }
+
+    // Position legend
+    cell_gate_gate -> leg_any [style=invis]
+
+    // Strategic note
+    note [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><FONT COLOR="#ffe66d"><B>Strategic Tip:</B></FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">One-way gates (yellow cells) can</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">create asymmetric access - useful</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">for border defense!</FONT></TD></TR>
+        </TABLE>>
+        shape=note
+        fillcolor="#2d2d44"
+        color="#ffe66d"
+        width=2.6
+    ]
+
+    { rank=same; cell_nogate_nogate; cell_nogate_gate; note }
+}

@@ -1,0 +1,150 @@
+digraph PlanetTypeComparison {
+    // Graph settings
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    label="Planet Type Comparison Matrix"
+    labelloc=t
+    fontsize=16
+    rankdir=TB
+    nodesep=0.3
+    ranksep=0.4
+    pad=0.5
+
+    // Default node style
+    node [
+        fontname="Helvetica"
+        fontsize=10
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled"
+        shape=box
+    ]
+
+    // Default edge style
+    edge [
+        style=invis
+    ]
+
+    // Planet Type Cards
+    terrestrial [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="4">
+            <TR><TD COLSPAN="2"><FONT POINT-SIZE="14" COLOR="#95d5b2"><B>Terrestrial</B></FONT></TD></TR>
+            <TR><TD COLSPAN="2"><FONT POINT-SIZE="9" COLOR="#888888">Rocky worlds (Earth, Mars, Venus type)</FONT></TD></TR>
+            <TR><TD></TD><TD></TD></TR>
+            <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#ffe66d">Mass:</FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">0.055 - 1.14 Earth</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#ffe66d">Gravity:</FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">Low to Earth-like</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#ffe66d">Colonization:</FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#95d5b2">Best targets</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#ffe66d">Resources:</FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">Minerals, potential colonies</FONT></TD></TR>
+        </TABLE>>
+        width=3.2
+        color="#95d5b2"
+    ]
+
+    gas_giant [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="4">
+            <TR><TD COLSPAN="2"><FONT POINT-SIZE="14" COLOR="#4ecdc4"><B>Gas Giant</B></FONT></TD></TR>
+            <TR><TD COLSPAN="2"><FONT POINT-SIZE="9" COLOR="#888888">Hydrogen/helium worlds (Jupiter, Saturn type)</FONT></TD></TR>
+            <TR><TD></TD><TD></TD></TR>
+            <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#ffe66d">Mass:</FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">2.9 - 2900 Earth</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#ffe66d">Gravity:</FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">Very High</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#ffe66d">Colonization:</FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#ff6b6b">Cannot colonize</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#ffe66d">Resources:</FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#4ecdc4">Sorium (fuel harvesting)</FONT></TD></TR>
+        </TABLE>>
+        width=3.2
+        color="#4ecdc4"
+    ]
+
+    dwarf_planet [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="4">
+            <TR><TD COLSPAN="2"><FONT POINT-SIZE="14" COLOR="#ffe66d"><B>Dwarf Planet</B></FONT></TD></TR>
+            <TR><TD COLSPAN="2"><FONT POINT-SIZE="9" COLOR="#888888">Small rocky bodies (Pluto, Ceres type)</FONT></TD></TR>
+            <TR><TD></TD><TD></TD></TR>
+            <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#ffe66d">Radius:</FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">425 - 1200 km</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#ffe66d">Gravity:</FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">Very Low</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#ffe66d">Colonization:</FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#ffe66d">Limited (LG infra)</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#ffe66d">Resources:</FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">Minerals (small deposits)</FONT></TD></TR>
+        </TABLE>>
+        width=3.2
+        color="#ffe66d"
+    ]
+
+    super_earth [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="4">
+            <TR><TD COLSPAN="2"><FONT POINT-SIZE="14" COLOR="#ff6b6b"><B>Super-Earth</B></FONT></TD></TR>
+            <TR><TD COLSPAN="2"><FONT POINT-SIZE="9" COLOR="#888888">Large terrestrials (no distinct game type)</FONT></TD></TR>
+            <TR><TD></TD><TD></TD></TR>
+            <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#ffe66d">Mass:</FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9">1+ to ~10 Earth</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#ffe66d">Gravity:</FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#ff6b6b">High (may exceed 1.9g)</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#ffe66d">Colonization:</FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#ffe66d">High cost / impossible</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#ffe66d">Resources:</FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#95d5b2">Rich minerals</FONT></TD></TR>
+        </TABLE>>
+        width=3.2
+        color="#ff6b6b"
+    ]
+
+    // Layout
+    terrestrial -> gas_giant [style=invis]
+    dwarf_planet -> super_earth [style=invis]
+    { rank=same; terrestrial; gas_giant }
+    { rank=same; dwarf_planet; super_earth }
+    terrestrial -> dwarf_planet [style=invis]
+    gas_giant -> super_earth [style=invis]
+
+    // Strategic value summary
+    subgraph cluster_strategy {
+        label="Exploration Priority"
+        fontcolor="#888888"
+        color="#4ecdc4"
+        style=dashed
+
+        priority [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="3">
+                <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="10" COLOR="#95d5b2"><B>1. Habitable Terrestrials</B></FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#888888">Colony cost 0.0 - prime real estate</FONT></TD></TR>
+                <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="10" COLOR="#4ecdc4"><B>2. Gas Giant Moons</B></FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#888888">Fuel + colonies in one location</FONT></TD></TR>
+                <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="10" COLOR="#ffe66d"><B>3. Mineral-Rich Rocks</B></FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#888888">Automated mining potential</FONT></TD></TR>
+                <TR><TD ALIGN="LEFT"><FONT POINT-SIZE="10" COLOR="#ff6b6b"><B>4. High-Gravity Worlds</B></FONT></TD><TD ALIGN="LEFT"><FONT POINT-SIZE="9" COLOR="#888888">Check gravity tolerance first</FONT></TD></TR>
+            </TABLE>>
+            shape=box
+            fillcolor="#2d2d44"
+            width=5.0
+        ]
+    }
+
+    dwarf_planet -> priority [style=invis]
+
+    // Gravity warning
+    gravity_note [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><FONT COLOR="#ff6b6b"><B>Gravity Limit:</B></FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Default humans: 0.1g - 1.9g</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Above 1.9g = Uncolonizable</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Below 0.1g = LG infrastructure</FONT></TD></TR>
+        </TABLE>>
+        shape=note
+        fillcolor="#2d2d44"
+        color="#ff6b6b"
+        width=2.4
+    ]
+
+    { rank=same; super_earth; gravity_note }
+    super_earth -> gravity_note [style=invis]
+
+    // Sorium note
+    sorium_note [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><FONT COLOR="#4ecdc4"><B>Fuel Harvesting:</B></FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">Gas giants are the only source</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">of Sorium for fuel production.</FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="9" COLOR="#888888">See Section 14.1 Fuel.</FONT></TD></TR>
+        </TABLE>>
+        shape=note
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+        width=2.4
+    ]
+
+    { rank=same; gas_giant; sorium_note }
+    gas_giant -> sorium_note [style=invis]
+}
