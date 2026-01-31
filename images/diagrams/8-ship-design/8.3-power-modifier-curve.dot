@@ -1,0 +1,173 @@
+// Engine Power Modifier: Speed vs Range Trade-off
+// Section 8.3.4 Speed Calculations
+// Note: This is a conceptual diagram showing the non-linear relationship
+// For actual curves, see the chart in 8.3.5
+
+digraph PowerModifierCurve {
+    // Graph settings
+    bgcolor="#1a1a2e"
+    rankdir=TB
+
+    // Global settings
+    node [
+        shape=box
+        style="filled,rounded"
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=10
+        penwidth=2
+        margin="0.2,0.15"
+    ]
+
+    edge [
+        color="#4ecdc4"
+        penwidth=2
+        arrowsize=0.7
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=9
+    ]
+
+    // Title
+    labelloc="t"
+    label=<<font color="white" point-size="16"><b>Engine Power Modifier Effects</b></font>>
+    fontname="Helvetica"
+
+    // Input node
+    power_mod [
+        label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><font point-size="14"><b>Power Modifier</b></font></td></tr>
+            <tr><td><font point-size="10" color="#95d5b2">0.1x to 5.0x</font></td></tr>
+        </table>>
+        fillcolor="#3d3d54"
+    ]
+
+    // Effect branches
+    subgraph cluster_speed {
+        label=<<font color="#4ecdc4" point-size="11"><b>Speed Effect</b></font>>
+        style=rounded
+        color="#4ecdc4"
+        bgcolor="#1a1a2e"
+
+        speed_scale [
+            label=<<table border="0" cellborder="0" cellspacing="0">
+                <tr><td><font color="#4ecdc4" point-size="11"><b>LINEAR</b></font></td></tr>
+                <tr><td><font point-size="9">Speed = Base x Modifier</font></td></tr>
+            </table>>
+        ]
+
+        speed_low [
+            label=<<font point-size="9">0.5x power = 0.5x speed</font>>
+            fillcolor="#2d4a5a"
+        ]
+
+        speed_high [
+            label=<<font point-size="9">2.0x power = 2.0x speed</font>>
+            fillcolor="#2d5a4a"
+        ]
+
+        speed_scale -> speed_low [style=invis]
+        speed_scale -> speed_high [style=invis]
+    }
+
+    subgraph cluster_fuel {
+        label=<<font color="#ff6b6b" point-size="11"><b>Fuel Consumption Effect</b></font>>
+        style=rounded
+        color="#ff6b6b"
+        bgcolor="#1a1a2e"
+
+        fuel_scale [
+            label=<<table border="0" cellborder="0" cellspacing="0">
+                <tr><td><font color="#ff6b6b" point-size="11"><b>EXPONENTIAL</b></font></td></tr>
+                <tr><td><font point-size="9">Each +10% = x1.25 fuel</font></td></tr>
+            </table>>
+        ]
+
+        fuel_low [
+            label=<<font point-size="9">0.5x power = 0.32x fuel</font>>
+            fillcolor="#2d4a5a"
+        ]
+
+        fuel_high [
+            label=<<font point-size="9">2.0x power = 9.5x fuel!</font>>
+            fillcolor="#5a2d2d"
+        ]
+
+        fuel_scale -> fuel_low [style=invis]
+        fuel_scale -> fuel_high [style=invis]
+    }
+
+    subgraph cluster_range {
+        label=<<font color="#ffe66d" point-size="11"><b>Range Result</b></font>>
+        style=rounded
+        color="#ffe66d"
+        bgcolor="#1a1a2e"
+
+        range_formula [
+            label=<<table border="0" cellborder="0" cellspacing="0">
+                <tr><td><font color="#ffe66d" point-size="11"><b>RANGE</b></font></td></tr>
+                <tr><td><font point-size="9">Speed / Fuel Consumption</font></td></tr>
+            </table>>
+        ]
+
+        range_best [
+            label=<<table border="0" cellborder="0" cellspacing="0">
+                <tr><td><font point-size="10" color="#95d5b2"><b>Best Range</b></font></td></tr>
+                <tr><td><font point-size="9">0.1x - 0.5x power</font></td></tr>
+            </table>>
+            fillcolor="#2d5a4a"
+        ]
+
+        range_worst [
+            label=<<table border="0" cellborder="0" cellspacing="0">
+                <tr><td><font point-size="10" color="#ff6b6b"><b>Worst Range</b></font></td></tr>
+                <tr><td><font point-size="9">3.0x+ power</font></td></tr>
+            </table>>
+            fillcolor="#5a2d2d"
+        ]
+
+        range_formula -> range_best [style=invis]
+        range_formula -> range_worst [style=invis]
+    }
+
+    // Connections
+    power_mod -> speed_scale [label="  Direct  "]
+    power_mod -> fuel_scale [label="  Compounds  " color="#ff6b6b"]
+
+    speed_scale -> range_formula [style=dashed color="#95d5b2"]
+    fuel_scale -> range_formula [style=dashed color="#ff6b6b"]
+
+    // Key insight box
+    insight [
+        label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><font point-size="12" color="#ffe66d"><b>KEY INSIGHT</b></font></td></tr>
+            <tr><td><font point-size="10">Low power = slower but MUCH farther</font></td></tr>
+            <tr><td><font point-size="10">High power = faster but range collapses</font></td></tr>
+        </table>>
+        shape=note
+        fillcolor="#3d3d54"
+        color="#ffe66d"
+    ]
+
+    range_formula -> insight [style=invis]
+
+    // Practical guide
+    subgraph cluster_guide {
+        label=<<font color="white" point-size="10"><b>Recommended Settings</b></font>>
+        style=rounded
+        color="#4ecdc4"
+        bgcolor="#1a1a2e"
+
+        guide [
+            label=<<table border="0" cellborder="0" cellspacing="2">
+                <tr><td align="left"><font point-size="9" color="#95d5b2">Transit:</font></td><td align="left"><font point-size="9">0.5x</font></td></tr>
+                <tr><td align="left"><font point-size="9" color="#95d5b2">Patrol:</font></td><td align="left"><font point-size="9">0.75x - 1.0x</font></td></tr>
+                <tr><td align="left"><font point-size="9" color="#ffe66d">Rapid Response:</font></td><td align="left"><font point-size="9">1.5x</font></td></tr>
+                <tr><td align="left"><font point-size="9" color="#ff6b6b">Combat Sprint:</font></td><td align="left"><font point-size="9">2.0x - 3.0x</font></td></tr>
+            </table>>
+            shape=note
+        ]
+    }
+}

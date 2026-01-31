@@ -1,0 +1,200 @@
+// Power Boost Risk/Benefit Analysis
+// Section 8.6.14 Power Plants
+
+digraph PowerBoostRisk {
+    // Graph settings
+    bgcolor="#1a1a2e"
+    rankdir=TB
+    nodesep=0.6
+    ranksep=0.8
+
+    // Global settings
+    node [
+        shape=box
+        style="filled,rounded"
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=10
+        penwidth=2
+        margin="0.2,0.15"
+    ]
+
+    edge [
+        color="#4ecdc4"
+        penwidth=2
+        arrowsize=0.7
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=9
+    ]
+
+    // Title
+    labelloc="t"
+    label=<<font color="white" point-size="16"><b>Power Plant Boost: Risk vs Benefit</b></font>>
+    fontname="Helvetica"
+
+    // Header row showing boost levels
+    subgraph cluster_boost_levels {
+        label=<<font color="white" point-size="11"><b>Boost Level Progression</b></font>>
+        style=rounded
+        color="#4ecdc4"
+        bgcolor="#1a1a2e"
+
+        boost_0 [
+            label=<<table border="0" cellborder="0" cellspacing="0">
+                <tr><td><font point-size="11"><b>None</b></font></td></tr>
+                <tr><td><font point-size="10" color="#95d5b2">0%</font></td></tr>
+            </table>>
+            fillcolor="#2d5a4a"
+        ]
+
+        boost_10 [
+            label=<<table border="0" cellborder="0" cellspacing="0">
+                <tr><td><font point-size="11"><b>Low</b></font></td></tr>
+                <tr><td><font point-size="10" color="#95d5b2">10%</font></td></tr>
+            </table>>
+            fillcolor="#2d5a4a"
+        ]
+
+        boost_30 [
+            label=<<table border="0" cellborder="0" cellspacing="0">
+                <tr><td><font point-size="11"><b>Medium</b></font></td></tr>
+                <tr><td><font point-size="10" color="#ffe66d">30%</font></td></tr>
+            </table>>
+            fillcolor="#4a4a2d"
+        ]
+
+        boost_60 [
+            label=<<table border="0" cellborder="0" cellspacing="0">
+                <tr><td><font point-size="11"><b>High</b></font></td></tr>
+                <tr><td><font point-size="10" color="#ff6b6b">60%</font></td></tr>
+            </table>>
+            fillcolor="#5a3d2d"
+        ]
+
+        boost_100 [
+            label=<<table border="0" cellborder="0" cellspacing="0">
+                <tr><td><font point-size="11"><b>Maximum</b></font></td></tr>
+                <tr><td><font point-size="10" color="#ff6b6b">100%</font></td></tr>
+            </table>>
+            fillcolor="#5a2d2d"
+        ]
+
+        boost_0 -> boost_10 -> boost_30 -> boost_60 -> boost_100 [style=invis]
+    }
+
+    // Explosion risk row
+    subgraph cluster_risk {
+        label=<<font color="#ff6b6b" point-size="11"><b>Explosion Risk When Hit</b></font>>
+        style=rounded
+        color="#ff6b6b"
+        bgcolor="#1a1a2e"
+
+        risk_0 [
+            label=<<font point-size="14" color="#95d5b2"><b>5%</b></font>>
+            fillcolor="#2d5a4a"
+        ]
+
+        risk_10 [
+            label=<<font point-size="14" color="#95d5b2"><b>7%</b></font>>
+            fillcolor="#2d5a4a"
+        ]
+
+        risk_30 [
+            label=<<font point-size="14" color="#ffe66d"><b>15%</b></font>>
+            fillcolor="#4a4a2d"
+        ]
+
+        risk_60 [
+            label=<<font point-size="14" color="#ff6b6b"><b>30%</b></font>>
+            fillcolor="#5a3d2d"
+        ]
+
+        risk_100 [
+            label=<<font point-size="14" color="#ff6b6b"><b>50%</b></font>>
+            fillcolor="#5a2d2d"
+        ]
+
+        risk_0 -> risk_10 -> risk_30 -> risk_60 -> risk_100 [style=invis]
+    }
+
+    // Research cost row
+    subgraph cluster_research {
+        label=<<font color="#ffe66d" point-size="11"><b>Research Cost (RP)</b></font>>
+        style=rounded
+        color="#ffe66d"
+        bgcolor="#1a1a2e"
+
+        rp_0 [
+            label=<<font point-size="11"><b>250</b></font>>
+            fillcolor="#2d4a5a"
+        ]
+
+        rp_10 [
+            label=<<font point-size="11"><b>500</b></font>>
+            fillcolor="#2d4a5a"
+        ]
+
+        rp_30 [
+            label=<<font point-size="11"><b>2,000</b></font>>
+            fillcolor="#3d4a5a"
+        ]
+
+        rp_60 [
+            label=<<font point-size="11"><b>8,000</b></font>>
+            fillcolor="#4a4a5a"
+        ]
+
+        rp_100 [
+            label=<<font point-size="11"><b>30,000</b></font>>
+            fillcolor="#5a4a5a"
+        ]
+
+        rp_0 -> rp_10 -> rp_30 -> rp_60 -> rp_100 [style=invis]
+    }
+
+    // Connect the clusters vertically
+    boost_0 -> risk_0 [style=invis]
+    boost_10 -> risk_10 [style=invis]
+    boost_30 -> risk_30 [style=invis]
+    boost_60 -> risk_60 [style=invis]
+    boost_100 -> risk_100 [style=invis]
+
+    risk_0 -> rp_0 [style=invis]
+    risk_10 -> rp_10 [style=invis]
+    risk_30 -> rp_30 [style=invis]
+    risk_60 -> rp_60 [style=invis]
+    risk_100 -> rp_100 [style=invis]
+
+    // Analysis box
+    analysis [
+        label=<<table border="0" cellborder="0" cellspacing="4">
+            <tr><td colspan="2"><font point-size="12" color="#ffe66d"><b>Cost-Benefit Analysis</b></font></td></tr>
+            <tr><td align="left"><font point-size="9" color="#95d5b2">Sweet Spot:</font></td><td align="left"><font point-size="9">10-20% boost (low risk, easy research)</font></td></tr>
+            <tr><td align="left"><font point-size="9" color="#ffe66d">Diminishing:</font></td><td align="left"><font point-size="9">30-40% boost (risk doubles, power +30%)</font></td></tr>
+            <tr><td align="left"><font point-size="9" color="#ff6b6b">Dangerous:</font></td><td align="left"><font point-size="9">60%+ boost (1 in 3 hits = explosion)</font></td></tr>
+        </table>>
+        shape=note
+        fillcolor="#3d3d54"
+        color="#4ecdc4"
+    ]
+
+    // Warning box
+    warning [
+        label=<<table border="0" cellborder="0" cellspacing="2">
+            <tr><td><font point-size="11" color="#ff6b6b"><b>WARNING</b></font></td></tr>
+            <tr><td><font point-size="9">100% boost gives 2x power</font></td></tr>
+            <tr><td><font point-size="9">but 10x explosion risk (5% to 50%)</font></td></tr>
+            <tr><td><font point-size="8" color="#95d5b2">Consider: 2 unboosted reactors instead?</font></td></tr>
+        </table>>
+        shape=note
+        fillcolor="#4a2d2d"
+        color="#ff6b6b"
+    ]
+
+    // Position analysis and warning
+    rp_30 -> analysis [style=invis]
+    rp_60 -> warning [style=invis]
+}

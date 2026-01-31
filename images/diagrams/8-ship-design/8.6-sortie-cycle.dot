@@ -1,0 +1,133 @@
+// Carrier Sortie Cycle - 7-step process flow
+// Section 8.6.3 Hangars and Parasite Craft
+
+digraph SortieCycle {
+    // Graph settings
+    bgcolor="#1a1a2e"
+    rankdir=LR
+    splines=ortho
+    nodesep=0.8
+    ranksep=1.2
+
+    // Global node settings
+    node [
+        shape=box
+        style="filled,rounded"
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=11
+        penwidth=2
+        margin="0.3,0.2"
+    ]
+
+    // Global edge settings
+    edge [
+        color="#4ecdc4"
+        penwidth=2
+        arrowsize=0.8
+        fontname="Helvetica"
+        fontcolor="#95d5b2"
+        fontsize=9
+    ]
+
+    // Title
+    labelloc="t"
+    label=<<font color="white" point-size="16"><b>Carrier Sortie Cycle</b></font>>
+    fontname="Helvetica"
+
+    // Cycle nodes with durations
+    subgraph cluster_cycle {
+        style=invis
+
+        ready [
+            label=<<table border="0" cellborder="0" cellspacing="0">
+                <tr><td><font point-size="12"><b>READY</b></font></td></tr>
+                <tr><td><font point-size="9" color="#95d5b2">Armed &amp; Fueled</font></td></tr>
+            </table>>
+            fillcolor="#2d5a4a"
+        ]
+
+        launch [
+            label=<<table border="0" cellborder="0" cellspacing="0">
+                <tr><td><font point-size="12"><b>1. LAUNCH</b></font></td></tr>
+                <tr><td><font point-size="9" color="#ffe66d">5-30 seconds</font></td></tr>
+            </table>>
+        ]
+
+        transit_out [
+            label=<<table border="0" cellborder="0" cellspacing="0">
+                <tr><td><font point-size="12"><b>2. TRANSIT</b></font></td></tr>
+                <tr><td><font point-size="9" color="#ffe66d">Variable</font></td></tr>
+                <tr><td><font point-size="8" color="#95d5b2">(speed-dependent)</font></td></tr>
+            </table>>
+        ]
+
+        engage [
+            label=<<table border="0" cellborder="0" cellspacing="0">
+                <tr><td><font point-size="12"><b>3. ENGAGE</b></font></td></tr>
+                <tr><td><font point-size="9" color="#ff6b6b">Combat</font></td></tr>
+            </table>>
+            fillcolor="#4a2d2d"
+        ]
+
+        transit_back [
+            label=<<table border="0" cellborder="0" cellspacing="0">
+                <tr><td><font point-size="12"><b>4. RETURN</b></font></td></tr>
+                <tr><td><font point-size="9" color="#ffe66d">Variable</font></td></tr>
+                <tr><td><font point-size="8" color="#95d5b2">(speed-dependent)</font></td></tr>
+            </table>>
+        ]
+
+        recovery [
+            label=<<table border="0" cellborder="0" cellspacing="0">
+                <tr><td><font point-size="12"><b>5. RECOVERY</b></font></td></tr>
+                <tr><td><font point-size="9" color="#ffe66d">5-30 seconds</font></td></tr>
+            </table>>
+        ]
+
+        rearm [
+            label=<<table border="0" cellborder="0" cellspacing="0">
+                <tr><td><font point-size="12"><b>6. REARM</b></font></td></tr>
+                <tr><td><font point-size="9" color="#ffe66d">Minutes to hours</font></td></tr>
+                <tr><td><font point-size="8" color="#95d5b2">(ordnance + fuel)</font></td></tr>
+            </table>>
+        ]
+    }
+
+    // Cycle flow
+    ready -> launch
+    launch -> transit_out
+    transit_out -> engage
+    engage -> transit_back
+    transit_back -> recovery
+    recovery -> rearm
+    rearm -> ready [
+        label="Cycle\nRepeats"
+        fontcolor="#4ecdc4"
+    ]
+
+    // Legend
+    subgraph cluster_legend {
+        label=<<font color="white" point-size="10"><b>Duration Bottlenecks</b></font>>
+        style=rounded
+        color="#4ecdc4"
+        fontname="Helvetica"
+        bgcolor="#1a1a2e"
+
+        legend_transit [
+            label=<<font point-size="9">Transit time = distance / fighter speed</font>>
+            shape=note
+            fillcolor="#2d2d44"
+        ]
+
+        legend_rearm [
+            label=<<font point-size="9">Rearm time = Carrier Ops bonus</font>>
+            shape=note
+            fillcolor="#2d2d44"
+        ]
+
+        legend_transit -> legend_rearm [style=invis]
+    }
+}
