@@ -1,0 +1,121 @@
+// Skill Categories and Branch Restrictions Matrix
+// Section 16.2.1 - Skills available to each officer type
+digraph skill_matrix {
+    rankdir=TB;
+    bgcolor="#1a1a2e";
+    node [shape=box, style="filled,rounded", fillcolor="#2d2d44", color="#4ecdc4", fontname="Helvetica", fontcolor="white", fontsize=10];
+    edge [style=invis];
+
+    // Title
+    labelloc="t";
+    label=<<font color="white" point-size="16"><b>Skill Categories by Officer Branch</b></font>>;
+
+    // Branch headers
+    subgraph cluster_branches {
+        label="";
+        color="#1a1a2e";
+        bgcolor="#1a1a2e";
+
+        naval_h [label=<<b>NAVAL</b>>, fillcolor="#4ecdc4", fontcolor="#1a1a2e", shape=box];
+        ground_h [label=<<b>GROUND</b>>, fillcolor="#95d5b2", fontcolor="#1a1a2e", shape=box];
+        admin_h [label=<<b>ADMIN</b>>, fillcolor="#ffe66d", fontcolor="#1a1a2e", shape=box];
+        sci_h [label=<<b>SCIENTIST</b>>, fillcolor="#ff6b6b", fontcolor="#1a1a2e", shape=box];
+    }
+
+    // Naval Skills Section
+    subgraph cluster_naval_skills {
+        label=<<font color="#4ecdc4"><b>Naval Skills</b></font>>;
+        color="#4ecdc4";
+        bgcolor="#1a1a2e";
+        style="dashed";
+
+        ns1 [label="Ship Handling", fillcolor="#4ecdc4", fontcolor="#1a1a2e"];
+        ns2 [label="Crew Training", fillcolor="#4ecdc4", fontcolor="#1a1a2e"];
+        ns3 [label="Carrier Operations", fillcolor="#4ecdc4", fontcolor="#1a1a2e"];
+        ns4 [label="Fleet Tactics", fillcolor="#4ecdc4", fontcolor="#1a1a2e"];
+        ns5 [label="Tactical", fillcolor="#4ecdc4", fontcolor="#1a1a2e"];
+        ns6 [label="Light Tactical (v2.8.0)", fillcolor="#4ecdc4", fontcolor="#1a1a2e"];
+    }
+
+    // Combat Skills Section
+    subgraph cluster_combat_skills {
+        label=<<font color="#4ecdc4"><b>Combat Skills</b></font>>;
+        color="#4ecdc4";
+        bgcolor="#1a1a2e";
+        style="dashed";
+
+        cs1 [label="Energy Weapons", fillcolor="#4ecdc4", fontcolor="#1a1a2e"];
+        cs2 [label="Kinetic Weapons", fillcolor="#4ecdc4", fontcolor="#1a1a2e"];
+        cs3 [label="Missile Operations", fillcolor="#4ecdc4", fontcolor="#1a1a2e"];
+        cs4 [label="Electronic Warfare", fillcolor="#4ecdc4", fontcolor="#1a1a2e"];
+    }
+
+    // Diplomatic/Intel Skills Section
+    subgraph cluster_diplo_skills {
+        label=<<font color="#4ecdc4"><b>Diplomatic/Intel (Naval Only)</b></font>>;
+        color="#4ecdc4";
+        bgcolor="#1a1a2e";
+        style="dashed";
+
+        ds1 [label="Diplomacy", fillcolor="#4ecdc4", fontcolor="#1a1a2e"];
+        ds2 [label="Intelligence (ELINT)", fillcolor="#4ecdc4", fontcolor="#1a1a2e"];
+        ds_restrict [label=<<font color="#ff6b6b">Ground officers CANNOT gain</font>>, shape=note, fillcolor="#2d2d44"];
+    }
+
+    // Ground Combat Skills Section
+    subgraph cluster_ground_skills {
+        label=<<font color="#95d5b2"><b>Ground Combat (Ground Only)</b></font>>;
+        color="#95d5b2";
+        bgcolor="#1a1a2e";
+        style="dashed";
+
+        gs1 [label="Ground Combat Tactics", fillcolor="#95d5b2", fontcolor="#1a1a2e"];
+        gs2 [label="Fortification", fillcolor="#95d5b2", fontcolor="#1a1a2e"];
+        gs3 [label="Anti-Insurgency", fillcolor="#95d5b2", fontcolor="#1a1a2e"];
+        gs4 [label="Xenoarchaeology", fillcolor="#95d5b2", fontcolor="#1a1a2e"];
+        gs_restrict [label=<<font color="#ff6b6b">Naval officers CANNOT gain</font>>, shape=note, fillcolor="#2d2d44"];
+    }
+
+    // Administrative Skills Section
+    subgraph cluster_admin_skills {
+        label=<<font color="#ffe66d"><b>Administrative Skills</b></font>>;
+        color="#ffe66d";
+        bgcolor="#1a1a2e";
+        style="dashed";
+
+        as1 [label="Mining", fillcolor="#ffe66d", fontcolor="#1a1a2e"];
+        as2 [label="Production", fillcolor="#ffe66d", fontcolor="#1a1a2e"];
+        as3 [label="Logistics", fillcolor="#ffe66d", fontcolor="#1a1a2e"];
+        as4 [label="Population Growth", fillcolor="#ffe66d", fontcolor="#1a1a2e"];
+        as5 [label="Colony Admin (max 10)", fillcolor="#ffe66d", fontcolor="#1a1a2e"];
+    }
+
+    // Scientific Skills Section
+    subgraph cluster_science_skills {
+        label=<<font color="#ff6b6b"><b>Research Fields (Scientists)</b></font>>;
+        color="#ff6b6b";
+        bgcolor="#1a1a2e";
+        style="dashed";
+
+        ss1 [label="Biology/Genetics", fillcolor="#ff6b6b", fontcolor="#1a1a2e"];
+        ss2 [label="Construction/Production", fillcolor="#ff6b6b", fontcolor="#1a1a2e"];
+        ss3 [label="Defensive Systems", fillcolor="#ff6b6b", fontcolor="#1a1a2e"];
+        ss4 [label="Energy Weapons", fillcolor="#ff6b6b", fontcolor="#1a1a2e"];
+        ss5 [label="Logistics/Ground Combat", fillcolor="#ff6b6b", fontcolor="#1a1a2e"];
+        ss6 [label="Missiles/Kinetics", fillcolor="#ff6b6b", fontcolor="#1a1a2e"];
+        ss7 [label="Power/Propulsion", fillcolor="#ff6b6b", fontcolor="#1a1a2e"];
+        ss8 [label="Sensors/Fire Control", fillcolor="#ff6b6b", fontcolor="#1a1a2e"];
+        ss9 [label="Research Admin (max 50)", fillcolor="#ff6b6b", fontcolor="#1a1a2e"];
+    }
+
+    // Key restrictions box
+    restrictions [label=<<table border="0" cellborder="0" cellspacing="0">
+        <tr><td align="left"><b>Key Restrictions (v2.4.0+):</b></td></tr>
+        <tr><td align="left"><font color="#ff6b6b">X</font> Naval cannot gain: Xenoarchaeology</td></tr>
+        <tr><td align="left"><font color="#ff6b6b">X</font> Ground cannot gain: Diplomacy, Intelligence</td></tr>
+        <tr><td align="left"><font color="#4ecdc4">&#10003;</font> All bonuses max at 150% except Admin (10) &amp; Research (50)</td></tr>
+    </table>>, shape=note, fillcolor="#2d2d44"];
+
+    // Layout
+    {rank=same; naval_h ground_h admin_h sci_h}
+}

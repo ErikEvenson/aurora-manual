@@ -1,0 +1,133 @@
+// Promotion Score and Rank Progression Diagram
+// Section 16.2.5 - Career path and promotion requirements
+digraph rank_progression {
+    rankdir=TB;
+    bgcolor="#1a1a2e";
+    node [shape=box, style="filled,rounded", fillcolor="#2d2d44", color="#4ecdc4", fontname="Helvetica", fontcolor="white", fontsize=10];
+    edge [color="#4ecdc4", fontname="Helvetica", fontcolor="white", fontsize=9];
+
+    // Title
+    labelloc="t";
+    label=<<font color="white" point-size="16"><b>Naval Rank Progression &amp; Promotion</b></font>>;
+
+    // Rank progression (vertical)
+    subgraph cluster_ranks {
+        label=<<font color="white"><b>Rank Ladder</b></font>>;
+        color="#4ecdc4";
+        bgcolor="#1a1a2e";
+        style="dashed";
+
+        r1 [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b>Lieutenant Commander</b></td></tr>
+            <tr><td>Score: 25-412</td></tr>
+            <tr><td>Min Retire: 10 years</td></tr>
+            <tr><td>Commands: Small ships</td></tr>
+        </table>>, fillcolor="#2d2d44"];
+
+        r2 [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b>Commander</b></td></tr>
+            <tr><td>Score: 316-553</td></tr>
+            <tr><td>Min Retire: 15 years</td></tr>
+            <tr><td>Commands: Frigates, Destroyers</td></tr>
+        </table>>, fillcolor="#2d2d44"];
+
+        r3 [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b>Captain</b></td></tr>
+            <tr><td>Score: 281-725</td></tr>
+            <tr><td>Min Retire: 20 years</td></tr>
+            <tr><td>Commands: Cruisers, Capital Ships</td></tr>
+        </table>>, fillcolor="#4ecdc4", fontcolor="#1a1a2e"];
+
+        r4 [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b>Rear Admiral (Lower)</b></td></tr>
+            <tr><td>Score: 732-914</td></tr>
+            <tr><td>Min Retire: 25 years</td></tr>
+            <tr><td>Commands: Task Groups</td></tr>
+        </table>>, fillcolor="#2d2d44"];
+
+        r5 [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b>Rear Admiral (Upper)</b></td></tr>
+            <tr><td>Score: 925-1011</td></tr>
+            <tr><td>Min Retire: 30 years</td></tr>
+            <tr><td>Commands: Larger Task Groups</td></tr>
+        </table>>, fillcolor="#2d2d44"];
+
+        r6 [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b>Vice Admiral</b></td></tr>
+            <tr><td>Score: 1058-1153</td></tr>
+            <tr><td>Min Retire: 35 years</td></tr>
+            <tr><td>Commands: Major Task Groups</td></tr>
+        </table>>, fillcolor="#2d2d44"];
+
+        r7 [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b>Admiral</b></td></tr>
+            <tr><td>Score: 1251-1293</td></tr>
+            <tr><td>Min Retire: 40 years</td></tr>
+            <tr><td>Commands: Fleets</td></tr>
+        </table>>, fillcolor="#ffe66d", fontcolor="#1a1a2e"];
+
+        r8 [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b>Fleet Admiral</b></td></tr>
+            <tr><td>Score: ~1300+</td></tr>
+            <tr><td>Min Retire: 45 years</td></tr>
+            <tr><td>Commands: All Forces</td></tr>
+        </table>>, fillcolor="#ff6b6b", fontcolor="#1a1a2e"];
+
+        r1 -> r2 -> r3 -> r4 -> r5 -> r6 -> r7 -> r8;
+    }
+
+    // Promotion requirements
+    subgraph cluster_requirements {
+        label=<<font color="white"><b>Promotion Requirements</b></font>>;
+        color="#4ecdc4";
+        bgcolor="#1a1a2e";
+        style="dashed";
+
+        req1 [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b>On-Demand System (v2.0.0)</b></td></tr>
+            <tr><td align="left">1. Position must be available</td></tr>
+            <tr><td align="left">2. 1+ year at current rank</td></tr>
+            <tr><td align="left">3. No "Do Not Promote" flag</td></tr>
+            <tr><td align="left">4. Primary bonus for role</td></tr>
+        </table>>, fillcolor="#2d2d44"];
+
+        req2 [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b>Selection Priority</b></td></tr>
+            <tr><td align="left">1. Highest primary bonus</td></tr>
+            <tr><td align="left">2. Best promotion score (tiebreaker)</td></tr>
+            <tr><td align="left">3. Political bonus (if enabled)</td></tr>
+        </table>>, fillcolor="#2d2d44"];
+    }
+
+    // Score sources
+    subgraph cluster_score {
+        label=<<font color="white"><b>Promotion Score Sources</b></font>>;
+        color="#ffe66d";
+        bgcolor="#1a1a2e";
+        style="dashed";
+
+        score1 [label="Medals &amp; Ribbons\n(point values vary)", fillcolor="#ffe66d", fontcolor="#1a1a2e"];
+        score2 [label="Research Completions\n(scientists only)", fillcolor="#ffe66d", fontcolor="#1a1a2e"];
+        score3 [label="Time in Grade\n(eligibility factor)", fillcolor="#ffe66d", fontcolor="#1a1a2e"];
+    }
+
+    // Retirement rules
+    retirement [label=<<table border="0" cellborder="0" cellspacing="0">
+        <tr><td><b>Retirement Risk</b></td></tr>
+        <tr><td>20%/year after min retirement date</td></tr>
+        <tr><td><font color="#ff6b6b">40%/year if UNASSIGNED</font></td></tr>
+    </table>>, shape=box, fillcolor="#2d2d44"];
+
+    // Strategic tip
+    tip [label=<<table border="0" cellborder="0" cellspacing="0">
+        <tr><td><b>Strategy</b></td></tr>
+        <tr><td>Promotion extends min retirement</td></tr>
+        <tr><td>+5 years per rank above minimum</td></tr>
+        <tr><td><font color="#95d5b2">Promote to retain valuable officers!</font></td></tr>
+    </table>>, shape=note, fillcolor="#2d2d44"];
+
+    // Layout connections
+    req1 -> req2 [style=invis];
+    {rank=same; score1 score2 score3}
+    retirement -> tip [style=invis];
+}

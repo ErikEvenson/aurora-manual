@@ -1,0 +1,133 @@
+// Governor Assignment Strategy Matrix
+// Section 16.3.2 - Optimal governor bonuses by colony type
+digraph governor_matrix {
+    rankdir=TB;
+    bgcolor="#1a1a2e";
+    node [shape=box, style="filled,rounded", fillcolor="#2d2d44", color="#4ecdc4", fontname="Helvetica", fontcolor="white", fontsize=10];
+    edge [style=invis];
+
+    // Title
+    labelloc="t";
+    label=<<font color="white" point-size="16"><b>Governor Assignment Strategy Matrix</b></font>>;
+
+    // Main matrix
+    matrix [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="6">
+        <tr>
+            <td bgcolor="#4ecdc4"><b>Colony Type</b></td>
+            <td bgcolor="#4ecdc4"><b>1st Priority</b></td>
+            <td bgcolor="#4ecdc4"><b>2nd Priority</b></td>
+            <td bgcolor="#4ecdc4"><b>3rd Priority</b></td>
+            <td bgcolor="#4ecdc4"><b>Notes</b></td>
+        </tr>
+        <tr>
+            <td bgcolor="#ffe66d"><b>Industrial Hub</b></td>
+            <td bgcolor="#95d5b2">Production</td>
+            <td>Wealth Creation</td>
+            <td>Population Growth</td>
+            <td>Shipyards, factories</td>
+        </tr>
+        <tr>
+            <td bgcolor="#ffe66d"><b>Mining Colony</b></td>
+            <td bgcolor="#95d5b2">Mining</td>
+            <td>Production</td>
+            <td>Logistics</td>
+            <td>Automated + manned mines</td>
+        </tr>
+        <tr>
+            <td bgcolor="#ffe66d"><b>Population Center</b></td>
+            <td bgcolor="#95d5b2">Population Growth</td>
+            <td>Production</td>
+            <td>Wealth Creation</td>
+            <td>New colonies, growth focus</td>
+        </tr>
+        <tr>
+            <td bgcolor="#ffe66d"><b>Research Hub</b></td>
+            <td bgcolor="#95d5b2">Research Admin</td>
+            <td>Production</td>
+            <td>Population Growth</td>
+            <td>Labs concentration</td>
+        </tr>
+        <tr>
+            <td bgcolor="#ffe66d"><b>Homeworld</b></td>
+            <td bgcolor="#95d5b2">Production</td>
+            <td>Mining</td>
+            <td>Population Growth</td>
+            <td>All-around priority</td>
+        </tr>
+        <tr>
+            <td bgcolor="#ffe66d"><b>Logistics Base</b></td>
+            <td bgcolor="#95d5b2">Logistics</td>
+            <td>Production</td>
+            <td>Mining</td>
+            <td>Supply depots, fueling</td>
+        </tr>
+        <tr>
+            <td bgcolor="#ffe66d"><b>Military Outpost</b></td>
+            <td bgcolor="#95d5b2">Logistics</td>
+            <td>Production</td>
+            <td>Mining</td>
+            <td>Forward bases</td>
+        </tr>
+    </table>>, shape=none, fontcolor="#1a1a2e"];
+
+    // Assignment workflow
+    subgraph cluster_workflow {
+        label=<<font color="white"><b>Auto-Assignment Setup</b></font>>;
+        color="#4ecdc4";
+        bgcolor="#1a1a2e";
+        style="dashed";
+
+        w1 [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b>Step 1: Set Importance</b></td></tr>
+            <tr><td>High = processed first</td></tr>
+            <tr><td>Critical worlds get best candidates</td></tr>
+        </table>>, fillcolor="#2d2d44"];
+
+        w2 [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b>Step 2: Configure Priorities</b></td></tr>
+            <tr><td>1st: Primary bonus type</td></tr>
+            <tr><td>2nd: Tiebreaker bonus</td></tr>
+            <tr><td>3rd: Final tiebreaker</td></tr>
+        </table>>, fillcolor="#2d2d44"];
+
+        w3 [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b>Step 3: Enable Auto-Assign</b></td></tr>
+            <tr><td>Checkbox on Governor tab</td></tr>
+            <tr><td>Auto-replaces on death/retire</td></tr>
+        </table>>, fillcolor="#2d2d44"];
+
+        w1 -> w2 -> w3;
+    }
+
+    // Bonus effects
+    subgraph cluster_effects {
+        label=<<font color="white"><b>Bonus Effects</b></font>>;
+        color="#95d5b2";
+        bgcolor="#1a1a2e";
+        style="dashed";
+
+        e1 [label="Production: +X% factory output", fillcolor="#95d5b2", fontcolor="#1a1a2e"];
+        e2 [label="Mining: +X% mineral extraction", fillcolor="#95d5b2", fontcolor="#1a1a2e"];
+        e3 [label="Pop Growth: +X% growth rate", fillcolor="#95d5b2", fontcolor="#1a1a2e"];
+        e4 [label="Logistics: Cargo handling speed", fillcolor="#95d5b2", fontcolor="#1a1a2e"];
+    }
+
+    // Strategic note
+    tip [label=<<table border="0" cellborder="0" cellspacing="0">
+        <tr><td><b>Early Game Priority</b></td></tr>
+        <tr><td>Homeworld governor is CRITICAL</td></tr>
+        <tr><td>All industry concentrated there</td></tr>
+        <tr><td><font color="#95d5b2">Assign best Production officer immediately!</font></td></tr>
+    </table>>, shape=note, fillcolor="#2d2d44"];
+
+    // Eligibility note
+    eligibility [label=<<table border="0" cellborder="0" cellspacing="0">
+        <tr><td><b>Governor Eligibility</b></td></tr>
+        <tr><td>Only Administrators can be governors</td></tr>
+        <tr><td>Naval/Ground/Scientists cannot serve</td></tr>
+        <tr><td>One governor per colony maximum</td></tr>
+    </table>>, shape=box, fillcolor="#ffe66d", fontcolor="#1a1a2e"];
+
+    // Layout
+    {rank=same; e1 e2 e3 e4}
+}

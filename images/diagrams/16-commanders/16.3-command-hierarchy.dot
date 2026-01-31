@@ -1,0 +1,145 @@
+// Ship Command Hierarchy and Modules Diagram
+// Section 16.3 - Command modules and officer positions
+digraph command_hierarchy {
+    rankdir=TB;
+    bgcolor="#1a1a2e";
+    node [shape=box, style="filled,rounded", fillcolor="#2d2d44", color="#4ecdc4", fontname="Helvetica", fontcolor="white", fontsize=10];
+    edge [color="#4ecdc4", fontname="Helvetica", fontcolor="white", fontsize=9];
+
+    // Title
+    labelloc="t";
+    label=<<font color="white" point-size="16"><b>Ship Command Hierarchy &amp; Control Modules</b></font>>;
+
+    // Bridge (Required)
+    subgraph cluster_bridge {
+        label=<<font color="white"><b>Required</b></font>>;
+        color="#ff6b6b";
+        bgcolor="#1a1a2e";
+        style="dashed";
+
+        bridge [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b>Bridge</b></td></tr>
+            <tr><td>1 HS | 20 BP</td></tr>
+            <tr><td>Sets Min. Rank</td></tr>
+        </table>>, shape=box, fillcolor="#4ecdc4", fontcolor="#1a1a2e"];
+
+        commander [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b>Ship Commander</b></td></tr>
+            <tr><td>50% Crew Training</td></tr>
+            <tr><td>50% Survey</td></tr>
+            <tr><td>50% Carrier Ops</td></tr>
+            <tr><td>50% Engineering</td></tr>
+            <tr><td>50% Tactical</td></tr>
+        </table>>, fillcolor="#2d2d44"];
+    }
+
+    // Secondary positions
+    subgraph cluster_secondary {
+        label=<<font color="white"><b>Secondary Positions (+1 Control Rating each)</b></font>>;
+        color="#4ecdc4";
+        bgcolor="#1a1a2e";
+        style="dashed";
+
+        // Auxiliary Control
+        aux_ctrl [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b>Auxiliary Control</b></td></tr>
+            <tr><td>1 HS | 15 BP</td></tr>
+        </table>>, fillcolor="#95d5b2", fontcolor="#1a1a2e"];
+
+        xo [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b>Executive Officer</b></td></tr>
+            <tr><td>Rank: CO - 1</td></tr>
+            <tr><td>100% Crew Training</td></tr>
+        </table>>, fillcolor="#2d2d44"];
+
+        // Science Department
+        science_dept [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b>Science Dept</b></td></tr>
+            <tr><td>2 HS | 50 BP</td></tr>
+        </table>>, fillcolor="#95d5b2", fontcolor="#1a1a2e"];
+
+        science_off [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b>Science Officer</b></td></tr>
+            <tr><td>Rank: CO - 1</td></tr>
+            <tr><td>100% Survey</td></tr>
+        </table>>, fillcolor="#2d2d44"];
+
+        // Main Engineering
+        main_eng [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b>Main Engineering</b></td></tr>
+            <tr><td>3 HS | 75 BP</td></tr>
+        </table>>, fillcolor="#95d5b2", fontcolor="#1a1a2e"];
+
+        chief_eng [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b>Chief Engineer</b></td></tr>
+            <tr><td>Rank: CO - 2</td></tr>
+            <tr><td>Engineering Bonus</td></tr>
+        </table>>, fillcolor="#2d2d44"];
+
+        // CIC
+        cic [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b>CIC</b></td></tr>
+            <tr><td>3 HS | 75 BP</td></tr>
+        </table>>, fillcolor="#95d5b2", fontcolor="#1a1a2e"];
+
+        tactical_off [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b>Tactical Officer</b></td></tr>
+            <tr><td>Rank: CO - 2</td></tr>
+            <tr><td>Tactical Bonus</td></tr>
+        </table>>, fillcolor="#2d2d44"];
+
+        // Primary Flight Control
+        pfc [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b>Primary Flight Ctrl</b></td></tr>
+            <tr><td>4 HS | 100 BP</td></tr>
+        </table>>, fillcolor="#95d5b2", fontcolor="#1a1a2e"];
+
+        cag [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b>Commander Air Group</b></td></tr>
+            <tr><td>Rank: CO - 1</td></tr>
+            <tr><td>100% Carrier Ops</td></tr>
+        </table>>, fillcolor="#2d2d44"];
+    }
+
+    // Flag Bridge
+    subgraph cluster_flag {
+        label=<<font color="white"><b>Fleet Command</b></font>>;
+        color="#ffe66d";
+        bgcolor="#1a1a2e";
+        style="dashed";
+
+        flag_bridge [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b>Flag Bridge</b></td></tr>
+            <tr><td>5 HS | 125 BP</td></tr>
+        </table>>, fillcolor="#ffe66d", fontcolor="#1a1a2e"];
+
+        fleet_cmd [label=<<table border="0" cellborder="0" cellspacing="0">
+            <tr><td><b>Fleet Commander</b></td></tr>
+            <tr><td>Rank: Admiral+</td></tr>
+            <tr><td>Fleet Reaction Rating</td></tr>
+        </table>>, fillcolor="#2d2d44"];
+    }
+
+    // Connections
+    bridge -> commander [label="Unlocks"];
+    aux_ctrl -> xo [label="Unlocks"];
+    science_dept -> science_off [label="Unlocks"];
+    main_eng -> chief_eng [label="Unlocks"];
+    cic -> tactical_off [label="Unlocks"];
+    pfc -> cag [label="Unlocks"];
+    flag_bridge -> fleet_cmd [label="Unlocks"];
+
+    // Rank requirement notes
+    rank_note [label=<<table border="0" cellborder="0" cellspacing="0">
+        <tr><td align="left"><b>Rank Modifiers:</b></td></tr>
+        <tr><td align="left">+1 Rank: Survey sensors, Aux Ctrl, Science, Jump Drive</td></tr>
+        <tr><td align="left">+2 Rank: Weapons, Hangars, Main Eng, CIC, Flag Bridge</td></tr>
+        <tr><td align="left">Exception: Ships &lt;= 1000t default to lowest rank</td></tr>
+    </table>>, shape=note, fillcolor="#2d2d44"];
+
+    // Layout hints
+    {rank=same; bridge commander}
+    {rank=same; aux_ctrl xo science_dept science_off}
+    {rank=same; main_eng chief_eng cic tactical_off}
+    {rank=same; pfc cag flag_bridge fleet_cmd}
+}

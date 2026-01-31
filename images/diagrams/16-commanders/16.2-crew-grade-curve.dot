@@ -1,0 +1,86 @@
+// Crew Grade Diminishing Returns Diagram
+// Section 16.2.3 - Crew training grade accumulation
+digraph crew_grade {
+    rankdir=TB;
+    bgcolor="#1a1a2e";
+    node [shape=box, style="filled,rounded", fillcolor="#2d2d44", color="#4ecdc4", fontname="Helvetica", fontcolor="white", fontsize=10];
+    edge [color="#4ecdc4", fontname="Helvetica", fontcolor="white", fontsize=9];
+
+    // Title
+    labelloc="t";
+    label=<<font color="white" point-size="16"><b>Crew Grade: Diminishing Returns</b></font>>;
+
+    // Formula box
+    formula [label=<<table border="0" cellborder="0" cellspacing="0">
+        <tr><td><b>Grade Bonus Formula</b></td></tr>
+        <tr><td><font point-size="14">Bonus = SQRT(Points) - 10</font></td></tr>
+        <tr><td>Maximum: 1000 points = 21.6% bonus</td></tr>
+    </table>>, shape=box, fillcolor="#4ecdc4", fontcolor="#1a1a2e"];
+
+    // Point accumulation
+    accum [label=<<table border="0" cellborder="0" cellspacing="0">
+        <tr><td><b>Annual Point Accumulation</b></td></tr>
+        <tr><td>Commander: 50% of Crew Training bonus</td></tr>
+        <tr><td>XO: 100% of Crew Training bonus</td></tr>
+    </table>>, shape=box, fillcolor="#2d2d44"];
+
+    // Curve visualization as table
+    curve [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="4">
+        <tr><td bgcolor="#4ecdc4"><b>Points</b></td><td bgcolor="#4ecdc4"><b>Bonus</b></td><td bgcolor="#4ecdc4"><b>Gain</b></td></tr>
+        <tr><td>100</td><td>0%</td><td>-</td></tr>
+        <tr><td bgcolor="#95d5b2">200</td><td bgcolor="#95d5b2">4.1%</td><td bgcolor="#95d5b2">+4.1%</td></tr>
+        <tr><td>300</td><td>7.3%</td><td>+3.2%</td></tr>
+        <tr><td bgcolor="#95d5b2">400</td><td bgcolor="#95d5b2">10%</td><td bgcolor="#95d5b2">+2.7%</td></tr>
+        <tr><td>500</td><td>12.4%</td><td>+2.4%</td></tr>
+        <tr><td bgcolor="#95d5b2">600</td><td bgcolor="#95d5b2">14.5%</td><td bgcolor="#95d5b2">+2.1%</td></tr>
+        <tr><td>700</td><td>16.5%</td><td>+2.0%</td></tr>
+        <tr><td bgcolor="#95d5b2">800</td><td bgcolor="#95d5b2">18.3%</td><td bgcolor="#95d5b2">+1.8%</td></tr>
+        <tr><td>900</td><td>20%</td><td>+1.7%</td></tr>
+        <tr><td bgcolor="#ffe66d"><b>1000</b></td><td bgcolor="#ffe66d"><b>21.6%</b></td><td bgcolor="#ffe66d">+1.6%</td></tr>
+    </table>>, shape=none, fontcolor="#1a1a2e"];
+
+    // Visual representation of diminishing returns
+    subgraph cluster_visual {
+        label=<<font color="white"><b>Diminishing Returns Visualization</b></font>>;
+        color="#4ecdc4";
+        bgcolor="#1a1a2e";
+        style="dashed";
+
+        bar1 [label="100-200 pts: +4.1%", fillcolor="#95d5b2", fontcolor="#1a1a2e", width=4];
+        bar2 [label="200-300 pts: +3.2%", fillcolor="#95d5b2", fontcolor="#1a1a2e", width=3.2];
+        bar3 [label="300-400 pts: +2.7%", fillcolor="#95d5b2", fontcolor="#1a1a2e", width=2.7];
+        bar4 [label="400-500 pts: +2.4%", fillcolor="#95d5b2", fontcolor="#1a1a2e", width=2.4];
+        bar5 [label="500-600 pts: +2.1%", fillcolor="#4ecdc4", fontcolor="#1a1a2e", width=2.1];
+        bar6 [label="600-700 pts: +2.0%", fillcolor="#4ecdc4", fontcolor="#1a1a2e", width=2.0];
+        bar7 [label="700-800 pts: +1.8%", fillcolor="#ffe66d", fontcolor="#1a1a2e", width=1.8];
+        bar8 [label="800-900 pts: +1.7%", fillcolor="#ffe66d", fontcolor="#1a1a2e", width=1.7];
+        bar9 [label="900-1000 pts: +1.6%", fillcolor="#ff6b6b", fontcolor="#1a1a2e", width=1.6];
+    }
+
+    // Officer contribution comparison
+    comparison [label=<<table border="0" cellborder="0" cellspacing="0">
+        <tr><td colspan="2"><b>Example: 30% Crew Training Officer</b></td></tr>
+        <tr><td align="right">As Commander:</td><td align="left">15 pts/year (50%)</td></tr>
+        <tr><td align="right">As XO:</td><td align="left">30 pts/year (100%)</td></tr>
+        <tr><td colspan="2"><font color="#ffe66d">XO provides 2x the training benefit!</font></td></tr>
+    </table>>, shape=note, fillcolor="#2d2d44"];
+
+    // Strategic insight
+    insight [label=<<table border="0" cellborder="0" cellspacing="0">
+        <tr><td><b>Strategic Insight</b></td></tr>
+        <tr><td>Early training (0-400 pts): Fast gains</td></tr>
+        <tr><td>Mid training (400-700 pts): Moderate gains</td></tr>
+        <tr><td>Late training (700-1000 pts): Slow grind</td></tr>
+        <tr><td><font color="#95d5b2">Focus new ships on reaching 400+ pts quickly</font></td></tr>
+    </table>>, shape=box, fillcolor="#2d2d44"];
+
+    // Layout
+    formula -> accum;
+    accum -> curve;
+    curve -> comparison;
+    comparison -> insight;
+
+    {rank=same; bar1 bar2 bar3}
+    {rank=same; bar4 bar5 bar6}
+    {rank=same; bar7 bar8 bar9}
+}

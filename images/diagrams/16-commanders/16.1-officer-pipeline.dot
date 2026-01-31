@@ -1,0 +1,104 @@
+// Officer Pipeline and Generation Diagram
+// Section 16.1 - How officers are generated from Naval Academies
+digraph officer_pipeline {
+    rankdir=TB;
+    bgcolor="#1a1a2e";
+    node [shape=box, style="filled,rounded", fillcolor="#2d2d44", color="#4ecdc4", fontname="Helvetica", fontcolor="white", fontsize=11];
+    edge [color="#4ecdc4", fontname="Helvetica", fontcolor="white", fontsize=10];
+
+    // Title
+    labelloc="t";
+    label=<<font color="white" point-size="16"><b>Officer Generation Pipeline</b></font>>;
+
+    // Naval Academy as source
+    academy [label="Naval Academy\n(10 officers/year)", shape=box, fillcolor="#2d2d44"];
+
+    // Commandant decision
+    subgraph cluster_commandant {
+        label=<<font color="white"><b>Commandant Check</b></font>>;
+        color="#4ecdc4";
+        bgcolor="#1a1a2e";
+        style="dashed";
+
+        cmd_check [label="Commandant\nAssigned?", shape=diamond, fillcolor="#ffe66d", fontcolor="#1a1a2e"];
+    }
+
+    // Commandant type influence
+    subgraph cluster_type_check {
+        label=<<font color="white"><b>Type Generation</b></font>>;
+        color="#4ecdc4";
+        bgcolor="#1a1a2e";
+        style="dashed";
+
+        type_roll [label="Roll for\nCommandant's Type", shape=diamond, fillcolor="#ffe66d", fontcolor="#1a1a2e"];
+    }
+
+    // Base distribution
+    subgraph cluster_base_dist {
+        label=<<font color="white"><b>Base Distribution</b></font>>;
+        color="#4ecdc4";
+        bgcolor="#1a1a2e";
+        style="dashed";
+
+        naval [label="Naval Officer\n60%", fillcolor="#4ecdc4", fontcolor="#1a1a2e"];
+        ground [label="Ground Forces\n25%", fillcolor="#95d5b2", fontcolor="#1a1a2e"];
+        admin [label="Administrator\n8%", fillcolor="#ffe66d", fontcolor="#1a1a2e"];
+        scientist [label="Scientist\n7%", fillcolor="#ff6b6b", fontcolor="#1a1a2e"];
+    }
+
+    // Commandant influence rates
+    naval_cmd [label="Naval Commandant\n80% same type", shape=note, fillcolor="#4ecdc4", fontcolor="#1a1a2e"];
+    ground_cmd [label="Ground Commandant\n40% same type", shape=note, fillcolor="#95d5b2", fontcolor="#1a1a2e"];
+    admin_cmd [label="Admin Commandant\n16% same type", shape=note, fillcolor="#ffe66d", fontcolor="#1a1a2e"];
+    sci_cmd [label="Scientist Commandant\n14% same type\n(25% same specialty)", shape=note, fillcolor="#ff6b6b", fontcolor="#1a1a2e"];
+
+    // Quality boost
+    quality [label="Quality Check\nBonus >= 20% or\nTraining >= 150", shape=diamond, fillcolor="#ffe66d", fontcolor="#1a1a2e"];
+    double_roll [label="Double Roll\n(best of two)", shape=box, fillcolor="#95d5b2", fontcolor="#1a1a2e"];
+
+    // Output
+    new_officer [label="New Officer\nGenerated", shape=box, fillcolor="#4ecdc4", fontcolor="#1a1a2e", penwidth=2];
+
+    // Flow
+    academy -> cmd_check;
+    cmd_check -> type_roll [label="Yes"];
+    cmd_check -> naval [label="No" style=dashed];
+    cmd_check -> ground [label="" style=invis];
+    cmd_check -> admin [label="" style=invis];
+    cmd_check -> scientist [label="" style=invis];
+
+    // Commandant type rates (invisible edges for layout)
+    type_roll -> naval_cmd [style=invis];
+    type_roll -> ground_cmd [style=invis];
+    type_roll -> admin_cmd [style=invis];
+    type_roll -> sci_cmd [style=invis];
+
+    naval_cmd -> naval [label="Success"];
+    ground_cmd -> ground [label="Success"];
+    admin_cmd -> admin [label="Success"];
+    sci_cmd -> scientist [label="Success"];
+
+    naval_cmd -> naval [label="Fail" style=dashed];
+    ground_cmd -> naval [label="Fail" style=dashed];
+    admin_cmd -> naval [label="Fail" style=dashed];
+    sci_cmd -> naval [label="Fail" style=dashed];
+
+    // Quality path
+    {naval ground admin scientist} -> quality;
+    quality -> double_roll [label="Yes"];
+    quality -> new_officer [label="No"];
+    double_roll -> new_officer;
+
+    // Legend
+    subgraph cluster_legend {
+        label=<<font color="white"><b>Legend</b></font>>;
+        color="#4ecdc4";
+        bgcolor="#1a1a2e";
+        style="dashed";
+        rank=sink;
+
+        leg1 [label="Process", shape=box, fillcolor="#2d2d44"];
+        leg2 [label="Decision", shape=diamond, fillcolor="#ffe66d", fontcolor="#1a1a2e"];
+        leg3 [label="Output", shape=box, fillcolor="#4ecdc4", fontcolor="#1a1a2e"];
+    }
+}
