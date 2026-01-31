@@ -1,10 +1,16 @@
 # Aurora 4X Manual - Project Instructions
 
+*Updated: v2026.01.29*
+
 ## Project Overview
+
+*Updated: v2026.01.24*
 
 This is a comprehensive reference manual for Aurora C# (space strategy game by Steve Walmsley). The manual is written in Markdown, organized by numbered sections, and compiled to PDF via `build-pdf.sh` using pandoc + tectonic.
 
 ## Answering Game Mechanics Questions
+
+*Updated: v2026.01.29*
 
 When answering questions about Aurora mechanics using manual content:
 
@@ -29,11 +35,15 @@ When preparing answers suitable for posting to Aurora Forums or Discord:
 
 ## Game Fundamentals
 
+*Updated: v2026.01.24*
+
 - **Turn-based, not real-time:** Aurora advances time only when the player clicks an increment button (5 sec, 30 sec, 5 min, etc.). There is no "pause" — time never runs automatically.
 - **Conventional start:** Earth in 2025 with existing population, installations, and officers
 - **Space start:** Single ship, minimal resources, no established infrastructure
 
 ## YouTube Source Attribution
+
+*Updated: v2026.01.28*
 
 **MANDATORY:** When extracting content from YouTube videos for manual updates:
 
@@ -52,6 +62,8 @@ When preparing answers suitable for posting to Aurora Forums or Discord:
 
 ## Content Standards
 
+*Updated: v2026.01.24*
+
 - **Section numbering:** Decimal hierarchy (e.g., 8.2.1 is a heading within file 8.2)
 - **Cross-references:** Always use `[Section X.Y Title](../path/to/file.md)` format — never bare "see Section X.Y"
 - **Version tags:** New sections get `*Added: v2026.01.24*` after the top heading
@@ -59,6 +71,8 @@ When preparing answers suitable for posting to Aurora Forums or Discord:
 - **Tables:** Ensure blank lines before and after tables for pandoc compatibility
 
 ## Inline References (MANDATORY for all new content)
+
+*Updated: v2026.01.26*
 
 Every factual claim (numeric values, game mechanics, formulas, component specs) MUST include an inline reference verified against an authoritative source.
 
@@ -89,6 +103,8 @@ Fuel Refineries cost 120 BP and require 120 Boronide per installation \hyperlink
 
 ## Build System
 
+*Updated: v2026.01.28*
+
 - **Build command:** `bash build-pdf.sh` (auto-increment) or `bash build-pdf.sh VERSION` (explicit)
 - **PDF output:** `releases/aurora-manual-VERSION.pdf`
 - **File list:** All source files must be listed in `build-pdf.sh` FILES array
@@ -114,11 +130,15 @@ For development/testing builds, use `bash build-pdf.sh` without arguments (auto-
 
 ## Game Database
 
+*Updated: v2026.01.24*
+
 - **Location:** `~/Downloads/Aurora271Full/AuroraDB.db` (SQLite)
 - **Use:** Verify formulas, values, and mechanics claims against actual game data
 - **Caution:** Values from YouTube videos or forum posts should be cross-checked against the database when possible
 
 ## Issue Workflow
+
+*Updated: v2026.01.24*
 
 - Group related issues into parallel waves for background agents
 - Close issues with commit reference comments
@@ -126,6 +146,8 @@ For development/testing builds, use `bash build-pdf.sh` without arguments (auto-
 - Build PDF and create GitHub release after completing a wave
 
 ## Unverified Claims Tracking
+
+*Updated: v2026.01.28*
 
 **MANDATORY:** All unverified claims must be tracked via GitHub issues.
 
@@ -169,6 +191,8 @@ Prioritize verification of:
 
 ## README Maintenance
 
+*Updated: v2026.01.28*
+
 **Keep README.md synchronized with project state.** Check and update when:
 
 1. **Game version changes** — Update the version number in both locations:
@@ -192,6 +216,8 @@ Prioritize verification of:
 
 ## Contributor Attribution
 
+*Updated: v2026.01.25*
+
 All repo contributors must appear in three locations:
 
 1. **README.md** — Contributors section: `- **[@username](https://github.com/username)**`
@@ -202,10 +228,14 @@ To get the current contributor list: `gh api repos/ErikEvenson/aurora-manual/con
 
 ## LaTeX Compatibility
 
+*Updated: v2026.01.25*
+
 - Avoid Unicode symbols that don't render in LaTeX (e.g., use `<=` instead of `≤`)
 - Long tables may overflow; consider breaking into multiple tables or using shorter column content
 
 ## SVG Images
+
+*Updated: v2026.01.29*
 
 SVG images are supported via automatic conversion:
 
@@ -218,6 +248,8 @@ SVG images are supported via automatic conversion:
 The build script only reconverts if the SVG is newer than the PDF.
 
 ## Screenshots
+
+*Updated: v2026.01.29*
 
 Screenshots are stored in `images/screenshots/` with subdirectories mirroring chapter structure.
 
@@ -257,6 +289,8 @@ This placeholder:
 **Screenshot issue template:**
 ```markdown
 ## Screenshot Request
+
+*Updated: v2026.01.29*
 
 **Section:** X.Y Section Name
 **File:** `images/screenshots/[chapter]/[filename].png`
@@ -427,6 +461,9 @@ from PIL import Image
 img = Image.open('/tmp/screenshot.png')
 
 # Create vertical strips (400px wide) across the image
+
+*Updated: v2026.01.29*
+
 for x_start in range(0, img.width, 400):
     strip = img.crop((x_start, 100, x_start + 400, 200))
     strip.save(f'/tmp/x_strip_{x_start}.png')
@@ -435,6 +472,9 @@ for x_start in range(0, img.width, 400):
 **Step 2: Find Y positions using horizontal strips**
 ```python
 # Once X range is known (e.g., x=408-780 for NPR), find Y position
+
+*Updated: v2026.01.29*
+
 for y_start in range(0, 400, 50):
     strip = img.crop((408, y_start, 780, y_start + 50))
     strip.save(f'/tmp/y_strip_{y_start}_{y_start+50}.png')
@@ -443,6 +483,9 @@ for y_start in range(0, 400, 50):
 **Step 3: Refine with narrow strips**
 ```python
 # Narrow down to exact Y range (e.g., found text around y=150)
+
+*Updated: v2026.01.29*
+
 for y_start in [140, 150, 160]:
     strip = img.crop((408, y_start, 780, y_start + 30))
     strip.save(f'/tmp/precise_y_{y_start}.png')
@@ -467,3 +510,135 @@ Example workflow:
 ```
 
 Both PDF (pandoc) and web (Jekyll) handle PNG images natively.
+
+## Charts
+
+Charts are stored in `images/charts/` with subdirectories mirroring chapter structure.
+
+### Directory Structure
+
+```
+images/charts/
+  5-colonies/
+    5.2-growth-rate-vs-capacity.png
+  8-ship-design/
+    8.3-engine-efficiency-curve.png
+  ...
+```
+
+### Chart Style Standards (MANDATORY)
+
+All charts must follow these styling rules for visual consistency:
+
+**Color Palette:**
+- **Background:** `#1a1a2e` (dark blue-black, matches Aurora aesthetic)
+- **Primary line/fill:** `#4ecdc4` (cyan/teal)
+- **Secondary line/fill:** `#ff6b6b` (coral red)
+- **Tertiary line/fill:** `#ffe66d` (yellow)
+- **Grid lines:** `#2d2d44` (subtle dark gray)
+- **Text/labels:** `white`
+- **Annotations:** `#888888` (gray) for secondary text
+
+**Typography:**
+- **Title:** 14pt, white, bold
+- **Axis labels:** 12pt, white
+- **Tick labels:** 10pt, white
+- **Annotations:** 10pt, gray
+
+**Chart Elements:**
+- **Line width:** 2.5px for primary data, 1.5px for reference lines
+- **Grid:** Both major grid lines enabled, alpha 0.3
+- **Markers:** Only at key data points, not continuous
+- **Figure size:** 10x6 inches (1500x900 at 150 DPI)
+- **DPI:** 150 (balances quality and file size)
+
+**Annotations:**
+- Use arrows sparingly to highlight key values
+- Include threshold markers (vertical/horizontal dashed lines) for important breakpoints
+- Add text boxes for formulas when relevant
+
+### Python/Matplotlib Template
+
+```python
+import matplotlib.pyplot as plt
+import numpy as np
+
+# MANDATORY: Use dark background style
+plt.style.use('dark_background')
+
+# Create figure with standard size
+fig, ax = plt.subplots(figsize=(10, 6))
+
+# Set background color
+fig.patch.set_facecolor('#1a1a2e')
+ax.set_facecolor('#1a1a2e')
+
+# Example data
+x = np.linspace(0, 100, 200)
+y = np.where(x <= 33, 100, 100 - (100 * (x - 33) / 67))
+
+# Plot with standard styling
+ax.plot(x, y, color='#4ecdc4', linewidth=2.5, label='Growth Rate')
+ax.fill_between(x, y, alpha=0.3, color='#4ecdc4')
+
+# Grid styling
+ax.grid(True, alpha=0.3, color='#2d2d44')
+ax.set_axisbelow(True)
+
+# Labels and title
+ax.set_xlabel('X Axis Label (%)', fontsize=12, color='white')
+ax.set_ylabel('Y Axis Label (%)', fontsize=12, color='white')
+ax.set_title('Chart Title', fontsize=14, fontweight='bold', color='white')
+
+# Axis ranges
+ax.set_xlim(0, 100)
+ax.set_ylim(0, 110)
+
+# Tick styling
+ax.tick_params(colors='white')
+
+# Key threshold markers (example)
+ax.axvline(x=33, color='#888888', linestyle='--', linewidth=1.5, alpha=0.7)
+ax.annotate('Threshold', xy=(33, 50), xytext=(45, 50),
+            fontsize=10, color='#888888',
+            arrowprops=dict(arrowstyle='->', color='#888888'))
+
+# Legend if multiple series
+ax.legend(loc='upper right', fontsize=10)
+
+plt.tight_layout()
+
+# Save with standard settings
+plt.savefig('images/charts/[chapter]/[section]-[name].png',
+            facecolor='#1a1a2e',
+            dpi=150,
+            bbox_inches='tight')
+plt.close()
+```
+
+### Chart Types and Guidelines
+
+| Chart Type | Use Case | Key Considerations |
+|------------|----------|-------------------|
+| Line chart | Continuous relationships (growth curves, efficiency) | Show full range, mark thresholds |
+| Bar chart | Discrete comparisons (mineral costs, component stats) | Sort by value, limit to 10-12 bars |
+| Stacked area | Composition over time (fleet mix, resource allocation) | Use consistent color order |
+| Scatter plot | Correlations (tech level vs capability) | Include trend line if relevant |
+| Flowchart | Processes (combat resolution, production) | Use Graphviz DOT format |
+
+### Markdown Reference
+
+```markdown
+![Figure 5.1: Population Growth Rate vs Capacity](../images/charts/5-colonies/5.2-growth-rate-vs-capacity.png)
+```
+
+### Quality Checklist
+
+Before committing any chart:
+- [ ] Uses `#1a1a2e` background (not pure black)
+- [ ] Uses standard color palette
+- [ ] Title and labels are legible
+- [ ] Axis ranges appropriate for data
+- [ ] Key thresholds/breakpoints annotated
+- [ ] Saved at 150 DPI
+- [ ] File in correct chapter subdirectory
