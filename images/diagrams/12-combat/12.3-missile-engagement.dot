@@ -1,0 +1,213 @@
+// Missile Engagement Sequence - Flowchart/Timeline
+// Shows launch -> guidance -> terminal phase with fire control lock scenarios
+
+digraph missile_engagement {
+    // Graph settings
+    bgcolor="#1a1a2e"
+    rankdir=LR
+    nodesep=0.4
+    ranksep=0.6
+
+    // Node defaults
+    node [
+        shape=box
+        style="rounded,filled"
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=10
+    ]
+
+    // Edge defaults
+    edge [
+        color="#4ecdc4"
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=9
+        penwidth=2
+    ]
+
+    // Title
+    title [
+        shape=none
+        fillcolor="#1a1a2e"
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><FONT POINT-SIZE="16" COLOR="white"><B>Missile Engagement Sequence</B></FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="11" COLOR="#95d5b2">From Launch to Detonation</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Main sequence - Phase 1: Launch
+    launch [
+        color="#95d5b2"
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+            <TR><TD><FONT COLOR="#95d5b2"><B>LAUNCH</B></FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">MFC acquires target</FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">Launcher fires missile</FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">Missile accelerates to max speed</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Phase 2: Flight with guidance
+    flight [
+        color="#4ecdc4"
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+            <TR><TD><FONT COLOR="#4ecdc4"><B>GUIDED FLIGHT</B></FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">MFC provides guidance updates</FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">Missile tracks moving target</FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">Fuel consumption in progress</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Decision point: Fire control lock
+    fc_check [
+        shape=diamond
+        color="#ffe66d"
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><FONT COLOR="#ffe66d"><B>FC LOCK?</B></FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Branch: Lock maintained
+    terminal [
+        color="#4ecdc4"
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+            <TR><TD><FONT COLOR="#4ecdc4"><B>TERMINAL PHASE</B></FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">Onboard sensor acquires target</FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">Final approach adjustments</FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">PD engagement zone entered</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Branch: Lock lost - with sensor
+    ballistic_sensor [
+        color="#ffe66d"
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+            <TR><TD><FONT COLOR="#ffe66d"><B>LOCK LOST (HAS SENSOR)</B></FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">Flies to last known position</FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">Onboard sensor searches</FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">May reacquire target</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Branch: Lock lost - no sensor
+    ballistic_blind [
+        color="#ff6b6b"
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+            <TR><TD><FONT COLOR="#ff6b6b"><B>LOCK LOST (NO SENSOR)</B></FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">Flies to last known position</FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">Cannot detect target</FONT></TD></TR>
+            <TR><TD><FONT COLOR="#ff6b6b">Likely MISS if target moved</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Hit chance calculation
+    hit_calc [
+        color="#4ecdc4"
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+            <TR><TD><FONT COLOR="#4ecdc4"><B>HIT CALCULATION</B></FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">Base: 0.1 * (MissileSpeed / TargetSpeed)</FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">+ Terminal Guidance bonus (up to 60%)</FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">Roll for hit/miss</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Outcomes
+    hit [
+        color="#95d5b2"
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+            <TR><TD><FONT COLOR="#95d5b2"><B>HIT</B></FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">Warhead detonates</FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">Damage applied</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    miss [
+        color="#ff6b6b"
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+            <TR><TD><FONT COLOR="#ff6b6b"><B>MISS</B></FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">Missile expended</FONT></TD></TR>
+            <TR><TD><FONT COLOR="#ffe66d">(or retarget if equipped)</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // PD interception (parallel track)
+    pd_intercept [
+        color="#ff6b6b"
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+            <TR><TD><FONT COLOR="#ff6b6b"><B>PD INTERCEPTION</B></FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">AMMs engage at range</FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">Beam PD fires</FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">CIWS at 10,000 km</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    destroyed [
+        color="#ff6b6b"
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+            <TR><TD><FONT COLOR="#ff6b6b"><B>DESTROYED</B></FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">Missile neutralized</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Fuel check
+    fuel_check [
+        shape=diamond
+        color="#ffe66d"
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><FONT COLOR="#ffe66d"><B>FUEL?</B></FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    fuel_empty [
+        color="#ff6b6b"
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+            <TR><TD><FONT COLOR="#ff6b6b"><B>FUEL DEPLETED</B></FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">Cannot maneuver</FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">Continues ballistically</FONT></TD></TR>
+            <TR><TD><FONT COLOR="#ff6b6b">Will miss maneuvering target</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Legend
+    legend [
+        shape=none
+        fillcolor="#1a1a2e"
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="3">
+            <TR><TD COLSPAN="2"><FONT COLOR="white"><B>Legend</B></FONT></TD></TR>
+            <TR><TD BGCOLOR="#95d5b2" WIDTH="15"> </TD><TD ALIGN="LEFT"><FONT COLOR="white">Success path</FONT></TD></TR>
+            <TR><TD BGCOLOR="#4ecdc4" WIDTH="15"> </TD><TD ALIGN="LEFT"><FONT COLOR="white">Normal operation</FONT></TD></TR>
+            <TR><TD BGCOLOR="#ffe66d" WIDTH="15"> </TD><TD ALIGN="LEFT"><FONT COLOR="white">Decision/warning</FONT></TD></TR>
+            <TR><TD BGCOLOR="#ff6b6b" WIDTH="15"> </TD><TD ALIGN="LEFT"><FONT COLOR="white">Failure/threat</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Edges - main flow
+    title -> launch [style=invis]
+    launch -> flight [label="Max Speed"]
+    flight -> fc_check [label="During Flight"]
+    fc_check -> terminal [label="Maintained" color="#95d5b2"]
+    fc_check -> ballistic_sensor [label="Lost + Sensor" color="#ffe66d"]
+    fc_check -> ballistic_blind [label="Lost + No Sensor" color="#ff6b6b"]
+    ballistic_sensor -> terminal [label="Reacquires" style=dashed color="#ffe66d"]
+    terminal -> hit_calc [label="Survives PD"]
+    hit_calc -> hit [label="Success" color="#95d5b2"]
+    hit_calc -> miss [label="Failed" color="#ff6b6b"]
+
+    // PD branch
+    terminal -> pd_intercept [label="PD Zone" color="#ff6b6b"]
+    pd_intercept -> destroyed [label="Intercepted" color="#ff6b6b"]
+    pd_intercept -> hit_calc [label="Survives" style=dashed]
+
+    // Fuel branch
+    flight -> fuel_check [style=invis]
+    fuel_check -> fuel_empty [label="Empty" color="#ff6b6b" style=dashed]
+
+    legend -> launch [style=invis]
+
+    // Subgraph for vertical alignment
+    {rank=same; fc_check; fuel_check}
+    {rank=same; terminal; ballistic_sensor; ballistic_blind}
+    {rank=same; hit; miss; destroyed}
+}

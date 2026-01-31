@@ -1,0 +1,179 @@
+// Laser Damage Falloff Curve vs No-Falloff Weapons
+// Shows why closing range matters for lasers but not for particle beams
+
+digraph laser_damage_falloff {
+    // Graph settings
+    bgcolor="#1a1a2e"
+    rankdir=LR
+    splines=ortho
+    nodesep=0.4
+    ranksep=0.6
+
+    // Node defaults
+    node [
+        shape=none
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=11
+    ]
+
+    // Edge defaults
+    edge [
+        color="#4ecdc4"
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=9
+    ]
+
+    // Title
+    title [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><FONT POINT-SIZE="16" COLOR="white"><B>Laser Damage Falloff vs Range</B></FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="10" COLOR="#95d5b2">Damage = Base * (1 - Range / MaxRange)</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Legend box
+    legend [
+        shape=box
+        style="rounded,filled"
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="4">
+            <TR><TD COLSPAN="2"><FONT COLOR="white"><B>Weapon Types</B></FONT></TD></TR>
+            <TR><TD BGCOLOR="#ff6b6b" WIDTH="20"> </TD><TD ALIGN="LEFT"><FONT COLOR="white">Lasers (linear falloff)</FONT></TD></TR>
+            <TR><TD BGCOLOR="#4ecdc4" WIDTH="20"> </TD><TD ALIGN="LEFT"><FONT COLOR="white">Particle Beams (no falloff)</FONT></TD></TR>
+            <TR><TD BGCOLOR="#ffe66d" WIDTH="20"> </TD><TD ALIGN="LEFT"><FONT COLOR="white">Railguns (no falloff)</FONT></TD></TR>
+            <TR><TD BGCOLOR="#95d5b2" WIDTH="20"> </TD><TD ALIGN="LEFT"><FONT COLOR="white">Plasma Carronades (no falloff)</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Range axis labels
+    subgraph cluster_chart {
+        label=""
+        bgcolor="#1a1a2e"
+        color="#1a1a2e"
+
+        // Y-axis: Damage percentage
+        y_axis [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+                <TR><TD><FONT COLOR="white">100%</FONT></TD></TR>
+                <TR><TD HEIGHT="20"></TD></TR>
+                <TR><TD><FONT COLOR="white">75%</FONT></TD></TR>
+                <TR><TD HEIGHT="20"></TD></TR>
+                <TR><TD><FONT COLOR="white">50%</FONT></TD></TR>
+                <TR><TD HEIGHT="20"></TD></TR>
+                <TR><TD><FONT COLOR="white">25%</FONT></TD></TR>
+                <TR><TD HEIGHT="20"></TD></TR>
+                <TR><TD><FONT COLOR="white">0%</FONT></TD></TR>
+            </TABLE>>
+        ]
+
+        // Chart area
+        chart [
+            shape=box
+            style="filled"
+            fillcolor="#2d2d44"
+            color="#4ecdc4"
+            width=5
+            height=3
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+                <TR>
+                    <TD><FONT COLOR="#4ecdc4">-------------------</FONT></TD>
+                    <TD><FONT COLOR="white"> Particle Beam (100%)</FONT></TD>
+                </TR>
+                <TR>
+                    <TD><FONT COLOR="#ffe66d">-------------------</FONT></TD>
+                    <TD><FONT COLOR="white"> Railgun (100%)</FONT></TD>
+                </TR>
+                <TR>
+                    <TD><FONT COLOR="#95d5b2">---</FONT></TD>
+                    <TD><FONT COLOR="white"> Plasma Carronade (100%, short range)</FONT></TD>
+                </TR>
+                <TR><TD HEIGHT="10"></TD></TR>
+                <TR>
+                    <TD COLSPAN="2"><FONT COLOR="#ff6b6b">\</FONT></TD>
+                </TR>
+                <TR>
+                    <TD COLSPAN="2"><FONT COLOR="#ff6b6b">  \  Laser: decreasing damage</FONT></TD>
+                </TR>
+                <TR>
+                    <TD COLSPAN="2"><FONT COLOR="#ff6b6b">    \</FONT></TD>
+                </TR>
+                <TR>
+                    <TD COLSPAN="2"><FONT COLOR="#ff6b6b">      \</FONT></TD>
+                </TR>
+            </TABLE>>
+        ]
+
+        // X-axis label
+        x_axis [
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+                <TR>
+                    <TD><FONT COLOR="white">0%</FONT></TD>
+                    <TD WIDTH="50"></TD>
+                    <TD><FONT COLOR="white">25%</FONT></TD>
+                    <TD WIDTH="50"></TD>
+                    <TD><FONT COLOR="white">50%</FONT></TD>
+                    <TD WIDTH="50"></TD>
+                    <TD><FONT COLOR="white">75%</FONT></TD>
+                    <TD WIDTH="50"></TD>
+                    <TD><FONT COLOR="white">100%</FONT></TD>
+                </TR>
+                <TR><TD COLSPAN="9"><FONT COLOR="#95d5b2">Range (% of Maximum)</FONT></TD></TR>
+            </TABLE>>
+        ]
+    }
+
+    // Key insight boxes
+    subgraph cluster_insights {
+        label=""
+        bgcolor="#1a1a2e"
+        color="#1a1a2e"
+
+        insight1 [
+            shape=box
+            style="rounded,filled"
+            fillcolor="#2d2d44"
+            color="#ff6b6b"
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+                <TR><TD><FONT COLOR="#ff6b6b"><B>Laser at 50% Range</B></FONT></TD></TR>
+                <TR><TD><FONT COLOR="white">50% base damage</FONT></TD></TR>
+                <TR><TD><FONT COLOR="white">50% armor penetration</FONT></TD></TR>
+            </TABLE>>
+        ]
+
+        insight2 [
+            shape=box
+            style="rounded,filled"
+            fillcolor="#2d2d44"
+            color="#4ecdc4"
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+                <TR><TD><FONT COLOR="#4ecdc4"><B>Particle Beam at 50% Range</B></FONT></TD></TR>
+                <TR><TD><FONT COLOR="white">100% base damage</FONT></TD></TR>
+                <TR><TD><FONT COLOR="white">100% armor penetration</FONT></TD></TR>
+            </TABLE>>
+        ]
+
+        tactical [
+            shape=box
+            style="rounded,filled"
+            fillcolor="#2d2d44"
+            color="#ffe66d"
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+                <TR><TD><FONT COLOR="#ffe66d"><B>Tactical Implication</B></FONT></TD></TR>
+                <TR><TD><FONT COLOR="white">Close range benefits lasers only</FONT></TD></TR>
+                <TR><TD><FONT COLOR="white">Particle beams maintain advantage at distance</FONT></TD></TR>
+            </TABLE>>
+        ]
+    }
+
+    // Layout edges (invisible)
+    title -> legend [style=invis]
+    legend -> y_axis [style=invis]
+    y_axis -> chart [style=invis]
+    chart -> x_axis [style=invis]
+    x_axis -> insight1 [style=invis]
+    insight1 -> insight2 [style=invis]
+    insight2 -> tactical [style=invis]
+}

@@ -1,0 +1,187 @@
+// Point Defense Layering - Concentric Coverage Zones
+// Top-down view showing overlapping PD coverage
+
+digraph point_defense_layers {
+    // Graph settings
+    bgcolor="#1a1a2e"
+    rankdir=TB
+    nodesep=0.5
+    ranksep=0.6
+
+    // Node defaults
+    node [
+        shape=none
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=10
+    ]
+
+    // Edge defaults
+    edge [
+        color="#4ecdc4"
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=9
+    ]
+
+    // Title
+    title [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><FONT POINT-SIZE="16" COLOR="white"><B>Point Defense Layering</B></FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="11" COLOR="#95d5b2">Concentric Defense Zones (Top-Down View)</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Main diagram - concentric circles represented as nested boxes
+    diagram [
+        shape=none
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0" CELLPADDING="0">
+            <TR><TD>
+                <TABLE BORDER="3" CELLBORDER="0" CELLSPACING="0" CELLPADDING="20" BGCOLOR="#1a1a2e" COLOR="#95d5b2" STYLE="ROUNDED">
+                    <TR><TD>
+                        <TABLE BORDER="3" CELLBORDER="0" CELLSPACING="0" CELLPADDING="20" BGCOLOR="#1a1a2e" COLOR="#ffe66d" STYLE="ROUNDED">
+                            <TR><TD>
+                                <TABLE BORDER="3" CELLBORDER="0" CELLSPACING="0" CELLPADDING="20" BGCOLOR="#1a1a2e" COLOR="#4ecdc4" STYLE="ROUNDED">
+                                    <TR><TD>
+                                        <TABLE BORDER="3" CELLBORDER="0" CELLSPACING="0" CELLPADDING="15" BGCOLOR="#2d2d44" COLOR="#ff6b6b" STYLE="ROUNDED">
+                                            <TR><TD><FONT COLOR="white" POINT-SIZE="12"><B>SHIP</B></FONT></TD></TR>
+                                            <TR><TD><FONT COLOR="#ff6b6b" POINT-SIZE="9">CIWS Zone</FONT></TD></TR>
+                                            <TR><TD><FONT COLOR="#ff6b6b" POINT-SIZE="9">10,000 km</FONT></TD></TR>
+                                        </TABLE>
+                                    </TD></TR>
+                                </TABLE>
+                            </TD></TR>
+                        </TABLE>
+                    </TD></TR>
+                </TABLE>
+            </TD></TR>
+        </TABLE>>
+    ]
+
+    // Layer descriptions
+    subgraph cluster_layers {
+        label=""
+        bgcolor="#1a1a2e"
+        color="#1a1a2e"
+
+        layer1 [
+            shape=box
+            style="rounded,filled"
+            fillcolor="#2d2d44"
+            color="#95d5b2"
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+                <TR><TD><FONT COLOR="#95d5b2"><B>Layer 1: AMM Zone</B></FONT></TD></TR>
+                <TR><TD><FONT COLOR="white">Full MFC range (100,000+ km)</FONT></TD></TR>
+                <TR><TD><FONT COLOR="white">Anti-Missile Missiles intercept at distance</FONT></TD></TR>
+                <TR><TD><FONT COLOR="white">Largest kill zone, multiple engagement passes</FONT></TD></TR>
+            </TABLE>>
+        ]
+
+        layer2 [
+            shape=box
+            style="rounded,filled"
+            fillcolor="#2d2d44"
+            color="#ffe66d"
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+                <TR><TD><FONT COLOR="#ffe66d"><B>Layer 2: Ranged Defensive Fire</B></FONT></TD></TR>
+                <TR><TD><FONT COLOR="white">20,000-40,000 km typical</FONT></TD></TR>
+                <TR><TD><FONT COLOR="white">Long-range lasers thin incoming salvos</FONT></TD></TR>
+                <TR><TD><FONT COLOR="white">Fires during movement phase</FONT></TD></TR>
+            </TABLE>>
+        ]
+
+        layer3 [
+            shape=box
+            style="rounded,filled"
+            fillcolor="#2d2d44"
+            color="#4ecdc4"
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+                <TR><TD><FONT COLOR="#4ecdc4"><B>Layer 3: Area Defence</B></FONT></TD></TR>
+                <TR><TD><FONT COLOR="white">Full weapon range</FONT></TD></TR>
+                <TR><TD><FONT COLOR="white">Fleet-wide coverage umbrella</FONT></TD></TR>
+                <TR><TD><FONT COLOR="white">Fires during naval combat phase</FONT></TD></TR>
+            </TABLE>>
+        ]
+
+        layer4 [
+            shape=box
+            style="rounded,filled"
+            fillcolor="#2d2d44"
+            color="#ff6b6b"
+            label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+                <TR><TD><FONT COLOR="#ff6b6b"><B>Layer 4: CIWS</B></FONT></TD></TR>
+                <TR><TD><FONT COLOR="white">10,000 km (point-blank)</FONT></TD></TR>
+                <TR><TD><FONT COLOR="white">Gauss cannons, maximum rate of fire</FONT></TD></TR>
+                <TR><TD><FONT COLOR="white">Separate phase, highest accuracy</FONT></TD></TR>
+            </TABLE>>
+        ]
+    }
+
+    // Kill chain example
+    killchain [
+        shape=box
+        style="rounded,filled"
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="3">
+            <TR><TD COLSPAN="5"><FONT COLOR="white"><B>Example: 100 Incoming Missiles</B></FONT></TD></TR>
+            <TR>
+                <TD><FONT COLOR="#95d5b2">AMM</FONT></TD>
+                <TD><FONT COLOR="white">-&gt;</FONT></TD>
+                <TD><FONT COLOR="#ffe66d">Ranged</FONT></TD>
+                <TD><FONT COLOR="white">-&gt;</FONT></TD>
+                <TD><FONT COLOR="#4ecdc4">Area</FONT></TD>
+                <TD><FONT COLOR="white">-&gt;</FONT></TD>
+                <TD><FONT COLOR="#ff6b6b">CIWS</FONT></TD>
+                <TD><FONT COLOR="white">-&gt;</FONT></TD>
+                <TD><FONT COLOR="white">Impact</FONT></TD>
+            </TR>
+            <TR>
+                <TD><FONT COLOR="#95d5b2">-40%</FONT></TD>
+                <TD></TD>
+                <TD><FONT COLOR="#ffe66d">-20%</FONT></TD>
+                <TD></TD>
+                <TD><FONT COLOR="#4ecdc4">-25%</FONT></TD>
+                <TD></TD>
+                <TD><FONT COLOR="#ff6b6b">-50%</FONT></TD>
+                <TD></TD>
+                <TD><FONT COLOR="white">18 hit</FONT></TD>
+            </TR>
+            <TR>
+                <TD><FONT COLOR="white">60</FONT></TD>
+                <TD><FONT COLOR="white">-&gt;</FONT></TD>
+                <TD><FONT COLOR="white">48</FONT></TD>
+                <TD><FONT COLOR="white">-&gt;</FONT></TD>
+                <TD><FONT COLOR="white">36</FONT></TD>
+                <TD><FONT COLOR="white">-&gt;</FONT></TD>
+                <TD><FONT COLOR="white">18</FONT></TD>
+                <TD></TD>
+                <TD></TD>
+            </TR>
+            <TR><TD COLSPAN="9" BORDER="0"><FONT COLOR="#95d5b2">Without layers (CIWS only): 50 missiles hit</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Tactical note
+    tactical [
+        shape=box
+        style="rounded,filled"
+        fillcolor="#2d2d44"
+        color="#ffe66d"
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+            <TR><TD><FONT COLOR="#ffe66d"><B>Why Multiple Layers Matter</B></FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">Each layer multiplies defense effectiveness</FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">No single layer can stop a determined attack</FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">Layers operate in different combat phases</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Layout
+    title -> diagram [style=invis]
+    diagram -> layer1 [style=invis]
+    layer1 -> layer2 [style=invis]
+    layer2 -> layer3 [style=invis]
+    layer3 -> layer4 [style=invis]
+    layer4 -> killchain [style=invis]
+    killchain -> tactical [style=invis]
+}

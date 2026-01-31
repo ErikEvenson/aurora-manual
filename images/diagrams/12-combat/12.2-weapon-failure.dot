@@ -1,0 +1,188 @@
+// Weapon Failure Timeline/Flow
+// Shows 2% failure chance, repair with MSP, degradation without MSP
+
+digraph weapon_failure {
+    // Graph settings
+    bgcolor="#1a1a2e"
+    rankdir=TB
+    nodesep=0.4
+    ranksep=0.5
+
+    // Node defaults
+    node [
+        shape=box
+        style="rounded,filled"
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=10
+    ]
+
+    // Edge defaults
+    edge [
+        color="#4ecdc4"
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=9
+        penwidth=2
+    ]
+
+    // Title
+    title [
+        shape=none
+        fillcolor="#1a1a2e"
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><FONT POINT-SIZE="16" COLOR="white"><B>Weapon Failure Mechanics</B></FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="11" COLOR="#95d5b2">2% Failure Chance Per Firing Event</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Initial state
+    ready [
+        color="#95d5b2"
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+            <TR><TD><FONT COLOR="#95d5b2"><B>WEAPON READY</B></FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">Charged and operational</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Fire event
+    fire [
+        color="#4ecdc4"
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+            <TR><TD><FONT COLOR="#4ecdc4"><B>WEAPON FIRES</B></FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">2% failure check triggered</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Decision diamond
+    roll [
+        shape=diamond
+        color="#ffe66d"
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><FONT COLOR="#ffe66d"><B>FAILURE</B></FONT></TD></TR>
+            <TR><TD><FONT COLOR="#ffe66d"><B>ROLL</B></FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Success path
+    success [
+        color="#95d5b2"
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+            <TR><TD><FONT COLOR="#95d5b2"><B>NO FAILURE (98%)</B></FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">Weapon fires normally</FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">Damage dealt to target</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Failure path
+    failure [
+        color="#ff6b6b"
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+            <TR><TD><FONT COLOR="#ff6b6b"><B>FAILURE (2%)</B></FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">Weapon malfunction detected</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // MSP check
+    msp_check [
+        shape=diamond
+        color="#ffe66d"
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><FONT COLOR="#ffe66d"><B>MSP</B></FONT></TD></TR>
+            <TR><TD><FONT COLOR="#ffe66d"><B>AVAILABLE?</B></FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // With MSP
+    instant_repair [
+        color="#95d5b2"
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+            <TR><TD><FONT COLOR="#95d5b2"><B>INSTANT REPAIR</B></FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">MSP consumed for repair</FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">Weapon fires normally</FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">No combat penalty</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Without MSP
+    damaged [
+        color="#ff6b6b"
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+            <TR><TD><FONT COLOR="#ff6b6b"><B>WEAPON DAMAGED</B></FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">Cannot fire until repaired</FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">Requires engineering action</FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">Ship combat power reduced</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Continue combat
+    recharge [
+        color="#4ecdc4"
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+            <TR><TD><FONT COLOR="#4ecdc4"><B>RECHARGE CYCLE</B></FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">Capacitor recharges</FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">Ready for next shot</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Statistical box
+    stats [
+        shape=none
+        fillcolor="#1a1a2e"
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="3">
+            <TR><TD COLSPAN="2"><FONT COLOR="white"><B>Extended Combat Impact</B></FONT></TD></TR>
+            <TR><TD ALIGN="LEFT"><FONT COLOR="white">50 shots:</FONT></TD><TD ALIGN="RIGHT"><FONT COLOR="#ffe66d">~1 failure expected</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT"><FONT COLOR="white">100 shots:</FONT></TD><TD ALIGN="RIGHT"><FONT COLOR="#ffe66d">~2 failures expected</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT"><FONT COLOR="white">500 shots:</FONT></TD><TD ALIGN="RIGHT"><FONT COLOR="#ff6b6b">~10 failures expected</FONT></TD></TR>
+            <TR><TD COLSPAN="2"><FONT COLOR="#95d5b2">High-ROF weapons (gauss) = more MSP consumption</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Design implications
+    implications [
+        color="#ffe66d"
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2">
+            <TR><TD><FONT COLOR="#ffe66d"><B>Design Implications</B></FONT></TD></TR>
+            <TR><TD ALIGN="LEFT"><FONT COLOR="white">1. Carry generous MSP reserves for long deployments</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT"><FONT COLOR="white">2. More weapons = more failure rolls per tick</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT"><FONT COLOR="white">3. High fire concentration = more MSP drain on PD</FONT></TD></TR>
+            <TR><TD ALIGN="LEFT"><FONT COLOR="white">4. Failures drain MSP even without enemy fire</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Legend
+    legend [
+        shape=none
+        fillcolor="#1a1a2e"
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="3">
+            <TR><TD COLSPAN="2"><FONT COLOR="white"><B>Legend</B></FONT></TD></TR>
+            <TR><TD BGCOLOR="#95d5b2" WIDTH="15"> </TD><TD ALIGN="LEFT"><FONT COLOR="white">Success/Operational</FONT></TD></TR>
+            <TR><TD BGCOLOR="#4ecdc4" WIDTH="15"> </TD><TD ALIGN="LEFT"><FONT COLOR="white">Normal operation</FONT></TD></TR>
+            <TR><TD BGCOLOR="#ffe66d" WIDTH="15"> </TD><TD ALIGN="LEFT"><FONT COLOR="white">Decision/Warning</FONT></TD></TR>
+            <TR><TD BGCOLOR="#ff6b6b" WIDTH="15"> </TD><TD ALIGN="LEFT"><FONT COLOR="white">Failure/Damage</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Edges
+    title -> ready [style=invis]
+    ready -> fire [label="Fire Order"]
+    fire -> roll [label="Each Shot"]
+    roll -> success [label="98%" color="#95d5b2"]
+    roll -> failure [label="2%" color="#ff6b6b"]
+    failure -> msp_check
+    msp_check -> instant_repair [label="Yes" color="#95d5b2"]
+    msp_check -> damaged [label="No" color="#ff6b6b"]
+    success -> recharge
+    instant_repair -> recharge [color="#95d5b2"]
+    recharge -> fire [label="Next Tick" style=dashed]
+
+    // Layout helpers
+    {rank=same; success; failure}
+    {rank=same; instant_repair; damaged}
+
+    damaged -> stats [style=invis]
+    stats -> implications [style=invis]
+    implications -> legend [style=invis]
+}

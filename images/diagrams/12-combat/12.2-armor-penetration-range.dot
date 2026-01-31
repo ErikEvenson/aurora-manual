@@ -1,0 +1,167 @@
+// Armor Penetration by Range - Visual Cross-Section
+// Shows how 20-damage laser penetrates different depths at various ranges
+
+digraph armor_penetration {
+    // Graph settings
+    bgcolor="#1a1a2e"
+    rankdir=TB
+    nodesep=0.3
+    ranksep=0.4
+
+    // Node defaults
+    node [
+        shape=none
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=10
+    ]
+
+    // Edge defaults
+    edge [
+        color="#4ecdc4"
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=9
+    ]
+
+    // Title
+    title [
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="0">
+            <TR><TD><FONT POINT-SIZE="16" COLOR="white"><B>Armor Penetration by Range</B></FONT></TD></TR>
+            <TR><TD><FONT POINT-SIZE="11" COLOR="#95d5b2">20-Damage Laser vs 20-Layer Armor</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Legend
+    legend [
+        shape=box
+        style="rounded,filled"
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="3">
+            <TR><TD COLSPAN="2"><FONT COLOR="white"><B>Legend</B></FONT></TD></TR>
+            <TR><TD BGCOLOR="#ff6b6b" WIDTH="15"> </TD><TD ALIGN="LEFT"><FONT COLOR="white">Penetrated armor</FONT></TD></TR>
+            <TR><TD BGCOLOR="#2d2d44" BORDER="1" COLOR="#4ecdc4" WIDTH="15"> </TD><TD ALIGN="LEFT"><FONT COLOR="white">Intact armor</FONT></TD></TR>
+            <TR><TD BGCOLOR="#ffe66d" WIDTH="15"> </TD><TD ALIGN="LEFT"><FONT COLOR="white">Internal components</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Range 0% - Point Blank
+    range0 [
+        shape=box
+        style="rounded,filled"
+        fillcolor="#2d2d44"
+        color="#ff6b6b"
+        penwidth=2
+        label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+            <TR><TD COLSPAN="20" BORDER="0"><FONT COLOR="#ff6b6b"><B>0% Range (Point Blank)</B></FONT></TD></TR>
+            <TR><TD COLSPAN="20" BORDER="0"><FONT COLOR="white">Damage: 20 | Penetration: 20 layers</FONT></TD></TR>
+            <TR>
+                <TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD>
+                <TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD>
+                <TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD>
+                <TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD>
+            </TR>
+            <TR><TD COLSPAN="20" BGCOLOR="#ffe66d"><FONT COLOR="#1a1a2e">INTERNAL HIT</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Range 25%
+    range25 [
+        shape=box
+        style="rounded,filled"
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+        label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+            <TR><TD COLSPAN="20" BORDER="0"><FONT COLOR="#4ecdc4"><B>25% Range</B></FONT></TD></TR>
+            <TR><TD COLSPAN="20" BORDER="0"><FONT COLOR="white">Damage: 15 | Penetration: 15 layers</FONT></TD></TR>
+            <TR>
+                <TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD>
+                <TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD>
+                <TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD>
+                <TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD>
+            </TR>
+            <TR><TD COLSPAN="20" BORDER="0"><FONT COLOR="#95d5b2">5 layers remaining</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Range 50%
+    range50 [
+        shape=box
+        style="rounded,filled"
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+        label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+            <TR><TD COLSPAN="20" BORDER="0"><FONT COLOR="#4ecdc4"><B>50% Range</B></FONT></TD></TR>
+            <TR><TD COLSPAN="20" BORDER="0"><FONT COLOR="white">Damage: 10 | Penetration: 10 layers</FONT></TD></TR>
+            <TR>
+                <TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD>
+                <TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD>
+                <TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD>
+                <TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD>
+            </TR>
+            <TR><TD COLSPAN="20" BORDER="0"><FONT COLOR="#95d5b2">10 layers remaining</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Range 75%
+    range75 [
+        shape=box
+        style="rounded,filled"
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+        label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+            <TR><TD COLSPAN="20" BORDER="0"><FONT COLOR="#4ecdc4"><B>75% Range</B></FONT></TD></TR>
+            <TR><TD COLSPAN="20" BORDER="0"><FONT COLOR="white">Damage: 5 | Penetration: 5 layers</FONT></TD></TR>
+            <TR>
+                <TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD><TD BGCOLOR="#ff6b6b"> </TD>
+                <TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD>
+                <TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD>
+                <TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD>
+            </TR>
+            <TR><TD COLSPAN="20" BORDER="0"><FONT COLOR="#95d5b2">15 layers remaining</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Range 100% - Max Range
+    range100 [
+        shape=box
+        style="rounded,filled"
+        fillcolor="#2d2d44"
+        color="#ffe66d"
+        label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
+            <TR><TD COLSPAN="20" BORDER="0"><FONT COLOR="#ffe66d"><B>100% Range (Maximum)</B></FONT></TD></TR>
+            <TR><TD COLSPAN="20" BORDER="0"><FONT COLOR="white">Damage: 1 | Penetration: 1 layer</FONT></TD></TR>
+            <TR>
+                <TD BGCOLOR="#ff6b6b"> </TD>
+                <TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD>
+                <TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD>
+                <TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD>
+                <TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD><TD BGCOLOR="#2d2d44" COLOR="#4ecdc4"> </TD>
+            </TR>
+            <TR><TD COLSPAN="20" BORDER="0"><FONT COLOR="#ffe66d">Chip damage only - ineffective vs heavy armor</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Tactical insight
+    insight [
+        shape=box
+        style="rounded,filled"
+        fillcolor="#2d2d44"
+        color="#95d5b2"
+        label=<<TABLE BORDER="0" CELLBORDER="0" CELLSPACING="3">
+            <TR><TD><FONT COLOR="#95d5b2"><B>Key Insight</B></FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">Against 12-layer armor, must fire at &lt;40% range to penetrate</FONT></TD></TR>
+            <TR><TD><FONT COLOR="white">This determines your entire engagement strategy</FONT></TD></TR>
+        </TABLE>>
+    ]
+
+    // Layout
+    title -> legend [style=invis]
+    legend -> range0 [style=invis]
+    range0 -> range25 [label="Closing" color="#4ecdc4" style=dashed]
+    range25 -> range50 [label="" color="#4ecdc4" style=dashed]
+    range50 -> range75 [label="" color="#4ecdc4" style=dashed]
+    range75 -> range100 [label="" color="#4ecdc4" style=dashed]
+    range100 -> insight [style=invis]
+}
