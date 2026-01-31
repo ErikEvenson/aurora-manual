@@ -1,16 +1,16 @@
 # Aurora 4X Manual - Project Instructions
 
-*Updated: v2026.01.29*
+*Updated: v2026.01.30*
 
 ## Project Overview
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
 
 This is a comprehensive reference manual for Aurora C# (space strategy game by Steve Walmsley). The manual is written in Markdown, organized by numbered sections, and compiled to PDF via `build-pdf.sh` using pandoc + tectonic.
 
 ## Answering Game Mechanics Questions
 
-*Updated: v2026.01.29*
+*Updated: v2026.01.30*
 
 When answering questions about Aurora mechanics using manual content:
 
@@ -35,7 +35,7 @@ When preparing answers suitable for posting to Aurora Forums or Discord:
 
 ## Game Fundamentals
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
 
 - **Turn-based, not real-time:** Aurora advances time only when the player clicks an increment button (5 sec, 30 sec, 5 min, etc.). There is no "pause" — time never runs automatically.
 - **Conventional start:** Earth in 2025 with existing population, installations, and officers
@@ -43,7 +43,7 @@ When preparing answers suitable for posting to Aurora Forums or Discord:
 
 ## YouTube Source Attribution
 
-*Updated: v2026.01.28*
+*Updated: v2026.01.30*
 
 **MANDATORY:** When extracting content from YouTube videos for manual updates:
 
@@ -62,7 +62,7 @@ When preparing answers suitable for posting to Aurora Forums or Discord:
 
 ## Content Standards
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
 
 - **Section numbering:** Decimal hierarchy (e.g., 8.2.1 is a heading within file 8.2)
 - **Cross-references:** Always use `[Section X.Y Title](../path/to/file.md)` format — never bare "see Section X.Y"
@@ -72,7 +72,7 @@ When preparing answers suitable for posting to Aurora Forums or Discord:
 
 ## Inline References (MANDATORY for all new content)
 
-*Updated: v2026.01.26*
+*Updated: v2026.01.30*
 
 Every factual claim (numeric values, game mechanics, formulas, component specs) MUST include an inline reference verified against an authoritative source.
 
@@ -103,7 +103,7 @@ Fuel Refineries cost 120 BP and require 120 Boronide per installation \hyperlink
 
 ## Build System
 
-*Updated: v2026.01.28*
+*Updated: v2026.01.30*
 
 - **Build command:** `bash build-pdf.sh` (auto-increment) or `bash build-pdf.sh VERSION` (explicit)
 - **PDF output:** `releases/aurora-manual-VERSION.pdf`
@@ -130,7 +130,7 @@ For development/testing builds, use `bash build-pdf.sh` without arguments (auto-
 
 ## Game Database
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
 
 - **Location:** `~/Downloads/Aurora271Full/AuroraDB.db` (SQLite)
 - **Use:** Verify formulas, values, and mechanics claims against actual game data
@@ -138,7 +138,7 @@ For development/testing builds, use `bash build-pdf.sh` without arguments (auto-
 
 ## Issue Workflow
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
 
 - Group related issues into parallel waves for background agents
 - Close issues with commit reference comments
@@ -147,7 +147,7 @@ For development/testing builds, use `bash build-pdf.sh` without arguments (auto-
 
 ## Unverified Claims Tracking
 
-*Updated: v2026.01.28*
+*Updated: v2026.01.30*
 
 **MANDATORY:** All unverified claims must be tracked via GitHub issues.
 
@@ -191,7 +191,7 @@ Prioritize verification of:
 
 ## README Maintenance
 
-*Updated: v2026.01.28*
+*Updated: v2026.01.30*
 
 **Keep README.md synchronized with project state.** Check and update when:
 
@@ -216,7 +216,7 @@ Prioritize verification of:
 
 ## Contributor Attribution
 
-*Updated: v2026.01.25*
+*Updated: v2026.01.30*
 
 All repo contributors must appear in three locations:
 
@@ -228,14 +228,14 @@ To get the current contributor list: `gh api repos/ErikEvenson/aurora-manual/con
 
 ## LaTeX Compatibility
 
-*Updated: v2026.01.25*
+*Updated: v2026.01.30*
 
 - Avoid Unicode symbols that don't render in LaTeX (e.g., use `<=` instead of `≤`)
 - Long tables may overflow; consider breaking into multiple tables or using shorter column content
 
 ## SVG Images
 
-*Updated: v2026.01.29*
+*Updated: v2026.01.30*
 
 SVG images are supported via automatic conversion:
 
@@ -249,7 +249,7 @@ The build script only reconverts if the SVG is newer than the PDF.
 
 ## Screenshots
 
-*Updated: v2026.01.29*
+*Updated: v2026.01.30*
 
 Screenshots are stored in `images/screenshots/` with subdirectories mirroring chapter structure.
 
@@ -290,7 +290,7 @@ This placeholder:
 ```markdown
 ## Screenshot Request
 
-*Updated: v2026.01.29*
+*Updated: v2026.01.30*
 
 **Section:** X.Y Section Name
 **File:** `images/screenshots/[chapter]/[filename].png`
@@ -462,7 +462,7 @@ img = Image.open('/tmp/screenshot.png')
 
 # Create vertical strips (400px wide) across the image
 
-*Updated: v2026.01.29*
+*Updated: v2026.01.30*
 
 for x_start in range(0, img.width, 400):
     strip = img.crop((x_start, 100, x_start + 400, 200))
@@ -473,7 +473,7 @@ for x_start in range(0, img.width, 400):
 ```python
 # Once X range is known (e.g., x=408-780 for NPR), find Y position
 
-*Updated: v2026.01.29*
+*Updated: v2026.01.30*
 
 for y_start in range(0, 400, 50):
     strip = img.crop((408, y_start, 780, y_start + 50))
@@ -484,7 +484,7 @@ for y_start in range(0, 400, 50):
 ```python
 # Narrow down to exact Y range (e.g., found text around y=150)
 
-*Updated: v2026.01.29*
+*Updated: v2026.01.30*
 
 for y_start in [140, 150, 160]:
     strip = img.crop((408, y_start, 780, y_start + 30))
@@ -512,6 +512,8 @@ Example workflow:
 Both PDF (pandoc) and web (Jekyll) handle PNG images natively.
 
 ## Charts
+
+*Updated: v2026.01.30*
 
 Charts are stored in `images/charts/` with subdirectories mirroring chapter structure.
 
@@ -564,51 +566,87 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # MANDATORY: Use dark background style
+
+*Updated: v2026.01.30*
+
 plt.style.use('dark_background')
 
 # Create figure with standard size
+
+*Updated: v2026.01.30*
+
 fig, ax = plt.subplots(figsize=(10, 6))
 
 # Set background color
+
+*Updated: v2026.01.30*
+
 fig.patch.set_facecolor('#1a1a2e')
 ax.set_facecolor('#1a1a2e')
 
 # Example data
+
+*Updated: v2026.01.30*
+
 x = np.linspace(0, 100, 200)
 y = np.where(x <= 33, 100, 100 - (100 * (x - 33) / 67))
 
 # Plot with standard styling
+
+*Updated: v2026.01.30*
+
 ax.plot(x, y, color='#4ecdc4', linewidth=2.5, label='Growth Rate')
 ax.fill_between(x, y, alpha=0.3, color='#4ecdc4')
 
 # Grid styling
+
+*Updated: v2026.01.30*
+
 ax.grid(True, alpha=0.3, color='#2d2d44')
 ax.set_axisbelow(True)
 
 # Labels and title
+
+*Updated: v2026.01.30*
+
 ax.set_xlabel('X Axis Label (%)', fontsize=12, color='white')
 ax.set_ylabel('Y Axis Label (%)', fontsize=12, color='white')
 ax.set_title('Chart Title', fontsize=14, fontweight='bold', color='white')
 
 # Axis ranges
+
+*Updated: v2026.01.30*
+
 ax.set_xlim(0, 100)
 ax.set_ylim(0, 110)
 
 # Tick styling
+
+*Updated: v2026.01.30*
+
 ax.tick_params(colors='white')
 
 # Key threshold markers (example)
+
+*Updated: v2026.01.30*
+
 ax.axvline(x=33, color='#888888', linestyle='--', linewidth=1.5, alpha=0.7)
 ax.annotate('Threshold', xy=(33, 50), xytext=(45, 50),
             fontsize=10, color='#888888',
             arrowprops=dict(arrowstyle='->', color='#888888'))
 
 # Legend if multiple series
+
+*Updated: v2026.01.30*
+
 ax.legend(loc='upper right', fontsize=10)
 
 plt.tight_layout()
 
 # Save with standard settings
+
+*Updated: v2026.01.30*
+
 plt.savefig('images/charts/[chapter]/[section]-[name].png',
             facecolor='#1a1a2e',
             dpi=150,
