@@ -530,7 +530,7 @@ def create_npr_generation_flowchart():
             fontsize=12, color=CYAN, fontweight='bold')
 
     tech_levels = [
-        (1.5, 5.5, 'Pre-Industrial', '0% default', GRAY),
+        (1.5, 5.5, 'Pre-Industrial', '0% default', PURPLE),
         (4, 5.5, 'Industrial', '0% default', ORANGE),
         (6.5, 5.5, 'Minor TN', '25% default', YELLOW),
         (9.5, 5.5, 'Major TN', '75% default', GREEN),
