@@ -16,13 +16,55 @@ geometry:
 fontsize: 11pt
 linestretch: 1.15
 header-includes:
+  # Define Aurora dark theme colors (matching charts/diagrams)
+  - \usepackage{xcolor}
+  - \definecolor{aurorabg}{HTML}{1a1a2e}
+  - \definecolor{auroracyan}{HTML}{4ecdc4}
+  - \definecolor{aurorared}{HTML}{ff6b6b}
+  - \definecolor{aurorayellow}{HTML}{ffe66d}
+  - \definecolor{auroragray}{HTML}{888888}
+  - \definecolor{auroradarkgray}{HTML}{2d2d44}
+  # Page background
+  - \usepackage{pagecolor}
+  - \pagecolor{aurorabg}
+  # Default text color
+  - \color{white}
+  # Headers and footers
   - \usepackage{fancyhdr}
   - \pagestyle{fancy}
-  - \fancyhead[L]{Aurora 4X Manual}
-  - \fancyhead[R]{\leftmark}
-  - \fancyfoot[L]{\footnotesize Unofficial community documentation for Aurora C\# (game by Steve Walmsley)}
-  - \fancyfoot[C]{\thepage}
-  - \fancyfoot[R]{\footnotesize\date}
+  - \fancyhf{}
+  - \fancyhead[L]{\color{auroragray}\small Aurora 4X Manual}
+  - \fancyhead[R]{\color{auroragray}\small\leftmark}
+  - \fancyfoot[L]{\color{auroragray}\footnotesize Unofficial community documentation}
+  - \fancyfoot[C]{\color{white}\thepage}
+  - \fancyfoot[R]{\color{auroragray}\footnotesize\today}
+  - \renewcommand{\headrulewidth}{0.4pt}
+  - \renewcommand{\headrule}{\hbox to\headwidth{\color{auroradarkgray}\leaders\hrule height \headrulewidth\hfill}}
+  - \renewcommand{\footrulewidth}{0.4pt}
+  - \renewcommand{\footrule}{\hbox to\headwidth{\color{auroradarkgray}\leaders\hrule height \footrulewidth\hfill}}
+  # Chapter and section titles in cyan
   - \usepackage{titlesec}
-  - \titleformat{\chapter}[display]{\normalfont\huge\bfseries}{Chapter \thechapter}{20pt}{\Huge}
+  - \titleformat{\chapter}[display]{\color{auroracyan}\normalfont\huge\bfseries}{Chapter \thechapter}{20pt}{\Huge}
+  - \titleformat{\section}{\color{auroracyan}\normalfont\Large\bfseries}{\thesection}{1em}{}
+  - \titleformat{\subsection}{\color{auroracyan}\normalfont\large\bfseries}{\thesubsection}{1em}{}
+  - \titleformat{\subsubsection}{\color{auroracyan}\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
+  # Table of contents styling
+  - \usepackage{tocloft}
+  - \renewcommand{\cfttoctitlefont}{\color{auroracyan}\huge\bfseries}
+  - \renewcommand{\cftchapfont}{\color{auroracyan}}
+  - \renewcommand{\cftsecfont}{\color{white}}
+  - \renewcommand{\cftsubsecfont}{\color{auroragray}}
+  - \renewcommand{\cftchappagefont}{\color{auroracyan}}
+  - \renewcommand{\cftsecpagefont}{\color{white}}
+  - \renewcommand{\cftsubsecpagefont}{\color{auroragray}}
+  # Hyperlink colors (must be after hyperref loads)
+  - \AtBeginDocument{\hypersetup{colorlinks=true,linkcolor=auroracyan,urlcolor=auroracyan,citecolor=auroracyan}}
+  # Table styling
+  - \usepackage{colortbl}
+  - \arrayrulecolor{auroradarkgray}
+  # Code block styling
+  - \usepackage{fancyvrb}
+  # Blockquote styling
+  - \usepackage{mdframed}
+  - \mdfdefinestyle{quotestyle}{linecolor=auroracyan,linewidth=2pt,leftmargin=0pt,innerleftmargin=10pt,innerrightmargin=10pt,backgroundcolor=auroradarkgray}
 ---
