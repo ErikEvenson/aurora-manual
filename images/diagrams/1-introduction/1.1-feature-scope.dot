@@ -2,6 +2,10 @@ digraph FeatureScope {
     bgcolor="#1a1a2e"
     fontname="Helvetica"
     fontcolor="white"
+    rankdir=TB
+    splines=ortho
+    nodesep=0.6
+    ranksep=0.8
 
     node [
         fontname="Helvetica"
@@ -32,7 +36,7 @@ digraph FeatureScope {
         height=1.2
     ]
 
-    // Eight major subsystems arranged radially
+    // Eight major subsystems
     research [
         label="Research &\nTechnology"
         fillcolor="#95d5b2"
@@ -91,16 +95,120 @@ digraph FeatureScope {
     aurora -> tactical_combat [dir=none]
     aurora -> terraforming [dir=none]
 
-    // Sub-features for key systems
-    research_sub [label="Hundreds of\nTechnologies" shape=note fillcolor="#2d2d44" fontsize=9]
-    ship_sub [label="Component-Level\nEngineering" shape=note fillcolor="#2d2d44" fontsize=9]
-    combat_sub [label="Individual\nWeapon Mounts" shape=note fillcolor="#2d2d44" fontsize=9]
-    explore_sub [label="Jump Point\nNetworks" shape=note fillcolor="#2d2d44" fontsize=9]
+    // Feature boxes for each system
+    research_features [
+        label=<<table border="0" cellspacing="2" cellpadding="4">
+            <tr><td bgcolor="#4ecdc4" align="center"><font color="#1a1a2e"><b>Features</b></font></td></tr>
+            <tr><td align="left">• Hundreds of technologies</td></tr>
+            <tr><td align="left">• Dozens of research fields</td></tr>
+            <tr><td align="left">• Component unlocks</td></tr>
+        </table>>
+        shape=box
+        fillcolor="#252545"
+        color="#4ecdc4"
+        fontsize=9
+    ]
 
-    research -> research_sub [style=dashed color="#666666" arrowsize=0.5]
-    ship_design -> ship_sub [style=dashed color="#666666" arrowsize=0.5]
-    tactical_combat -> combat_sub [style=dashed color="#666666" arrowsize=0.5]
-    exploration -> explore_sub [style=dashed color="#666666" arrowsize=0.5]
+    ship_features [
+        label=<<table border="0" cellspacing="2" cellpadding="4">
+            <tr><td bgcolor="#4ecdc4" align="center"><font color="#1a1a2e"><b>Features</b></font></td></tr>
+            <tr><td align="left">• Component-level design</td></tr>
+            <tr><td align="left">• Engines, armor, weapons</td></tr>
+            <tr><td align="left">• Crew and life support</td></tr>
+        </table>>
+        shape=box
+        fillcolor="#252545"
+        color="#4ecdc4"
+        fontsize=9
+    ]
+
+    ground_features [
+        label=<<table border="0" cellspacing="2" cellpadding="4">
+            <tr><td bgcolor="#ff6b6b" align="center"><font color="#1a1a2e"><b>Features</b></font></td></tr>
+            <tr><td align="left">• Infantry and armor</td></tr>
+            <tr><td align="left">• Unit design system</td></tr>
+            <tr><td align="left">• Planetary invasions</td></tr>
+        </table>>
+        shape=box
+        fillcolor="#252545"
+        color="#ff6b6b"
+        fontsize=9
+    ]
+
+    colony_features [
+        label=<<table border="0" cellspacing="2" cellpadding="4">
+            <tr><td bgcolor="#ffe66d" align="center"><font color="#1a1a2e"><b>Features</b></font></td></tr>
+            <tr><td align="left">• Atmospheric modeling</td></tr>
+            <tr><td align="left">• Gravity and temperature</td></tr>
+            <tr><td align="left">• Infrastructure building</td></tr>
+        </table>>
+        shape=box
+        fillcolor="#252545"
+        color="#ffe66d"
+        fontsize=9
+    ]
+
+    explore_features [
+        label=<<table border="0" cellspacing="2" cellpadding="4">
+            <tr><td bgcolor="#4ecdc4" align="center"><font color="#1a1a2e"><b>Features</b></font></td></tr>
+            <tr><td align="left">• Jump point networks</td></tr>
+            <tr><td align="left">• Survey vessels</td></tr>
+            <tr><td align="left">• Alien ruins discovery</td></tr>
+        </table>>
+        shape=box
+        fillcolor="#252545"
+        color="#4ecdc4"
+        fontsize=9
+    ]
+
+    diplo_features [
+        label=<<table border="0" cellspacing="2" cellpadding="4">
+            <tr><td bgcolor="#95d5b2" align="center"><font color="#1a1a2e"><b>Features</b></font></td></tr>
+            <tr><td align="left">• Trade agreements</td></tr>
+            <tr><td align="left">• Treaty negotiations</td></tr>
+            <tr><td align="left">• Intelligence ops</td></tr>
+        </table>>
+        shape=box
+        fillcolor="#252545"
+        color="#95d5b2"
+        fontsize=9
+    ]
+
+    combat_features [
+        label=<<table border="0" cellspacing="2" cellpadding="4">
+            <tr><td bgcolor="#ff6b6b" align="center"><font color="#1a1a2e"><b>Features</b></font></td></tr>
+            <tr><td align="left">• Individual weapon mounts</td></tr>
+            <tr><td align="left">• Missile and beam combat</td></tr>
+            <tr><td align="left">• Point defense layers</td></tr>
+        </table>>
+        shape=box
+        fillcolor="#252545"
+        color="#ff6b6b"
+        fontsize=9
+    ]
+
+    terra_features [
+        label=<<table border="0" cellspacing="2" cellpadding="4">
+            <tr><td bgcolor="#ffe66d" align="center"><font color="#1a1a2e"><b>Features</b></font></td></tr>
+            <tr><td align="left">• Multi-decade projects</td></tr>
+            <tr><td align="left">• Gas modification</td></tr>
+            <tr><td align="left">• Habitability scoring</td></tr>
+        </table>>
+        shape=box
+        fillcolor="#252545"
+        color="#ffe66d"
+        fontsize=9
+    ]
+
+    // Connect feature boxes
+    research -> research_features [style=dashed color="#666666" arrowsize=0.5]
+    ship_design -> ship_features [style=dashed color="#666666" arrowsize=0.5]
+    ground_forces -> ground_features [style=dashed color="#666666" arrowsize=0.5]
+    colonization -> colony_features [style=dashed color="#666666" arrowsize=0.5]
+    exploration -> explore_features [style=dashed color="#666666" arrowsize=0.5]
+    diplomacy -> diplo_features [style=dashed color="#666666" arrowsize=0.5]
+    tactical_combat -> combat_features [style=dashed color="#666666" arrowsize=0.5]
+    terraforming -> terra_features [style=dashed color="#666666" arrowsize=0.5]
 
     // Layout hints
     {rank=same; research; ship_design}
