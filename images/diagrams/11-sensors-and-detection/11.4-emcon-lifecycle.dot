@@ -1,0 +1,86 @@
+// EMCON Lifecycle State Diagram
+// Section 11.4.2 - Shows state transitions for Emission Control
+digraph EMCONLifecycle {
+    rankdir=TB;
+    bgcolor="#1a1a2e";
+    node [fontname="Helvetica", fontcolor="white", color="#4ecdc4", style="filled", fillcolor="#2d2d44", shape="box", penwidth=2];
+    edge [fontname="Helvetica", fontcolor="white", color="#4ecdc4", penwidth=2];
+
+    // Title
+    labelloc="t";
+    label=<<font color="white" point-size="18"><b>EMCON State Lifecycle</b></font>>;
+    fontname="Helvetica";
+
+    // States
+    subgraph cluster_states {
+        style="invis";
+
+        full_emcon [label=<<table border="0" cellborder="0" cellspacing="2">
+            <tr><td><font color="#4ecdc4" point-size="14"><b>Full EMCON</b></font></td></tr>
+            <tr><td><font color="#95d5b2">EM Signature: ZERO</font></td></tr>
+            <tr><td><font color="#ff6b6b">Active Sensors: OFF</font></td></tr>
+            <tr><td><font color="#ff6b6b">Fire Controls: OFF</font></td></tr>
+            <tr><td><font color="#95d5b2">Passive Sensors: ON</font></td></tr>
+        </table>>, shape="box", style="filled,rounded"];
+
+        threshold_emcon [label=<<table border="0" cellborder="0" cellspacing="2">
+            <tr><td><font color="#ffe66d" point-size="14"><b>Distance-Threshold EMCON</b></font></td></tr>
+            <tr><td><font color="white">Passive until contact in range</font></td></tr>
+            <tr><td><font color="#ffe66d">Auto-activates at threshold</font></td></tr>
+            <tr><td><font color="#95d5b2">Stealth approach capability</font></td></tr>
+        </table>>, shape="box", style="filled,rounded"];
+
+        normal_ops [label=<<table border="0" cellborder="0" cellspacing="2">
+            <tr><td><font color="#ff6b6b" point-size="14"><b>Normal Operations</b></font></td></tr>
+            <tr><td><font color="#ff6b6b">EM Signature: HIGH</font></td></tr>
+            <tr><td><font color="#95d5b2">Active Sensors: ON</font></td></tr>
+            <tr><td><font color="#95d5b2">Fire Controls: ON</font></td></tr>
+            <tr><td><font color="#95d5b2">Full Combat Ready</font></td></tr>
+        </table>>, shape="box", style="filled,rounded"];
+    }
+
+    // Transitions
+    full_emcon -> threshold_emcon [label=<<font color="white">Set distance<br/>threshold</font>>, style="dashed"];
+    threshold_emcon -> full_emcon [label=<<font color="white">Remove<br/>threshold</font>>, style="dashed"];
+
+    full_emcon -> normal_ops [label=<<font color="#95d5b2">Disengage<br/>EMCON</font>>];
+    normal_ops -> full_emcon [label=<<font color="#4ecdc4">Engage<br/>EMCON</font>>];
+
+    threshold_emcon -> normal_ops [label=<<font color="#ffe66d">Target within<br/>threshold range</font>>, color="#ffe66d"];
+    normal_ops -> threshold_emcon [label=<<font color="white">Set threshold<br/>+ engage EMCON</font>>, style="dashed"];
+
+    // Trade-offs box
+    tradeoffs [label=<<table border="0" cellborder="0" cellspacing="4" cellpadding="6" bgcolor="#2d2d44">
+        <tr><td colspan="2"><font color="white" point-size="12"><b>EMCON Trade-offs</b></font></td></tr>
+        <tr>
+            <td><font color="#95d5b2"><b>Advantages</b></font></td>
+            <td><font color="#ff6b6b"><b>Disadvantages</b></font></td>
+        </tr>
+        <tr>
+            <td align="left"><font color="white">Zero EM from sensors</font></td>
+            <td align="left"><font color="white">No active sensors</font></td>
+        </tr>
+        <tr>
+            <td align="left"><font color="white">Tactical surprise</font></td>
+            <td align="left"><font color="white">Cannot guide missiles</font></td>
+        </tr>
+        <tr>
+            <td align="left"><font color="white">Approach undetected</font></td>
+            <td align="left"><font color="white">No fire controls</font></td>
+        </tr>
+        <tr>
+            <td align="left"><font color="white">Ambush capability</font></td>
+            <td align="left"><font color="white">Passive data only</font></td>
+        </tr>
+    </table>>, shape="plaintext"];
+
+    // Critical note
+    note [label=<<table border="0" cellborder="0" cellspacing="2" cellpadding="6" bgcolor="#3d2d44">
+        <tr><td><font color="#ff6b6b" point-size="11"><b>WARNING:</b> In-flight missiles lose guidance</font></td></tr>
+        <tr><td><font color="white" point-size="10">when EMCON activated mid-flight!</font></td></tr>
+    </table>>, shape="plaintext"];
+
+    // Position
+    {rank=same; full_emcon; threshold_emcon; normal_ops}
+    {rank=same; tradeoffs; note}
+}

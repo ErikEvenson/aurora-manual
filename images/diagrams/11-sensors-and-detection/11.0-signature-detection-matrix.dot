@@ -1,0 +1,114 @@
+// Signature-to-Detection Matrix Diagram
+// Section 11.0.3 - Shows which sensors detect which target states
+digraph SignatureDetectionMatrix {
+    rankdir=TB;
+    bgcolor="#1a1a2e";
+    node [fontname="Helvetica", fontcolor="white", color="#4ecdc4", style="filled", fillcolor="#2d2d44"];
+    edge [fontname="Helvetica", fontcolor="white", color="#4ecdc4"];
+
+    // Title
+    labelloc="t";
+    label=<<font color="white" point-size="18"><b>Signature-to-Detection Matrix</b></font>>;
+    fontname="Helvetica";
+
+    // Create invisible nodes for the matrix structure
+    node [shape=plaintext, fillcolor="transparent", style=""];
+
+    // Use HTML-like labels for the matrix
+    matrix [label=<
+        <table border="0" cellborder="1" cellspacing="0" cellpadding="8" bgcolor="#1a1a2e">
+            <tr>
+                <td bgcolor="#2d2d44"><font color="white"><b>Target State</b></font></td>
+                <td bgcolor="#2d2d44"><font color="white"><b>Thermal</b></font></td>
+                <td bgcolor="#2d2d44"><font color="white"><b>EM</b></font></td>
+                <td bgcolor="#2d2d44"><font color="white"><b>Active</b></font></td>
+                <td bgcolor="#2d2d44"><font color="white"><b>Best Method</b></font></td>
+            </tr>
+            <tr>
+                <td bgcolor="#2d2d44"><font color="white">Under power, EMCON</font></td>
+                <td bgcolor="#95d5b2"><font color="#1a1a2e"><b>HIGH</b></font></td>
+                <td bgcolor="#ff6b6b"><font color="white">ZERO</font></td>
+                <td bgcolor="#ffe66d"><font color="#1a1a2e">Normal</font></td>
+                <td bgcolor="#4ecdc4"><font color="#1a1a2e">Thermal</font></td>
+            </tr>
+            <tr>
+                <td bgcolor="#2d2d44"><font color="white">Under power, sensors ON</font></td>
+                <td bgcolor="#95d5b2"><font color="#1a1a2e"><b>HIGH</b></font></td>
+                <td bgcolor="#95d5b2"><font color="#1a1a2e"><b>HIGH</b></font></td>
+                <td bgcolor="#ffe66d"><font color="#1a1a2e">Normal</font></td>
+                <td bgcolor="#4ecdc4"><font color="#1a1a2e">Any</font></td>
+            </tr>
+            <tr>
+                <td bgcolor="#2d2d44"><font color="white">Stationary, EMCON</font></td>
+                <td bgcolor="#ffe66d"><font color="#1a1a2e">5% HS</font></td>
+                <td bgcolor="#ff6b6b"><font color="white">ZERO</font></td>
+                <td bgcolor="#ffe66d"><font color="#1a1a2e">Normal</font></td>
+                <td bgcolor="#4ecdc4"><font color="#1a1a2e">Active</font></td>
+            </tr>
+            <tr>
+                <td bgcolor="#2d2d44"><font color="white">Stationary, sensors ON</font></td>
+                <td bgcolor="#ffe66d"><font color="#1a1a2e">5% HS</font></td>
+                <td bgcolor="#95d5b2"><font color="#1a1a2e"><b>HIGH</b></font></td>
+                <td bgcolor="#ffe66d"><font color="#1a1a2e">Normal</font></td>
+                <td bgcolor="#4ecdc4"><font color="#1a1a2e">EM</font></td>
+            </tr>
+            <tr>
+                <td bgcolor="#2d2d44"><font color="white">Cloaked, under power</font></td>
+                <td bgcolor="#ffe66d"><font color="#1a1a2e">Reduced</font></td>
+                <td bgcolor="#ffe66d"><font color="#1a1a2e">Reduced</font></td>
+                <td bgcolor="#ffe66d"><font color="#1a1a2e">Reduced</font></td>
+                <td bgcolor="#4ecdc4"><font color="#1a1a2e">Thermal*</font></td>
+            </tr>
+            <tr>
+                <td bgcolor="#2d2d44"><font color="white">Cloaked, stationary</font></td>
+                <td bgcolor="#ffe66d"><font color="#1a1a2e">Minimal</font></td>
+                <td bgcolor="#ff6b6b"><font color="white">ZERO</font></td>
+                <td bgcolor="#ffe66d"><font color="#1a1a2e">Reduced</font></td>
+                <td bgcolor="#4ecdc4"><font color="#1a1a2e">Active*</font></td>
+            </tr>
+            <tr>
+                <td bgcolor="#2d2d44"><font color="white">Shields raised</font></td>
+                <td bgcolor="#ffe66d"><font color="#1a1a2e">Variable</font></td>
+                <td bgcolor="#95d5b2"><font color="#1a1a2e"><b>3x Shield</b></font></td>
+                <td bgcolor="#ffe66d"><font color="#1a1a2e">Normal</font></td>
+                <td bgcolor="#4ecdc4"><font color="#1a1a2e">EM</font></td>
+            </tr>
+            <tr>
+                <td bgcolor="#2d2d44"><font color="white">Missile (active seeker)</font></td>
+                <td bgcolor="#ffe66d"><font color="#1a1a2e">Minimal</font></td>
+                <td bgcolor="#95d5b2"><font color="#1a1a2e"><b>Seeker</b></font></td>
+                <td bgcolor="#ffe66d"><font color="#1a1a2e">Small</font></td>
+                <td bgcolor="#4ecdc4"><font color="#1a1a2e">EM + R1</font></td>
+            </tr>
+            <tr>
+                <td bgcolor="#2d2d44"><font color="white">Missile (passive)</font></td>
+                <td bgcolor="#ffe66d"><font color="#1a1a2e">Minimal</font></td>
+                <td bgcolor="#ff6b6b"><font color="white">ZERO</font></td>
+                <td bgcolor="#ffe66d"><font color="#1a1a2e">Small</font></td>
+                <td bgcolor="#4ecdc4"><font color="#1a1a2e">R1 Active</font></td>
+            </tr>
+        </table>
+    >];
+
+    // Legend
+    legend [label=<
+        <table border="0" cellborder="0" cellspacing="4" cellpadding="4" bgcolor="#2d2d44">
+            <tr><td colspan="2"><font color="white"><b>Legend</b></font></td></tr>
+            <tr>
+                <td bgcolor="#95d5b2" width="20"></td>
+                <td><font color="white">Easily detectable</font></td>
+            </tr>
+            <tr>
+                <td bgcolor="#ffe66d" width="20"></td>
+                <td><font color="white">Reduced/Variable</font></td>
+            </tr>
+            <tr>
+                <td bgcolor="#ff6b6b" width="20"></td>
+                <td><font color="white">Undetectable</font></td>
+            </tr>
+            <tr>
+                <td colspan="2"><font color="#4ecdc4">* Degraded range</font></td>
+            </tr>
+        </table>
+    >];
+}

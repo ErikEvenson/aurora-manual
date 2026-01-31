@@ -1,0 +1,141 @@
+// Fire Control Resolution Scaling Diagram
+// Section 12.1.2 - Shows quadratic falloff for resolution mismatches
+digraph ResolutionScaling {
+    rankdir=TB;
+    bgcolor="#1a1a2e";
+    node [fontname="Helvetica", fontcolor="white", color="#4ecdc4", style="filled", fillcolor="#2d2d44", penwidth=2];
+    edge [fontname="Helvetica", fontcolor="white", color="#4ecdc4", penwidth=2];
+
+    // Title
+    labelloc="t";
+    label=<<font color="white" point-size="18"><b>Fire Control Resolution Scaling</b></font>>;
+    fontname="Helvetica";
+
+    // Formula
+    formula [label=<<table border="0" cellborder="0" cellspacing="4" cellpadding="8" bgcolor="#2d2d44">
+        <tr><td><font color="#4ecdc4" point-size="14"><b>Effective Range Formula</b></font></td></tr>
+        <tr><td><font color="white" point-size="12">Effective Range = Base Range x (Target Size / Resolution)^2</font></td></tr>
+        <tr><td><font color="#ffe66d" point-size="10">Quadratic penalty for resolution mismatch!</font></td></tr>
+    </table>>, shape="plaintext"];
+
+    // Graph representation using a table
+    scaling_graph [label=<
+        <table border="0" cellborder="1" cellspacing="0" cellpadding="0" bgcolor="#1a1a2e">
+            <tr>
+                <td colspan="11" bgcolor="#2d2d44"><font color="white" point-size="12"><b>Effective Range % vs Target Size (for Resolution-160 FC = 8,000 ton)</b></font></td>
+            </tr>
+            <tr>
+                <td bgcolor="#2d2d44" width="60"><font color="white">100%</font></td>
+                <td bgcolor="#95d5b2" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="60"><font color="#95d5b2">8,000t</font></td>
+            </tr>
+            <tr>
+                <td bgcolor="#2d2d44"><font color="white">56%</font></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#95d5b2" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44"><font color="#ffe66d">6,000t</font></td>
+            </tr>
+            <tr>
+                <td bgcolor="#2d2d44"><font color="white">25%</font></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#ffe66d" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44"><font color="#ffe66d">4,000t</font></td>
+            </tr>
+            <tr>
+                <td bgcolor="#2d2d44"><font color="white">6.25%</font></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#ff6b6b" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44"><font color="#ff6b6b">2,000t</font></td>
+            </tr>
+            <tr>
+                <td bgcolor="#2d2d44"><font color="white">0.88%</font></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#ff6b6b" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44"><font color="#ff6b6b">750t</font></td>
+            </tr>
+            <tr>
+                <td bgcolor="#2d2d44"><font color="white">0.14%</font></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#ff6b6b" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44" width="40"></td>
+                <td bgcolor="#2d2d44"><font color="#ff6b6b">300t</font></td>
+            </tr>
+        </table>
+    >, shape="plaintext"];
+
+    // Example box
+    example [label=<<table border="0" cellborder="0" cellspacing="4" cellpadding="8" bgcolor="#3d2d44">
+        <tr><td colspan="2"><font color="#ff6b6b" point-size="12"><b>Example: Capital FC vs FAC</b></font></td></tr>
+        <tr>
+            <td align="left"><font color="white">Resolution-160 FC:</font></td>
+            <td align="right"><font color="white">100,000 km base range</font></td>
+        </tr>
+        <tr>
+            <td align="left"><font color="white">vs 750-ton FAC:</font></td>
+            <td align="right"><font color="#ff6b6b">(750/8000)^2 = 0.88%</font></td>
+        </tr>
+        <tr>
+            <td align="left"><font color="white">Effective range:</font></td>
+            <td align="right"><font color="#ff6b6b"><b>879 km</b></font></td>
+        </tr>
+        <tr>
+            <td colspan="2"><font color="#ffe66d" point-size="10">Capital FCs cannot engage small craft!</font></td>
+        </tr>
+    </table>>, shape="plaintext"];
+
+    // Design implications
+    implications [label=<<table border="0" cellborder="0" cellspacing="4" cellpadding="8" bgcolor="#2d2d44">
+        <tr><td><font color="#95d5b2" point-size="12"><b>Design Implications</b></font></td></tr>
+        <tr><td align="left"><font color="white">Anti-ship MFC: Resolution 50-500 (long range vs capitals)</font></td></tr>
+        <tr><td align="left"><font color="white">Anti-FAC MFC: Resolution 5-20 (medium range vs small craft)</font></td></tr>
+        <tr><td align="left"><font color="white">Anti-missile MFC: Resolution 1 (short range vs missiles)</font></td></tr>
+        <tr><td align="left"><font color="#4ecdc4">Dedicated low-resolution FCs are ESSENTIAL!</font></td></tr>
+    </table>>, shape="plaintext"];
+
+    // Layout
+    formula -> scaling_graph;
+    scaling_graph -> example;
+    example -> implications;
+}

@@ -1,0 +1,97 @@
+// Core Combat Interactions Diagram
+// Section 12.0.3 - Shows sensor -> fire control -> weapons -> damage flow
+digraph CombatInteractions {
+    rankdir=LR;
+    bgcolor="#1a1a2e";
+    node [fontname="Helvetica", fontcolor="white", color="#4ecdc4", style="filled", fillcolor="#2d2d44", penwidth=2];
+    edge [fontname="Helvetica", fontcolor="white", color="#4ecdc4", penwidth=2];
+
+    // Title
+    labelloc="t";
+    label=<<font color="white" point-size="18"><b>Core Combat Interactions</b></font>>;
+    fontname="Helvetica";
+
+    // Main detection flow
+    subgraph cluster_main {
+        style="invis";
+
+        // Sensors
+        sensors [label=<<table border="0" cellborder="0" cellspacing="2">
+            <tr><td><font color="#4ecdc4" point-size="14"><b>SENSORS</b></font></td></tr>
+            <tr><td><font color="white">Thermal (passive)</font></td></tr>
+            <tr><td><font color="white">EM (passive)</font></td></tr>
+            <tr><td><font color="white">Active (reveals you)</font></td></tr>
+        </table>>, shape="box", style="filled,rounded"];
+
+        // Fire Controls
+        fire_control [label=<<table border="0" cellborder="0" cellspacing="2">
+            <tr><td><font color="#ffe66d" point-size="14"><b>FIRE CONTROL</b></font></td></tr>
+            <tr><td><font color="white">BFC: Beam weapons</font></td></tr>
+            <tr><td><font color="white">MFC: Missile guidance</font></td></tr>
+            <tr><td><font color="white">Tracking + Range</font></td></tr>
+        </table>>, shape="box", style="filled,rounded"];
+
+        // Weapons
+        weapons [label=<<table border="0" cellborder="0" cellspacing="2">
+            <tr><td><font color="#ff6b6b" point-size="14"><b>WEAPONS</b></font></td></tr>
+            <tr><td><font color="white">Beams: Instant hit</font></td></tr>
+            <tr><td><font color="white">Missiles: Guided</font></td></tr>
+            <tr><td><font color="white">Gauss: High ROF</font></td></tr>
+        </table>>, shape="box", style="filled,rounded"];
+
+        // Damage
+        damage [label=<<table border="0" cellborder="0" cellspacing="2">
+            <tr><td><font color="#95d5b2" point-size="14"><b>DAMAGE</b></font></td></tr>
+            <tr><td><font color="white">vs. Shields</font></td></tr>
+            <tr><td><font color="white">vs. Armor</font></td></tr>
+            <tr><td><font color="white">Internal hits</font></td></tr>
+        </table>>, shape="box", style="filled,rounded"];
+
+        // Target
+        target [label=<<table border="0" cellborder="0" cellspacing="2">
+            <tr><td><font color="white" point-size="14"><b>TARGET</b></font></td></tr>
+            <tr><td><font color="#ff6b6b">Damaged</font></td></tr>
+            <tr><td><font color="#ff6b6b">Destroyed</font></td></tr>
+        </table>>, shape="box", style="filled,rounded"];
+    }
+
+    // Main flow arrows
+    sensors -> fire_control [label=<<font color="white">Detection<br/>data</font>>];
+    fire_control -> weapons [label=<<font color="white">Target<br/>lock</font>>];
+    weapons -> damage [label=<<font color="white">Hit<br/>resolved</font>>];
+    damage -> target [label=<<font color="white">Apply</font>>];
+
+    // ECM/EW subsystem
+    subgraph cluster_ew {
+        label=<<font color="#ffe66d" point-size="12"><b>Electronic Warfare</b></font>>;
+        style="rounded";
+        color="#ffe66d";
+        bgcolor="#2d2d3e";
+
+        sensor_jammer [label=<<font color="white">Sensor<br/>Jammer</font>>, shape="ellipse", fillcolor="#3d3d54"];
+        fc_jammer [label=<<font color="white">Fire Control<br/>Jammer</font>>, shape="ellipse", fillcolor="#3d3d54"];
+        missile_jammer [label=<<font color="white">Missile<br/>Jammer</font>>, shape="ellipse", fillcolor="#3d3d54"];
+    }
+
+    // ECM effects (degradation arrows)
+    sensor_jammer -> sensors [label=<<font color="#ff6b6b">-Range</font>>, color="#ff6b6b", style="dashed", constraint=false];
+    fc_jammer -> fire_control [label=<<font color="#ff6b6b">-Accuracy</font>>, color="#ff6b6b", style="dashed", constraint=false];
+    missile_jammer -> weapons [label=<<font color="#ff6b6b">-Hit%</font>>, color="#ff6b6b", style="dashed", constraint=false];
+
+    // Shields/Armor feedback
+    defenses [label=<<table border="0" cellborder="0" cellspacing="2">
+        <tr><td><font color="#95d5b2" point-size="12"><b>DEFENSES</b></font></td></tr>
+        <tr><td><font color="white">Shields absorb</font></td></tr>
+        <tr><td><font color="white">Armor blocks</font></td></tr>
+        <tr><td><font color="white">CIWS intercepts</font></td></tr>
+    </table>>, shape="box", style="filled,rounded"];
+
+    target -> defenses [label=<<font color="#95d5b2">Active<br/>defense</font>>, color="#95d5b2", style="dashed", dir="back"];
+    defenses -> damage [label=<<font color="#95d5b2">Mitigates</font>>, color="#95d5b2", style="dashed"];
+
+    // Key principle
+    note [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="8" bgcolor="#3d2d44">
+        <tr><td><font color="#4ecdc4" point-size="11"><b>KEY:</b> No weapon fires without a fire control</font></td></tr>
+        <tr><td><font color="white" point-size="10">Every BFC/MFC requires sensor contact</font></td></tr>
+    </table>>, shape="plaintext"];
+}
