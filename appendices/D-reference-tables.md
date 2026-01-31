@@ -120,6 +120,8 @@ For combat usage and tactical considerations, see [Section 12.2 Beam Weapons](..
 | HPM | R20/C5 | 1 (3+) | 10s | 200K km | 6 | 10 | 126 | Corundium |
 | CIWS | CIWS-160 | 1 | 6/5s | 10K km | 7.4 | 0 | 34 | Vendarite |
 
+![Figure D.3.1: Beam Weapon Comparison - DPS vs Range](../images/charts/appendices/d-3-1-beam-weapon-comparison.png)
+
 ### D.3.2 Weapon Notes
 
 - **Meson Cannon** (*): Bypasses both shields and armor entirely; damage is applied directly to internal components. Low damage per hit but extremely difficult to defend against.

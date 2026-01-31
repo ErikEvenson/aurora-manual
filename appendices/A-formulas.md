@@ -646,6 +646,8 @@ RP_per_Year = Effective_Labs x RP_per_Lab x (1 + Scientist_Bonus / 100)
 
 Where Scientist\_Bonus is the percentage shown in the commander's profile. This bonus is quadrupled when the scientist works in their specialization field.
 
+![Figure A.5.4: Research Diminishing Returns](../images/charts/appendices/a-5-4-research-diminishing-returns.png)
+
 ### A.5.5 Terraforming Rate
 
 ```
@@ -740,6 +742,8 @@ Where:
 | Overcrowding | Growth reduced progressively |
 | Governor bonus | 1 + (Admin_Skill x 0.05) |
 | Genetic modification tech | Increases base racial growth rate |
+
+![Figure A.6.1/A.6.2: Population Growth Modifiers](../images/charts/appendices/a-6-population-growth.png)
 
 ### A.6.3 Colony Cost and Habitability
 
