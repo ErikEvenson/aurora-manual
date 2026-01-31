@@ -633,3 +633,190 @@ Before committing any chart:
 - [ ] Key thresholds/breakpoints annotated
 - [ ] Saved at 150 DPI
 - [ ] File in correct chapter subdirectory
+
+## Diagrams
+
+Diagrams (flowcharts, system diagrams, tech trees, tactical illustrations) are stored in `images/diagrams/` with subdirectories mirroring chapter structure.
+
+### Directory Structure
+
+```
+images/diagrams/
+  7-research/
+    7.1-engine-tech-tree.svg
+  12-combat/
+    12.0-combat-phase-sequence.svg
+  ...
+```
+
+### Diagram Types and Tools
+
+| Type | Tool | Use Case |
+|------|------|----------|
+| Flowcharts | Graphviz DOT | Decision trees, process flows, combat resolution |
+| Tech Trees | Graphviz DOT | Research dependencies, unlock paths |
+| System Diagrams | Graphviz DOT | Economy flow, data dependencies, logistics |
+| Network Diagrams | Graphviz DOT | Jump point topology, mineral dependencies |
+| Tactical Illustrations | SVG (Inkscape) or Python | Spatial positioning, range envelopes, formations |
+| Conceptual Diagrams | Python/matplotlib | Range scaling, zone visualization |
+
+### Graphviz DOT Style Standards (MANDATORY)
+
+All DOT diagrams must use these styling rules:
+
+**Graph Attributes:**
+```dot
+digraph G {
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    rankdir=TB  // or LR for horizontal
+    nodesep=0.5
+    ranksep=0.7
+```
+
+**Node Styles:**
+```dot
+    node [
+        fontname="Helvetica"
+        fontsize=11
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled,rounded"
+        shape=box
+    ]
+```
+
+**Edge Styles:**
+```dot
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.8
+    ]
+}
+```
+
+**Node Shape Guidelines:**
+- `box` (rounded): Standard process/state nodes
+- `diamond`: Decision points
+- `ellipse`: Start/end points
+- `plaintext`: Labels and annotations
+- `record`: Multi-field data nodes
+
+**Color Palette for Nodes:**
+- Primary nodes: `fillcolor="#2d2d44"` border `color="#4ecdc4"`
+- Decision nodes: `fillcolor="#2d2d44"` border `color="#ffe66d"`
+- Warning/critical: `fillcolor="#2d2d44"` border `color="#ff6b6b"`
+- Success/completion: `fillcolor="#2d2d44"` border `color="#95d5b2"`
+
+### Graphviz DOT Template
+
+```dot
+digraph CombatPhaseSequence {
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    label="Combat Phase Sequence"
+    labelloc=t
+    fontsize=14
+    rankdir=TB
+    nodesep=0.5
+    ranksep=0.6
+
+    node [
+        fontname="Helvetica"
+        fontsize=11
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled,rounded"
+        shape=box
+    ]
+
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.8
+    ]
+
+    // Nodes
+    start [label="Turn Start" shape=ellipse]
+    movement [label="1. Movement Phase"]
+    firing [label="2. Weapon Firing"]
+    damage [label="3. Damage Resolution"]
+    end [label="Turn End" shape=ellipse]
+
+    // Decision example
+    combat_check [label="Combat\nDetected?" shape=diamond color="#ffe66d"]
+
+    // Edges
+    start -> movement
+    movement -> combat_check
+    combat_check -> firing [label="Yes"]
+    combat_check -> end [label="No"]
+    firing -> damage
+    damage -> end
+}
+```
+
+### Building Diagrams
+
+**Convert DOT to SVG:**
+```bash
+dot -Tsvg images/diagrams/12-combat/12.0-combat-phase-sequence.dot -o images/diagrams/12-combat/12.0-combat-phase-sequence.svg
+```
+
+**Convert SVG to PDF (for manual build):**
+```bash
+rsvg-convert -f pdf images/diagrams/12-combat/12.0-combat-phase-sequence.svg > images/.generated/12.0-combat-phase-sequence.pdf
+```
+
+The build script handles SVG→PDF conversion automatically for files in `images/tech-trees/`. For diagrams, either:
+1. Place source SVG in `images/diagrams/` and reference the `.svg` directly (works for GitHub Pages)
+2. For PDF inclusion, the build script will need updating to include `images/diagrams/`
+
+### Tactical Illustration Guidelines
+
+For spatial/positional diagrams (sensor ranges, fleet formations, orbital mechanics):
+
+**Using Python/matplotlib:**
+- Reuse chart color palette (`#1a1a2e` background, `#4ecdc4` primary)
+- Use `plt.Circle()`, `plt.Arrow()`, `plt.Polygon()` for shapes
+- Add distance scale bars
+- Label key positions and ranges
+
+**Using Inkscape:**
+- Canvas background: `#1a1a2e`
+- Stroke color: `#4ecdc4` (primary), `#ff6b6b` (warning), `#ffe66d` (highlight)
+- Fill: `#2d2d44` with 50-80% opacity for zones
+- Font: Helvetica or sans-serif, white
+- Export as SVG with fonts converted to paths
+
+### Markdown Reference
+
+```markdown
+![Combat Phase Sequence](../images/diagrams/12-combat/12.0-combat-phase-sequence.svg)
+```
+
+For PDF builds referencing converted files:
+```markdown
+![Combat Phase Sequence](../images/.generated/12.0-combat-phase-sequence.pdf)
+```
+
+### Quality Checklist
+
+Before committing any diagram:
+- [ ] Uses `#1a1a2e` background
+- [ ] Uses standard color palette (cyan primary, yellow decisions, red warnings)
+- [ ] Node text is legible (11pt minimum)
+- [ ] Edge labels readable (9pt minimum)
+- [ ] Logical flow direction (top-to-bottom or left-to-right)
+- [ ] Decision diamonds have clear Yes/No labels
+- [ ] No overlapping nodes or edges
+- [ ] File in correct chapter subdirectory
