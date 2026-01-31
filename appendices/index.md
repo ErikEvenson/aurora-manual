@@ -9,3 +9,5 @@ permalink: /appendices/
 
 *Updated: v2026.01.30*
 
+![Appendices](../images/art/chapter-art/appendices.png)
+

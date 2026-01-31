@@ -9,3 +9,5 @@ permalink: /13-ground-forces/
 
 *Updated: v2026.01.30*
 
+![13. Ground Forces](../images/art/chapter-art/13-ground-forces.png)
+

@@ -9,3 +9,5 @@ permalink: /15-diplomacy/
 
 *Updated: v2026.01.30*
 
+![15. Diplomacy](../images/art/chapter-art/15-diplomacy.png)
+

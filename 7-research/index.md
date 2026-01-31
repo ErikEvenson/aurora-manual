@@ -9,3 +9,5 @@ permalink: /7-research/
 
 *Updated: v2026.01.30*
 
+![7. Research](../images/art/chapter-art/07-research.png)
+

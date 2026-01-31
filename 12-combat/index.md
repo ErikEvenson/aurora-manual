@@ -9,3 +9,5 @@ permalink: /12-combat/
 
 *Updated: v2026.01.30*
 
+![12. Combat](../images/art/chapter-art/12-combat.png)
+

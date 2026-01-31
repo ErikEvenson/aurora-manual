@@ -9,3 +9,5 @@ permalink: /9-fleet-management/
 
 *Updated: v2026.01.30*
 
+![9. Fleet Management](../images/art/chapter-art/09-fleet-management.png)
+

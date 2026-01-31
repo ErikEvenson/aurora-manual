@@ -9,3 +9,5 @@ permalink: /4-systems-and-bodies/
 
 *Updated: v2026.01.30*
 
+![Chapter 4: Systems and Bodies](../images/art/chapter-art/04-systems-bodies.png)
+

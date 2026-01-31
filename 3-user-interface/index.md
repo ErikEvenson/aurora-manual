@@ -9,3 +9,5 @@ permalink: /3-user-interface/
 
 *Updated: v2026.01.30*
 
+![Chapter 3: User Interface](../images/art/chapter-art/03-user-interface.png)
+

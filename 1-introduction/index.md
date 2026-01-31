@@ -9,3 +9,5 @@ permalink: /1-introduction/
 
 *Updated: v2026.01.30*
 
+![Chapter 1: Introduction](../images/art/chapter-art/01-introduction.png)
+

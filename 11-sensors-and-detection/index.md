@@ -9,3 +9,5 @@ permalink: /11-sensors-and-detection/
 
 *Updated: v2026.01.30*
 
+![11. Sensors and Detection](../images/art/chapter-art/11-sensors.png)
+

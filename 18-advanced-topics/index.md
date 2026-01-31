@@ -9,3 +9,5 @@ permalink: /18-advanced-topics/
 
 *Updated: v2026.01.30*
 
+![18. Advanced Topics](../images/art/chapter-art/18-advanced.png)
+

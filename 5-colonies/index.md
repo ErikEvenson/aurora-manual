@@ -7,5 +7,7 @@ permalink: /5-colonies/
 
 # 5. Colonies
 
-*Updated: v2026.01.28*
+*Updated: v2026.01.30*
+
+![5. Colonies](../images/art/chapter-art/05-colonies.png)
 

@@ -9,3 +9,5 @@ permalink: /2-game-setup/
 
 *Updated: v2026.01.30*
 
+![Chapter 2: Game Setup](../images/art/chapter-art/02-game-setup.png)
+

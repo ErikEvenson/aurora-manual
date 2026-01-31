@@ -9,3 +9,5 @@ permalink: /14-logistics/
 
 *Updated: v2026.01.30*
 
+![14. Logistics](../images/art/chapter-art/14-logistics.png)
+

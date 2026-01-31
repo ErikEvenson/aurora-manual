@@ -9,3 +9,5 @@ permalink: /10-navigation/
 
 *Updated: v2026.01.30*
 
+![10. Navigation](../images/art/chapter-art/10-navigation.png)
+

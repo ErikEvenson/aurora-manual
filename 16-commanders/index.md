@@ -9,3 +9,5 @@ permalink: /16-commanders/
 
 *Updated: v2026.01.30*
 
+![16. Commanders](../images/art/chapter-art/16-commanders.png)
+
