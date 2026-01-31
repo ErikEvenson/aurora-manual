@@ -1,0 +1,81 @@
+digraph HabitabilityZones {
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    rankdir=TB
+    nodesep=0.5
+    ranksep=0.7
+
+    node [
+        fontname="Helvetica"
+        fontsize=10
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled,rounded"
+        shape=box
+    ]
+
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.7
+    ]
+
+    // Title node
+    title [label="Colony Cost Habitability Tiers" shape=none fontsize=14 fontcolor="#4ecdc4"]
+
+    // Tier 1: Naturally Habitable
+    t1 [label="Tier 1: Naturally Habitable\nCC 0.00\nNo infrastructure required" fillcolor="#95d5b2" fontcolor="#1a1a2e" shape=box]
+    earth [label="Earth\nTemp: 15C\nPress: 1.0 atm\nO2: 0.21 atm" fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+
+    // Tier 2: Nearly Habitable
+    t2 [label="Tier 2: Nearly Habitable\nCC 0.01-1.00\nMinor challenges" fillcolor="#4ecdc4" fontcolor="#1a1a2e"]
+    mars_tf [label="Mars\n(Terraformed)\nCC ~0.5" fillcolor="#4ecdc4" fontcolor="#1a1a2e"]
+
+    // Tier 3: Colonizable with Effort
+    t3 [label="Tier 3: Colonizable\nCC 1.01-3.00\nSubstantial infrastructure" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+    mars [label="Mars\nCC ~2.5\nTemp: -65C" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+    luna [label="Luna\nCC ~2.0\nNo atmo" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+
+    // Tier 4: Hostile
+    t4 [label="Tier 4: Hostile\nCC 3.01-6.00\nVery high infrastructure" fillcolor="#ff6b6b"]
+    titan [label="Titan\nCC ~3.5\nTemp: -179C" fillcolor="#ff6b6b"]
+    ganymede [label="Ganymede\nCC ~4.0\nTemp: -163C" fillcolor="#ff6b6b"]
+
+    // Tier 5: Extreme
+    t5 [label="Tier 5: Extreme\nCC 6.00+\nAutomated mining preferred" fillcolor="#2d2d44"]
+    venus [label="Venus\nCC ~8.0+\nTemp: 464C\n92 atm" fillcolor="#2d2d44"]
+    mercury [label="Mercury\nCC ~7.0+\nTemp: 167C\nNo atmo" fillcolor="#2d2d44"]
+
+    // Flow
+    title -> t1 [style=invis]
+    t1 -> t2 [label="Increasing\nHostility"]
+    t2 -> t3
+    t3 -> t4
+    t4 -> t5
+
+    // Body connections
+    t1 -> earth [style=dashed arrowhead=none]
+    t2 -> mars_tf [style=dashed arrowhead=none]
+    t3 -> mars [style=dashed arrowhead=none]
+    t3 -> luna [style=dashed arrowhead=none]
+    t4 -> titan [style=dashed arrowhead=none]
+    t4 -> ganymede [style=dashed arrowhead=none]
+    t5 -> venus [style=dashed arrowhead=none]
+    t5 -> mercury [style=dashed arrowhead=none]
+
+    // Colony cost factors box
+    factors [label="Colony Cost Factors\n(Highest Single Factor Applies)\n\nTemperature: +1 CC per (range/2) degrees outside\nDangerous Gas: +2 or +3 CC\nNo Breathable O2: +2 CC\nLow Gravity: +1 CC (2x infrastructure)\nLow Water: up to +2 CC at 0% hydro" shape=box fillcolor="#2d2d44" fontsize=9]
+
+    // Notes
+    note1 [label="Tide-locked planets:\n20% population capacity\n80% temp cost reduction" shape=note fillcolor="#2d2d44" fontsize=9]
+
+    note2 [label="Gravity cannot be\nterraformed -\npermanent factor" shape=note fillcolor="#ff6b6b" fontsize=9]
+
+    t3 -> factors [style=dotted color="#666666" arrowhead=none]
+    t4 -> note1 [style=dotted color="#666666" arrowhead=none]
+    t5 -> note2 [style=dotted color="#666666" arrowhead=none]
+}

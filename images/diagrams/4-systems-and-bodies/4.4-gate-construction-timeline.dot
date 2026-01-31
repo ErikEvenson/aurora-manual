@@ -1,0 +1,62 @@
+digraph GateConstructionTimeline {
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    rankdir=LR
+    nodesep=0.5
+    ranksep=0.8
+
+    node [
+        fontname="Helvetica"
+        fontsize=10
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled,rounded"
+        shape=box
+    ]
+
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.7
+    ]
+
+    // Starting point
+    start [label="Jump Point\nTheory\n(Prerequisite)" shape=ellipse fillcolor="#4ecdc4" fontcolor="#1a1a2e"]
+
+    // Module progression - horizontal timeline
+    t1 [label="180\ndays" fillcolor="#ff6b6b"]
+    t2 [label="150\ndays" fillcolor="#ff6b6b"]
+    t3 [label="120\ndays" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+    t4 [label="90\ndays" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+    t5 [label="60\ndays" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+    t6 [label="45\ndays" fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+    t7 [label="30\ndays" fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+    t8 [label="20\ndays" fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+
+    // Small module branch
+    small [label="Small Module\n360 days\n(Auto-unlock)" fillcolor="#2d2d44"]
+
+    // Main progression
+    start -> t1 [label="Research"]
+    t1 -> t2 -> t3 -> t4 -> t5 -> t6 -> t7 -> t8
+
+    // Small module auto-unlock
+    t1 -> small [label="Auto" style=dashed color="#888888"]
+
+    // Example calculations
+    ex1 [label="5 Jump Points:\n900 days with 180-day\n100 days with 20-day\n(9x faster)" shape=box fillcolor="#2d2d44"]
+
+    // Notes
+    note1 [label="Key Constraints:\n- Modules do NOT stack\n- One ship per jump point\n- No benefit from multiple\n  modules on same ship" shape=note fillcolor="#2d2d44" fontsize=9]
+
+    note2 [label="Speed Boosts:\n- Research faster modules\n- Commander with Factory\n  Production Bonus" shape=note fillcolor="#2d2d44" fontsize=9]
+
+    // Connections
+    t4 -> note1 [style=dotted color="#666666" arrowhead=none]
+    t8 -> ex1 [style=dotted color="#666666"]
+    small -> note2 [style=dotted color="#666666" arrowhead=none]
+}

@@ -1,0 +1,62 @@
+digraph AsteroidDistribution {
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    rankdir=LR
+    nodesep=0.8
+    ranksep=1.0
+
+    node [
+        fontname="Helvetica"
+        fontsize=11
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled"
+        shape=box
+    ]
+
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.8
+    ]
+
+    // Central star
+    star [label="Star" shape=circle fillcolor="#ffe66d" fontcolor="#1a1a2e" width=1.0]
+
+    // Asteroid locations
+    near [label="Near-Star\nAsteroids\n(0.9-2 AU)\nMetal-rich" fillcolor="#ff6b6b"]
+
+    main [label="Main Belt\nAsteroids\n(2-4 AU)\n~380 bodies"]
+
+    // Gas giant with Trojans
+    giant [label="Gas Giant\n(Jupiter)\n5+ AU" shape=ellipse fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+
+    // Trojan clusters
+    l4 [label="L4 Trojans\n(Leading)\n+60 degrees\nJupiter: 23" fillcolor="#4ecdc4" fontcolor="#1a1a2e"]
+    l5 [label="L5 Trojans\n(Trailing)\n-60 degrees\nJupiter: 14" fillcolor="#4ecdc4" fontcolor="#1a1a2e"]
+
+    // Outer system Trojans
+    outer [label="Outer System\nTrojans\n(Neptune: 8\nMars: 3\nEarth: 1)" style="filled,dashed"]
+
+    // Orbital flow
+    star -> near [label="Inner\nOrbits"]
+    near -> main [label="Main\nBelt Zone"]
+    main -> giant [label="Giant\nZone"]
+
+    // Trojan relationships - use invisible edges for positioning
+    giant -> l4 [label="Leading\nLagrange" style=dashed dir=none]
+    giant -> l5 [label="Trailing\nLagrange" style=dashed dir=none]
+    giant -> outer [label="Outer\nGiants" style=dashed]
+
+    // Notes
+    note1 [label="Trojan Generation:\n- Gas giants and\n  super-jovians only\n- Probability scales\n  with cube root of mass\n- Quantity also scales\n  with mass" shape=note fillcolor="#2d2d44" fontsize=9]
+
+    note2 [label="Sol System Totals:\n480 asteroids\n49 Trojans total\nRadius: 1-575 km\nOrbits: 0.92-110.51 AU" shape=note fillcolor="#2d2d44" fontsize=9]
+
+    l5 -> note1 [style=dotted color="#666666" arrowhead=none]
+    main -> note2 [style=dotted color="#666666" arrowhead=none]
+}

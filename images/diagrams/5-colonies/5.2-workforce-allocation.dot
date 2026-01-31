@@ -1,0 +1,78 @@
+digraph WorkforceAllocation {
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    rankdir=TB
+    nodesep=0.6
+    ranksep=0.8
+
+    node [
+        fontname="Helvetica"
+        fontsize=10
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled,rounded"
+        shape=box
+    ]
+
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.7
+    ]
+
+    // Starting population
+    total [label="Total Population\n10,000,000" shape=ellipse fillcolor="#ffe66d" fontcolor="#1a1a2e" width=2]
+
+    // First split: workers vs non-workers
+    nonworkers [label="Non-Workers\n(Children, Elderly)\n4,000,000 (40%)" fillcolor="#888888"]
+    workers [label="Available Workers\n6,000,000 (60%)" fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+
+    total -> nonworkers [label="40%"]
+    total -> workers [label="60%"]
+
+    // Second split: service sector cap
+    service [label="Service Sector\n4,200,000\n(70% cap)" fillcolor="#2d2d44"]
+    manufacturing [label="Manufacturing\nSector\n1,800,000 (30%)" fillcolor="#4ecdc4" fontcolor="#1a1a2e"]
+
+    workers -> service [label="70%\nmax"]
+    workers -> manufacturing [label="30%\nmin"]
+
+    // Third split: agriculture (colony cost dependent)
+    agri_header [label="Agriculture & Environment\nFormula: 5% + (5% x Colony Cost)" shape=box fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+
+    manufacturing -> agri_header
+
+    // Colony cost examples in a row
+    cc0 [label="CC 0.0\nAgri: 5%\nIndustrial:\n1,710,000" fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+    cc2 [label="CC 2.0\nAgri: 15%\nIndustrial:\n1,530,000" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+    cc4 [label="CC 4.0\nAgri: 25%\nIndustrial:\n1,350,000" fillcolor="#ff6b6b"]
+
+    agri_header -> cc0
+    agri_header -> cc2
+    agri_header -> cc4
+
+    // Installation staffing examples
+    install_header [label="Installation Worker Requirements" shape=box fillcolor="#4ecdc4" fontcolor="#1a1a2e"]
+
+    cc0 -> install_header [style=dashed color="#666666"]
+
+    i1 [label="Research Facility\n1,000,000 workers"]
+    i2 [label="Mine / Factory\n50,000 workers"]
+    i3 [label="Automated Mine\n0 workers" fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+
+    install_header -> i1
+    install_header -> i2
+    install_header -> i3
+
+    // Notes
+    note1 [label="30% Manufacturing Sector\nis the minimum guaranteed\nfor industry (70% service\nsector cap in C# Aurora)" shape=note fillcolor="#2d2d44" fontsize=9]
+
+    note2 [label="At CC 5.0+:\nManufacturing workforce\nprogressively reduced\ntoward zero" shape=note fillcolor="#ff6b6b" fontsize=9]
+
+    service -> note1 [style=dotted color="#666666" arrowhead=none]
+    cc4 -> note2 [style=dotted color="#666666" arrowhead=none]
+}
