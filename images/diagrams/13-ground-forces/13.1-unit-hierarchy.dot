@@ -1,0 +1,118 @@
+digraph unit_hierarchy {
+    // Graph styling
+    bgcolor="#1a1a2e"
+    rankdir=TB
+    splines=ortho
+    nodesep=0.8
+    ranksep=1.0
+
+    // Node defaults
+    node [
+        shape=box
+        style="filled,rounded"
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=12
+        penwidth=2
+    ]
+
+    // Edge defaults
+    edge [
+        color="#4ecdc4"
+        penwidth=2
+        arrowsize=0.8
+    ]
+
+    // Title
+    labelloc="t"
+    label=<<font color="white" point-size="16"><b>Ground Unit Organizational Hierarchy</b></font>>
+
+    // Tier 1: Ground Unit Class (Design Phase)
+    subgraph cluster_tier1 {
+        label=<<font color="#95d5b2" point-size="11"><b>TIER 1: DESIGN</b></font>>
+        bgcolor="#252540"
+        color="#95d5b2"
+        style="rounded"
+        penwidth=2
+
+        guc [
+            label=<<table border="0" cellspacing="0" cellpadding="4">
+                <tr><td><b>Ground Unit Class</b></td></tr>
+                <tr><td><font point-size="10">Individual soldier or vehicle design</font></td></tr>
+                <tr><td><font point-size="9" color="#95d5b2">Base Type + Components + Armor</font></td></tr>
+            </table>>
+            width=3
+        ]
+    }
+
+    // Tier 2: Formation Element (Grouping Phase)
+    subgraph cluster_tier2 {
+        label=<<font color="#ffe66d" point-size="11"><b>TIER 2: GROUP</b></font>>
+        bgcolor="#252540"
+        color="#ffe66d"
+        style="rounded"
+        penwidth=2
+
+        fe [
+            label=<<table border="0" cellspacing="0" cellpadding="4">
+                <tr><td><b>Formation Element</b></td></tr>
+                <tr><td><font point-size="10">Group of identical unit classes</font></td></tr>
+                <tr><td><font point-size="9" color="#ffe66d">e.g., 120 Rifle Infantry</font></td></tr>
+            </table>>
+            width=3
+        ]
+    }
+
+    // Tier 3: Formation (Deployment Phase)
+    subgraph cluster_tier3 {
+        label=<<font color="#4ecdc4" point-size="11"><b>TIER 3: DEPLOY</b></font>>
+        bgcolor="#252540"
+        color="#4ecdc4"
+        style="rounded"
+        penwidth=2
+
+        form [
+            label=<<table border="0" cellspacing="0" cellpadding="4">
+                <tr><td><b>Formation</b></td></tr>
+                <tr><td><font point-size="10">Multiple elements that move together</font></td></tr>
+                <tr><td><font point-size="9" color="#4ecdc4">Breaks into elements for combat</font></td></tr>
+            </table>>
+            width=3
+        ]
+    }
+
+    // Blueprint reference
+    template [
+        label=<<table border="0" cellspacing="0" cellpadding="4">
+            <tr><td><b>Formation Template</b></td></tr>
+            <tr><td><font point-size="10">Blueprint (like ship class)</font></td></tr>
+        </table>>
+        fillcolor="#3d3d54"
+        style="filled,rounded,dashed"
+    ]
+
+    // Relationships
+    guc -> fe [label=<<font color="#95d5b2" point-size="9">  quantity  </font>>]
+    fe -> form [label=<<font color="#ffe66d" point-size="9">  combine  </font>>]
+    template -> form [
+        label=<<font color="white" point-size="9">  build from  </font>>
+        style=dashed
+    ]
+
+    // Example annotation
+    example [
+        shape=note
+        label=<<table border="0" cellspacing="0" cellpadding="4">
+            <tr><td align="left"><b>Example:</b></td></tr>
+            <tr><td align="left"><font point-size="9">Rifle Infantry (class)</font></td></tr>
+            <tr><td align="left"><font point-size="9">120 Rifle Infantry (element)</font></td></tr>
+            <tr><td align="left"><font point-size="9">1st Infantry Battalion (formation)</font></td></tr>
+        </table>>
+        fillcolor="#1f1f35"
+        fontcolor="white"
+    ]
+
+    form -> example [style=invis]
+}

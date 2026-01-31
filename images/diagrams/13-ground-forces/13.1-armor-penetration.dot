@@ -1,0 +1,173 @@
+digraph armor_penetration {
+    // Graph styling
+    bgcolor="#1a1a2e"
+    rankdir=TB
+    nodesep=0.5
+    ranksep=0.8
+
+    // Node defaults
+    node [
+        shape=box
+        style="filled,rounded"
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=11
+        penwidth=2
+    ]
+
+    // Edge defaults
+    edge [
+        color="#4ecdc4"
+        penwidth=2
+    ]
+
+    // Title
+    labelloc="t"
+    label=<<font color="white" point-size="16"><b>Ground Armor Penetration Probability</b></font>>
+
+    // Formula box
+    formula [
+        label=<<table border="0" cellspacing="0" cellpadding="8">
+            <tr><td><font point-size="14" color="#4ecdc4"><b>Penetration Formula</b></font></td></tr>
+            <tr><td><font point-size="16" color="#ffe66d">P = (AP / Armor)</font><font point-size="12" color="#ffe66d">2</font></td></tr>
+            <tr><td><font point-size="10" color="white">When AP &gt;= Armor: Automatic penetration (100%)</font></td></tr>
+        </table>>
+        width=4
+    ]
+
+    // Graph representation as a table
+    graph_table [
+        shape=plaintext
+        label=<<table border="0" cellspacing="2" cellpadding="4">
+            <tr>
+                <td colspan="11" bgcolor="#3d3d54"><font color="#4ecdc4"><b>Penetration Probability by AP/Armor Ratio</b></font></td>
+            </tr>
+            <tr>
+                <td bgcolor="#252540"><font color="#4ecdc4"><b>AP/Armor</b></font></td>
+                <td bgcolor="#252540"><font color="white">0.1</font></td>
+                <td bgcolor="#252540"><font color="white">0.2</font></td>
+                <td bgcolor="#252540"><font color="white">0.3</font></td>
+                <td bgcolor="#252540"><font color="white">0.4</font></td>
+                <td bgcolor="#252540"><font color="white">0.5</font></td>
+                <td bgcolor="#252540"><font color="white">0.6</font></td>
+                <td bgcolor="#252540"><font color="white">0.7</font></td>
+                <td bgcolor="#252540"><font color="white">0.8</font></td>
+                <td bgcolor="#252540"><font color="white">0.9</font></td>
+                <td bgcolor="#252540"><font color="#95d5b2">1.0+</font></td>
+            </tr>
+            <tr>
+                <td bgcolor="#252540"><font color="#4ecdc4"><b>Probability</b></font></td>
+                <td bgcolor="#2d2d44"><font color="#ff6b6b">1%</font></td>
+                <td bgcolor="#2d2d44"><font color="#ff6b6b">4%</font></td>
+                <td bgcolor="#2d2d44"><font color="#ff6b6b">9%</font></td>
+                <td bgcolor="#2d2d44"><font color="#ffe66d">16%</font></td>
+                <td bgcolor="#2d2d44"><font color="#ffe66d">25%</font></td>
+                <td bgcolor="#2d2d44"><font color="#ffe66d">36%</font></td>
+                <td bgcolor="#2d2d44"><font color="white">49%</font></td>
+                <td bgcolor="#2d2d44"><font color="white">64%</font></td>
+                <td bgcolor="#2d2d44"><font color="#95d5b2">81%</font></td>
+                <td bgcolor="#2d2d44"><font color="#95d5b2">100%</font></td>
+            </tr>
+        </table>>
+    ]
+
+    // Visual bar chart representation
+    bar_chart [
+        shape=plaintext
+        label=<<table border="0" cellspacing="1" cellpadding="2">
+            <tr><td colspan="2" bgcolor="#3d3d54"><font color="#4ecdc4" point-size="10"><b>Visual Scale</b></font></td></tr>
+            <tr>
+                <td bgcolor="#252540" width="60"><font color="white" point-size="9">0.1</font></td>
+                <td bgcolor="#ff6b6b" width="10"><font color="#ff6b6b">.</font></td>
+            </tr>
+            <tr>
+                <td bgcolor="#252540" width="60"><font color="white" point-size="9">0.2</font></td>
+                <td bgcolor="#ff6b6b" width="20"><font color="#ff6b6b">..</font></td>
+            </tr>
+            <tr>
+                <td bgcolor="#252540" width="60"><font color="white" point-size="9">0.3</font></td>
+                <td bgcolor="#ff6b6b" width="30"><font color="#ff6b6b">...</font></td>
+            </tr>
+            <tr>
+                <td bgcolor="#252540" width="60"><font color="white" point-size="9">0.4</font></td>
+                <td bgcolor="#ffe66d" width="50"><font color="#ffe66d">....</font></td>
+            </tr>
+            <tr>
+                <td bgcolor="#252540" width="60"><font color="white" point-size="9">0.5</font></td>
+                <td bgcolor="#ffe66d" width="80"><font color="#ffe66d">.....</font></td>
+            </tr>
+            <tr>
+                <td bgcolor="#252540" width="60"><font color="white" point-size="9">0.6</font></td>
+                <td bgcolor="#ffe66d" width="110"><font color="#ffe66d">......</font></td>
+            </tr>
+            <tr>
+                <td bgcolor="#252540" width="60"><font color="white" point-size="9">0.7</font></td>
+                <td bgcolor="#4ecdc4" width="150"><font color="#4ecdc4">.......</font></td>
+            </tr>
+            <tr>
+                <td bgcolor="#252540" width="60"><font color="white" point-size="9">0.8</font></td>
+                <td bgcolor="#4ecdc4" width="200"><font color="#4ecdc4">........</font></td>
+            </tr>
+            <tr>
+                <td bgcolor="#252540" width="60"><font color="white" point-size="9">0.9</font></td>
+                <td bgcolor="#95d5b2" width="250"><font color="#95d5b2">.........</font></td>
+            </tr>
+            <tr>
+                <td bgcolor="#252540" width="60"><font color="white" point-size="9">1.0+</font></td>
+                <td bgcolor="#95d5b2" width="300"><font color="#95d5b2">..........</font></td>
+            </tr>
+        </table>>
+    ]
+
+    // Example calculations
+    examples [
+        label=<<table border="0" cellspacing="0" cellpadding="6">
+            <tr><td colspan="4" bgcolor="#3d3d54"><font color="#4ecdc4"><b>Example Calculations</b></font></td></tr>
+            <tr>
+                <td bgcolor="#252540"><font color="white" point-size="10"><b>Weapon AP</b></font></td>
+                <td bgcolor="#252540"><font color="white" point-size="10"><b>Target Armor</b></font></td>
+                <td bgcolor="#252540"><font color="white" point-size="10"><b>Ratio</b></font></td>
+                <td bgcolor="#252540"><font color="white" point-size="10"><b>Result</b></font></td>
+            </tr>
+            <tr>
+                <td bgcolor="#2d2d44"><font color="white" point-size="9">AP 4 (Med AV)</font></td>
+                <td bgcolor="#2d2d44"><font color="white" point-size="9">Armor 6</font></td>
+                <td bgcolor="#2d2d44"><font color="white" point-size="9">0.67</font></td>
+                <td bgcolor="#2d2d44"><font color="#ffe66d" point-size="9">44% pen</font></td>
+            </tr>
+            <tr>
+                <td bgcolor="#252540"><font color="white" point-size="9">AP 8 (Heavy AV)</font></td>
+                <td bgcolor="#252540"><font color="white" point-size="9">Armor 6</font></td>
+                <td bgcolor="#252540"><font color="white" point-size="9">1.33</font></td>
+                <td bgcolor="#252540"><font color="#95d5b2" point-size="9">100% (auto)</font></td>
+            </tr>
+            <tr>
+                <td bgcolor="#2d2d44"><font color="white" point-size="9">AP 2 (Bombard)</font></td>
+                <td bgcolor="#2d2d44"><font color="white" point-size="9">Armor 6</font></td>
+                <td bgcolor="#2d2d44"><font color="white" point-size="9">0.33</font></td>
+                <td bgcolor="#2d2d44"><font color="#ff6b6b" point-size="9">11% pen</font></td>
+            </tr>
+        </table>>
+        width=4
+    ]
+
+    // Design implications
+    implications [
+        label=<<table border="0" cellspacing="0" cellpadding="6">
+            <tr><td bgcolor="#3d3d54"><font color="#4ecdc4"><b>Design Implications</b></font></td></tr>
+            <tr><td align="left" bgcolor="#2d2d44"><font color="#95d5b2" point-size="10">AP = Armor: Always penetrates</font></td></tr>
+            <tr><td align="left" bgcolor="#252540"><font color="#ffe66d" point-size="10">AP = 0.5 Armor: 25% chance</font></td></tr>
+            <tr><td align="left" bgcolor="#2d2d44"><font color="#ff6b6b" point-size="10">Doubling armor = 4x protection</font></td></tr>
+            <tr><td align="left" bgcolor="#252540"><font color="white" point-size="10">Quadratic scaling rewards armor investment</font></td></tr>
+        </table>>
+        width=4
+    ]
+
+    // Layout edges
+    formula -> graph_table [style=invis]
+    graph_table -> bar_chart [style=invis]
+    bar_chart -> examples [style=invis]
+    examples -> implications [style=invis]
+}

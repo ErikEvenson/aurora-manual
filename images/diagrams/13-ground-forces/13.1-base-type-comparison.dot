@@ -1,0 +1,131 @@
+digraph base_type_comparison {
+    // Graph styling
+    bgcolor="#1a1a2e"
+    rankdir=LR
+    nodesep=0.4
+    ranksep=0.6
+
+    // Node defaults
+    node [
+        shape=box
+        style="filled,rounded"
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=11
+        penwidth=2
+        width=2.5
+    ]
+
+    // Edge defaults
+    edge [
+        style=invis
+    ]
+
+    // Title
+    labelloc="t"
+    label=<<font color="white" point-size="16"><b>Ground Unit Base Type Comparison</b></font>>
+
+    // Header row
+    subgraph cluster_header {
+        bgcolor="#1a1a2e"
+        color="#1a1a2e"
+        header [
+            shape=plaintext
+            label=<<table border="0" cellspacing="4" cellpadding="8">
+                <tr>
+                    <td width="120" bgcolor="#3d3d54"><font color="#4ecdc4"><b>Base Type</b></font></td>
+                    <td width="60" bgcolor="#3d3d54"><font color="#4ecdc4"><b>Slots</b></font></td>
+                    <td width="60" bgcolor="#3d3d54"><font color="#4ecdc4"><b>HP</b></font></td>
+                    <td width="80" bgcolor="#3d3d54"><font color="#4ecdc4"><b>Self Fort</b></font></td>
+                    <td width="80" bgcolor="#3d3d54"><font color="#4ecdc4"><b>Max Fort</b></font></td>
+                    <td width="80" bgcolor="#3d3d54"><font color="#4ecdc4"><b>To-Hit</b></font></td>
+                    <td width="140" bgcolor="#3d3d54"><font color="#4ecdc4"><b>Role</b></font></td>
+                </tr>
+                <tr>
+                    <td bgcolor="#2d2d44"><font color="#95d5b2"><b>Infantry</b></font></td>
+                    <td bgcolor="#2d2d44"><font color="white">1</font></td>
+                    <td bgcolor="#2d2d44"><font color="white">1</font></td>
+                    <td bgcolor="#2d2d44"><font color="#95d5b2">3</font></td>
+                    <td bgcolor="#2d2d44"><font color="#95d5b2">6</font></td>
+                    <td bgcolor="#2d2d44"><font color="#95d5b2">0.6</font></td>
+                    <td bgcolor="#2d2d44"><font color="white">Versatile, cheap</font></td>
+                </tr>
+                <tr>
+                    <td bgcolor="#252540"><font color="#ffe66d"><b>Light Vehicle</b></font></td>
+                    <td bgcolor="#252540"><font color="white">1</font></td>
+                    <td bgcolor="#252540"><font color="white">3</font></td>
+                    <td bgcolor="#252540"><font color="white">2</font></td>
+                    <td bgcolor="#252540"><font color="white">3</font></td>
+                    <td bgcolor="#252540"><font color="#95d5b2">0.4</font></td>
+                    <td bgcolor="#252540"><font color="white">Mobile support</font></td>
+                </tr>
+                <tr>
+                    <td bgcolor="#2d2d44"><font color="#ffe66d"><b>Medium Vehicle</b></font></td>
+                    <td bgcolor="#2d2d44"><font color="white">2</font></td>
+                    <td bgcolor="#2d2d44"><font color="white">4</font></td>
+                    <td bgcolor="#2d2d44"><font color="white">2</font></td>
+                    <td bgcolor="#2d2d44"><font color="white">3</font></td>
+                    <td bgcolor="#2d2d44"><font color="white">0.6</font></td>
+                    <td bgcolor="#2d2d44"><font color="white">General purpose</font></td>
+                </tr>
+                <tr>
+                    <td bgcolor="#252540"><font color="#ffe66d"><b>Heavy Vehicle</b></font></td>
+                    <td bgcolor="#252540"><font color="white">2</font></td>
+                    <td bgcolor="#252540"><font color="white">6</font></td>
+                    <td bgcolor="#252540"><font color="white">2</font></td>
+                    <td bgcolor="#252540"><font color="white">3</font></td>
+                    <td bgcolor="#252540"><font color="#ff6b6b">0.8</font></td>
+                    <td bgcolor="#252540"><font color="white">Main battle tank</font></td>
+                </tr>
+                <tr>
+                    <td bgcolor="#2d2d44"><font color="#ff6b6b"><b>Super-Heavy</b></font></td>
+                    <td bgcolor="#2d2d44"><font color="#95d5b2">3</font></td>
+                    <td bgcolor="#2d2d44"><font color="#95d5b2">12</font></td>
+                    <td bgcolor="#2d2d44"><font color="#ff6b6b">1.5</font></td>
+                    <td bgcolor="#2d2d44"><font color="#ff6b6b">2</font></td>
+                    <td bgcolor="#2d2d44"><font color="#ff6b6b">0.9</font></td>
+                    <td bgcolor="#2d2d44"><font color="white">Heavy assault</font></td>
+                </tr>
+                <tr>
+                    <td bgcolor="#252540"><font color="#ff6b6b"><b>Ultra-Heavy</b></font></td>
+                    <td bgcolor="#252540"><font color="#95d5b2">4</font></td>
+                    <td bgcolor="#252540"><font color="#95d5b2">24</font></td>
+                    <td bgcolor="#252540"><font color="#ff6b6b">1.25</font></td>
+                    <td bgcolor="#252540"><font color="#ff6b6b">1.5</font></td>
+                    <td bgcolor="#252540"><font color="#ff6b6b">0.95</font></td>
+                    <td bgcolor="#252540"><font color="white">Max firepower</font></td>
+                </tr>
+                <tr>
+                    <td bgcolor="#2d2d44"><font color="white"><b>Static Weapon</b></font></td>
+                    <td bgcolor="#2d2d44"><font color="white">1</font></td>
+                    <td bgcolor="#2d2d44"><font color="white">3</font></td>
+                    <td bgcolor="#2d2d44"><font color="#95d5b2">3</font></td>
+                    <td bgcolor="#2d2d44"><font color="#95d5b2">6</font></td>
+                    <td bgcolor="#2d2d44"><font color="#ff6b6b">1.0</font></td>
+                    <td bgcolor="#2d2d44"><font color="white">Immobile defense</font></td>
+                </tr>
+            </table>>
+        ]
+    }
+
+    // Legend
+    subgraph cluster_legend {
+        bgcolor="#252540"
+        color="#4ecdc4"
+        style="rounded"
+        penwidth=2
+        label=<<font color="#4ecdc4" point-size="10"><b>Legend</b></font>>
+
+        legend [
+            shape=plaintext
+            label=<<table border="0" cellspacing="2" cellpadding="4">
+                <tr><td align="left"><font color="#95d5b2">Green</font></td><td align="left"><font color="white">= Best in category</font></td></tr>
+                <tr><td align="left"><font color="#ff6b6b">Red</font></td><td align="left"><font color="white">= Worst in category</font></td></tr>
+                <tr><td align="left" colspan="2"><font color="white" point-size="9">To-Hit: Lower = harder to hit</font></td></tr>
+                <tr><td align="left" colspan="2"><font color="white" point-size="9">Fort: Higher = better defense</font></td></tr>
+            </table>>
+        ]
+    }
+}
