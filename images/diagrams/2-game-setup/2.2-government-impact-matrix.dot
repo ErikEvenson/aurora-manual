@@ -1,0 +1,244 @@
+// Government Type Impact Matrix - Section 2.2.7
+// Shows government types vs. behavioral modifiers and installation percentages
+
+digraph G {
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    rankdir=TB
+
+    node [
+        fontname="Helvetica"
+        fontsize=10
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled"
+        shape=box
+    ]
+
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.8
+    ]
+
+    // Title
+    title [
+        label="Government Type Impact Matrix"
+        shape=none
+        fontsize=16
+        fontcolor="#4ecdc4"
+    ]
+
+    // Behavioral Modifiers Section
+    subgraph cluster_behavioral {
+        label="Behavioral Trait Modifiers"
+        labelloc=t
+        fontsize=14
+        fontcolor="#ffe66d"
+        color="#ffe66d"
+        style=dashed
+        bgcolor="#1f1f2a"
+
+        // Header
+        beh_header [
+            label=<
+                <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="6" BGCOLOR="#1a1a2e">
+                    <TR>
+                        <TD BGCOLOR="#2d2d44" WIDTH="140"><FONT COLOR="white"><B>Government</B></FONT></TD>
+                        <TD BGCOLOR="#2d2d44" WIDTH="60"><FONT COLOR="white"><B>Xeno</B></FONT></TD>
+                        <TD BGCOLOR="#2d2d44" WIDTH="60"><FONT COLOR="white"><B>Diplo</B></FONT></TD>
+                        <TD BGCOLOR="#2d2d44" WIDTH="60"><FONT COLOR="white"><B>Milit</B></FONT></TD>
+                        <TD BGCOLOR="#2d2d44" WIDTH="60"><FONT COLOR="white"><B>Expan</B></FONT></TD>
+                        <TD BGCOLOR="#2d2d44" WIDTH="60"><FONT COLOR="white"><B>Determ</B></FONT></TD>
+                        <TD BGCOLOR="#2d2d44" WIDTH="60"><FONT COLOR="white"><B>Trade</B></FONT></TD>
+                    </TR>
+                    <TR>
+                        <TD BGCOLOR="#3d3d3d"><FONT COLOR="#888888">Player Race</FONT></TD>
+                        <TD BGCOLOR="#3d3d3d"><FONT COLOR="#888888">0</FONT></TD>
+                        <TD BGCOLOR="#3d3d3d"><FONT COLOR="#888888">0</FONT></TD>
+                        <TD BGCOLOR="#3d3d3d"><FONT COLOR="#888888">0</FONT></TD>
+                        <TD BGCOLOR="#3d3d3d"><FONT COLOR="#888888">0</FONT></TD>
+                        <TD BGCOLOR="#3d3d3d"><FONT COLOR="#888888">0</FONT></TD>
+                        <TD BGCOLOR="#3d3d3d"><FONT COLOR="#888888">0</FONT></TD>
+                    </TR>
+                    <TR>
+                        <TD BGCOLOR="#2d4d44"><FONT COLOR="#95d5b2">Rep. Democracy</FONT></TD>
+                        <TD BGCOLOR="#3d3d3d"><FONT COLOR="white">0</FONT></TD>
+                        <TD BGCOLOR="#2d4d3d"><FONT COLOR="#95d5b2">+10</FONT></TD>
+                        <TD BGCOLOR="#4d3d3d"><FONT COLOR="#ff9999">-10</FONT></TD>
+                        <TD BGCOLOR="#2d4d3d"><FONT COLOR="#95d5b2">+10</FONT></TD>
+                        <TD BGCOLOR="#3d3d3d"><FONT COLOR="white">0</FONT></TD>
+                        <TD BGCOLOR="#2d4d3d"><FONT COLOR="#95d5b2">+15</FONT></TD>
+                    </TR>
+                    <TR>
+                        <TD BGCOLOR="#4d2d3d"><FONT COLOR="#ff6b6b">Mil. Dictatorship</FONT></TD>
+                        <TD BGCOLOR="#4d2d2d"><FONT COLOR="#ff6b6b">+20</FONT></TD>
+                        <TD BGCOLOR="#4d3d3d"><FONT COLOR="#ff9999">-15</FONT></TD>
+                        <TD BGCOLOR="#4d2d2d"><FONT COLOR="#ff6b6b">+20</FONT></TD>
+                        <TD BGCOLOR="#4d3d2d"><FONT COLOR="#ffe66d">+15</FONT></TD>
+                        <TD BGCOLOR="#4d3d2d"><FONT COLOR="#ffe66d">+15</FONT></TD>
+                        <TD BGCOLOR="#4d3d3d"><FONT COLOR="#ff9999">-10</FONT></TD>
+                    </TR>
+                    <TR>
+                        <TD BGCOLOR="#2d4d4d"><FONT COLOR="#4ecdc4">Meritocracy</FONT></TD>
+                        <TD BGCOLOR="#3d4d3d"><FONT COLOR="#95d5b2">-10</FONT></TD>
+                        <TD BGCOLOR="#2d4d3d"><FONT COLOR="#95d5b2">+20</FONT></TD>
+                        <TD BGCOLOR="#3d4d3d"><FONT COLOR="#95d5b2">-10</FONT></TD>
+                        <TD BGCOLOR="#3d3d3d"><FONT COLOR="white">0</FONT></TD>
+                        <TD BGCOLOR="#3d3d3d"><FONT COLOR="white">0</FONT></TD>
+                        <TD BGCOLOR="#2d4d3d"><FONT COLOR="#95d5b2">+10</FONT></TD>
+                    </TR>
+                    <TR>
+                        <TD BGCOLOR="#2d5d4d"><FONT COLOR="#95d5b2">Pax Utopia</FONT></TD>
+                        <TD BGCOLOR="#2d5d3d"><FONT COLOR="#95d5b2">-20</FONT></TD>
+                        <TD BGCOLOR="#2d5d3d"><FONT COLOR="#95d5b2">+20</FONT></TD>
+                        <TD BGCOLOR="#2d5d3d"><FONT COLOR="#95d5b2">-30</FONT></TD>
+                        <TD BGCOLOR="#4d3d3d"><FONT COLOR="#ff9999">-30</FONT></TD>
+                        <TD BGCOLOR="#4d3d3d"><FONT COLOR="#ff9999">-30</FONT></TD>
+                        <TD BGCOLOR="#2d4d3d"><FONT COLOR="#95d5b2">+10</FONT></TD>
+                    </TR>
+                    <TR>
+                        <TD BGCOLOR="#5d2d3d"><FONT COLOR="#ff6b6b">Hive Mind</FONT></TD>
+                        <TD BGCOLOR="#5d2d2d"><FONT COLOR="#ff6b6b">+30</FONT></TD>
+                        <TD BGCOLOR="#5d3d3d"><FONT COLOR="#ff9999">-30</FONT></TD>
+                        <TD BGCOLOR="#5d2d2d"><FONT COLOR="#ff6b6b">+30</FONT></TD>
+                        <TD BGCOLOR="#4d2d2d"><FONT COLOR="#ff6b6b">+20</FONT></TD>
+                        <TD BGCOLOR="#5d2d2d"><FONT COLOR="#ff6b6b">+30</FONT></TD>
+                        <TD BGCOLOR="#5d3d3d"><FONT COLOR="#ff9999">-30</FONT></TD>
+                    </TR>
+                </TABLE>
+            >
+            shape=none
+        ]
+    }
+
+    // Installation Modifiers Section
+    subgraph cluster_installations {
+        label="Starting Installation Modifiers (%)"
+        labelloc=t
+        fontsize=14
+        fontcolor="#4ecdc4"
+        color="#4ecdc4"
+        style=dashed
+        bgcolor="#1f1f2a"
+
+        inst_header [
+            label=<
+                <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="6" BGCOLOR="#1a1a2e">
+                    <TR>
+                        <TD BGCOLOR="#2d2d44" WIDTH="140"><FONT COLOR="white"><B>Government</B></FONT></TD>
+                        <TD BGCOLOR="#2d2d44" WIDTH="60"><FONT COLOR="white"><B>SY</B></FONT></TD>
+                        <TD BGCOLOR="#2d2d44" WIDTH="60"><FONT COLOR="white"><B>Labs</B></FONT></TD>
+                        <TD BGCOLOR="#2d2d44" WIDTH="60"><FONT COLOR="white"><B>CF</B></FONT></TD>
+                        <TD BGCOLOR="#2d2d44" WIDTH="60"><FONT COLOR="white"><B>Ref</B></FONT></TD>
+                        <TD BGCOLOR="#2d2d44" WIDTH="60"><FONT COLOR="white"><B>Mines</B></FONT></TD>
+                        <TD BGCOLOR="#2d2d44" WIDTH="60"><FONT COLOR="white"><B>Sens</B></FONT></TD>
+                    </TR>
+                    <TR>
+                        <TD BGCOLOR="#3d3d3d"><FONT COLOR="#888888">Player Race</FONT></TD>
+                        <TD BGCOLOR="#3d3d3d"><FONT COLOR="white">20</FONT></TD>
+                        <TD BGCOLOR="#3d3d3d"><FONT COLOR="white">20</FONT></TD>
+                        <TD BGCOLOR="#3d3d3d"><FONT COLOR="white">30</FONT></TD>
+                        <TD BGCOLOR="#3d3d3d"><FONT COLOR="white">10</FONT></TD>
+                        <TD BGCOLOR="#3d3d3d"><FONT COLOR="white">20</FONT></TD>
+                        <TD BGCOLOR="#3d3d3d"><FONT COLOR="white">4</FONT></TD>
+                    </TR>
+                    <TR>
+                        <TD BGCOLOR="#2d4d44"><FONT COLOR="#95d5b2">Rep. Democracy</FONT></TD>
+                        <TD BGCOLOR="#3d3d3d"><FONT COLOR="white">20</FONT></TD>
+                        <TD BGCOLOR="#3d3d3d"><FONT COLOR="white">20</FONT></TD>
+                        <TD BGCOLOR="#3d3d3d"><FONT COLOR="white">30</FONT></TD>
+                        <TD BGCOLOR="#3d3d3d"><FONT COLOR="white">10</FONT></TD>
+                        <TD BGCOLOR="#3d3d3d"><FONT COLOR="white">20</FONT></TD>
+                        <TD BGCOLOR="#3d3d3d"><FONT COLOR="white">3</FONT></TD>
+                    </TR>
+                    <TR>
+                        <TD BGCOLOR="#4d2d3d"><FONT COLOR="#ff6b6b">Mil. Dictatorship</FONT></TD>
+                        <TD BGCOLOR="#4d3d2d"><FONT COLOR="#ffe66d">30</FONT></TD>
+                        <TD BGCOLOR="#4d3d3d"><FONT COLOR="#ff9999">10</FONT></TD>
+                        <TD BGCOLOR="#3d3d3d"><FONT COLOR="white">25</FONT></TD>
+                        <TD BGCOLOR="#4d3d2d"><FONT COLOR="#ffe66d">15</FONT></TD>
+                        <TD BGCOLOR="#3d3d3d"><FONT COLOR="white">20</FONT></TD>
+                        <TD BGCOLOR="#4d3d2d"><FONT COLOR="#ffe66d">5</FONT></TD>
+                    </TR>
+                    <TR>
+                        <TD BGCOLOR="#4d4d2d"><FONT COLOR="#ffe66d">Corporate Gov</FONT></TD>
+                        <TD BGCOLOR="#4d3d3d"><FONT COLOR="#ff9999">15</FONT></TD>
+                        <TD BGCOLOR="#3d3d3d"><FONT COLOR="white">20</FONT></TD>
+                        <TD BGCOLOR="#3d3d3d"><FONT COLOR="white">30</FONT></TD>
+                        <TD BGCOLOR="#4d3d3d"><FONT COLOR="#ff9999">5</FONT></TD>
+                        <TD BGCOLOR="#4d3d2d"><FONT COLOR="#ffe66d">30</FONT></TD>
+                        <TD BGCOLOR="#4d3d2d"><FONT COLOR="#ffe66d">5</FONT></TD>
+                    </TR>
+                    <TR>
+                        <TD BGCOLOR="#3d4d4d"><FONT COLOR="#4ecdc4">Contemplative</FONT></TD>
+                        <TD BGCOLOR="#4d3d3d"><FONT COLOR="#ff9999">10</FONT></TD>
+                        <TD BGCOLOR="#2d5d3d"><FONT COLOR="#95d5b2">40</FONT></TD>
+                        <TD BGCOLOR="#3d3d3d"><FONT COLOR="white">30</FONT></TD>
+                        <TD BGCOLOR="#3d3d3d"><FONT COLOR="white">10</FONT></TD>
+                        <TD BGCOLOR="#4d3d3d"><FONT COLOR="#ff9999">10</FONT></TD>
+                        <TD BGCOLOR="#4d3d3d"><FONT COLOR="#ff9999">1</FONT></TD>
+                    </TR>
+                    <TR>
+                        <TD BGCOLOR="#5d2d3d"><FONT COLOR="#ff6b6b">Hive Mind</FONT></TD>
+                        <TD BGCOLOR="#4d3d2d"><FONT COLOR="#ffe66d">30</FONT></TD>
+                        <TD BGCOLOR="#5d3d3d"><FONT COLOR="#ff9999">5</FONT></TD>
+                        <TD BGCOLOR="#3d3d3d"><FONT COLOR="white">25</FONT></TD>
+                        <TD BGCOLOR="#4d3d2d"><FONT COLOR="#ffe66d">15</FONT></TD>
+                        <TD BGCOLOR="#4d3d2d"><FONT COLOR="#ffe66d">25</FONT></TD>
+                        <TD BGCOLOR="#4d3d2d"><FONT COLOR="#ffe66d">5</FONT></TD>
+                    </TR>
+                </TABLE>
+            >
+            shape=none
+        ]
+    }
+
+    // Legend
+    legend [
+        label=<
+            <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="4" CELLPADDING="4" BGCOLOR="#1a1a2e">
+                <TR>
+                    <TD COLSPAN="2"><FONT COLOR="#4ecdc4"><B>Legend</B></FONT></TD>
+                </TR>
+                <TR>
+                    <TD BGCOLOR="#2d4d3d"><FONT COLOR="#95d5b2">+</FONT></TD>
+                    <TD><FONT COLOR="#888888">Bonus (peaceful/productive)</FONT></TD>
+                </TR>
+                <TR>
+                    <TD BGCOLOR="#4d3d3d"><FONT COLOR="#ff9999">-</FONT></TD>
+                    <TD><FONT COLOR="#888888">Penalty (restricted)</FONT></TD>
+                </TR>
+                <TR>
+                    <TD BGCOLOR="#4d2d2d"><FONT COLOR="#ff6b6b">++</FONT></TD>
+                    <TD><FONT COLOR="#888888">High aggressive/military</FONT></TD>
+                </TR>
+            </TABLE>
+        >
+        shape=none
+    ]
+
+    // Playstyle Notes
+    playstyle [
+        label=<
+            <TABLE BORDER="0" CELLBORDER="0" CELLSPACING="2" CELLPADDING="4" BGCOLOR="#2d2d44">
+                <TR><TD><FONT COLOR="#4ecdc4"><B>Playstyle Recommendations</B></FONT></TD></TR>
+                <TR><TD><FONT COLOR="#95d5b2">Beginner:</FONT><FONT COLOR="white"> Rep. Democracy, Meritocracy</FONT></TD></TR>
+                <TR><TD><FONT COLOR="#ffe66d">Economic:</FONT><FONT COLOR="white"> Corporate Gov, Contemplative</FONT></TD></TR>
+                <TR><TD><FONT COLOR="#ff6b6b">Military:</FONT><FONT COLOR="white"> Mil. Dictatorship, Fascist</FONT></TD></TR>
+            </TABLE>
+        >
+        shape=box
+        color="#4ecdc4"
+    ]
+
+    // Layout
+    title -> beh_header [style=invis]
+    beh_header -> inst_header [style=invis]
+    inst_header -> legend [style=invis]
+    legend -> playstyle [style=invis]
+}

@@ -1,0 +1,230 @@
+// Starting Installation Production Chain - Section 2.2.6
+// Shows how installations feed into each other
+
+digraph G {
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    rankdir=LR
+    splines=ortho
+    nodesep=0.5
+    ranksep=1.0
+
+    node [
+        fontname="Helvetica"
+        fontsize=11
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled,rounded"
+        shape=box
+    ]
+
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.8
+    ]
+
+    // Title
+    title [
+        label="Installation Production Chain"
+        shape=none
+        fontsize=16
+        fontcolor="#4ecdc4"
+    ]
+
+    // Resource Extraction Layer
+    subgraph cluster_extraction {
+        label="Resource Extraction"
+        labelloc=t
+        fontsize=12
+        fontcolor="#95d5b2"
+        color="#95d5b2"
+        style=dashed
+        bgcolor="#1f2f2a"
+
+        mines [
+            label="Mines\n10 tons/year\nper mine"
+            fillcolor="#2d4d44"
+            color="#95d5b2"
+        ]
+
+        auto_mines [
+            label="Automated Mines\n10 tons/year\n(no population)"
+            fillcolor="#2d4d44"
+            color="#95d5b2"
+        ]
+    }
+
+    // Resource Processing Layer
+    subgraph cluster_processing {
+        label="Resource Processing"
+        labelloc=t
+        fontsize=12
+        fontcolor="#ffe66d"
+        color="#ffe66d"
+        style=dashed
+        bgcolor="#2f2f1f"
+
+        refineries [
+            label="Fuel Refineries\n40,000 L/year\nper refinery"
+            fillcolor="#4d4d2d"
+            color="#ffe66d"
+        ]
+    }
+
+    // Production Layer
+    subgraph cluster_production {
+        label="Production"
+        labelloc=t
+        fontsize=12
+        fontcolor="#4ecdc4"
+        color="#4ecdc4"
+        style=dashed
+        bgcolor="#1f1f2f"
+
+        cf [
+            label="Construction\nFactories\n10 BP/year"
+            fillcolor="#2d2d4d"
+            color="#4ecdc4"
+        ]
+
+        of [
+            label="Ordnance\nFactories\n10 BP/year"
+            fillcolor="#2d2d4d"
+            color="#4ecdc4"
+        ]
+
+        ff [
+            label="Fighter\nFactories\n10 BP/year"
+            fillcolor="#2d2d4d"
+            color="#4ecdc4"
+        ]
+
+        gfcc [
+            label="Ground Force\nConstruction"
+            fillcolor="#2d2d4d"
+            color="#4ecdc4"
+        ]
+    }
+
+    // Output Layer
+    subgraph cluster_output {
+        label="Fleet & Infrastructure"
+        labelloc=t
+        fontsize=12
+        fontcolor="#ff6b6b"
+        color="#ff6b6b"
+        style=dashed
+        bgcolor="#2f1f1f"
+
+        shipyards [
+            label="Shipyards\n400 BP/year\nper slipway"
+            fillcolor="#4d2d3d"
+            color="#ff6b6b"
+        ]
+
+        installations [
+            label="New\nInstallations"
+            fillcolor="#4d2d3d"
+            color="#ff6b6b"
+        ]
+
+        missiles [
+            label="Missiles &\nOrdnance"
+            fillcolor="#4d2d3d"
+            color="#ff6b6b"
+        ]
+
+        fighters [
+            label="Fighters &\nFACs"
+            fillcolor="#4d2d3d"
+            color="#ff6b6b"
+        ]
+
+        ships [
+            label="Ships"
+            fillcolor="#5d2d4d"
+            color="#ff6b6b"
+        ]
+
+        ground [
+            label="Ground\nForces"
+            fillcolor="#4d2d3d"
+            color="#ff6b6b"
+        ]
+    }
+
+    // Support Layer
+    subgraph cluster_support {
+        label="Support"
+        labelloc=t
+        fontsize=12
+        fontcolor="#888888"
+        color="#888888"
+        style=dashed
+        bgcolor="#1f1f1f"
+
+        research [
+            label="Research\nFacilities\n200 RP/year"
+            fillcolor="#3d3d3d"
+        ]
+
+        maintenance [
+            label="Maintenance\nFacilities\nMSP production"
+            fillcolor="#3d3d3d"
+        ]
+
+        financial [
+            label="Financial\nCentres\nWealth"
+            fillcolor="#3d3d3d"
+        ]
+
+        dsts [
+            label="Tracking\nStations\nDetection"
+            fillcolor="#3d3d3d"
+        ]
+
+        academy [
+            label="Military\nAcademies\nOfficers"
+            fillcolor="#3d3d3d"
+        ]
+    }
+
+    // Key Flows
+    mines -> refineries [label="Sorium"]
+    mines -> cf [label="Minerals"]
+    auto_mines -> cf [label="Minerals"]
+
+    refineries -> shipyards [label="Fuel"]
+    refineries -> ships [label="Fuel" style=dashed]
+
+    cf -> installations [label="BP"]
+    cf -> shipyards [label="Upgrade" style=dashed]
+
+    of -> missiles [label="BP"]
+    ff -> fighters [label="BP"]
+    gfcc -> ground [label="Units"]
+
+    shipyards -> ships [label="Build"]
+
+    maintenance -> ships [label="MSP" style=dashed]
+    research -> cf [label="Tech\nUpgrades" style=dashed]
+    financial -> cf [label="Wealth" style=dashed]
+    academy -> ships [label="Officers" style=dashed]
+
+    // Compound Growth Note
+    compound [
+        label="KEY INSIGHT:\nConstruction Factories\ncompound ALL growth -\nbuild more to build\neverything faster"
+        shape=note
+        fillcolor="#2d4d4d"
+        color="#95d5b2"
+        fontcolor="#95d5b2"
+        fontsize=9
+    ]
+
+    cf -> compound [style=invis]
+}

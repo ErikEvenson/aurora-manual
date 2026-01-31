@@ -1,0 +1,158 @@
+// Catastrophe Scenario Timeline - Section 2.1.4
+// Shows Earth Death Spiral + Solar System Destruction timelines
+
+digraph G {
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    rankdir=TB
+    nodesep=0.6
+    ranksep=0.8
+
+    node [
+        fontname="Helvetica"
+        fontsize=11
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled,rounded"
+        shape=box
+    ]
+
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.8
+    ]
+
+    // Title
+    title [
+        label="Catastrophe Scenario Timelines"
+        shape=none
+        fontsize=16
+        fontcolor="#4ecdc4"
+    ]
+
+    // Earth Death Spiral Section
+    subgraph cluster_eds {
+        label="Earth Death Spiral"
+        labelloc=t
+        fontsize=14
+        fontcolor="#ff6b6b"
+        color="#ff6b6b"
+        style=dashed
+        bgcolor="#1f1f32"
+
+        eds_start [
+            label="Game Start\n(Earth at ~1 AU)"
+            fillcolor="#2d4d44"
+            color="#95d5b2"
+        ]
+
+        eds_slow [
+            label="0.01 AU/year\n~150 years"
+            fillcolor="#3d3d54"
+        ]
+
+        eds_med [
+            label="0.02 AU/year\n~75 years"
+            fillcolor="#4d3d44"
+            color="#ffe66d"
+        ]
+
+        eds_fast [
+            label="0.03 AU/year\n~50 years"
+            fillcolor="#5d2d34"
+            color="#ff6b6b"
+        ]
+
+        eds_effects [
+            label="Effects:\n- Temperature rises\n- Year length shortens\n- Colony cost increases"
+            shape=note
+            fontsize=9
+            fillcolor="#2d2d44"
+        ]
+
+        eds_end [
+            label="Earth Destroyed\n(< 1M km from Sun)"
+            fillcolor="#4d1d1d"
+            color="#ff6b6b"
+            fontcolor="#ff6b6b"
+        ]
+    }
+
+    // Solar System Destruction Section
+    subgraph cluster_ssd {
+        label="Solar System Destruction"
+        labelloc=t
+        fontsize=14
+        fontcolor="#ffe66d"
+        color="#ffe66d"
+        style=dashed
+        bgcolor="#1f1f32"
+
+        ssd_start [
+            label="Game Start\nExotic Matter Event"
+            fillcolor="#2d4d44"
+            color="#95d5b2"
+        ]
+
+        ssd_easy [
+            label="Easy (0.005)\nSlower radiation"
+            fillcolor="#3d3d54"
+        ]
+
+        ssd_med [
+            label="Medium (0.0075)\nModerate radiation"
+            fillcolor="#4d3d44"
+            color="#ffe66d"
+        ]
+
+        ssd_hard [
+            label="Hard (0.01)\nFast radiation"
+            fillcolor="#5d2d34"
+            color="#ff6b6b"
+        ]
+
+        ssd_formula [
+            label="Radiation = Years^3 x\n(1/Distance^2) x Factor"
+            shape=note
+            fontsize=9
+            fillcolor="#2d2d44"
+        ]
+
+        ssd_y50 [
+            label="Year 50+\nExplosion Chance:\n(Years-50) x 2%/year"
+            fillcolor="#4d2d34"
+            color="#ffe66d"
+        ]
+
+        ssd_end [
+            label="Sun Explodes\nSol System Deleted"
+            fillcolor="#4d1d1d"
+            color="#ff6b6b"
+            fontcolor="#ff6b6b"
+        ]
+    }
+
+    // Edges for EDS
+    eds_start -> eds_slow [label="slow"]
+    eds_start -> eds_med [label="medium"]
+    eds_start -> eds_fast [label="fast"]
+    eds_slow -> eds_end
+    eds_med -> eds_end
+    eds_fast -> eds_end
+    eds_effects -> eds_end [style=dashed, arrowhead=none]
+
+    // Edges for SSD
+    ssd_start -> ssd_easy [label="easy"]
+    ssd_start -> ssd_med [label="medium"]
+    ssd_start -> ssd_hard [label="hard"]
+    ssd_easy -> ssd_y50
+    ssd_med -> ssd_y50
+    ssd_hard -> ssd_y50
+    ssd_formula -> ssd_y50 [style=dashed, arrowhead=none]
+    ssd_y50 -> ssd_end [label="random\neach year"]
+}

@@ -1,0 +1,133 @@
+// CI-to-TN Conversion Path - Section 2.5.1
+// Shows Conventional Industry -> [Research TN] -> Six dedicated TN installation types
+
+digraph G {
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    rankdir=TB
+    splines=ortho
+    nodesep=0.5
+    ranksep=0.7
+
+    node [
+        fontname="Helvetica"
+        fontsize=11
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled,rounded"
+        shape=box
+    ]
+
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.8
+    ]
+
+    // Title
+    title [
+        label="Conventional Industry to TN Conversion Path"
+        shape=none
+        fontsize=16
+        fontcolor="#4ecdc4"
+    ]
+
+    // Starting State
+    ci [
+        label="Conventional Industry\n~1,600 units (1B pop)\n\nProvides fractional output:\n0.1 CF / 0.15 Mine / 0.05 Refinery\n0.05 OF / 0.025 FF / 0.025 FC"
+        fillcolor="#3d3d54"
+        fontsize=10
+    ]
+
+    // Research Gate
+    research [
+        label="Research\nTrans-Newtonian\nTechnology"
+        shape=diamond
+        fillcolor="#2d4d44"
+        color="#95d5b2"
+        height=1.2
+        width=2
+    ]
+
+    // Conversion Cost Note
+    cost_note [
+        label="Conversion Cost: 20 BP each\n(vs 120 BP to build new)\n83% DISCOUNT"
+        shape=note
+        fillcolor="#2d4d4d"
+        color="#95d5b2"
+        fontcolor="#95d5b2"
+        fontsize=10
+    ]
+
+    // Six TN Installation Types
+    cf [
+        label="Construction Factory\n10 Duranium\n10 Neutronium"
+        fillcolor="#4d3d54"
+        color="#ffe66d"
+    ]
+
+    mine [
+        label="Mine\n20 Corundium"
+        fillcolor="#3d4d54"
+    ]
+
+    refinery [
+        label="Fuel Refinery\n20 Boronide"
+        fillcolor="#3d4d54"
+    ]
+
+    of [
+        label="Ordnance Factory\n20 Tritanium"
+        fillcolor="#3d4d54"
+    ]
+
+    ff [
+        label="Fighter Factory\n20 Vendarite"
+        fillcolor="#3d4d54"
+    ]
+
+    fc [
+        label="Financial Centre\n20 Corbomite"
+        fillcolor="#3d4d54"
+    ]
+
+    // Priority Note
+    priority [
+        label="Recommended Priority:\n1. Construction Factories (compounds growth)\n2. Mines (mineral income)\n3. Others based on strategy"
+        shape=note
+        fillcolor="#2d2d44"
+        fontsize=9
+    ]
+
+    // Cannot Convert Note
+    labs_note [
+        label="Research Labs: CANNOT convert\nMust build new (2,400 BP each)"
+        shape=note
+        fillcolor="#4d2d2d"
+        color="#ff6b6b"
+        fontcolor="#ff6b6b"
+        fontsize=9
+    ]
+
+    // Edges
+    title -> ci [style=invis]
+    ci -> research
+    research -> cost_note [style=dashed, arrowhead=none]
+    research -> cf [label="20 BP"]
+    research -> mine [label="20 BP"]
+    research -> refinery [label="20 BP"]
+    research -> of [label="20 BP"]
+    research -> ff [label="20 BP"]
+    research -> fc [label="20 BP"]
+
+    cf -> priority [style=dashed, arrowhead=none]
+    ci -> labs_note [style=dashed, arrowhead=none]
+
+    // Layout hints
+    {rank=same; cf; mine; refinery}
+    {rank=same; of; ff; fc}
+}
