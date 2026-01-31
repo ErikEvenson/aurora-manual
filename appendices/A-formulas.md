@@ -46,6 +46,8 @@ Speed = (2 x 2500) * 1000 / 200 = 25,000 km/s
 Speed = 5000 * 50000 / 10000 = 25,000 km/s (equivalent)
 ```
 
+![Figure A.1.1: Ship Speed vs Engine Power by Hull Size](../images/charts/appendices/A.1.1-ship-speed-sensitivity.png)
+
 ### A.1.2 Engine Power
 
 The actual speed depends on your engine technology. Engine power is calculated as:
@@ -81,6 +83,8 @@ This creates efficiency advantages for larger engines:
 | 50 | 0.50 | 50% more fuel-efficient |
 
 **Example**: A 25 HS engine has fuel consumption modifier of 0.75, meaning it uses only 75% of the fuel per unit of power compared to a 1 HS engine.
+
+![Figure A.1.3: Engine Size Fuel Efficiency](../images/charts/appendices/a-1-3-engine-fuel-efficiency.png)
 
 ### A.1.4 Fuel Consumption Rate
 
@@ -137,6 +141,8 @@ Explosion chance when hit is set per boost technology level (not a simple formul
 | +100% | x2.0 | 50% |
 
 Larger power plants are more space-efficient due to the same square root scaling used by shields and engines.
+
+![Figure A.1.7: Power Plant Output Scaling](../images/charts/appendices/a-1-7-power-plant-output.png)
 
 ### A.1.8 Engineering Spaces
 
@@ -371,6 +377,8 @@ Tracking = min(1.0, 5000/4000) = 1.0
 ECM = max(0, 1 - (2-1) x 0.1) = 0.9
 Final = 50% x 1.0 x 0.9 = 45%
 ```
+
+![Figure A.4.2: Beam Weapon To-Hit by Range and Target Speed](../images/charts/appendices/a-4-2-beam-to-hit.png)
 
 ### A.4.3 Beam Weapon Damage
 
@@ -684,6 +692,8 @@ Retooling time when changing ship class:
 Retool_Time (days) = abs(New_Ship_Tonnage - Old_Ship_Tonnage) x Retool_Factor
 ```
 
+![Figure A.5.6: Shipyard Build Time vs Ship Size by Shipyard Capacity](../images/charts/appendices/A.5.6-shipyard-build-time.png)
+
 ### A.5.7 Secondary Build (20% Refit Cost Rule)
 
 A shipyard can build any secondary class without retooling if the refit cost is below 20% of the primary class's total build cost:
@@ -845,6 +855,8 @@ For occupied populations, a Political Status Modifier applies:
 | Occupied | 0.75 |
 | Subjugated | 0.25 |
 | All Others | 0 |
+
+![Figure A.7.1: Garrison Requirements by Population and Race Type](../images/charts/appendices/A.7.1-garrison-requirements.png)
 
 ### A.7.2 Element Occupation Strength
 

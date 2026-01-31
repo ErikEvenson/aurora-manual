@@ -66,6 +66,8 @@ For installation placement and colony management, see [Section 5.1 Establishing 
 | Ground Force Construction Complex | 2,400 | 2,400 Vendarite | 1,000,000 |
 | Research Facility | 2,400 | 1,200 Duranium + 1,200 Mercassium | 1,000,000 |
 
+![Figure D.2.1: Installation Build Costs and Mineral Composition](../images/charts/appendices/D.2.1-installation-costs.png)
+
 **Understanding Mineral Composition:** The mineral requirements for each installation reflect its functional complexity and purpose. Simple extraction installations like Mines require only Corundium (a hard, durable mineral suited to drilling equipment), while Research Facilities demand both Duranium (structural framework) and Mercassium (precision electronics and sensor components). Military-adjacent installations such as Construction Factories need Neutronium for its advanced structural properties alongside Duranium. Terraforming Installations combine Duranium (structural) with Boronide (atmospheric processing and energy systems). In general, installations requiring multiple minerals represent more sophisticated technology that draws on different material properties -- structural integrity, energy conductance, precision manufacturing, or chemical reactivity -- to fulfill their role.
 
 ### D.2.2 Installation Output Summary
@@ -764,7 +766,7 @@ Output is further multiplied by the deposit's accessibility value.
 
 ## D.5 Key Design Formulas Quick Reference
 
-*Updated: v2026.01.26*
+*Updated: v2026.01.30*
 
 **When to use this section:** Keep this open during ship design. These formulas let you calculate detection ranges, magazine requirements, engine performance, and unit conversions without leaving the design screen or hunting through multiple appendices.
 
