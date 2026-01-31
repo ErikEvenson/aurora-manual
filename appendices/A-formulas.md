@@ -245,6 +245,10 @@ Where:
 
 Ships with no active emissions (shields off, active sensors off) have EM signature of 0 and are invisible to EM sensors.
 
+![Figure A.3.2: Passive Sensor Detection Range](../images/charts/appendices/a3-2-sensor-detection-range.png)
+
+*Figure A.3.2 visualizes the detection formula as a 3D surface. The square-root relationship means doubling sensor sensitivity or target signature does NOT double detection range -- it increases range by only ~41%. Significant detection improvements require advances in both sensor technology and finding high-signature targets.*
+
 ### A.3.4 Active Sensor Detection
 
 The game uses the following formula to calculate active sensor detection range \hyperlink{ref-A-16}{[A-16]}:
@@ -430,6 +434,10 @@ Total_Damage = 10 (no falloff)
 Per_Column = 10 / 1 = 10
 Armor_Penetration = 10 layers in single column
 ```
+
+![Figure A.4.3: Beam Weapon Damage vs Range](../images/charts/appendices/a4-3-weapon-damage-comparison.png)
+
+*Figure A.4.3 compares damage output across range for the three primary beam weapon types. Lasers (cyan) suffer linear damage falloff, making them less effective at long range. Particle beams (red) and railguns (yellow) maintain full damage at all ranges within their envelope, making them superior for consistent damage at range despite lower base damage values.*
 
 ### A.4.4 Armor Damage
 
@@ -659,6 +667,10 @@ Terraforming rate technology progression \hyperlink{ref-A-9}{[A-9]}:
 | Terraforming Rate 11 | 0.003 | 2,500,000 |
 | Terraforming Rate 12 | 0.00375 | 5,000,000 |
 
+![Figure A.5.5: Terraforming Rate by Technology Level](../images/charts/appendices/a5-5-terraforming-rate.png)
+
+*Figure A.5.5 shows the terraforming rate progression (cyan) alongside the inverse: years required to terraform 1 atmosphere with a single installation (red). Higher technology provides exponential-like acceleration -- at tech level 12, terraforming is 15x faster than at base tech.*
+
 ### A.5.6 Shipyard Build Time
 
 ```
@@ -737,6 +749,10 @@ Required_Infrastructure = Population x Colony_Cost
 ```
 
 Without sufficient infrastructure on a hostile world, excess population suffers attrition.
+
+![Figure A.6.3: Infrastructure Required by Colony Cost](../images/charts/appendices/a6-3-colony-cost-infrastructure.png)
+
+*Figure A.6.3 demonstrates why extreme colony costs make expansion prohibitively expensive. A 100-million population on a CC 6.0 world requires 600 infrastructure units, while the same population on CC 2.0 needs only 200. Earth-like worlds (CC 0) require no infrastructure at all.*
 
 ### A.6.4 Population Capacity
 
