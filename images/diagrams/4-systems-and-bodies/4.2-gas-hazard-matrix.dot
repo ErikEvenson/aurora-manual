@@ -1,0 +1,160 @@
+// Atmospheric Gas Hazard Matrix for Aurora 4X Manual
+// Shows 18 gases arranged by hazard category with greenhouse effect status
+
+digraph GasHazardMatrix {
+    // Graph settings
+    bgcolor="#1a1a2e"
+    rankdir=TB
+    splines=ortho
+    nodesep=0.4
+    ranksep=0.6
+
+    // Node defaults
+    node [
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=10
+        shape=box
+        style="filled,rounded"
+        color="#4ecdc4"
+        penwidth=2
+        width=1.2
+        height=0.5
+    ]
+
+    // Edge defaults
+    edge [
+        color="#4ecdc4"
+        penwidth=1.5
+        arrowhead=none
+    ]
+
+    // Title
+    label="Atmospheric Gas Hazard Classification"
+    labelloc=t
+    fontname="Helvetica"
+    fontcolor="#4ecdc4"
+    fontsize=18
+
+    // ==========================================
+    // SAFE GASES (Any Amount)
+    // ==========================================
+    subgraph cluster_safe {
+        label="SAFE (Any Amount)\nNo Colony Cost Impact"
+        fontname="Helvetica"
+        fontcolor="#95d5b2"
+        fontsize=12
+        bgcolor="#1f3d1f"
+        color="#95d5b2"
+        penwidth=2
+
+        N2 [label="N2\nNitrogen\n(78% of Earth atm)" fillcolor="#2d5a2d"]
+        He [label="He\nHelium\n(Inert noble gas)" fillcolor="#2d5a2d"]
+        H2O [label="H2O\nWater Vapor\n(Not GH in Aurora)" fillcolor="#2d5a2d"]
+        Ar [label="Ar\nArgon\n(Inert noble gas)" fillcolor="#2d5a2d"]
+        Ne [label="Ne\nNeon\n(Inert noble gas)" fillcolor="#2d5a2d"]
+    }
+
+    // ==========================================
+    // CONDITIONAL GASES (Threshold-Based)
+    // ==========================================
+    subgraph cluster_conditional {
+        label="CONDITIONAL (Above Threshold = Colony Cost 2.0)\nDangerous only when exceeding specific ppm limits"
+        fontname="Helvetica"
+        fontcolor="#ffe66d"
+        fontsize=12
+        bgcolor="#3d3d1f"
+        color="#ffe66d"
+        penwidth=2
+
+        // Oxygen - special case
+        O2 [label="O2 Oxygen\nRequired: 0.1-0.3 atm\nToxic: >30% of total\nor >500 ppm (non-breathers)" fillcolor="#5a5a2d"]
+
+        // Very low thresholds (1-5 ppm)
+        subgraph cluster_very_low {
+            label="Very Low Threshold (1-5 ppm)"
+            fontcolor="#ff9944"
+            fontsize=9
+            bgcolor="#2d2d1a"
+            color="#ff9944"
+
+            I [label="I\nIodine\n1 ppm" fillcolor="#4a4a2d"]
+            NO2 [label="NO2\nNitrogen Dioxide\n5 ppm   [GH]" fillcolor="#4a4a2d"]
+            SO2 [label="SO2\nSulphur Dioxide\n5 ppm   [GH]" fillcolor="#4a4a2d"]
+            NO [label="NO\nNitrogen Oxide\n5 ppm" fillcolor="#4a4a2d"]
+        }
+
+        // Low thresholds (20-50 ppm)
+        subgraph cluster_low {
+            label="Low Threshold (20-50 ppm)"
+            fontcolor="#ff9944"
+            fontsize=9
+            bgcolor="#2d2d1a"
+            color="#ff9944"
+
+            H2S [label="H2S\nHydrogen Sulphide\n20 ppm" fillcolor="#4a4a2d"]
+            CO [label="CO\nCarbon Monoxide\n50 ppm" fillcolor="#4a4a2d"]
+            NH3 [label="NH3\nAmmonia\n50 ppm" fillcolor="#4a4a2d"]
+        }
+
+        // Moderate thresholds (500-5000 ppm)
+        subgraph cluster_moderate {
+            label="Moderate Threshold (500-5000 ppm)"
+            fontcolor="#ff9944"
+            fontsize=9
+            bgcolor="#2d2d1a"
+            color="#ff9944"
+
+            H2 [label="H2\nHydrogen\n500 ppm" fillcolor="#4a4a2d"]
+            CH4 [label="CH4\nMethane\n500 ppm   [GH]" fillcolor="#4a4a2d"]
+            CO2 [label="CO2\nCarbon Dioxide\n5000 ppm   [GH]" fillcolor="#4a4a2d"]
+        }
+    }
+
+    // ==========================================
+    // ALWAYS DANGEROUS (Any Amount)
+    // ==========================================
+    subgraph cluster_dangerous {
+        label="ALWAYS DANGEROUS (Any Amount = Colony Cost 3.0)\nImmediate disqualifier for colonization"
+        fontname="Helvetica"
+        fontcolor="#ff6b6b"
+        fontsize=12
+        bgcolor="#3d1f1f"
+        color="#ff6b6b"
+        penwidth=2
+
+        Cl2 [label="Cl2\nChlorine\nExtremely toxic" fillcolor="#5a2d2d"]
+        F2 [label="F2\nFluorine\nExtremely toxic\n& corrosive" fillcolor="#5a2d2d"]
+        Br [label="Br\nBromine\nToxic at any\nconcentration" fillcolor="#5a2d2d"]
+    }
+
+    // ==========================================
+    // FICTIONAL GASES (Terraforming)
+    // ==========================================
+    subgraph cluster_fictional {
+        label="FICTIONAL (Terraforming Only)"
+        fontname="Helvetica"
+        fontcolor="#4ecdc4"
+        fontsize=12
+        bgcolor="#1a2d3d"
+        color="#4ecdc4"
+        penwidth=2
+
+        Aest [label="Aestusium\nGreenhouse Gas\nIncreases temp" fillcolor="#2d3d5a"]
+        Frig [label="Frigusium\nAnti-Greenhouse\nDecreases temp" fillcolor="#2d3d5a"]
+    }
+
+    // ==========================================
+    // LEGEND
+    // ==========================================
+    subgraph cluster_legend {
+        label="Legend"
+        fontcolor="#4ecdc4"
+        fontsize=11
+        bgcolor="#252542"
+        color="#4ecdc4"
+
+        LEG1 [label="[GH] = Greenhouse Gas\n(contributes to warming)" shape=note fillcolor="#2d2d44" fontsize=9]
+        LEG2 [label="ppm = parts per million\nThreshold for toxicity" shape=note fillcolor="#2d2d44" fontsize=9]
+    }
+}

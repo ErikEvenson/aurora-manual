@@ -1,0 +1,203 @@
+// Binary and Trinary System Configurations for Aurora 4X Manual
+// Shows three binary configurations: Close, Intermediate, and Wide
+
+digraph BinaryConfigurations {
+    // Graph settings
+    bgcolor="#1a1a2e"
+    rankdir=TB
+    splines=true
+    nodesep=0.5
+    ranksep=1.0
+    compound=true
+
+    // Node defaults
+    node [
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=10
+        shape=circle
+        style=filled
+        color="#4ecdc4"
+        penwidth=2
+    ]
+
+    // Edge defaults
+    edge [
+        color="#4ecdc4"
+        penwidth=1.5
+    ]
+
+    // Title
+    label="Binary Star System Configurations"
+    labelloc=t
+    fontname="Helvetica"
+    fontcolor="#4ecdc4"
+    fontsize=18
+
+    // ==========================================
+    // CLOSE BINARY (< 1 AU separation)
+    // ==========================================
+    subgraph cluster_close {
+        label="Close Binary\n(< 1 AU separation)"
+        fontname="Helvetica"
+        fontcolor="#95d5b2"
+        fontsize=12
+        bgcolor="#252542"
+        color="#95d5b2"
+        penwidth=2
+
+        // Stars very close together
+        C_star1 [label="A" fillcolor="#ffff00" fontcolor="#1a1a2e" width=0.6]
+        C_star2 [label="B" fillcolor="#ff9944" fontcolor="#1a1a2e" width=0.4]
+
+        // Shared barycenter
+        C_bary [label="" shape=point fillcolor="#4ecdc4" width=0.1]
+
+        // Circumbinary planets
+        C_p1 [label="P1" fillcolor="#2d2d44" width=0.3]
+        C_p2 [label="P2" fillcolor="#2d2d44" width=0.35]
+        C_p3 [label="P3" fillcolor="#2d2d44" width=0.25]
+
+        // Orbits (conceptual)
+        C_star1 -> C_bary [style=dashed arrowhead=none label="close\norbit"]
+        C_star2 -> C_bary [style=dashed arrowhead=none]
+
+        // Planets orbit the pair
+        C_bary -> C_p1 [style=dotted arrowhead=none color="#666666"]
+        C_bary -> C_p2 [style=dotted arrowhead=none color="#666666"]
+        C_bary -> C_p3 [style=dotted arrowhead=none color="#666666"]
+
+        // Note
+        C_note [
+            label="Planets orbit both stars\nActs like single star system\nCombined luminosity affects HZ"
+            shape=note
+            fillcolor="#ffe66d"
+            fontcolor="#1a1a2e"
+            fontsize=9
+        ]
+    }
+
+    // ==========================================
+    // INTERMEDIATE BINARY (1-100 AU)
+    // ==========================================
+    subgraph cluster_intermediate {
+        label="Intermediate Binary\n(1-100 AU separation)"
+        fontname="Helvetica"
+        fontcolor="#ffe66d"
+        fontsize=12
+        bgcolor="#252542"
+        color="#ffe66d"
+        penwidth=2
+
+        // Stars at moderate distance
+        I_star1 [label="A" fillcolor="#ffff00" fontcolor="#1a1a2e" width=0.6]
+        I_star2 [label="B" fillcolor="#ff6666" fontcolor="white" width=0.35]
+
+        // Planets around primary
+        I_p1 [label="P1" fillcolor="#2d2d44" width=0.3]
+        I_p2 [label="P2" fillcolor="#2d2d44" width=0.35]
+
+        // Planets around secondary
+        I_p3 [label="P3" fillcolor="#2d2d44" width=0.25]
+
+        // Circumbinary planet
+        I_p4 [label="P4" fillcolor="#2d2d44" width=0.28]
+
+        // Orbital relationships
+        I_star1 -> I_p1 [style=dotted arrowhead=none color="#666666"]
+        I_star1 -> I_p2 [style=dotted arrowhead=none color="#666666"]
+        I_star2 -> I_p3 [style=dotted arrowhead=none color="#666666"]
+        I_star1 -> I_star2 [style=dashed arrowhead=none label="moderate\nseparation"]
+
+        // Note
+        I_note [
+            label="Mixed planet orbits possible\nSome planets orbit A, some B\nCircumbinary orbits may exist\nComplex stability zones"
+            shape=note
+            fillcolor="#ffe66d"
+            fontcolor="#1a1a2e"
+            fontsize=9
+        ]
+    }
+
+    // ==========================================
+    // WIDE BINARY (100-18,000+ AU)
+    // ==========================================
+    subgraph cluster_wide {
+        label="Wide Binary\n(100-18,000+ AU separation)"
+        fontname="Helvetica"
+        fontcolor="#ff6b6b"
+        fontsize=12
+        bgcolor="#252542"
+        color="#ff6b6b"
+        penwidth=2
+
+        // Subsystem A
+        subgraph cluster_wide_A {
+            label="Sub-system A"
+            fontcolor="#4ecdc4"
+            fontsize=10
+            bgcolor="#1a1a2e"
+            color="#4ecdc4"
+            style=dashed
+
+            W_star1 [label="A" fillcolor="#ffff00" fontcolor="#1a1a2e" width=0.6]
+            W_p1 [label="P1" fillcolor="#2d2d44" width=0.3]
+            W_p2 [label="P2" fillcolor="#2d2d44" width=0.35]
+            W_p3 [label="P3" fillcolor="#2d2d44" width=0.4]
+
+            W_star1 -> W_p1 [style=dotted arrowhead=none color="#666666"]
+            W_star1 -> W_p2 [style=dotted arrowhead=none color="#666666"]
+            W_star1 -> W_p3 [style=dotted arrowhead=none color="#666666"]
+        }
+
+        // Subsystem B
+        subgraph cluster_wide_B {
+            label="Sub-system B"
+            fontcolor="#4ecdc4"
+            fontsize=10
+            bgcolor="#1a1a2e"
+            color="#4ecdc4"
+            style=dashed
+
+            W_star2 [label="B" fillcolor="#ff9944" fontcolor="#1a1a2e" width=0.45]
+            W_p4 [label="P4" fillcolor="#2d2d44" width=0.28]
+            W_p5 [label="P5" fillcolor="#2d2d44" width=0.32]
+
+            W_star2 -> W_p4 [style=dotted arrowhead=none color="#666666"]
+            W_star2 -> W_p5 [style=dotted arrowhead=none color="#666666"]
+        }
+
+        // Connection between subsystems
+        W_star1 -> W_star2 [
+            style=dashed
+            arrowhead=none
+            label="thousands\nof AU"
+            fontcolor="white"
+            minlen=3
+        ]
+
+        // Note
+        W_note [
+            label="Two distinct sub-systems\nEach star has own planets\nLong transit times between\nMultiple habitable zones possible"
+            shape=note
+            fillcolor="#ffe66d"
+            fontcolor="#1a1a2e"
+            fontsize=9
+        ]
+    }
+
+    // Legend
+    subgraph cluster_legend {
+        label="Legend"
+        fontcolor="#4ecdc4"
+        fontsize=11
+        bgcolor="#252542"
+        color="#4ecdc4"
+
+        L_star [label="Star" fillcolor="#ffff00" fontcolor="#1a1a2e" width=0.4]
+        L_planet [label="Planet" fillcolor="#2d2d44" width=0.3]
+        L_orbit [label="" shape=none]
+
+        L_star -> L_planet [style=dotted arrowhead=none color="#666666" label="planetary orbit"]
+    }
+}

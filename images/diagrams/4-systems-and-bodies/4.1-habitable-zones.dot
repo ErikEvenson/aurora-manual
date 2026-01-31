@@ -1,0 +1,111 @@
+// Habitable Zone Distance Chart for Aurora 4X Manual
+// Shows relative habitable zone distances for different star types
+
+digraph HabitableZones {
+    // Graph settings
+    bgcolor="#1a1a2e"
+    rankdir=LR
+    splines=false
+    nodesep=0.3
+    ranksep=0.8
+
+    // Node defaults
+    node [
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=11
+        shape=box
+        style="filled,rounded"
+        fillcolor="#2d2d44"
+        color="#4ecdc4"
+        penwidth=2
+    ]
+
+    // Edge defaults
+    edge [
+        color="#4ecdc4"
+        penwidth=2
+    ]
+
+    // Title
+    title [
+        label="Habitable Zone Distances by Star Type"
+        shape=none
+        fillcolor="transparent"
+        fontsize=16
+        fontcolor="#4ecdc4"
+    ]
+
+    // Star type nodes (left column)
+    subgraph cluster_stars {
+        bgcolor="transparent"
+        color="transparent"
+        label=""
+
+        O [label="O-type\n30,000-50,000K\nBlue" fillcolor="#4444ff" fontcolor="white"]
+        B [label="B-type\n11,000-28,000K\nBlue-white" fillcolor="#6666ff" fontcolor="white"]
+        A [label="A-type\n7,750-10,000K\nWhite" fillcolor="#aaaaff" fontcolor="#1a1a2e"]
+        F [label="F-type\n6,150-7,500K\nYellow-white" fillcolor="#ffffaa" fontcolor="#1a1a2e"]
+        G [label="G-type (Sol)\n5,100-6,000K\nYellow" fillcolor="#ffff00" fontcolor="#1a1a2e"]
+        K [label="K-type\n3,650-5,000K\nOrange" fillcolor="#ff9944" fontcolor="#1a1a2e"]
+        M [label="M-type\n2,300-3,920K\nRed" fillcolor="#ff4444" fontcolor="white"]
+    }
+
+    // Habitable zone indicators (right column) with relative distances
+    subgraph cluster_zones {
+        bgcolor="transparent"
+        color="transparent"
+        label=""
+
+        HZ_O [label="~50-100 AU\nVery distant, rare systems" shape=ellipse fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+        HZ_B [label="~10-50 AU\nDistant habitable zone" shape=ellipse fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+        HZ_A [label="~2-5 AU\nOuter system habitable" shape=ellipse fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+        HZ_F [label="~1-2 AU\nSlightly beyond Earth orbit" shape=ellipse fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+        HZ_G [label="~0.8-1.2 AU\nEarth-like distance" shape=ellipse fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+        HZ_K [label="~0.4-0.8 AU\nCloser than Earth" shape=ellipse fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+        HZ_M [label="~0.05-0.2 AU\nVery close-in orbit" shape=ellipse fillcolor="#95d5b2" fontcolor="#1a1a2e"]
+    }
+
+    // Gameplay implications (far right)
+    subgraph cluster_implications {
+        bgcolor="transparent"
+        color="transparent"
+        label=""
+
+        IMP_O [label="Longest travel times\nFuel-intensive" shape=note fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+        IMP_B [label="Large separation\nfrom inner system" shape=note fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+        IMP_A [label="Good balance of\nspace and resources" shape=note fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+        IMP_F [label="Familiar orbital\nperiods" shape=note fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+        IMP_G [label="Most Earth-like\n40% of stars" shape=note fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+        IMP_K [label="Common star type\nShorter years" shape=note fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+        IMP_M [label="Very short years\nTidal locking common" shape=note fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+    }
+
+    // Connect stars to their zones
+    O -> HZ_O [label="" arrowhead=vee]
+    B -> HZ_B [label="" arrowhead=vee]
+    A -> HZ_A [label="" arrowhead=vee]
+    F -> HZ_F [label="" arrowhead=vee]
+    G -> HZ_G [label="" arrowhead=vee]
+    K -> HZ_K [label="" arrowhead=vee]
+    M -> HZ_M [label="" arrowhead=vee]
+
+    // Connect zones to implications
+    HZ_O -> IMP_O [style=dashed arrowhead=none color="#666666"]
+    HZ_B -> IMP_B [style=dashed arrowhead=none color="#666666"]
+    HZ_A -> IMP_A [style=dashed arrowhead=none color="#666666"]
+    HZ_F -> IMP_F [style=dashed arrowhead=none color="#666666"]
+    HZ_G -> IMP_G [style=dashed arrowhead=none color="#666666"]
+    HZ_K -> IMP_K [style=dashed arrowhead=none color="#666666"]
+    HZ_M -> IMP_M [style=dashed arrowhead=none color="#666666"]
+
+    // Force vertical ordering
+    {rank=same; O B A F G K M}
+    {rank=same; HZ_O HZ_B HZ_A HZ_F HZ_G HZ_K HZ_M}
+    {rank=same; IMP_O IMP_B IMP_A IMP_F IMP_G IMP_K IMP_M}
+
+    // Invisible edges to maintain order
+    O -> B -> A -> F -> G -> K -> M [style=invis]
+    HZ_O -> HZ_B -> HZ_A -> HZ_F -> HZ_G -> HZ_K -> HZ_M [style=invis]
+    IMP_O -> IMP_B -> IMP_A -> IMP_F -> IMP_G -> IMP_K -> IMP_M [style=invis]
+}

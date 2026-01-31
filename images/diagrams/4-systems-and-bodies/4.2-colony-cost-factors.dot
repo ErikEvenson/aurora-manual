@@ -1,0 +1,283 @@
+// Colony Cost Habitability Factors for Aurora 4X Manual
+// Shows seven factors that contribute to final colony cost
+
+digraph ColonyCostFactors {
+    // Graph settings
+    bgcolor="#1a1a2e"
+    rankdir=LR
+    splines=ortho
+    nodesep=0.4
+    ranksep=1.0
+
+    // Node defaults
+    node [
+        fontname="Helvetica"
+        fontcolor="white"
+        fontsize=10
+        shape=box
+        style="filled,rounded"
+        color="#4ecdc4"
+        penwidth=2
+    ]
+
+    // Edge defaults
+    edge [
+        color="#4ecdc4"
+        penwidth=2
+        arrowhead=vee
+    ]
+
+    // Title
+    label="Colony Cost Calculation Factors"
+    labelloc=t
+    fontname="Helvetica"
+    fontcolor="#4ecdc4"
+    fontsize=18
+
+    // ==========================================
+    // INPUT FACTORS (Left Column)
+    // ==========================================
+    subgraph cluster_factors {
+        label="Habitability Factors"
+        fontname="Helvetica"
+        fontcolor="#4ecdc4"
+        fontsize=12
+        bgcolor="#252542"
+        color="#4ecdc4"
+        penwidth=2
+
+        // Breathable Gas
+        F_gas [
+            label="Breathable Gas\n(O2 for Humans)"
+            fillcolor="#2d2d44"
+        ]
+
+        // Atmospheric Pressure
+        F_pressure [
+            label="Atmospheric\nPressure"
+            fillcolor="#2d2d44"
+        ]
+
+        // Gravity
+        F_gravity [
+            label="Surface\nGravity"
+            fillcolor="#2d2d44"
+        ]
+
+        // Temperature
+        F_temp [
+            label="Surface\nTemperature"
+            fillcolor="#2d2d44"
+        ]
+
+        // Hazardous Gases
+        F_hazard [
+            label="Hazardous\nGases"
+            fillcolor="#2d2d44"
+        ]
+
+        // Hydrosphere
+        F_hydro [
+            label="Hydrosphere\nExtent"
+            fillcolor="#2d2d44"
+        ]
+
+        // Tidal Effects
+        F_tidal [
+            label="Tidal Lock\nStatus"
+            fillcolor="#2d2d44"
+        ]
+    }
+
+    // ==========================================
+    // COST IMPACTS (Middle Column)
+    // ==========================================
+    subgraph cluster_impacts {
+        label="Cost Impact"
+        fontname="Helvetica"
+        fontcolor="#ffe66d"
+        fontsize=12
+        bgcolor="#252542"
+        color="#ffe66d"
+        penwidth=2
+
+        // Gas impacts
+        I_gas_ok [
+            label="0.1-0.3 atm O2\n<30% relative\n= No penalty"
+            shape=ellipse
+            fillcolor="#2d5a2d"
+        ]
+        I_gas_bad [
+            label="Non-breathable\n= 2.0x"
+            shape=ellipse
+            fillcolor="#5a5a2d"
+        ]
+
+        // Pressure impacts
+        I_press_ok [
+            label="0.334 - 4.0 atm\n= No penalty"
+            shape=ellipse
+            fillcolor="#2d5a2d"
+        ]
+        I_press_bad [
+            label=">4.0 atm\n= Press/4.0 (min 2.0x)"
+            shape=ellipse
+            fillcolor="#5a5a2d"
+        ]
+
+        // Gravity impacts
+        I_grav_ok [
+            label="0.1g - 1.9g\n= No penalty"
+            shape=ellipse
+            fillcolor="#2d5a2d"
+        ]
+        I_grav_low [
+            label="<0.1g\n= 1.0x + LG infra"
+            shape=ellipse
+            fillcolor="#5a5a2d"
+        ]
+        I_grav_high [
+            label=">1.9g\n= UNCOLONIZABLE"
+            shape=ellipse
+            fillcolor="#5a2d2d"
+        ]
+
+        // Temperature impacts
+        I_temp_ok [
+            label="-10C to +38C\n= No penalty"
+            shape=ellipse
+            fillcolor="#2d5a2d"
+        ]
+        I_temp_bad [
+            label="Per degree outside\n= +1/12 cost"
+            shape=ellipse
+            fillcolor="#5a5a2d"
+        ]
+
+        // Hazard impacts
+        I_haz_none [
+            label="No hazardous\n= No penalty"
+            shape=ellipse
+            fillcolor="#2d5a2d"
+        ]
+        I_haz_cond [
+            label="Conditional above\nthreshold = 2.0x"
+            shape=ellipse
+            fillcolor="#5a5a2d"
+        ]
+        I_haz_always [
+            label="Cl2/F2/Br\n= 3.0x"
+            shape=ellipse
+            fillcolor="#5a2d2d"
+        ]
+
+        // Hydrosphere impacts
+        I_hydro_ok [
+            label=">=20%\n= No penalty"
+            shape=ellipse
+            fillcolor="#2d5a2d"
+        ]
+        I_hydro_bad [
+            label="<20%\n= (20-H)/10"
+            shape=ellipse
+            fillcolor="#5a5a2d"
+        ]
+
+        // Tidal impacts
+        I_tidal_no [
+            label="Not locked\n= Normal"
+            shape=ellipse
+            fillcolor="#2d5a2d"
+        ]
+        I_tidal_yes [
+            label="Tide-locked\n= Temp/5, Pop/5"
+            shape=ellipse
+            fillcolor="#5a5a2d"
+        ]
+    }
+
+    // ==========================================
+    // CALCULATION (Right Column)
+    // ==========================================
+    subgraph cluster_calc {
+        label="Final Calculation"
+        fontname="Helvetica"
+        fontcolor="#95d5b2"
+        fontsize=12
+        bgcolor="#252542"
+        color="#95d5b2"
+        penwidth=2
+
+        CALC [
+            label="COLONY COST\n=\nHIGHEST\nSINGLE FACTOR"
+            shape=box
+            fillcolor="#2d2d44"
+            fontsize=12
+            width=2
+            height=1.2
+        ]
+
+        RESULT [
+            label="Infrastructure per Million Pop\n=\nBase Infra x Colony Cost"
+            shape=note
+            fillcolor="#ffe66d"
+            fontcolor="#1a1a2e"
+            fontsize=10
+            width=2.5
+        ]
+
+        IDEAL [
+            label="Ideal World:\nColony Cost = 0.00\nNo extra infrastructure needed"
+            shape=note
+            fillcolor="#95d5b2"
+            fontcolor="#1a1a2e"
+            fontsize=9
+            width=2.5
+        ]
+    }
+
+    // ==========================================
+    // CONNECTIONS
+    // ==========================================
+
+    // Factor to impact connections
+    F_gas -> I_gas_ok [color="#95d5b2"]
+    F_gas -> I_gas_bad [color="#ff6b6b"]
+
+    F_pressure -> I_press_ok [color="#95d5b2"]
+    F_pressure -> I_press_bad [color="#ff6b6b"]
+
+    F_gravity -> I_grav_ok [color="#95d5b2"]
+    F_gravity -> I_grav_low [color="#ffe66d"]
+    F_gravity -> I_grav_high [color="#ff6b6b"]
+
+    F_temp -> I_temp_ok [color="#95d5b2"]
+    F_temp -> I_temp_bad [color="#ff6b6b"]
+
+    F_hazard -> I_haz_none [color="#95d5b2"]
+    F_hazard -> I_haz_cond [color="#ffe66d"]
+    F_hazard -> I_haz_always [color="#ff6b6b"]
+
+    F_hydro -> I_hydro_ok [color="#95d5b2"]
+    F_hydro -> I_hydro_bad [color="#ff6b6b"]
+
+    F_tidal -> I_tidal_no [color="#95d5b2"]
+    F_tidal -> I_tidal_yes [color="#ffe66d"]
+
+    // Impacts to calculation
+    I_gas_bad -> CALC [style=dashed color="#666666"]
+    I_press_bad -> CALC [style=dashed color="#666666"]
+    I_grav_low -> CALC [style=dashed color="#666666"]
+    I_temp_bad -> CALC [style=dashed color="#666666"]
+    I_haz_cond -> CALC [style=dashed color="#666666"]
+    I_haz_always -> CALC [style=dashed color="#666666"]
+    I_hydro_bad -> CALC [style=dashed color="#666666"]
+    I_tidal_yes -> CALC [style=dashed color="#666666"]
+
+    // Result
+    CALC -> RESULT [color="#95d5b2"]
+    RESULT -> IDEAL [style=dotted arrowhead=none color="#666666"]
+
+    // Force ordering within clusters
+    {rank=same; F_gas F_pressure F_gravity F_temp F_hazard F_hydro F_tidal}
+}
