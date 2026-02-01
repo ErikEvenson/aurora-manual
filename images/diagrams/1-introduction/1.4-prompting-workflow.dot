@@ -1,0 +1,69 @@
+digraph PromptingWorkflow {
+    bgcolor="#1a1a2e"
+    fontname="Helvetica"
+    fontcolor="white"
+    label="AI Coaching Workflow"
+    labelloc=t
+    fontsize=16
+    rankdir=TB
+    nodesep=0.6
+    ranksep=0.7
+
+    node [
+        fontname="Helvetica"
+        fontsize=11
+        fontcolor="white"
+        color="#4ecdc4"
+        fillcolor="#2d2d44"
+        style="filled,rounded"
+        shape=box
+    ]
+
+    edge [
+        fontname="Helvetica"
+        fontsize=9
+        fontcolor="#888888"
+        color="#4ecdc4"
+        arrowsize=0.8
+    ]
+
+    // Start
+    start [label="Game Situation\nArises" shape=ellipse]
+
+    // Decision points
+    urgent [label="Urgent?" shape=diamond color="#ffe66d"]
+    know_system [label="Understand\nthe System?" shape=diamond color="#ffe66d"]
+    ai_confident [label="AI Response\nCited?" shape=diamond color="#ffe66d"]
+
+    // Actions
+    describe [label="Describe Situation\nto AI"]
+    ask_quick [label="Quick Question\n(Crisis Mode)"]
+    ask_explain [label="Ask for Mechanic\nExplanation"]
+    ask_advice [label="Ask for Strategic\nAdvice"]
+    verify [label="Verify Against\nManual/Database"]
+    implement [label="Implement\nRecommendation"]
+    test_small [label="Test on\nSmall Scale"]
+
+    // Outcomes
+    success [label="Continue\nPlaying" shape=ellipse fillcolor="#2d4d2d" color="#95d5b2"]
+    learn [label="Update Your\nUnderstanding" shape=ellipse fillcolor="#2d4d2d" color="#95d5b2"]
+
+    // Edges
+    start -> urgent
+    urgent -> ask_quick [label="Yes"]
+    urgent -> know_system [label="No"]
+    know_system -> ask_explain [label="No"]
+    know_system -> describe [label="Yes"]
+    ask_quick -> implement [label="Act fast"]
+    ask_explain -> learn
+    learn -> describe
+    describe -> ask_advice
+    ask_advice -> ai_confident
+    ai_confident -> verify [label="No citation"]
+    ai_confident -> test_small [label="Has citation"]
+    verify -> ask_advice [label="Incorrect"]
+    verify -> test_small [label="Verified"]
+    test_small -> implement [label="Works"]
+    test_small -> ask_advice [label="Problems"]
+    implement -> success
+}
