@@ -1,6 +1,6 @@
 # Aurora 4X Manual - Project Instructions
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.01*
 
 ## Project Overview
 
@@ -72,7 +72,7 @@ When preparing answers suitable for posting to Aurora Forums or Discord:
 
 ## Glossary Linking (MANDATORY for all new content)
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.01*
 
 When writing new content, link glossary-defined abbreviations on their **first occurrence** in each file. This helps new players quickly look up unfamiliar terminology.
 
@@ -80,22 +80,21 @@ When writing new content, link glossary-defined abbreviations on their **first o
 
 | Term | Full Name | Link Format |
 |------|-----------|-------------|
-| BP | Build Points | `[BP](../appendices/B-glossary.md)` |
-| MSP | Maintenance Supply Points | `[MSP](../appendices/B-glossary.md)` |
-| MSP | Missile Size Points (context-dependent) | `[MSP](../appendices/B-glossary.md)` |
-| TN | Trans-Newtonian | `[TN](../appendices/B-glossary.md)` |
-| NPR | Non-Player Race | `[NPR](../appendices/B-glossary.md)` |
-| HS | Hull Space | `[HS](../appendices/B-glossary.md)` |
-| JP | Jump Point | `[JP](../appendices/B-glossary.md)` |
-| PDC | Planetary Defence Centre | `[PDC](../appendices/B-glossary.md)` |
-| CIWS | Close-In Weapon System | `[CIWS](../appendices/B-glossary.md)` |
-| ECM | Electronic Countermeasures | `[ECM](../appendices/B-glossary.md)` |
-| ECCM | Electronic Counter-Countermeasures | `[ECCM](../appendices/B-glossary.md)` |
-| BFC | Beam Fire Control | `[BFC](../appendices/B-glossary.md)` |
-| MFC | Missile Fire Control | `[MFC](../appendices/B-glossary.md)` |
-| CC | Colony Cost | `[CC](../appendices/B-glossary.md)` |
-| CF | Construction Factory | `[CF](../appendices/B-glossary.md)` |
-| AFR | Annual Failure Rate | `[AFR](../appendices/B-glossary.md)` |
+| AFR | Annual Failure Rate | `[AFR](../appendices/B-glossary.md#afr)` |
+| BFC | Beam Fire Control | `[BFC](../appendices/B-glossary.md#bfc)` |
+| BP | Build Points | `[BP](../appendices/B-glossary.md#bp)` |
+| CC | Colony Cost | `[CC](../appendices/B-glossary.md#cc)` |
+| CF | Construction Factory | `[CF](../appendices/B-glossary.md#cf)` |
+| CIWS | Close-In Weapon System | `[CIWS](../appendices/B-glossary.md#ciws)` |
+| ECM | Electronic Countermeasures | `[ECM](../appendices/B-glossary.md#ecm)` |
+| ECCM | Electronic Counter-Countermeasures | `[ECCM](../appendices/B-glossary.md#eccm)` |
+| HS | Hull Space | `[HS](../appendices/B-glossary.md#hs)` |
+| JP | Jump Point | `[JP](../appendices/B-glossary.md#jp)` |
+| MFC | Missile Fire Control | `[MFC](../appendices/B-glossary.md#mfc)` |
+| MSP | Maintenance Supply Points | `[MSP](../appendices/B-glossary.md#msp)` |
+| NPR | Non-Player Race | `[NPR](../appendices/B-glossary.md#npr)` |
+| PDC | Planetary Defence Centre | `[PDC](../appendices/B-glossary.md#pdc)` |
+| TN | Trans-Newtonian | `[TN](../appendices/B-glossary.md#tn)` |
 
 **Rules:**
 
@@ -109,9 +108,9 @@ When writing new content, link glossary-defined abbreviations on their **first o
 ```markdown
 ## 8.5.6 CIWS
 
-The [CIWS](../appendices/B-glossary.md) (Close-In Weapon System) is a self-contained
+The [CIWS](../appendices/B-glossary.md#ciws) (Close-In Weapon System) is a self-contained
 point defense system. Unlike standard gauss cannons that require separate
-[BFC](../appendices/B-glossary.md) allocations, CIWS operates independently.
+[BFC](../appendices/B-glossary.md#bfc) allocations, CIWS operates independently.
 ```
 
 **Checking for glossary terms:**
@@ -122,7 +121,7 @@ grep -E '^\*\*[A-Z]+\*\*' appendices/B-glossary.md | head -20
 
 ## Inline References (MANDATORY for all new content)
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.01*
 
 Every factual claim (numeric values, game mechanics, formulas, component specs) MUST include an inline reference verified against an authoritative source.
 
@@ -153,7 +152,7 @@ Fuel Refineries cost 120 BP and require 120 Boronide per installation \hyperlink
 
 ## Build System
 
-*Updated: v2026.01.28*
+*Updated: v2026.02.01*
 
 - **Build command:** `bash build-pdf.sh` (auto-increment) or `bash build-pdf.sh VERSION` (explicit)
 - **PDF output:** `releases/aurora-manual-VERSION.pdf`
@@ -180,7 +179,7 @@ For development/testing builds, use `bash build-pdf.sh` without arguments (auto-
 
 ## Game Database
 
-*Updated: v2026.01.28*
+*Updated: v2026.02.01*
 
 - **Location:** `~/Downloads/Aurora271Full/AuroraDB.db` (SQLite)
 - **Use:** Verify formulas, values, and mechanics claims against actual game data
@@ -266,7 +265,7 @@ Prioritize verification of:
 
 ## Contributor Attribution
 
-*Updated: v2026.01.29*
+*Updated: v2026.02.01*
 
 All repo contributors must appear in three locations:
 
@@ -278,7 +277,7 @@ To get the current contributor list: `gh api repos/ErikEvenson/aurora-manual/con
 
 ## LaTeX Compatibility
 
-*Updated: v2026.01.29*
+*Updated: v2026.02.01*
 
 - Avoid Unicode symbols that don't render in LaTeX (e.g., use `<=` instead of `≤`)
 - Long tables may overflow; consider breaking into multiple tables or using shorter column content
@@ -686,7 +685,7 @@ Before committing any chart:
 
 ## Diagrams
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.01*
 
 Diagrams (flowcharts, system diagrams, tech trees, tactical illustrations) are stored in `images/diagrams/` with subdirectories mirroring chapter structure.
 

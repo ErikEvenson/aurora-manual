@@ -14,21 +14,21 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 |------|-----------|
 | Accessibility | 0.1--1.0 value for mining ease; higher = more output per mine \hyperlink{ref-B-1}{[B-1]} |
 | Active Sensor | Emits energy to detect targets; reveals own position via EM |
-| AFR | Annual Failure Rate; percentage chance of component failure per year |
+| <a id="afr"></a>AFR | Annual Failure Rate; percentage chance of component failure per year |
 | AM | Automated Mine (context: mining) or Anti-matter (context: engines/weapons) \hyperlink{ref-B-11}{[B-11]} |
 | AMM | Anti-Missile Missile; small, fast interceptor missile |
 | Armor Column | Vertical armor segment; random hits require repeated column strikes |
 | ASM | Anti-Ship Missile; offensive missile vs enemy vessels |
-| BFC | Beam Fire Control; directs beams, sets tracking/range/ECCM |
+| <a id="bfc"></a>BFC | Beam Fire Control; directs beams, sets tracking/range/ECCM |
 | Boost | Engine modifier: more power, exponentially more fuel |
-| BP | Build Points; unit of production capacity |
+| <a id="bp"></a>BP | Build Points; unit of production capacity |
 | Bridge | Required for ships operating outside home system |
 | Buoy | Deployable sensor or survey device; operates without crew |
 | CAG | Commander Air Group; officer managing carrier fighter operations |
-| CF | Construction Factory; TN installation producing 1 BP/year \hyperlink{ref-B-11}{[B-11]} |
-| CC | Colony Cost; planet hostility rating for colonization |
+| <a id="cf"></a>CF | Construction Factory; TN installation producing 1 BP/year \hyperlink{ref-B-11}{[B-11]} |
+| <a id="cc"></a>CC | Colony Cost; planet hostility rating for colonization |
 | CIC | Combat Information Centre; ship component for tactical officer |
-| CIWS | Close-In Weapon System; auto-fires at incoming missiles |
+| <a id="ciws"></a>CIWS | Close-In Weapon System; auto-fires at incoming missiles |
 | Cloak | Reduces thermal/EM signatures by a percentage |
 | Collier | Ammunition/ordnance resupply ship for fleet operations |
 | Colony Cost | See CC |
@@ -41,8 +41,8 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | Damage Control | Engineering crew repairing damaged components |
 | DNR | Do Not Retain; commander suffix indicating removal on game close |
 | DP | Deployment Points; limits on automated craft |
-| ECM | Electronic Countermeasures; -10% enemy accuracy per net ECM level \hyperlink{ref-B-2}{[B-2]} |
-| ECCM | Counter-ECM on fire controls; negates one ECM level each |
+| <a id="ecm"></a>ECM | Electronic Countermeasures; -10% enemy accuracy per net ECM level \hyperlink{ref-B-2}{[B-2]} |
+| <a id="eccm"></a>ECCM | Counter-ECM on fire controls; negates one ECM level each |
 | EM | Electromagnetic; passive detection of emissions/shields |
 | EM Signature | Ship emissions from active sensors, shields, components |
 | Engine Power | Thrust in EP; divided by tonnage for speed |
@@ -66,11 +66,11 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | Grav Survey | Exploring a system to discover jump points |
 | Ground Forces | Military units for planetary assault and defense |
 | Hangar | Ship component for storing and servicing smaller craft |
-| HS | Hull Size; 50 tons of ship mass (1 HS = 50t) \hyperlink{ref-B-3}{[B-3]} |
+| <a id="hs"></a>HS | Hull Size; 50 tons of ship mass (1 HS = 50t) \hyperlink{ref-B-3}{[B-3]} |
 | HTK | Hits to Kill; damage points before component destruction \hyperlink{ref-B-11}{[B-11]} |
 | IFR | Incremental Failure Rate; component reliability metric \hyperlink{ref-B-11}{[B-11]} |
 | Infrastructure | Supports population on planets with CC > 0 |
-| JP | Jump point; portal between star systems |
+| <a id="jp"></a>JP | Jump point; portal between star systems |
 | Jump Drive | Enables JP transit; military (self) or commercial (squad) |
 | Jump Gate | Permanent JP structure; any ship can transit |
 | Lagrange Point | Gravitationally stable orbital positions; L1-L5 locations |
@@ -81,14 +81,14 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | Maint. Facility | Orbital installation that overhauls ships |
 | Mass Driver | Installation for launching minerals between system bodies |
 | Meson Cannon | Bypasses shields and armor; short range, low accuracy \hyperlink{ref-B-7}{[B-7]} |
-| MFC | Missile Fire Control; guides missiles, sets range/ECM |
+| <a id="mfc"></a>MFC | Missile Fire Control; guides missiles, sets range/ECM |
 | Military Engine | Compact, powerful engine; less fuel-efficient than commercial |
 | Mineral | One of 11 TN elements (Dur, Neu, Cor, Tri, Bor, Mer, Ven, Sor, Uri, Coru, Gal) |
 | Missile Launcher | Fires missiles; reload time varies by size and tech |
-| MSP (maintenance) | Maintenance Supply Points; consumables for ship repairs and damage control. Context: logistics, engineering spaces, supply ships |
+| <a id="msp"></a>MSP (maintenance) | Maintenance Supply Points; consumables for ship repairs and damage control. Context: logistics, engineering spaces, supply ships |
 | MSP (missiles) | Missile Size Points; unit of missile mass where 1 MSP = 2.5 tons \hyperlink{ref-B-8}{[B-8]}. Context: missile design, launchers, magazines |
 | Multi-stage Missile | Booster stage for range + separating attack stage |
-| NPR | Non-Player Race; AI civilization with own tech/fleets |
+| <a id="npr"></a>NPR | Non-Player Race; AI civilization with own tech/fleets |
 | Orbital Habitat | Space-based structure supporting population without a planet |
 | Ordnance | Missiles and expendable weapons carried by ships |
 | Overhaul | Resetting maintenance clock; prevents breakdowns |
@@ -96,7 +96,7 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | Particle Beam | Shorter range than laser; no falloff, good penetration |
 | Passive Sensor | Detects thermal/EM without revealing own position |
 | PD | Point Defense; intercepts incoming missiles |
-| PDC | Planetary Defence Centre; ground-based weapons installation |
+| <a id="pdc"></a>PDC | Planetary Defence Centre; ground-based weapons installation |
 | Plasma Carronade | High damage at short range; useless at distance \hyperlink{ref-B-4}{[B-4]} |
 | Power Plant | Generates power for beam weapons |
 | PPV | Planetary Protection Value; defensive metric from weapon tonnage |
@@ -126,7 +126,7 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | TCS | Target Cross-Section; ship size for sensor/FC calculations \hyperlink{ref-B-11}{[B-11]} |
 | Terraforming | Modifying atmosphere to reduce CC; uses TF installations |
 | Thermal Signature | Ship heat profile from engines; detected by thermal sensors |
-| TN | Trans-Newtonian; advanced physics enabling interstellar civ |
+| <a id="tn"></a>TN | Trans-Newtonian; advanced physics enabling interstellar civ |
 | TN Start | Start with basic TN tech already researched |
 | Tracking Speed | Max target speed for accurate engagement |
 | Turret | Increases beam tracking via turret gear tech; multi-weapon turrets reduce crew and gear size \hyperlink{ref-B-10}{[B-10]} |
