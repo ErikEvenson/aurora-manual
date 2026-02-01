@@ -2,11 +2,28 @@
 
 *Updated: v2026.02.01*
 
+
 ## Project Overview
 
 *Updated: v2026.01.30*
 
 This is a comprehensive reference manual for Aurora C# (space strategy game by Steve Walmsley). The manual is written in Markdown, organized by numbered sections, and compiled to PDF via `build-pdf.sh` using pandoc + tectonic.
+
+## Security
+
+*Added: v2026.02.01*
+
+**CRITICAL: Never store credentials in the repository.**
+
+This includes but is not limited to:
+- API keys and tokens
+- Passwords and secrets
+- Email addresses in git config (use `git config` locally, not in repo)
+- OAuth credentials
+- Database connection strings with passwords
+- Private keys or certificates
+
+If credentials are accidentally committed, they must be considered compromised. Rotate them immediately and use `git filter-branch` or BFG Repo-Cleaner to remove from history.
 
 ## Answering Game Mechanics Questions
 
