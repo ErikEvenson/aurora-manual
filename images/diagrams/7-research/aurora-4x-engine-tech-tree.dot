@@ -1,38 +1,47 @@
+// Aurora 4X Engine Technology Progression
+// Reduced dimensions, focused layout
+
 digraph EngineProgression {
     bgcolor="#1a1a2e"
     fontname="Helvetica"
     fontcolor="white"
-    rankdir=TB
-    nodesep=0.4
-    ranksep=0.6
     label="Figure 7.1.3: Engine Technology Progression with Cumulative RP Cost"
     labelloc=t
-    fontsize=14
+    fontsize=12
+    rankdir=TB
+    nodesep=0.4
+    ranksep=0.5
+
+    // Compact graph
+    size="9,12"
+    ratio="compress"
 
     node [
         fontname="Helvetica"
-        fontsize=9
+        fontsize=8
         fontcolor="white"
         color="#4ecdc4"
         fillcolor="#2d2d44"
         style="filled,rounded"
         shape=box
+        width=1.4
+        height=0.5
     ]
 
     edge [
         fontname="Helvetica"
-        fontsize=8
+        fontsize=7
         fontcolor="#888888"
-        color="#4ecdc4"
         arrowsize=0.6
     ]
 
-    // Timeline phases
+    // Early Game cluster
     subgraph cluster_early {
-        label="Early Game (< 10,000 RP cumulative)"
+        label="Early Game (< 10,000 RP)"
         fontcolor="#888888"
+        fontsize=10
         color="#95d5b2"
-        style=dashed
+        style="dashed"
 
         conv [label="Conventional\n500 RP | 1.0x\nCumulative: 500" fillcolor="#95d5b2" fontcolor="#1a1a2e"]
         nuc_radio [label="Nuclear Radioisotope\n1,000 RP | 5.0x\nCumulative: 1,500" fillcolor="#95d5b2" fontcolor="#1a1a2e"]
@@ -40,12 +49,13 @@ digraph EngineProgression {
         nuc_pulse [label="Nuclear Pulse\n4,000 RP | 8.0x\nCumulative: 7,500" fillcolor="#95d5b2" fontcolor="#1a1a2e"]
     }
 
-    // Mid game
+    // Mid Game cluster
     subgraph cluster_mid {
-        label="Mid Game (10,000 - 100,000 RP cumulative)"
+        label="Mid Game (10,000 - 100,000 RP)"
         fontcolor="#888888"
+        fontsize=10
         color="#ffe66d"
-        style=dashed
+        style="dashed"
 
         nuc_gas [label="Nuclear Gas-Core\n6,000 RP | 10.0x\nCumulative: 13,500" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
         ion [label="Ion Drive\n10,000 RP | 12.5x\nCumulative: 23,500" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
@@ -53,32 +63,34 @@ digraph EngineProgression {
         mcf [label="Magnetic Fusion\n40,000 RP | 20.0x\nCumulative: 83,500" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
     }
 
-    // Late game
+    // Late Game cluster
     subgraph cluster_late {
-        label="Late Game (100,000 - 1,000,000 RP cumulative)"
+        label="Late Game (100,000 - 1,000,000 RP)"
         fontcolor="#888888"
+        fontsize=10
         color="#ff6b6b"
-        style=dashed
+        style="dashed"
 
-        icf [label="Inertial Fusion\n80,000 RP | 25.0x\nCumulative: 163,500" fillcolor="#ff6b6b" fontcolor="white"]
-        sc_am [label="Solid-Core AM\n150,000 RP | 32.0x\nCumulative: 313,500" fillcolor="#ff6b6b" fontcolor="white"]
-        gc_am [label="Gas-Core AM\n300,000 RP | 40.0x\nCumulative: 613,500" fillcolor="#ff6b6b" fontcolor="white"]
-        pc_am [label="Plasma-Core AM\n600,000 RP | 50.0x\nCumulative: 1,213,500" fillcolor="#ff6b6b" fontcolor="white"]
+        icf [label="Inertial Fusion\n80,000 RP | 25.0x\nCumulative: 163,500" fillcolor="#ff6b6b"]
+        sc_am [label="Solid-Core AM\n150,000 RP | 32.0x\nCumulative: 313,500" fillcolor="#ff6b6b"]
+        gc_am [label="Gas-Core AM\n300,000 RP | 40.0x\nCumulative: 613,500" fillcolor="#ff6b6b"]
+        pc_am [label="Plasma-Core AM\n600,000 RP | 50.0x\nCumulative: 1,213,500" fillcolor="#ff6b6b"]
     }
 
-    // Endgame
+    // Endgame cluster
     subgraph cluster_endgame {
-        label="Endgame (> 1,000,000 RP cumulative)"
+        label="Endgame (> 1,000,000 RP)"
         fontcolor="#888888"
+        fontsize=10
         color="#9b59b6"
-        style=dashed
+        style="dashed"
 
-        bc_am [label="Beam-Core AM\n1,250,000 RP | 64.0x\nCumulative: 2,463,500" fillcolor="#9b59b6" fontcolor="white"]
-        photonic [label="Photonic Drive\n2,500,000 RP | 80.0x\nCumulative: 4,963,500" fillcolor="#9b59b6" fontcolor="white"]
-        quantum [label="Quantum Singularity\n5,000,000 RP | 100.0x\nCumulative: 9,963,500" fillcolor="#9b59b6" fontcolor="white"]
+        bc_am [label="Beam-Core AM\n1,250,000 RP | 64.0x\nCumulative: 2,463,500" fillcolor="#9b59b6"]
+        photonic [label="Photonic Drive\n2,500,000 RP | 80.0x\nCumulative: 4,963,500" fillcolor="#9b59b6"]
+        quantum [label="Quantum Singularity\n5,000,000 RP | 100.0x\nCumulative: 9,963,500" fillcolor="#9b59b6"]
     }
 
-    // Progression arrows
+    // Progression edges
     conv -> nuc_radio [color="#95d5b2"]
     nuc_radio -> nuc_therm [color="#95d5b2"]
     nuc_therm -> nuc_pulse [color="#95d5b2"]
@@ -94,27 +106,29 @@ digraph EngineProgression {
     bc_am -> photonic [color="#9b59b6"]
     photonic -> quantum [color="#9b59b6"]
 
-    // Strategic milestones
+    // Milestones (side annotations)
     subgraph cluster_milestones {
         label="Strategic Milestones"
         fontcolor="#888888"
+        fontsize=10
         color="#666666"
-        style=dashed
+        style="dashed"
 
-        m1 [label="5x Power Jump\nConventional -> Nuclear\n(First major upgrade)" shape=none fontsize=9 fontcolor="#95d5b2"]
-        m2 [label="20x Power\nMagnetic Fusion\n(Mid-game competitive)" shape=none fontsize=9 fontcolor="#ffe66d"]
-        m3 [label="50x Power\nPlasma-Core AM\n(Late-game dominance)" shape=none fontsize=9 fontcolor="#ff6b6b"]
-        m4 [label="100x Power\nQuantum Singularity\n(Ultimate engine)" shape=none fontsize=9 fontcolor="#9b59b6"]
+        m1 [label="5x Power Jump\nConventional -> Nuclear\n(First major upgrade)" shape=box fillcolor="#2d2d44" style=filled fontcolor="#95d5b2"]
+        m2 [label="20x Power\nMagnetic Fusion\n(Mid-game competitive)" shape=box fillcolor="#2d2d44" style=filled fontcolor="#ffe66d"]
+        m3 [label="50x Power\nPlasma-Core AM\n(Late-game dominance)" shape=box fillcolor="#2d2d44" style=filled fontcolor="#ff6b6b"]
+        m4 [label="100x Power\nQuantum Singularity\n(Ultimate engine)" shape=box fillcolor="#2d2d44" style=filled fontcolor="#9b59b6"]
     }
 
     // Legend
     subgraph cluster_legend {
         label="Legend"
         fontcolor="#888888"
+        fontsize=10
         color="#666666"
-        style=dashed
+        style="dashed"
 
-        leg1 [label="Format: Tech Name | This Level RP | Power Multiplier | Cumulative RP" shape=none fontsize=9]
-        leg2 [label="Power doubles approximately every 3 levels (~25-28% per level)" shape=none fontsize=9]
+        leg1 [label="Format: Tech Name | This Level RP | Power Multiplier" shape=box fillcolor="#2d2d44" style=filled]
+        leg2 [label="Power doubles approximately every 3 levels (~25-28% per level)" shape=box fillcolor="#2d2d44" style=filled]
     }
 }
