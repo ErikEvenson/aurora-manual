@@ -43,6 +43,7 @@ FILES=(
     1-introduction/1.1-what-is-aurora.md
     1-introduction/1.2-installation.md
     1-introduction/1.3-first-launch.md
+    1-introduction/1.4-ai-assisted-play.md
     2-game-setup/2.1-new-game-options.md
     2-game-setup/2.2-race-creation.md
     2-game-setup/2.3-system-generation.md
