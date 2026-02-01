@@ -70,6 +70,56 @@ When preparing answers suitable for posting to Aurora Forums or Discord:
 - **Callouts:** Use `> **Tip:**`, `> **Note:**`, `> **Warning:**` blockquote format
 - **Tables:** Ensure blank lines before and after tables for pandoc compatibility
 
+## Glossary Linking (MANDATORY for all new content)
+
+*Updated: v2026.01.30*
+
+When writing new content, link glossary-defined abbreviations on their **first occurrence** in each file. This helps new players quickly look up unfamiliar terminology.
+
+**Core terms requiring glossary links (first occurrence per file):**
+
+| Term | Full Name | Link Format |
+|------|-----------|-------------|
+| BP | Build Points | `[BP](../appendices/B-glossary.md)` |
+| MSP | Maintenance Supply Points | `[MSP](../appendices/B-glossary.md)` |
+| MSP | Missile Size Points (context-dependent) | `[MSP](../appendices/B-glossary.md)` |
+| TN | Trans-Newtonian | `[TN](../appendices/B-glossary.md)` |
+| NPR | Non-Player Race | `[NPR](../appendices/B-glossary.md)` |
+| HS | Hull Space | `[HS](../appendices/B-glossary.md)` |
+| JP | Jump Point | `[JP](../appendices/B-glossary.md)` |
+| PDC | Planetary Defence Centre | `[PDC](../appendices/B-glossary.md)` |
+| CIWS | Close-In Weapon System | `[CIWS](../appendices/B-glossary.md)` |
+| ECM | Electronic Countermeasures | `[ECM](../appendices/B-glossary.md)` |
+| ECCM | Electronic Counter-Countermeasures | `[ECCM](../appendices/B-glossary.md)` |
+| BFC | Beam Fire Control | `[BFC](../appendices/B-glossary.md)` |
+| MFC | Missile Fire Control | `[MFC](../appendices/B-glossary.md)` |
+| CC | Colony Cost | `[CC](../appendices/B-glossary.md)` |
+| CF | Construction Factory | `[CF](../appendices/B-glossary.md)` |
+| AFR | Annual Failure Rate | `[AFR](../appendices/B-glossary.md)` |
+
+**Rules:**
+
+1. **First occurrence only:** Link only the first use of each term per markdown file. Subsequent uses don't need links.
+2. **Include expansion on first use:** When introducing a term, expand it with the abbreviation: `[Trans-Newtonian (TN)](../appendices/B-glossary.md)` or `[BP](../appendices/B-glossary.md) (Build Points)`
+3. **Context-dependent terms:** MSP has two meanings (Maintenance Supply Points vs Missile Size Points). Use context to clarify which definition applies.
+4. **Section headings:** Do NOT place glossary links inside markdown headings. Link the term in the first paragraph instead.
+5. **Glossary sync:** If you use a term that should be in the glossary but isn't, add it to `appendices/B-glossary.md`.
+
+**Example:**
+```markdown
+## 8.5.6 CIWS
+
+The [CIWS](../appendices/B-glossary.md) (Close-In Weapon System) is a self-contained
+point defense system. Unlike standard gauss cannons that require separate
+[BFC](../appendices/B-glossary.md) allocations, CIWS operates independently.
+```
+
+**Checking for glossary terms:**
+```bash
+# List all defined terms in glossary
+grep -E '^\*\*[A-Z]+\*\*' appendices/B-glossary.md | head -20
+```
+
 ## Inline References (MANDATORY for all new content)
 
 *Updated: v2026.01.30*
@@ -103,7 +153,7 @@ Fuel Refineries cost 120 BP and require 120 Boronide per installation \hyperlink
 
 ## Build System
 
-*Updated: v2026.01.30*
+*Updated: v2026.01.28*
 
 - **Build command:** `bash build-pdf.sh` (auto-increment) or `bash build-pdf.sh VERSION` (explicit)
 - **PDF output:** `releases/aurora-manual-VERSION.pdf`
@@ -130,7 +180,7 @@ For development/testing builds, use `bash build-pdf.sh` without arguments (auto-
 
 ## Game Database
 
-*Updated: v2026.01.30*
+*Updated: v2026.01.28*
 
 - **Location:** `~/Downloads/Aurora271Full/AuroraDB.db` (SQLite)
 - **Use:** Verify formulas, values, and mechanics claims against actual game data
@@ -216,7 +266,7 @@ Prioritize verification of:
 
 ## Contributor Attribution
 
-*Updated: v2026.01.30*
+*Updated: v2026.01.29*
 
 All repo contributors must appear in three locations:
 
@@ -228,7 +278,7 @@ To get the current contributor list: `gh api repos/ErikEvenson/aurora-manual/con
 
 ## LaTeX Compatibility
 
-*Updated: v2026.01.30*
+*Updated: v2026.01.29*
 
 - Avoid Unicode symbols that don't render in LaTeX (e.g., use `<=` instead of `≤`)
 - Long tables may overflow; consider breaking into multiple tables or using shorter column content
@@ -635,6 +685,8 @@ Before committing any chart:
 - [ ] File in correct chapter subdirectory
 
 ## Diagrams
+
+*Updated: v2026.01.30*
 
 Diagrams (flowcharts, system diagrams, tech trees, tactical illustrations) are stored in `images/diagrams/` with subdirectories mirroring chapter structure.
 
