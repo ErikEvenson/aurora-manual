@@ -1,6 +1,13 @@
 title: Aurora 4X Manual & Guide
-description: Comprehensive Aurora 4X guide, tutorial, and reference manual for Aurora C# — the complex space strategy game by Steve Walmsley. Learn how to play Aurora 4X with step-by-step tutorials, ship design guides, and verified game mechanics.
+description: Comprehensive Aurora 4X guide, tutorial, and reference manual for Aurora C# — the complex space strategy game by Steve Walmsley. Includes tech trees, ship design formulas, combat mechanics, and database-verified game information. Learn how to play Aurora 4X with step-by-step tutorials and worked examples.
 remote_theme: just-the-docs/just-the-docs
+
+# SEO
+plugins:
+  - jekyll-seo-tag
+
+# Social sharing image
+og_image: /images/art/aurora-4x-manual-cover.png
 
 # GitHub repository info
 url: https://erikevenson.github.io
