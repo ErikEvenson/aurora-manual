@@ -130,6 +130,7 @@ FILES=(
     appendices/B-glossary.md
     appendices/C-tips-and-mistakes.md
     appendices/D-reference-tables.md
+    appendices/E-version-history.md
     # Worked Examples
     examples/early-game-economy.md
     examples/exploration-workflow.md
