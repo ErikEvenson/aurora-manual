@@ -102,7 +102,7 @@ You are an Aurora C# coach. Analyze the player's game state and provide helpful 
 - Consult `8-ship-design/8.5-weapons.md` for weapon design
 - Consult `11-sensors-and-detection/` for detection mechanics
 
-**IMPORTANT:** Always read the relevant manual sections before explaining mechanics. Never state mechanics from memory — the manual is the authoritative source.
+**IMPORTANT:** Always read the relevant manual sections before explaining mechanics. Never state mechanics from memory or from this skill file alone — the manual is the authoritative source. Use Grep/Read tools to verify claims against manual content before presenting to player.
 
 ### Key Queries Reference
 
@@ -131,13 +131,28 @@ AND pi.Amount > 0
 ORDER BY pi.Amount DESC;
 ```
 
-**Research projects:**
+**Research projects (with assigned scientist):**
 ```sql
-SELECT rp.TechID, ts.Name, rp.ResearchPointsRequired
+SELECT rp.ProjectID, ts.Name as Tech, rp.Facilities as Labs, c.Name as Scientist, rf.FieldName as ScientistField
 FROM FCT_ResearchProject rp
-LEFT JOIN FCT_TechSystem ts ON rp.TechID = ts.TechSystemID
+JOIN FCT_TechSystem ts ON rp.TechID = ts.TechSystemID
+LEFT JOIN FCT_Commander c ON c.CommandType=7 AND c.CommandID = rp.ProjectID
+LEFT JOIN DIM_ResearchField rf ON c.ResSpecID = rf.ResearchFieldID
 WHERE rp.RaceID=<rid>;
 ```
+
+Note: Scientists get a 4× research bonus when working in their specialty field.
+
+**Research queue (queued techs per project):**
+```sql
+SELECT rq.CurrentProjectID, rq.ResearchOrder, ts.Name
+FROM FCT_ResearchQueue rq
+JOIN FCT_TechSystem ts ON rq.TechSystemID = ts.TechSystemID
+WHERE rq.PopulationID=<popid>
+ORDER BY rq.CurrentProjectID, rq.ResearchOrder;
+```
+
+Note: CurrentProjectID links to FCT_ResearchProject.ProjectID. ResearchOrder is the queue position (1, 2, 3...).
 
 **Ships:**
 ```sql
@@ -164,12 +179,24 @@ SELECT Duranium, Neutronium, Corbomite, Tritanium, Boronide, Mercassium, Vendari
 FROM FCT_Population WHERE RaceID=<rid>;
 ```
 
-**Production queue (CI conversions, installations, etc.):**
+**Production queue (CI conversions, installations, etc.) — ALWAYS CHECK:**
 ```sql
 SELECT Description, Amount, PartialCompletion, Percentage
 FROM FCT_IndustrialProjects
 WHERE PopulationID=<popid>;
 ```
+
+**⚠️ If production queue is empty, check CF count and warn about idle capacity:**
+```sql
+-- Get CF count (PlanetaryInstallationID=2 is Construction Factory)
+SELECT pi.Amount as CFs
+FROM FCT_PopulationInstallations pi
+WHERE pi.PopID=<popid> AND pi.PlanetaryInstallationID=2;
+```
+
+**Calculate idle BP/year:** CFs × Construction Rate (default 10 BP, or 12/14/16 if researched)
+
+Example: 800 CFs × 14 BP = 11,200 BP/year idle capacity
 
 **Check if TN tech researched:**
 ```sql
@@ -177,9 +204,35 @@ WHERE PopulationID=<popid>;
 SELECT COUNT(*) FROM FCT_RaceTech WHERE RaceID=<rid> AND TechID=27434;
 ```
 
+**Check researched techs by keyword (e.g., engines, fuel):**
+```sql
+SELECT ts.TechSystemID, ts.Name
+FROM FCT_RaceTech rt
+JOIN FCT_TechSystem ts ON rt.TechID = ts.TechSystemID
+WHERE rt.RaceID=<rid> AND ts.Name LIKE '%Engine%';
+```
+
+**Key engine/fuel tech IDs:**
+- 25141: Fuel Consumption 1.0 L/EPH (starting)
+- 25129-25140: Fuel Consumption improvements (0.9 down to 0.1)
+- 24604: Nuclear Thermal Engine
+- 24605: Nuclear Pulse Engine
+- 38336: Conventional Engine
+
 ### Commander Queries
 
-**Commander types:** CommanderType 0=Naval Officer, 1=Naval Officer (senior), 2=Ground Officer, 3=Administrator
+**Commander types (CommanderType field):**
+- 0 = Naval Officer
+- 1 = Naval Officer (senior)
+- 2 = Ground Officer
+- 3 = Scientist
+- 4 = Administrator
+
+**Command assignment types (CommandType field):**
+- 0 = Unassigned
+- 7 = Research Project Leader (CommandID = ProjectID from FCT_ResearchProject)
+- 12 = Naval Admin Command
+- 17 = Academy Commandant (CommandID = PopulationID)
 
 **Academy Commandant (CommandType=17 with CommandID=PopulationID):**
 ```sql
@@ -206,7 +259,67 @@ WHERE c.RaceID=<rid> AND cb.BonusID=1
 ORDER BY cb.BonusValue DESC;
 ```
 
-Key bonus types: 1=Crew Training, 12=Ground Combat Training, 37=Fleet Training
+Key bonus types: 1=Crew Training, 3=Research, 12=Ground Combat Training, 27=Research Admin, 37=Fleet Training
+
+### Scientist Queries
+
+**Research fields (DIM_ResearchField):**
+| ResearchFieldID | FieldName |
+|-----------------|-----------|
+| 1 | Power and Propulsion |
+| 2 | Sensors and Control Systems |
+| 3 | Direct Fire Weapons |
+| 4 | Missiles |
+| 5 | Construction / Production |
+| 6 | Logistics |
+| 7 | Defensive Systems |
+| 8 | Biology / Genetics |
+| 9 | Ground Combat |
+
+**List all scientists with their specialization and Research Admin:**
+```sql
+SELECT c.Name, rf.FieldName, cb.BonusValue as ResearchAdmin, c.CommandType
+FROM FCT_Commander c
+JOIN DIM_ResearchField rf ON c.ResSpecID = rf.ResearchFieldID
+LEFT JOIN FCT_CommanderBonuses cb ON c.CommanderID = cb.CommanderID AND cb.BonusID = 27
+WHERE c.RaceID=<rid> AND c.CommanderType=3
+ORDER BY cb.BonusValue DESC;
+```
+
+**Find unassigned scientists by field:**
+```sql
+SELECT c.Name, rf.FieldName, cb.BonusValue as ResearchAdmin
+FROM FCT_Commander c
+JOIN DIM_ResearchField rf ON c.ResSpecID = rf.ResearchFieldID
+LEFT JOIN FCT_CommanderBonuses cb ON c.CommanderID = cb.CommanderID AND cb.BonusID = 27
+WHERE c.RaceID=<rid> AND c.CommanderType=3 AND c.CommandType=0
+ORDER BY rf.ResearchFieldID, cb.BonusValue DESC;
+```
+
+**Find which scientist leads each research project:**
+```sql
+SELECT rp.ProjectID, ts.Name as Tech, c.Name as Scientist, rf.FieldName as ScientistField
+FROM FCT_ResearchProject rp
+JOIN FCT_TechSystem ts ON rp.TechID = ts.TechSystemID
+LEFT JOIN FCT_Commander c ON c.CommandType=7 AND c.CommandID = rp.ProjectID
+LEFT JOIN DIM_ResearchField rf ON c.ResSpecID = rf.ResearchFieldID
+WHERE rp.RaceID=<rid>;
+```
+
+**Academy commandant scientist analysis (for scientist generation):**
+When a scientist is Academy Commandant:
+- 14% chance each graduate is a scientist (vs 7% base)
+- 25% chance generated scientists share the commandant's research field
+- If commandant has 20%+ Research Admin, graduates get 2 rolls and keep the better result
+
+```sql
+-- Check if commandant is a scientist and their field
+SELECT c.Name, c.CommanderType, rf.FieldName, cb.BonusValue as ResearchAdmin
+FROM FCT_Commander c
+LEFT JOIN DIM_ResearchField rf ON c.ResSpecID = rf.ResearchFieldID
+LEFT JOIN FCT_CommanderBonuses cb ON c.CommanderID = cb.CommanderID AND cb.BonusID = 27
+WHERE c.RaceID=<rid> AND c.CommandType=17 AND c.CommandID=<popid>;
+```
 
 ### Fleet Organization Queries
 
@@ -228,10 +341,87 @@ ParentAdminCommandID=0 means top-level command.
 ```sql
 SELECT c.Name, c.CommandType, c.CommandID
 FROM FCT_Commander c
-WHERE c.RaceID=<rid> AND c.CommandType IN (7, 12);
+WHERE c.RaceID=<rid> AND c.CommandType=12;
 ```
 
-CommandType 7=Admin role, 12=Naval admin command, 17=Academy Commandant
+### Ship Design & Shipyard Strategy
+
+**Ship classification (military vs commercial):**
+- Survey sensors (Geo or Grav) make a ship **military** — requires naval shipyard
+- Weapons, military engines, significant armor → military
+- Commercial ships: freighters, tankers, colony ships without military components
+
+**Engine choice for survey ships:**
+- Commercial engines: larger but more fuel efficient — good for survey ships needing range
+- Military engines: smaller but less fuel efficient — good for warships needing speed
+- A survey ship with commercial engines is still military (due to survey sensors) and needs a naval shipyard
+
+**Shipyard strategy (early game):**
+- Multiple shipyards > multiple slipways when building different ship classes
+- Multiple slipways = mass-produce one class (e.g., 10 destroyers for war)
+- Retooling cost is based on tonnage difference, NOT number of slipways
+- Keep shipyards tooled for different classes to avoid retooling delays
+
+**Typical shipyard setup:**
+- 1 naval yard for survey ships → later retool or build 2nd naval for warships
+- 1 commercial yard for freighters, tankers, colony ships
+
+### CI Conversion Rules
+
+*Ref: 6-economy-and-industry/6.3-construction.md*
+
+**CI can convert to (20 BP each = 1/6th normal build cost):**
+
+| Target | Mineral Cost |
+|--------|--------------|
+| Construction Factory | 10 Dur + 10 Neu |
+| Mine | 20 Corundium |
+| Fuel Refinery | 20 Boronide |
+| Financial Centre | 20 Corbomite |
+| Ordnance Factory | 20 Tritanium |
+| Fighter Factory (Light Naval in v2.8) | 20 Vendarite |
+
+**Cannot convert from CI — must build from scratch:**
+- Research Facility (2,400 BP + 1,200 Dur)
+- Maintenance Facility (150 BP + 75 Dur + 75 Neu)
+- Military Academy (2,400 BP + 1,200 Dur)
+- Infrastructure (2 BP)
+- Automated Mine (converts from Mine, not CI)
+- Naval/Commercial Shipyard (2,400 BP + 1,200 Dur + 1,200 Neu)
+- Terraforming Installation
+- Deep Space Tracking Station
+
+**Query to check CI conversion options:**
+```sql
+SELECT PlanetaryInstallationID, Name FROM DIM_PlanetaryInstallation
+WHERE ConversionFrom = 38 ORDER BY Name;
+```
+
+### Research Field Mapping
+
+**IMPORTANT:** Database categories (DIM_ResearchCategories) do NOT directly map to scientist fields (DIM_ResearchField).
+
+The database may show a tech as "General Science" category, but for scientist bonuses, determine the field by what the tech enables:
+
+| Tech | DB Category | Actual Scientist Field |
+|------|-------------|----------------------|
+| Jump Point Theory | General Science | Power and Propulsion (enables jump drives) |
+| Fuel Consumption techs | Industry | Power and Propulsion |
+| Survey Sensors | Survey Sensors | Sensors and Control |
+| Construction Rate | Industry | Construction / Production |
+| Shipbuilding Rate | Industry | Construction / Production |
+
+**To check available techs with prerequisites met:**
+```sql
+SELECT ts.TechSystemID, ts.Name, ts.DevelopCost, rc.Name as Category
+FROM FCT_TechSystem ts
+JOIN DIM_ResearchCategories rc ON ts.CategoryID = rc.CategoryID
+WHERE ts.GameID = 0
+  AND ts.TechSystemID NOT IN (SELECT TechID FROM FCT_RaceTech WHERE RaceID=<rid>)
+  AND (ts.Prerequisite1 = 0 OR ts.Prerequisite1 IN (SELECT TechID FROM FCT_RaceTech WHERE RaceID=<rid>))
+  AND (ts.Prerequisite2 = 0 OR ts.Prerequisite2 IN (SELECT TechID FROM FCT_RaceTech WHERE RaceID=<rid>))
+ORDER BY ts.DevelopCost;
+```
 
 ### Response Format
 
@@ -249,13 +439,33 @@ When analyzing a game, check all of these and report status:
 | Check | Query/Method |
 |-------|--------------|
 | Research progress | FCT_ResearchProject with FCT_TechSystem join |
+| Research queue | FCT_ResearchQueue — check for idle labs |
 | Academy Commandant | CommandType=17 assigned to population |
 | Fleet Organization | FCT_Fleet and FCT_NavalAdminCommand |
 | Naval Command Officers | Commanders with CommandType=12 |
 | Shipyard Activity | TaskType, RequiredBP, CompletedBP in FCT_Shipyard |
-| Production Queue | FCT_IndustrialProjects (CI conversions, installations) |
+| **Production Queue** | FCT_IndustrialProjects — **CRITICAL: warn if empty!** |
+| **Idle Construction** | Compare CFs to production queue — **ALWAYS CHECK** |
 | Mineral Stockpiles | FCT_Population mineral columns (watch Sorium!) |
 | Ship Count | FCT_Ship count |
+
+**CRITICAL: Always check for idle construction capacity!**
+
+```sql
+-- Check production queue (empty = idle CFs!)
+SELECT Description, Amount, Percentage FROM FCT_IndustrialProjects WHERE PopulationID=<popid>;
+
+-- Check CF count to calculate idle capacity
+SELECT pi.Amount FROM FCT_PopulationInstallations pi
+WHERE pi.PopID=<popid> AND pi.PlanetaryInstallationID=2;
+```
+
+If production queue is empty and CFs > 0, **immediately warn the player** and suggest:
+- Research Labs (2,400 BP) — if running < 30 labs
+- Mines (120 BP) — if mineral stockpiles are low
+- Fuel Refineries (120 BP) — if fuel/Sorium is low
+- Maintenance Facilities (150 BP) — if fleet is growing
+- Naval Shipyard (2,400 BP) — if planning multiple ship classes
 
 Report as a summary table:
 ```
@@ -266,7 +476,7 @@ Report as a summary table:
 | Fleet Organization | ... |
 | Naval Commands | ... |
 | Shipyards | ... |
-| Production Queue | ... |
+| **Production Queue** | ⚠️ EMPTY — X CFs idle! |
 ```
 
 ---
@@ -339,3 +549,56 @@ grep -r "fuel consumption" --include="*.md"
 # Find formulas
 grep -r "formula\|calculation" --include="*.md"
 ```
+
+---
+
+## Gravitational Survey Queries
+
+**Jump points in a system:**
+```sql
+SELECT WarpPointID, Distance, Bearing, Xcor, Ycor
+FROM FCT_JumpPoint WHERE SystemID=<sysid>;
+```
+
+**Jump points known to player:**
+```sql
+SELECT jp.WarpPointID, jp.Distance, rjps.Explored, rjps.Charted
+FROM FCT_JumpPoint jp
+JOIN FCT_RaceJumpPointSurvey rjps ON jp.WarpPointID = rjps.WarpPointID
+WHERE jp.SystemID=<sysid> AND rjps.RaceID=<rid>;
+```
+
+**System grav survey status:**
+```sql
+SELECT Name, SurveyDone FROM FCT_RaceSysSurvey
+WHERE SystemID=<sysid> AND RaceID=<rid>;
+```
+
+**Standing orders (for reference):**
+```sql
+SELECT OrderID, Description FROM DIM_StandingOrders
+WHERE Description LIKE '%Survey%' OR Description LIKE '%Grav%';
+```
+
+Key standing orders:
+- OrderID 6: MV: Geosurvey System
+- OrderID 10: MV: Gravsurvey System
+- OrderID 5: SV: Survey Location
+
+### Grav Survey Troubleshooting
+
+**If "MV: Gravsurvey System" reports "unable to carry out standing orders":**
+
+1. Check if system is already fully surveyed (SurveyDone=1 in FCT_RaceSysSurvey)
+2. Standing orders have a **10 billion km distance threshold** — distant survey locations may be out of range
+3. **Solution:** Use manual survey orders instead:
+   - In Task Group Orders window, check **"Survey Locations"** checkbox
+   - A list of survey locations appears
+   - Select specific locations to survey manually
+   - This bypasses the standing order distance limit
+
+**To help player visualize survey progress:**
+- System Map (F3) > Display tab > Enable "Show JP Survey Locations"
+- Unsurveyed locations = empty white circles
+- Surveyed locations = filled circles
+- Jump points labeled JP1, JP2, etc.
