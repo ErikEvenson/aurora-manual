@@ -1,10 +1,14 @@
 # Changelog
 
+*Updated: v2026.01.24*
+
 All notable changes to the Aurora 4X C# Manual will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [2026.01.24.12] - 2026-01-24
+
+*Updated: v2026.01.24*
 
 ### Added
 - SpaceMaster Mode section (18.5) with system/colony/fleet manipulation tools
@@ -53,4 +57,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
-Reserved for tracking changes before the next release.
+*Updated: v2026.01.24*
+
+### Added
+- v2.8.0 Fighter/FAC Unification documentation throughout manual (8.2, 9.6, 16.2, 6.3, 5.4):
+  - Light Naval classification (ships <=1,000 tons) replaces fighter/FAC distinction
+  - Planetary interaction limit raised from 500 tons to 1,000 tons
+  - Fighter Factories renamed to Light Naval Factories
+  - Light Tactical bonus replaces Fighter Combat bonus
+  - Standard Tactical bonus no longer affects Light Naval units
+  - Ships >1,000 tons receive half commander bonuses for six skill types
+- Version markers (v2.8.0+) added throughout affected sections for visibility
