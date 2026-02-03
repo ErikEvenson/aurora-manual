@@ -5,20 +5,20 @@ nav_order: 0
 
 # Aurora 4X Manual (Unofficial)
 
-*Updated: v2026.01.29*
+*Updated: v2026.01.30*
 
 [![Latest Release](https://img.shields.io/github/v/release/ErikEvenson/aurora-manual?label=PDF%20Download)](https://github.com/ErikEvenson/aurora-manual/releases/latest)
 [![GitHub Discussions](https://img.shields.io/github/discussions/ErikEvenson/aurora-manual)](https://github.com/ErikEvenson/aurora-manual/discussions)
 
 > **Note:** This is an unofficial community manual, not affiliated with or endorsed by Steve Walmsley. It is under active development and may contain inaccuracies. Values and formulas are being verified against the game database. Some content may be incomplete, outdated, or incorrect. If you spot an error, please [report it](../../issues/new?template=inaccuracy-report.md).
 
-A comprehensive reference manual, beginner's guide, and tutorial resource for Aurora C# — the complex 4X space strategy game by Steve Walmsley. Whether you're learning how to play Aurora 4X for the first time or looking up advanced mechanics, this manual covers Aurora C# through v2.8.0 with ongoing coverage of new features.
+A comprehensive reference manual, beginner's guide, and tutorial resource for Aurora C# — the complex 4X space strategy game by Steve Walmsley. Whether you're learning how to play Aurora 4X for the first time or looking up advanced mechanics, this manual covers Aurora C# v2.7.1 (current stable) with v2.8.0 changes documented where applicable. Version-specific content is clearly marked.
 
 **[Download the latest PDF](https://github.com/ErikEvenson/aurora-manual/releases/latest)** — printable, offline-ready reference
 
 ## Preface
 
-*Updated: v2026.01.29*
+*Updated: v2026.01.30*
 
 This manual is written for new and intermediate Aurora players. If you're learning Aurora for the first time or still finding your footing, you'll find explanations of core mechanics, worked examples like designing your first missile cruiser or planning a colonial mining network, and practical guidance that should accelerate your learning considerably.
 
@@ -34,7 +34,7 @@ If you find an error, please open an issue at [github.com/ErikEvenson/aurora-man
 
 ## Structure
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
 
 This manual is organized using a decimal numbering system. Each major section is a directory containing subsection files. Sub-subsections (e.g., 8.2.1) are headings within files.
 
@@ -63,7 +63,7 @@ This manual is organized using a decimal numbering system. Each major section is
 
 ## How to Play Aurora 4X — Beginner's Guide
 
-*Updated: v2026.01.28*
+*Updated: v2026.01.30*
 
 New to Aurora 4X? This step-by-step tutorial path will teach you the game from scratch. Follow this reading order to learn Aurora's core mechanics systematically:
 
@@ -86,7 +86,7 @@ After completing this path, explore sections relevant to your current gameplay c
 
 ## What This Manual Covers
 
-*Updated: v2026.01.28*
+*Updated: v2026.01.30*
 
 This Aurora 4X guide provides detailed documentation on:
 
@@ -103,7 +103,7 @@ This Aurora 4X guide provides detailed documentation on:
 
 ## Sources
 
-*Updated: v2026.01.28*
+*Updated: v2026.01.30*
 
 - Steve Walmsley's forum posts (http://aurora2.pentarch.org/) — the official Aurora forum on pentarch.org, the authoritative primary source for Aurora mechanics and development history since 2003
 - Aurora community wiki
@@ -113,7 +113,7 @@ This Aurora 4X guide provides detailed documentation on:
 
 ## Contributing
 
-*Updated: v2026.01.24*
+*Updated: v2026.01.30*
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for full guidelines on reporting inaccuracies, submitting corrections, and adding new content.
 
@@ -148,7 +148,7 @@ Content here.
 
 ## Building the PDF
 
-*Updated: v2026.01.28*
+*Updated: v2026.01.30*
 
 Requires: `pandoc`, `tectonic` (LaTeX), `rsvg-convert`
 
@@ -170,9 +170,9 @@ Output: `releases/aurora-manual-VERSION.pdf`
 
 ## Community Review
 
-*Updated: v2026.01.28*
+*Updated: v2026.01.30*
 
-This manual covers Aurora C# through v2.8.0. Coverage of new versions is ongoing. We welcome review from experienced players on:
+This manual covers Aurora C# v2.7.1 (current stable) with v2.8.0 changes documented where applicable. Version-specific differences are marked with `> **v2.8.0+:**` callouts or inline markers. We welcome review from experienced players on:
 
 - Formula and value accuracy
 - Missing mechanics or edge cases
@@ -182,7 +182,7 @@ This manual covers Aurora C# through v2.8.0. Coverage of new versions is ongoing
 
 ## Contributors
 
-*Updated: v2026.01.25*
+*Updated: v2026.01.30*
 
 - **[@ErikEvenson](https://github.com/ErikEvenson)**
 - **[@ManzoorAhmedShaikh](https://github.com/ManzoorAhmedShaikh)**

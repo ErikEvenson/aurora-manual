@@ -11,7 +11,7 @@ This is a comprehensive reference manual for Aurora C# (space strategy game by S
 
 ## Security
 
-*Added: v2026.02.01*
+*Updated: v2026.02.01*
 
 **CRITICAL: Never store credentials in the repository.**
 
@@ -79,13 +79,38 @@ When preparing answers suitable for posting to Aurora Forums or Discord:
 
 ## Content Standards
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.01*
 
 - **Section numbering:** Decimal hierarchy (e.g., 8.2.1 is a heading within file 8.2)
 - **Cross-references:** Always use `[Section X.Y Title](../path/to/file.md)` format — never bare "see Section X.Y"
 - **Version tags:** New sections get `*Added: v2026.01.24*` after the top heading
 - **Callouts:** Use `> **Tip:**`, `> **Note:**`, `> **Warning:**` blockquote format
 - **Tables:** Ensure blank lines before and after tables for pandoc compatibility
+
+### Version-Specific Content (v2.7.1/v2.8.0)
+
+*Added: v2026.02.03*
+
+The manual covers Aurora C# v2.7.1 (current stable) with v2.8.0 changes documented where applicable. Use these conventions for version-specific content:
+
+**Blockquote format** (for significant behavior changes):
+```markdown
+> **v2.8.0+:** Light Naval Shipyards provide 1000-ton capacity with simplified upgrades.
+
+> **v2.7.1 and earlier:** Fighter factories produce fighters up to 500 tons.
+```
+
+**Inline format** (for minor value differences):
+```markdown
+The limit is 500 tons *(v2.7.1)* / 1000 tons *(v2.8.0+)*
+```
+
+**Rules:**
+1. Default to v2.7.1 behavior as the baseline (it's the current stable version)
+2. Mark v2.8.0 changes explicitly — don't assume readers have the latest version
+3. Use blockquote format for significant mechanic changes that affect gameplay decisions
+4. Use inline format for simple numeric differences
+5. Source v2.8.0 changes from Aurora Forums [v2.8.0 Changes List](https://aurora2.pentarch.org/index.php?topic=13884.0)
 
 ## Glossary Linking (MANDATORY for all new content)
 
@@ -196,7 +221,7 @@ For development/testing builds, use `bash build-pdf.sh` without arguments (auto-
 
 ## Game Database
 
-*Updated: v2026.02.01*
+*Updated: v2026.01.28*
 
 - **Location:** `~/Downloads/Aurora271Full/AuroraDB.db` (SQLite)
 - **Use:** Verify formulas, values, and mechanics claims against actual game data
@@ -204,7 +229,7 @@ For development/testing builds, use `bash build-pdf.sh` without arguments (auto-
 
 ## Issue Workflow
 
-*Updated: v2026.01.30*
+*Updated: v2026.01.28*
 
 - Group related issues into parallel waves for background agents
 - Close issues with commit reference comments
@@ -257,7 +282,7 @@ Prioritize verification of:
 
 ## README Maintenance
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.01*
 
 **Keep README.md synchronized with project state.** Check and update when:
 
@@ -282,7 +307,7 @@ Prioritize verification of:
 
 ## Contributor Attribution
 
-*Updated: v2026.02.01*
+*Updated: v2026.01.30*
 
 All repo contributors must appear in three locations:
 
@@ -294,14 +319,14 @@ To get the current contributor list: `gh api repos/ErikEvenson/aurora-manual/con
 
 ## LaTeX Compatibility
 
-*Updated: v2026.02.01*
+*Updated: v2026.01.29*
 
 - Avoid Unicode symbols that don't render in LaTeX (e.g., use `<=` instead of `≤`)
 - Long tables may overflow; consider breaking into multiple tables or using shorter column content
 
 ## SVG Images
 
-*Updated: v2026.01.30*
+*Updated: v2026.01.29*
 
 SVG images are supported via automatic conversion:
 
@@ -568,7 +593,7 @@ Both PDF (pandoc) and web (Jekyll) handle PNG images natively.
 
 ## Charts
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.01*
 
 Charts are stored in `images/charts/` with subdirectories mirroring chapter structure.
 
@@ -702,7 +727,7 @@ Before committing any chart:
 
 ## Diagrams
 
-*Updated: v2026.02.01*
+*Updated: v2026.01.30*
 
 Diagrams (flowcharts, system diagrams, tech trees, tactical illustrations) are stored in `images/diagrams/` with subdirectories mirroring chapter structure.
 
