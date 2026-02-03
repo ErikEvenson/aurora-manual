@@ -55,7 +55,7 @@ digraph GroundCombatPhase {
     ];
 
     bombardment [
-        label="3. Bombardment Phase\nSupport elements fire\nGround support fighters fire\nOrbital bombardment ships fire"
+        label="3. Bombardment Phase\nSupport elements fire\nOrbital bombardment ships fire\n(v2.8.0+: Ground support fighters removed)"
         fillcolor="#2d2d44"
         color="#ff6b6b"
     ];
@@ -67,7 +67,7 @@ digraph GroundCombatPhase {
     ];
 
     aa [
-        label="5. Anti-Aircraft Phase\nAA elements engage attacking\naircraft (damage applied after all)"
+        label="5. Anti-Aircraft Phase\n(v2.8.0+: Not applicable;\nGround support fighters removed)"
         fillcolor="#2d2d44"
         color="#ffe66d"
     ];

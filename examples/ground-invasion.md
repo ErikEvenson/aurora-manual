@@ -6,7 +6,7 @@ nav_order: 99
 
 # Example: Planning a Ground Invasion
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.02*
 
 This worked example walks through the process of planning, executing, and consolidating a ground invasion of an enemy colony. It demonstrates force composition calculations, transport logistics, orbital support coordination, and post-conquest occupation requirements.
 
@@ -14,7 +14,7 @@ This worked example walks through the process of planning, executing, and consol
 
 ## Contents
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.02*
 
 {: .no_toc }
 
@@ -167,8 +167,9 @@ For a 3:1 ratio against 20 defending battalions, you need the equivalent of 60 b
 **Factors reducing required strength:**
 
 - Orbital bombardment support (precision fire through FFD elements)
-- Ground support fighters (if available)
 - Attacker surprise (defender has limited intelligence on your composition)
+
+> **v2.8.0+:** Ground support fighters have been removed from the game and are no longer a factor in assault planning.
 
 **Factors increasing required strength:**
 
@@ -268,8 +269,10 @@ Using 8 Heavy Transports (10,000 tons each = 80,000 ton capacity):
 Ships assigned to "Provide Orbital Bombardment Support" fire once per ground combat phase with FFD-directed accuracy:
 
 ```
-Each FFD component enables 1 orbital bombardment ship OR 6 ground support fighters
+Each FFD component enables 1 orbital bombardment ship
 ```
+
+> **v2.8.0+:** Ground support fighters have been removed. Prior versions allowed each FFD component to alternatively support 6 ground support fighters.
 
 **For this assault:**
 
@@ -546,7 +549,7 @@ After conquest, check:
 
 6. **Neglecting supply.** 10 rounds of inherent supply goes fast. Without logistics elements, formations drop to 25% effectiveness and cannot attack.
 
-7. **Ignoring the FFD requirement.** Without Forward Fire Direction elements, your formations cannot receive orbital bombardment support or ground support fighter assistance. Include FFD in every combat formation template.
+7. **Ignoring the FFD requirement.** Without Forward Fire Direction elements, your formations cannot receive orbital bombardment support. Include FFD in every combat formation template. *(v2.8.0+: Ground support fighters have been removed.)*
 
 8. **Not planning for post-conquest.** Taking the colony is half the battle. Without garrison forces, a governor, and infrastructure support, the conquest is worthless.
 
@@ -554,7 +557,7 @@ After conquest, check:
 
 ## Advanced Tactics
 
-*Updated: v2026.01.26*
+*Updated: v2026.01.30*
 
 The preceding sections cover the fundamentals of planetary invasion. This section addresses more sophisticated scenarios requiring multi-formation coordination, integrated orbital assets, PDC assault techniques, and sustained logistics for extended campaigns.
 

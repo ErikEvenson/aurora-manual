@@ -1,10 +1,12 @@
 # Ground Forces Window Layout
 
-*Added: v2026.01.25*
+*Updated: v2026.01.26*
 
 The Ground Forces window is the primary interface for designing, building, organizing, and managing all ground combat formations. It combines formation template design, unit class creation, training oversight, and transport management into a single multi-tabbed interface. Access it from the main toolbar or via the F12 shortcut.
 
 ## Window Layout
+
+*Updated: v2026.01.24*
 
 ```
 +==============================================================================+
@@ -86,6 +88,8 @@ The Ground Forces window is the primary interface for designing, building, organ
 
 ## Element Descriptions
 
+*Updated: v2026.01.24*
+
 ### [1] Formation List
 The left panel displays all existing formations for the selected race. Each entry shows the formation name, current location (population/system body), and strength percentage. Formations below 100% strength have sustained losses and may need replacements. Click a formation to view its details in the center panel. Formations are displayed hierarchically -- parent formations show their subordinates as child nodes.
 
@@ -114,7 +118,7 @@ Summarizes the formation's total characteristics:
 - **Total Tonnage**: Determines transport ship capacity requirements.
 - **Total GSP**: Overall combat effectiveness rating.
 - **HQ Capacity**: Command tonnage available (should match or exceed total tonnage).
-- **FFD Components**: Number of Forward Fire Direction elements (each enables 6 ground support fighters + 1 orbital bombardment ship).
+- **FFD Components**: Number of Forward Fire Direction elements (each enables 1 orbital bombardment ship). *(v2.8.0+: ground support fighters removed; prior versions also allowed 6 fighters per FFD.)*
 - **CIWS Components**: Planetary missile defense capacity.
 - **STO Weapons**: Surface-to-orbit energy weapons for engaging orbital targets.
 - **Construction CFE**: Construction Factory Equivalents for fortification work.
@@ -129,6 +133,8 @@ Accessed via the "Ground Unit Classes" tab. Design individual unit types by sele
 Shows all formations currently under construction or queued. Displays the template being built, the population performing construction, progress percentage, estimated completion date, and total build point cost. Build priority can be reordered. Construction draws from the population's allocated build point budget (see [Section 6.3 Construction](../6-economy-and-industry/6.3-construction.md)).
 
 ## Common Workflows
+
+*Updated: v2026.01.24*
 
 ### Designing a Formation Template
 
@@ -176,9 +182,11 @@ Shows all formations currently under construction or queued. Displays the templa
 
 ## Tips and Shortcuts
 
+*Updated: v2026.01.26*
+
 - **HQ Coverage Rule**: Always ensure HQ capacity (tons) matches or exceeds total formation tonnage. Formations without adequate HQ suffer proportional effectiveness penalties in combat.
 - **Transport Budget**: Design formations with transport in mind. A 10,000-ton super-heavy vehicle formation requires enormous transport capacity. Consider whether the firepower justifies the logistical cost.
-- **FFD Planning**: Include at least one FFD element per formation that will receive air or orbital support. Each FFD enables 6 ground support fighters and 1 bombardment ship. Without FFD, no external fire support is possible.
+- **FFD Planning**: Include at least one FFD element per formation that will receive orbital support. Each FFD enables 1 bombardment ship. Without FFD, no orbital fire support is possible. *(v2.8.0+: ground support fighters removed; prior versions also allowed 6 fighters per FFD.)*
 - **Supply Autonomy**: Each unit has inherent supply for only 10 combat rounds. For sustained operations, include logistics elements. Vehicle-based logistics can supply other formations; infantry logistics can only supply their own.
 - **Mixed Arms**: Combine anti-personnel elements (for infantry targets) with anti-vehicle elements (for armor). Pure infantry formations are cheap but vulnerable to armor; pure armor is expensive and lacks garrison flexibility.
 - **Construction Elements**: Include combat engineers if you need fortification beyond self-fortification levels. Vehicles can only reach their maximum fortification (level 2-3) with external construction support.
