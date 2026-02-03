@@ -164,6 +164,25 @@ for f in "${FILES[@]}"; do
     fi
 done
 
+# Create temp directory for preprocessed files
+TEMP_DIR=$(mktemp -d)
+trap "rm -rf $TEMP_DIR" EXIT
+
+# Copy and preprocess files to remove Kramdown-specific TOC markup (Jekyll/GitHub Pages only)
+PROCESSED_FILES=()
+for f in "${FILES[@]}"; do
+    # Create directory structure in temp dir
+    mkdir -p "$TEMP_DIR/$(dirname "$f")"
+    # Copy file and strip Kramdown markup
+    sed -E '
+        /^\{: \.no_toc \}$/d
+        /^\{:toc\}$/d
+        /^- TOC$/d
+        /^## Contents$/d
+    ' "$f" > "$TEMP_DIR/$f"
+    PROCESSED_FILES+=("$TEMP_DIR/$f")
+done
+
 # Build PDF with pandoc + tectonic
 pandoc \
     --metadata-file=metadata.yaml \
@@ -180,7 +199,7 @@ pandoc \
     -V linkcolor=blue \
     -V urlcolor=blue \
     -o "$OUTPUT_FILE" \
-    "${FILES[@]}"
+    "${PROCESSED_FILES[@]}"
 
 echo "Built: ${OUTPUT_FILE}"
 echo "Size: $(du -h "$OUTPUT_FILE" | cut -f1)"
