@@ -6,7 +6,7 @@ nav_order: 2
 
 # Appendix B: Glossary
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.01*
 
 This glossary defines key terms used throughout the Aurora C# manual. Cross-references to detailed coverage are provided for major topics.
 
@@ -133,6 +133,17 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | Wealth | Economic currency for installations and maintenance |
 | Waypoint | Designated navigation point in space |
 | Xenoarchaeology | Study of alien ruins to recover tech and artifacts |
+
+---
+
+## Contents
+
+*Updated: v2026.01.29*
+
+{: .no_toc }
+
+- TOC
+{:toc}
 
 ## Related Sections
 

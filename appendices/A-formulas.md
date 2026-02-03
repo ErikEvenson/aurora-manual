@@ -14,6 +14,17 @@ This appendix collects the key mathematical formulas that govern Aurora C# mecha
 
 ---
 
+---
+
+## Contents
+
+*Updated: v2026.01.30*
+
+{: .no_toc }
+
+- TOC
+{:toc}
+
 ## A.1 Ship Design Formulas
 
 *Updated: v2026.01.30*

@@ -12,6 +12,17 @@ This worked example walks through the complete process of establishing a product
 
 > **Note:** This scenario assumes a conventional start with TN technology unlocked. Mining output uses base tech (10 tons/mine/year), and construction uses base factory rates (10 BP/factory/year). Higher technology levels will increase these values proportionally.
 
+---
+
+## Contents
+
+*Updated: v2026.01.30*
+
+{: .no_toc }
+
+- TOC
+{:toc}
+
 ## Objective
 
 *Updated: v2026.01.30*

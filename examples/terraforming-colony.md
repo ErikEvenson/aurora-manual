@@ -10,6 +10,17 @@ nav_order: 99
 
 This worked example walks through reducing a colony's cost from CC 2.0 to CC 0.0 through systematic terraforming. Each step includes timeline calculations, installation requirements, and the decision logic behind gas selection order.
 
+---
+
+## Contents
+
+*Updated: v2026.01.30*
+
+{: .no_toc }
+
+- TOC
+{:toc}
+
 ## Quick Reference: Atmospheric Values
 
 *Updated: v2026.01.30*

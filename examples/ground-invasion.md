@@ -10,6 +10,17 @@ nav_order: 99
 
 This worked example walks through the process of planning, executing, and consolidating a ground invasion of an enemy colony. It demonstrates force composition calculations, transport logistics, orbital support coordination, and post-conquest occupation requirements.
 
+---
+
+## Contents
+
+*Updated: v2026.01.30*
+
+{: .no_toc }
+
+- TOC
+{:toc}
+
 ## Starting Conditions
 
 *Updated: v2026.01.30*

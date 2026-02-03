@@ -8,6 +8,17 @@ nav_order: 3
 
 *Updated: v2026.01.30*
 
+---
+
+## Contents
+
+*Updated: v2026.01.30*
+
+{: .no_toc }
+
+- TOC
+{:toc}
+
 ## C.1 New Player Mistakes
 
 *Updated: v2026.01.30*

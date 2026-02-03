@@ -6,11 +6,24 @@ nav_order: 5
 
 # Appendix E: Version History
 
-*Added: v2026.02.02*
+*Updated: v2026.02.02*
 
 This appendix provides a chronological history of Aurora C# releases. For each version, the table includes release dates and compatibility notes. Detailed changelogs are available in the official patch announcement threads on the Aurora Forums.
 
+---
+
+## Contents
+
+*Updated: v2026.02.02*
+
+{: .no_toc }
+
+- TOC
+{:toc}
+
 ## E.1 Aurora C# Release Timeline
+
+*Updated: v2026.02.02*
 
 | Version | Release Date | Notes |
 |---------|--------------|-------|
@@ -34,6 +47,8 @@ This appendix provides a chronological history of Aurora C# releases. For each v
 > **Note:** Save compatibility between versions is not guaranteed unless explicitly stated. Major version changes (e.g., v1.x to v2.x) typically break save compatibility. When updating Aurora, back up your save files and database before applying patches.
 
 ## E.2 Version Compatibility Guide
+
+*Updated: v2026.02.02*
 
 ### Major Version Transitions
 

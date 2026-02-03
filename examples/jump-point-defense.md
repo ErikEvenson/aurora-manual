@@ -10,6 +10,17 @@ nav_order: 99
 
 This worked example walks through establishing a comprehensive defensive position at a jump point connecting to known hostile space. Every major decision is supported by calculations drawn from the game's formulas, and common pitfalls are highlighted throughout.
 
+---
+
+## Contents
+
+*Updated: v2026.01.30*
+
+{: .no_toc }
+
+- TOC
+{:toc}
+
 ## Objective
 
 *Updated: v2026.01.30*

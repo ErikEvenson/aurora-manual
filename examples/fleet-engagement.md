@@ -12,6 +12,17 @@ This worked example walks through a complete tactical fleet engagement between t
 
 > **Note:** This scenario assumes TN-start era technology (Nuclear Thermal engines at 5 EP/HS, base laser and missile tech, Duranium armor) with no ECM/ECCM, no shields, and no advanced point defense. Higher technology levels will significantly change engagement ranges, damage thresholds, and PD effectiveness. Adjust expectations accordingly for mid- or late-game fleets.
 
+---
+
+## Contents
+
+*Updated: v2026.01.30*
+
+{: .no_toc }
+
+- TOC
+{:toc}
+
 ## Scenario Setup
 
 *Updated: v2026.01.30*

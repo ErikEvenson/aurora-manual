@@ -10,6 +10,17 @@ nav_order: 4
 
 This appendix provides quick-reference data tables for minerals, installations, weapons, and technology progressions. Use these tables during ship design and colony planning to quickly look up costs, outputs, and key statistics.
 
+---
+
+## Contents
+
+*Updated: v2026.01.30*
+
+{: .no_toc }
+
+- TOC
+{:toc}
+
 ## D.1 Trans-Newtonian Minerals
 
 *Updated: v2026.01.30*
@@ -772,7 +783,7 @@ Output is further multiplied by the deposit's accessibility value.
 
 ## D.5 Key Design Formulas Quick Reference
 
-*Updated: v2026.01.30*
+*Updated: v2026.01.26*
 
 **When to use this section:** Keep this open during ship design. These formulas let you calculate detection ranges, magazine requirements, engine performance, and unit conversions without leaving the design screen or hunting through multiple appendices.
 

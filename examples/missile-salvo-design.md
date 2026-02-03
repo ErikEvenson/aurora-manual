@@ -10,6 +10,17 @@ nav_order: 99
 
 This worked example walks through the complete process of designing an effective anti-ship missile (ASM), matching it with appropriate launchers and fire controls, and planning salvo composition to overwhelm enemy point defense.
 
+---
+
+## Contents
+
+*Updated: v2026.01.30*
+
+{: .no_toc }
+
+- TOC
+{:toc}
+
 ## Objective
 
 *Updated: v2026.01.30*
