@@ -6,7 +6,7 @@ nav_order: 1
 
 # Ship Speed & Engine Calculator
 
-*Added: v2026.02.13*
+*Updated: v2026.02.13*
 
 Compare up to 3 engine configurations side-by-side. All formulas and tech values are verified against the Aurora game database (AuroraDB.db v2.7.1) and referenced in the manual.
 
@@ -61,11 +61,12 @@ Compare up to 3 engine configurations side-by-side. All formulas and tech values
   .calc-card.active {
     border-color: #4ecdc4;
   }
-  .calc-card h3 {
+  .calc-card-header {
     margin: 0 0 12px 0;
     padding-bottom: 8px;
     border-bottom: 1px solid #3d3d5c;
     font-size: 15px;
+    font-weight: 600;
     color: #4ecdc4;
   }
   .calc-field {
@@ -124,9 +125,10 @@ Compare up to 3 engine configurations side-by-side. All formulas and tech values
     padding-top: 12px;
     border-top: 1px solid #3d3d5c;
   }
-  .calc-results h4 {
+  .calc-results-header {
     margin: 0 0 8px 0;
     font-size: 13px;
+    font-weight: 600;
     color: #888;
     text-transform: uppercase;
     letter-spacing: 0.5px;
@@ -452,7 +454,7 @@ Compare up to 3 engine configurations side-by-side. All formulas and tech values
     }).join('');
 
     return '<div class="calc-card active" id="card' + id + '">' +
-      '<h3>Configuration ' + id + '</h3>' +
+      '<div class="calc-card-header">Configuration ' + id + '</div>' +
       '<div class="calc-field">' +
         '<label>Engine Technology</label>' +
         '<select id="tech' + id + '" onchange="recalcAll()">' + techOptions + '</select>' +
@@ -555,7 +557,7 @@ Compare up to 3 engine configurations side-by-side. All formulas and tech values
       // Engine HTK = SQRT(size)
       var htk = Math.floor(Math.sqrt(sizeHS));
 
-      var html = '<h4>Results</h4>' +
+      var html = '<div class="calc-results-header">Results</div>' +
         row('Speed', fmt(speed) + ' km/s', 'speed') +
         row('EP / Engine', fmt(epPerEngine)) +
         row('Total EP', fmt(totalEP)) +
