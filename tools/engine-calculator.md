@@ -438,7 +438,7 @@ Compare up to 3 engine configurations side-by-side. All formulas and tech values
     1.4: 20, 1.6: 30, 1.8: 40, 2.0: 50
   };
 
-  var CONFIGS = ['A', 'B', 'C'];
+  var CONFIGS = ['A', 'B'];
 
   function fmt(n) {
     if (n >= 1000000) return n.toLocaleString('en-US', {maximumFractionDigits: 0});
@@ -582,14 +582,6 @@ Compare up to 3 engine configurations side-by-side. All formulas and tech values
   document.getElementById('sizeNum' + 'B').value = 15;
   document.getElementById('sizeRange' + 'B').value = 15;
   document.getElementById('sizeLabel' + 'B').textContent = '15';
-
-  document.getElementById('tech' + 'C').value = 2; // Nuclear Thermal
-  document.getElementById('sizeNum' + 'C').value = 25;
-  document.getElementById('sizeRange' + 'C').value = 25;
-  document.getElementById('sizeLabel' + 'C').textContent = '25';
-  document.getElementById('powerNum' + 'C').value = '0.5';
-  document.getElementById('powerRange' + 'C').value = 5;
-  document.getElementById('powerLabel' + 'C').textContent = '0.5';
 
   // Initial calculation
   recalcAll();
