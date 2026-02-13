@@ -7,7 +7,7 @@ permalink: /tools/
 
 # Interactive Tools
 
-*Added: v2026.02.13*
+*Updated: v2026.02.13*
 
 Interactive calculators and design aids for Aurora C# ship design and fleet planning. All calculations use formulas and values verified against the Aurora game database (AuroraDB.db v2.7.1).
 
@@ -15,4 +15,7 @@ Interactive calculators and design aids for Aurora C# ship design and fleet plan
 
 ## Available Tools
 
-- [Ship Speed & Engine Calculator](engine-calculator.md) -- Compare up to 3 engine configurations side-by-side. Calculate speed, engine power, tonnage, and classification using verified formulas and database-sourced tech tables.
+*Updated: v2026.02.13*
+
+- [Ship Speed & Engine Calculator](engine-calculator.md) -- Compare up to 2 engine configurations side-by-side. Calculate speed, engine power, tonnage, and classification using verified formulas and database-sourced tech tables.
+- [Sensor Detection Range Calculator](sensor-calculator.md) -- Calculate detection ranges for passive thermal, passive EM, and active sensors. Includes thermal reduction, cloaking, and sensor jammer effects with all tech tiers from the game database.

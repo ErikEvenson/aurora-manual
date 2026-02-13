@@ -8,7 +8,7 @@ nav_order: 1
 
 *Updated: v2026.02.13*
 
-Compare up to 3 engine configurations side-by-side. All formulas and tech values are verified against the Aurora game database (AuroraDB.db v2.7.1) and referenced in the manual.
+Compare up to 2 engine configurations side-by-side. All formulas and tech values are verified against the Aurora game database (AuroraDB.db v2.7.1) and referenced in the manual.
 
 > **Note:** Fuel consumption and range calculations are intentionally excluded. The manual contains [contradicting formulas for engine-size fuel efficiency](https://github.com/ErikEvenson/aurora-manual/issues/1215) (Appendix A.1.3 vs Section 8.3.5), and runtime fuel consumption claims are [also unverified](https://github.com/ErikEvenson/aurora-manual/issues/1214). Only verified calculations are shown here.
 
