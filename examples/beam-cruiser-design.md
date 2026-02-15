@@ -6,7 +6,7 @@ nav_order: 99
 
 # Example: Designing Your First Beam Cruiser
 
-*Updated: v2026.02.02*
+*Updated: v2026.02.15*
 
 This worked example walks through the complete design process for a 10,000-ton beam cruiser optimized for medium-range engagement. We will make every decision step by step, showing the math behind each choice and explaining the trade-offs involved.
 
@@ -14,7 +14,7 @@ This worked example walks through the complete design process for a 10,000-ton b
 
 ## Contents
 
-*Updated: v2026.02.02*
+*Updated: v2026.02.15*
 
 {: .no_toc }
 
@@ -34,7 +34,7 @@ Design a **10,000-ton beam cruiser** capable of:
 
 ## Starting Conditions
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 - **TN Start**: Nuclear Radioisotope Engine technology (5 EP/HS), Pressurised Water Reactor
 - **Laser Technology**: 10cm focal size available, Ultraviolet wavelength (1.0x range modifier)
@@ -63,7 +63,7 @@ Our cruiser is a **medium-range beam combatant**. This means:
 
 ## Step 2: Engine Sizing
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 We want at least 2,500 km/s from a 10,000-ton hull (200 HS). Let us start by checking what 4,000 km/s (a "Fast" speed) would require, then work down to what is achievable. Using the speed formula (see [Section 8.3 Engines](../8-ship-design/8.3-engines.md) and the Aurora wiki):
 
@@ -256,7 +256,7 @@ This detects a 5,000-ton ship (matching resolution 100) at approximately 41 mill
 
 ## Step 6: Armor Selection
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 With Duranium armor (strength 4 per layer), we need to decide on thickness. Our expected threats are similar-era beam weapons dealing 4-10 damage per hit.
 
@@ -279,9 +279,9 @@ Let us estimate 3,000 tons for our calculations.
 
 **Armor allocation**: 4 layers Duranium = ~3,000 tons
 
-- Stops particle beam hits completely (4 damage < 5 strength)
-- Requires 2 laser hits to same column to penetrate (10 damage strips 2 layers)
-- Provides 20 total armor strength per column before internals exposed
+- Stops particle beam hits at exactly 1 layer (4 damage = 4 strength)
+- Requires 2-3 laser hits to same column to penetrate inner layers (10 damage strips 2.5 layers)
+- Provides 16 total armor strength per column before internals exposed
 
 ---
 
@@ -542,7 +542,7 @@ Six 10cm lasers provide better sustained firepower than fewer larger weapons bec
 
 ## Common Mistakes
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 1. **Forgetting Power Plants**: Without a reactor, beam weapons cannot fire. Every laser, railgun, and particle beam requires power. Always calculate total power draw before finalizing weapons.
 
