@@ -6,13 +6,13 @@ nav_order: 3
 
 # Appendix C: Tips and Common Mistakes
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.02*
 
 ---
 
 ## Contents
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.02*
 
 {: .no_toc }
 
@@ -217,7 +217,7 @@ Aurora C# stores game data in a database file. Back up this file periodically, e
 
 ## C.5 Common Troubleshooting
 
-*Updated: v2026.01.29*
+*Updated: v2026.01.30*
 
 The following table covers frequently encountered issues and their resolutions. Most problems stem from missing assignments or configuration oversights rather than bugs.
 
@@ -245,7 +245,7 @@ The following table covers frequently encountered issues and their resolutions. 
 
 ## References
 
-\hypertarget{ref-C-1}{[C-1]} Governor manufacturing bonus formula: Annual\_BP = Num\_Factories x BP\_per\_Factory x (1 + Governor\_Manufacturing x 0.05). At skill 25: 1 + (25 x 0.05) = 1 + 1.25 = 2.25, which is a 125% bonus. See Appendix A formula \hyperlink{ref-A-6}{[A-6]}.
+\hypertarget{ref-C-1}{[C-1]} Governor manufacturing bonus formula: Annual\_BP = Num\_Factories x BP\_per\_Factory x (1 + Governor\_Manufacturing x 0.05) *(unverified -- #1246 -- Section 18.1 indicates this formula is incorrect)*. At skill 25: 1 + (25 x 0.05) = 1 + 1.25 = 2.25, which is a 125% bonus. See Appendix A formula \hyperlink{ref-A-6}{[A-6]}.
 
 \hypertarget{ref-C-2}{[C-2]} Research diminishing returns formula: Effective\_Labs = Lab\_1 + Lab\_2 x 0.5 + Lab\_3 x 0.25 + Lab\_4 x 0.125 + ... Each additional lab contributes 50% of the previous lab's effectiveness. See Appendix A Section A.5 Research Speed.
 
