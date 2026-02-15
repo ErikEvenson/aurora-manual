@@ -248,7 +248,7 @@ Minerals per trip: 25,000 tons
 Annual mineral delivery: 25,000 x 12 trips = 300,000 tons/year per freighter
 ```
 
-Our 20 mines produce 18 tons of Gallicite + 20 tons of Duranium = 38 tons/year total. A single freighter is wildly overkill for 20 mines. Even a single trip per year carries 25,000 tons -- far more than our mines produce.
+Our 20 mines produce 180 tons of Gallicite + 200 tons of Duranium = 380 tons/year total. A single freighter is wildly overkill for 20 mines. Even a single trip per year carries 25,000 tons -- far more than our mines produce.
 
 **Revised freighter**: Scale down to a smaller, cheaper design:
 
@@ -263,7 +263,7 @@ Bridge: 1 HS = 50 tons
 Remaining: ~19 HS for crew quarters, engineering
 ```
 
-A 4,000-ton cargo capacity handles our 38 tons/year of production easily with a single trip. As mining scales up, we add more freighters.
+A 4,000-ton cargo capacity handles our 380 tons/year of production easily with a single trip. As mining scales up, we add more freighters.
 
 ### Fuel Range Check
 
@@ -359,26 +359,26 @@ As your economy grows and mineral demand increases:
 ### Phase 1: Initial Setup (Year 0-5)
 - Deploy 20 automated mines to Asteroid Belt
 - Build 1 small freighter (10,000 tons)
-- Output: ~38 tons/year combined minerals
+- Output: ~380 tons/year combined minerals
 
 ### Phase 2: Expansion (Year 5-15)
 - Increase to 50 automated mines
 - Build 2nd freighter for redundancy
 - Research Improved Mining Tech (1.2x modifier)
-- Output: ~100 tons/year combined minerals
+- Output: ~1,140 tons/year combined minerals
 
 ### Phase 3: Major Operations (Year 15-30)
 - Deploy 100+ automated mines across multiple bodies
-- Research Advanced Mining Tech (1.44x modifier)
+- Research Advanced Mining Tech (1.4x modifier)
 - Consider mass drivers for high-volume routes
-- Output: ~250+ tons/year combined minerals
+- Output: ~2,660+ tons/year combined minerals
 
 ### Adding Mine Production Over Time
 
 ```
-Phase 1: 20 mines x 0.9 acc x 1.0 tech = 18 tons Gallicite/year
-Phase 2: 50 mines x 0.9 acc x 1.2 tech = 54 tons Gallicite/year
-Phase 3: 100 mines x 0.9 acc x 1.44 tech = 129.6 tons Gallicite/year
+Phase 1: 20 mines x 10 tons x 0.9 acc x 1.0 tech = 180 tons Gallicite/year
+Phase 2: 50 mines x 10 tons x 0.9 acc x 1.2 tech = 540 tons Gallicite/year
+Phase 3: 100 mines x 10 tons x 0.9 acc x 1.4 tech = 1,260 tons Gallicite/year
 ```
 
 ---
@@ -425,7 +425,7 @@ Once you have 3+ mining outposts, logistics complexity grows. Example scenario:
 
 ## Step 9: Integrating Civilian Economy
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 Government mining and freighter operations are not your only option. The civilian economy can supplement -- or eventually replace -- much of your mining logistics. Understanding when and how to leverage civilian shipping and mining is key to efficient empire management.
 
@@ -563,7 +563,7 @@ Combining government and civilian operations for our Asteroid Belt scenario:
 
 - 20 automated government mines
 - 1 government freighter on standing orders
-- Output: 38 tons/year (government)
+- Output: 380 tons/year (government)
 - Civilian mining: None (no population in system)
 
 **Phase 2 (Years 10-20): Introduce Population**
@@ -571,7 +571,7 @@ Combining government and civilian operations for our Asteroid Belt scenario:
 - Establish 50,000 population at Asteroid Belt (for mass driver potential)
 - Continue government mining operations
 - Civilian mining colonies may begin appearing
-- Output: 38 tons/year (government) + variable civilian
+- Output: 380 tons/year (government) + variable civilian
 
 **Phase 3 (Years 20+): Mature Hybrid**
 
@@ -644,7 +644,7 @@ For automated mining, colony size is irrelevant (no population needed). For conv
 
 7. **Neglecting Survey Expansion**: Your inner system deposits are finite. Begin surveying adjacent systems via jump points well before home system deposits show signs of depletion. A 20-year lead time for new source development is not excessive.
 
-8. **Overbuilding Early**: 100 automated mines cost 28,800 BP and 24,000 minerals. If your economy only needs 20 tons/year of Gallicite currently, do not build for 200 tons/year capacity. Scale mining to demand with ~50% buffer.
+8. **Overbuilding Early**: 100 automated mines cost 24,000 BP and 24,000 minerals. If your economy only needs 20 tons/year of Gallicite currently, do not build for 200 tons/year capacity. Scale mining to demand with ~50% buffer.
 
 ---
 
@@ -659,7 +659,7 @@ For automated mining, colony size is irrelevant (no population needed). For conv
 | 10 | 0.9 | Base (1.0x) | 90 tons/year |
 | 20 | 0.9 | Base (1.0x) | 180 tons/year |
 | 50 | 0.9 | Improved (1.2x) | 540 tons/year |
-| 100 | 0.9 | Advanced (1.44x) | 1,296 tons/year |
+| 100 | 0.9 | Advanced (1.4x) | 1,260 tons/year |
 | 50 | 0.5 | Base (1.0x) | 250 tons/year |
 | 50 | 1.0 | Base (1.0x) | 500 tons/year |
 
@@ -679,7 +679,7 @@ For automated mining, colony size is irrelevant (no population needed). For conv
 | 25,000 | 20 | 0.9 | 1.0x | 180 tons | 139 years |
 | 25,000 | 50 | 0.9 | 1.2x | 540 tons | 46 years |
 | 8,000 | 20 | 1.0 | 1.0x | 200 tons | 40 years |
-| 5,000 | 50 | 1.0 | 1.44x | 720 tons | 7 years |
+| 5,000 | 50 | 1.0 | 1.4x | 700 tons | 7.1 years |
 
 ---
 

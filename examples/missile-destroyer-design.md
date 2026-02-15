@@ -6,7 +6,7 @@ nav_order: 99
 
 # Example: Designing a Missile Destroyer
 
-*Updated: v2026.02.02*
+*Updated: v2026.02.15*
 
 This worked example walks through designing a 6,000-ton missile destroyer optimized for long-range anti-ship strikes. We cover launcher selection, missile design, fire control configuration, magazine sizing, and point defense -- showing the reasoning and math behind every decision.
 
@@ -14,7 +14,7 @@ This worked example walks through designing a 6,000-ton missile destroyer optimi
 
 ## Contents
 
-*Updated: v2026.02.02*
+*Updated: v2026.02.15*
 
 {: .no_toc }
 
@@ -34,11 +34,11 @@ Design a **6,000-ton missile destroyer** capable of:
 
 ## Starting Conditions
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 - **TN Start**: Nuclear Radioisotope Engine technology (5 EP/HS), Pressurised Water Reactor
 - **Missile Technology**: Size-1 launchers available, Magneto-Plasma engine (4x fuel efficiency)
-- **Warhead**: Strength-4 warheads (4 damage per MSP of warhead)
+- **Warhead**: Strength-4 warheads (4 damage per MSP of warhead) -- requires Levitated-Pit Implosion Warhead research (4,000 RP); TN Start provides Strength-2 (Gun-Type Fission) \hyperlink{ref-ex-mdd-3}{[3]}
 - **Missile Hit Chance**: v2.2.0+ speed ratio system (agility removed from PD calculations) \hyperlink{ref-ex-mdd-1}{[1]}
 - **Active Missile Sensor**: Resolution-1 available (smallest warships), strength 10
 - **Fire Control**: Missile FC with base range and tracking
@@ -108,7 +108,7 @@ Salvo damage = 8 missiles * 1.6 damage = 12.8 damage
              = 12 missiles * 1.6 damage = 19.2 damage
 ```
 
-Against a ship with 3 layers of Duranium armor (15 strength per column), a 12-missile salvo concentrating on a few columns will penetrate armor and damage internals.
+Against a ship with 3 layers of Duranium armor (12 strength per column), a 12-missile salvo concentrating on a few columns will penetrate armor and damage internals.
 
 ### Engine Analysis
 
@@ -292,7 +292,7 @@ This is modest defense -- enough to thin out small salvos but not stop a concent
 
 ## Step 6: Engine and Speed
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 A missile destroyer needs speed to maintain range advantage and retreat if engaged by beam ships.
 
@@ -342,7 +342,7 @@ This is a missile destroyer doctrine: speed over armor. We engage at range and r
 
 ## Step 7: Remaining Components
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 ### Sensors
 
@@ -377,7 +377,7 @@ Fuel: 750 tons (15 HS) -- range for system operations
 
 ## Step 8: Final Design Summary
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 ### Mass Budget
 
@@ -434,7 +434,7 @@ The Lancer operates in flotillas of 4-6 ships:
   Combined sensor coverage: overlapping detection zones
 ```
 
-A 32-missile salvo every 30 seconds provides withering firepower. Against a 10,000-ton cruiser with 3 layers of armor (15 strength per column), concentrated hits will breach armor within 2-3 salvos and begin destroying internal components.
+A 32-missile salvo every 30 seconds provides withering firepower. Against a 10,000-ton cruiser with 3 layers of armor (12 strength per column), concentrated hits will breach armor within 2-3 salvos and begin destroying internal components.
 
 ---
 
@@ -459,7 +459,7 @@ A 32-missile salvo every 30 seconds provides withering firepower. Against a 10,0
 
 ## Common Mistakes
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 1. **All warhead, no engine**: A missile with 1.5 MSP warhead and 0.5 MSP engine is slow, easy to intercept, and short-ranged. Balance is critical -- speed saves missiles from PD.
 
@@ -480,6 +480,8 @@ A 32-missile salvo every 30 seconds provides withering firepower. Against a 10,0
 \hypertarget{ref-ex-mdd-1}{[1]}. Aurora C# v2.2.0+ missile mechanics: Point defense hit chance uses speed ratio: PD_Hit_Chance = min(1.0, FC_Tracking / Missile_Speed). Agility is no longer used in PD calculations. See Appendix A for the complete formula.
 
 \hypertarget{ref-ex-mdd-2}{[2]}. Aurora C# game database (AuroraDB.db v2.7.1) -- Magazine capacity is approximately 17-18 MSP per hull space, not 50. Verified against multiple magazine component entries in the database.
+
+\hypertarget{ref-ex-mdd-3}{[3]}. Aurora C# game database (AuroraDB.db v2.7.1) -- FCT_TechSystem: Gun-Type Fission Warhead Strength 2 x MSP (StartingSystem=1, DevelopCost=1000); Levitated-Pit Implosion Warhead Strength 4 x MSP (StartingSystem=0, DevelopCost=4000). Strength-4 warheads require 4,000 RP research beyond TN Start.
 
 ---
 

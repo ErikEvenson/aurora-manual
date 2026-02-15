@@ -6,7 +6,7 @@ nav_order: 4
 
 # Appendix D: Reference Tables
 
-*Updated: v2026.02.02*
+*Updated: v2026.02.15*
 
 This appendix provides quick-reference data tables for minerals, installations, weapons, and technology progressions. Use these tables during ship design and colony planning to quickly look up costs, outputs, and key statistics.
 
@@ -14,7 +14,7 @@ This appendix provides quick-reference data tables for minerals, installations, 
 
 ## Contents
 
-*Updated: v2026.02.02*
+*Updated: v2026.02.15*
 
 {: .no_toc }
 
@@ -131,11 +131,13 @@ For combat usage and tactical considerations, see [Section 12.2 Beam Weapons](..
 | Particle Beam | PB-4 | 4 | 10s | 200K km | 7 | 10 | 70 | Corundium |
 | Meson Cannon | R20/C5 | 1* | 10s | 200K km | 6 | 10 | 20 | Corundium |
 | Gauss Cannon | R3-100 | 1 | 3/5s | 30K km | 6 | 0 | 36 | Vendarite |
-| Plasma Carronade | 30cm C5 | 24 | 25s | 240K km | 9 | 24 | 48 | Corundium |
+| Plasma Carronade | 30cm C5 | 24 | 25s | FC-limited† | 9 | 24 | 48 | Corundium |
 | HPM | R20/C5 | 1 (3+) | 10s | 200K km | 6 | 10 | 126 | Corundium |
 | CIWS | CIWS-160 | 1 | 6/5s | 10K km | 7.4 | 0 | 34 | Vendarite |
 
 ![Figure D.3.1: Beam Weapon Comparison - DPS vs Range](../images/charts/appendices/d-3-1-beam-weapon-comparison.png)
+
+**†** Plasma Carronades have MaxWeaponRange=0 in the game database; their effective range is determined entirely by the assigned fire control's tracking range, not the weapon itself. In practice this limits them to short-range engagements (typically 10K km or less depending on fire control configuration).
 
 ### D.3.2 Weapon Notes
 
@@ -199,7 +201,7 @@ Engine power determines ship speed. The engine type sets base power per HS, whil
 
 \hyperlink{ref-D-8}{[D-8]}
 
-This technology unlocks higher power multipliers in the engine designer. Higher multipliers increase power output but also fuel consumption (roughly proportional to the square of the multiplier).
+This technology unlocks higher power multipliers in the engine designer. Higher multipliers increase power output but also fuel consumption, which scales exponentially via the formula `(4^Boost_Modifier) / 4` (see [Appendix A, Section A.1.4](../appendices/A-formulas.md#a14-fuel-consumption-rate) and \hyperlink{ref-A-11}{[A-11]}).
 
 | Tech Level | Max Modifier | Research Cost (RP) |
 |-----------|-------------|-------------------|
@@ -783,7 +785,7 @@ Output is further multiplied by the deposit's accessibility value.
 
 ## D.5 Key Design Formulas Quick Reference
 
-*Updated: v2026.02.02*
+*Updated: v2026.02.15*
 
 **When to use this section:** Keep this open during ship design. These formulas let you calculate detection ranges, magazine requirements, engine performance, and unit conversions without leaving the design screen or hunting through multiple appendices.
 
@@ -798,6 +800,8 @@ This section condenses the most frequently-referenced formulas from [Appendix A:
 | Thermal (Passive) | sqrt(Sensitivity x Target\_Thermal) x 250,000 km | Target engine power |
 | EM (Passive) | sqrt(Sensitivity x Target\_EM) x 250,000 km | Target active emissions |
 | Active | sqrt(Strength x Cross\_Section) x 250,000 km | Target size vs resolution |
+
+> **Warning:** The active sensor formula above is a simplified approximation that omits the EM Sensitivity factor and uses a different constant (250,000 km vs 1,000,000 km). It does **not** produce the same results as the full verified formula. For accurate calculations, use the full formula in [Appendix A, Section A.3.4](../appendices/A-formulas.md#a34-active-sensor-detection): `sqrt((Active_Strength x HS x EM_Sensitivity x Resolution^(2/3)) / PI) x 1,000,000 km`.
 
 \hyperlink{ref-D-1}{[D-1]}
 
@@ -834,6 +838,8 @@ Each missile's MSP size is determined in the Missile Design window. Magazines ar
 Regen_per_5s = Total_Shield_Strength x Regen_Rate_Tech
 ```
 
+*(unverified)* — This formula uses `Total_Shield_Strength` as the basis for regeneration, but [Appendix A, Section A.1.6](../appendices/A-formulas.md#a16-shield-strength-and-regeneration) uses `Generator_Size_HS`: `Recharge_per_5sec = Regeneration_Tech_Level x Generator_Size_HS`. These two formulations produce different results. Until verified against the game database, treat this formula with caution and cross-reference A.1.6 for the alternative form.
+
 Shields must be active to regenerate. Active shields generate EM signature detectable by passive sensors.
 
 ### D.5.4 Engine Calculations
@@ -844,7 +850,7 @@ Shields must be active to regenerate. Active shields generate EM signature detec
 | Engine Power | Size (HS) x Power_per_HS x Boost_Modifier |
 | Fuel/Hour | Total_EP x Consumption_Rate x Boost_Penalty |
 | Range | Fuel_Capacity / Fuel_per_Hour x 3,600 x Speed |
-| Boost Penalty | Approximately Boost^2 (1.5x = 2.25, 2x = 4, 3x = 9) |
+| Boost Penalty | (4^Boost_Modifier) / 4 (1.5x = 2.0, 2x = 4.0, 3x = 16.0) \hyperlink{ref-A-11}{[A-11]} |
 
 **Practical design tip:** A 1.25x boost provides 25% more power with a moderate fuel consumption increase -- often the best efficiency trade-off for military vessels. The exact fuel penalty depends on the boost formula: (4\^Boost\_Modifier)/4, where the x1.25 penalty factor is approximately 1.41x the x1.0 baseline.
 

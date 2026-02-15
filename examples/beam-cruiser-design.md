@@ -160,12 +160,12 @@ At this tech level, our choices are:
 - Size: approximately 3 HS (150 tons) at base recharge rate
 - Damage pattern: Gradient 3 (focused -- excellent armor penetration)
 
-**Particle Beam-4** (if researched):
+**Particle Beam-4** (if researched -- requires Particle Beam Strength 4 at 8,000 RP and Particle Beam Range 200,000 km at 8,000 RP; starting tech is Strength 2 with 60,000 km range) \hyperlink{ref-ex-beam-3}{[3]}:
 
 - Damage: 4 per shot
 - Power required: 10
-- Range: 200,000 km
-- Size: 7 HS (350 tons)
+- Range: 200,000 km (requires Particle Beam Range 200,000 km tech)
+- Size: 7 HS (350 tons) *(unverified -- extrapolated from PB-2 at 6 HS; starting DB only contains PB-2 components)*
 - Damage: single-column (all damage to one armor location)
 - No damage falloff within range
 
@@ -186,7 +186,7 @@ Total damage per volley: 6 x 10 = 60 damage
 
 ## Step 4: Fire Control Matching
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 The fire control must:
 1. **Track at or above target speed** -- if our FC tracks at 5,000 km/s, it has full accuracy against targets moving up to 5,000 km/s
@@ -566,6 +566,8 @@ Six 10cm lasers provide better sustained firepower than fewer larger weapons bec
 \hypertarget{ref-ex-beam-1}{[1]}. Aurora C# active sensor formula from Appendix A: Detection_Range (km) = sqrt((Active_Strength x HS x EM_Sensitivity x Resolution^(2/3)) / PI) x 1,000,000. The x 1,000,000 multiplier produces detection ranges in the tens of millions of km for standard military sensors.
 
 \hypertarget{ref-ex-beam-2}{[2]}. Section 12.1.1 Beam Fire Controls -- BFC range is determined by the Beam Fire Control Range technology (12 levels from 20,000 km to 350,000 km). Components can be built up to size 4 with a linear increase in range. See Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem (TechTypeID=4).
+
+\hypertarget{ref-ex-beam-3}{[3]}. Aurora C# game database (AuroraDB.db v2.7.1) -- FCT_TechSystem: Particle Beam Strength 2 (StartingSystem=1, DevelopCost=2000); Particle Beam Strength 4 (StartingSystem=0, DevelopCost=8000). Particle Beam Range 60,000 km (StartingSystem=1); Particle Beam Range 200,000 km (DevelopCost=8000). FCT_ShipDesignComponents: Particle Beam-2 at Size=6.0 HS, ComponentValue=2, PowerRequirement=5. PB-4 damage (4) and power (10) extrapolated from 2x scaling of PB-2 values.
 
 ---
 
