@@ -6,7 +6,7 @@ nav_order: 3
 
 # Terraforming Time Calculator
 
-*Added: v2026.02.13*
+*Updated: v2026.02.13*
 
 Estimate terraforming duration based on installation count, technology level, and target atmospheric change. Compare up to 2 configurations side-by-side. All tech values are verified against the Aurora game database (AuroraDB.db v2.7.1).
 
@@ -202,7 +202,7 @@ Estimate terraforming duration based on installation count, technology level, an
 
 <div class="calc-formula-note">
 <strong>Formulas used:</strong><br>
-<code>Rate = Installations x Tech_Rate x Gas_Modifier x (Earth_Radius / Planet_Radius)^2</code> — <a href="../appendices/A-formulas.html#a55-terraforming">ref A-9</a><br>
+<code>Rate = Installations x Tech_Rate x Gas_Modifier x (Earth_Radius / Planet_Radius)^2</code> — <a href="../appendices/A-formulas.html#a55-terraforming">ref A-9</a> (base rate); <a href="../5-colonies/5.5-terraforming.html">ref 5.5-9</a> (radius factor)<br>
 <code>Years = Target_Atm_Change / Rate</code><br>
 <br>
 <strong>Omitted:</strong> Exact per-gas modifier values are not fully database-verified. Use 1.0 as default and adjust if known.

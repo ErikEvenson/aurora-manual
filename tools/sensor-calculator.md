@@ -6,7 +6,7 @@ nav_order: 2
 
 # Sensor Detection Range Calculator
 
-*Added: v2026.02.13*
+*Updated: v2026.02.13*
 
 Calculate detection ranges for all three Aurora sensor types: passive thermal, passive EM, and active gravitational. Compare up to 2 configurations side-by-side. All formulas and tech values are verified against the Aurora game database (AuroraDB.db v2.7.1) and referenced in the manual.
 
@@ -360,7 +360,7 @@ Calculate detection ranges for all three Aurora sensor types: passive thermal, p
 <code>Off-Resolution = Base_Range * sqrt(Target_HS / Resolution)</code> — <a href="../appendices/A-formulas.html#a34-active-sensor-detection">ref A-12</a><br>
 <code>Thermal Sig = Engine_EP * Thermal_Reduction_Multiplier</code> — <a href="../11-sensors-and-detection/11.1-thermal-em-signatures.html#1111-thermal-signature">ref 11.1-1</a><br>
 <code>Cloak Effect = Signature * (1 - Cloak% / 100)</code> — <a href="../11-sensors-and-detection/11.4-stealth.html#1141-cloaking-technology">ref 11.4-1</a><br>
-<code>Jammer Effect = Range * max(0, 1 - (SJ - ECCM) * 0.1)</code> — <a href="../appendices/A-formulas.html#a37-electronic-warfare-effects">ref A-17</a>
+<code>Jammer Effect = Range * max(0, 1 - (SJ - ECCM) * 0.1)</code> — <a href="../appendices/A-formulas.html#a37-electronic-warfare-effects">ref A-17</a> (active sensors only; passive thermal/EM sensors detect emissions and cannot be jammed)
 </div>
 
 </div>
@@ -468,10 +468,6 @@ Calculate detection ranges for all three Aurora sensor types: passive thermal, p
           '<input type="range" id="thCloakRange' + id + '" min="0" max="99.5" value="0" step="0.5" oninput="syncCloak(\'' + id + '\',this.value)">' +
           '<input type="number" id="thCloakNum' + id + '" min="0" max="99.5" value="0" step="0.5" style="width:70px;text-align:right" oninput="syncCloakNum(\'' + id + '\',this.value)">' +
         '</div></div>' +
-      '<div class="calc-field"><label>Target Sensor Jammer (0-10)</label>' +
-        '<input type="number" id="thSJ' + id + '" min="0" max="10" value="0" step="1" oninput="recalcAll()"></div>' +
-      '<div class="calc-field"><label>Sensor ECCM (0-10)</label>' +
-        '<input type="number" id="thECCM' + id + '" min="0" max="10" value="0" step="1" oninput="recalcAll()"></div>' +
       '<div class="calc-results" id="thResults' + id + '"></div>' +
     '</div>';
   }
@@ -485,10 +481,6 @@ Calculate detection ranges for all three Aurora sensor types: passive thermal, p
         '<select id="emTech' + id + '" onchange="recalcAll()">' + opts(EM_SENS, 4) + '</select></div>' +
       '<div class="calc-field"><label>Target EM Signature</label>' +
         '<input type="number" id="emSig' + id + '" min="0" max="1000000" value="5000" step="1" oninput="recalcAll()"></div>' +
-      '<div class="calc-field"><label>Target Sensor Jammer (0-10)</label>' +
-        '<input type="number" id="emSJ' + id + '" min="0" max="10" value="0" step="1" oninput="recalcAll()"></div>' +
-      '<div class="calc-field"><label>Sensor ECCM (0-10)</label>' +
-        '<input type="number" id="emECCM' + id + '" min="0" max="10" value="0" step="1" oninput="recalcAll()"></div>' +
       '<div class="calc-results" id="emResults' + id + '"></div>' +
     '</div>';
   }
@@ -547,8 +539,6 @@ Calculate detection ranges for all three Aurora sensor types: passive thermal, p
       var ep = parseFloat(document.getElementById('thEP' + id).value) || 0;
       var redIdx = parseInt(document.getElementById('thRed' + id).value);
       var cloak = parseFloat(document.getElementById('thCloakNum' + id).value) || 0;
-      var sj = parseInt(document.getElementById('thSJ' + id).value) || 0;
-      var eccm = parseInt(document.getElementById('thECCM' + id).value) || 0;
 
       var techVal = THERMAL_SENS[techIdx].val;
       var redVal = THERMAL_RED[redIdx].val;
@@ -557,15 +547,12 @@ Calculate detection ranges for all three Aurora sensor types: passive thermal, p
       var thermalSig = ep * redVal;
       var effectiveSig = thermalSig * (1 - cloak / 100);
       var rangeKm = Math.sqrt(sensitivity * effectiveSig) * 250000;
-      var jMult = jammerMult(sj, eccm);
-      var jammedKm = rangeKm * jMult;
 
       var html = '<div class="calc-results-header">Results</div>' +
         row('Sensor Sensitivity', fmtNum(sensitivity)) +
         row('Thermal Signature', fmtNum(thermalSig) + ' (EP ' + fmtNum(ep) + ' x ' + redVal + ')') +
         (cloak > 0 ? row('After Cloak (' + cloak + '%)', fmtNum(effectiveSig)) : '') +
-        row('Detection Range', fmtRange(rangeKm), 'range') +
-        (sj > eccm ? row('Jammed Range (SJ' + sj + ' vs ECCM' + eccm + ')', fmtRange(jammedKm), jMult === 0 ? 'warning' : '') : '');
+        row('Detection Range', fmtRange(rangeKm), 'range');
 
       document.getElementById('thResults' + id).innerHTML = html;
     });
@@ -576,20 +563,15 @@ Calculate detection ranges for all three Aurora sensor types: passive thermal, p
       var sizeHS = parseFloat(document.getElementById('emSize' + id).value) || 0;
       var techIdx = parseInt(document.getElementById('emTech' + id).value);
       var emSig = parseFloat(document.getElementById('emSig' + id).value) || 0;
-      var sj = parseInt(document.getElementById('emSJ' + id).value) || 0;
-      var eccm = parseInt(document.getElementById('emECCM' + id).value) || 0;
 
       var techVal = EM_SENS[techIdx].val;
 
       var sensitivity = sizeHS * techVal;
       var rangeKm = Math.sqrt(sensitivity * emSig) * 250000;
-      var jMult = jammerMult(sj, eccm);
-      var jammedKm = rangeKm * jMult;
 
       var html = '<div class="calc-results-header">Results</div>' +
         row('Sensor Sensitivity', fmtNum(sensitivity)) +
-        row('Detection Range', fmtRange(rangeKm), 'range') +
-        (sj > eccm ? row('Jammed Range (SJ' + sj + ' vs ECCM' + eccm + ')', fmtRange(jammedKm), jMult === 0 ? 'warning' : '') : '');
+        row('Detection Range', fmtRange(rangeKm), 'range');
 
       document.getElementById('emResults' + id).innerHTML = html;
     });

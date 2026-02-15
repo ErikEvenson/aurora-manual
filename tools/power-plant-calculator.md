@@ -253,10 +253,10 @@ Calculate power plant output with boost multipliers and explosion risk trade-off
 
 <div class="calc-formula-note">
 <strong>Formulas used:</strong><br>
-<code>Power_Output = Tech x Size_HS x sqrt(Size_HS / 10)</code> (for generators larger than 1 HS) — <a href="../appendices/A-formulas.html#a17-power-plants">ref A-4</a><br>
-<code>Power_Output = Tech x Size_HS</code> (for 1 HS generators)<br>
+<code>Power_Output = Tech x Size_HS x sqrt(Size_HS)</code> — <a href="../appendices/A-formulas.html#a17-power-plants">ref A-4</a><br>
 <code>Boosted_Output = Power_Output x Boost_Multiplier</code> — <a href="../appendices/A-formulas.html#a17-power-plants">ref D-20</a><br>
-<code>HTK = floor(sqrt(Size_HS))</code>
+<code>HTK = floor(sqrt(Size_HS))</code><br>
+<em>Note: Power plants use <code>sqrt(Size)</code>, not the <code>sqrt(Size/10)</code> scaling used by shields.</em>
 </div>
 
 </div>
@@ -371,13 +371,9 @@ Calculate power plant output with boost multipliers and explosion risk trade-off
       var tech = PP_TECHS[techIdx];
       var boost = BOOST_LEVELS[boostIdx];
 
-      // Power output formula [ref A-4] — same sqrt scaling as shields
-      var basePerGen;
-      if (sizeHS <= 1) {
-        basePerGen = tech.power * sizeHS;
-      } else {
-        basePerGen = tech.power * sizeHS * Math.sqrt(sizeHS / 10);
-      }
+      // Power output formula [ref A-4] — Tech x Size x sqrt(Size)
+      // Verified against FCT_ShipDesignComponents for 14 power plant components
+      var basePerGen = tech.power * sizeHS * Math.sqrt(sizeHS);
 
       var boostedPerGen = basePerGen * boost.mult;
       var totalBase = basePerGen * count;

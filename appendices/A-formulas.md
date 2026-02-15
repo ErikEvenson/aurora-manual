@@ -27,7 +27,7 @@ This appendix collects the key mathematical formulas that govern Aurora C# mecha
 
 ## A.1 Ship Design Formulas
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 Formulas used during ship design to calculate performance characteristics. For detailed ship design context, see [Section 8.3 Engines](../8-ship-design/8.3-engines.md).
 
@@ -140,9 +140,13 @@ The regeneration structure (proportional to Generator_Size_HS, not Total_Shield_
 ### A.1.7 Power Plant Output
 
 ```
-Power_Output = Power_Tech x Size_HS x sqrt(Size_HS / 10)  (for generators > 1 HS)
+Power_Output = Power_Tech x Size_HS x sqrt(Size_HS)
 Boosted_Output = Power_Output x Boost_Multiplier
 ```
+
+\hyperlink{ref-A-20}{[A-20]}
+
+This formula applies to all power plant sizes (there is no special case for small generators). Note that power plants use `sqrt(Size)` scaling, which is **different** from the `sqrt(Size/10)` scaling used by shields (see [A.1.6](#a16-shield-strength-and-regeneration)). Power plants benefit more aggressively from size increases than shields do.
 
 Explosion chance when hit is set per boost technology level (not a simple formula) \hyperlink{ref-A-4}{[A-4]}:
 
@@ -157,7 +161,7 @@ Explosion chance when hit is set per boost technology level (not a simple formul
 | +80% | x1.8 | 40% |
 | +100% | x2.0 | 50% |
 
-Larger power plants are more space-efficient due to the same square root scaling used by shields and engines.
+Larger power plants are more space-efficient due to the square root scaling — a 10 HS power plant produces approximately 3.16x more power per HS than a 1 HS unit.
 
 ![Figure A.1.7: Power Plant Output Scaling](../images/charts/appendices/a-1-7-power-plant-output.png)
 
@@ -1014,3 +1018,5 @@ Where Effective Population Size = ((Determination + Militancy + Xenophobia) / 30
 \hypertarget{ref-A-18}{[A-18]} Aurora Manual exploration-workflow.md Section 2.4 -- Colony cost uses the single worst (maximum) environmental factor, not the sum of all factors. Temperature deviation, pressure deviation, hostile gases, and gravity deviation each contribute independent penalty factors; the highest value becomes the colony cost.
 
 \hypertarget{ref-A-19}{[A-19]} Section 12.1.2 Missile Fire Controls -- MFC range uses the active sensor range formula: SQRT((Active\_Strength x HS x EM\_Sensitivity x Resolution^(2/3)) / PI) x 1,000,000 km. Verified against game database in [A-16]. Earlier versions of this appendix contained an incorrect linear formula (Resolution x 250,000 km).
+
+\hypertarget{ref-A-20}{[A-20]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_ShipDesignComponents: Power plant output formula verified as Power\_Tech x Size\_HS x sqrt(Size\_HS) against 14 power plant components with 100% accuracy. This uses sqrt(Size) scaling, NOT the sqrt(Size/10) scaling used by shields. Earlier versions of this appendix incorrectly stated power plants used the same scaling as shields.
