@@ -63,58 +63,53 @@ Design a small, fast sensor ship optimized for detection range and survival thro
 
 ### Active Sensor Detection Range Calculation
 
-Using the C# Aurora active sensor formula from Appendix A:
+Using the full C# Aurora active sensor formula from [Appendix A, Section A.3.4](../appendices/A-formulas.md#a34-active-sensor-detection):
 
 ```
 Detection Range (km) = SQRT((Active_Strength x HS x EM_Sensitivity x Resolution^(2/3)) / PI) x 1,000,000
 ```
 
-For a simplified calculation using composite Sensor_Sensitivity:
-
-```
-Detection Range (km) = SQRT(Sensor_Sensitivity * Target_Cross_Section) * 10,000
-```
-
-> **Note:** The simplified formula above uses a pre-computed Sensor_Sensitivity value. The full formula (see Appendix A) uses the x 1,000,000 multiplier. The simplified form shown here is equivalent when Sensor_Sensitivity already incorporates the sensor's resolution, strength, and EM sensitivity parameters.
-
 Where:
 
-- Sensor_Sensitivity = Size (HS) * Active_Sensor_Strength * Resolution^(1/1.5)
-- Target_Cross_Section = Target HS (for resolution-matched or larger targets)
+- **Active_Strength** = Active Grav Sensor Strength technology level (tech level 4 in our case)
+- **HS** = Sensor size in hull spaces (6 HS)
+- **EM_Sensitivity** = EM Sensor Sensitivity technology level (tech level 4)
+- **Resolution** = Sensor resolution setting in HS (100)
+- **PI** = 3.14159...
 
-For our 6 HS sensor at resolution 100, tech level 4:
-
-```
-Sensor_Sensitivity = 6 * 4 * 100^(1/1.5) = 24 * 21.54 = 517
-```
-
-Against a 10,000-ton (200 HS) target (larger than resolution 100, so full range applies):
+For our 6 HS sensor at resolution 100, with Active Strength 4 and EM Sensitivity 4:
 
 ```
-Detection Range = SQRT(517 * 200) * 10,000
-               = SQRT(103,400) * 10,000
-               = 321.6 * 10,000
-               = 3,216,000 km (~3.2 million km)
+Resolution^(2/3) = 100^(2/3) = 21.544
+Numerator        = 4 x 6 x 4 x 21.544 = 2,068.2
+Detection Range  = SQRT(2,068.2 / 3.14159) x 1,000,000
+                 = SQRT(658.1) x 1,000,000
+                 = 25.65 x 1,000,000
+                 = 25,650,000 km (~25.7 million km) at resolution 100
+```
+
+Against a 10,000-ton (200 HS) target (larger than resolution 100, effective range increases per [Section A.3.4](../appendices/A-formulas.md#a34-active-sensor-detection)):
+
+```
+Effective Range = Base_Range x SQRT(Target_HS / Resolution)
+               = 25,650,000 x SQRT(200 / 100)
+               = 25,650,000 x 1.414
+               = 36,269,000 km (~36.3 million km)
 ```
 
 Against a 5,000-ton target (100 HS, matches resolution exactly):
 
 ```
-Detection Range = SQRT(517 * 100) * 10,000
-               = SQRT(51,700) * 10,000
-               = 227.4 * 10,000
-               = 2,274,000 km (~2.3 million km)
+Detection Range = 25,650,000 km (~25.7 million km)
 ```
 
 ### Passive Sensor Detection
 
-The EM sensor detects enemy active sensors and shields without revealing the picket's position:
+The EM sensor detects enemy active sensors and shields without revealing the picket's position. Using the verified passive sensor formula from [Appendix A, Section A.3.3](../appendices/A-formulas.md#a33-passive-sensor-detection-em):
 
 ```
-EM Detection Range (km) = Sensor_Sensitivity * Target_EM_Signature * 10,000
+EM Detection Range (km) = SQRT(Sensor_Sensitivity x Target_EM_Signature) x 250,000
 ```
-
-*(Note: These calculations use a simplified formula. See Appendix A Section A.3.2 for the verified formula: `Detection_Range = sqrt(Sensitivity x Signature) x 250,000`. The simplified formulas below provide approximations suitable for tactical planning.)*
 
 With a 5 HS EM sensor at tech level 4:
 
@@ -123,35 +118,46 @@ With a 5 HS EM sensor at tech level 4:
 If the enemy raises shields (estimated strength 100, EM output = 300):
 
 ```
-EM Detection Range = 20 * 300 * 10,000 = 60,000,000 km (60 million km)
+EM Detection Range = SQRT(20 * 300) * 250,000
+                   = SQRT(6,000) * 250,000
+                   = 77.46 * 250,000
+                   = 19,365,000 km (~19.4 million km)
 ```
 
 If the enemy activates sensors (estimated EM output 150):
 
 ```
-EM Detection Range = 20 * 150 * 10,000 = 30,000,000 km (30 million km)
+EM Detection Range = SQRT(20 * 150) * 250,000
+                   = SQRT(3,000) * 250,000
+                   = 54.77 * 250,000
+                   = 13,693,000 km (~13.7 million km)
 ```
 
-The thermal sensor detects engine emissions:
+The thermal sensor detects engine emissions using the formula from [Appendix A, Section A.3.2](../appendices/A-formulas.md#a32-passive-sensor-detection-thermal):
 
 ```
-Thermal Detection Range (km) = Sensor_Sensitivity * Target_Thermal_Signature * 10,000
+Thermal Detection Range (km) = SQRT(Sensor_Sensitivity x Target_Thermal_Signature) x 250,000
 ```
 
 With a 5 HS thermal sensor at tech level 4, Sensitivity = 20.
 Against a 10,000-ton warship with engine power 5,000 (standard engines, thermal sig = 5,000):
 
 ```
-Thermal Detection Range = 20 * 5,000 * 10,000 = 1,000,000,000 km (1 billion km)
+Thermal Detection Range = SQRT(20 * 5,000) * 250,000
+                        = SQRT(100,000) * 250,000
+                        = 316.2 * 250,000
+                        = 79,057,000 km (~79.1 million km)
 ```
 
-This is enormous -- passive thermal detection of a full-power warship fleet is highly effective at extreme range.
+Passive thermal detection of a full-power warship fleet is effective at tens of millions of km -- more than enough to detect any fleet-scale incursion well before it reaches your defensive position.
 
 ### Picket Positioning
 
 Station 2-3 picket ships within 500,000 km of the jump point under EMCON (all active sensors OFF). With passive thermal sensors, they will detect any ship transiting the JP the moment it begins moving under power. Keep active sensors in reserve to confirm contacts and provide targeting data when needed.
 
-**Why EMCON matters:** A picket running active sensors has an EM signature of 6 * 4 = 24. An enemy EM sensor could detect this before the picket detects them. Under EMCON, the picket is nearly invisible (idle thermal signature = 40 HS * 0.05 = 2, detectable only at very short range).
+With the active sensor ranges calculated above (~25.7-36.3M km), the pickets' active sensors can cover the entire defensive zone from a close position near the JP. However, the primary advantage of close positioning is passive detection — catching transits the instant they happen, before the enemy has time to assess the situation.
+
+**Why EMCON matters:** A picket running active sensors has an EM signature of 6 * 4 = 24. An enemy with equivalent EM sensors (sensitivity 20) would detect the picket at `SQRT(20 * 24) * 250,000 = SQRT(480) * 250,000 = 5,477,000 km (~5.5M km)`. Under EMCON, the picket is nearly invisible — its only signature is idle thermal (40 HS * 0.05 = 2 *(unverified — the 5% idle thermal rate is a community estimate; exact idle thermal mechanics are embedded in game logic)*), detectable at only `SQRT(20 * 2) * 250,000 = 1,581,000 km (~1.6M km)` by equivalent sensors.
 
 ---
 
@@ -209,9 +215,11 @@ More reaction time, but the enemy also has more time to assess and potentially r
 A distance of 3-5 million km provides:
 
 - 12-21 minutes of reaction time at enemy speed 4,000 km/s
-- Within your active sensor detection range (3.2M km for 10,000-ton targets)
+- Well within your active sensor detection range (~36.3M km for 10,000-ton targets, ~25.7M km for 5,000-ton targets)
 - Within missile engagement range (your size-6 missiles likely have 150-300M km range)
 - Far enough that enemy beam ships cannot immediately close to beam range
+
+> **Note:** With active sensor ranges of 25-36 million km, you could station the fleet much further from the JP and still detect transiting enemies. The 3-5M km recommendation is driven primarily by reaction time and missile flight time, not sensor limitations. Against fast enemies (8,000+ km/s), a closer position (3M km) reduces the chance of the enemy retreating through the JP before your missiles arrive.
 
 Station the fleet perpendicular to the JP-colony axis, so retreating draws the enemy away from your colony rather than toward it.
 
@@ -268,7 +276,7 @@ Use beam-only doctrine when:
 
 ## Step 4: Point Defense Layers
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 ### Layer 1: AMM Screen (Long-Range Intercept)
 
@@ -276,19 +284,30 @@ Your size-1 AMMs at 32,000 km/s with resolution-1 missile fire controls.
 
 **AMM Fire Control Range:**
 
-```
-MFC Range = SQRT(FC_Sensitivity * Target_Cross_Section) * 10,000
-```
-
-For a resolution-1 fire control (6 HS, tech level 4) detecting a 6 MSP (15 ton, ~0.3 HS) incoming missile:
+Using the full active sensor formula from [Appendix A, Section A.3.5](../appendices/A-formulas.md#a35-missile-fire-control-range):
 
 ```
-FC_Sensitivity = 6 * 4 * 1^(1/1.5) = 24
-Target_Cross_Section = 0.3 (enemy missile HS)
-Range = SQRT(24 * 0.3) * 10,000 = SQRT(7.2) * 10,000 = 26,833 km
+MFC Range (km) = SQRT((Active_Strength x HS x EM_Sensitivity x Resolution^(2/3)) / PI) x 1,000,000
 ```
 
-This is shorter than ideal. Increase the FC size or consider using passive thermal detection for initial missile warning, with the MFC guiding AMMs for final intercept.
+For a resolution-1 fire control (6 HS, Active Strength tech level 4, EM Sensitivity tech level 4):
+
+```
+Resolution^(2/3) = 1^(2/3) = 1.0
+Numerator        = 4 x 6 x 4 x 1.0 = 96
+MFC Base Range   = SQRT(96 / 3.14159) x 1,000,000
+                 = SQRT(30.56) x 1,000,000
+                 = 5.528 x 1,000,000
+                 = 5,528,000 km (~5.5 million km) at resolution 1
+```
+
+Against a 6 MSP (15 ton, ~0.3 HS) incoming missile:
+
+```
+Effective Range = 5,528,000 x SQRT(0.3 / 1) = 5,528,000 x 0.548 = 3,028,000 km (~3.0 million km)
+```
+
+This provides substantial engagement distance for AMM intercepts — your AMMs can be launched well before incoming missiles reach the fleet.
 
 **AMM Intercept Calculation:**
 
@@ -392,24 +411,27 @@ When a ship transits a jump point:
 - It appears at the JP location
 - If it has movement orders, it immediately produces thermal signature
 - If it activates sensors or shields, it produces EM signature
-- A ship that transits and remains stationary with all systems off produces only idle thermal (5% of HS)
+- A ship that transits and remains stationary with all systems off produces only idle thermal *(unverified — community sources estimate idle thermal at 5% of HS, but the exact idle thermal mechanic is embedded in game logic)*
 
 **Worst-case detection (enemy under full EMCON, stationary after transit):**
 
 A 10,000-ton ship (200 HS) stationary with no active systems:
 
-- Idle thermal signature = 200 * 0.05 = 10
-- With your 5 HS thermal sensor (sensitivity 20):
+- Idle thermal signature = 200 * 0.05 = 10 *(unverified — assumes 5% idle rate)*
+- With your 5 HS thermal sensor (sensitivity 20), using the formula from [Section A.3.2](../appendices/A-formulas.md#a32-passive-sensor-detection-thermal):
 
 ```
-Detection range = 20 * 10 * 10,000 = 2,000,000 km (2 million km)
+Detection range = SQRT(20 * 10) * 250,000
+               = SQRT(200) * 250,000
+               = 14.14 * 250,000
+               = 3,536,000 km (~3.5 million km)
 ```
 
 Your pickets at 500,000 km from the JP will detect even a fully silent, stationary warship.
 
 **Best-case detection (enemy under power with active sensors):**
 
-Detection occurs at ranges of 30-1,000+ million km, giving your fleet minutes to hours of warning.
+Detection occurs at ranges of 13-79+ million km (see passive sensor calculations in Step 1), giving your fleet minutes to hours of warning.
 
 ### Information Chain
 
@@ -500,28 +522,32 @@ Mine Size = Warhead + Fuel (0) + Sensor + ECM/ECCM (optional)
 
 **Mine Sensor Range Calculation:**
 
-Using the standard active sensor formula from [Appendix A: Formulas](../appendices/A-formulas.md):
+Using the full active sensor formula from [Appendix A, Section A.3.4](../appendices/A-formulas.md#a34-active-sensor-detection):
 
 ```
-Detection Range (km) = SQRT(Sensor_Sensitivity * Target_Cross_Section) * 10,000
+Detection Range (km) = SQRT((Active_Strength x HS x EM_Sensitivity x Resolution^(2/3)) / PI) x 1,000,000
 ```
 
-For a 1.25 MSP sensor (approximately 0.5 HS equivalent) at resolution 10, tech level 4:
+For a 1.25 MSP sensor (approximately 0.5 HS equivalent) at resolution 10, Active Strength tech level 4, EM Sensitivity tech level 4:
 
 ```
-Sensor_Sensitivity = 0.5 * 4 * 10^(1/1.5) = 2 * 4.64 = 9.28
+Resolution^(2/3) = 10^(2/3) = 4.642
+Numerator        = 4 x 0.5 x 4 x 4.642 = 37.14
+Base Range       = SQRT(37.14 / 3.14159) x 1,000,000
+                 = SQRT(11.82) x 1,000,000
+                 = 3.438 x 1,000,000
+                 = 3,438,000 km (~3.4 million km) at resolution 10
 ```
 
-Against a 10,000-ton target (200 HS):
+Against a 10,000-ton target (200 HS, larger than resolution 10):
 
 ```
-Detection Range = SQRT(9.28 * 200) * 10,000
-               = SQRT(1,856) * 10,000
-               = 43.1 * 10,000
-               = 431,000 km
+Effective Range = 3,438,000 x SQRT(200 / 10)
+               = 3,438,000 x 4.472
+               = 15,374,000 km (~15.4 million km)
 ```
 
-This means the mine detects and engages a cruiser-sized target at approximately 430,000 km -- enough range to strike ships shortly after JP transit.
+This means the mine detects and engages a cruiser-sized target at approximately 15.4 million km -- far greater range than needed for JP defense, ensuring mines can engage transiting ships well before they pass through the minefield.
 
 #### 2. Mine Layer Ship Requirements
 
@@ -698,7 +724,7 @@ As an alternative to PDCs, build a large defensive station (no engines) and tow 
 
 ## Step 8: Response Timing Calculations
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 ### Scenario: Enemy Fleet Transits at 4,000 km/s
 
@@ -706,7 +732,7 @@ As an alternative to PDCs, build a large defensive station (no engines) and tow 
 Timeline from transit to engagement:
 
 T+0 seconds:     Enemy fleet transits JP
-T+0 seconds:     Picket thermal sensors detect engine signatures (500,000 km range)
+T+0 seconds:     Picket thermal sensors detect engine signatures (~79M km range; instant at 500,000 km)
 T+5 seconds:     Contact report relayed to main fleet
 T+10 seconds:    Fleet commander activates sensors, confirms hostile
 T+15 seconds:    Missile launch order given
@@ -750,7 +776,7 @@ Missile flight time = 4,000,000 / 25,000 = 160 seconds (~2.7 minutes)
 
 Your PD layers engage during the final approach:
 
-- AMMs launch at detection range (~27,000 km): intercept window ~1 second
+- AMMs launch at fire control range (~3.0M km against 0.3 HS missiles): substantial intercept window
 - Ranged beams engage from laser range: several ticks of engagement
 - CIWS engages at 10,000 km: 10,000 / 25,000 = 0.4 seconds (essentially one tick)
 
