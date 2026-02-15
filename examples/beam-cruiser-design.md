@@ -6,7 +6,7 @@ nav_order: 99
 
 # Example: Designing Your First Beam Cruiser
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.02*
 
 This worked example walks through the complete design process for a 10,000-ton beam cruiser optimized for medium-range engagement. We will make every decision step by step, showing the math behind each choice and explaining the trade-offs involved.
 
@@ -14,7 +14,7 @@ This worked example walks through the complete design process for a 10,000-ton b
 
 ## Contents
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.02*
 
 {: .no_toc }
 
@@ -36,12 +36,12 @@ Design a **10,000-ton beam cruiser** capable of:
 
 *Updated: v2026.01.30*
 
-- **TN Start**: Nuclear Thermal Engine technology (5 EP/HS), Pressurised Water Reactor
+- **TN Start**: Nuclear Radioisotope Engine technology (5 EP/HS), Pressurised Water Reactor
 - **Laser Technology**: 10cm focal size available, Ultraviolet wavelength (1.0x range modifier)
 - **Fire Control**: Beam FC with tracking speed up to 5,000 km/s
 - **Engine Power Multiplier**: 5 EP/HS (base, no boost applied yet)
 - **Fuel Consumption Modifier**: 1.0 (standard -- lower values improve range but increase engine size)
-- **Armor**: Duranium (strength 5 per layer)
+- **Armor**: Duranium (strength 4 per layer)
 - **Shipyard**: Naval yard capable of 10,000 tons
 
 ---
@@ -86,7 +86,7 @@ Required EP = 800 EP
 
 **But** this assumes the final ship size is exactly 200 HS. In practice, the engines themselves add mass. We need to iterate. Let us start with the engine calculation.
 
-With Nuclear Thermal Engine at 5 EP/HS, we can apply a power boost. Let us try a **1.25x boost** (the sweet spot per Appendix D -- 25% more power with ~56% more fuel consumption):
+With Nuclear Radioisotope Engine at 5 EP/HS, we can apply a power boost. Let us try a **1.25x boost** (the sweet spot per Appendix D -- 25% more power with ~56% more fuel consumption):
 
 ```
 Boosted EP/HS = 5 x 1.25 = 6.25 EP/HS
@@ -135,7 +135,7 @@ Engine HTK = sqrt(25) = 5 per engine
 
 3,125 km/s is excellent, but 50% of the hull in engines leaves tight margins for weapons and armor. The 40% allocation at 2,500 km/s is the better balance for a cruiser that needs to carry weapons, armor, and sensors.
 
-**Final engine decision**: 4x 20 HS Nuclear Thermal Engines at 1.25x boost
+**Final engine decision**: 4x 20 HS Nuclear Radioisotope Engines at 1.25x boost
 
 - Total engine mass: 4,000 tons (80 HS)
 - Total EP: 500
@@ -258,12 +258,12 @@ This detects a 5,000-ton ship (matching resolution 100) at approximately 41 mill
 
 *Updated: v2026.01.30*
 
-With Duranium armor (strength 5 per layer), we need to decide on thickness. Our expected threats are similar-era beam weapons dealing 4-10 damage per hit.
+With Duranium armor (strength 4 per layer), we need to decide on thickness. Our expected threats are similar-era beam weapons dealing 4-10 damage per hit.
 
 **Armor depth analysis**:
 
-- A 10-damage laser hit vs 5-strength Duranium: penetrates 2 layers per hit
-- A 4-damage particle beam: does NOT penetrate even 1 layer (4 < 5)
+- A 10-damage laser hit vs 4-strength Duranium: penetrates 2.5 layers per hit (rounds to 2 layers destroyed, 2 damage to next layer)
+- A 4-damage particle beam: penetrates 1 layer exactly (4 = 4)
 - Multiple hits to same column will progressively strip armor
 
 Per the guidelines in [Section 8.2.3 Armor Thickness](../8-ship-design/8.2-hull-and-armor.md#823-armor-thickness), 4-5 layers is "moderate protection, good for cruiser-weight combatants."
@@ -542,7 +542,7 @@ Six 10cm lasers provide better sustained firepower than fewer larger weapons bec
 
 ## Common Mistakes
 
-*Updated: v2026.01.26*
+*Updated: v2026.01.30*
 
 1. **Forgetting Power Plants**: Without a reactor, beam weapons cannot fire. Every laser, railgun, and particle beam requires power. Always calculate total power draw before finalizing weapons.
 

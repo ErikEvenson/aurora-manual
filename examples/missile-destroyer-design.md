@@ -6,7 +6,7 @@ nav_order: 99
 
 # Example: Designing a Missile Destroyer
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.02*
 
 This worked example walks through designing a 6,000-ton missile destroyer optimized for long-range anti-ship strikes. We cover launcher selection, missile design, fire control configuration, magazine sizing, and point defense -- showing the reasoning and math behind every decision.
 
@@ -14,7 +14,7 @@ This worked example walks through designing a 6,000-ton missile destroyer optimi
 
 ## Contents
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.02*
 
 {: .no_toc }
 
@@ -36,7 +36,7 @@ Design a **6,000-ton missile destroyer** capable of:
 
 *Updated: v2026.01.30*
 
-- **TN Start**: Nuclear Thermal Engine technology (5 EP/HS), Pressurised Water Reactor
+- **TN Start**: Nuclear Radioisotope Engine technology (5 EP/HS), Pressurised Water Reactor
 - **Missile Technology**: Size-1 launchers available, Magneto-Plasma engine (4x fuel efficiency)
 - **Warhead**: Strength-4 warheads (4 damage per MSP of warhead)
 - **Missile Hit Chance**: v2.2.0+ speed ratio system (agility removed from PD calculations) \hyperlink{ref-ex-mdd-1}{[1]}
@@ -303,7 +303,7 @@ Ship size: 6,000 tons = 120 HS
 Engine allocation: ~35% of tonnage = 2,100 tons = 42 HS
 Split: 3x 14 HS engines (redundancy, HTK = sqrt(14) = 3.74 each)
 
-With Nuclear Thermal at 5 EP/HS, 1.25x boost:
+With Nuclear Radioisotope at 5 EP/HS, 1.25x boost:
 EP per engine = 14 * 5 * 1.25 = 87.5 EP
 Total EP = 3 * 87.5 = 262.5 EP
 
@@ -360,7 +360,7 @@ With 50% in engines and significant launcher/magazine space, armor must be minim
 
 ```
 Armor: 2 layers Duranium
-  Strength per column: 2 * 5 = 10
+  Strength per column: 2 * 4 = 8
   Mass: approximately 750 tons
   Philosophy: survive glancing hits, not sustained beam fire
 ```
@@ -416,7 +416,7 @@ DD-6000 "Lancer" Missile Destroyer
   Fire Control: 2x Missile FC (continuous salvo capability)
   Point Defense: 2x CIWS-1
   Sensor: Active, resolution 100
-  Armor: 2 layers Duranium (10 strength per column)
+  Armor: 2 layers Duranium (8 strength per column)
   Range: ~3.2 billion km
   Engine redundancy: 3 engines, HTK 4.47 each
 ```
@@ -459,7 +459,7 @@ A 32-missile salvo every 30 seconds provides withering firepower. Against a 10,0
 
 ## Common Mistakes
 
-*Updated: v2026.01.26*
+*Updated: v2026.01.30*
 
 1. **All warhead, no engine**: A missile with 1.5 MSP warhead and 0.5 MSP engine is slow, easy to intercept, and short-ranged. Balance is critical -- speed saves missiles from PD.
 
