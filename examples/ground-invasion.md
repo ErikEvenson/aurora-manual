@@ -6,7 +6,7 @@ nav_order: 99
 
 # Example: Planning a Ground Invasion
 
-*Updated: v2026.02.02*
+*Updated: v2026.02.03*
 
 This worked example walks through the process of planning, executing, and consolidating a ground invasion of an enemy colony. It demonstrates force composition calculations, transport logistics, orbital support coordination, and post-conquest occupation requirements.
 
@@ -14,7 +14,7 @@ This worked example walks through the process of planning, executing, and consol
 
 ## Contents
 
-*Updated: v2026.02.02*
+*Updated: v2026.02.03*
 
 {: .no_toc }
 
@@ -91,10 +91,10 @@ The detected signatures suggest 10-20 battalions. Given the population of 50M, t
 **Disadvantages:**
 
 - Destroys infrastructure you want to capture (factories, mines, shipyards)
-- Causes civilian casualties (each shot has a 1/3 chance of hitting the population)
+- Causes civilian casualties (each shot has a 1/3 chance of hitting the population) *(unverified — #1259)*
 - May trigger diplomatic penalties with neutral factions
 - Terrain modifier (0.5 for Forest) reduces bombardment effectiveness by half
-- Energy weapon NBG has only 1/3 the accuracy of precision orbital support
+- Energy weapon NBG has only 1/3 the accuracy of precision orbital support *(unverified -- #1260)*
 
 ### Option B: Land Without Bombardment
 
@@ -131,7 +131,7 @@ Ground Damage = 20 x sqrt(16) = 80
 Ground AP = 40
 ```
 
-NBG energy weapon accuracy:
+NBG energy weapon accuracy *(unverified -- #1260)*:
 ```
 NBG Energy To-Hit = (Base 20% / 3) x (Terrain To-Hit Modifier) / (Target Fortification x Terrain Fortification Modifier)
               = 6.67% x 0.5 / (Fortification x 1.0)
@@ -145,7 +145,7 @@ Against a PDC at fortification level 6: effective to-hit = 6.67% x 0.5 / 6 = 0.5
 
 ## Step 3: Force Composition Planning
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.03*
 
 ### The 3:1 Rule
 
@@ -262,7 +262,7 @@ Using 8 Heavy Transports (10,000 tons each = 80,000 ton capacity):
 
 ## Step 5: Orbital Support During Ground Assault
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.03*
 
 ### Precision Orbital Bombardment Support
 
@@ -290,13 +290,13 @@ Modified by:
   - Standard ground combat accuracy calculations
 ```
 
-Precision orbital support is far more accurate than NBG (Naval Bombardment of Ground Forces) -- it uses full ground combat to-hit rather than the 1/3 reduction for blind fire.
+Precision orbital support is far more accurate than NBG (Naval Bombardment of Ground Forces) -- it uses full ground combat to-hit rather than the 1/3 reduction for blind fire *(unverified -- #1260)*.
 
 ### STO Weapon Risk
 
 Ships in bombardment support orbit are vulnerable to STO weapons:
 
-- STO fire control has 25% range bonus vs ship-mounted equivalents
+- STO fire control has 25% range bonus vs ship-mounted equivalents *(unverified -- #1259, #1260)*
 - Multiple STO formations stack their defensive contribution
 - Monitor for STO contacts and be prepared to withdraw ships if losses mount
 
@@ -535,7 +535,7 @@ After conquest, check:
 
 ## Common Mistakes
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.03*
 
 1. **Insufficient transport capacity.** Calculate total tonnage carefully. Running short means multiple lifts, giving the defender time to react.
 
@@ -557,7 +557,7 @@ After conquest, check:
 
 ## Advanced Tactics
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.03*
 
 The preceding sections cover the fundamentals of planetary invasion. This section addresses more sophisticated scenarios requiring multi-formation coordination, integrated orbital assets, PDC assault techniques, and sustained logistics for extended campaigns.
 
@@ -589,7 +589,7 @@ Division HQ (125,000 ton capacity)
 
 **Why hierarchical organization matters:**
 
-- Commander bonuses cascade down the hierarchy (100% direct, 25% superior)
+- Commander bonuses cascade down the hierarchy (100% direct, 25% superior) *(unverified -- #1259, #1260)*
 - Logistics elements at brigade level supply all subordinate formations
 - HQ capacity determines effective bonus application
 - Formations under the same brigade share supply pools
@@ -627,14 +627,14 @@ Division HQ (125,000 ton capacity)
 
 #### 3. Commander Bonus Stacking
 
-Maximize combat effectiveness through proper commander assignment:
+Maximize combat effectiveness through proper commander assignment *(cascade percentages unverified -- #1260)*:
 
 ```
 Division Commander (20% GCO, 15% GCD)
 └── Brigade Commander (15% GCO, 10% GCD, 10% GCM)
     └── Battalion Commander (10% GCO, 10% GCA)
 
-Effective bonuses at battalion level:
+Effective bonuses at battalion level (assumes 100% direct, 25% superior):
   GCO: 10% (direct) + 3.75% (brigade) + 5% (division) = 18.75%
   GCD: 0% (direct) + 2.5% (brigade) + 3.75% (division) = 6.25%
   GCM: 0% (direct) + 2.5% (brigade) = 2.5%
@@ -704,7 +704,7 @@ Two distinct orbital fire modes exist:
 | Mode | Accuracy | Collateral | Best Use |
 |------|----------|------------|----------|
 | **Orbital Bombardment Support** | Full ground combat accuracy | None | Coordinated attacks with ground forces |
-| **Naval Bombardment (NBG)** | 1/3 base accuracy | 1/3 chance to hit population | Softening before landing |
+| **Naval Bombardment (NBG)** | 1/3 base accuracy *(unverified -- #1260)* | 1/3 chance to hit population | Softening before landing |
 
 **When to use each:**
 
@@ -718,7 +718,7 @@ Surface-to-Orbit weapons threaten ships in bombardment orbit:
 
 **Threat assessment:**
 
-- STO fire controls have 25% range bonus vs. ship equivalents
+- STO fire controls have 25% range bonus vs. ship equivalents *(unverified -- #1260)*
 - STO weapons only reveal themselves after firing (then flagged as "STO Ground Forces" contact)
 - Multiple STO formations stack defensive contribution
 
@@ -784,7 +784,7 @@ Never land troops in active PDC weapon range without suppression:
 5. **Confirm suppression:** PDC weapons should cease firing before transport approach
 6. **Land distant from PDCs:** Even suppressed PDCs may retain some capability -- land outside their remaining weapon range
 
-**Bombardment formula reference:**
+**Bombardment formula reference** *(unverified -- #1260)*:
 
 ```
 Energy NBG To-Hit = (Base 20% / 3) x (Terrain Modifier) / (Fortification x Terrain Fortification Modifier)

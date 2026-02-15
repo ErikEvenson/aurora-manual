@@ -6,7 +6,7 @@ nav_order: 99
 
 # Example: Exploration Workflow
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.02*
 
 This worked example walks through the systematic exploration of a newly discovered star system, from initial jump point transit through colonization assessment. It demonstrates gravitational survey, geological survey, xenoarchaeology, and the decision-making process for evaluating colonization candidates.
 
@@ -14,7 +14,7 @@ This worked example walks through the systematic exploration of a newly discover
 
 ## Contents
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.02*
 
 {: .no_toc }
 
@@ -153,7 +153,7 @@ While Pathfinder conducts gravitational survey, send Prospector into the system 
 
 ### Survey Point Requirements by Body Type
 
-Survey point requirements are calculated dynamically based on body characteristics and are not stored as fixed values in the game database. The following are approximate ranges observed during gameplay *(community estimates — not verified against source code)* \hyperlink{ref-ex-explore-5}{[5]}:
+Survey point requirements are calculated dynamically based on body characteristics and are not stored as fixed values in the game database. The following are approximate ranges observed during gameplay *(community estimates — not verified against source code)* \hyperlink{ref-ex-explore-3}{[3]}:
 
 | Body Type | Typical Survey Points | Time (3 sensors x 30 pts/day = 90/day) |
 |-----------|----------------------|---------------------------------------|
@@ -239,7 +239,7 @@ Colony Cost = Max(Environmental Penalties)
   - Gravity deviation
 ```
 
-> **Note:** In C# Aurora, Colony Cost equals the single worst (maximum) environmental factor, not the sum of all factors. Only the highest penalty applies.
+> **Note:** In C# Aurora, Colony Cost equals the single worst (maximum) environmental factor, not the sum of all factors. Only the highest penalty applies. \hyperlink{ref-ex-explore-2}{[2]}
 
 | Body | Temperature | Atmosphere | Gravity | Colony Cost | Verdict |
 |------|------------|-----------|---------|-------------|---------|
@@ -592,7 +592,7 @@ First xeno recovery (at 20%/year): expected ~5 years (stochastic)
 
 ## Common Mistakes
 
-*Updated: v2026.01.26*
+*Updated: v2026.01.30*
 
 1. **Sending surveyors without escort into unknown space.** Survey ships are unarmed. One hostile contact means a dead ship and months of lost survey data. Escort in unknown systems.
 
@@ -622,7 +622,7 @@ First xeno recovery (at 20%/year): expected ~5 years (stochastic)
 
 \hypertarget{ref-ex-explore-2}{[2]}. Aurora C# game database (AuroraDB.db v2.7.1) -- Colony cost uses the single worst (maximum) environmental factor, not the sum of all factors. See Section 5.3 Environment for the complete CC calculation.
 
-\hypertarget{ref-ex-explore-5}{[5]}. Survey point requirements per body type are not stored as fixed values in AuroraDB.db. The FCT\_SystemBody table tracks body characteristics (Radius, Mass, BodyClass) but survey point counts appear to be calculated dynamically by the game engine. Values in this table are community estimates based on observed gameplay.
+\hypertarget{ref-ex-explore-3}{[3]}. Survey point requirements per body type are not stored as fixed values in AuroraDB.db. The FCT\_SystemBody table tracks body characteristics (Radius, Mass, BodyClass) but survey point counts appear to be calculated dynamically by the game engine. Values in this table are community estimates based on observed gameplay.
 
 ---
 

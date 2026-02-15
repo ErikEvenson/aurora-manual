@@ -6,7 +6,7 @@ nav_order: 99
 
 # Example: Defending a Jump Point
 
-*Updated: v2026.02.02*
+*Updated: v2026.02.15*
 
 This worked example walks through establishing a comprehensive defensive position at a jump point connecting to known hostile space. Every major decision is supported by calculations drawn from the game's formulas, and common pitfalls are highlighted throughout.
 
@@ -14,7 +14,7 @@ This worked example walks through establishing a comprehensive defensive positio
 
 ## Contents
 
-*Updated: v2026.02.02*
+*Updated: v2026.02.15*
 
 {: .no_toc }
 
@@ -45,7 +45,7 @@ Establish a layered defensive position at a jump point connecting to a system oc
 
 ## Step 1: Sensor Picket Deployment
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 The first requirement is detecting enemy transits before their weapons reach your fleet. A dedicated sensor picket stationed near the jump point provides early warning.
 
@@ -320,9 +320,14 @@ Tracking_Mod = min(1.0, FC_Tracking / Missile_Speed)
 At 50% of laser range: Base chance = 50% * 0.8 = 40% per shot.
 At 10,000 km (point blank for lasers): Base chance = near 100% * 0.8 = 80% per shot.
 
-### Layer 3: CIWS (Final Fire, 10,000 km)
+### Layer 3: Close-Range Point Defense (Final Fire, 10,000 km)
 
-Triple-turret gauss cannons with rate-of-fire 4 technology:
+This layer uses either **CIWS** or **turret-mounted gauss cannons** -- two distinct systems that are often confused:
+
+- **[CIWS](../appendices/B-glossary.md#ciws)** (Close-In Weapon System) is a self-contained point defense component that includes its own built-in fire control, gauss cannon, and turret in a single unit. It requires no separate beam fire control allocation and fires autonomously.
+- **Turret gauss cannons** are standard gauss cannons mounted in a turret. They require a separate [BFC](../appendices/B-glossary.md#bfc) (Beam Fire Control) assigned to point defense duty. They offer more design flexibility (you choose the FC tracking speed and turret configuration) but consume additional hull space for the fire control.
+
+For this example, we use turret-mounted gauss cannons (triple-turret configuration) with rate-of-fire 4 technology and a dedicated PD fire control tracking at 16,000 km/s:
 
 ```
 Shots per tick = 3 turrets * 4 shots = 12 shots per 5-second tick
@@ -336,13 +341,15 @@ Expected kills per tick = 12 * 0.4 = ~4.8 missiles
 ```
 \hyperlink{ref-ex-jpd-1}{[1]}
 
-With 4 CIWS installations across your fleet:
+With 4 turret gauss installations across your fleet:
 
 ```
-Total fleet CIWS kills per tick = 4 * 4.8 = ~19 missiles
+Total fleet PD gauss kills per tick = 4 * 4.8 = ~19 missiles
 ```
 
-This means your CIWS layer alone can handle a salvo of approximately 19 missiles per 5-second tick. Note that hit chance improves at shorter range (approaching 0.8 at point blank) and decreases at longer range.
+This means your close-range PD layer alone can handle a salvo of approximately 19 missiles per 5-second tick. Note that hit chance improves at shorter range (approaching 0.8 at point blank) and decreases at longer range.
+
+> **Tip:** CIWS is simpler to design with (no separate FC needed) and is ideal for smaller escorts. Turret gauss cannons with a dedicated high-tracking FC can outperform CIWS on larger ships where you have the hull space for optimal fire control configurations. See [Section 12.4 Point Defense](../12-combat/12.4-point-defense.md) for detailed comparison.
 
 ### Combined Layer Effectiveness
 
@@ -351,10 +358,10 @@ Against a 50-missile salvo:
 ```
 Layer 1 (AMMs, 40% kill rate): 50 * 0.6 = 30 survive
 Layer 2 (Ranged beams, 25% kill rate): 30 * 0.75 = 22.5 survive
-Layer 3 (CIWS, ~19 kills/tick capacity): max(0, 22 - 19) = 3 missiles leak through
+Layer 3 (PD gauss, ~19 kills/tick capacity): max(0, 22 - 19) = 3 missiles leak through
 ```
 
-Your layered defense handles a 50-missile salvo with only minor leakage. But against 100+ missiles, CIWS becomes a severe bottleneck:
+Your layered defense handles a 50-missile salvo with only minor leakage. But against 100+ missiles, close-range PD becomes a severe bottleneck:
 
 ```
 Layer 1: 100 * 0.6 = 60 survive
@@ -753,7 +760,7 @@ This is tight. Against very fast missiles, your CIWS gets only one engagement ti
 
 ## Key Decisions Summary
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 | Decision | Recommended | Rationale |
 |----------|-------------|-----------|
@@ -778,7 +785,7 @@ Building a jump gate at a hostile JP is almost always wrong:
 
 ## Common Mistakes
 
-*Updated: v2026.01.30*
+*Updated: v2026.01.26*
 
 ### 1. Stationing Fleet Directly on the JP
 
@@ -790,7 +797,7 @@ Without dedicated pickets under EMCON near the JP, you rely on your main fleet's
 
 ### 3. Insufficient PD Against Missile-Heavy Enemies
 
-A common failure mode: designing a fleet with excellent offensive missiles but only 1-2 CIWS installations. The first enemy salvo of 40+ missiles overwhelms your single CIWS layer and cripples your fleet before your own missiles arrive.
+A common failure mode: designing a fleet with excellent offensive missiles but only 1-2 point defense installations (CIWS or turret gauss). The first enemy salvo of 40+ missiles overwhelms your single PD layer and cripples your fleet before your own missiles arrive.
 
 **Rule of thumb:** Dedicate at least 20% of your fleet tonnage to point defense systems.
 
