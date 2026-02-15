@@ -8,7 +8,7 @@ nav_order: 1
 
 *Updated: v2026.02.13*
 
-Compare up to 2 engine configurations side-by-side. All formulas and tech values are verified against the Aurora game database (AuroraDB.db v2.7.1) and referenced in the manual.
+Compare up to 2 engine configurations side-by-side. Formulas and tech values are verified against the Aurora game database (AuroraDB.db v2.7.1) and referenced in the manual, except where marked *(unverified)*.
 
 > **Note:** Fuel consumption and range calculations are intentionally excluded. The manual contains [contradicting formulas for engine-size fuel efficiency](https://github.com/ErikEvenson/aurora-manual/issues/1215) (Appendix A.1.3 vs Section 8.3.5), and runtime fuel consumption claims are [also unverified](https://github.com/ErikEvenson/aurora-manual/issues/1214). Only verified calculations are shown here.
 
@@ -337,12 +337,12 @@ Compare up to 2 engine configurations side-by-side. All formulas and tech values
 </details>
 
 <details class="calc-collapsible">
-<summary>Boost Explosion Chance — AuroraDB.db ref [A-4]</summary>
+<summary>Boost Explosion Chance — AuroraDB.db ref [A-4] (Note: 5% base rate for no-boost is not from TechTypeID=42; source unverified)</summary>
 <div class="detail-content">
 <table class="calc-ref-table">
 <thead><tr><th>Boost Level</th><th>Multiplier</th><th>Explosion Chance</th><th>Research (RP)</th></tr></thead>
 <tbody>
-<tr><td>None</td><td>x1.0</td><td>5%</td><td>250</td></tr>
+<tr><td>None</td><td>x1.0</td><td>5% <em>(unverified)</em></td><td>250</td></tr>
 <tr><td>+10%</td><td>x1.1</td><td>7%</td><td>1,000</td></tr>
 <tr><td>+20%</td><td>x1.2</td><td>10%</td><td>2,500</td></tr>
 <tr><td>+30%</td><td>x1.3</td><td>15%</td><td>5,000</td></tr>
@@ -433,8 +433,10 @@ Compare up to 2 engine configurations side-by-side. All formulas and tech values
   ];
 
   // Verified boost explosion chances — AuroraDB.db TechTypeID=42 [ref A-4]
+  // Note: The 5% base explosion rate for no-boost (1.0) is NOT from TechTypeID=42.
+  // That tech type only contains boosted tiers (1.1+). The 5% value requires verification.
   var BOOST_EXPLOSION = {
-    1.0: 5, 1.1: 7, 1.2: 10, 1.3: 15,
+    1.0: 5, /* unverified — not in TechTypeID=42 */ 1.1: 7, 1.2: 10, 1.3: 15,
     1.4: 20, 1.6: 30, 1.8: 40, 2.0: 50
   };
 
