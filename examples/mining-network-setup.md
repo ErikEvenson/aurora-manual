@@ -6,7 +6,7 @@ nav_order: 99
 
 # Example: Setting Up a Mining Network
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.02*
 
 This worked example walks through establishing an off-world mining colony and freight network to supplement your homeworld's depleting mineral supplies. We cover site selection, colony establishment, mine deployment, freighter design, and logistics configuration -- with calculated numbers at each step.
 
@@ -14,7 +14,7 @@ This worked example walks through establishing an off-world mining colony and fr
 
 ## Contents
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.02*
 
 {: .no_toc }
 
@@ -219,32 +219,33 @@ Actually, re-reading [Section 8.3.1 Engine Technology](../8-ship-design/8.3-engi
 So a 300 HS commercial engine produces the same EP as a 30 HS military engine:
 ```
 EP = 30 x 8 = 240 EP
-Speed = 240 * 5000 / 50000 = 24 km/s
+Ship size: 1000 HS (50,000 tons)
+Speed = 240 * 1000 / 1000 = 240 km/s
 ```
 
-Too slow. Let us increase engine allocation to 40%:
+Decent speed. Let us increase engine allocation to 40% for better transit times:
 ```
 Engines: 400 HS commercial = 40 HS military equivalent
 EP = 40 x 8 = 320 EP
-Speed = 320 * 5000 / 50000 = 32 km/s
+Speed = 320 * 1000 / 1000 = 320 km/s
 ```
 
-Still very slow, but acceptable for a commercial freighter. 32 km/s is ~2.8 million km/day.
+Acceptable for a commercial freighter. 320 km/s is ~27.6 million km/day.
 
 **Transit time example** (Earth to Asteroid Belt, ~400 million km average):
 ```
-Time = 400,000,000 km / 32 km/s = 12,500,000 seconds = 144.7 days (4.8 months one way)
-Round trip: ~9.6 months
+Time = 400,000,000 km / 320 km/s = 1,250,000 seconds = 14.5 days (~2 weeks one way)
+Round trip: ~29 days (~1 month)
 ```
 
-That is slow but workable for automated logistics. Each freighter makes roughly 1.25 round trips per year.
+This is workable for automated logistics. Each freighter makes roughly 12 round trips per year.
 
 ### Cargo Capacity Calculation
 
 With 25,000 tons of cargo space (500 HS of cargo holds):
 ```
 Minerals per trip: 25,000 tons
-Annual mineral delivery: 25,000 x 1.25 trips = 31,250 tons/year per freighter
+Annual mineral delivery: 25,000 x 12 trips = 300,000 tons/year per freighter
 ```
 
 Our 20 mines produce 18 tons of Gallicite + 20 tons of Duranium = 38 tons/year total. A single freighter is wildly overkill for 20 mines. Even a single trip per year carries 25,000 tons -- far more than our mines produce.
@@ -255,7 +256,7 @@ Our 20 mines produce 18 tons of Gallicite + 20 tons of Duranium = 38 tons/year t
 Hull: 10,000 tons (200 HS)
 Engines: 80 HS commercial = 8 HS military equivalent
 EP = 8 x 8 = 64 EP
-Speed = 64 * 5000 / 10000 = 32 km/s (same speed, smaller ship)
+Speed = 64 * 1000 / 200 = 320 km/s (same speed, smaller ship)
 Cargo: 80 HS = 4,000 tons capacity
 Fuel: 20 HS = 1,000 tons (50,000 litres)
 Bridge: 1 HS = 50 tons
@@ -329,7 +330,7 @@ Mass drivers offer an alternative to freighter logistics:
 **Mass Driver disadvantages**:
 
 - Requires a mass driver at BOTH ends (one to send, one to catch)
-- Total cost: 2 x 600 BP = 1,200 BP + 600 Duranium + 600 Neutronium
+- Total cost: 2 x 300 BP = 600 BP + (2 x (100 Duranium + 100 Neutronium + 100 Boronide)) = 600 BP + 200 Duranium + 200 Neutronium + 200 Boronide
 - Mass drivers require no workers \hyperlink{ref-ex-mining-2}{[2]}, but the colony needs population for any manned installations
 - Catching mass driver needs to be configured to receive
 
@@ -649,7 +650,7 @@ For automated mining, colony size is irrelevant (no population needed). For conv
 
 ## Worked Numbers Summary
 
-*Updated: v2026.01.26*
+*Updated: v2026.01.30*
 
 ### Mining Output at Different Scales
 
@@ -662,14 +663,14 @@ For automated mining, colony size is irrelevant (no population needed). For conv
 | 50 | 0.5 | Base (1.0x) | 250 tons/year |
 | 50 | 1.0 | Base (1.0x) | 500 tons/year |
 
-### Freighter Transit Times (at 32 km/s)
+### Freighter Transit Times (at 320 km/s)
 
 | Route | Distance | One-Way | Round Trip |
 |-------|----------|---------|------------|
-| Earth to Luna | 384,000 km | 3.3 hours | 6.6 hours |
-| Earth to Mars (close) | 78M km | 28 days | 56 days |
-| Earth to Asteroid Belt | 400M km | 145 days | 290 days |
-| Earth to Jupiter | 630M km | 228 days | 456 days |
+| Earth to Luna | 384,000 km | 20 minutes | 40 minutes |
+| Earth to Mars (close) | 78M km | 2.8 days | 5.6 days |
+| Earth to Asteroid Belt | 400M km | 14.5 days | 29 days |
+| Earth to Jupiter | 630M km | 22.8 days | 45.6 days |
 
 ### Deposit Lifespan Examples
 

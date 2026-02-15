@@ -6,7 +6,7 @@ nav_order: 99
 
 # Example: Terraforming a Colony
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.02*
 
 This worked example walks through reducing a colony's cost from CC 2.0 to CC 0.0 through systematic terraforming. Each step includes timeline calculations, installation requirements, and the decision logic behind gas selection order.
 
@@ -14,7 +14,7 @@ This worked example walks through reducing a colony's cost from CC 2.0 to CC 0.0
 
 ## Contents
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.02*
 
 {: .no_toc }
 
@@ -53,12 +53,12 @@ Before diving into the worked example, here are the key numerical values you nee
 |------------------|---------------|----------------------|
 | Starting (Racial) | -- | 0.00025 |
 | Level 1 | 3,000 RP | 0.00032 |
-| Level 2 | 6,000 RP | 0.00040 |
-| Level 3 | 12,000 RP | 0.00050 |
-| Level 4 | 24,000 RP | 0.00065 |
-| Level 5 | 48,000 RP | 0.00080 |
-| Level 6 | 96,000 RP | 0.00100 |
-| Level 7 | 192,000 RP | 0.00120 |
+| Level 2 | 5,000 RP | 0.0004 |
+| Level 3 | 10,000 RP | 0.00048 |
+| Level 4 | 20,000 RP | 0.0006 |
+| Level 5 | 40,000 RP | 0.00075 |
+| Level 6 | 80,000 RP | 0.00096 |
+| Level 7 | 150,000 RP | 0.0012 |
 
 > **Note:** Actual rate is multiplied by the planet size factor: Earth Surface Area / Planet Surface Area. Smaller worlds terraform faster.
 
@@ -686,7 +686,7 @@ The relationship is roughly linear: quarter the installations means quadruple th
 
 ## Common Mistakes
 
-*Updated: v2026.01.26*
+*Updated: v2026.01.30*
 
 ### 1. Adding the Wrong Gas First
 

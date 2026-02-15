@@ -6,7 +6,7 @@ nav_order: 99
 
 # Example: Defending a Jump Point
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.02*
 
 This worked example walks through establishing a comprehensive defensive position at a jump point connecting to known hostile space. Every major decision is supported by calculations drawn from the game's formulas, and common pitfalls are highlighted throughout.
 
@@ -14,7 +14,7 @@ This worked example walks through establishing a comprehensive defensive positio
 
 ## Contents
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.02*
 
 {: .no_toc }
 
@@ -113,6 +113,8 @@ The EM sensor detects enemy active sensors and shields without revealing the pic
 ```
 EM Detection Range (km) = Sensor_Sensitivity * Target_EM_Signature * 10,000
 ```
+
+*(Note: These calculations use a simplified formula. See Appendix A Section A.3.2 for the verified formula: `Detection_Range = sqrt(Sensitivity x Signature) x 250,000`. The simplified formulas below provide approximations suitable for tactical planning.)*
 
 With a 5 HS EM sensor at tech level 4:
 
@@ -776,7 +778,7 @@ Building a jump gate at a hostile JP is almost always wrong:
 
 ## Common Mistakes
 
-*Updated: v2026.01.26*
+*Updated: v2026.01.30*
 
 ### 1. Stationing Fleet Directly on the JP
 

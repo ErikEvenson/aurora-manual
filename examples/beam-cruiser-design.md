@@ -498,7 +498,7 @@ Speed = 500 EP * 1000 / 201 HS = 2,488 km/s (approximately 2,500 km/s)
 
 ```
 Speed: 500 EP * 1000 / ~200 HS = 2,500 km/s
-Armor: 3 layers x 5 strength = 15 damage to penetrate per column
+Armor: 3 layers x 4 strength = 12 damage to penetrate per column
 Firepower: 60 damage per volley (6 lasers x 10 damage)
 Power: 60 (exactly matching weapon draw)
 Range: ~4.4 billion km (inner system defense)
@@ -525,7 +525,7 @@ This makes engine technology research the single highest-impact upgrade path for
 At early tech, lasers deal 2.5x more damage per power unit (10 vs 4) and occupy less than half the hull space per weapon. Particle beams become competitive when armor reaches 6+ layers and single-column penetration matters. At 3-4 layers of Duranium, raw laser damage is more effective.
 
 ### Speed vs Armor Trade-Off
-We chose 3 layers (moderate protection) over 4+ layers (heavy armor doctrine). At 2,500 km/s, we can dictate engagement terms against most early-game opponents and outrun heavily armored battleships. The 3 layers stop particle beams cold (4 damage < 5 armor strength) and require 2 laser hits per column to penetrate -- reasonable for trading fire at medium range.
+We chose 3 layers (moderate protection) over 4+ layers (heavy armor doctrine). At 2,500 km/s, we can dictate engagement terms against most early-game opponents and outrun heavily armored battleships. The 3 layers match particle beam damage exactly (4 damage = 4 armor strength per layer) and require 3 laser hits per column to penetrate (10 damage strips 2.5 layers per hit) -- reasonable for trading fire at medium range.
 
 ### Why 40% Engine Allocation Works
 Dedicating 40% of tonnage to engines at TN-start provides 2,500 km/s -- solidly in the "Moderate" speed class. This leaves 60% of hull for weapons, armor, sensors, and support systems. Going to 50% (3,125 km/s) would require sacrificing either weapons or armor, weakening the ship's core combat role.
