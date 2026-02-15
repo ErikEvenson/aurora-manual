@@ -148,7 +148,7 @@ Engine HTK = sqrt(25) = 5 per engine
 
 ## Step 3: Weapon Selection -- Laser vs Particle Beam
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 At this tech level, our choices are:
 
@@ -400,23 +400,21 @@ This provides workable operational range for inner system defense. For reference
 
 **Bridge**: Mandatory on all ships. 1 HS = 50 tons.
 
-**Engineering spaces**: Critical for maintenance and damage control. Per the Annual Failure Rate formula:
+**Engineering spaces**: Critical for maintenance and damage control. Per the Annual Failure Rate formula (see [Appendix A.1.8](../appendices/A-formulas.md)):
 ```
-AFR_Without_Engineering = 0.2 x Ship_Tonnage (percent)
-AFR_With_Engineering = (0.04 / Engineering_Tonnage_Percent) x Ship_Tonnage
-```
-
-Targeting 5% engineering (500 tons):
-```
-AFR = (0.04 / 0.05) x 10000 = 0.8 x 10000 = 8000...
+BaseFailureChance_Without_Engineering = 0.2 x Ship_Tonnage
+BaseFailureChance_With_Engineering = (0.04 / Engineering_Tonnage_Fraction) x Ship_Tonnage
 ```
 
-Actually, the percentage is of total tonnage. With 500 tons engineering on a 10,000 ton ship (5%):
+The factor 0.2 is a game parameter that produces a BaseFailureChance value, not a direct probability percentage. Targeting 5% engineering (500 tons on a 10,000-ton ship):
 ```
-Engineering_Tonnage_Percent = 500 / 10000 = 0.05 (5%)
+Engineering_Tonnage_Fraction = 500 / 10000 = 0.05
+BaseFailureChance = (0.04 / 0.05) x 10000 = 0.8 x 10000 = 8000
 ```
 
-This provides reasonable maintenance support. The MSP stored:
+Without any engineering spaces, the value would be 0.2 x 10,000 = 2,000. How the game converts BaseFailureChance into actual component failure events is embedded in internal game logic *(unverified)*.
+
+The MSP stored:
 ```
 MSP_Stored = floor(12.5 x Ship_Build_Cost_BP x Engineering_Tons / Total_Ship_Tons)
 MSP_Stored = floor(12.5 x [Build_Cost] x 500 / 10000)

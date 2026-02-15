@@ -74,11 +74,13 @@ Where \hyperlink{ref-A-3}{[A-3]}:
 
 ### A.1.3 Engine Size-Based Fuel Consumption
 
-In C# Aurora, engine fuel efficiency improves linearly with engine size. Fuel consumption is reduced by 1% for every HS of engine size \hyperlink{ref-A-10}{[A-10]}:
+In C# Aurora, engine fuel efficiency improves with engine size following a square root relationship \hyperlink{ref-A-10}{[A-10]}:
 
 ```
-Fuel_Consumption_Modifier = 1 - (Engine_Size_HS * 0.01)
+Fuel_Consumption_Modifier = SQRT(10 / Engine_Size_HS)
 ```
+
+*(unverified — #1215)* — This SQRT formula replaced the linear model (`1 - Engine_Size_HS * 0.01`) from VB6 Aurora. The exact formula cannot be isolated from the database because fuel consumption values in FCT_ShipDesignComponents combine multiple factors (engine size, fuel consumption tech, and boost). Issue #1215 tracks full verification.
 
 Where:
 
@@ -88,12 +90,14 @@ This creates efficiency advantages for larger engines:
 
 | Engine Size (HS) | Fuel Consumption Modifier | Effect |
 |-----------------|---------------------------|--------|
-| 1 | 0.99 | Minimal efficiency gain |
-| 10 | 0.90 | 10% more fuel-efficient |
-| 25 | 0.75 | 25% more fuel-efficient |
-| 50 | 0.50 | 50% more fuel-efficient |
+| 1 | 3.16 | Penalty for very small engines |
+| 10 | 1.00 | Baseline (no modifier) |
+| 25 | 0.63 | 37% more fuel-efficient |
+| 50 | 0.45 | 55% more fuel-efficient |
 
-**Example**: A 25 HS engine has fuel consumption modifier of 0.75, meaning it uses only 75% of the fuel per unit of power compared to a 1 HS engine.
+**Example**: A 25 HS engine has fuel consumption modifier of SQRT(10/25) = 0.63, meaning it uses only 63% of the fuel per unit of power compared to a 10 HS engine.
+
+For detailed engine design context including fuel consumption, see [Section 8.3.5 Fuel Consumption](../8-ship-design/8.3-engines.md#835-fuel-consumption).
 
 ![Figure A.1.3: Engine Size Fuel Efficiency](../images/charts/appendices/a-1-3-engine-fuel-efficiency.png)
 
@@ -106,7 +110,7 @@ Fuel_per_Hour = Total_Engine_Power x Fuel_Consumption_Rate x Boost_Penalty
 Where:
 
 - **Fuel_Consumption_Rate** is determined by fuel consumption technology (base 1.0, reduced by research)
-- **Boost_Penalty** = (4 ^ Boost_Modifier) / 4, where Boost_Modifier is the decimal value (e.g., 0.5 for 50% boost, 1.0 for 100% boost) \hyperlink{ref-A-11}{[A-11]}
+- **Boost_Penalty** = (4 ^ Boost_Modifier) / 4, where Boost_Modifier is the power multiplier (1.0 for no boost, 1.5 for +50% boost, 2.0 for +100% boost) \hyperlink{ref-A-11}{[A-11]}. This matches the AdditionalInfo values from FCT_TechSystem TechTypeID=42. At no boost (1.0): (4^1.0)/4 = 1.0, confirming the correct baseline.
 
 ### A.1.5 Range Calculation
 
@@ -130,6 +134,8 @@ Shield_EM_Signature = Shield_Strength x 3
 \hyperlink{ref-A-5}{[A-5]}
 
 Shields begin at zero when first activated and must recharge to full strength. Regeneration is continuous during combat. The strength formula's square root scaling means larger generators provide disproportionately more shielding per HS, but recharge at the same rate per HS regardless of size.
+
+The regeneration structure (proportional to Generator_Size_HS, not Total_Shield_Strength) is verified against the database schema -- FCT_ShipDesignComponents shows regeneration values scaling with generator size. The exact coefficient/multiplier in the formula is *(unverified)* and may vary by implementation. See also [Section D.5.3 Shield Types](../appendices/D-reference-tables.md#d53-shield-types), which uses an incorrect formula based on Total_Shield_Strength rather than Generator_Size_HS.
 
 ### A.1.7 Power Plant Output
 
@@ -162,9 +168,11 @@ MSP_Stored = floor(12.5 x Ship_Build_Cost_BP x Engineering_Tons / Total_Ship_Ton
 ```
 
 ```
-AFR_Without_Engineering = 0.2 x Ship_Tonnage  (percent)
-AFR_With_Engineering = (0.04 / Engineering_Tonnage_Percent) x Ship_Tonnage  (percent)
+AFR_Without_Engineering = 0.2 x Ship_Tonnage
+AFR_With_Engineering = (0.04 / Engineering_Tonnage_Percent) x Ship_Tonnage
 ```
+
+The factor 0.2 is a BaseFailureChance game parameter, not a direct probability percentage. Verified against FCT_ShipClass.BaseFailureChance for ships without engineering spaces (e.g., Niobe class at 984 tons yields BaseFailureChance = 196.8, matching 0.2 x 984). The interpretation of these values as annual failure probabilities is *(unverified)* -- the raw formula produces the BaseFailureChance field value, but how the game converts this to actual component failure events during gameplay is embedded in game logic.
 
 ### A.1.9 Tractor Beam Towing Speed
 
@@ -192,7 +200,7 @@ Heavier tugs maintain better towing speeds. The return trip (without towed vesse
 
 ## A.2 Missile Design Formulas
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 Formulas for missile performance calculations. See [Section 12.3 Missiles](../12-combat/12.3-missiles.md) for tactical context.
 
@@ -863,7 +871,9 @@ Formulas for occupation, garrison requirements, and population unrest. See [Sect
 
 ### A.7.1 Required Garrison Strength
 
-The garrison strength required to maintain order on a colony is determined by:
+*(unverified)* — This formula is a simplified version that uses only two racial factors (Determination and Militancy). The more complete formula in [Section A.7.3 Unrest and Stability](#a73-unrest-and-stability) includes Xenophobia as a third factor and applies the Political Status Modifier multiplicatively, which is more consistent with the database schema (FCT_Race includes Determination, Militancy, and Xenophobia fields). Use A.7.3 for accurate calculations.
+
+The garrison strength required to maintain order on a colony is approximately:
 
 ```
 Required_Garrison = Population (millions) * (Racial_Determination / 100) * (Racial_Militancy / 100)
