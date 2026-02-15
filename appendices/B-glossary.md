@@ -6,7 +6,7 @@ nav_order: 2
 
 # Appendix B: Glossary
 
-*Updated: v2026.02.01*
+*Updated: v2026.02.02*
 
 This glossary defines key terms used throughout the Aurora C# manual. Cross-references to detailed coverage are provided for major topics.
 
@@ -45,11 +45,13 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | <a id="eccm"></a>ECCM | Counter-ECM on fire controls; negates one ECM level each |
 | EM | Electromagnetic; passive detection of emissions/shields |
 | EM Signature | Ship emissions from active sensors, shields, components |
+| EMCON | Emissions Control; minimizing detectable emissions (thermal, EM, active sensor) to reduce detection range. Ships can set EMCON levels to restrict which systems are active |
 | Engine Power | Thrust in EP; divided by tonnage for speed |
 | EP | Engine Power; raw thrust output |
 | Est. Thermal Sig. | What enemies detect; from engines and thermal reduction |
 | FAC | Fast Attack Craft; legacy term for Light Naval vessels near 1,000t |
 | FC | Fire Control; directs weapons (beam or missile variants) |
+| FFD | Forward Fire Direction; capability allowing ground units to call in orbital bombardment strikes with improved accuracy |
 | Fire Delay | Time between beam shots; varies by type and tech |
 | Fleet | Ships under unified orders and one commander |
 | Focal Size | Laser range bracket; larger = longer range, bigger size |
@@ -65,6 +67,7 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | Governor | Colony commander; provides production/growth bonuses |
 | Grav Survey | Exploring a system to discover jump points |
 | Ground Forces | Military units for planetary assault and defense |
+| GSP | Ground Supply Points; supply points consumed by ground forces during combat operations for ammunition and logistics |
 | Hangar | Ship component for storing and servicing smaller craft |
 | <a id="hs"></a>HS | Hull Size; 50 tons of ship mass (1 HS = 50t) \hyperlink{ref-B-3}{[B-3]} |
 | HTK | Hits to Kill; damage points before component destruction \hyperlink{ref-B-11}{[B-11]} |
@@ -88,6 +91,7 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | <a id="msp"></a>MSP (maintenance) | Maintenance Supply Points; consumables for ship repairs and damage control. Context: logistics, engineering spaces, supply ships |
 | MSP (missiles) | Missile Size Points; unit of missile mass where 1 MSP = 2.5 tons \hyperlink{ref-B-8}{[B-8]}. Context: missile design, launchers, magazines |
 | Multi-stage Missile | Booster stage for range + separating attack stage |
+| NBG | Naval Bombardment of Ground forces; orbital bombardment of planetary ground targets by warships in orbit |
 | <a id="npr"></a>NPR | Non-Player Race; AI civilization with own tech/fleets |
 | Orbital Habitat | Space-based structure supporting population without a planet |
 | Ordnance | Missiles and expendable weapons carried by ships |
@@ -117,6 +121,7 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | Spoiler Race | Pre-designed threat; no diplomacy, unique mechanics |
 | Spinal Mount | Beam built to hull size; more damage, limited arc |
 | Strikegroup | Task group sub-formation for fleet organization |
+| STO | Surface to Orbit; weapons or fire controls capable of engaging targets in orbit from a planetary surface (e.g., PDC-mounted weapons) |
 | Survey Point | Location checked during grav survey for JPs |
 | Swarm | Spoiler race; overwhelms with numbers, regenerates |
 | SY | Shipyard \hyperlink{ref-B-11}{[B-11]} |
@@ -138,7 +143,7 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 
 ## Contents
 
-*Updated: v2026.01.29*
+*Updated: v2026.02.02*
 
 {: .no_toc }
 
