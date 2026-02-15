@@ -6,7 +6,7 @@ nav_order: 1
 
 # Ship Speed & Engine Calculator
 
-*Updated: v2026.02.13*
+*Updated: v2026.02.15*
 
 Compare up to 2 engine configurations side-by-side. Formulas and tech values are verified against the Aurora game database (AuroraDB.db v2.7.1) and referenced in the manual, except where marked *(unverified)*.
 
@@ -269,20 +269,20 @@ Compare up to 2 engine configurations side-by-side. Formulas and tech values are
 <thead><tr><th>Drive Technology</th><th>EP per HS</th><th>Research (RP)</th><th>Era</th></tr></thead>
 <tbody>
 <tr><td>Conventional Engine</td><td>1.0</td><td>500</td><td>Pre-TN</td></tr>
-<tr><td>Nuclear Radioisotope Engine</td><td>5.0</td><td>2,500</td><td>Pre-TN</td></tr>
-<tr><td>Nuclear Thermal Engine</td><td>6.4</td><td>5,000</td><td>Starting TN</td></tr>
-<tr><td>Nuclear Pulse Engine</td><td>8.0</td><td>10,000</td><td>Early</td></tr>
-<tr><td>Nuclear Gas-Core Engine</td><td>10.0</td><td>20,000</td><td>Early</td></tr>
-<tr><td>Ion Drive</td><td>12.5</td><td>40,000</td><td>Early-Mid</td></tr>
-<tr><td>Magneto-Plasma Drive</td><td>16.0</td><td>80,000</td><td>Mid</td></tr>
-<tr><td>Magnetic Confinement Fusion Drive</td><td>20.0</td><td>150,000</td><td>Mid</td></tr>
-<tr><td>Inertial Confinement Fusion Drive</td><td>25.0</td><td>300,000</td><td>Mid-Late</td></tr>
-<tr><td>Solid Core Anti-matter Drive</td><td>32.0</td><td>600,000</td><td>Late</td></tr>
-<tr><td>Gas Core Anti-matter Drive</td><td>40.0</td><td>1,250,000</td><td>Late</td></tr>
-<tr><td>Plasma Core Anti-matter Drive</td><td>50.0</td><td>2,500,000</td><td>Advanced</td></tr>
-<tr><td>Beam Core Anti-matter Drive</td><td>64.0</td><td>5,000,000</td><td>Advanced</td></tr>
-<tr><td>Photonic Drive</td><td>80.0</td><td>10,000,000</td><td>Advanced</td></tr>
-<tr><td>Quantum Singularity Drive</td><td>100.0</td><td>25,000,000</td><td>Extreme</td></tr>
+<tr><td>Nuclear Radioisotope Engine</td><td>5.0</td><td>1,000</td><td>Pre-TN</td></tr>
+<tr><td>Nuclear Thermal Engine</td><td>6.4</td><td>2,000</td><td>Starting TN</td></tr>
+<tr><td>Nuclear Pulse Engine</td><td>8.0</td><td>4,000</td><td>Early</td></tr>
+<tr><td>Nuclear Gas-Core Engine</td><td>10.0</td><td>6,000</td><td>Early</td></tr>
+<tr><td>Ion Drive</td><td>12.5</td><td>10,000</td><td>Early-Mid</td></tr>
+<tr><td>Magneto-Plasma Drive</td><td>16.0</td><td>20,000</td><td>Mid</td></tr>
+<tr><td>Magnetic Confinement Fusion Drive</td><td>20.0</td><td>40,000</td><td>Mid</td></tr>
+<tr><td>Inertial Confinement Fusion Drive</td><td>25.0</td><td>80,000</td><td>Mid-Late</td></tr>
+<tr><td>Solid Core Anti-matter Drive</td><td>32.0</td><td>150,000</td><td>Late</td></tr>
+<tr><td>Gas Core Anti-matter Drive</td><td>40.0</td><td>300,000</td><td>Late</td></tr>
+<tr><td>Plasma Core Anti-matter Drive</td><td>50.0</td><td>600,000</td><td>Advanced</td></tr>
+<tr><td>Beam Core Anti-matter Drive</td><td>64.0</td><td>1,250,000</td><td>Advanced</td></tr>
+<tr><td>Photonic Drive</td><td>80.0</td><td>2,500,000</td><td>Advanced</td></tr>
+<tr><td>Quantum Singularity Drive</td><td>100.0</td><td>5,000,000</td><td>Extreme</td></tr>
 </tbody>
 </table>
 </div>
@@ -295,11 +295,11 @@ Compare up to 2 engine configurations side-by-side. Formulas and tech values are
 <thead><tr><th>Technology</th><th>Modifier</th><th>Research (RP)</th></tr></thead>
 <tbody>
 <tr><td>Max Engine Power Modifier x1</td><td>1.0x</td><td>(starting)</td></tr>
-<tr><td>Max Engine Power Modifier x1.25</td><td>1.25x</td><td>2,500</td></tr>
-<tr><td>Max Engine Power Modifier x1.5</td><td>1.5x</td><td>5,000</td></tr>
-<tr><td>Max Engine Power Modifier x1.75</td><td>1.75x</td><td>7,500</td></tr>
-<tr><td>Max Engine Power Modifier x2</td><td>2.0x</td><td>10,000</td></tr>
-<tr><td>Max Engine Power Modifier x2.5</td><td>2.5x</td><td>12,500</td></tr>
+<tr><td>Max Engine Power Modifier x1.25</td><td>1.25x</td><td>500</td></tr>
+<tr><td>Max Engine Power Modifier x1.5</td><td>1.5x</td><td>1,000</td></tr>
+<tr><td>Max Engine Power Modifier x1.75</td><td>1.75x</td><td>2,000</td></tr>
+<tr><td>Max Engine Power Modifier x2</td><td>2.0x</td><td>4,000</td></tr>
+<tr><td>Max Engine Power Modifier x2.5</td><td>2.5x</td><td>8,000</td></tr>
 <tr><td>Max Engine Power Modifier x3</td><td>3.0x</td><td>15,000</td></tr>
 </tbody>
 </table>
@@ -307,11 +307,11 @@ Compare up to 2 engine configurations side-by-side. Formulas and tech values are
 <thead><tr><th>Technology</th><th>Modifier</th><th>Research (RP)</th></tr></thead>
 <tbody>
 <tr><td>Min Engine Power Modifier x0.5</td><td>0.5x</td><td>(starting)</td></tr>
-<tr><td>Min Engine Power Modifier x0.4</td><td>0.4x</td><td>5,000</td></tr>
-<tr><td>Min Engine Power Modifier x0.3</td><td>0.3x</td><td>10,000</td></tr>
-<tr><td>Min Engine Power Modifier x0.25</td><td>0.25x</td><td>15,000</td></tr>
-<tr><td>Min Engine Power Modifier x0.2</td><td>0.2x</td><td>20,000</td></tr>
-<tr><td>Min Engine Power Modifier x0.15</td><td>0.15x</td><td>25,000</td></tr>
+<tr><td>Min Engine Power Modifier x0.4</td><td>0.4x</td><td>1,000</td></tr>
+<tr><td>Min Engine Power Modifier x0.3</td><td>0.3x</td><td>2,000</td></tr>
+<tr><td>Min Engine Power Modifier x0.25</td><td>0.25x</td><td>4,000</td></tr>
+<tr><td>Min Engine Power Modifier x0.2</td><td>0.2x</td><td>8,000</td></tr>
+<tr><td>Min Engine Power Modifier x0.15</td><td>0.15x</td><td>15,000</td></tr>
 <tr><td>Min Engine Power Modifier x0.1</td><td>0.1x</td><td>30,000</td></tr>
 </tbody>
 </table>
@@ -343,12 +343,12 @@ Compare up to 2 engine configurations side-by-side. Formulas and tech values are
 <thead><tr><th>Boost Level</th><th>Multiplier</th><th>Explosion Chance</th><th>Research (RP)</th></tr></thead>
 <tbody>
 <tr><td>None</td><td>x1.0</td><td>5% <em>(unverified)</em></td><td>250</td></tr>
-<tr><td>+10%</td><td>x1.1</td><td>7%</td><td>1,000</td></tr>
-<tr><td>+20%</td><td>x1.2</td><td>10%</td><td>2,500</td></tr>
-<tr><td>+30%</td><td>x1.3</td><td>15%</td><td>5,000</td></tr>
-<tr><td>+40%</td><td>x1.4</td><td>20%</td><td>7,500</td></tr>
-<tr><td>+60%</td><td>x1.6</td><td>30%</td><td>12,500</td></tr>
-<tr><td>+80%</td><td>x1.8</td><td>40%</td><td>20,000</td></tr>
+<tr><td>+10%</td><td>x1.1</td><td>7%</td><td>500</td></tr>
+<tr><td>+20%</td><td>x1.2</td><td>10%</td><td>1,000</td></tr>
+<tr><td>+30%</td><td>x1.3</td><td>15%</td><td>2,000</td></tr>
+<tr><td>+40%</td><td>x1.4</td><td>20%</td><td>4,000</td></tr>
+<tr><td>+60%</td><td>x1.6</td><td>30%</td><td>8,000</td></tr>
+<tr><td>+80%</td><td>x1.8</td><td>40%</td><td>15,000</td></tr>
 <tr><td>+100%</td><td>x2.0</td><td>50%</td><td>30,000</td></tr>
 </tbody>
 </table>
@@ -363,17 +363,17 @@ Compare up to 2 engine configurations side-by-side. Formulas and tech values are
 <thead><tr><th>Tech Level</th><th>Litres per EP-Hour</th><th>Research (RP)</th></tr></thead>
 <tbody>
 <tr><td>Base</td><td>1.0</td><td>(starting)</td></tr>
-<tr><td>1</td><td>0.9</td><td>2,500</td></tr>
-<tr><td>2</td><td>0.8</td><td>5,000</td></tr>
-<tr><td>3</td><td>0.7</td><td>10,000</td></tr>
-<tr><td>4</td><td>0.6</td><td>20,000</td></tr>
-<tr><td>5</td><td>0.5</td><td>40,000</td></tr>
-<tr><td>6</td><td>0.4</td><td>80,000</td></tr>
-<tr><td>7</td><td>0.3</td><td>150,000</td></tr>
-<tr><td>8</td><td>0.25</td><td>300,000</td></tr>
-<tr><td>9</td><td>0.2</td><td>600,000</td></tr>
-<tr><td>10</td><td>0.15</td><td>1,000,000</td></tr>
-<tr><td>11</td><td>0.12</td><td>1,500,000</td></tr>
+<tr><td>1</td><td>0.9</td><td>1,000</td></tr>
+<tr><td>2</td><td>0.8</td><td>2,000</td></tr>
+<tr><td>3</td><td>0.7</td><td>4,000</td></tr>
+<tr><td>4</td><td>0.6</td><td>8,000</td></tr>
+<tr><td>5</td><td>0.5</td><td>15,000</td></tr>
+<tr><td>6</td><td>0.4</td><td>30,000</td></tr>
+<tr><td>7</td><td>0.3</td><td>60,000</td></tr>
+<tr><td>8</td><td>0.25</td><td>120,000</td></tr>
+<tr><td>9</td><td>0.2</td><td>250,000</td></tr>
+<tr><td>10</td><td>0.16</td><td>500,000</td></tr>
+<tr><td>11</td><td>0.125</td><td>1,000,000</td></tr>
 <tr><td>12</td><td>0.1</td><td>2,000,000</td></tr>
 </tbody>
 </table>

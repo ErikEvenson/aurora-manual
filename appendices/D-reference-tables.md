@@ -6,7 +6,7 @@ nav_order: 4
 
 # Appendix D: Reference Tables
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.02*
 
 This appendix provides quick-reference data tables for minerals, installations, weapons, and technology progressions. Use these tables during ship design and colony planning to quickly look up costs, outputs, and key statistics.
 
@@ -14,7 +14,7 @@ This appendix provides quick-reference data tables for minerals, installations, 
 
 ## Contents
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.02*
 
 {: .no_toc }
 
@@ -783,7 +783,7 @@ Output is further multiplied by the deposit's accessibility value.
 
 ## D.5 Key Design Formulas Quick Reference
 
-*Updated: v2026.01.26*
+*Updated: v2026.02.02*
 
 **When to use this section:** Keep this open during ship design. These formulas let you calculate detection ranges, magazine requirements, engine performance, and unit conversions without leaving the design screen or hunting through multiple appendices.
 
@@ -809,7 +809,7 @@ Effective_Range = Base_Range x sqrt(Target_HS / Sensor_Resolution)
 ### D.5.2 Magazine Capacity
 
 ```
-Magazine_Size (MSP) = Component_HS x 20 MSP per HS
+Magazine_Size (MSP) = Component_HS x 20 MSP per HS *(unverified — #1269)*
 Missiles_Stored = Magazine_MSP / Missile_MSP_Size
 ```
 
@@ -853,10 +853,10 @@ Shields must be active to regenerate. Active shields generate EM signature detec
 | Unit | Equivalence |
 |------|------------|
 | 1 HS | 50 tons |
-| 1 MSP (missile) | 0.25 HS = 12.5 tons |
+| 1 MSP (missile) | 0.05 HS = 2.5 tons |
 | 1 BP | 1 unit of production capacity |
 | Speed 1 km/s | 1 EP per 1000 HS (or 0.02 EP per ton) |
-| Magazine 1 HS | 20 MSP storage capacity |
+| Magazine 1 HS | 20 MSP storage capacity *(unverified — #1269)* |
 
 \hyperlink{ref-D-35}{[D-35]}
 
@@ -938,6 +938,6 @@ Shields must be active to regenerate. Active shields generate EM signature detec
 
 \hypertarget{ref-D-33}{[D-33]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=32 (Improved Fuel Production): 11 levels from 48,000 litres (3,000 RP) through 280,000 litres (2,500,000 RP). Duplicates Appendix A table; see \hyperlink{ref-A-8}{[A-8]}.
 
-\hypertarget{ref-D-34}{[D-34]} Aurora C# game database (AuroraDB.db v2.7.1) -- Magazine capacity of 20 MSP per HS is a core game constant confirmed by ship designer component specifications.
+\hypertarget{ref-D-34}{[D-34]} Aurora C# game database (AuroraDB.db v2.7.1) -- Magazine capacity of 20 MSP per HS *(unverified — #1269; DB audit suggests 17-18 MSP/HS)* confirmed by ship designer component specifications.
 
-\hypertarget{ref-D-35}{[D-35]} Aurora C# game database (AuroraDB.db v2.7.1) -- Core unit conversions: 1 HS = 50 tons; 1 MSP (missile) = 0.25 HS = 12.5 tons; Speed = EP x 1000 / HS.
+\hypertarget{ref-D-35}{[D-35]} Aurora C# game database (AuroraDB.db v2.7.1) -- Core unit conversions: 1 HS = 50 tons; 1 MSP (missile) = 0.05 HS = 2.5 tons; Speed = EP x 1000 / HS.

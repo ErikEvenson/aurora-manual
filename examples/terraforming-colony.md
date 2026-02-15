@@ -215,7 +215,7 @@ The increased atmospheric pressure and trace greenhouse gases naturally warm the
 
 ## Step 3: Deploy Terraforming Installations
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 ### Rate Calculation
 
@@ -297,9 +297,9 @@ The order of gas manipulation is critical. Getting it wrong can increase colony 
 ### Phase Sequencing
 
 ```
-Phase 1 (Months 1-3):   Remove CO2       [20 installations]
+Phase 1 (Months 1-8):   Remove CO2       [20 installations]
 Phase 2 (Months 1-20):  Add N2            [50 installations]  (runs parallel)
-Phase 3 (Months 4-21):  Add O2            [50 installations]  (starts after CO2 clear)
+Phase 3 (Months 9-21):  Add O2            [50 installations]  (starts after CO2 clear)
 Phase 4 (Months 1-48):  Add H2O           [10 installations]  (runs parallel)
 
 Total installations needed: 130 (peak, during parallel operations)

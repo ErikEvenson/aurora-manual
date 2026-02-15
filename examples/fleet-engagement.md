@@ -6,17 +6,17 @@ nav_order: 99
 
 # Example: Fleet Engagement -- The Battle of Epsilon Junction
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.02*
 
 This worked example walks through a complete tactical fleet engagement between two opposing forces. We cover sensor detection, approach decisions, engagement range selection, missile and beam exchanges, damage assessment, and the critical decision of when to withdraw.
 
-> **Note:** This scenario assumes TN-start era technology (Nuclear Thermal engines at 5 EP/HS, base laser and missile tech, Duranium armor) with no ECM/ECCM, no shields, and no advanced point defense. Higher technology levels will significantly change engagement ranges, damage thresholds, and PD effectiveness. Adjust expectations accordingly for mid- or late-game fleets.
+> **Note:** This scenario assumes TN-start era technology (Nuclear Thermal engines at 6.4 EP/HS, base laser and missile tech, Duranium armor) with no ECM/ECCM, no shields, and no advanced point defense. Higher technology levels will significantly change engagement ranges, damage thresholds, and PD effectiveness. Adjust expectations accordingly for mid- or late-game fleets.
 
 ---
 
 ## Contents
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.02*
 
 {: .no_toc }
 
@@ -587,7 +587,7 @@ The destroyers' speed advantage let them cover the cruiser withdrawal while cont
 
 ## Alternative Outcomes
 
-*Updated: v2026.01.26*
+*Updated: v2026.01.30*
 
 ### What If Alpha Had Focused Missiles on Light Cruisers?
 

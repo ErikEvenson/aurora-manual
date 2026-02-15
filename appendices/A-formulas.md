@@ -282,7 +282,7 @@ Where:
 - **Resolution** = Sensor resolution setting (in HS)
 - **PI** = 3.14159...
 
-> **Warning:** Multiple simplified forms of this formula appear in the manual with different multipliers (250,000 km and 10,000 km). Only the full formula in this section has been verified against the game database. Cross-references in examples may use approximations.
+> **Note:** Earlier versions of this manual contained incorrect simplified forms of this formula with different multipliers (250,000 km and 10,000 km). These have been corrected. The SQRT formula in this section and in Section A.3.5 (Missile Fire Control Range) is the verified formula used throughout the manual.
 
 > **Note:** Some community resources use a simplified approximation: `sqrt(Sensor_Strength x Target_Cross_Section) x 250,000 km`, where Sensor\_Strength = Size x Resolution x Active\_Tech. This approximation omits the EM Sensitivity factor and uses a different constant (250,000 vs 1,000,000), so it does **not** produce the same results as the full formula. The full formula above is verified against the game database and should be used for accurate calculations.
 
@@ -301,11 +301,21 @@ Effective_Range = 100M x sqrt(20/100) = 100M x 0.447 = 44.7M km
 
 ### A.3.5 Missile Fire Control Range
 
+Missile fire controls are active sensors, so their range uses the same active sensor range formula (see [Section 12.1.2 Missile Fire Controls](../12-combat/12.1-fire-controls.md#1212-missile-fire-controls)):
+
 ```
-FC_Range (km) = FC_Size x Resolution x FC_Tech_Level x 250000
+MFC_Range (km) = SQRT((Active_Strength x HS x EM_Sensitivity x Resolution^(2/3)) / PI) x 1,000,000
 ```
 
-\hyperlink{ref-A-12}{[A-12]}
+\hyperlink{ref-A-19}{[A-19]}
+
+Where:
+
+- **Active\_Strength** = Active Grav Sensor Strength technology level
+- **HS** = Fire control sensor size in hull spaces
+- **EM\_Sensitivity** = EM Sensor Sensitivity technology level
+- **Resolution** = Sensor resolution setting (in HS)
+- **PI** = 3.14159...
 
 The fire control range limits the maximum engagement distance for missiles. Missiles beyond their fire control's range lose guidance.
 
@@ -360,7 +370,7 @@ Minimum 0 (complete jamming). Applied to point defense accuracy against missiles
 
 ## A.4 Combat Formulas
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 Formulas governing weapons, damage, and defensive systems. For tactical combat details, see [Section 12.1 Fire Controls](../12-combat/12.1-fire-controls.md).
 
@@ -992,3 +1002,5 @@ Where Effective Population Size = ((Determination + Militancy + Xenophobia) / 30
 \hypertarget{ref-A-17}{[A-17]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem: Sensor Jammer levels 1-10 (AdditionalInfo=1.0 through 10.0, AdditionalInfo2=1.1 through 2.0). ECCM levels 0-10 (matching structure). At maximum net advantage (SJ-10 vs ECCM-0), the subtractive formula yields 1 - 10 x 0.1 = 0, confirming complete sensor denial is possible with no floor.
 
 \hypertarget{ref-A-18}{[A-18]} Aurora Manual exploration-workflow.md Section 2.4 -- Colony cost uses the single worst (maximum) environmental factor, not the sum of all factors. Temperature deviation, pressure deviation, hostile gases, and gravity deviation each contribute independent penalty factors; the highest value becomes the colony cost.
+
+\hypertarget{ref-A-19}{[A-19]} Section 12.1.2 Missile Fire Controls -- MFC range uses the active sensor range formula: SQRT((Active\_Strength x HS x EM\_Sensitivity x Resolution^(2/3)) / PI) x 1,000,000 km. Verified against game database in [A-16]. Earlier versions of this appendix contained an incorrect linear formula (Resolution x 250,000 km).

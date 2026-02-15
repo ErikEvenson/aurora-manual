@@ -6,7 +6,7 @@ nav_order: 9
 
 # Magazine Capacity Calculator
 
-*Added: v2026.02.13*
+*Updated: v2026.02.13*
 
 Calculate magazine capacity, missile storage, and salvo endurance for ship design. Compare up to 2 configurations side-by-side. All formulas are verified against the Aurora game database (AuroraDB.db v2.7.1).
 
@@ -122,7 +122,7 @@ Calculate magazine capacity, missile storage, and salvo endurance for ship desig
 <code>Magazine_Capacity (MSP) = Magazine_HS x 20</code> — <a href="../appendices/D-reference-tables.html#d52-magazine-capacity">ref D-34</a><br>
 <code>Missiles_Stored = floor(Total_MSP / Missile_Size_MSP)</code><br>
 <code>Salvos = floor(Missiles_Stored / Missiles_per_Salvo)</code><br>
-<code>1 MSP = 0.25 HS = 12.5 tons</code> — <a href="../appendices/D-reference-tables.html#d52-magazine-capacity">ref D-35</a>
+<code>1 MSP = 0.05 HS = 2.5 tons</code> — <a href="../appendices/D-reference-tables.html#d52-magazine-capacity">ref D-35</a>
 </div>
 
 </div>
@@ -188,7 +188,7 @@ Calculate magazine capacity, missile storage, and salvo endurance for ship desig
       var leftover = missilesStored - (salvos * missilesPerSalvo);
 
       // Missile weight contribution
-      var missileTons = missileMSP * 12.5;
+      var missileTons = missileMSP * 2.5;
 
       // Salvo endurance class
       var salvoClass = salvos >= 10 ? 'good' : salvos >= 3 ? '' : 'warning';

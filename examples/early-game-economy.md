@@ -6,7 +6,7 @@ nav_order: 99
 
 # Example: Early Game Economic Bootstrap
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.02*
 
 This worked example walks through the first 10 years of a conventional-start Aurora C# game, showing how to transition from pre-TN industry to a functioning trans-newtonian economy capable of supporting fleet expansion and interstellar exploration.
 
@@ -14,7 +14,7 @@ This worked example walks through the first 10 years of a conventional-start Aur
 
 ## Contents
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.02*
 
 {: .no_toc }
 
@@ -366,10 +366,10 @@ Annual_Production_per_Mineral = Num_Mines x 10 x Accessibility
 
 | Activity | Annual Duranium | Annual Gallicite | Other Minerals |
 |----------|----------------|-----------------|----------------|
-| 20 Construction Factories | 1,200 | 0 | 1,200 Tritanium |
+| 20 Construction Factories | 1,200 | 0 | 1,200 Neutronium |
 | 10 Research Labs | 12,000 | 0 | 12,000 Mercassium |
-| 100 Mines | 6,000 | 0 | 6,000 Corundium |
-| 50 Fuel Refineries | 3,000 | 0 | 3,000 Boronide |
+| 100 Mines | 0 | 0 | 12,000 Corundium |
+| 50 Fuel Refineries | 0 | 0 | 6,000 Boronide |
 | 1 Shipyard (1000t naval) | ~500 | 0 | ~500 Neutronium |
 | 2 Survey Ships | ~2,000 | ~1,000 | Mixed |
 
@@ -377,7 +377,7 @@ Annual_Production_per_Mineral = Num_Mines x 10 x Accessibility
 
 ### Mine Expansion Strategy
 
-- Year 1-2: Build 50 mines (6,000 BP, 3,000 Duranium + 3,000 Corundium)
+- Year 1-2: Build 50 mines (6,000 BP, 6,000 Corundium)
 - Year 3-4: Build 50 more mines (same cost)
 - Year 4-5: Build 100 more (if mineral consumption demands it)
 - Year 5+: Consider automated mines on Luna or nearby moons with better deposits
@@ -715,10 +715,10 @@ Approximate total mineral consumption over 10 years of bootstrap:
 
 | Mineral | Total Consumed (tons) | Primary Consumers |
 |---------|----------------------|-------------------|
-| Duranium | 50,000-80,000 | Everything (factories, mines, labs, ships) |
-| Neutronium | 5,000-10,000 | Shipyards, armor, infrastructure |
+| Duranium | 50,000-80,000 | Everything (factories, labs, shipyards, ships) |
+| Neutronium | 5,000-10,000 | Construction factories, shipyards, armor |
 | Corbomite | 1,000-3,000 | Financial Centers, shields |
-| Tritanium | 10,000-20,000 | Factories, weapons, ordnance factories |
+| Tritanium | 10,000-20,000 | Ordnance factories, weapons |
 | Boronide | 5,000-10,000 | Refineries, reactors, power plants |
 | Mercassium | 15,000-30,000 | Research labs (dominant consumer) |
 | Vendarite | 2,000-5,000 | Gauss cannons, CIWS |
@@ -747,7 +747,7 @@ Approximate total mineral consumption over 10 years of bootstrap:
 
 ## Common Mistakes
 
-*Updated: v2026.01.28*
+*Updated: v2026.01.30*
 
 1. **Researching weapons before having ships:** Weapon tech is useless without engines, reactors, and shipyards to build warships. Economic and propulsion tech first.
 

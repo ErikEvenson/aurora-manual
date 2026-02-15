@@ -6,7 +6,7 @@ nav_order: 99
 
 # Example: Planning a Ground Invasion
 
-*Updated: v2026.02.03*
+*Updated: v2026.02.15*
 
 This worked example walks through the process of planning, executing, and consolidating a ground invasion of an enemy colony. It demonstrates force composition calculations, transport logistics, orbital support coordination, and post-conquest occupation requirements.
 
@@ -14,7 +14,7 @@ This worked example walks through the process of planning, executing, and consol
 
 ## Contents
 
-*Updated: v2026.02.03*
+*Updated: v2026.02.15*
 
 {: .no_toc }
 
@@ -77,7 +77,7 @@ The detected signatures suggest 10-20 battalions. Given the population of 50M, t
 
 ## Step 2: Orbital Bombardment Decision
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 ### Option A: Bombard First
 
@@ -145,7 +145,7 @@ Against a PDC at fortification level 6: effective to-hit = 6.67% x 0.5 / 6 = 0.5
 
 ## Step 3: Force Composition Planning
 
-*Updated: v2026.02.03*
+*Updated: v2026.02.15*
 
 ### The 3:1 Rule
 
@@ -262,7 +262,7 @@ Using 8 Heavy Transports (10,000 tons each = 80,000 ton capacity):
 
 ## Step 5: Orbital Support During Ground Assault
 
-*Updated: v2026.02.03*
+*Updated: v2026.02.15*
 
 ### Precision Orbital Bombardment Support
 
@@ -535,7 +535,7 @@ After conquest, check:
 
 ## Common Mistakes
 
-*Updated: v2026.02.03*
+*Updated: v2026.02.15*
 
 1. **Insufficient transport capacity.** Calculate total tonnage carefully. Running short means multiple lifts, giving the defender time to react.
 
@@ -557,7 +557,7 @@ After conquest, check:
 
 ## Advanced Tactics
 
-*Updated: v2026.02.03*
+*Updated: v2026.02.15*
 
 The preceding sections cover the fundamentals of planetary invasion. This section addresses more sophisticated scenarios requiring multi-formation coordination, integrated orbital assets, PDC assault techniques, and sustained logistics for extended campaigns.
 
@@ -693,9 +693,9 @@ Example calculations:
 
 | Weapon | PB Damage | Ground Damage | Ground AP |
 |--------|-----------|---------------|-----------|
-| 25cm UV Laser | 16 | 80 | 40 |
-| 30cm Particle Beam | 20 | 89 | 45 |
-| Heavy Laser (12") | 36 | 120 | 60 |
+| 25cm C5 UV Laser | 16 | 80 | 40 |
+| Particle Lance-24 | 24 | 98 | 49 |
+| 45cm C6 X-ray Laser | 53 | 146 | 73 |
 
 #### 3. Orbital Support vs. NBG Bombardment
 

@@ -6,7 +6,7 @@ nav_order: 2
 
 # Appendix B: Glossary
 
-*Updated: v2026.02.02*
+*Updated: v2026.02.15*
 
 This glossary defines key terms used throughout the Aurora C# manual. Cross-references to detailed coverage are provided for major topics.
 
@@ -25,7 +25,7 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | Bridge | Required for ships operating outside home system |
 | Buoy | Deployable sensor or survey device; operates without crew |
 | CAG | Commander Air Group; officer managing carrier fighter operations |
-| <a id="cf"></a>CF | Construction Factory; TN installation producing 1 BP/year \hyperlink{ref-B-11}{[B-11]} |
+| <a id="cf"></a>CF | Construction Factory; TN installation with ConstructionValue of 1.0 (10 BP/year base output) \hyperlink{ref-B-5}{[B-5]} |
 | <a id="cc"></a>CC | Colony Cost; planet hostility rating for colonization |
 | CIC | Combat Information Centre; ship component for tactical officer |
 | <a id="ciws"></a>CIWS | Close-In Weapon System; auto-fires at incoming missiles |
@@ -51,6 +51,7 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | Est. Thermal Sig. | What enemies detect; from engines and thermal reduction |
 | FAC | Fast Attack Craft; legacy term for Light Naval vessels near 1,000t |
 | FC | Fire Control; directs weapons (beam or missile variants) |
+| FCJ | Fire Control Jammer; ECM system reducing beam fire control accuracy |
 | FFD | Forward Fire Direction; capability allowing ground units to call in orbital bombardment strikes with improved accuracy |
 | Fire Delay | Time between beam shots; varies by type and tech |
 | Fleet | Ships under unified orders and one commander |
@@ -70,6 +71,7 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | GSP | Ground Supply Points; supply points consumed by ground forces during combat operations for ammunition and logistics |
 | Hangar | Ship component for storing and servicing smaller craft |
 | <a id="hs"></a>HS | Hull Size; 50 tons of ship mass (1 HS = 50t) \hyperlink{ref-B-3}{[B-3]} |
+| HPM | High-Power Microwave; beam weapon that damages electronics |
 | HTK | Hits to Kill; damage points before component destruction \hyperlink{ref-B-11}{[B-11]} |
 | IFR | Incremental Failure Rate; component reliability metric \hyperlink{ref-B-11}{[B-11]} |
 | Infrastructure | Supports population on planets with CC > 0 |
@@ -85,6 +87,7 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | Mass Driver | Installation for launching minerals between system bodies |
 | Meson Cannon | Bypasses shields and armor; short range, low accuracy \hyperlink{ref-B-7}{[B-7]} |
 | <a id="mfc"></a>MFC | Missile Fire Control; guides missiles, sets range/ECM |
+| MFJ | Missile FC Jammer; ECM system reducing missile fire control accuracy |
 | Military Engine | Compact, powerful engine; less fuel-efficient than commercial |
 | Mineral | One of 11 TN elements (Dur, Neu, Cor, Tri, Bor, Mer, Ven, Sor, Uri, Coru, Gal) |
 | Missile Launcher | Fires missiles; reload time varies by size and tech |
@@ -113,6 +116,7 @@ This glossary defines key terms used throughout the Aurora C# manual. Cross-refe
 | Ruins | Alien sites; explored for tech bonuses and resources |
 | Sector | Colony grouping under sector commander; bonus production |
 | Shield | Absorbs damage before armor; regenerates; emits EM |
+| SJ | Sensor Jammer; reduces active sensor detection range against the jammer's ship |
 | Shipyard | Constructs/refits/repairs ships; tonnage-limited |
 | Slipway | Single construction bay; builds one ship at a time |
 | SM | Spacemaster; game mode with full control over all races/events |

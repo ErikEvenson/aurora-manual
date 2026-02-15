@@ -6,7 +6,7 @@ nav_order: 99
 
 # Example: Designing a Missile Salvo
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.02*
 
 This worked example walks through the complete process of designing an effective anti-ship missile (ASM), matching it with appropriate launchers and fire controls, and planning salvo composition to overwhelm enemy point defense.
 
@@ -14,7 +14,7 @@ This worked example walks through the complete process of designing an effective
 
 ## Contents
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.02*
 
 {: .no_toc }
 
@@ -38,7 +38,8 @@ Design an effective anti-ship missile system including the missile itself, launc
 | Fuel Consumption Tech | 0.3 |
 | PD Hit Chance | v2.2.0+ speed ratio system (see Appendix A) |
 | Available Missile Sizes | 1-6 MSP |
-| Missile Fire Control Range Tech | Level 2 |
+| Active Grav Sensor Strength | 10 (base tech) |
+| EM Sensor Sensitivity | 5 (base tech) |
 
 ---
 
@@ -351,9 +352,15 @@ The missile fire control (MFC) must cover the missile's maximum engagement range
 
 ### Fire Control Range Formula
 
+Missile fire controls are active sensors. Their range uses the active sensor range formula (see [Section 12.1.2 Missile Fire Controls](../12-combat/12.1-fire-controls.md#1212-missile-fire-controls) and [Appendix A, Section A.3.4](../appendices/A-formulas.md#a34-active-sensor-detection)):
+
 ```
-MFC_Range (km) = FC_Size (HS) x Resolution x FC_Range_Tech x 10,000
+MFC_Range (km) = SQRT((Active_Strength x HS x EM_Sensitivity x Resolution^(2/3)) / PI) x 1,000,000
 ```
+
+\hyperlink{ref-ex-salvo-3}{[3]}
+
+Where Active\_Strength and EM\_Sensitivity are determined by sensor technology research, HS is the fire control sensor size, and Resolution determines the target size for full-range detection.
 
 ### Critical Rule: FC Range Must Exceed Missile Range
 
@@ -361,13 +368,24 @@ If a missile flies beyond its fire control's maximum range, it loses guidance an
 
 ### Fire Control Design for Each Missile
 
-| Missile | Max Range | Required FC Range | FC Design |
-|---------|-----------|-------------------|-----------|
-| Sprint (A) | 750M km | 750M+ km | 1 HS, Res 120, Tech 2 = 2,400M km |
-| Standoff (B) | 4,500M km | 4,500M+ km | 1 HS, Res 120, Tech 2 = 2,400M km (INSUFFICIENT!) |
-| Multi-Stage (C) | 6,000M km | 6,000M+ km | 1 HS, Res 120, Tech 2 = 2,400M km (INSUFFICIENT!) |
+With base sensor technology (Active\_Strength=10, EM\_Sensitivity=5) and a 1 HS, Resolution-120 MFC: *(unverified -- exact MFC range values depend on specific tech levels researched; use the in-game component design window to verify)*
 
-**Problem identified:** Our FC tech only provides 2,400M km range at resolution 120. For the Standoff and Multi-Stage missiles, we have two options:
+```
+MFC_Range = SQRT((10 x 1 x 5 x 120^(2/3)) / 3.14159) x 1,000,000
+         = SQRT((50 x 24.36) / 3.14159) x 1,000,000
+         = SQRT(387.6) x 1,000,000
+         ≈ 19.7 x 1,000,000 = ~20M km
+```
+
+At base tech, a 1 HS Resolution-120 MFC provides only ~20M km range -- far less than any of our missile designs require.
+
+| Missile | Max Range | Required FC Range | 1 HS Res-120 MFC at Base Tech |
+|---------|-----------|-------------------|-------------------------------|
+| Sprint (A) | 750M km | 750M+ km | ~20M km (INSUFFICIENT!) |
+| Standoff (B) | 4,500M km | 4,500M+ km | ~20M km (INSUFFICIENT!) |
+| Multi-Stage (C) | 6,000M km | 6,000M+ km | ~20M km (INSUFFICIENT!) |
+
+**Problem identified:** At base sensor tech, even the Sprint missile exceeds our MFC range. Larger sensor sizes, higher tech levels, or onboard missile sensors are essential. For all three designs, we have several options:
 
 1. **Reduce missile range** to match FC range (reduce fuel)
 2. **Add onboard active sensors** so missiles can guide themselves beyond FC range
@@ -573,6 +591,8 @@ Mix 20 decoys with 12 Standoff missiles. PD must engage every contact (it cannot
 \hypertarget{ref-ex-salvo-1}{[1]}. Aurora C# v2.2.0+ missile mechanics: Point defense hit chance uses speed ratio: PD_Hit_Chance = min(1.0, FC_Tracking / Missile_Speed). Agility is no longer used in PD calculations. See Appendix A for the complete formula.
 
 \hypertarget{ref-ex-salvo-2}{[2]}. Aurora C# game database (AuroraDB.db v2.7.1) -- Magazine capacity is approximately 17-18 MSP per hull space. Verified against multiple magazine component entries in the database.
+
+\hypertarget{ref-ex-salvo-3}{[3]}. Section 12.1.2 Missile Fire Controls and Appendix A Section A.3.4 -- MFC range uses the active sensor range formula: SQRT((Active\_Strength x HS x EM\_Sensitivity x Resolution^(2/3)) / PI) x 1,000,000 km. Verified against game database (ref [A-16] in Appendix A). Earlier versions of this example contained an incorrect linear formula (Resolution x 10,000 km).
 
 ---
 

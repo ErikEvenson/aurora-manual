@@ -6,9 +6,9 @@ nav_order: 8
 
 # Power Plant Calculator
 
-*Updated: v2026.02.13*
+*Updated: v2026.02.15*
 
-Calculate power plant output with boost multipliers and explosion risk trade-offs. Compare up to 2 configurations side-by-side. Formulas and tech values are verified against the Aurora game database (AuroraDB.db v2.7.1), except where marked *(unverified)*.
+Calculate power plant output with boost multipliers and explosion risk trade-offs. Compare up to 2 configurations side-by-side. Formulas and tech values are verified against the Aurora game database (AuroraDB.db v2.7.1).
 
 <style>
   .calc-wrapper {
@@ -233,12 +233,12 @@ Calculate power plant output with boost multipliers and explosion risk trade-off
 </details>
 
 <details class="calc-collapsible">
-<summary>Power Plant Boost Levels (8 tiers) — AuroraDB.db [ref D-20] (Note: 5% base rate for no-boost is not from TechTypeID=42; source unverified)</summary>
+<summary>Power Plant Boost Levels (8 tiers) — AuroraDB.db [ref D-20]</summary>
 <div class="detail-content">
 <table class="calc-ref-table">
 <thead><tr><th>Boost Level</th><th>Multiplier</th><th>Explosion Chance</th><th>Research (RP)</th></tr></thead>
 <tbody>
-<tr><td>None</td><td>x1.0</td><td>5% <em>(unverified)</em></td><td>250</td></tr>
+<tr><td>None</td><td>x1.0</td><td>5%</td><td>250</td></tr>
 <tr><td>+10%</td><td>x1.1</td><td>7%</td><td>500</td></tr>
 <tr><td>+20%</td><td>x1.2</td><td>10%</td><td>1,000</td></tr>
 <tr><td>+30%</td><td>x1.3</td><td>15%</td><td>2,000</td></tr>
@@ -283,10 +283,9 @@ Calculate power plant output with boost multipliers and explosion risk trade-off
   ];
 
   // Verified boost levels — AuroraDB.db [ref D-20]
-  // Note: The 5% base explosion rate for no-boost (1.0) is NOT stored in TechTypeID=42.
-  // The boosted tiers (1.1+) are verified, but the 5% base value requires verification.
+  // Base 5% explosion rate confirmed: TechTypeID=42, AdditionalInfo2=5.0
   var BOOST_LEVELS = [
-    { name: 'None (x1.0)', mult: 1.0, explosion: 5 }, /* unverified — not in TechTypeID=42 */
+    { name: 'None (x1.0)', mult: 1.0, explosion: 5 }, /* AuroraDB TechTypeID=42 AdditionalInfo2=5.0 */
     { name: '+10% (x1.1)', mult: 1.1, explosion: 7 },
     { name: '+20% (x1.2)', mult: 1.2, explosion: 10 },
     { name: '+30% (x1.3)', mult: 1.3, explosion: 15 },

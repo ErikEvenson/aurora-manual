@@ -208,12 +208,13 @@ Tracking mod = min(1.0, 5000 / 4000) = 1.0 (still full accuracy)
 
 Our 5,000 km/s tracking is more than adequate for this era. It would only degrade against targets faster than 5,000 km/s.
 
-**Fire control range**: We need the FC to cover at least our laser maximum range (~160,000 km). From the formula:
+**Fire control range**: We need the FC to cover at least our laser maximum range (~160,000 km). BFC range is determined by the Beam Fire Control Range technology and scales linearly with component size (up to size 4). At starting tech (Fire Control Range 20,000 km), a size-1 BFC covers 20,000 km. Components can be built up to size 4 with a linear range increase \hyperlink{ref-ex-beam-2}{[2]}:
+
 ```
-FC_Range = FC_Size x Resolution x FC_Tech_Level x 10,000 km
+BFC_Range = Base_Tech_Range x FC_Size (HS)
 ```
 
-A standard beam FC provides range based on its size. We need range >= 160,000 km. With starting tech, a 2 HS beam FC should provide adequate range for our weapon envelope.
+At mid-level tech (Fire Control Range 80,000 km), a size-2 BFC provides 160,000 km -- matching our weapon envelope. See [Section 12.1.1 Beam Fire Controls](../12-combat/12.1-fire-controls.md#1211-beam-fire-controls) for the full range technology table.
 
 **Fire control allocation**: 2x Beam Fire Controls (2 HS each = 4 HS total = 200 tons)
 
@@ -432,7 +433,7 @@ The exact MSP depends on total build cost, but 5% engineering gives decent damag
 
 ## Step 11: Final Design Review
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 ### Initial Mass Budget
 
@@ -519,7 +520,7 @@ This makes engine technology research the single highest-impact upgrade path for
 
 ## Key Decisions Explained
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 ### Why Laser Over Particle Beam?
 At early tech, lasers deal 2.5x more damage per power unit (10 vs 4) and occupy less than half the hull space per weapon. Particle beams become competitive when armor reaches 6+ layers and single-column penetration matters. At 3-4 layers of Duranium, raw laser damage is more effective.
@@ -563,6 +564,8 @@ Six 10cm lasers provide better sustained firepower than fewer larger weapons bec
 ## References
 
 \hypertarget{ref-ex-beam-1}{[1]}. Aurora C# active sensor formula from Appendix A: Detection_Range (km) = sqrt((Active_Strength x HS x EM_Sensitivity x Resolution^(2/3)) / PI) x 1,000,000. The x 1,000,000 multiplier produces detection ranges in the tens of millions of km for standard military sensors.
+
+\hypertarget{ref-ex-beam-2}{[2]}. Section 12.1.1 Beam Fire Controls -- BFC range is determined by the Beam Fire Control Range technology (12 levels from 20,000 km to 350,000 km). Components can be built up to size 4 with a linear increase in range. See Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem (TechTypeID=4).
 
 ---
 
