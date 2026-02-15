@@ -6,7 +6,7 @@ nav_order: 1
 
 # Appendix A: Formulas
 
-*Updated: v2026.02.02*
+*Updated: v2026.02.15*
 
 This appendix collects the key mathematical formulas that govern Aurora C# mechanics. Understanding these calculations helps with ship design optimization, fleet planning, and economic development.
 
@@ -18,7 +18,7 @@ This appendix collects the key mathematical formulas that govern Aurora C# mecha
 
 ## Contents
 
-*Updated: v2026.02.02*
+*Updated: v2026.02.15*
 
 {: .no_toc }
 
@@ -223,7 +223,7 @@ This creates a linear multiplier from 1x to 5x for high-boost missiles.
 
 ## A.3 Detection Formulas
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 Formulas governing sensor detection and electronic warfare. For detailed sensor design and usage, see [Section 11.1 Thermal and EM Signatures](../11-sensors-and-detection/11.1-thermal-em-signatures.md).
 
@@ -346,7 +346,7 @@ Where:
 ECM_Mod = max(0, 1 - (Target_ECM - FC_ECCM) x 0.1)
 ```
 
-Applied as a multiplier to beam weapon hit chance. See [Beam Weapon To-Hit](#beam-weapon-to-hit) for the complete formula.
+Applied as a multiplier to beam weapon hit chance. See [Beam Weapon To-Hit](#a42-beam-weapon-to-hit) for the complete formula.
 
 **Missile FC Jammer Effect:**
 
@@ -354,7 +354,7 @@ Applied as a multiplier to beam weapon hit chance. See [Beam Weapon To-Hit](#bea
 ECM_ECCM_Mod = 1 - ((Missile_FC_Jammer_Level - CIWS_ECCM_Level) * 0.2)
 ```
 
-Minimum 0 (complete jamming). Applied to point defense accuracy against missiles. See [Point Defense Accuracy](#point-defense-accuracy-ciws-effectiveness) for the complete formula.
+Minimum 0 (complete jamming). Applied to point defense accuracy against missiles. See [Point Defense Accuracy](#a410-point-defense-accuracy-ciws-effectiveness) for the complete formula.
 
 ---
 
@@ -571,7 +571,7 @@ Expected kills = 12 * 0.8 = 9.6 missiles per 5-second cycle
 
 ## A.5 Production Formulas
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 Formulas for economic output and industrial production. For colony production management, see [Section 6.3 Construction](../6-economy-and-industry/6.3-construction.md).
 
@@ -732,7 +732,7 @@ This allows shipyard flexibility when designing ship families that share expensi
 
 ## A.6 Population and Colony Formulas
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 Formulas for population growth, habitability, and colony management. For colony management and habitability, see [Section 5.1 Establishing Colonies](../5-colonies/5.1-establishing-colonies.md).
 
@@ -847,7 +847,7 @@ Migration_Rate = Base_Rate x Push_Factor x Pull_Factor
 
 ## A.7 Garrison and Unrest Formulas
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 Formulas for occupation, garrison requirements, and population unrest. See [Section 13.1 Unit Types](../13-ground-forces/13.1-unit-types.md) for ground force details.
 
