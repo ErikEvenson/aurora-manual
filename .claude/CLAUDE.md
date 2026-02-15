@@ -1,6 +1,6 @@
 # Aurora 4X Manual - Project Instructions
 
-*Updated: v2026.02.01*
+*Updated: v2026.02.03*
 
 
 ## Project Overview
@@ -11,7 +11,7 @@ This is a comprehensive reference manual for Aurora C# (space strategy game by S
 
 ## Security
 
-*Updated: v2026.02.01*
+*Updated: v2026.02.03*
 
 **CRITICAL: Never store credentials in the repository.**
 
@@ -79,7 +79,7 @@ When preparing answers suitable for posting to Aurora Forums or Discord:
 
 ## Content Standards
 
-*Updated: v2026.02.01*
+*Updated: v2026.02.03*
 
 - **Section numbering:** Decimal hierarchy (e.g., 8.2.1 is a heading within file 8.2)
 - **Cross-references:** Always use `[Section X.Y Title](../path/to/file.md)` format — never bare "see Section X.Y"
@@ -221,7 +221,7 @@ For development/testing builds, use `bash build-pdf.sh` without arguments (auto-
 
 ## Game Database
 
-*Updated: v2026.01.28*
+*Updated: v2026.02.03*
 
 - **Location:** `~/Downloads/Aurora271Full/AuroraDB.db` (SQLite)
 - **Use:** Verify formulas, values, and mechanics claims against actual game data
@@ -229,7 +229,7 @@ For development/testing builds, use `bash build-pdf.sh` without arguments (auto-
 
 ## Issue Workflow
 
-*Updated: v2026.01.28*
+*Updated: v2026.02.03*
 
 - Group related issues into parallel waves for background agents
 - Close issues with commit reference comments
@@ -282,7 +282,7 @@ Prioritize verification of:
 
 ## README Maintenance
 
-*Updated: v2026.02.01*
+*Updated: v2026.02.03*
 
 **Keep README.md synchronized with project state.** Check and update when:
 
@@ -307,7 +307,7 @@ Prioritize verification of:
 
 ## Contributor Attribution
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.03*
 
 All repo contributors must appear in three locations:
 
@@ -319,14 +319,14 @@ To get the current contributor list: `gh api repos/ErikEvenson/aurora-manual/con
 
 ## LaTeX Compatibility
 
-*Updated: v2026.01.29*
+*Updated: v2026.02.03*
 
 - Avoid Unicode symbols that don't render in LaTeX (e.g., use `<=` instead of `≤`)
 - Long tables may overflow; consider breaking into multiple tables or using shorter column content
 
 ## SVG Images
 
-*Updated: v2026.01.29*
+*Updated: v2026.02.03*
 
 SVG images are supported via automatic conversion:
 
@@ -412,11 +412,12 @@ Label:
 
 **Common Aurora keyboard shortcuts:**
 - F2: Population and Production
-- F3: Naval Organization (Fleets)
-- F4: Manage Shipyards
-- F5: Research
-- F6: Class Design
-- F7: Ground Forces
+- F3: Commanders Window
+- F4: Naval Organization
+- F5: Class Design
+- F6: Diplomacy and Intelligence
+- F7: Race Window
+- F8: Ground Forces
 - F9: System Map
 
 ### Uploading Screenshots for Annotation
@@ -593,7 +594,7 @@ Both PDF (pandoc) and web (Jekyll) handle PNG images natively.
 
 ## Charts
 
-*Updated: v2026.02.01*
+*Updated: v2026.02.03*
 
 Charts are stored in `images/charts/` with subdirectories mirroring chapter structure.
 
@@ -727,7 +728,7 @@ Before committing any chart:
 
 ## Diagrams
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.03*
 
 Diagrams (flowcharts, system diagrams, tech trees, tactical illustrations) are stored in `images/diagrams/` with subdirectories mirroring chapter structure.
 

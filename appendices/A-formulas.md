@@ -6,7 +6,7 @@ nav_order: 1
 
 # Appendix A: Formulas
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.02*
 
 This appendix collects the key mathematical formulas that govern Aurora C# mechanics. Understanding these calculations helps with ship design optimization, fleet planning, and economic development.
 
@@ -18,7 +18,7 @@ This appendix collects the key mathematical formulas that govern Aurora C# mecha
 
 ## Contents
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.02*
 
 {: .no_toc }
 
@@ -281,6 +281,8 @@ Where:
 - **EM\_Sensitivity** = EM Sensor Sensitivity technology level (starts at 5)
 - **Resolution** = Sensor resolution setting (in HS)
 - **PI** = 3.14159...
+
+> **Warning:** Multiple simplified forms of this formula appear in the manual with different multipliers (250,000 km and 10,000 km). Only the full formula in this section has been verified against the game database. Cross-references in examples may use approximations.
 
 > **Note:** Some community resources use a simplified approximation: `sqrt(Sensor_Strength x Target_Cross_Section) x 250,000 km`, where Sensor\_Strength = Size x Resolution x Active\_Tech. This approximation omits the EM Sensitivity factor and uses a different constant (250,000 vs 1,000,000), so it does **not** produce the same results as the full formula. The full formula above is verified against the game database and should be used for accurate calculations.
 
@@ -576,8 +578,10 @@ Formulas for economic output and industrial production. For colony production ma
 ### A.5.1 Construction Factory Output
 
 ```
-Annual_BP = Num_Factories x BP_per_Factory x (1 + Governor_Manufacturing x 0.05)
+Annual_BP = Num_Factories x BP_per_Factory x (1 + Governor_Production_Bonus)
 ```
+
+> **Note:** The exact governor production bonus formula requires verification. Section 18.1 indicates the actual mechanic is a percentage-based Production bonus, not a flat multiplier. *(unverified — #1246)*
 
 Standard BP per factory = 10/year (increased by Construction Rate technology) \hyperlink{ref-A-6}{[A-6]}:
 
@@ -759,10 +763,10 @@ Where:
 ### A.6.3 Colony Cost and Habitability
 
 ```
-Colony_Cost = Sum(Environmental_Penalties)
+Colony_Cost = Max(Environmental_Penalties)
 ```
 
-Environmental penalties include:
+Colony cost equals the **single highest** (worst) environmental penalty factor, not the sum of all factors \hyperlink{ref-A-18}{[A-18]}. Environmental penalties include:
 
 - Temperature deviation from ideal (per degree of difference)
 - Atmospheric pressure deviation
@@ -986,3 +990,5 @@ Where Effective Population Size = ((Determination + Militancy + Xenophobia) / 30
 \hypertarget{ref-A-16}{[A-16]} Aurora C# game database (AuroraDB.db v2.7.1) -- Full active sensor range formula verified against multiple FCT\_ShipDesignComponents entries: Range = sqrt((Active\_Strength x HS x EM\_Sensitivity x Resolution^(2/3)) / PI) x 1,000,000 km. Tested against 10 sensor components with varied sizes (0.1-17 HS) and resolutions (1-121 HS), all matching MaxSensorRange within rounding error. FCT\_TechSystem TechTypeID=20 (Active Grav Sensor Strength): 10-180; TechTypeID=125 (EM Sensor Sensitivity): 5-75.
 
 \hypertarget{ref-A-17}{[A-17]} Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem: Sensor Jammer levels 1-10 (AdditionalInfo=1.0 through 10.0, AdditionalInfo2=1.1 through 2.0). ECCM levels 0-10 (matching structure). At maximum net advantage (SJ-10 vs ECCM-0), the subtractive formula yields 1 - 10 x 0.1 = 0, confirming complete sensor denial is possible with no floor.
+
+\hypertarget{ref-A-18}{[A-18]} Aurora Manual exploration-workflow.md Section 2.4 -- Colony cost uses the single worst (maximum) environmental factor, not the sum of all factors. Temperature deviation, pressure deviation, hostile gases, and gravity deviation each contribute independent penalty factors; the highest value becomes the colony cost.
