@@ -281,7 +281,7 @@ Let us estimate 3,000 tons for our calculations.
 **Armor allocation**: 4 layers Duranium = ~3,000 tons
 
 - Stops particle beam hits at exactly 1 layer (4 damage = 4 strength)
-- Requires 2-3 laser hits to same column to penetrate inner layers (10 damage strips 2.5 layers)
+- Requires 2 laser hits to same column to penetrate (10 damage strips 2.5 of 4 layers per hit)
 - Provides 16 total armor strength per column before internals exposed
 
 ---
@@ -321,49 +321,57 @@ This costs 500 tons (10 HS x 50 tons) and:
 
 Our 6 lasers each draw 10 power = 60 total power required.
 
-Using Power Plant output formula:
+Using Power Plant output formula (see [Appendix A.1.7](../appendices/A-formulas.md)):
 ```
-Power_Output = Power_Tech x Size_HS x sqrt(Size_HS / 10)
+Power_Output = Power_Tech x Size_HS x sqrt(Size_HS)
 ```
 
-At starting Pressurised Water Reactor tech (let us assume Power_Tech = 5):
+Note: Power plants use `sqrt(Size)` scaling, which is **different** from the `sqrt(Size/10)` scaling used by shields. This is a common source of confusion.
+
+At starting Pressurised Water Reactor tech (Power_Tech = 2.5 per game database) \hyperlink{ref-ex-beam-4}{[4]}:
 ```
 For a 10 HS power plant:
-Output = 5 x 10 x sqrt(10/10) = 5 x 10 x 1.0 = 50 power
+Output = 2.5 x 10 x sqrt(10) = 2.5 x 10 x 3.162 = 79.1 power
 ```
 
-That is short of our 60 power requirement. Options:
-1. One 10 HS plant (50 power) + one small supplemental plant
-2. One larger plant (if tech allows)
-3. Apply boost
+This exceeds our 60 power requirement with a comfortable margin of ~19 power. That surplus is valuable -- it means we can add weapons in a future refit without redesigning the power plant, or we can downsize to a smaller reactor to save tonnage.
 
-**With 20% boost** (manageable explosion risk at 15%):
-```
-Boosted output = 50 x 1.2 = 60 power (exactly what we need)
-Explosion chance when hit = 5% + (20/2)% = 15%
-```
+**Option A: Keep the 10 HS plant (no boost needed)**
 
-**Decision: 1x 10 HS Power Plant with 20% boost**
-
-- Output: 60 power (matches weapon draw exactly)
+- Output: 79.1 power (32% surplus over 60 requirement)
 - Mass: 500 tons
 - HTK: sqrt(10) = 3.16
-- Explosion risk: 15% when hit (acceptable)
+- Explosion risk: 5% base when hit (no boost = minimum risk)
+
+**Option B: Downsize to 8 HS plant to save tonnage**
+```
+Output = 2.5 x 8 x sqrt(8) = 2.5 x 8 x 2.828 = 56.6 power
+```
+Short of our 60 requirement by 3.4 power. Would need a small boost (10% boost to reach 62.2, with 7% explosion chance).
+
+**Decision: 1x 10 HS Power Plant with no boost**
+
+The 10 HS plant provides surplus power without any boost, keeping explosion risk at the minimum 5%. The extra 19 power provides a margin for future weapon additions and avoids the need for boost technology research.
+
+- Output: 79.1 power (60 required, 19 surplus)
+- Mass: 500 tons
+- HTK: sqrt(10) = 3.16
+- Explosion risk: 5% when hit (no boost -- minimum possible) \hyperlink{ref-ex-beam-5}{[5]}
 
 **Redundancy concern**: A single power plant is a vulnerability. If destroyed, all weapons lose power. Consider adding a 2 HS backup:
 ```
-Backup: 2 HS plant, output = 5 x 2 x sqrt(2/10) = 5 x 2 x 0.447 = 4.47 power
+Backup: 2 HS plant, output = 2.5 x 2 x sqrt(2) = 2.5 x 2 x 1.414 = 7.07 power
 ```
 
-That only powers a fraction of one laser. Not worth the tonnage for such minimal backup. **Accept the single-point-of-failure** at this tonnage constraint.
+That powers only a fraction of one laser. Not worth the tonnage for such minimal backup. **Accept the single-point-of-failure** at this tonnage constraint.
 
-**Power plant allocation**: 1x 10 HS reactor (20% boost) = 500 tons
+**Power plant allocation**: 1x 10 HS reactor (no boost) = 500 tons
 
 ---
 
 ## Step 9: Fuel Tankage
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 We want enough fuel for sustained system operations. The warship guideline from [Section 8.3.5 Fuel Consumption](../8-ship-design/8.3-engines.md#835-fuel-consumption) recommends 15-25% of hull tonnage devoted to fuel.
 
@@ -396,7 +404,7 @@ This provides workable operational range for inner system defense. For reference
 
 ## Step 10: Bridge, Engineering Spaces, MSP Storage
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 **Bridge**: Mandatory on all ships. 1 HS = 50 tons.
 
@@ -499,7 +507,7 @@ Speed = 500 EP * 1000 / 201 HS = 2,488 km/s (approximately 2,500 km/s)
 Speed: 500 EP * 1000 / ~200 HS = 2,500 km/s
 Armor: 3 layers x 4 strength = 12 damage to penetrate per column
 Firepower: 60 damage per volley (6 lasers x 10 damage)
-Power: 60 (exactly matching weapon draw)
+Power: 79.1 (60 required, 19.1 surplus for future upgrades)
 Range: ~4.4 billion km (inner system defense)
 Engine redundancy: 4 engines, HTK 4.47 each (17.9 total)
 ```
@@ -524,7 +532,7 @@ This makes engine technology research the single highest-impact upgrade path for
 At early tech, lasers deal 2.5x more damage per power unit (10 vs 4) and occupy less than half the hull space per weapon. Particle beams become competitive when armor reaches 6+ layers and single-column penetration matters. At 3-4 layers of Duranium, raw laser damage is more effective.
 
 ### Speed vs Armor Trade-Off
-We chose 3 layers (moderate protection) over 4+ layers (heavy armor doctrine). At 2,500 km/s, we can dictate engagement terms against most early-game opponents and outrun heavily armored battleships. The 3 layers match particle beam damage exactly (4 damage = 4 armor strength per layer) and require 3 laser hits per column to penetrate (10 damage strips 2.5 layers per hit) -- reasonable for trading fire at medium range.
+We chose 3 layers (moderate protection) over 4+ layers (heavy armor doctrine). At 2,500 km/s, we can dictate engagement terms against most early-game opponents and outrun heavily armored battleships. The 3 layers match particle beam damage exactly (4 damage = 4 armor strength per layer) and require 2 laser hits per column to penetrate (10 damage strips 2.5 of 3 layers on first hit, second hit breaches) -- reasonable for trading fire at medium range.
 
 ### Why 40% Engine Allocation Works
 Dedicating 40% of tonnage to engines at TN-start provides 2,500 km/s -- solidly in the "Moderate" speed class. This leaves 60% of hull for weapons, armor, sensors, and support systems. Going to 50% (3,125 km/s) would require sacrificing either weapons or armor, weakening the ship's core combat role.
@@ -566,6 +574,10 @@ Six 10cm lasers provide better sustained firepower than fewer larger weapons bec
 \hypertarget{ref-ex-beam-2}{[2]}. Section 12.1.1 Beam Fire Controls -- BFC range is determined by the Beam Fire Control Range technology (12 levels from 20,000 km to 350,000 km). Components can be built up to size 4 with a linear increase in range. See Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem (TechTypeID=4).
 
 \hypertarget{ref-ex-beam-3}{[3]}. Aurora C# game database (AuroraDB.db v2.7.1) -- FCT_TechSystem: Particle Beam Strength 2 (StartingSystem=1, DevelopCost=2000); Particle Beam Strength 4 (StartingSystem=0, DevelopCost=8000). Particle Beam Range 60,000 km (StartingSystem=1); Particle Beam Range 200,000 km (DevelopCost=8000). FCT_ShipDesignComponents: Particle Beam-2 at Size=6.0 HS, ComponentValue=2, PowerRequirement=5. PB-4 damage (4) and power (10) extrapolated from 2x scaling of PB-2 values.
+
+\hypertarget{ref-ex-beam-4}{[4]}. Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=41: Pressurised Water Reactor (TechSystemID=75834, AdditionalInfo=2.5, StartingSystem=0, DevelopCost=1200). Starting reactor is Radioisotope Thermal Generator (TechSystemID=3461, AdditionalInfo=2.0, StartingSystem=1). PWR is the first non-starting reactor tech. Power output formula: Power\_Tech x Size\_HS x sqrt(Size\_HS), verified in Appendix A ref [A-20].
+
+\hypertarget{ref-ex-beam-5}{[5]}. Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=42: No Power Plant Boost (TechSystemID=24625, AdditionalInfo=1.0, AdditionalInfo2=5.0, StartingSystem=1). The 5% explosion chance is the base risk with no boost. Power Plant Boost 20% (TechSystemID=24617, AdditionalInfo=1.2, AdditionalInfo2=10.0) has 10% explosion chance, not 15%.
 
 ---
 

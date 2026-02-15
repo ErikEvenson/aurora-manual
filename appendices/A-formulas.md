@@ -301,14 +301,14 @@ Where:
 A sensor designed for resolution-100 detects 5000-ton ships at full range. Smaller ships are detected at reduced range:
 
 ```
-Effective_Range = Base_Range x sqrt(Actual_Ship_HS / Sensor_Resolution)
+Effective_Range = Base_Range x (Actual_Ship_HS / Sensor_Resolution)^(1/3)
 ```
 
 \hyperlink{ref-A-12}{[A-12]}
 
 **Example**: A sensor with 100M km range at resolution-100 detecting a resolution-20 ship:
 ```
-Effective_Range = 100M x sqrt(20/100) = 100M x 0.447 = 44.7M km
+Effective_Range = 100M x (20/100)^(1/3) = 100M x 0.585 = 58.5M km
 ```
 
 ### A.3.5 Missile Fire Control Range
@@ -373,7 +373,7 @@ Applied as a multiplier to beam weapon hit chance. See [Beam Weapon To-Hit](#a42
 **Missile FC Jammer Effect:**
 
 ```
-ECM_ECCM_Mod = 1 - ((Missile_FC_Jammer_Level - CIWS_ECCM_Level) * 0.2)
+ECM_ECCM_Mod = 1 - ((Missile_FC_Jammer_Level - CIWS_ECCM_Level) * 0.1)
 ```
 
 Minimum 0 (complete jamming). Applied to point defense accuracy against missiles. See [Point Defense Accuracy](#a410-point-defense-accuracy-ciws-effectiveness) for the complete formula.
@@ -436,9 +436,9 @@ Weapons with damage gradient of 1 deal full base damage at any range within thei
 | Weapon Type | Damage Gradient | Range Falloff | Notes |
 |-------------|----------------|---------------|-------|
 | Lasers | 3-4 | Linear (formula above) | Primary weapon affected by falloff |
-| Particle Beams | 1 | None (full damage at all ranges) | Focused single-column penetration |
+| Particle Beams | 2 | None (full damage at all ranges) | Steep penetration profile |
 | Plasma Carronades | 1 | None (full damage at all ranges) | Short max range, half-size |
-| Railguns | 1 | None (full damage at all ranges) | Multiple shots per salvo |
+| Railguns | 2 | None (full damage at all ranges) | Multiple shots per salvo |
 | Meson Cannons | 1 | None | Always 1 damage; bypasses armor/shields |
 | Microwaves (HPM) | 1 | None (full damage at all ranges) | Targets electronics after shields down |
 | Gauss Cannons | 1 | None | 1 damage per shot, high rate of fire |
@@ -471,11 +471,11 @@ Per_Column = 10 / 3 ≈ 3.3 → each of 3 columns takes ~3 damage
 Armor_Penetration = ~3 layers per column
 ```
 
-Compare with a particle beam (gradient 1) with 10 base damage at the same range:
+Compare with a particle beam (gradient 2) with 10 base damage at the same range:
 ```
 Total_Damage = 10 (no falloff)
-Per_Column = 10 / 1 = 10
-Armor_Penetration = 10 layers in single column
+Per_Column = 10 / 2 = 5
+Armor_Penetration = 5 layers across 2 columns
 ```
 
 ![Figure A.4.3: Beam Weapon Damage vs Range](../images/charts/appendices/a4-3-weapon-damage-comparison.png)
@@ -499,7 +499,7 @@ Num_Columns = Ship_Tonnage / Column_Factor
 
 When armor at a column is breached:
 ```
-Component_Hit_Chance = Component_HTK / Total_Internal_HTK
+Component_Hit_Chance = Component_HS / Total_Internal_HS
 Damage_to_Component = 1 HTK per hit
 Component_Destroyed when Current_HTK = 0
 ```
@@ -539,7 +539,7 @@ Where:
 Base Hit Chance = 0.1 * (30,000 / 5,000) = 0.6 = 60%
 ```
 
-**Active Terminal Guidance** (0.25 MSP component) provides an accuracy bonus from +15% to +60% based on technology level, applied as an additive bonus to the base hit chance \hyperlink{ref-A-13}{[A-13]}.
+**Active Terminal Guidance** (0.25 MSP component) provides an accuracy bonus from +15% to +60% based on technology level, applied as a multiplier to the base hit chance \hyperlink{ref-A-13}{[A-13]}.
 
 Key implications:
 
@@ -573,7 +573,7 @@ Where:
 
 - **Base_Tracking_Mod** = min(1.0, FC_Tracking_Speed / Missile_Speed)
 - **Crew_Training** = Fractional modifier based on crew training level (1.0 at 100% training)
-- **ECM_ECCM_Mod** = 1 - ((Missile_FC_Jammer_Level - CIWS_ECCM_Level) * 0.2), minimum 0
+- **ECM_ECCM_Mod** = 1 - ((Missile_FC_Jammer_Level - CIWS_ECCM_Level) * 0.1), minimum 0
 - **CIC_Bonus** = Commander's Combat Information Center skill bonus
 - **Tactical_Bonus** = Commander's Tactical skill bonus
 - **Gauss_Size_Mod** = Per-shot accuracy modifier for gauss cannons below racial standard size
@@ -796,19 +796,19 @@ Colony cost equals the **single highest** (worst) environmental penalty factor, 
 - Gravity deviation (minor effect)
 
 ```
-Required_Infrastructure = Population x Colony_Cost
+Required_Infrastructure = Population (millions) x Colony_Cost x 100
 ```
 
 Without sufficient infrastructure on a hostile world, excess population suffers attrition.
 
 ![Figure A.6.3: Infrastructure Required by Colony Cost](../images/charts/appendices/a6-3-colony-cost-infrastructure.png)
 
-*Figure A.6.3 demonstrates why extreme colony costs make expansion prohibitively expensive. A 100-million population on a CC 6.0 world requires 600 infrastructure units, while the same population on CC 2.0 needs only 200. Earth-like worlds (CC 0) require no infrastructure at all.*
+*Figure A.6.3 demonstrates why extreme colony costs make expansion prohibitively expensive. A 100-million population on a CC 6.0 world requires 60,000 infrastructure units, while the same population on CC 2.0 needs only 20,000. Earth-like worlds (CC 0) require no infrastructure at all.*
 
 ### A.6.4 Population Capacity
 
 ```
-Max_Supported_Population = Infrastructure / Colony_Cost
+Max_Supported_Population (millions) = Infrastructure / (Colony_Cost x 100)
 ```
 
 For Earth-like worlds (colony cost = 0), no infrastructure is needed and population can grow without limit.

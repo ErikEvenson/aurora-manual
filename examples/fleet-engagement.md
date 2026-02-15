@@ -6,7 +6,7 @@ nav_order: 99
 
 # Example: Fleet Engagement -- The Battle of Epsilon Junction
 
-*Updated: v2026.02.02*
+*Updated: v2026.02.15*
 
 This worked example walks through a complete tactical fleet engagement between two opposing forces. We cover sensor detection, approach decisions, engagement range selection, missile and beam exchanges, damage assessment, and the critical decision of when to withdraw.
 
@@ -16,7 +16,7 @@ This worked example walks through a complete tactical fleet engagement between t
 
 ## Contents
 
-*Updated: v2026.02.02*
+*Updated: v2026.02.15*
 
 {: .no_toc }
 
@@ -36,13 +36,13 @@ Composition:
   2x BC-10000 "Resolute" Beam Cruisers
     10,000 tons, 2,500 km/s
     6x 10cm UV Lasers (60 damage/volley per ship)
-    3 layers Duranium armor (15 strength/column)
+    3 layers Duranium armor (12 strength/column)
     Active sensor: resolution 100, detect 10kt at 500,000 km
 
   4x DD-6000 "Lancer" Missile Destroyers
     6,000 tons, 3,125 km/s
     8x Size-2 launchers (ASM-2, 1.6 damage per missile)
-    2 layers Duranium armor (10 strength/column)
+    2 layers Duranium armor (8 strength/column)
     40 missiles per ship (5 salvos each)
     2x CIWS each
 
@@ -60,13 +60,13 @@ Composition:
   1x BB-15000 "Overlord" Battleship
     15,000 tons, 1,800 km/s
     8x 12cm Lasers (96 damage/volley)
-    5 layers Duranium armor (25 strength/column)
+    5 layers Duranium armor (20 strength/column) \hyperlink{ref-ex-fleet-3}{[3]}
     Active sensor: resolution 200, detect 10kt at 600,000 km
 
   3x CL-8000 "Sentinel" Light Cruisers
     8,000 tons, 2,800 km/s
     4x 10cm Lasers (40 damage/volley per ship)
-    3 layers Duranium armor (15 strength/column)
+    3 layers Duranium armor (12 strength/column)
     4x CIWS each
 
 Total Fleet:
@@ -143,7 +143,7 @@ At 800,000 km separation, Alpha's commander must decide:
 
 Rationale:
 1. Alpha's total beam damage (120/volley) requires close range
-2. 160 missiles alone may not destroy the battleship (25 armor strength/column)
+2. 160 missiles alone may not destroy the battleship (20 armor strength/column)
 3. Alpha is faster (2,500 vs 1,800 km/s) -- can control engagement distance
 4. Combined beam + missile provides highest kill probability
 
@@ -216,20 +216,20 @@ Missiles reaching target: 32 - 8 = 24 missiles (approximately)
   Damage per missile: 1.6
   Total damage: 24 * 1.6 = 38.4 damage
 
-Overlord armor: 5 layers * 5 strength = 25 per column
+Overlord armor: 5 layers * 4 strength = 20 per column
 Armor columns (approximate for 15,000-ton ship): ~24 columns
 
 Damage distribution: 24 missiles spread across 24 columns
   Average hits per column: 24 / 24 = 1 hit per column
   Damage per column: 1.6
 
-With 25 strength per column, 1.6 damage per hit:
-  Each hit strips: 1.6 / 5 = 0.32 layers from that column
+With 20 strength per column, 1.6 damage per hit:
+  Each hit strips: 1.6 / 4 = 0.4 layers from that column
 
 Result: MINOR ARMOR DAMAGE -- scattered surface hits, no penetration
 ```
 
-**Missile salvo 1 is largely ineffective against heavy armor.** The 25-strength armor shrugs off individual 1.6-damage hits. We need concentrated fire or beam weapons to breach this battleship.
+**Missile salvo 1 is largely ineffective against heavy armor.** The 20-strength armor shrugs off individual 1.6-damage hits. We need concentrated fire or beam weapons to breach this battleship.
 
 > **Tip:** Missiles with low per-missile damage struggle against heavily armored targets. The damage is spread across many armor columns, never penetrating any single one. Against battleships, either use larger warheads, fire massive salvos to saturate individual columns, or rely on beam weapons that hit the same column repeatedly.
 
@@ -264,15 +264,15 @@ Volley 1 at Overlord:
   Expected hits: 12 * 0.5 = 6 hits
   Damage per hit: 10 (10cm laser)
 
-Each hit vs 5-layer Duranium (25 strength):
-  10 damage / 5 armor strength = 2 layers stripped per hit
+Each hit vs 5-layer Duranium (20 strength):
+  10 damage / 4 armor strength = 2.5 layers stripped per hit
 
 6 hits across 24 armor columns:
-  If all hit different columns: 2 layers stripped from 6 columns
+  If all hit different columns: 2.5 layers stripped from 6 columns
   If some repeat (probability exists): deeper penetration on those columns
 
-After volley 1: 6 columns reduced from 5 to 3 layers
-  Remaining armor on hit columns: 3 * 5 = 15 strength
+After volley 1: 6 columns reduced from 5 to 2.5 layers
+  Remaining armor on hit columns: 2.5 * 4 = 10 strength
 ```
 
 ### Beta's Return Fire
@@ -283,17 +283,17 @@ Overlord fires at closest Alpha cruiser at 200,000 km:
   Hit chance: ~50% at 200,000 km
   Expected hits: 8 * 0.5 = 4 hits
 
-Each hit vs Alpha's 3-layer Duranium (15 strength):
-  12 damage / 5 armor strength = 2.4 layers stripped per hit
-  First hit: strips 2.4 layers → 0.6 layers remaining on that column
-  Second hit same column: penetrates! 12 - 3 (remaining armor) = 9 internal damage!
+Each hit vs Alpha's 3-layer Duranium (12 strength):
+  12 damage / 4 armor strength = 3.0 layers stripped per hit
+  A single 12-damage hit strips ALL 3 layers from a column!
+  Excess damage: 12 - (3 * 4) = 0 -- armor exactly absorbed, no internal damage
 
 4 hits across Alpha's armor columns (~20 columns for 10kt ship):
   Statistical spread: likely all different columns
-  Each strips 2.4 layers from its column
-  No penetration on first volley (if hits are distributed)
+  Each strips all 3 layers from its column -- complete penetration to bare hull
+  Any SECOND hit on the same column deals full internal damage
 
-After volley 1: 4 columns reduced to 0.6 layers remaining
+After volley 1: 4 columns completely stripped (0 layers remaining)
 ```
 
 ### Light Cruiser Fire
@@ -305,7 +305,8 @@ After volley 1: 4 columns reduced to 0.6 layers remaining
   Expected hits: 6
   Damage: 10 per hit
 
-Same analysis as above: 6 columns stripped to ~0.6 layers
+Same analysis as Overlord fire above: 10 damage / 4 strength = 2.5 layers per hit.
+  6 columns stripped from 3 layers to 0.5 layers remaining
 ```
 
 ---
@@ -322,9 +323,9 @@ Both sides continue firing. Alpha launches second missile salvo while beam weapo
 Alpha Missile Salvo 2 (32 missiles at Overlord):
   PD kills: ~8 missiles
   24 missiles hit, 1.6 damage each
-  Overlord armor: now weakened on 6 columns (3 layers remaining)
-  Hits on weakened columns: 1.6 damage vs 15 strength = minimal effect
-  Hits on fresh columns: 1.6 vs 25 = negligible
+  Overlord armor: now weakened on 6 columns (2.5 layers remaining)
+  Hits on weakened columns: 1.6 damage vs 10 strength = minimal effect
+  Hits on fresh columns: 1.6 vs 20 = negligible
 
   Still largely ineffective individually, but cumulative chip damage
 ```
@@ -333,43 +334,47 @@ Alpha Missile Salvo 2 (32 missiles at Overlord):
 Alpha Beam Volley 2 (at Overlord, now at ~180,000 km):
   Accuracy improves slightly at closer range: ~55%
   Expected hits: 12 * 0.55 = 6.6 ≈ 7 hits
-  Each hit strips 2 layers
+  Each hit strips 2.5 layers
 
-  If 2 hits land on previously-damaged columns (3 layers left):
-    First hit: strips 2 layers → 1 layer remaining (5 strength)
-    Second hit: strips remaining 1 layer → PENETRATION → 5 internal damage
+  If 2 hits land on previously-damaged columns (2.5 layers left):
+    First hit: strips 2.5 layers → 0 remaining → PENETRATION!
+    Excess: 10 - (2.5 * 4) = 0 damage to internals (armor exactly absorbed)
+    Second hit same column: full 10 damage to internals!
 
-  First armor breach on Overlord!
+  First armor breach on Overlord! With armor strength 4 per layer,
+  the weaker Duranium means breaches happen faster than with strength 5.
 ```
 
 ### Damage Tracking (Volley 2 Cumulative)
 
 ```
 Overlord Status after 2 beam volleys:
-  Armor breaches: 1-2 columns (internal damage beginning)
-  Internal hits: 2-3 (random component targeting)
+  Armor breaches: 2-3 columns (internal damage beginning)
+  Internal hits: 3-4 (random component targeting)
   Possible: engine hit (speed reduction), weapon hit (firepower loss)
-  Hull integrity: ~95%
+  Hull integrity: ~93%
 
 Alpha Cruiser 1 after 2 volleys from Overlord:
   4+4 = 8 total 12-damage hits over 2 volleys
-  Several columns now penetrated (0.6 layers → second hit breaches)
-  Internal hits: 3-4 (engine, weapon, or support system damage likely)
-  Hull integrity: ~90%
+  Volley 1 stripped ALL 3 layers on 4 columns (12 / 4 = 3.0 layers exactly)
+  Volley 2 hits on those bare columns deal full internal damage
+  Internal hits: 4-5 (engine, weapon, or support system damage likely)
+  Hull integrity: ~85%
 
 Alpha Cruiser 2 after 2 volleys from Light Cruisers:
   6+6 = 12 total 10-damage hits over 2 volleys
-  Multiple columns breached
-  Internal hits: 4-5
-  Hull integrity: ~85%
+  Each 10-damage hit strips 2.5 of 3 layers -- second hit on same column penetrates
+  Multiple columns breached after 2 volleys
+  Internal hits: 5-6
+  Hull integrity: ~80%
 ```
 
 ### Volleys 3-4 (Situation Escalates)
 
 ```
 Volley 3 (range ~160,000 km, accuracy ~60%):
-  Alpha beam damage: 7 hits on Overlord, 2-3 penetrating
-  Beta damage: 4 penetrating hits on Cruiser 1, 3-4 on Cruiser 2
+  Alpha beam damage: 7 hits on Overlord, 3-4 penetrating (weakened armor fails faster at strength 4)
+  Beta damage: 4 penetrating hits on Cruiser 1, 4-5 on Cruiser 2
 
   Internal damage accumulating on both sides
   Overlord loses 1 laser (random internal hit) -- firepower drops to 84/volley
@@ -396,18 +401,18 @@ Volley 4 (range ~140,000 km, accuracy ~65%):
 
 ```
 BC-10000 "Resolute" #1:
-  Armor: 40% of columns breached (1-2 layers remaining elsewhere)
-  Internal damage: 6 hits -- 1 laser destroyed, engineering damaged
+  Armor: 50% of columns breached (0-1 layers remaining elsewhere)
+  Internal damage: 8 hits -- 1 laser destroyed, engineering damaged
   Firepower: 50 damage/volley (5 remaining lasers)
   Speed: 2,500 km/s (engines intact)
-  Status: DAMAGED -- combat effective
+  Status: HEAVILY DAMAGED -- combat effective but vulnerable
 
 BC-10000 "Resolute" #2:
-  Armor: 50% of columns breached
-  Internal damage: 8 hits -- 1 engine destroyed, 1 laser destroyed, fuel leak
+  Armor: 60% of columns breached
+  Internal damage: 10 hits -- 1 engine destroyed, 1 laser destroyed, fuel leak
   Firepower: 50 damage/volley
   Speed: 1,875 km/s (3 engines)
-  Status: HEAVILY DAMAGED -- fleet speed now 1,875 km/s
+  Status: CRITICALLY DAMAGED -- fleet speed now 1,875 km/s
 
 DD-6000 "Lancer" x4:
   Status: UNDAMAGED (not targeted by enemy beams, outside beam priority)
@@ -419,11 +424,11 @@ DD-6000 "Lancer" x4:
 
 ```
 BB-15000 "Overlord":
-  Armor: 25% of columns breached (many at 1-3 layers remaining)
-  Internal damage: 5 hits -- 2 lasers destroyed
+  Armor: 35% of columns breached (many at 0-2.5 layers remaining)
+  Internal damage: 6 hits -- 2 lasers destroyed
   Firepower: 72 damage/volley (6 remaining lasers)
   Speed: 1,800 km/s (engines intact -- redundancy paying off)
-  Status: DAMAGED -- armor holding but degrading
+  Status: DAMAGED -- armor degrading faster at strength 4 per layer
 
 CL-8000 "Sentinel" x3:
   CL #1: Minor damage (1 stray missile hit)
@@ -459,13 +464,14 @@ Unfavorable factors:
 ### Critical Calculation: Can Alpha Win?
 
 ```
-Overlord remaining armor: will fail in ~3-4 more volleys (6-8 more penetrating hits)
+Overlord remaining armor: will fail in ~2-3 more volleys (4-6 more penetrating hits)
+  With armor strength 4, each 10-damage hit strips 2.5 layers -- armor collapses fast
   Once armor fails: internal hits accelerate catastrophically
-  Estimated volleys to kill Overlord: 6-8 more (30-40 more seconds)
+  Estimated volleys to kill Overlord: 5-7 more (25-35 more seconds)
 
 Alpha cruiser survival time at current damage rate:
-  Cruiser 2 at 85% hull: ~6-8 volleys before destroyed
-  Cruiser 1 at 90%: ~8-10 volleys before destroyed
+  Cruiser 2 at 80% hull: ~4-6 volleys before destroyed
+  Cruiser 1 at 85%: ~6-8 volleys before destroyed
 
 Risk: If a cruiser is destroyed, remaining cruiser faces 192 damage/volley alone
   Survival time of solo cruiser: 2-3 volleys (catastrophic)
@@ -557,7 +563,7 @@ STRATEGIC RESULT: DRAW (tactical slight advantage to Alpha)
 
 ## Lessons From This Engagement
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 ### 1. Speed Dictates Engagement Terms
 
@@ -565,7 +571,7 @@ Alpha's 2,500 km/s (initially) vs Beta's 1,800 km/s meant Alpha could choose whe
 
 ### 2. Heavy Armor Resists Missile Chip Damage
 
-The Overlord's 5-layer armor made individual 1.6-damage missiles nearly useless until beam weapons weakened specific columns. Against heavy armor, missiles need either large warheads or massive salvo sizes.
+The Overlord's 5-layer Duranium armor (20 strength per column at strength 4) made individual 1.6-damage missiles nearly useless until beam weapons weakened specific columns. Against heavy armor, missiles need either large warheads or massive salvo sizes.
 
 ### 3. Concentrated Fire Wins
 
@@ -587,18 +593,18 @@ The destroyers' speed advantage let them cover the cruiser withdrawal while cont
 
 ## Alternative Outcomes
 
-*Updated: v2026.01.30*
+*Updated: v2026.01.26*
 
 ### What If Alpha Had Focused Missiles on Light Cruisers?
 
 ```
-32 missiles vs CL-8000 (3 layers armor, 15 strength/column):
+32 missiles vs CL-8000 (3 layers armor, 12 strength/column):
   PD kills: 4 CIWS * 2 shots = 8 killed
   24 missiles hit, 1.6 damage each
 
   15 armor columns on 8,000-ton ship
   24 hits / 15 columns = 1.6 hits per column average
-  Damage per column: 1.6 * 1.6 = 2.56 -- strips 0.5 layers per column
+  Damage per column: 1.6 * 1.6 = 2.56 -- strips 0.64 layers per column (1.6 / 4 x 1.6 hits)
 
   Result: Surface damage only. Light cruiser armor holds.
   Conclusion: Missiles are ineffective against ALL armored targets at this warhead tech.
@@ -611,14 +617,16 @@ Combined Beta firepower on single cruiser: 96 + 120 = 216 damage equivalent
   At 50% accuracy: ~27 hits per volley
   Damage: 10-12 per hit
 
-Cruiser with 3 layers (15 strength):
+Cruiser with 3 layers (12 strength):
   First volley: 27 hits across 20 columns = 1.35 hits/column
+  12-damage hits strip ALL 3 layers in one shot (12 / 4 = 3.0 exactly)
+  10-damage hits strip 2.5 layers -- second hit penetrates easily
   Multiple columns breached on FIRST VOLLEY
-  5-8 internal hits immediately
+  8-12 internal hits immediately (more devastating with armor strength 4)
 
-  Second volley: massive internal damage, possible destruction
+  Second volley: massive internal damage, likely destruction
 
-  Cruiser destroyed in 2-3 volleys (~10-15 seconds)!
+  Cruiser destroyed in 1-2 volleys (~5-10 seconds)!
 ```
 
 Focus fire by Beta would have killed an Alpha cruiser before withdrawal was possible. Beta's tactical error (splitting fire) saved Alpha a ship.
@@ -632,6 +640,8 @@ Focus fire by Beta would have killed an Alpha cruiser before withdrawal was poss
 \hypertarget{ref-ex-fleet-1}{[1]}. Aurora C# active sensor formula from Appendix A: Detection_Range (km) = sqrt((Active_Strength x HS x EM_Sensitivity x Resolution^(2/3)) / PI) x 1,000,000. The x 1,000,000 multiplier (not x 10,000) produces detection ranges in the tens of millions of km for standard military sensors.
 
 \hypertarget{ref-ex-fleet-2}{[2]}. Aurora C# v2.2.0+ point defense uses tracking-based hit chance: Base_Hit_Chance = min(1.0, FC_Tracking / Missile_Speed). Agility is no longer used in PD calculations.
+
+\hypertarget{ref-ex-fleet-3}{[3]}. Aurora C# game database (AuroraDB.db v2.7.1) -- FCT\_TechSystem TechTypeID=59: Duranium Armour (TechSystemID=3136, AdditionalInfo=4.0, StartingSystem=1). Armor strength is 4 per layer, not 5. High Density Duranium Armour (TechSystemID=3137, AdditionalInfo=6.0) is the next tier.
 
 ---
 

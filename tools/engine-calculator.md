@@ -337,12 +337,12 @@ Compare up to 2 engine configurations side-by-side. Formulas and tech values are
 </details>
 
 <details class="calc-collapsible">
-<summary>Boost Explosion Chance — AuroraDB.db ref [A-4] (Note: 5% base rate for no-boost is not from TechTypeID=42; source unverified)</summary>
+<summary>Boost Explosion Chance — AuroraDB.db TechTypeID=42 ref [A-4]</summary>
 <div class="detail-content">
 <table class="calc-ref-table">
 <thead><tr><th>Boost Level</th><th>Multiplier</th><th>Explosion Chance</th><th>Research (RP)</th></tr></thead>
 <tbody>
-<tr><td>None</td><td>x1.0</td><td>5% <em>(unverified)</em></td><td>250</td></tr>
+<tr><td>None</td><td>x1.0</td><td>5%</td><td>250</td></tr>
 <tr><td>+10%</td><td>x1.1</td><td>7%</td><td>500</td></tr>
 <tr><td>+20%</td><td>x1.2</td><td>10%</td><td>1,000</td></tr>
 <tr><td>+30%</td><td>x1.3</td><td>15%</td><td>2,000</td></tr>
@@ -381,19 +381,19 @@ Compare up to 2 engine configurations side-by-side. Formulas and tech values are
 </details>
 
 <details class="calc-collapsible">
-<summary>Fuel Storage Modules — AuroraDB.db ref [14.1-4]</summary>
+<summary>Fuel Storage Modules — AuroraDB.db TechTypeID=94, ComponentTypeID=3 ref [14.1-4]</summary>
 <div class="detail-content">
 <table class="calc-ref-table">
-<thead><tr><th>Module</th><th>Size (HS)</th><th>Capacity (litres)</th></tr></thead>
+<thead><tr><th>Module</th><th>Size (HS)</th><th>Capacity (litres)</th><th>HTK</th><th>Cost (BP)</th></tr></thead>
 <tbody>
-<tr><td>Tiny Fuel Storage</td><td>0.1</td><td>1,000</td></tr>
-<tr><td>Small Fuel Storage</td><td>0.5</td><td>5,000</td></tr>
-<tr><td>Fuel Storage</td><td>1</td><td>10,000</td></tr>
-<tr><td>Large Fuel Storage</td><td>2</td><td>20,000</td></tr>
-<tr><td>Very Large Fuel Storage</td><td>5</td><td>50,000</td></tr>
-<tr><td>Ultra Large Fuel Storage</td><td>10</td><td>100,000</td></tr>
-<tr><td>Huge Fuel Storage</td><td>25</td><td>250,000</td></tr>
-<tr><td>Massive Fuel Storage</td><td>50</td><td>500,000</td></tr>
+<tr><td>Fuel Storage - Minimal</td><td>0.002</td><td>100</td><td>0</td><td>0.01</td></tr>
+<tr><td>Fuel Storage - Fighter</td><td>0.02</td><td>1,000</td><td>0</td><td>0.08</td></tr>
+<tr><td>Fuel Storage - Tiny</td><td>0.1</td><td>5,000</td><td>0</td><td>0.3</td></tr>
+<tr><td>Fuel Storage - Small</td><td>0.2</td><td>10,000</td><td>0</td><td>0.5</td></tr>
+<tr><td>Fuel Storage - Standard</td><td>1.0</td><td>50,000</td><td>1</td><td>2.0</td></tr>
+<tr><td>Fuel Storage - Large</td><td>5.0</td><td>250,000</td><td>1</td><td>5.0</td></tr>
+<tr><td>Fuel Storage - Very Large</td><td>20.0</td><td>1,000,000</td><td>1</td><td>10.0</td></tr>
+<tr><td>Fuel Storage - Ultra Large</td><td>100.0</td><td>5,000,000</td><td>1</td><td>25.0</td></tr>
 </tbody>
 </table>
 </div>
@@ -433,10 +433,9 @@ Compare up to 2 engine configurations side-by-side. Formulas and tech values are
   ];
 
   // Verified boost explosion chances — AuroraDB.db TechTypeID=42 [ref A-4]
-  // Note: The 5% base explosion rate for no-boost (1.0) is NOT from TechTypeID=42.
-  // That tech type only contains boosted tiers (1.1+). The 5% value requires verification.
+  // "No Power Plant Boost" (TechSystemID=24625) confirms 5% base rate at x1.0.
   var BOOST_EXPLOSION = {
-    1.0: 5, /* unverified — not in TechTypeID=42 */ 1.1: 7, 1.2: 10, 1.3: 15,
+    1.0: 5, /* verified: TechSystemID=24625, AdditionalInfo2=5.0 */ 1.1: 7, 1.2: 10, 1.3: 15,
     1.4: 20, 1.6: 30, 1.8: 40, 2.0: 50
   };
 
