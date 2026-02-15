@@ -6,7 +6,7 @@ nav_order: 99
 
 # Example: Terraforming a Colony
 
-*Updated: v2026.02.02*
+*Updated: v2026.02.15*
 
 This worked example walks through reducing a colony's cost from CC 2.0 to CC 0.0 through systematic terraforming. Each step includes timeline calculations, installation requirements, and the decision logic behind gas selection order.
 
@@ -14,7 +14,7 @@ This worked example walks through reducing a colony's cost from CC 2.0 to CC 0.0
 
 ## Contents
 
-*Updated: v2026.02.02*
+*Updated: v2026.02.15*
 
 {: .no_toc }
 
@@ -23,7 +23,7 @@ This worked example walks through reducing a colony's cost from CC 2.0 to CC 0.0
 
 ## Quick Reference: Atmospheric Values
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 Before diving into the worked example, here are the key numerical values you need for terraforming calculations.
 
@@ -280,7 +280,7 @@ Rate = 10 * 0.000715 = 0.00715 atm/year
 Time to add 0.01 atm: 0.01 / 0.00715 = 1.40 years (~16.8 months)
 ```
 
-Note: Water vapor condenses at 0.1 atm per year, increasing Hydro Extent. As water vapor is added, some will condense into surface water, gradually raising hydrosphere percentage. Each year of active water vapor addition at equilibrium adds approximately 4% hydro extent.
+Note: Water vapor condenses at 0.1 atm per year, increasing Hydro Extent *(unverified — #1259)*. As water vapor is added, some will condense into surface water, gradually raising hydrosphere percentage. Each year of active water vapor addition at equilibrium adds approximately 4% hydro extent.
 
 To raise hydrosphere from 5% to 20%: need +15%, which requires approximately 3.75 years of water vapor addition and condensation.
 
@@ -686,7 +686,7 @@ The relationship is roughly linear: quarter the installations means quadruple th
 
 ## Common Mistakes
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 ### 1. Adding the Wrong Gas First
 

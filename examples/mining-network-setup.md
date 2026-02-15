@@ -6,7 +6,7 @@ nav_order: 99
 
 # Example: Setting Up a Mining Network
 
-*Updated: v2026.02.02*
+*Updated: v2026.02.15*
 
 This worked example walks through establishing an off-world mining colony and freight network to supplement your homeworld's depleting mineral supplies. We cover site selection, colony establishment, mine deployment, freighter design, and logistics configuration -- with calculated numbers at each step.
 
@@ -14,7 +14,7 @@ This worked example walks through establishing an off-world mining colony and fr
 
 ## Contents
 
-*Updated: v2026.02.02*
+*Updated: v2026.02.15*
 
 {: .no_toc }
 
@@ -178,7 +178,7 @@ Gallicite: 50 x 12 x 0.9 = 540 tons/year (improved tech)
 
 ## Step 4: Freighter Design
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 We need a freighter to haul automated mines to the colony and bring minerals back to Earth. Key requirements:
 
@@ -309,7 +309,7 @@ If mining both Gallicite and Duranium, the "Load All Minerals" order handles bot
 
 ## Step 6: Mass Driver Option
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 Mass drivers offer an alternative to freighter logistics:
 
@@ -446,10 +446,10 @@ Civilian mining colonies appear automatically as your empire develops. Unlike go
 
 Civilian mining colonies only appear when specific conditions are met (see [Section 6.5.2 Civilian Mining](../6-economy-and-industry/6.5-civilian-economy.md)):
 
-- Your empire has at least two colonies with population or infrastructure
-- The target body has at least 10,000 tons of Duranium at 0.7+ accessibility
-- The system contains a population of 10 million or more
-- The body is within 80 AU of the primary star
+- Your empire has at least two colonies with population or infrastructure *(unverified — #1259)*
+- The target body has at least 10,000 tons of Duranium at 0.7+ accessibility *(unverified — #1259)*
+- The system contains a population of 10 million or more *(unverified — #1259)*
+- The body is within 80 AU of the primary star *(unverified — #1259)*
 
 **Implication for our example:** The Asteroid Belt will not attract civilian miners initially because our mining operation there is automated (no population). However, if you establish a populated colony in the same system, civilian mining may eventually appear.
 
@@ -650,7 +650,7 @@ For automated mining, colony size is irrelevant (no population needed). For conv
 
 ## Worked Numbers Summary
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 ### Mining Output at Different Scales
 
