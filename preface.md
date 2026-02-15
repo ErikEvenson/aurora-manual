@@ -18,3 +18,5 @@ We take a different view. A manual with tracked errors that get corrected over t
 We make no claim to mastery. The contributors to this manual are themselves still learning Aurora's depths. Our only goal is to help more people experience what Steve Walmsley has created — a game of remarkable scope and detail that rewards the time invested in understanding it. Aurora deserves a larger community, and that community needs somewhere to start.
 
 If you find an error, please open an issue at [github.com/ErikEvenson/aurora-manual](https://github.com/ErikEvenson/aurora-manual). A correction from someone who knows takes minutes. Discovering the same error through play takes hours. Waiting for perfection takes forever.
+
+You can also test the manual directly in [Ask & Improve](https://github.com/ErikEvenson/aurora-manual/discussions/categories/ask-improve) — ask any game mechanics question and see what the manual produces. Every answer clearly separates verified claims from unverified ones, so you can see exactly where the manual is strong and where it needs work. Your corrections go straight into the next update.
