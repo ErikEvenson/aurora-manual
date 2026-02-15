@@ -61,14 +61,14 @@ digraph TechTreeStructure {
         base_weapon [label="Base Weapon\nTechnology"]
 
         // All weapon types with TechTypeIDs
-        laser_branch [label="Lasers\n(Focal Size)\nTechType 60" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+        laser_branch [label="Lasers\n(Focal Size)\nTechType 15" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
         wavelength [label="Wavelengths\nTechType 3" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
-        particle_branch [label="Particle\nBeams\nTechType 72" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
-        meson_branch [label="Mesons\nTechType 76" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
-        railgun_branch [label="Railguns\nTechType 136" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
-        gauss_branch [label="Gauss\nCannons\nTechType 138" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
-        plasma_branch [label="Plasma\nCarronades\nTechType 148" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
-        microwave_branch [label="Microwave\nWeapons\nTechType 150" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+        particle_branch [label="Particle\nBeams\nTechType 60/61" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+        meson_branch [label="Mesons\nTechType 72/73" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+        railgun_branch [label="Railguns\nTechType 76/77" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+        gauss_branch [label="Gauss\nCannons\nTechType 141/143" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+        plasma_branch [label="Plasma\nCarronades\nTechType 78" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
+        microwave_branch [label="Microwave\nWeapons\nTechType 136/137" fillcolor="#ffe66d" fontcolor="#1a1a2e"]
     }
 
     // Cross-Category Dependencies

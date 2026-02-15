@@ -17,8 +17,8 @@
 </g>
 <g id="clust3" class="cluster">
 <title>cluster_weapons</title>
-<polygon fill="#1a1a2e" stroke="#ffe66d" stroke-dasharray="5,2" points="243,-8 243,-297.25 1040,-297.25 1040,-8 243,-8"/>
-<text xml:space="preserve" text-anchor="middle" x="641.5" y="-279.95" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#888888">Weapon Branching (Direct Fire Weapons)</text>
+<polygon fill="#1a1a2e" stroke="#ffe66d" stroke-dasharray="5,2" points="213,-8 213,-297.25 1077,-297.25 1077,-8 213,-8"/>
+<text xml:space="preserve" text-anchor="middle" x="645" y="-279.95" font-family="Helvetica,sans-Serif" font-size="14.00" fill="#888888">Weapon Branching (Direct Fire Weapons)</text>
 </g>
 <g id="clust4" class="cluster">
 <title>cluster_cross</title>
@@ -108,50 +108,50 @@
 <!-- laser_branch -->
 <g id="node11" class="node">
 <title>laser_branch</title>
-<path fill="#ffe66d" stroke="#4ecdc4" d="M310.75,-171.25C310.75,-171.25 263.25,-171.25 263.25,-171.25 257.25,-171.25 251.25,-165.25 251.25,-159.25 251.25,-159.25 251.25,-141.5 251.25,-141.5 251.25,-135.5 257.25,-129.5 263.25,-129.5 263.25,-129.5 310.75,-129.5 310.75,-129.5 316.75,-129.5 322.75,-135.5 322.75,-141.5 322.75,-141.5 322.75,-159.25 322.75,-159.25 322.75,-165.25 316.75,-171.25 310.75,-171.25"/>
-<text xml:space="preserve" text-anchor="middle" x="287" y="-157.75" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">Lasers</text>
-<text xml:space="preserve" text-anchor="middle" x="287" y="-146.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">(Focal Size)</text>
-<text xml:space="preserve" text-anchor="middle" x="287" y="-135.25" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">TechType 60</text>
+<path fill="#ffe66d" stroke="#4ecdc4" d="M280.75,-171.25C280.75,-171.25 233.25,-171.25 233.25,-171.25 227.25,-171.25 221.25,-165.25 221.25,-159.25 221.25,-159.25 221.25,-141.5 221.25,-141.5 221.25,-135.5 227.25,-129.5 233.25,-129.5 233.25,-129.5 280.75,-129.5 280.75,-129.5 286.75,-129.5 292.75,-135.5 292.75,-141.5 292.75,-141.5 292.75,-159.25 292.75,-159.25 292.75,-165.25 286.75,-171.25 280.75,-171.25"/>
+<text xml:space="preserve" text-anchor="middle" x="257" y="-157.75" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">Lasers</text>
+<text xml:space="preserve" text-anchor="middle" x="257" y="-146.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">(Focal Size)</text>
+<text xml:space="preserve" text-anchor="middle" x="257" y="-135.25" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">TechType 15</text>
 </g>
 <!-- base_weapon&#45;&gt;laser_branch -->
 <g id="edge2" class="edge">
 <title>base_weapon&#45;&gt;laser_branch</title>
-<path fill="none" stroke="#ffe66d" d="M595.42,-238.05C539.77,-224.58 433.89,-198.13 345,-171.25 340.77,-169.97 336.38,-168.58 332,-167.15"/>
-<polygon fill="#ffe66d" stroke="#ffe66d" points="332.98,-164.53 324.5,-164.67 331.21,-169.84 332.98,-164.53"/>
+<path fill="none" stroke="#ffe66d" d="M595.25,-239.39C534.72,-226.8 414.3,-200.56 314,-171.25 310.05,-170.09 305.96,-168.82 301.88,-167.5"/>
+<polygon fill="#ffe66d" stroke="#ffe66d" points="302.92,-164.9 294.44,-165.03 301.15,-170.21 302.92,-164.9"/>
 </g>
 <!-- particle_branch -->
 <g id="node13" class="node">
 <title>particle_branch</title>
-<path fill="#ffe66d" stroke="#4ecdc4" d="M425.75,-171.25C425.75,-171.25 378.25,-171.25 378.25,-171.25 372.25,-171.25 366.25,-165.25 366.25,-159.25 366.25,-159.25 366.25,-141.5 366.25,-141.5 366.25,-135.5 372.25,-129.5 378.25,-129.5 378.25,-129.5 425.75,-129.5 425.75,-129.5 431.75,-129.5 437.75,-135.5 437.75,-141.5 437.75,-141.5 437.75,-159.25 437.75,-159.25 437.75,-165.25 431.75,-171.25 425.75,-171.25"/>
-<text xml:space="preserve" text-anchor="middle" x="402" y="-157.75" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">Particle</text>
-<text xml:space="preserve" text-anchor="middle" x="402" y="-146.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">Beams</text>
-<text xml:space="preserve" text-anchor="middle" x="402" y="-135.25" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">TechType 72</text>
+<path fill="#ffe66d" stroke="#4ecdc4" d="M408.5,-171.25C408.5,-171.25 347.5,-171.25 347.5,-171.25 341.5,-171.25 335.5,-165.25 335.5,-159.25 335.5,-159.25 335.5,-141.5 335.5,-141.5 335.5,-135.5 341.5,-129.5 347.5,-129.5 347.5,-129.5 408.5,-129.5 408.5,-129.5 414.5,-129.5 420.5,-135.5 420.5,-141.5 420.5,-141.5 420.5,-159.25 420.5,-159.25 420.5,-165.25 414.5,-171.25 408.5,-171.25"/>
+<text xml:space="preserve" text-anchor="middle" x="378" y="-157.75" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">Particle</text>
+<text xml:space="preserve" text-anchor="middle" x="378" y="-146.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">Beams</text>
+<text xml:space="preserve" text-anchor="middle" x="378" y="-135.25" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">TechType 60/61</text>
 </g>
 <!-- base_weapon&#45;&gt;particle_branch -->
 <g id="edge3" class="edge">
 <title>base_weapon&#45;&gt;particle_branch</title>
-<path fill="none" stroke="#ffe66d" d="M595.17,-231.2C554.14,-214.25 489.53,-187.55 446.48,-169.76"/>
-<polygon fill="#ffe66d" stroke="#ffe66d" points="447.77,-167.26 439.3,-166.79 445.63,-172.43 447.77,-167.26"/>
+<path fill="none" stroke="#ffe66d" d="M595.4,-232.79C551.21,-216.25 478.65,-189.07 429.63,-170.71"/>
+<polygon fill="#ffe66d" stroke="#ffe66d" points="430.66,-168.11 422.18,-167.92 428.69,-173.35 430.66,-168.11"/>
 </g>
 <!-- meson_branch -->
 <g id="node14" class="node">
 <title>meson_branch</title>
-<path fill="#ffe66d" stroke="#4ecdc4" d="M540.75,-168.38C540.75,-168.38 493.25,-168.38 493.25,-168.38 487.25,-168.38 481.25,-162.38 481.25,-156.38 481.25,-156.38 481.25,-144.38 481.25,-144.38 481.25,-138.38 487.25,-132.38 493.25,-132.38 493.25,-132.38 540.75,-132.38 540.75,-132.38 546.75,-132.38 552.75,-138.38 552.75,-144.38 552.75,-144.38 552.75,-156.38 552.75,-156.38 552.75,-162.38 546.75,-168.38 540.75,-168.38"/>
-<text xml:space="preserve" text-anchor="middle" x="517" y="-152.12" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">Mesons</text>
-<text xml:space="preserve" text-anchor="middle" x="517" y="-140.88" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">TechType 76</text>
+<path fill="#ffe66d" stroke="#4ecdc4" d="M536.5,-168.38C536.5,-168.38 475.5,-168.38 475.5,-168.38 469.5,-168.38 463.5,-162.38 463.5,-156.38 463.5,-156.38 463.5,-144.38 463.5,-144.38 463.5,-138.38 469.5,-132.38 475.5,-132.38 475.5,-132.38 536.5,-132.38 536.5,-132.38 542.5,-132.38 548.5,-138.38 548.5,-144.38 548.5,-144.38 548.5,-156.38 548.5,-156.38 548.5,-162.38 542.5,-168.38 536.5,-168.38"/>
+<text xml:space="preserve" text-anchor="middle" x="506" y="-152.12" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">Mesons</text>
+<text xml:space="preserve" text-anchor="middle" x="506" y="-140.88" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">TechType 72/73</text>
 </g>
 <!-- base_weapon&#45;&gt;meson_branch -->
 <g id="edge4" class="edge">
 <title>base_weapon&#45;&gt;meson_branch</title>
-<path fill="none" stroke="#ffe66d" d="M612.81,-229.89C593.93,-214.41 566.14,-191.64 545.34,-174.6"/>
-<polygon fill="#ffe66d" stroke="#ffe66d" points="547.16,-172.47 539.2,-169.57 543.61,-176.8 547.16,-172.47"/>
+<path fill="none" stroke="#ffe66d" d="M610.82,-229.89C589.98,-214.28 559.22,-191.24 536.41,-174.16"/>
+<polygon fill="#ffe66d" stroke="#ffe66d" points="538.3,-172.07 530.22,-169.52 534.94,-176.55 538.3,-172.07"/>
 </g>
 <!-- railgun_branch -->
 <g id="node15" class="node">
 <title>railgun_branch</title>
-<path fill="#ffe66d" stroke="#4ecdc4" d="M660.38,-168.38C660.38,-168.38 607.62,-168.38 607.62,-168.38 601.62,-168.38 595.62,-162.38 595.62,-156.38 595.62,-156.38 595.62,-144.38 595.62,-144.38 595.62,-138.38 601.62,-132.38 607.62,-132.38 607.62,-132.38 660.38,-132.38 660.38,-132.38 666.38,-132.38 672.38,-138.38 672.38,-144.38 672.38,-144.38 672.38,-156.38 672.38,-156.38 672.38,-162.38 666.38,-168.38 660.38,-168.38"/>
+<path fill="#ffe66d" stroke="#4ecdc4" d="M664.5,-168.38C664.5,-168.38 603.5,-168.38 603.5,-168.38 597.5,-168.38 591.5,-162.38 591.5,-156.38 591.5,-156.38 591.5,-144.38 591.5,-144.38 591.5,-138.38 597.5,-132.38 603.5,-132.38 603.5,-132.38 664.5,-132.38 664.5,-132.38 670.5,-132.38 676.5,-138.38 676.5,-144.38 676.5,-144.38 676.5,-156.38 676.5,-156.38 676.5,-162.38 670.5,-168.38 664.5,-168.38"/>
 <text xml:space="preserve" text-anchor="middle" x="634" y="-152.12" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">Railguns</text>
-<text xml:space="preserve" text-anchor="middle" x="634" y="-140.88" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">TechType 136</text>
+<text xml:space="preserve" text-anchor="middle" x="634" y="-140.88" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">TechType 76/77</text>
 </g>
 <!-- base_weapon&#45;&gt;railgun_branch -->
 <g id="edge5" class="edge">
@@ -162,59 +162,59 @@
 <!-- gauss_branch -->
 <g id="node16" class="node">
 <title>gauss_branch</title>
-<path fill="#ffe66d" stroke="#4ecdc4" d="M780.38,-171.25C780.38,-171.25 727.62,-171.25 727.62,-171.25 721.62,-171.25 715.62,-165.25 715.62,-159.25 715.62,-159.25 715.62,-141.5 715.62,-141.5 715.62,-135.5 721.62,-129.5 727.62,-129.5 727.62,-129.5 780.38,-129.5 780.38,-129.5 786.38,-129.5 792.38,-135.5 792.38,-141.5 792.38,-141.5 792.38,-159.25 792.38,-159.25 792.38,-165.25 786.38,-171.25 780.38,-171.25"/>
-<text xml:space="preserve" text-anchor="middle" x="754" y="-157.75" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">Gauss</text>
-<text xml:space="preserve" text-anchor="middle" x="754" y="-146.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">Cannons</text>
-<text xml:space="preserve" text-anchor="middle" x="754" y="-135.25" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">TechType 138</text>
+<path fill="#ffe66d" stroke="#4ecdc4" d="M802.75,-171.25C802.75,-171.25 731.25,-171.25 731.25,-171.25 725.25,-171.25 719.25,-165.25 719.25,-159.25 719.25,-159.25 719.25,-141.5 719.25,-141.5 719.25,-135.5 725.25,-129.5 731.25,-129.5 731.25,-129.5 802.75,-129.5 802.75,-129.5 808.75,-129.5 814.75,-135.5 814.75,-141.5 814.75,-141.5 814.75,-159.25 814.75,-159.25 814.75,-165.25 808.75,-171.25 802.75,-171.25"/>
+<text xml:space="preserve" text-anchor="middle" x="767" y="-157.75" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">Gauss</text>
+<text xml:space="preserve" text-anchor="middle" x="767" y="-146.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">Cannons</text>
+<text xml:space="preserve" text-anchor="middle" x="767" y="-135.25" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">TechType 141/143</text>
 </g>
 <!-- base_weapon&#45;&gt;gauss_branch -->
 <g id="edge6" class="edge">
 <title>base_weapon&#45;&gt;gauss_branch</title>
-<path fill="none" stroke="#ffe66d" d="M655.73,-229.89C674.02,-215.28 700.44,-194.16 721.29,-177.51"/>
-<polygon fill="#ffe66d" stroke="#ffe66d" points="723,-179.72 727.51,-172.54 719.51,-175.35 723,-179.72"/>
+<path fill="none" stroke="#ffe66d" d="M658.09,-229.89C678.53,-215.15 708.16,-193.79 731.35,-177.07"/>
+<polygon fill="#ffe66d" stroke="#ffe66d" points="732.87,-179.43 737.72,-172.48 729.59,-174.89 732.87,-179.43"/>
 </g>
 <!-- plasma_branch -->
 <g id="node17" class="node">
 <title>plasma_branch</title>
-<path fill="#ffe66d" stroke="#4ecdc4" d="M900.38,-171.25C900.38,-171.25 847.62,-171.25 847.62,-171.25 841.62,-171.25 835.62,-165.25 835.62,-159.25 835.62,-159.25 835.62,-141.5 835.62,-141.5 835.62,-135.5 841.62,-129.5 847.62,-129.5 847.62,-129.5 900.38,-129.5 900.38,-129.5 906.38,-129.5 912.38,-135.5 912.38,-141.5 912.38,-141.5 912.38,-159.25 912.38,-159.25 912.38,-165.25 906.38,-171.25 900.38,-171.25"/>
-<text xml:space="preserve" text-anchor="middle" x="874" y="-157.75" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">Plasma</text>
-<text xml:space="preserve" text-anchor="middle" x="874" y="-146.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">Carronades</text>
-<text xml:space="preserve" text-anchor="middle" x="874" y="-135.25" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">TechType 148</text>
+<path fill="#ffe66d" stroke="#4ecdc4" d="M917.75,-171.25C917.75,-171.25 870.25,-171.25 870.25,-171.25 864.25,-171.25 858.25,-165.25 858.25,-159.25 858.25,-159.25 858.25,-141.5 858.25,-141.5 858.25,-135.5 864.25,-129.5 870.25,-129.5 870.25,-129.5 917.75,-129.5 917.75,-129.5 923.75,-129.5 929.75,-135.5 929.75,-141.5 929.75,-141.5 929.75,-159.25 929.75,-159.25 929.75,-165.25 923.75,-171.25 917.75,-171.25"/>
+<text xml:space="preserve" text-anchor="middle" x="894" y="-157.75" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">Plasma</text>
+<text xml:space="preserve" text-anchor="middle" x="894" y="-146.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">Carronades</text>
+<text xml:space="preserve" text-anchor="middle" x="894" y="-135.25" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">TechType 78</text>
 </g>
 <!-- base_weapon&#45;&gt;plasma_branch -->
 <g id="edge7" class="edge">
 <title>base_weapon&#45;&gt;plasma_branch</title>
-<path fill="none" stroke="#ffe66d" d="M672.83,-231.74C714.74,-215 781.53,-188.32 826.53,-170.34"/>
-<polygon fill="#ffe66d" stroke="#ffe66d" points="827.43,-172.99 833.82,-167.42 825.36,-167.79 827.43,-172.99"/>
+<path fill="none" stroke="#ffe66d" d="M672.64,-233C719.88,-215.58 799.67,-186.16 849.45,-167.8"/>
+<polygon fill="#ffe66d" stroke="#ffe66d" points="850.12,-170.54 856.66,-165.15 848.18,-165.29 850.12,-170.54"/>
 </g>
 <!-- microwave_branch -->
 <g id="node18" class="node">
 <title>microwave_branch</title>
-<path fill="#ffe66d" stroke="#4ecdc4" d="M1020.38,-171.25C1020.38,-171.25 967.62,-171.25 967.62,-171.25 961.62,-171.25 955.62,-165.25 955.62,-159.25 955.62,-159.25 955.62,-141.5 955.62,-141.5 955.62,-135.5 961.62,-129.5 967.62,-129.5 967.62,-129.5 1020.38,-129.5 1020.38,-129.5 1026.38,-129.5 1032.38,-135.5 1032.38,-141.5 1032.38,-141.5 1032.38,-159.25 1032.38,-159.25 1032.38,-165.25 1026.38,-171.25 1020.38,-171.25"/>
-<text xml:space="preserve" text-anchor="middle" x="994" y="-157.75" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">Microwave</text>
-<text xml:space="preserve" text-anchor="middle" x="994" y="-146.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">Weapons</text>
-<text xml:space="preserve" text-anchor="middle" x="994" y="-135.25" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">TechType 150</text>
+<path fill="#ffe66d" stroke="#4ecdc4" d="M1056.75,-171.25C1056.75,-171.25 985.25,-171.25 985.25,-171.25 979.25,-171.25 973.25,-165.25 973.25,-159.25 973.25,-159.25 973.25,-141.5 973.25,-141.5 973.25,-135.5 979.25,-129.5 985.25,-129.5 985.25,-129.5 1056.75,-129.5 1056.75,-129.5 1062.75,-129.5 1068.75,-135.5 1068.75,-141.5 1068.75,-141.5 1068.75,-159.25 1068.75,-159.25 1068.75,-165.25 1062.75,-171.25 1056.75,-171.25"/>
+<text xml:space="preserve" text-anchor="middle" x="1021" y="-157.75" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">Microwave</text>
+<text xml:space="preserve" text-anchor="middle" x="1021" y="-146.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">Weapons</text>
+<text xml:space="preserve" text-anchor="middle" x="1021" y="-135.25" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">TechType 136/137</text>
 </g>
 <!-- base_weapon&#45;&gt;microwave_branch -->
 <g id="edge8" class="edge">
 <title>base_weapon&#45;&gt;microwave_branch</title>
-<path fill="none" stroke="#ffe66d" d="M672.6,-238.41C729.95,-225.06 840.9,-198.42 934,-171.25 938.13,-170.05 942.4,-168.74 946.67,-167.4"/>
-<polygon fill="#ffe66d" stroke="#ffe66d" points="947.19,-170.18 953.95,-165.08 945.48,-164.84 947.19,-170.18"/>
+<path fill="none" stroke="#ffe66d" d="M672.68,-238.52C732.52,-224.89 851.08,-197.4 951,-171.25 955.21,-170.15 959.55,-168.98 963.92,-167.79"/>
+<polygon fill="#ffe66d" stroke="#ffe66d" points="964.45,-170.55 971.41,-165.72 962.96,-165.15 964.45,-170.55"/>
 </g>
 <!-- wavelength -->
 <g id="node12" class="node">
 <title>wavelength</title>
-<path fill="#ffe66d" stroke="#4ecdc4" d="M318.12,-52C318.12,-52 269.88,-52 269.88,-52 263.88,-52 257.88,-46 257.88,-40 257.88,-40 257.88,-28 257.88,-28 257.88,-22 263.88,-16 269.88,-16 269.88,-16 318.12,-16 318.12,-16 324.12,-16 330.12,-22 330.12,-28 330.12,-28 330.12,-40 330.12,-40 330.12,-46 324.12,-52 318.12,-52"/>
-<text xml:space="preserve" text-anchor="middle" x="294" y="-35.75" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">Wavelengths</text>
-<text xml:space="preserve" text-anchor="middle" x="294" y="-24.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">TechType 3</text>
+<path fill="#ffe66d" stroke="#4ecdc4" d="M288.12,-52C288.12,-52 239.88,-52 239.88,-52 233.88,-52 227.88,-46 227.88,-40 227.88,-40 227.88,-28 227.88,-28 227.88,-22 233.88,-16 239.88,-16 239.88,-16 288.12,-16 288.12,-16 294.12,-16 300.12,-22 300.12,-28 300.12,-28 300.12,-40 300.12,-40 300.12,-46 294.12,-52 288.12,-52"/>
+<text xml:space="preserve" text-anchor="middle" x="264" y="-35.75" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">Wavelengths</text>
+<text xml:space="preserve" text-anchor="middle" x="264" y="-24.5" font-family="Helvetica,sans-Serif" font-size="10.00" fill="#1a1a2e">TechType 3</text>
 </g>
 <!-- laser_branch&#45;&gt;wavelength -->
 <g id="edge9" class="edge">
 <title>laser_branch&#45;&gt;wavelength</title>
-<path fill="none" stroke="#ffe66d" d="M288.24,-129.19C289.38,-110.45 291.1,-82.43 292.36,-61.81"/>
-<polygon fill="#ffe66d" stroke="#ffe66d" points="295.15,-62.03 292.84,-53.88 289.56,-61.69 295.15,-62.03"/>
-<text xml:space="preserve" text-anchor="middle" x="311" y="-91.95" font-family="Helvetica,sans-Serif" font-size="9.00" fill="#888888">combines</text>
-<text xml:space="preserve" text-anchor="middle" x="311" y="-82.2" font-family="Helvetica,sans-Serif" font-size="9.00" fill="#888888">with</text>
+<path fill="none" stroke="#ffe66d" d="M258.24,-129.19C259.38,-110.45 261.1,-82.43 262.36,-61.81"/>
+<polygon fill="#ffe66d" stroke="#ffe66d" points="265.15,-62.03 262.84,-53.88 259.56,-61.69 265.15,-62.03"/>
+<text xml:space="preserve" text-anchor="middle" x="281" y="-91.95" font-family="Helvetica,sans-Serif" font-size="9.00" fill="#888888">combines</text>
+<text xml:space="preserve" text-anchor="middle" x="281" y="-82.2" font-family="Helvetica,sans-Serif" font-size="9.00" fill="#888888">with</text>
 </g>
 <!-- tn_tech -->
 <g id="node19" class="node">

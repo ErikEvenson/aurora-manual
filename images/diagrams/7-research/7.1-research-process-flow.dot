@@ -104,7 +104,7 @@ digraph ResearchProcessFlow {
 
         input_labs [label="Research Labs\n(Ground Installation)\n1M workers each" fillcolor="#2d2d44"]
         input_scientist [label="Scientists\n(Named Characters)\nBonus + Admin Rating" fillcolor="#2d2d44"]
-        input_minerals [label="Minerals\n(For Lab Construction)\n120 BP, 120 Duranium" fillcolor="#2d2d44"]
+        input_minerals [label="Resources\n(For Lab Construction)\n2,400 BP, 1,200 Duranium\n1,200 Mercassium" fillcolor="#2d2d44"]
     }
 
     input_labs -> labs [style=dotted color="#888888"]
