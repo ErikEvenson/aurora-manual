@@ -1,0 +1,72 @@
+[
+  {
+    "id": "post_high_match",
+    "subreddit": "aurora4x",
+    "author": "TestUser1",
+    "title": "Testing box launcher reload speeds at OTPs vs hangars",
+    "selftext": "I just tested box launcher reload times. At hangars they reload in about 10 seconds, but at ordnance transfer points it takes roughly 100 seconds. So the manual is right - it's 10x slower at OTPs compared to hangars. Tested with Mark IV box launchers on a destroyer class ship.",
+    "permalink": "/r/aurora4x/comments/abc123/testing_box_launcher_reload/",
+    "created_utc": 1708000000,
+    "link_flair_text": "Mechanics"
+  },
+  {
+    "id": "post_medium_match",
+    "subreddit": "aurora4x",
+    "author": "AuroraPlayer42",
+    "title": "Question about fuel consumption calculation",
+    "selftext": "Does anyone know if fuel consumption in Aurora scales with your actual travel speed or the rated speed of your engines? My ships seem to use less fuel when traveling at half speed but I'm not sure if that's correct behavior or a bug.",
+    "permalink": "/r/aurora4x/comments/def456/question_about_fuel_consumption/",
+    "created_utc": 1708100000,
+    "link_flair_text": "Question"
+  },
+  {
+    "id": "post_known_author",
+    "subreddit": "aurora4x",
+    "author": "SteveWalmsley",
+    "title": "Clarification on ground combat fortification",
+    "selftext": "Just to clarify how fortification works with terrain: the effective fortification is the base value multiplied by the THM. So on a planet with THM 0.5, your fortification effectiveness is halved.",
+    "permalink": "/r/aurora4x/comments/ghi789/clarification_on_ground_combat/",
+    "created_utc": 1708200000,
+    "link_flair_text": null
+  },
+  {
+    "id": "post_no_match",
+    "subreddit": "aurora4x",
+    "author": "CasualGamer",
+    "title": "My first game AAR - conquering the Sol system",
+    "selftext": "Just finished my first game of Aurora! Built a fleet of destroyers and explored the jump points around Sol. Found two habitable planets and started colonizing. Great game!",
+    "permalink": "/r/aurora4x/comments/jkl012/my_first_game_aar/",
+    "created_utc": 1708300000,
+    "link_flair_text": "AAR"
+  },
+  {
+    "id": "post_cross_ref_forum",
+    "subreddit": "aurora4x",
+    "author": "ForumLinker",
+    "title": "Steve posted about v2.8.0 changes on the forum",
+    "selftext": "Check out this forum post about upcoming changes: https://aurora2.pentarch.org/index.php?topic=13884.0 Looks like major changes to shipyard mechanics.",
+    "permalink": "/r/aurora4x/comments/mno345/steve_posted_about_v280/",
+    "created_utc": 1708400000,
+    "link_flair_text": "News"
+  },
+  {
+    "id": "post_cross_ref_youtube",
+    "subreddit": "aurora",
+    "author": "VideoWatcher",
+    "title": "Great tutorial on missile design",
+    "selftext": "Found this excellent tutorial: https://www.youtube.com/watch?v=dQw4w9WgXcQ Shows how missile fire control resolution works in detail. Very helpful for understanding the MFC mechanics.",
+    "permalink": "/r/aurora/comments/pqr678/great_tutorial_on_missile_design/",
+    "created_utc": 1708500000,
+    "link_flair_text": null
+  },
+  {
+    "id": "post_multi_match",
+    "subreddit": "aurora4x",
+    "author": "MechanicsExpert",
+    "title": "Various combat mechanics I've tested",
+    "selftext": "I've been testing a bunch of stuff. Box launchers reload slow at OTPs. Fuel consumption definitely scales with speed. Ground combat fortification uses THM multiplier. Shipyards can service unlimited ships. Also PPV protection seems to work as documented.",
+    "permalink": "/r/aurora4x/comments/stu901/various_combat_mechanics/",
+    "created_utc": 1708600000,
+    "link_flair_text": "Mechanics"
+  }
+]

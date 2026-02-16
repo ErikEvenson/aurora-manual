@@ -1,0 +1,38 @@
+[
+  {
+    "number": 1232,
+    "title": "Verify: [9.5] Load Ordnance order replenishes from colony stockpile",
+    "body": "The manual states that the Load Ordnance fleet order replenishes missile stockpiles from a colony's ordnance stores. This needs verification against the game database or live testing.",
+    "labels": [{"name": "unverified"}]
+  },
+  {
+    "number": 1231,
+    "title": "Verify: [14.3] Stationary facilities service unlimited ships simultaneously",
+    "body": "Section 14.3 claims that stationary facilities (shipyards, maintenance facilities) can service an unlimited number of ships at the same time. Needs live testing.",
+    "labels": [{"name": "unverified"}]
+  },
+  {
+    "number": 1230,
+    "title": "Verify: [8.5/12.3] Box launcher reload 10x slower at OTPs vs hangars",
+    "body": "Claims that box launchers reload at 1/10th speed at ordnance transfer points compared to hangars. Needs database or testing verification.",
+    "labels": [{"name": "unverified"}]
+  },
+  {
+    "number": 1229,
+    "title": "Verify: Section 13.1 THM and fortification interaction formula",
+    "body": "The ground combat section states a specific formula for how THM (Terrain Habitability Modifier) interacts with fortification level. Formula: effective_fortification = base_fortification * THM. Needs verification.",
+    "labels": [{"name": "unverified"}]
+  },
+  {
+    "number": 1228,
+    "title": "Verify: Section 5.2.8 PPV and protection mechanics",
+    "body": "Planetary Protection Value (PPV) mechanics described in section 5.2.8 claim specific formulas for shield and armor interactions. Needs database verification.",
+    "labels": [{"name": "unverified"}]
+  },
+  {
+    "number": 1214,
+    "title": "Verify: Section 14.1.2 — Does fuel consumption scale with actual travel speed at runtime?",
+    "body": "The manual claims fuel consumption is calculated based on actual travel speed, not rated engine speed. Needs live testing or database verification of the fuel consumption formula.",
+    "labels": [{"name": "unverified"}]
+  }
+]

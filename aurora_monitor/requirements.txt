@@ -1,0 +1,6 @@
+requests>=2.31.0
+thefuzz>=0.22.1
+python-Levenshtein>=0.25.0
+pyyaml>=6.0
+pytest>=8.0
+pytest-cov>=5.0

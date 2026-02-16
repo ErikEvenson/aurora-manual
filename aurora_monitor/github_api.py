@@ -1,0 +1,111 @@
+"""GitHub API integration for posting issue comments and discussions.
+
+Uses the `gh` CLI for issue operations and GraphQL for discussions.
+"""
+
+import json
+import re
+import subprocess
+
+
+MAX_COMMENT_LENGTH = 10000
+REPO = "ErikEvenson/aurora-manual"
+
+
+def _sanitize(text, max_length=MAX_COMMENT_LENGTH):
+    """Sanitize text for safe GitHub markdown posting."""
+    if not text:
+        return ""
+    # Strip potential HTML/script injection
+    text = re.sub(r'<script[^>]*>.*?</script>', '', text, flags=re.DOTALL | re.IGNORECASE)
+    # Escape backtick sequences that could break markdown
+    text = text.replace('```', '\\`\\`\\`')
+    # Truncate to max length
+    if len(text) > max_length:
+        text = text[:max_length - 50] + "\n\n*[Truncated — exceeds character limit]*"
+    return text
+
+
+def post_issue_comment(issue_number, body, repo=REPO, dry_run=False):
+    """Post a comment on a GitHub issue via `gh`."""
+    body = _sanitize(body)
+    if dry_run:
+        print(f"[DRY RUN] Would comment on issue #{issue_number}:")
+        print(body[:200])
+        return True
+    result = subprocess.run(
+        ["gh", "issue", "comment", str(issue_number),
+         "--repo", repo, "--body", body],
+        capture_output=True, text=True,
+    )
+    if result.returncode != 0:
+        print(f"Error commenting on issue #{issue_number}: {result.stderr}")
+        return False
+    return True
+
+
+def check_existing_comment(issue_number, reddit_id, repo=REPO):
+    """Check if a comment referencing this Reddit ID already exists on the issue."""
+    result = subprocess.run(
+        ["gh", "api", f"repos/{repo}/issues/{issue_number}/comments",
+         "--jq", f'[.[] | select(.body | contains("{reddit_id}"))] | length'],
+        capture_output=True, text=True,
+    )
+    if result.returncode != 0:
+        return False
+    try:
+        return int(result.stdout.strip()) > 0
+    except ValueError:
+        return False
+
+
+def post_discussion(title, body, category_id, repo=REPO, dry_run=False):
+    """Post a GitHub Discussion via GraphQL mutation."""
+    title = _sanitize(title, max_length=256)
+    body = _sanitize(body, max_length=65000)
+
+    if dry_run:
+        print(f"[DRY RUN] Would post discussion: {title}")
+        print(body[:200])
+        return True
+
+    # Get repository ID
+    repo_id_result = subprocess.run(
+        ["gh", "api", "graphql", "-f", f'query=query {{ repository(owner: "{repo.split("/")[0]}", name: "{repo.split("/")[1]}") {{ id }} }}'],
+        capture_output=True, text=True,
+    )
+    if repo_id_result.returncode != 0:
+        print(f"Error getting repo ID: {repo_id_result.stderr}")
+        return False
+
+    repo_data = json.loads(repo_id_result.stdout)
+    repo_id = repo_data["data"]["repository"]["id"]
+
+    # Escape body for GraphQL JSON
+    escaped_body = json.dumps(body)[1:-1]  # Remove outer quotes from json.dumps
+    escaped_title = json.dumps(title)[1:-1]
+
+    mutation = f'''mutation {{
+        createDiscussion(input: {{
+            repositoryId: "{repo_id}",
+            categoryId: "{category_id}",
+            title: "{escaped_title}",
+            body: "{escaped_body}"
+        }}) {{
+            discussion {{ url }}
+        }}
+    }}'''
+
+    result = subprocess.run(
+        ["gh", "api", "graphql", "-f", f"query={mutation}"],
+        capture_output=True, text=True,
+    )
+    if result.returncode != 0:
+        print(f"Error posting discussion: {result.stderr}")
+        return False
+
+    data = json.loads(result.stdout)
+    url = data.get("data", {}).get("createDiscussion", {}).get("discussion", {}).get("url", "")
+    if url:
+        print(f"Posted discussion: {url}")
+    return True

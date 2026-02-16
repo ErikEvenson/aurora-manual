@@ -1,0 +1,107 @@
+# Aurora Monitor Configuration
+# Shared config for all community source monitors
+
+github:
+  repo: ErikEvenson/aurora-manual
+  discussion_category_id: DIC_kwDORAJjec4C2k26  # Monitor Digests
+  discussion_category_slug: monitor-digests
+
+reddit:
+  subreddits:
+    - aurora4x
+    - aurora
+  user_agent: "aurora-manual-monitor/1.0 (github.com/ErikEvenson/aurora-manual)"
+  rate_limit_delay: 1.0  # seconds between requests
+  max_retries: 3
+  backfill_max_pages: 10  # ~1000 posts (100 per page)
+
+matching:
+  # Fuzzy match thresholds (thefuzz token_set_ratio)
+  thresholds:
+    high: 80
+    medium: 60
+    low: 40
+
+  # Known authors with reputation bonuses
+  known_authors:
+    SteveWalmsley:
+      bonus: 30
+      note: "Aurora developer"
+
+  # Multi-match penalty per additional match beyond the first
+  multi_match_penalty: 10
+
+  # Keywords by priority tier
+  keywords:
+    high:
+      - beam fire control
+      - missile fire control
+      - annual failure rate
+      - maintenance supply
+      - hull space
+      - jump point
+      - trans-newtonian
+      - colony cost
+      - construction factory
+      - fuel refinery
+      - terraforming
+      - ground forces
+      - thermal signature
+      - cross section
+      - electronic countermeasures
+      - point defense
+      - fire control
+      - sensor range
+      - survey point
+      - geological survey
+      - gravitational survey
+
+    medium:
+      - aurora c#
+      - aurora 4x
+      - game mechanics
+      - combat resolution
+      - damage calculation
+      - armor penetration
+      - shield strength
+      - engine power
+      - fuel consumption
+      - research points
+      - build points
+      - mineral cost
+      - crew quarters
+      - engineering spaces
+      - magazine
+      - hangar
+      - shipyard
+      - orbital mining
+      - population growth
+      - unrest
+      - diplomacy
+      - espionage
+      - commander
+      - fleet order
+      - waypoint
+
+    # Aurora-specific terms for relevance detection
+    aurora_terms:
+      - aurora
+      - trans-newtonian
+      - duranium
+      - neutronium
+      - corbomite
+      - tritanium
+      - boronide
+      - mercassium
+      - vendarite
+      - sorium
+      - uridium
+      - corundium
+      - gallicite
+      - PDC
+      - CIWS
+      - NPR
+      - spoiler race
+      - precursor
+      - jump gate
+      - lagrange point
