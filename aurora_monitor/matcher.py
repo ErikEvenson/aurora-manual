@@ -144,9 +144,17 @@ class Matcher:
 
 
 def _extract_quote(text, max_length=200):
-    """Extract a representative quote from post text."""
+    """Extract a representative quote from post text.
+
+    Newlines are replaced with spaces to keep markdown table rows intact.
+    Pipe characters are replaced to avoid breaking table columns.
+    """
     if not text:
         return ""
+    # Collapse newlines and normalize whitespace
+    text = re.sub(r'\s+', ' ', text).strip()
+    # Escape pipe characters that would break markdown tables
+    text = text.replace('|', '\\|')
     # Take first meaningful sentence
     sentences = re.split(r'[.!?]\s+', text)
     if sentences:

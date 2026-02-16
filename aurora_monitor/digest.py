@@ -3,6 +3,9 @@
 from datetime import date, datetime, timezone
 
 
+MAX_TABLE_ROWS = 100  # GitHub Discussions body limit is 65,535 chars
+
+
 class DigestGenerator:
     """Generate weekly markdown digests of matched and triaged content."""
 
@@ -38,7 +41,7 @@ class DigestGenerator:
 
         rows = ["| Issue | Subreddit | Author | Date | Quote | Confidence |",
                 "|-------|-----------|--------|------|-------|------------|"]
-        for m in matched:
+        for m in matched[:MAX_TABLE_ROWS]:
             dt = _format_date(m.get("created_utc"))
             confidence = "High" if m["score"] >= 80 else "Medium"
             quote = _truncate(m.get("quote", ""), 80)
@@ -46,7 +49,10 @@ class DigestGenerator:
                 f"| #{m['issue']} | r/{m['subreddit']} | u/{m['author']} "
                 f"| {dt} | \"{quote}\" | {confidence} |"
             )
-        return header + "\n\n" + "\n".join(rows)
+        result = header + "\n\n" + "\n".join(rows)
+        if len(matched) > MAX_TABLE_ROWS:
+            result += f"\n\n*Showing {MAX_TABLE_ROWS} of {count} items ({count - MAX_TABLE_ROWS} omitted)*"
+        return result
 
     def _triage_section(self, triaged):
         """Generate the Triage section."""
@@ -58,7 +64,7 @@ class DigestGenerator:
 
         rows = ["| Subreddit | Author | Date | Title | Quote |",
                 "|-----------|--------|------|-------|-------|"]
-        for m in triaged:
+        for m in triaged[:MAX_TABLE_ROWS]:
             dt = _format_date(m.get("created_utc"))
             title = _truncate(m.get("title", ""), 60)
             quote = _truncate(m.get("quote", ""), 80)
@@ -66,7 +72,10 @@ class DigestGenerator:
                 f"| r/{m['subreddit']} | u/{m['author']} | {dt} "
                 f"| [{title}](https://www.reddit.com{m['permalink']}) | \"{quote}\" |"
             )
-        return header + "\n\n" + "\n".join(rows)
+        result = header + "\n\n" + "\n".join(rows)
+        if len(triaged) > MAX_TABLE_ROWS:
+            result += f"\n\n*Showing {MAX_TABLE_ROWS} of {count} items ({count - MAX_TABLE_ROWS} omitted)*"
+        return result
 
     def _cross_ref_section(self, cross_refs):
         """Generate the Cross-References section."""
@@ -78,14 +87,21 @@ class DigestGenerator:
 
         rows = ["| Link Type | Subreddit | Author | URL |",
                 "|-----------|-----------|--------|-----|"]
+        row_count = 0
         for m in cross_refs:
             for ref in m.get("cross_references", []):
+                if row_count >= MAX_TABLE_ROWS:
+                    break
                 link_type = ref["type"].capitalize()
                 rows.append(
                     f"| {link_type} | r/{m['subreddit']} | u/{m['author']} "
                     f"| {ref['url']} |"
                 )
-        return header + "\n\n" + "\n".join(rows)
+                row_count += 1
+        result = header + "\n\n" + "\n".join(rows)
+        if count > MAX_TABLE_ROWS:
+            result += f"\n\n*Showing {MAX_TABLE_ROWS} of {count} items ({count - MAX_TABLE_ROWS} omitted)*"
+        return result
 
     def _stats_section(self, stats):
         """Generate the Statistics section."""
@@ -120,7 +136,9 @@ def _format_date(timestamp):
 
 
 def _truncate(text, max_length):
-    """Truncate text with ellipsis."""
+    """Truncate text with ellipsis. Sanitizes for markdown table safety."""
+    # Collapse newlines and escape pipes for table compatibility
+    text = text.replace('\n', ' ').replace('\r', ' ').replace('|', '\\|')
     if len(text) <= max_length:
         return text
     return text[:max_length - 3] + "..."
