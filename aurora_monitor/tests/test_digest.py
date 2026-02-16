@@ -90,24 +90,24 @@ def generator():
 class TestDigestGeneration:
     """Test digest markdown generation."""
 
-    def test_digest_has_matched_section(self, generator, matches, stats):
-        """Digest should contain a Matched section with auto_comment items."""
+    def test_digest_has_issue_matches_section(self, generator, matches, stats):
+        """Digest summary should contain Issue Matches with issue numbers."""
         digest = generator.generate_digest(matches, stats)
-        assert "## Matched" in digest
+        assert "## Issue Matches" in digest
         assert "#1230" in digest
         assert "#1214" in digest
 
     def test_digest_has_triage_section(self, generator, matches, stats):
-        """Digest should contain a Triage section."""
+        """Digest summary should reference triage items."""
         digest = generator.generate_digest(matches, stats)
         assert "## Triage" in digest
-        assert "Weird shipyard behavior" in digest
+        assert "2 items" in digest
 
     def test_digest_has_cross_ref_section(self, generator, matches, stats):
-        """Digest should contain a Cross-References section."""
+        """Digest summary should reference cross-references."""
         digest = generator.generate_digest(matches, stats)
         assert "## Cross-References" in digest
-        assert "aurora2.pentarch.org" in digest
+        assert "1 links" in digest
 
     def test_digest_has_stats_section(self, generator, matches, stats):
         """Digest should contain a Statistics section."""
@@ -116,12 +116,14 @@ class TestDigestGeneration:
         assert "150" in digest  # posts scanned
         assert "320" in digest  # comments scanned
 
-    def test_digest_attribution(self, generator, matches, stats):
-        """Digest should include author attribution for all items."""
-        digest = generator.generate_digest(matches, stats)
-        assert "TestUser1" in digest
-        assert "AuroraPlayer42" in digest
-        assert "r/aurora4x" in digest
+    def test_digest_issue_details_in_outputs(self, generator, matches, stats):
+        """Full match details should be in issue_comments, not summary."""
+        outputs = generator.generate_outputs(matches, stats)
+        # Issue comments have the detailed author/quote info
+        assert 1230 in outputs["issue_comments"]
+        assert "TestUser1" in outputs["issue_comments"][1230]
+        assert 1214 in outputs["issue_comments"]
+        assert "AuroraPlayer42" in outputs["issue_comments"][1214]
 
     def test_empty_digest(self, generator):
         """Empty matches should still produce a valid digest."""
@@ -158,3 +160,159 @@ class TestDigestTitle:
         """Title should follow [Reddit Monitor] Week of YYYY-MM-DD format."""
         title = generator.digest_title(date(2026, 2, 15))
         assert title == "[Reddit Monitor] Week of 2026-02-15"
+
+
+def _make_match(post_id, routing, issue=None, score=85, subreddit="aurora4x",
+                author="TestUser", title="Test post", quote="Test quote",
+                cross_refs=None, created_utc=1708000000):
+    """Helper to create match dicts for tests."""
+    return {
+        "post_id": post_id,
+        "subreddit": subreddit,
+        "author": author,
+        "title": title,
+        "permalink": f"/r/{subreddit}/comments/{post_id}/test/",
+        "created_utc": created_utc,
+        "score": score,
+        "routing": routing,
+        "issue": issue,
+        "issue_title": f"Verify: issue {issue}" if issue else None,
+        "quote": quote,
+        "cross_references": cross_refs,
+    }
+
+
+def _make_stats(**overrides):
+    """Helper to create stats dicts for tests."""
+    defaults = {
+        "posts_scanned": 1961,
+        "comments_scanned": 0,
+        "matches": 35,
+        "triage_items": 1318,
+        "cross_references": 219,
+        "skipped": 389,
+    }
+    defaults.update(overrides)
+    return defaults
+
+
+class TestGenerateOutputs:
+    """Test multi-tier output generation."""
+
+    def test_returns_structured_dict(self, generator):
+        """generate_outputs returns dict with four required keys."""
+        matches = [_make_match("a1", "auto_comment", issue=100)]
+        outputs = generator.generate_outputs(matches, _make_stats())
+        assert "summary_body" in outputs
+        assert "issue_comments" in outputs
+        assert "triage_comments" in outputs
+        assert "cross_ref_comments" in outputs
+
+    def test_issue_comments_grouped_by_issue(self, generator):
+        """issue_comments groups matched items by issue number."""
+        matches = [
+            _make_match("a1", "auto_comment", issue=100, quote="Quote A"),
+            _make_match("a2", "auto_comment", issue=100, quote="Quote B"),
+            _make_match("a3", "auto_comment", issue=200, quote="Quote C"),
+        ]
+        outputs = generator.generate_outputs(matches, _make_stats())
+        assert 100 in outputs["issue_comments"]
+        assert 200 in outputs["issue_comments"]
+        # Issue 100 should contain both quotes
+        assert "Quote A" in outputs["issue_comments"][100]
+        assert "Quote B" in outputs["issue_comments"][100]
+        # Issue 200 only has one
+        assert "Quote C" in outputs["issue_comments"][200]
+
+    def test_issue_comment_under_10k(self, generator):
+        """Each issue comment must be under 10K chars."""
+        # 50 matches on one issue — each ~200 chars = ~10K
+        matches = [
+            _make_match(f"m{i}", "auto_comment", issue=100,
+                        quote=f"Detailed quote number {i} about game mechanics " * 3)
+            for i in range(50)
+        ]
+        outputs = generator.generate_outputs(matches, _make_stats())
+        for issue_num, comments in outputs["issue_comments"].items():
+            if isinstance(comments, list):
+                for c in comments:
+                    assert len(c) <= 10000, f"Issue #{issue_num} comment exceeds 10K"
+            else:
+                assert len(comments) <= 10000, f"Issue #{issue_num} comment exceeds 10K"
+
+    def test_triage_uses_task_list_format(self, generator):
+        """Triage comments use - [ ] checkbox format."""
+        matches = [_make_match("t1", "triage", quote="Triage item")]
+        outputs = generator.generate_outputs(matches, _make_stats())
+        assert len(outputs["triage_comments"]) >= 1
+        assert "- [ ]" in outputs["triage_comments"][0]
+
+    def test_triage_paginated_under_65k(self, generator):
+        """Each triage comment must be under 65K chars."""
+        # 1318 triage items — should paginate across multiple comments
+        matches = [
+            _make_match(f"t{i}", "triage",
+                        quote=f"Triage quote {i} about some game mechanic")
+            for i in range(1318)
+        ]
+        outputs = generator.generate_outputs(matches, _make_stats())
+        assert len(outputs["triage_comments"]) > 1, "1318 items should require multiple comments"
+        for i, comment in enumerate(outputs["triage_comments"]):
+            assert len(comment) <= 65000, f"Triage comment {i} exceeds 65K"
+
+    def test_cross_refs_grouped_by_type(self, generator):
+        """cross_ref_comments groups by type (forum, youtube)."""
+        matches = [
+            _make_match("c1", "triage", cross_refs=[
+                {"type": "forum", "url": "https://aurora2.pentarch.org/topic1"}
+            ]),
+            _make_match("c2", "triage", cross_refs=[
+                {"type": "youtube", "url": "https://youtube.com/watch?v=abc"}
+            ]),
+        ]
+        outputs = generator.generate_outputs(matches, _make_stats())
+        assert "forum" in outputs["cross_ref_comments"]
+        assert "youtube" in outputs["cross_ref_comments"]
+
+    def test_cross_ref_comments_chunked(self, generator):
+        """Cross-ref comments are chunked to stay under 65K."""
+        matches = [
+            _make_match(f"c{i}", "triage", cross_refs=[
+                {"type": "forum", "url": f"https://aurora2.pentarch.org/index.php?topic={i}.0"}
+            ])
+            for i in range(200)
+        ]
+        outputs = generator.generate_outputs(matches, _make_stats())
+        for comment in outputs["cross_ref_comments"].get("forum", []):
+            assert len(comment) <= 65000
+
+    def test_summary_under_65k(self, generator):
+        """Summary body must be under 65K chars."""
+        matches = [
+            _make_match(f"m{i}", "auto_comment", issue=i)
+            for i in range(35)
+        ]
+        outputs = generator.generate_outputs(matches, _make_stats())
+        assert len(outputs["summary_body"]) <= 65000
+
+    def test_summary_contains_issue_overview(self, generator):
+        """Summary should contain an issue overview table."""
+        matches = [_make_match("m1", "auto_comment", issue=100)]
+        outputs = generator.generate_outputs(matches, _make_stats())
+        assert "#100" in outputs["summary_body"]
+        assert "posts_scanned" in outputs["summary_body"] or "1961" in outputs["summary_body"]
+
+    def test_empty_matches_produce_valid_output(self, generator):
+        """Empty matches should still produce valid structured output."""
+        outputs = generator.generate_outputs([], _make_stats(matches=0, triage_items=0, cross_references=0))
+        assert outputs["summary_body"]
+        assert outputs["issue_comments"] == {}
+        assert outputs["triage_comments"] == []
+        assert outputs["cross_ref_comments"] == {}
+
+    def test_backward_compatible_generate_digest(self, generator, matches, stats):
+        """generate_digest() returns summary_body from generate_outputs()."""
+        digest = generator.generate_digest(matches, stats)
+        outputs = generator.generate_outputs(matches, stats)
+        assert digest == outputs["summary_body"]
+        assert "## Statistics" in digest

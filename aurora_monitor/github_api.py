@@ -9,6 +9,7 @@ import subprocess
 
 
 MAX_COMMENT_LENGTH = 10000
+MAX_DISCUSSION_COMMENT_LENGTH = 65000
 REPO = "ErikEvenson/aurora-manual"
 
 
@@ -60,14 +61,17 @@ def check_existing_comment(issue_number, reddit_id, repo=REPO):
 
 
 def post_discussion(title, body, category_id, repo=REPO, dry_run=False):
-    """Post a GitHub Discussion via GraphQL mutation."""
+    """Post a GitHub Discussion via GraphQL mutation.
+
+    Returns (success: bool, discussion_node_id: str|None).
+    """
     title = _sanitize(title, max_length=256)
-    body = _sanitize(body, max_length=65000)
+    body = _sanitize(body, max_length=MAX_DISCUSSION_COMMENT_LENGTH)
 
     if dry_run:
         print(f"[DRY RUN] Would post discussion: {title}")
         print(body[:200])
-        return True
+        return (True, None)
 
     # Get repository ID
     repo_id_result = subprocess.run(
@@ -76,7 +80,7 @@ def post_discussion(title, body, category_id, repo=REPO, dry_run=False):
     )
     if repo_id_result.returncode != 0:
         print(f"Error getting repo ID: {repo_id_result.stderr}")
-        return False
+        return (False, None)
 
     repo_data = json.loads(repo_id_result.stdout)
     repo_id = repo_data["data"]["repository"]["id"]
@@ -92,7 +96,7 @@ def post_discussion(title, body, category_id, repo=REPO, dry_run=False):
             title: "{escaped_title}",
             body: "{escaped_body}"
         }}) {{
-            discussion {{ url }}
+            discussion {{ id url }}
         }}
     }}'''
 
@@ -102,10 +106,43 @@ def post_discussion(title, body, category_id, repo=REPO, dry_run=False):
     )
     if result.returncode != 0:
         print(f"Error posting discussion: {result.stderr}")
-        return False
+        return (False, None)
 
     data = json.loads(result.stdout)
-    url = data.get("data", {}).get("createDiscussion", {}).get("discussion", {}).get("url", "")
+    discussion = data.get("data", {}).get("createDiscussion", {}).get("discussion", {})
+    url = discussion.get("url", "")
+    node_id = discussion.get("id")
     if url:
         print(f"Posted discussion: {url}")
+    return (True, node_id)
+
+
+def post_discussion_comment(discussion_id, body, repo=REPO, dry_run=False):
+    """Post a comment on a GitHub Discussion via GraphQL mutation."""
+    body = _sanitize(body, max_length=MAX_DISCUSSION_COMMENT_LENGTH)
+
+    if dry_run:
+        print(f"[DRY RUN] Would comment on discussion {discussion_id}:")
+        print(body[:200])
+        return True
+
+    escaped_body = json.dumps(body)[1:-1]
+
+    mutation = f'''mutation {{
+        addDiscussionComment(input: {{
+            discussionId: "{discussion_id}",
+            body: "{escaped_body}"
+        }}) {{
+            comment {{ id }}
+        }}
+    }}'''
+
+    result = subprocess.run(
+        ["gh", "api", "graphql", "-f", f"query={mutation}"],
+        capture_output=True, text=True,
+    )
+    if result.returncode != 0:
+        print(f"Error commenting on discussion: {result.stderr}")
+        return False
+
     return True

@@ -5,6 +5,9 @@ github:
   repo: ErikEvenson/aurora-manual
   discussion_category_id: DIC_kwDORAJjec4C2k26  # Monitor Digests
   discussion_category_slug: monitor-digests
+  cross_ref_targets:
+    forum: 1288   # Aurora Forums monitor issue
+    youtube: 1289  # YouTube monitor issue
 
 reddit:
   subreddits:
