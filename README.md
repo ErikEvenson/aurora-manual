@@ -14,6 +14,8 @@ nav_order: 0
 
 > **Developer Warning:** Aurora's creator Steve Walmsley has [cautioned players about this manual's accuracy](https://www.reddit.com/r/aurora/comments/1r5m5v1/aurora_manual_warning/). Many claims remain unverified and errors have been identified by experienced players. For reliable guidance, Steve recommends the community's established tutorials, the [Aurora Forums](http://aurora2.pentarch.org/), [Discord](https://discord.gg/aurora4x), and [r/aurora](https://reddit.com/r/aurora). This manual is a work in progress — not a finished reference.
 
+> **[Is the manual 100% accurate?](https://github.com/ErikEvenson/aurora-manual/discussions/1281)** — No, and it tells you when it's not. See our full transparency report on what's verified, what's not, and how you can help.
+
 A comprehensive reference manual, beginner's guide, and tutorial resource for Aurora C# — the complex 4X space strategy game by Steve Walmsley. Whether you're learning how to play Aurora 4X for the first time or looking up advanced mechanics, this manual covers Aurora C# v2.7.1 (current stable) with v2.8.0 changes documented where applicable. Version-specific content is clearly marked.
 
 **[Download the latest PDF](https://github.com/ErikEvenson/aurora-manual/releases/latest)** — printable, offline-ready reference
