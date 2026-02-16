@@ -16,8 +16,11 @@ class Matcher:
         self.issues = []
 
     def score_match(self, post, issue):
-        """Score how well a post matches an issue. Returns 0-100+."""
-        post_text = f"{post.get('title', '')} {post.get('selftext', '')}".lower()
+        """Score how well a post or comment matches an issue. Returns 0-100+."""
+        if "body" in post and "selftext" not in post:
+            post_text = post.get("body", "").lower()
+        else:
+            post_text = f"{post.get('title', '')} {post.get('selftext', '')}".lower()
         issue_text = f"{issue['title']} {issue.get('body', '')}".lower()
 
         # Fuzzy match score (0-100)
@@ -49,8 +52,8 @@ class Matcher:
         return bonus
 
     def _detect_cross_references(self, post):
-        """Detect links to Aurora Forums or YouTube in post text."""
-        text = f"{post.get('title', '')} {post.get('selftext', '')}"
+        """Detect links to Aurora Forums or YouTube in post or comment text."""
+        text = f"{post.get('title', '')} {post.get('selftext', '')} {post.get('body', '')}"
         refs = []
 
         forum_urls = re.findall(r'https?://aurora2\.pentarch\.org\S*', text)
@@ -76,13 +79,25 @@ class Matcher:
         return "ignore"
 
     def find_matches(self, posts):
-        """Find matches for a list of posts against all loaded issues.
+        """Find matches for a list of posts/comments against all loaded issues.
 
-        Returns a list of match results, one per post. Each result includes
-        the best matching issue (if any), score, routing, and cross-references.
+        Returns a list of match results, one per item. Each result includes
+        the best matching issue (if any), score, routing, cross-references,
+        and for comments: content_type="comment" and parent_post_id.
         """
         results = []
         for post in posts:
+            is_comment = "body" in post and "selftext" not in post
+            content_type = "comment" if is_comment else "post"
+            parent_post_id = None
+            if is_comment:
+                # parent_id is like "t3_abc123" for top-level comments
+                raw_parent = post.get("parent_id", "")
+                if raw_parent.startswith("t3_"):
+                    parent_post_id = raw_parent[3:]
+                elif raw_parent.startswith("t1_"):
+                    parent_post_id = raw_parent[3:]
+
             cross_refs = self._detect_cross_references(post)
 
             # Score against all issues
@@ -103,6 +118,9 @@ class Matcher:
                     penalized.append((issue, max(0, score - penalty)))
                 issue_scores = penalized
 
+            # Extract quote from appropriate field
+            quote_text = post.get("body", "") if is_comment else post.get("selftext", "")
+
             if issue_scores:
                 best_issue, best_score = issue_scores[0]
                 routing = self._route(best_score)
@@ -117,8 +135,10 @@ class Matcher:
                     "routing": routing,
                     "issue": best_issue["number"] if routing == "auto_comment" else None,
                     "issue_title": best_issue["title"] if routing == "auto_comment" else None,
-                    "quote": _extract_quote(post.get("selftext", "")),
+                    "quote": _extract_quote(quote_text),
                     "cross_references": cross_refs if cross_refs else None,
+                    "content_type": content_type,
+                    "parent_post_id": parent_post_id,
                 }
                 results.append(result)
             else:
@@ -135,8 +155,10 @@ class Matcher:
                     "routing": routing,
                     "issue": None,
                     "issue_title": None,
-                    "quote": _extract_quote(post.get("selftext", "")),
+                    "quote": _extract_quote(quote_text),
                     "cross_references": cross_refs if cross_refs else None,
+                    "content_type": content_type,
+                    "parent_post_id": parent_post_id,
                 }
                 results.append(result)
 

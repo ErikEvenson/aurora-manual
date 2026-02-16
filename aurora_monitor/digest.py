@@ -120,19 +120,37 @@ class DigestGenerator:
 
     def _format_issue_batch(self, items, issue_num):
         """Format a batch of matched items as a single issue comment."""
+        post_count = sum(1 for m in items if m.get("content_type", "post") == "post")
+        comment_count = sum(1 for m in items if m.get("content_type") == "comment")
+        count_parts = []
+        if post_count:
+            count_parts.append(f"{post_count} post{'s' if post_count != 1 else ''}")
+        if comment_count:
+            count_parts.append(f"{comment_count} comment{'s' if comment_count != 1 else ''}")
+        count_label = ", ".join(count_parts) if count_parts else f"{len(items)} items"
+
         lines = [
-            f"### Reddit Community References ({len(items)} posts)\n",
-            "Posts from r/aurora4x and r/aurora that may help verify this issue.\n",
+            f"### Reddit Community References ({count_label})\n",
+            "Content from r/aurora4x and r/aurora that may help verify this issue.\n",
         ]
         for m in items:
             confidence = "High" if m["score"] >= 80 else "Medium"
             dt = _format_date(m.get("created_utc"))
             permalink = f"https://www.reddit.com{m['permalink']}"
             quote = _truncate(m.get("quote", ""), 120)
-            lines.append(
-                f"- **{confidence}** ({m['score']:.0f}/100) — "
-                f"[u/{m['author']}]({permalink}) ({dt}): \"{quote}\""
-            )
+
+            if m.get("content_type") == "comment" and m.get("parent_post_id"):
+                parent_url = f"https://www.reddit.com/r/{m.get('subreddit', 'aurora4x')}/comments/{m['parent_post_id']}/"
+                lines.append(
+                    f"- **{confidence}** ({m['score']:.0f}/100) — "
+                    f"Reply to [{m.get('parent_title') or 'post'}]({parent_url}) by "
+                    f"[u/{m['author']}]({permalink}) ({dt}): \"{quote}\""
+                )
+            else:
+                lines.append(
+                    f"- **{confidence}** ({m['score']:.0f}/100) — "
+                    f"[u/{m['author']}]({permalink}) ({dt}): \"{quote}\""
+                )
         lines.append(
             "\n---\n*Detected by "
             "[aurora-monitor](https://github.com/ErikEvenson/aurora-manual/tree/main/aurora_monitor)*"

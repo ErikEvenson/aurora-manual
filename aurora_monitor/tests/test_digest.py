@@ -182,6 +182,31 @@ def _make_match(post_id, routing, issue=None, score=85, subreddit="aurora4x",
     }
 
 
+def _make_comment_match(post_id, routing, issue=None, score=85,
+                        subreddit="aurora4x", author="Commenter",
+                        quote="Test comment", parent_post_id="parent1",
+                        parent_title="Parent post", cross_refs=None,
+                        created_utc=1708000000):
+    """Helper to create comment match dicts for tests."""
+    return {
+        "post_id": post_id,
+        "subreddit": subreddit,
+        "author": author,
+        "title": "",
+        "permalink": f"/r/{subreddit}/comments/{parent_post_id}/test/{post_id}/",
+        "created_utc": created_utc,
+        "score": score,
+        "routing": routing,
+        "issue": issue,
+        "issue_title": f"Verify: issue {issue}" if issue else None,
+        "quote": quote,
+        "cross_references": cross_refs,
+        "content_type": "comment",
+        "parent_post_id": parent_post_id,
+        "parent_title": parent_title,
+    }
+
+
 def _make_stats(**overrides):
     """Helper to create stats dicts for tests."""
     defaults = {
@@ -316,3 +341,57 @@ class TestGenerateOutputs:
         outputs = generator.generate_outputs(matches, stats)
         assert digest == outputs["summary_body"]
         assert "## Statistics" in digest
+
+
+class TestCommentFormatting:
+    """Test formatting of comment-sourced matches in digest outputs."""
+
+    def test_mixed_post_and_comment_matches(self, generator):
+        """generate_outputs handles mixed post + comment matches."""
+        matches = [
+            _make_match("p1", "auto_comment", issue=100, quote="Post quote"),
+            _make_comment_match("c1", "auto_comment", issue=100,
+                                quote="Comment confirms this",
+                                parent_post_id="p1",
+                                parent_title="Original post title"),
+        ]
+        outputs = generator.generate_outputs(matches, _make_stats())
+        assert 100 in outputs["issue_comments"]
+        comment_text = outputs["issue_comments"][100]
+        # Both post and comment should appear
+        assert "Post quote" in comment_text
+        assert "Comment confirms this" in comment_text
+
+    def test_comment_match_shows_parent_context(self, generator):
+        """Comment matches in issue_comments show 'Reply to' with parent post link."""
+        matches = [
+            _make_comment_match("c1", "auto_comment", issue=200,
+                                quote="Tested and confirmed",
+                                parent_post_id="abc123",
+                                parent_title="Testing thread"),
+        ]
+        outputs = generator.generate_outputs(matches, _make_stats())
+        comment_text = outputs["issue_comments"][200]
+        # Should explicitly say "Reply to" and link to parent post
+        assert "Reply to" in comment_text
+        assert "abc123" in comment_text
+
+    def test_comment_attribution_distinct_from_post(self, generator):
+        """Comment-sourced matches show 'Reply to' prefix that posts don't have."""
+        post_matches = [
+            _make_match("p1", "auto_comment", issue=300, quote="Same quote"),
+        ]
+        comment_matches = [
+            _make_comment_match("c1", "auto_comment", issue=300,
+                                quote="Same quote",
+                                parent_post_id="p1",
+                                parent_title="Parent post"),
+        ]
+        post_output = generator.generate_outputs(post_matches, _make_stats())
+        comment_output = generator.generate_outputs(comment_matches, _make_stats())
+        post_text = post_output["issue_comments"][300]
+        comment_text = comment_output["issue_comments"][300]
+        # Post should NOT have "Reply to"
+        assert "Reply to" not in post_text
+        # Comment should have "Reply to"
+        assert "Reply to" in comment_text

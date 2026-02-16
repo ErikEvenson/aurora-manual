@@ -193,3 +193,93 @@ class TestMatchResult:
             assert "issue" in m and m["issue"] is not None, (
                 "auto_comment match must include issue number"
             )
+
+
+class TestCommentMatching:
+    """Test matching of Reddit comments (body field, no title/selftext)."""
+
+    def test_score_match_handles_comment_body(self, matcher):
+        """score_match builds text from body field when title/selftext absent."""
+        comment = {
+            "id": "comment_1",
+            "subreddit": "aurora4x",
+            "author": "Tester",
+            "body": "I tested box launcher reload at OTPs and it's 10x slower than hangars. Confirmed with Mark IV launchers.",
+            "permalink": "/r/aurora4x/comments/abc123/test/comment_1/",
+            "created_utc": 1708000000,
+            "parent_id": "t3_abc123",
+        }
+        issue = matcher.issues[2]  # issue 1230 - box launcher reload
+        score = matcher.score_match(comment, issue)
+        assert score >= 60, f"Comment about box launchers should score >=60, got {score}"
+
+    def test_find_matches_comment_has_content_type(self, matcher):
+        """find_matches returns content_type='comment' for comment-shaped input."""
+        comment = {
+            "id": "comment_2",
+            "subreddit": "aurora4x",
+            "author": "MechanicsGuy",
+            "body": "Box launcher reload at OTPs is definitely 10x slower than hangars.",
+            "permalink": "/r/aurora4x/comments/abc123/test/comment_2/",
+            "created_utc": 1708000000,
+            "parent_id": "t3_abc123",
+        }
+        matches = matcher.find_matches([comment])
+        assert len(matches) > 0
+        assert matches[0]["content_type"] == "comment"
+
+    def test_find_matches_comment_has_parent_post_id(self, matcher):
+        """find_matches includes parent_post_id for comments."""
+        comment = {
+            "id": "comment_3",
+            "subreddit": "aurora4x",
+            "author": "Verifier",
+            "body": "I can confirm fuel consumption scales with actual travel speed, not rated speed.",
+            "permalink": "/r/aurora4x/comments/def456/fuel/comment_3/",
+            "created_utc": 1708100000,
+            "parent_id": "t3_def456",
+        }
+        matches = matcher.find_matches([comment])
+        assert len(matches) > 0
+        assert matches[0]["parent_post_id"] == "def456"
+
+    def test_find_matches_post_has_content_type_post(self, matcher, posts):
+        """find_matches returns content_type='post' for regular posts."""
+        matches = matcher.find_matches([posts[0]])
+        assert len(matches) > 0
+        assert matches[0]["content_type"] == "post"
+
+    def test_cross_reference_detected_in_comment_body(self, matcher):
+        """Cross-references in comment body field are detected."""
+        comment = {
+            "id": "comment_xref",
+            "subreddit": "aurora4x",
+            "author": "Helper",
+            "body": "See the forum post about this: https://aurora2.pentarch.org/index.php?topic=12345.0",
+            "permalink": "/r/aurora4x/comments/xyz/test/comment_xref/",
+            "created_utc": 1708000000,
+            "parent_id": "t3_xyz",
+        }
+        matches = matcher.find_matches([comment])
+        assert len(matches) > 0
+        xrefs = matches[0].get("cross_references")
+        assert xrefs is not None and len(xrefs) > 0
+        assert xrefs[0]["type"] == "forum"
+
+    def test_short_comment_scores_low(self, matcher):
+        """Comments with very short body text should score low."""
+        comment = {
+            "id": "comment_short",
+            "subreddit": "aurora4x",
+            "author": "Brief",
+            "body": "Thanks!",
+            "permalink": "/r/aurora4x/comments/xyz/test/comment_short/",
+            "created_utc": 1708000000,
+            "parent_id": "t3_xyz",
+        }
+        for issue in matcher.issues:
+            score = matcher.score_match(comment, issue)
+            assert score < 60, (
+                f"Short comment should not reach medium confidence for "
+                f"issue #{issue['number']}, got {score}"
+            )
