@@ -19,6 +19,7 @@ def config():
             "rate_limit_delay": 0,  # No delay in tests
             "max_retries": 3,
             "backfill_max_pages": 2,
+            "skip_flairs": ["Captain's Log", "Skunkworks", "Out of this World", "META"],
         }
     }
 
@@ -275,3 +276,137 @@ class TestBackfill:
         posts = fetcher.backfill("aurora4x")
         assert len(posts) == 150
         assert mock_get.call_count == 2
+
+
+class TestFlairFiltering:
+    """Test flair-based post filtering."""
+
+    @patch("aurora_monitor.sources.reddit.requests.get")
+    def test_skip_aar_flair(self, mock_get, fetcher):
+        """Posts with Captain's Log flair should be skipped."""
+        listing = {
+            "kind": "Listing",
+            "data": {
+                "after": None,
+                "children": [
+                    {
+                        "kind": "t3",
+                        "data": {
+                            "id": "aar_post",
+                            "subreddit": "aurora4x",
+                            "author": "AARWriter",
+                            "title": "My Campaign Part 7",
+                            "selftext": "Long AAR narrative...",
+                            "permalink": "/r/aurora4x/comments/aar_post/",
+                            "created_utc": 1708000000.0,
+                            "link_flair_text": "Captain's Log",
+                            "url": "https://reddit.com/r/aurora4x/aar_post",
+                            "num_comments": 10,
+                        },
+                    },
+                    {
+                        "kind": "t3",
+                        "data": {
+                            "id": "mechanics_post",
+                            "subreddit": "aurora4x",
+                            "author": "Tester",
+                            "title": "Testing fuel consumption",
+                            "selftext": "I tested fuel consumption at half speed.",
+                            "permalink": "/r/aurora4x/comments/mechanics_post/",
+                            "created_utc": 1708100000.0,
+                            "link_flair_text": "The Academy",
+                            "url": "https://reddit.com/r/aurora4x/mechanics_post",
+                            "num_comments": 3,
+                        },
+                    },
+                    {
+                        "kind": "t3",
+                        "data": {
+                            "id": "ship_post",
+                            "subreddit": "aurora4x",
+                            "author": "Designer",
+                            "title": "My destroyer design",
+                            "selftext": "Here's my ship.",
+                            "permalink": "/r/aurora4x/comments/ship_post/",
+                            "created_utc": 1708200000.0,
+                            "link_flair_text": "Skunkworks",
+                            "url": "https://reddit.com/r/aurora4x/ship_post",
+                            "num_comments": 5,
+                        },
+                    },
+                ],
+            },
+        }
+        mock_response = MagicMock(status_code=200)
+        mock_response.json.return_value = listing
+        mock_get.return_value = mock_response
+
+        posts, _ = fetcher.fetch_new_posts("aurora4x")
+        assert len(posts) == 1
+        assert posts[0]["id"] == "mechanics_post"
+
+    @patch("aurora_monitor.sources.reddit.requests.get")
+    def test_no_flair_passes_through(self, mock_get, fetcher):
+        """Posts without flair should not be filtered."""
+        listing = {
+            "kind": "Listing",
+            "data": {
+                "after": None,
+                "children": [
+                    {
+                        "kind": "t3",
+                        "data": {
+                            "id": "no_flair_post",
+                            "subreddit": "aurora4x",
+                            "author": "User",
+                            "title": "Question about missiles",
+                            "selftext": "How do missiles work?",
+                            "permalink": "/r/aurora4x/comments/no_flair/",
+                            "created_utc": 1708000000.0,
+                            "link_flair_text": None,
+                            "url": "https://reddit.com/r/aurora4x/no_flair",
+                            "num_comments": 2,
+                        },
+                    },
+                ],
+            },
+        }
+        mock_response = MagicMock(status_code=200)
+        mock_response.json.return_value = listing
+        mock_get.return_value = mock_response
+
+        posts, _ = fetcher.fetch_new_posts("aurora4x")
+        assert len(posts) == 1
+
+    @patch("aurora_monitor.sources.reddit.requests.get")
+    def test_flair_case_insensitive(self, mock_get, fetcher):
+        """Flair filtering should be case-insensitive."""
+        listing = {
+            "kind": "Listing",
+            "data": {
+                "after": None,
+                "children": [
+                    {
+                        "kind": "t3",
+                        "data": {
+                            "id": "case_post",
+                            "subreddit": "aurora4x",
+                            "author": "User",
+                            "title": "My log",
+                            "selftext": "Story...",
+                            "permalink": "/r/aurora4x/comments/case_post/",
+                            "created_utc": 1708000000.0,
+                            "link_flair_text": "CAPTAIN'S LOG",
+                            "url": "https://reddit.com/r/aurora4x/case_post",
+                            "num_comments": 1,
+                        },
+                    },
+                ],
+            },
+        }
+        mock_response = MagicMock(status_code=200)
+        mock_response.json.return_value = listing
+        mock_get.return_value = mock_response
+
+        posts, _ = fetcher.fetch_new_posts("aurora4x")
+        assert len(posts) == 0

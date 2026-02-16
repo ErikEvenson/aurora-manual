@@ -15,6 +15,14 @@ reddit:
   max_retries: 3
   backfill_max_pages: 10  # ~1000 posts (100 per page)
 
+  # Flairs to skip — these are noise for verification matching
+  skip_flairs:
+    - "Captain's Log"   # AARs — long narratives, not mechanics testing
+    - "Captains' Log"   # Alternate spelling
+    - "Skunkworks"      # Ship designs — no verification content
+    - "Out of this World"  # Screenshots and memes
+    - "META"            # Subreddit meta discussion
+
 matching:
   # Fuzzy match thresholds (thefuzz token_set_ratio)
   thresholds:

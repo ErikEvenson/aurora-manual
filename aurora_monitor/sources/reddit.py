@@ -16,6 +16,9 @@ class RedditFetcher:
         self.rate_limit_delay = reddit_cfg.get("rate_limit_delay", 1.0)
         self.max_retries = reddit_cfg.get("max_retries", 3)
         self.backfill_max_pages = reddit_cfg.get("backfill_max_pages", 10)
+        self.skip_flairs = set(
+            f.lower() for f in reddit_cfg.get("skip_flairs", [])
+        )
 
     def _get(self, url):
         """Make a rate-limited GET request with retry on 429."""
@@ -50,7 +53,10 @@ class RedditFetcher:
             if child["kind"] != "t3":
                 continue
             post = child["data"]
-            posts.append(self._normalize_post(post, subreddit))
+            normalized = self._normalize_post(post, subreddit)
+            if self._should_skip(normalized):
+                continue
+            posts.append(normalized)
 
         if self.rate_limit_delay > 0:
             time.sleep(self.rate_limit_delay)
@@ -94,6 +100,11 @@ class RedditFetcher:
             if not after:
                 break
         return all_posts
+
+    def _should_skip(self, post):
+        """Check if a post should be skipped based on flair."""
+        flair = (post.get("link_flair_text") or "").lower()
+        return flair in self.skip_flairs
 
     @staticmethod
     def _normalize_post(post, subreddit):
