@@ -1,6 +1,6 @@
 # Aurora 4X Manual - Project Instructions
 
-*Updated: v2026.02.03*
+*Updated: v2026.02.15*
 
 
 ## Project Overview
@@ -11,7 +11,7 @@ This is a comprehensive reference manual for Aurora C# (space strategy game by S
 
 ## Security
 
-*Updated: v2026.02.03*
+*Updated: v2026.02.15*
 
 **CRITICAL: Never store credentials in the repository.**
 
@@ -79,7 +79,7 @@ When preparing answers suitable for posting to Aurora Forums or Discord:
 
 ## Content Standards
 
-*Updated: v2026.02.03*
+*Updated: v2026.02.15*
 
 - **Section numbering:** Decimal hierarchy (e.g., 8.2.1 is a heading within file 8.2)
 - **Cross-references:** Always use `[Section X.Y Title](../path/to/file.md)` format — never bare "see Section X.Y"
@@ -221,7 +221,7 @@ For development/testing builds, use `bash build-pdf.sh` without arguments (auto-
 
 ## Game Database
 
-*Updated: v2026.02.03*
+*Updated: v2026.02.15*
 
 - **Location:** `~/Downloads/Aurora271Full/AuroraDB.db` (SQLite)
 - **Use:** Verify formulas, values, and mechanics claims against actual game data
@@ -229,7 +229,7 @@ For development/testing builds, use `bash build-pdf.sh` without arguments (auto-
 
 ## Issue Workflow
 
-*Updated: v2026.02.03*
+*Updated: v2026.02.15*
 
 - Group related issues into parallel waves for background agents
 - Close issues with commit reference comments
@@ -280,9 +280,68 @@ Prioritize verification of:
 3. Version-specific changes (may be outdated)
 4. UI/UX claims (easily testable in-game)
 
+## Wiki Pages
+
+*Updated: v2026.02.15*
+
+The [project wiki](https://github.com/ErikEvenson/aurora-manual/wiki) hosts standalone reference pages extracted from manual sections with the highest verification density. Wiki pages contain **only verified claims** — all unverified content is excluded.
+
+### Selection Criteria
+
+A manual section qualifies for a wiki page when it meets **all** of these:
+
+1. **>95% verified** — verified-to-unverified reference ratio must exceed 95%
+2. **Practical player value** — topic players actively reference during gameplay
+3. **Self-contained** — coherent as a standalone page without extensive cross-references
+4. **Database-native** — content maps primarily to queryable AuroraDB.db fields
+
+### Qualification Check
+
+```bash
+# Count verified references and unverified claims per file
+for f in $(find . -name "*.md" -not -path "./.git/*"); do
+  v=$(grep -c 'hyperlink{ref-' "$f" 2>/dev/null || echo 0)
+  u=$(grep -c 'unverified' "$f" 2>/dev/null || echo 0)
+  if [ "$v" -gt 0 ]; then echo "$v verified, $u unverified: $f"; fi
+done | sort -rn
+```
+
+### Editorial Standards
+
+**Include:** Verified claims with database/forum references, version-specific annotations, restructured tables.
+
+**Exclude:** Claims marked `*(unverified)*`, `*(requires live testing)*`, `*(community estimate)*`, or `*(community guideline)*`. Also exclude LaTeX markup, images, Jekyll frontmatter.
+
+**Every wiki page must have:**
+- Header linking to the full manual section with verified reference count
+- Footer noting verified-only content and linking to the full manual
+- Version identification (AuroraDB.db version)
+
+### Managing the Wiki
+
+The wiki is a separate git repo:
+
+```bash
+git clone git@github.com:ErikEvenson/aurora-manual.wiki.git /tmp/aurora-wiki
+cd /tmp/aurora-wiki
+# Create/edit pages as .md files
+# Page filename becomes the URL slug (e.g., New-Game-Options.md)
+git add -A && git commit -m "description" && git push
+```
+
+Update `Home.md` when adding new pages. The [Wiki Page Criteria](https://github.com/ErikEvenson/aurora-manual/wiki/Wiki-Page-Criteria) page documents the full methodology for readers.
+
+### Verification Source Hierarchy
+
+1. **AuroraDB.db** (game database) — highest authority
+2. **Steve Walmsley forum posts** — developer statements
+3. **Aurora Forums changelogs** — semi-authoritative
+4. **AuroraWiki** — community-maintained, may be outdated
+5. **Community knowledge** — lowest authority
+
 ## README Maintenance
 
-*Updated: v2026.02.03*
+*Updated: v2026.01.30*
 
 **Keep README.md synchronized with project state.** Check and update when:
 
@@ -307,7 +366,7 @@ Prioritize verification of:
 
 ## Contributor Attribution
 
-*Updated: v2026.02.03*
+*Updated: v2026.01.29*
 
 All repo contributors must appear in three locations:
 
@@ -319,14 +378,14 @@ To get the current contributor list: `gh api repos/ErikEvenson/aurora-manual/con
 
 ## LaTeX Compatibility
 
-*Updated: v2026.02.03*
+*Updated: v2026.01.30*
 
 - Avoid Unicode symbols that don't render in LaTeX (e.g., use `<=` instead of `≤`)
 - Long tables may overflow; consider breaking into multiple tables or using shorter column content
 
 ## SVG Images
 
-*Updated: v2026.02.03*
+*Updated: v2026.01.29*
 
 SVG images are supported via automatic conversion:
 
@@ -340,7 +399,7 @@ The build script only reconverts if the SVG is newer than the PDF.
 
 ## Screenshots
 
-*Updated: v2026.01.30*
+*Updated: v2026.02.15*
 
 Screenshots are stored in `images/screenshots/` with subdirectories mirroring chapter structure.
 
@@ -594,7 +653,7 @@ Both PDF (pandoc) and web (Jekyll) handle PNG images natively.
 
 ## Charts
 
-*Updated: v2026.02.03*
+*Updated: v2026.02.15*
 
 Charts are stored in `images/charts/` with subdirectories mirroring chapter structure.
 
@@ -728,7 +787,7 @@ Before committing any chart:
 
 ## Diagrams
 
-*Updated: v2026.02.03*
+*Updated: v2026.01.30*
 
 Diagrams (flowcharts, system diagrams, tech trees, tactical illustrations) are stored in `images/diagrams/` with subdirectories mirroring chapter structure.
 
