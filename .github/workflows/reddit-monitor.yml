@@ -1,8 +1,8 @@
 name: Reddit Monitor
 
 on:
-  schedule:
-    - cron: '0 7 * * *'  # Daily at 7am UTC
+  # schedule:
+  #   - cron: '0 7 * * *'  # Daily at 7am UTC — disabled: Reddit blocks GitHub Actions IPs (403)
   workflow_dispatch:
     inputs:
       mode:
