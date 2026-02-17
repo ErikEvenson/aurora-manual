@@ -343,6 +343,55 @@ class TestGenerateOutputs:
         assert "## Statistics" in digest
 
 
+class TestNewContentInDigest:
+    """Test new content opportunities in digest outputs."""
+
+    def test_new_content_in_summary(self, generator):
+        """Summary includes New Content Opportunities section when provided."""
+        matches = [_make_match("m1", "auto_comment", issue=100)]
+        new_content = [
+            {
+                "post_id": "nc1",
+                "score": 75,
+                "chapters": [(12, "Combat", 0.5)],
+                "title": "Missile mechanics discovery",
+                "author": "Tester",
+                "permalink": "/r/aurora4x/comments/nc1/test/",
+                "signals": ["evidence: tested"],
+            },
+        ]
+        outputs = generator.generate_outputs(matches, _make_stats(), new_content=new_content)
+        assert "## New Content Opportunities" in outputs["summary_body"]
+        assert "Missile mechanics" in outputs["summary_body"]
+
+    def test_new_content_comments_generated(self, generator):
+        """New content opportunities produce discussion comments."""
+        new_content = [
+            {
+                "post_id": f"nc{i}",
+                "score": 75 - i,
+                "chapters": [(12, "Combat", 0.5)],
+                "title": f"Discovery {i}",
+                "author": "User",
+                "permalink": f"/r/aurora4x/comments/nc{i}/test/",
+                "signals": ["evidence: tested"],
+            }
+            for i in range(5)
+        ]
+        outputs = generator.generate_outputs([], _make_stats(), new_content=new_content)
+        assert "new_content_comments" in outputs
+        assert len(outputs["new_content_comments"]) >= 1
+
+    def test_backward_compat_no_new_content(self, generator):
+        """generate_outputs without new_content param still works."""
+        matches = [_make_match("m1", "auto_comment", issue=100)]
+        outputs = generator.generate_outputs(matches, _make_stats())
+        assert "new_content_comments" in outputs
+        assert outputs["new_content_comments"] == []
+        # Summary should not have new content section
+        assert "## New Content Opportunities" not in outputs["summary_body"]
+
+
 class TestCommentFormatting:
     """Test formatting of comment-sourced matches in digest outputs."""
 

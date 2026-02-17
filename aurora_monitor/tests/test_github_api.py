@@ -128,3 +128,99 @@ class TestMaxDiscussionCommentLength:
         """Module should export MAX_DISCUSSION_COMMENT_LENGTH = 65000."""
         assert hasattr(github_api, "MAX_DISCUSSION_COMMENT_LENGTH")
         assert github_api.MAX_DISCUSSION_COMMENT_LENGTH == 65000
+
+
+class TestCreateIssue:
+    """Test issue creation via gh CLI."""
+
+    def test_dry_run_returns_success_none(self):
+        """Dry run returns (True, None) without calling API."""
+        success, issue_num = github_api.create_issue(
+            "Test Title", "Test Body", ["label1"], dry_run=True
+        )
+        assert success is True
+        assert issue_num is None
+
+    @patch("aurora_monitor.github_api.subprocess.run")
+    def test_success_returns_issue_number(self, mock_run):
+        """Successful creation returns (True, issue_number)."""
+        response = MagicMock()
+        response.returncode = 0
+        response.stdout = "https://github.com/ErikEvenson/aurora-manual/issues/1305\n"
+        mock_run.return_value = response
+
+        success, issue_num = github_api.create_issue(
+            "New content: test", "Body text", ["content-opportunity"]
+        )
+        assert success is True
+        assert issue_num == 1305
+
+    @patch("aurora_monitor.github_api.subprocess.run")
+    def test_failure_returns_false_none(self, mock_run):
+        """Failed creation returns (False, None)."""
+        response = MagicMock()
+        response.returncode = 1
+        response.stderr = "Error creating issue"
+        mock_run.return_value = response
+
+        success, issue_num = github_api.create_issue(
+            "Title", "Body", ["label"]
+        )
+        assert success is False
+        assert issue_num is None
+
+    @patch("aurora_monitor.github_api.subprocess.run")
+    def test_labels_passed_to_gh(self, mock_run):
+        """Labels are passed as --label arguments to gh."""
+        response = MagicMock()
+        response.returncode = 0
+        response.stdout = "https://github.com/ErikEvenson/aurora-manual/issues/99\n"
+        mock_run.return_value = response
+
+        github_api.create_issue(
+            "Title", "Body", ["content-opportunity", "auto-detected"]
+        )
+        call_args = mock_run.call_args[0][0]
+        label_indices = [i for i, a in enumerate(call_args) if a == "--label"]
+        assert len(label_indices) == 2, "Should have two --label flags"
+
+
+class TestSearchIssues:
+    """Test issue search via gh CLI."""
+
+    @patch("aurora_monitor.github_api.subprocess.run")
+    def test_returns_matches(self, mock_run):
+        """Search returns list of matching issues."""
+        response = MagicMock()
+        response.returncode = 0
+        response.stdout = json.dumps([
+            {"number": 100, "title": "New content: missile mechanics"},
+            {"number": 101, "title": "New content: shield regen"},
+        ])
+        mock_run.return_value = response
+
+        results = github_api.search_issues("missile mechanics", ["content-opportunity"])
+        assert len(results) == 2
+        assert results[0]["number"] == 100
+
+    @patch("aurora_monitor.github_api.subprocess.run")
+    def test_returns_empty_on_no_match(self, mock_run):
+        """Search returns empty list when no issues match."""
+        response = MagicMock()
+        response.returncode = 0
+        response.stdout = "[]"
+        mock_run.return_value = response
+
+        results = github_api.search_issues("nonexistent topic", ["content-opportunity"])
+        assert results == []
+
+    @patch("aurora_monitor.github_api.subprocess.run")
+    def test_returns_empty_on_api_failure(self, mock_run):
+        """Search returns empty list on API failure."""
+        response = MagicMock()
+        response.returncode = 1
+        response.stderr = "API error"
+        mock_run.return_value = response
+
+        results = github_api.search_issues("test", ["content-opportunity"])
+        assert results == []

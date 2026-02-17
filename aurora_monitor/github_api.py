@@ -117,6 +117,61 @@ def post_discussion(title, body, category_id, repo=REPO, dry_run=False):
     return (True, node_id)
 
 
+def create_issue(title, body, labels, repo=REPO, dry_run=False):
+    """Create a GitHub issue via `gh issue create`.
+
+    Returns (success: bool, issue_number: int|None).
+    """
+    title = _sanitize(title, max_length=256)
+    body = _sanitize(body, max_length=MAX_COMMENT_LENGTH)
+
+    if dry_run:
+        print(f"[DRY RUN] Would create issue: {title}")
+        print(body[:200])
+        return (True, None)
+
+    cmd = ["gh", "issue", "create", "--repo", repo, "--title", title, "--body", body]
+    for label in labels:
+        cmd.extend(["--label", label])
+
+    result = subprocess.run(cmd, capture_output=True, text=True)
+    if result.returncode != 0:
+        print(f"Error creating issue: {result.stderr}")
+        return (False, None)
+
+    # gh issue create prints the URL, extract issue number
+    url = result.stdout.strip()
+    match = re.search(r'/issues/(\d+)', url)
+    if match:
+        return (True, int(match.group(1)))
+    return (True, None)
+
+
+def search_issues(query, labels, repo=REPO):
+    """Search for existing issues via `gh issue list --search`.
+
+    Returns list of issue dicts with 'number' and 'title'.
+    """
+    cmd = [
+        "gh", "issue", "list", "--repo", repo,
+        "--search", query,
+        "--json", "number,title",
+        "--limit", "20",
+    ]
+    for label in labels:
+        cmd.extend(["--label", label])
+
+    result = subprocess.run(cmd, capture_output=True, text=True)
+    if result.returncode != 0:
+        print(f"Warning: Issue search failed: {result.stderr}")
+        return []
+
+    try:
+        return json.loads(result.stdout)
+    except (json.JSONDecodeError, ValueError):
+        return []
+
+
 def post_discussion_comment(discussion_id, body, repo=REPO, dry_run=False):
     """Post a comment on a GitHub Discussion via GraphQL mutation."""
     body = _sanitize(body, max_length=MAX_DISCUSSION_COMMENT_LENGTH)

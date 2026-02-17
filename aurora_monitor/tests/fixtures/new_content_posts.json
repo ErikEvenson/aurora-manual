@@ -1,0 +1,82 @@
+[
+  {
+    "id": "nc_evidence_rich",
+    "subreddit": "aurora4x",
+    "author": "MechanicsTester",
+    "title": "I tested missile laser warhead mechanics extensively",
+    "selftext": "I tested the missile laser warhead formula in detail. After launching 200 missiles with varying warhead sizes, I confirmed that the damage scales linearly with the laser warhead rating. The formula appears to be damage = rating * 3. I verified this against multiple ship classes with different armor thicknesses. The database shows the DamageOutput field matches my calculations. Here is the data from my spreadsheet showing each test result with the measured damage values.",
+    "permalink": "/r/aurora4x/comments/nc001/missile_laser_warhead/",
+    "created_utc": 1708000000,
+    "link_flair_text": null
+  },
+  {
+    "id": "nc_generic_aar",
+    "subreddit": "aurora4x",
+    "author": "StoryTeller",
+    "title": "My Terran Federation Campaign - Part 12",
+    "selftext": "My ships arrived at Alpha Centauri and began exploring. Admiral Chen sent them in different directions. After three months we found two habitable planets. I decided to settle the one closer to the star. Things were going well until the aliens showed up...",
+    "permalink": "/r/aurora4x/comments/nc002/my_campaign_part_12/",
+    "created_utc": 1708100000,
+    "link_flair_text": "Captain's Log"
+  },
+  {
+    "id": "nc_known_author",
+    "subreddit": "aurora4x",
+    "author": "SteveWalmsley",
+    "title": "Clarification on ordnance transfer mechanics",
+    "selftext": "To clarify how ordnance transfer works between colliers and warships: the transfer rate is based on the magazine capacity of the receiving ship and occurs during the logistics phase. Ships can only receive ordnance from a collier in the same task group.",
+    "permalink": "/r/aurora4x/comments/nc003/ordnance_transfer/",
+    "created_utc": 1708200000,
+    "link_flair_text": null
+  },
+  {
+    "id": "nc_question_post",
+    "subreddit": "aurora4x",
+    "author": "NewPlayer99",
+    "title": "How does point defense actually work?",
+    "selftext": "Can someone explain how point defense works in Aurora? I keep losing ships to missiles and I don't understand why my CIWS isn't shooting them down. Do I need to set up fire control differently? Any help appreciated.",
+    "permalink": "/r/aurora4x/comments/nc004/point_defense_question/",
+    "created_utc": 1708300000,
+    "link_flair_text": null
+  },
+  {
+    "id": "nc_forum_crossref",
+    "subreddit": "aurora4x",
+    "author": "ForumReader",
+    "title": "Found detailed shield mechanics breakdown on the forums",
+    "selftext": "Someone on the Aurora Forums posted a comprehensive analysis of how shield regeneration works with different tech levels. The formula for regeneration rate depends on both the shield strength and the recharge rate tech. See https://aurora2.pentarch.org/index.php?topic=99999.0 for the full breakdown. Very useful if you're designing shield-heavy ships.",
+    "permalink": "/r/aurora4x/comments/nc005/shield_mechanics/",
+    "created_utc": 1708400000,
+    "link_flair_text": null
+  },
+  {
+    "id": "nc_youtube_ref",
+    "subreddit": "aurora4x",
+    "author": "VideoWatcher",
+    "title": "Great video explaining engine design tradeoffs",
+    "selftext": "Found this excellent tutorial on engine design in Aurora. It covers the efficiency curve and fuel consumption calculations: https://www.youtube.com/watch?v=abc123fake. Really helped me understand why my ships were using so much fuel.",
+    "permalink": "/r/aurora4x/comments/nc006/engine_design_video/",
+    "created_utc": 1708500000,
+    "link_flair_text": null
+  },
+  {
+    "id": "nc_short_empty",
+    "subreddit": "aurora4x",
+    "author": "BriefUser",
+    "title": "Aurora",
+    "selftext": "",
+    "permalink": "/r/aurora4x/comments/nc007/aurora/",
+    "created_utc": 1708600000,
+    "link_flair_text": null
+  },
+  {
+    "id": "nc_multi_chapter",
+    "subreddit": "aurora4x",
+    "author": "DeepAnalysis",
+    "title": "Combat sensor interaction and fleet tactics analysis",
+    "selftext": "I've been analyzing how sensors affect combat outcomes. The active sensor resolution determines your fire control accuracy at range. I tested this by designing ships with different sensor suites and measuring hit rates at various distances. The thermal signature of enemy ships also affects passive detection range, which determines whether you get first strike advantage. Fleet formation and waypoint management play a big role too.",
+    "permalink": "/r/aurora4x/comments/nc008/combat_sensor_analysis/",
+    "created_utc": 1708700000,
+    "link_flair_text": null
+  }
+]

@@ -116,3 +116,78 @@ matching:
       - precursor
       - jump gate
       - lagrange point
+
+new_content:
+  min_score: 40
+  max_issues_backfill: 5
+  max_issues_steady: 1
+  labels:
+    - content-opportunity
+  evidence_keywords:
+    - formula
+    - tested
+    - confirmed
+    - verified
+    - database
+    - i tested
+    - i confirmed
+    - i verified
+    - calculated
+    - measured
+    - data shows
+    - checked the db
+  chapter_keywords:
+    1:
+      name: Introduction
+      keywords: [introduction, getting started, new player, beginner, tutorial]
+    2:
+      name: Game Setup
+      keywords: [game setup, new game, conventional start, space start, scenario, game settings]
+    3:
+      name: User Interface
+      keywords: [user interface, UI, window, menu, hotkey, display, screen]
+    4:
+      name: Systems and Bodies
+      keywords: [system, star, planet, moon, asteroid, comet, orbit, atmosphere, gravity, tidally locked]
+    5:
+      name: Colonies
+      keywords: [colony, population, infrastructure, colony cost, habitability, terraform, governor, unrest]
+    6:
+      name: Economy and Industry
+      keywords: [economy, industry, mining, construction, shipyard, research facility, fuel refinery, mineral, build points, wealth]
+    7:
+      name: Research
+      keywords: [research, technology, tech tree, scientist, research lab, breakthrough, field]
+    8:
+      name: Ship Design
+      keywords: [ship design, class design, engine, armor, shield, magazine, hangar, component, hull, tonnage, crew quarters, engineering]
+    9:
+      name: Fleet Management
+      keywords: [fleet, task group, standing order, fleet order, waypoint, formation, assign, detach]
+    10:
+      name: Navigation
+      keywords: [navigation, jump point, jump gate, transit, lagrange, survey, gravitational survey, grav survey]
+    11:
+      name: Sensors and Detection
+      keywords: [sensor, detection, thermal, EM, active sensor, passive sensor, resolution, cross section, signature]
+    12:
+      name: Combat
+      keywords: [combat, weapon, missile, beam, laser, railgun, gauss, fire control, point defense, CIWS, armor, damage, warhead, turret, ECM, ECCM]
+    13:
+      name: Ground Forces
+      keywords: [ground forces, ground combat, battalion, brigade, fortification, bombardment, garrison, PDC, planetary defence]
+    14:
+      name: Logistics
+      keywords: [logistics, fuel, maintenance, supply, ordnance, overhaul, MSP, tanker, collier, supply ship, refueling]
+    15:
+      name: Diplomacy
+      keywords: [diplomacy, NPR, alien, first contact, treaty, relation, espionage, intelligence]
+    16:
+      name: Commanders
+      keywords: [commander, officer, admiral, scientist, governor, rank, promotion, assignment, skill, trait, bonus]
+    17:
+      name: Exploration
+      keywords: [exploration, survey, geological survey, geosurvey, ruins, alien ruins, xenoarchaeology, precursor]
+    18:
+      name: Advanced Topics
+      keywords: [advanced, spoiler, invader, precursor race, swarm, starter race, campaign]

@@ -21,7 +21,7 @@ class DigestGenerator:
         outputs = self.generate_outputs(matches, stats)
         return outputs["summary_body"]
 
-    def generate_outputs(self, matches, stats):
+    def generate_outputs(self, matches, stats, new_content=None):
         """Generate multi-tier output for routing data to natural destinations.
 
         Returns dict with:
@@ -29,19 +29,23 @@ class DigestGenerator:
             issue_comments: dict[int, str|list[str]] — batched per issue (<10K each)
             triage_comments: list[str] — paginated task-list comments (<65K each)
             cross_ref_comments: dict[str, list[str]] — grouped by type (<65K each)
+            new_content_comments: list[str] — paginated new content opportunity comments
         """
         matched = [m for m in matches if m["routing"] == "auto_comment"]
         triaged = [m for m in matches if m["routing"] == "triage"]
         cross_refs = [m for m in matches if m.get("cross_references")]
 
         return {
-            "summary_body": self._generate_summary(matched, triaged, cross_refs, stats),
+            "summary_body": self._generate_summary(
+                matched, triaged, cross_refs, stats, new_content=new_content
+            ),
             "issue_comments": self._generate_issue_comments(matched),
             "triage_comments": self._generate_triage_comments(triaged),
             "cross_ref_comments": self._generate_cross_ref_comments(cross_refs),
+            "new_content_comments": self._generate_new_content_comments(new_content),
         }
 
-    def _generate_summary(self, matched, triaged, cross_refs, stats):
+    def _generate_summary(self, matched, triaged, cross_refs, stats, new_content=None):
         """Generate dashboard discussion body with overview table and stats."""
         sections = []
 
@@ -85,6 +89,10 @@ class DigestGenerator:
             f"## Cross-References\n\n{xref_count} links to Aurora Forums / YouTube. "
             f"Posted as comments on sibling monitor issues."
         )
+
+        # New content opportunities
+        if new_content:
+            sections.append(self._new_content_summary(new_content))
 
         # Statistics
         sections.append(self._stats_section(stats))
@@ -256,17 +264,78 @@ class DigestGenerator:
 
         return result
 
+    def _new_content_summary(self, new_content):
+        """Generate New Content Opportunities section for the summary."""
+        lines = [f"## New Content Opportunities\n"]
+        lines.append(
+            f"{len(new_content)} potential content gaps detected "
+            f"from unmatched community posts.\n"
+        )
+        rows = [
+            "| Score | Chapter | Post |",
+            "|-------|---------|------|",
+        ]
+        for opp in new_content[:20]:  # Cap at 20 in summary
+            chapters = opp.get("chapters", [])
+            ch_str = ", ".join(
+                f"Section {ch[0]}" for ch in chapters[:2]
+            ) if chapters else "General"
+            title = _truncate(opp.get("title", ""), 50)
+            rows.append(f"| {opp['score']} | {ch_str} | {title} |")
+        lines.append("\n".join(rows))
+        return "\n".join(lines)
+
+    def _generate_new_content_comments(self, new_content):
+        """Paginate new content opportunities into discussion comments."""
+        if not new_content:
+            return []
+
+        items_per_page = 50
+        comments = []
+        for page_start in range(0, len(new_content), items_per_page):
+            page = new_content[page_start:page_start + items_per_page]
+            page_num = page_start // items_per_page + 1
+            total_pages = (len(new_content) + items_per_page - 1) // items_per_page
+
+            lines = [
+                f"## New Content Opportunities (Page {page_num}/{total_pages})\n",
+            ]
+            for opp in page:
+                permalink = f"https://www.reddit.com{opp['permalink']}"
+                chapters = opp.get("chapters", [])
+                ch_str = ", ".join(
+                    f"Section {ch[0]}: {ch[1]}" for ch in chapters[:2]
+                ) if chapters else "General"
+                signals = ", ".join(opp.get("signals", [])[:3])
+                lines.append(
+                    f"- **{opp['score']}/100** — "
+                    f"[{_truncate(opp.get('title', ''), 60)}]({permalink}) "
+                    f"by u/{opp.get('author', '?')} — {ch_str}"
+                )
+                if signals:
+                    lines.append(f"  Signals: {signals}")
+
+            comment = "\n".join(lines)
+            if len(comment) > MAX_DISCUSSION_BODY_LENGTH:
+                comment = comment[:MAX_DISCUSSION_BODY_LENGTH - 50] + "\n\n*[Truncated]*"
+            comments.append(comment)
+
+        return comments
+
     def _stats_section(self, stats):
         """Generate the Statistics section."""
-        return (
-            "## Statistics\n\n"
-            f"- Posts scanned: {stats.get('posts_scanned', 0)}\n"
-            f"- Comments scanned: {stats.get('comments_scanned', 0)}\n"
-            f"- Matches: {stats.get('matches', 0)}\n"
-            f"- Triage items: {stats.get('triage_items', 0)}\n"
-            f"- Cross-references: {stats.get('cross_references', 0)}\n"
-            f"- Skipped (not relevant): {stats.get('skipped', 0)}"
-        )
+        lines = [
+            "## Statistics\n",
+            f"- Posts scanned: {stats.get('posts_scanned', 0)}",
+            f"- Comments scanned: {stats.get('comments_scanned', 0)}",
+            f"- Matches: {stats.get('matches', 0)}",
+            f"- Triage items: {stats.get('triage_items', 0)}",
+            f"- Cross-references: {stats.get('cross_references', 0)}",
+            f"- Skipped (not relevant): {stats.get('skipped', 0)}",
+        ]
+        if stats.get('new_content', 0) > 0:
+            lines.append(f"- New content opportunities: {stats['new_content']}")
+        return "\n".join(lines)
 
     def should_post_digest(self, today=None):
         """Return True if today is Sunday (digest day)."""

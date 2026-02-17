@@ -18,6 +18,7 @@ import yaml
 
 from aurora_monitor.sources.reddit import RedditFetcher
 from aurora_monitor.matcher import Matcher
+from aurora_monitor.new_content import NewContentDetector
 from aurora_monitor.state import load_state, save_state, is_seen, mark_seen
 from aurora_monitor.digest import DigestGenerator
 from aurora_monitor import github_api
@@ -81,8 +82,13 @@ def run_steady_state(config, dry_run=False):
 
     fetcher = RedditFetcher(config)
     digest_gen = DigestGenerator()
+    nc_detector = NewContentDetector(config)
+    nc_config = config.get("new_content", {})
+    max_nc_issues = nc_config.get("max_issues_steady", 1)
+    nc_labels = nc_config.get("labels", ["content-opportunity"])
 
     all_matches = []
+    all_posts_raw = {}  # Accumulate raw posts for new content detection
     stats = {
         "posts_scanned": 0,
         "comments_scanned": 0,
@@ -90,6 +96,7 @@ def run_steady_state(config, dry_run=False):
         "triage_items": 0,
         "cross_references": 0,
         "skipped": 0,
+        "new_content": 0,
     }
 
     comment_targets = []
@@ -103,6 +110,8 @@ def run_steady_state(config, dry_run=False):
             if is_seen(state, post["id"], kind="post"):
                 stats["skipped"] += 1
                 continue
+
+            all_posts_raw[post["id"]] = post
 
             # Match against issues
             matches = matcher.find_matches([post])
@@ -177,6 +186,35 @@ def run_steady_state(config, dry_run=False):
                           timestamp=comment.get("created_utc"))
             stats["comments_scanned"] += len(comments)
 
+    # New content detection on unmatched posts
+    new_content_opps = []
+    if all_posts_raw:
+        opportunities = nc_detector.assess_unmatched(all_matches, all_posts_raw)
+        qualified = [o for o in opportunities if o["score"] >= nc_detector.min_score]
+        if qualified:
+            print(f"New content: {len(qualified)} opportunities detected (max {max_nc_issues} issues)")
+            for opp in qualified[:max_nc_issues]:
+                title = nc_detector.format_issue_title(opp)
+                body = nc_detector.format_issue_body(opp)
+                # Dedup: check if similar issue already exists
+                existing = github_api.search_issues(
+                    opp["title"][:60], nc_labels, repo=repo
+                )
+                if existing:
+                    if dry_run:
+                        print(f"  [DEDUP] Skipping — similar issue exists: #{existing[0]['number']}")
+                    continue
+                if dry_run:
+                    print(f"  [NEW CONTENT] {title} (score: {opp['score']})")
+                else:
+                    success, issue_num = github_api.create_issue(
+                        title, body, nc_labels, repo=repo, dry_run=dry_run
+                    )
+                    if success and issue_num:
+                        print(f"  Created issue #{issue_num}: {title}")
+                stats["new_content"] += 1
+                new_content_opps.append(opp)
+
     # Weekly digest check
     if digest_gen.should_post_digest():
         print("Sunday — generating weekly digest...")
@@ -209,8 +247,13 @@ def run_backfill(config, dry_run=False):
 
     fetcher = RedditFetcher(config)
     digest_gen = DigestGenerator()
+    nc_detector = NewContentDetector(config)
+    nc_config = config.get("new_content", {})
+    max_nc_issues = nc_config.get("max_issues_backfill", 5)
+    nc_labels = nc_config.get("labels", ["content-opportunity"])
 
     all_matches = []
+    all_posts_raw = {}  # Accumulate raw posts for new content detection
     comment_targets = []  # posts scoring >= triage threshold
     stats = {
         "posts_scanned": 0,
@@ -219,6 +262,7 @@ def run_backfill(config, dry_run=False):
         "triage_items": 0,
         "cross_references": 0,
         "skipped": 0,
+        "new_content": 0,
     }
 
     # PASS 1: Score all posts against issues
@@ -229,6 +273,8 @@ def run_backfill(config, dry_run=False):
 
         for post in posts:
             stats["posts_scanned"] += 1
+            all_posts_raw[post["id"]] = post
+
             matches = matcher.find_matches([post])
             for match in matches:
                 if match["routing"] in ("auto_comment", "triage"):
@@ -306,9 +352,40 @@ def run_backfill(config, dry_run=False):
 
         print(f"  Scanned {stats['comments_scanned']} comments total")
 
+    # PASS 2.5: New content detection on unmatched posts
+    new_content_opps = []
+    print(f"\nPass 2.5: Detecting new content opportunities from {len(all_posts_raw)} posts...")
+    opportunities = nc_detector.assess_unmatched(all_matches, all_posts_raw)
+    qualified = [o for o in opportunities if o["score"] >= nc_detector.min_score]
+    print(f"  {len(qualified)} qualified opportunities (score >= {nc_detector.min_score})")
+
+    for opp in qualified[:max_nc_issues]:
+        title = nc_detector.format_issue_title(opp)
+        body = nc_detector.format_issue_body(opp)
+        # Dedup: check if similar issue already exists
+        existing = github_api.search_issues(
+            opp["title"][:60], nc_labels, repo=repo
+        )
+        if existing:
+            if dry_run:
+                print(f"  [DEDUP] Skipping — similar issue exists: #{existing[0]['number']}")
+            continue
+        if dry_run:
+            print(f"  [NEW CONTENT] {title} (score: {opp['score']})")
+        else:
+            success, issue_num = github_api.create_issue(
+                title, body, nc_labels, repo=repo, dry_run=dry_run
+            )
+            if success and issue_num:
+                print(f"  Created issue #{issue_num}: {title}")
+        stats["new_content"] += 1
+        new_content_opps.append(opp)
+
     # PASS 3: Generate multi-tier outputs
     print("Generating multi-tier backfill report...")
-    outputs = digest_gen.generate_outputs(all_matches, stats)
+    outputs = digest_gen.generate_outputs(
+        all_matches, stats, new_content=new_content_opps or None
+    )
 
     if dry_run:
         _print_dry_run_outputs(outputs, cross_ref_targets)
@@ -356,7 +433,15 @@ def _post_backfill_outputs(outputs, category_id, repo, cross_ref_targets):
             github_api.post_discussion_comment(discussion_id, comment, repo=repo)
             time.sleep(rate_delay)
 
-    # 4. Post cross-references on sibling monitor issues
+    # 4. Post new content opportunity comments on discussion
+    new_content_comments = outputs.get("new_content_comments", [])
+    if new_content_comments and discussion_id:
+        print(f"Posting {len(new_content_comments)} new content comment pages...")
+        for comment in new_content_comments:
+            github_api.post_discussion_comment(discussion_id, comment, repo=repo)
+            time.sleep(rate_delay)
+
+    # 5. Post cross-references on sibling monitor issues
     cross_ref_comments = outputs["cross_ref_comments"]
     if cross_ref_comments:
         print("Posting cross-references to sibling issues...")
@@ -389,6 +474,10 @@ def _print_dry_run_outputs(outputs, cross_ref_targets):
     for ref_type, comments in cross_ref_comments.items():
         target = cross_ref_targets.get(ref_type, "?")
         print(f"  Cross-refs ({ref_type}): {len(comments)} comments -> #{target}")
+
+    new_content_comments = outputs.get("new_content_comments", [])
+    if new_content_comments:
+        print(f"  New content comments: {len(new_content_comments)} pages")
 
     # Show summary body preview
     print("\n[DRY RUN] Summary preview:")
