@@ -264,8 +264,19 @@ def run_backfill(config, dry_run=False):
                 unique_targets.append(t)
 
         print(f"\nPass 2: Fetching comments for {len(unique_targets)} matched posts...")
+        consecutive_failures = 0
         for i, target in enumerate(unique_targets):
-            comments = fetcher.fetch_post_comments(target["subreddit"], target["post_id"])
+            try:
+                comments = fetcher.fetch_post_comments(target["subreddit"], target["post_id"])
+                consecutive_failures = 0
+            except Exception as e:
+                consecutive_failures += 1
+                print(f"  Warning: Failed to fetch comments for {target['post_id']}: {e}")
+                if consecutive_failures >= 3:
+                    cooldown = 60 * consecutive_failures
+                    print(f"  {consecutive_failures} consecutive failures — cooling down {cooldown}s...")
+                    time.sleep(cooldown)
+                continue
             for comment in comments:
                 if is_seen(state, comment["id"], kind="comment"):
                     continue

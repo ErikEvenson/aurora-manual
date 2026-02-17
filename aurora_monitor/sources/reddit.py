@@ -28,7 +28,8 @@ class RedditFetcher:
             if response.status_code == 200:
                 return response.json()
             if response.status_code == 429:
-                wait = float(response.headers.get("Retry-After", 2 ** attempt))
+                wait = float(response.headers.get("Retry-After", 2 ** (attempt + 1)))
+                print(f"  Rate limited (429), waiting {wait:.0f}s...")
                 time.sleep(wait)
                 continue
             response.raise_for_status()
@@ -91,11 +92,16 @@ class RedditFetcher:
         """Paginate through a subreddit's history, up to backfill_max_pages.
 
         Returns all fetched posts as normalized dicts.
+        Survives transient rate-limit failures on individual pages.
         """
         all_posts = []
         after = None
         for page in range(self.backfill_max_pages):
-            posts, after = self.fetch_new_posts(subreddit, after=after)
+            try:
+                posts, after = self.fetch_new_posts(subreddit, after=after)
+            except Exception as e:
+                print(f"  Warning: Page {page + 1} failed ({e}), stopping pagination")
+                break
             all_posts.extend(posts)
             if not after:
                 break

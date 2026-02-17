@@ -14,8 +14,8 @@ reddit:
     - aurora4x
     - aurora
   user_agent: "aurora-manual-monitor/1.0 (github.com/ErikEvenson/aurora-manual)"
-  rate_limit_delay: 1.0  # seconds between requests
-  max_retries: 3
+  rate_limit_delay: 2.5  # seconds between requests (Reddit allows ~30/min unauthenticated)
+  max_retries: 5
   backfill_max_pages: 10  # ~1000 posts (100 per page)
 
   # Flairs to skip — these are noise for verification matching
