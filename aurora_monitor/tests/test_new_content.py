@@ -36,9 +36,9 @@ def config():
             "max_issues_steady": 1,
             "labels": ["content-opportunity"],
             "evidence_keywords": [
-                "formula", "tested", "confirmed", "verified", "database",
+                "formula", "tested", "confirmed", "verified",
                 "i tested", "i confirmed", "i verified", "calculated",
-                "measured", "data shows", "checked the db",
+                "measured", "data shows",
             ],
             "chapter_keywords": {
                 8: {
@@ -170,7 +170,7 @@ class TestNewContentScoring:
             "title": "I tested formula confirmed verified measured calculated",
             "selftext": (
                 "I tested and confirmed the formula for missile warhead damage. "
-                "I verified this against the database. The data shows the formula is correct. "
+                "I verified the data shows the formula is correct. "
                 "I calculated the measured values. Tested again with different ships. "
                 "See https://aurora2.pentarch.org/index.php?topic=12345.0 for details. "
                 "Also https://www.youtube.com/watch?v=test for video proof. "

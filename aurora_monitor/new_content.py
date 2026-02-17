@@ -37,12 +37,12 @@ class NewContentDetector:
         score = 0
         signals = []
 
-        # Evidence keywords: +8 each, max 24
+        # Evidence keywords: +10 each, max 30
         evidence_hits = []
         for kw in self.evidence_keywords:
             if kw.lower() in text:
                 evidence_hits.append(kw)
-        evidence_bonus = min(len(evidence_hits) * 8, 24)
+        evidence_bonus = min(len(evidence_hits) * 10, 30)
         if evidence_bonus > 0:
             score += evidence_bonus
             signals.append(f"evidence: {', '.join(evidence_hits[:3])}")
@@ -77,7 +77,10 @@ class NewContentDetector:
 
         # Text length bonus
         text_length = len(self._get_text(post))
-        if text_length > 500:
+        if text_length > 1000:
+            score += 15
+            signals.append("extensive post (>1000 chars)")
+        elif text_length > 500:
             score += 10
             signals.append("detailed post (>500 chars)")
         elif text_length > 200:
@@ -91,6 +94,15 @@ class NewContentDetector:
                                              "does ", "is ", "do ", "should "))):
             score -= 5
             signals.append("question format (-5)")
+
+        # Chapter mapping bonus: +10 for >=1 chapter, +5 more for >=2
+        chapters = self.map_to_chapters(post)
+        if len(chapters) >= 2:
+            score += 15
+            signals.append(f"multi-chapter ({len(chapters)} chapters)")
+        elif len(chapters) == 1:
+            score += 10
+            signals.append(f"chapter match: {chapters[0][1]}")
 
         # Cap at 100
         score = max(0, min(score, 100))

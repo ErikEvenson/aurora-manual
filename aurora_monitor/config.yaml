@@ -128,14 +128,12 @@ new_content:
     - tested
     - confirmed
     - verified
-    - database
     - i tested
     - i confirmed
     - i verified
     - calculated
     - measured
     - data shows
-    - checked the db
   chapter_keywords:
     1:
       name: Introduction
