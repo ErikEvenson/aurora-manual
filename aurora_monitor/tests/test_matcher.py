@@ -283,3 +283,95 @@ class TestCommentMatching:
                 f"Short comment should not reach medium confidence for "
                 f"issue #{issue['number']}, got {score}"
             )
+
+
+class TestShortTextPenalty:
+    """Test that short/empty posts are penalized to prevent false positives."""
+
+    def test_short_title_only_post_scores_low(self, matcher):
+        """Post with only a short title and empty body should score low."""
+        post = {
+            "id": "post_short_title",
+            "subreddit": "aurora4x",
+            "author": "MemeUser",
+            "title": "Every time",
+            "selftext": "",
+            "permalink": "/r/aurora4x/comments/xyz/every_time/",
+            "created_utc": 1708000000,
+        }
+        for issue in matcher.issues:
+            score = matcher.score_match(post, issue)
+            assert score < 60, (
+                f"Short title-only post should not reach medium confidence "
+                f"for issue #{issue['number']}, got {score}"
+            )
+
+    def test_empty_body_image_post_scores_low(self, matcher):
+        """Image post with no selftext should score low."""
+        post = {
+            "id": "post_image",
+            "subreddit": "aurora4x",
+            "author": "ImagePoster",
+            "title": "Check out my fleet",
+            "selftext": "",
+            "permalink": "/r/aurora4x/comments/xyz/fleet/",
+            "created_utc": 1708000000,
+            "url": "https://i.redd.it/abc123.png",
+        }
+        for issue in matcher.issues:
+            score = matcher.score_match(post, issue)
+            assert score < 60, (
+                f"Image-only post should not reach medium confidence "
+                f"for issue #{issue['number']}, got {score}"
+            )
+
+    def test_single_word_post_scores_low(self, matcher):
+        """Post with a single common word should not match."""
+        post = {
+            "id": "post_single_word",
+            "subreddit": "aurora4x",
+            "author": "OneWordUser",
+            "title": "Performance",
+            "selftext": "",
+            "permalink": "/r/aurora4x/comments/xyz/performance/",
+            "created_utc": 1708000000,
+        }
+        for issue in matcher.issues:
+            score = matcher.score_match(post, issue)
+            assert score < 60, (
+                f"Single-word post should not reach medium confidence "
+                f"for issue #{issue['number']}, got {score}"
+            )
+
+    def test_substantive_post_unaffected(self, matcher, posts):
+        """Posts with sufficient text should score normally (no penalty)."""
+        # The high-match post has 300+ chars
+        post = posts[0]  # box launcher test post
+        issue = matcher.issues[2]  # issue 1230 - box launcher reload
+        score = matcher.score_match(post, issue)
+        assert score >= 80, (
+            f"Substantive post should still score high, got {score}"
+        )
+
+    def test_penalty_scales_with_length(self, matcher):
+        """Shorter posts should get proportionally more penalty."""
+        issue = matcher.issues[5]  # fuel consumption issue
+
+        short_post = {
+            "id": "p1", "subreddit": "aurora4x", "author": "User",
+            "title": "fuel", "selftext": "",
+            "permalink": "/r/aurora4x/comments/a/b/", "created_utc": 1708000000,
+        }
+        medium_post = {
+            "id": "p2", "subreddit": "aurora4x", "author": "User",
+            "title": "fuel consumption question about speed",
+            "selftext": "",
+            "permalink": "/r/aurora4x/comments/a/b/", "created_utc": 1708000000,
+        }
+
+        short_score = matcher.score_match(short_post, issue)
+        medium_score = matcher.score_match(medium_post, issue)
+        assert short_score < medium_score, (
+            f"Shorter post ({short_score}) should score lower than "
+            f"medium-length post ({medium_score})"
+        )

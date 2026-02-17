@@ -26,6 +26,14 @@ class Matcher:
         # Fuzzy match score (0-100)
         fuzzy_score = fuzz.token_set_ratio(post_text, issue_text)
 
+        # Penalize short text — token_set_ratio produces false positives when
+        # the post has few tokens (a single matching word → 100% ratio).
+        min_text_length = self.config.get("min_text_length", 50)
+        post_text_length = len(post_text.strip())
+        if post_text_length < min_text_length:
+            length_ratio = post_text_length / min_text_length
+            fuzzy_score = fuzzy_score * length_ratio
+
         # Keyword counting bonus
         keyword_bonus = self._keyword_bonus(post_text)
 
