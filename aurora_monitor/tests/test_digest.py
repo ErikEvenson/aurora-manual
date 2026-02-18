@@ -444,3 +444,51 @@ class TestCommentFormatting:
         assert "Reply to" not in post_text
         # Comment should have "Reply to"
         assert "Reply to" in comment_text
+
+
+class TestTriageCrossRefUrls:
+    """Test that triage items show full cross-reference URLs (#1297)."""
+
+    def test_triage_item_shows_cross_ref_urls(self, generator):
+        """Triage items with cross-references should include full URLs."""
+        matches = [
+            _make_match(
+                "xr1", "triage",
+                quote="Check out the forum post about this",
+                cross_refs=[
+                    {"type": "forum", "url": "https://aurora2.pentarch.org/index.php?topic=13884.0"}
+                ],
+            ),
+        ]
+        outputs = generator.generate_outputs(matches, _make_stats())
+        assert len(outputs["triage_comments"]) >= 1
+        comment = outputs["triage_comments"][0]
+        assert "aurora2.pentarch.org/index.php?topic=13884.0" in comment
+
+    def test_triage_item_shows_multiple_cross_refs(self, generator):
+        """Triage items with multiple cross-refs show all URLs."""
+        matches = [
+            _make_match(
+                "xr2", "triage",
+                quote="See the forum and video",
+                cross_refs=[
+                    {"type": "forum", "url": "https://aurora2.pentarch.org/index.php?topic=100.0"},
+                    {"type": "youtube", "url": "https://www.youtube.com/watch?v=abc123"},
+                ],
+            ),
+        ]
+        outputs = generator.generate_outputs(matches, _make_stats())
+        comment = outputs["triage_comments"][0]
+        assert "aurora2.pentarch.org/index.php?topic=100.0" in comment
+        assert "youtube.com/watch?v=abc123" in comment
+
+    def test_triage_item_without_cross_refs_unchanged(self, generator):
+        """Triage items without cross-references have no extra URL suffix."""
+        matches = [
+            _make_match("t1", "triage", quote="Normal triage item"),
+        ]
+        outputs = generator.generate_outputs(matches, _make_stats())
+        comment = outputs["triage_comments"][0]
+        # Should end with the quote, no pipe separator
+        assert "Normal triage item" in comment
+        assert " | " not in comment

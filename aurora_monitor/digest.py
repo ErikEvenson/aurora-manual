@@ -203,10 +203,17 @@ class DigestGenerator:
                 title = _truncate(m.get("title", ""), 60)
                 permalink = f"https://www.reddit.com{m['permalink']}"
                 quote = _truncate(m.get("quote", ""), 80)
-                lines.append(
+                line = (
                     f"- [ ] **[{title}]({permalink})** — "
                     f"u/{m['author']} ({dt}) — \"{quote}\""
                 )
+                # Append full cross-reference URLs so they aren't lost
+                # to quote truncation (#1297)
+                xrefs = m.get("cross_references") or []
+                if xrefs:
+                    urls = " ".join(f"[{x['type']}]({x['url']})" for x in xrefs)
+                    line += f" | {urls}"
+                lines.append(line)
 
             comment = "\n".join(lines)
             if len(comment) > MAX_DISCUSSION_BODY_LENGTH:
