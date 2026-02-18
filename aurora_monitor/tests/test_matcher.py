@@ -375,3 +375,130 @@ class TestShortTextPenalty:
             f"Shorter post ({short_score}) should score lower than "
             f"medium-length post ({medium_score})"
         )
+
+
+class TestLongIssuePenalty:
+    """Test that issues with very long bodies are penalized to prevent false positives."""
+
+    LONG_ISSUE_BODY = (
+        "Verify: Section 12.2 beam weapons damage calculations. "
+        "Claim 1: beam fire control tracks targets. "
+        "Claim 2: gauss cannon damage scales with calibre. "
+        "Claim 3: railgun penetration uses armor column formula. "
+        "Claim 4: laser damage reduces with range. "
+        "Claim 5: meson weapons ignore armor and shields. "
+        "Claim 6: microwave weapons cause electronic damage. "
+        "Claim 7: particle beams have shorter range than lasers. "
+        "Claim 8: plasma weapons have area effect damage. "
+        "Claim 9: turrets allow tracking of faster targets. "
+        "Claim 10: point defense mode reduces beam range. "
+        "Claim 11: CIWS combines gauss cannon and fire control. "
+        "Claim 12: ECM reduces fire control accuracy. "
+        "Claim 13: ECCM counters ECM effects. "
+        "Claim 14: shield regeneration rate depends on technology. "
+        "Claim 15: armor depth affects damage penetration. "
+        "Additional unverified claims about combat resolution order, "
+        "missile interception mechanics, and sensor detection thresholds."
+    )
+
+    GENERIC_POST = {
+        "id": "post_generic",
+        "subreddit": "aurora4x",
+        "author": "NewPlayer",
+        "title": "Aurora combat question",
+        "selftext": (
+            "I just started playing Aurora and I'm trying to understand "
+            "how combat works. My ships keep getting destroyed."
+        ),
+        "permalink": "/r/aurora4x/comments/xyz/combat/",
+        "created_utc": 1708000000,
+    }
+
+    SPECIFIC_POST = {
+        "id": "post_specific",
+        "subreddit": "aurora4x",
+        "author": "Tester",
+        "title": "Tested: beam fire control tracking speed formula",
+        "selftext": (
+            "I tested beam fire control tracking speed and confirmed "
+            "the formula in the database. BFC tracking speed is "
+            "calculated from the fire control speed rating. "
+            "Fire control accuracy drops with ECM."
+        ),
+        "permalink": "/r/aurora4x/comments/xyz/bfc_test/",
+        "created_utc": 1708000000,
+    }
+
+    def _make_long_issue(self, body_multiplier=1):
+        return {
+            "number": 9999,
+            "title": "Verify beam weapon claims",
+            "body": self.LONG_ISSUE_BODY * body_multiplier,
+        }
+
+    def test_long_issue_penalizes_generic_match(self, config):
+        """Generic Aurora post should score <40 against a long issue."""
+        m = Matcher(config)
+        issue = self._make_long_issue()
+        score = m.score_match(self.GENERIC_POST, issue)
+        assert score < 40, (
+            f"Generic post should score <40 against long issue, got {score}"
+        )
+
+    def test_long_issue_specific_match_still_scores(self, config):
+        """Specific post with keyword matches should still reach triage."""
+        config_with_keywords = {
+            "matching": {
+                **config["matching"],
+                "keywords": {
+                    **config["matching"]["keywords"],
+                    "high": config["matching"]["keywords"]["high"]
+                    + ["beam fire control", "tracking speed"],
+                },
+            },
+        }
+        m = Matcher(config_with_keywords)
+        issue = self._make_long_issue()
+        score = m.score_match(self.SPECIFIC_POST, issue)
+        assert score >= 40, (
+            f"Specific post should still reach triage (>=40), got {score}"
+        )
+
+    def test_penalty_scales_with_issue_length(self, config):
+        """Longer issues should produce lower scores for the same post."""
+        m = Matcher(config)
+        issue_1x = self._make_long_issue(body_multiplier=1)
+        issue_3x = self._make_long_issue(body_multiplier=3)
+        score_1x = m.score_match(self.GENERIC_POST, issue_1x)
+        score_3x = m.score_match(self.GENERIC_POST, issue_3x)
+        assert score_3x < score_1x, (
+            f"3x longer issue ({score_3x}) should score lower than "
+            f"1x issue ({score_1x}) for the same post"
+        )
+
+    def test_normal_issue_unaffected(self, matcher, posts):
+        """Fixture issues (under 500 chars) should score the same as before."""
+        post = posts[0]  # box launcher post
+        issue = matcher.issues[2]  # issue 1230 - box launcher reload
+        score = matcher.score_match(post, issue)
+        assert score >= 80, (
+            f"Normal-length issue should still score high, got {score}"
+        )
+
+    def test_penalty_disabled_when_exponent_zero(self, config):
+        """Setting long_issue_exponent=0 should disable the penalty."""
+        config_disabled = {
+            "matching": {
+                **config["matching"],
+                "long_issue_exponent": 0,
+            },
+        }
+        m_disabled = Matcher(config_disabled)
+        m_enabled = Matcher(config)
+        issue = self._make_long_issue()
+        score_disabled = m_disabled.score_match(self.GENERIC_POST, issue)
+        score_enabled = m_enabled.score_match(self.GENERIC_POST, issue)
+        assert score_disabled >= score_enabled, (
+            f"Disabled penalty ({score_disabled}) should score >= "
+            f"enabled penalty ({score_enabled})"
+        )

@@ -42,6 +42,11 @@ matching:
   # Multi-match penalty per additional match beyond the first
   multi_match_penalty: 10
 
+  # Long issue body penalty — issues with many unverified claims attract
+  # false positives from generic term overlap (see #1298)
+  max_issue_length: 500        # chars above which penalty applies
+  long_issue_exponent: 0.15    # power-law exponent (0=disabled, 1=linear)
+
   # Keywords by priority tier
   keywords:
     high:

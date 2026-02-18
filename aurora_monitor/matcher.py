@@ -34,6 +34,16 @@ class Matcher:
             length_ratio = post_text_length / min_text_length
             fuzzy_score = fuzzy_score * length_ratio
 
+        # Penalize long issue bodies — token_set_ratio produces false positives
+        # when the issue has many tokens (large token pool overlaps with any
+        # Aurora-related post). Symmetric with short-text penalty above. (#1298)
+        max_issue_length = self.config.get("max_issue_length", 500)
+        long_issue_exponent = self.config.get("long_issue_exponent", 0.15)
+        issue_text_length = len(issue_text.strip())
+        if issue_text_length > max_issue_length and long_issue_exponent > 0:
+            length_ratio = (max_issue_length / issue_text_length) ** long_issue_exponent
+            fuzzy_score = fuzzy_score * length_ratio
+
         # Keyword counting bonus
         keyword_bonus = self._keyword_bonus(post_text)
 
