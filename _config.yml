@@ -48,3 +48,4 @@ exclude:
   - README.md
   - CHANGELOG.md
   - LICENSE
+  - aurora_monitor/
