@@ -9,7 +9,7 @@ nav_order: 0
 
 [![Latest Release](https://img.shields.io/github/v/release/ErikEvenson/aurora-manual?label=PDF%20Download)](https://github.com/ErikEvenson/aurora-manual/releases/latest)
 [![GitHub Discussions](https://img.shields.io/github/discussions/ErikEvenson/aurora-manual)](https://github.com/ErikEvenson/aurora-manual/discussions)
-[![Playtested by AI](https://img.shields.io/badge/playtested_by_AI-2_games_completed-blue)](https://github.com/ErikEvenson/aurora-manual/discussions/categories/after-action-reports)
+[![Playtested by AI](https://img.shields.io/badge/playtested_by_AI-after_action_reports-blue)](https://github.com/ErikEvenson/aurora-manual/discussions/categories/after-action-reports)
 
 > **Note:** This is an unofficial community manual, not affiliated with or endorsed by Steve Walmsley. It is under active development and may contain inaccuracies. Values and formulas are being verified against the game database. Some content may be incomplete, outdated, or incorrect. If you spot an error, please [report it](../../issues/new?template=inaccuracy-report.md).
 
