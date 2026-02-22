@@ -101,6 +101,7 @@ The Class Design window is where all ship classes are created in Aurora C#. Acce
 - **Copy Design**: Duplicates the current design under a new name (useful for Mark II iterations)
 - **Delete Design**: Permanently removes the design (cannot delete if ships of this class exist)
 - **Lock Design**: Prevents further modifications (required before construction can begin)
+- **Refresh Tech**: Re-evaluates all component statuses against current research. Clears the (P) prototype designation from classes whose prototype components have been fully researched, making the class eligible for shipyard retooling. Must be clicked after completing research on any prototype component used in the design.
 - **Rename**: Changes the class name without affecting the design
 - **Obsolete**: Marks the design as obsolete (hides from new construction lists)
 - **Show Costs**: Toggles detailed mineral cost breakdown per component
