@@ -70,6 +70,7 @@ Update this index after each playthrough:
 | Game | Discussion | Date | Key Lesson | Outcome |
 |------|-----------|------|------------|---------|
 | 1 | [#1346](https://github.com/ErikEvenson/aurora-manual/discussions/1346) | 2026-02-21 | Survey ships need jump drives | Dead end — ships stranded in Sol |
+| 2 | [#1350](https://github.com/ErikEvenson/aurora-manual/discussions/1350) | 2026-02-22 | Deployment time, MSP resupply, squadron transit mechanics | P002 lost with all hands; 3 systems explored |
 
 ## How the Interaction Works
 
@@ -119,7 +120,14 @@ Before building any ship, verify the design includes all components needed for i
 - [ ] Engine (commercial for fuel efficiency)
 - [ ] **Jump drive** — Non-negotiable. Survey ships without jump drives cannot explore beyond the home system. Design the jump drive component BEFORE the ship class.
 - [ ] Sufficient fuel tanks for multi-system range
-- [ ] Crew quarters / deployment time appropriate for long missions
+- [ ] Crew quarters / **deployment time set to 48+ months** (NOT the 3-month default). Game 2 proved that 3-month deployment causes cascading maintenance failures within 4 months.
+- [ ] **Maintenance Storage Bays** — Ensure MSP capacity exceeds annual MSP consumption. Game 2's Pathfinder had 75 MSP capacity but 91 annual consumption, leading to MSP exhaustion.
+
+**Survey Ship Standing Orders (correct configuration):**
+- [ ] SV: Survey Location (S) — auto-survey gravitational locations
+- [ ] Conditional: IF Fuel 20% or Less → Refuel at Colony
+- [ ] Conditional: IF Deployment Exceeded → Refuel, Resupply, and Overhaul at Colony
+- [ ] Do NOT use "LG: Overhaul at Colony" — it does NOT resupply MSP
 
 **Before clicking "New Ship Class":**
 - [ ] All required components have been designed (not just researched)
@@ -255,6 +263,23 @@ Use H2 headers to mark major milestones:
 | Shipyards need retool before construction | Documented in Phase 3 | Always retool first; first retool is free |
 | Refresh Tech needed after researching prototype | Documented | Click Refresh Tech before locking design |
 | Scientist names must be read carefully | N/A | Always verify names from screenshots |
+
+### Game 2 (20260222-Claude) — Lessons Applied
+
+| Lesson | Status | How to Avoid |
+|--------|--------|-------------|
+| Deployment time default (3 months) far too short for survey ships | Addressed in checklist below | Set deployment time to 48+ months in Class Design |
+| "LG: Overhaul at Colony" does NOT resupply MSP | New finding | Use "Refuel and Resupply from Colony" order for MSP loading |
+| Squadron Transit requires ships in the SAME task group | New finding | Always merge task groups with "Join Fleet" before squadron transit |
+| JP numbering can shift when new JPs are discovered | Addressed in Game 1 lessons | Always verify JP by destination label, not number |
+| Leave Overhaul imposes 30-day performance penalty | Documented in manual | Avoid leaving overhaul unless emergency; Overhaul Factor 0.01→1.0 over 30 days |
+| Ships can explode from cascading maintenance failures | New finding | Never let deployment exceed 500%; recall ships before maintenance death spiral |
+| Life pods have ~15 day endurance | New finding | Rescue survivors immediately; lifepods expire quickly |
+| Fleet speed limited by slowest ship (dead engine = 1 km/s) | New finding | Detach immobilized ships before moving task group |
+| Overcrowding from destroyed crew quarters accelerates deployment 4-5x | New finding | Prioritize crew quarters repair; consider scuttling if quarters are destroyed |
+| Standing Orders tab only at task group level, not individual ships | Addressed in Game 1 | Always detach ships to own TG before configuring standing orders |
+| Overhaul at Colony (standing order) does not dock at shipyard | New finding | May need manual shipyard docking for full overhaul; investigate in Game 3 |
+| Annual MSP consumption can exceed ship MSP capacity | Design flaw | Include Maintenance Storage Bays in ship design |
 
 ## Expanding This Guide
 
