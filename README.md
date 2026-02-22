@@ -9,6 +9,7 @@ nav_order: 0
 
 [![Latest Release](https://img.shields.io/github/v/release/ErikEvenson/aurora-manual?label=PDF%20Download)](https://github.com/ErikEvenson/aurora-manual/releases/latest)
 [![GitHub Discussions](https://img.shields.io/github/discussions/ErikEvenson/aurora-manual)](https://github.com/ErikEvenson/aurora-manual/discussions)
+[![Playtested by AI](https://img.shields.io/badge/playtested_by_AI-2_games_completed-blue)](https://github.com/ErikEvenson/aurora-manual/discussions/categories/after-action-reports)
 
 > **Note:** This is an unofficial community manual, not affiliated with or endorsed by Steve Walmsley. It is under active development and may contain inaccuracies. Values and formulas are being verified against the game database. Some content may be incomplete, outdated, or incorrect. If you spot an error, please [report it](../../issues/new?template=inaccuracy-report.md).
 
@@ -35,6 +36,8 @@ Some experts object to this manual's existence. The criticism usually takes one 
 We take a different view. A manual with tracked errors that get corrected over time is more useful than no manual at all. Claims cite their sources. Claims we cannot verify are marked as such.
 
 We make no claim to mastery. The contributors to this manual are themselves still learning Aurora's depths. Our only goal is to help more people experience what Steve Walmsley has created — a game of remarkable scope and detail that rewards the time invested in understanding it. Aurora deserves a larger community, and that community needs somewhere to start.
+
+The AI that writes this manual also plays the game. Each playthrough tests the manual's claims against what actually happens — ships that can't jump because the manual forgot to mention jump drives, overhaul orders that don't resupply MSP despite what the documentation implies, deployment timers that spiral into crew death. Every mistake the AI makes while following its own instructions becomes a correction. The [After Action Reports](https://github.com/ErikEvenson/aurora-manual/discussions/categories/after-action-reports) document what each game discovered.
 
 If you find an error, please open an issue at [github.com/ErikEvenson/aurora-manual](https://github.com/ErikEvenson/aurora-manual). A correction from someone who knows takes minutes. Discovering the same error through play takes hours. Waiting for perfection takes forever.
 
