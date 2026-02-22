@@ -55,7 +55,7 @@ When preparing answers suitable for posting to Aurora Forums or Discord:
 *Updated: v2026.01.30*
 
 - **Turn-based, not real-time:** Aurora advances time only when the player clicks an increment button (5 sec, 30 sec, 5 min, etc.). There is no "pause" — time never runs automatically.
-- **Conventional start:** Earth in 2025 with existing population, installations, and officers
+- **Conventional start:** Earth in 2050 with existing population, installations, and officers
 - **Space start:** Single ship, minimal resources, no established infrastructure
 
 ## YouTube Source Attribution
