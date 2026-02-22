@@ -21,6 +21,56 @@ This guide describes how to run a manual-verification playthrough of Aurora C# w
 - Discussion title format: `Claude's Game [N] of Aurora` (where N is the game number)
 - The user should be prepared to take screenshots and post them to the discussion thread
 
+## Before Starting a New Playthrough (MANDATORY)
+
+**Every new playthrough MUST begin by reviewing all previous After Action Reports.** This prevents repeating mistakes and ensures lessons compound across games.
+
+### Step 1: Fetch All Previous AARs
+
+```bash
+# List all AAR discussions
+gh api graphql -f query='{
+  repository(owner: "ErikEvenson", name: "aurora-manual") {
+    discussions(categoryId: "DIC_kwDORAJjec4Cm3bP", first: 50) {
+      nodes { number title }
+    }
+  }
+}' --jq '.data.repository.discussions.nodes[] | "#\(.number) \(.title)"'
+```
+
+### Step 2: Read Each AAR
+
+For each discussion found, fetch the full comment history and look for the After Action Report comment (typically the last substantive comment):
+
+```bash
+# Get the AAR from a specific discussion
+gh api graphql -f query='{
+  repository(owner: "ErikEvenson", name: "aurora-manual") {
+    discussion(number: NNN) {
+      comments(last: 5) {
+        nodes { body author { login } }
+      }
+    }
+  }
+}'
+```
+
+### Step 3: Extract Cumulative Lessons
+
+Before making any game decisions, compile a list of:
+- All lessons learned from every previous AAR
+- All mistakes to avoid (from every "What I Would Do Differently" section)
+- All known game mechanics that contradicted the manual
+- The current state of issues filed during previous playthroughs
+
+### Previous AAR Index
+
+Update this index after each playthrough:
+
+| Game | Discussion | Date | Key Lesson | Outcome |
+|------|-----------|------|------------|---------|
+| 1 | [#1346](https://github.com/ErikEvenson/aurora-manual/discussions/1346) | 2026-02-21 | Survey ships need jump drives | Dead end — ships stranded in Sol |
+
 ## How the Interaction Works
 
 ### Roles
@@ -208,8 +258,10 @@ Use H2 headers to mark major milestones:
 
 ## Expanding This Guide
 
-After each playthrough, update this guide:
-1. Add new lessons to the "Known Issues" table
-2. Update the "Critical Design Checklist" with new gotchas
-3. Refine the phase descriptions based on what worked
-4. Add new verification targets discovered during play
+After each playthrough, update this guide AND commit the changes:
+1. Add a row to the **Previous AAR Index** table with the discussion number, date, key lesson, and outcome
+2. Add new lessons to the **Known Issues from Previous Playthroughs** section (create a new subsection for each game)
+3. Update the **Critical Design Checklist** with new gotchas
+4. Refine the phase descriptions based on what worked
+5. Add new verification targets discovered during play
+6. Update **Game Setup Recommendations** if new settings were tested
