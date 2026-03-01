@@ -71,6 +71,7 @@ Update this index after each playthrough:
 |------|-----------|------|------------|---------|
 | 1 | [#1346](https://github.com/ErikEvenson/aurora-manual/discussions/1346) | 2026-02-21 | Survey ships need jump drives | Dead end — ships stranded in Sol |
 | 2 | [#1350](https://github.com/ErikEvenson/aurora-manual/discussions/1350) | 2026-02-22 | Deployment time, MSP resupply, squadron transit mechanics | P002 lost with all hands; 3 systems explored |
+| 3 | [#1358](https://github.com/ErikEvenson/aurora-manual/discussions/1358) | 2026-02-23 | TBD | In progress |
 
 ## How the Interaction Works
 
@@ -94,6 +95,9 @@ Update this index after each playthrough:
 4. **Fix the manual in real-time** — When a discrepancy is found, commit a fix or file an issue immediately
 5. **Ask the user to save periodically** — Aurora has no autosave; request saves after milestones
 6. **Verify before assuming** — If a screenshot looks different from expectations, investigate rather than assuming
+7. **Use manual knowledge, not screenshots, for predictable information** — Do NOT ask the user to screenshot research categories, component lists, or other UI panels just to learn what's available. Use the manual and game database to predict game state. Only request screenshots to VERIFY actions were completed correctly.
+8. **Use Instant Research Points aggressively** — Conventional start provides 160,000 IRP. Use them to skip research delays for critical techs (Jump Point Theory, survey sensors, jump drive sub-techs) rather than waiting years.
+9. **Uncheck "Matching Scientists Only"** — The Research tab defaults to filtering techs by scientist specialization, which hides available techs. Always uncheck this when surveying available research.
 
 ## Game Setup Recommendations
 
@@ -157,23 +161,31 @@ Open Population and Production (F2) and verify:
 - Shipyard count and capacities
 - Available scientists per category
 
-### Phase 2: Initial Research
+### Phase 2: Initial Research (Use Instant Research)
 
-Prioritize technologies needed for the first ship class. Minimum for a survey campaign:
-- Jump Point Theory (P&P)
-- Fuel Consumption improvements (P&P)
-- Engine size/power modifiers (P&P)
-- Jump drive techs: efficiency, squadron size, squadron radius (P&P)
-- Geological Survey Sensors (S&CS)
-- Gravitational Survey Sensors (S&CS)
+**IMPORTANT:** Uncheck "Matching Scientists Only" in the Research tab to see ALL available techs.
 
-Assign available scientists to long-term research projects in categories with idle labs.
+Use Instant Research Points (160,000 available) to immediately complete critical techs. Queue each tech, then click "Instant":
+
+**Priority 1 — Survey ship prerequisites (~11,000 IRP):**
+- Jump Point Theory (P&P, 5,000 RP) — unlocks jump drives and grav survey sensors
+- Gravitational Survey Sensors (S&CS, 2,000 RP) — unlocks grav survey component
+- Fuel Consumption: 0.9 L/EPH (P&P, 1,000 RP) — better engine efficiency
+- Base Jump Drive Efficiency Level 4 (P&P, 1,000 RP) — unlocked after JP Theory
+- Max Jump Squadron Size 3 (P&P, 1,000 RP) — unlocked after JP Theory
+- Max Squadron Jump Radius 50,000 km (P&P, 1,000 RP) — unlocked after JP Theory
+
+**Note:** All three JP sub-techs must be researched before jump drive fields appear in Ship Designer.
+
+**Priority 2 — Assign remaining 40 labs to long-term research:**
+- Assign scientists to useful techs in their specializations
+- Keep all labs busy; idle labs waste capacity
 
 ### Phase 3: Ship Design
 
 Follow the complete prototype-to-production pipeline:
 
-1. **Design components** — Open Class Design (F5), click "Design Tech!", configure each custom component (engines, jump drives), click "Prototype" or "Create"
+1. **Design components** — Open Class Design (F5), click "Design Tech!", configure each custom component (engines, jump drives), click **"Prototype"** (not "Create" — "Create" makes a research project, "Prototype" makes a usable component)
 2. **Research prototypes** — Select prototype component in Class Components view, click "Research Proto", then Instant Research the (P) entry in Economics > Research
 3. **Create the ship class** — Select hull type, add all components (enable Prototypes checkbox if needed), rename class
 4. **Finalize** — Click "Refresh Tech" to clear (P) designations, then "Lock Design"
@@ -280,6 +292,18 @@ Use H2 headers to mark major milestones:
 | Standing Orders tab only at task group level, not individual ships | Addressed in Game 1 | Always detach ships to own TG before configuring standing orders |
 | Overhaul at Colony (standing order) does not dock at shipyard | New finding | May need manual shipyard docking for full overhaul; investigate in Game 3 |
 | Annual MSP consumption can exceed ship MSP capacity | Design flaw | Include Maintenance Storage Bays in ship design |
+
+### Game 3 Attempt 1 (20260222-Claude-G3) — Process Lessons
+
+| Lesson | Status | How to Avoid |
+|--------|--------|-------------|
+| "Matching Scientists Only" checkbox hides available techs | New finding | Always uncheck "Matching Scientists Only" when surveying available research |
+| Gravitational Survey Sensors available at conventional start (2,000 RP, no prerequisites) but hidden by scientist filter | New finding | Uncheck filter; Grav Survey Sensors is in S&CS category |
+| Use Instant Research Points (160k available) to skip research delays | Process improvement | Instant Research all critical techs (JP Theory, survey sensors, jump drive sub-techs) immediately |
+| Don't ask user to screenshot UI panels to learn predictable game state | Process improvement | Use manual knowledge and game database; only screenshot to verify actions |
+| "Create" in Design Tech creates a research project, "Prototype" creates a usable component | Clarified from Game 1 | Always click "Prototype" for components needed in ship design |
+| Jump Point Theory unlocks 3 sub-techs that ALL must be researched before jump drives appear in designer | New finding | After JP Theory: research Base JP Efficiency, Max Squadron Size, Max Squadron Radius |
+| Conventional start has NO pre-designed components — all must be designed via Design Tech → Prototype | Confirmed | Design engine, sensors, etc. via Prototype before creating ship class |
 
 ## Expanding This Guide
 
